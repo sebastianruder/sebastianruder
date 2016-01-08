@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a researcher at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>u=https://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 08 Jan 2016 12:33:19 GMT</lastBuildDate><atom:link href="u=https://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[An overview of gradient descent algorithms]]></title><description><![CDATA[<p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a researcher at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 08 Jan 2016 12:33:19 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[An overview of gradient descent algorithms]]></title><description><![CDATA[<p>Table of contents:</p>
 
 <ul>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#gradientdescentvariants">Gradient descent variants</a>
-<ul><li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#batchgradientdescent">Batch gradient descent</a></li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#stochasticgradientdescent">Stochastic gradient descent</a></li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#mini-batchgradientdescent">Mini-batch gradient descent</a></li></ul></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#gradientdescentvariants">Gradient descent variants</a>
+<ul><li><a href="http://sebastianruder.com/optimizing-gradient-descent/#batchgradientdescent">Batch gradient descent</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#stochasticgradientdescent">Stochastic gradient descent</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#mini-batchgradientdescent">Mini-batch gradient descent</a></li></ul></li>
 <li>Challenges</li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#gradientdescentoptimizationalgorithms">Gradient descent optimization algorithms</a></li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#additionalconsiderations">Additional considerations</a>
-<ul><li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#order of training examples">Order of training examples</a></li></ul></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#gradientdescentoptimizationalgorithms">Gradient descent optimization algorithms</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#additionalconsiderations">Additional considerations</a>
+<ul><li><a href="http://sebastianruder.com/optimizing-gradient-descent/#order of training examples">Order of training examples</a></li></ul></li>
 </ul>
 
 <p>Gradient descent is one of the most popular algorithms to perform optimization and by far the most common way to optimize neural networks.</p>
 
-<p>In</p>]]></description><link>u=https://sebastianruder.com/optimizing-gradient-descent/</link><guid isPermaLink="false">f991a148-274f-497e-97b9-598455211f57</guid><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Wed, 23 Dec 2015 11:10:43 GMT</pubDate><content:encoded><![CDATA[<p>Table of contents:</p>
+<p>In</p>]]></description><link>http://sebastianruder.com/optimizing-gradient-descent/</link><guid isPermaLink="false">f991a148-274f-497e-97b9-598455211f57</guid><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Wed, 23 Dec 2015 11:10:43 GMT</pubDate><content:encoded><![CDATA[<p>Table of contents:</p>
 
 <ul>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#gradientdescentvariants">Gradient descent variants</a>
-<ul><li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#batchgradientdescent">Batch gradient descent</a></li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#stochasticgradientdescent">Stochastic gradient descent</a></li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#mini-batchgradientdescent">Mini-batch gradient descent</a></li></ul></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#gradientdescentvariants">Gradient descent variants</a>
+<ul><li><a href="http://sebastianruder.com/optimizing-gradient-descent/#batchgradientdescent">Batch gradient descent</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#stochasticgradientdescent">Stochastic gradient descent</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#mini-batchgradientdescent">Mini-batch gradient descent</a></li></ul></li>
 <li>Challenges</li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#gradientdescentoptimizationalgorithms">Gradient descent optimization algorithms</a></li>
-<li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#additionalconsiderations">Additional considerations</a>
-<ul><li><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#order of training examples">Order of training examples</a></li></ul></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#gradientdescentoptimizationalgorithms">Gradient descent optimization algorithms</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#additionalconsiderations">Additional considerations</a>
+<ul><li><a href="http://sebastianruder.com/optimizing-gradient-descent/#order of training examples">Order of training examples</a></li></ul></li>
 </ul>
 
 <p>Gradient descent is one of the most popular algorithms to perform optimization and by far the most common way to optimize neural networks.</p>
@@ -63,11 +63,11 @@
 <p>It can thus also be used to learn online, one example at a time. SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in image 1 but can still lead to fast convergence.</p>
 
 <figure>  
-      <img src="u=https://sebastianruder.com/content/images/2016/01/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation">
+      <img src="http://sebastianruder.com/content/images/2016/01/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation">
 <figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/en/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
 </figure>  
 
-<p>Its code fragment simply adds a loop over the training examples and evaluates the gradient w.r.t. each example. Note that we shuffle the training data at every epoch as we explain in <a href="u=https://sebastianruder.com/optimizing-gradient-descent/#shuffling">this section</a>.</p>
+<p>Its code fragment simply adds a loop over the training examples and evaluates the gradient w.r.t. each example. Note that we shuffle the training data at every epoch as we explain in <a href="http://sebastianruder.com/optimizing-gradient-descent/#shuffling">this section</a>.</p>
 
 <pre><code class="language-python">while True:
   np.random.shuffle(data)
@@ -138,13 +138,13 @@ Downpour SGD (NIPS'12): Run parallel SGD replicas asynchronously across workers 
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="u=https://sebastianruder.com/content/images/2015/12/without_momentum.gif" style="width: 90%; height: 90%" title="SGD without momentum">
+      <img src="http://sebastianruder.com/content/images/2015/12/without_momentum.gif" style="width: 90%; height: 90%" title="SGD without momentum">
 <figcaption>Image 1: SGD without momentum</figcaption>  
 </figure>  
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="u=https://sebastianruder.com/content/images/2015/12/with_momentum.gif" style="width: 90%; height: 90%" title="SGD with momentum">
+      <img src="http://sebastianruder.com/content/images/2015/12/with_momentum.gif" style="width: 90%; height: 90%" title="SGD with momentum">
 <figcaption>Image 2: SGD with momentum</figcaption>  
 </figure>  
     </td>
@@ -177,7 +177,7 @@ Downpour SGD (NIPS'12): Run parallel SGD replicas asynchronously across workers 
 
 <p>\(\theta_{t+1, i} = \theta_{t, i} - \frac{\alpha}{\sqrt{G_{t, ii}}} \cdot g_{t, i}\).</p>
 
-<p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) <sup id="fnref:1"><a href="u=https://sebastianruder.com/optimizing-gradient-descent/#fn:1" rel="footnote">1</a></sup>. </p>
+<p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) <sup id="fnref:1"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:1" rel="footnote">1</a></sup>. </p>
 
 <p>As \(G_{t}\) contains the sum of the squares of the past gradients w.r.t. to all parameters \(\theta\) along its diagonal, we can now vectorize our implementation by performing an element-wise matrix-vector multiplication \(\odot\) between \(G_{t}\) and \(g_{t}\):</p>
 
