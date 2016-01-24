@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=0a58a56dc0" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=699962bf2c" />
     <link rel="canonical" href="http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2016-01-19T20:24:52.218Z" />
+    <meta property="article:modified_time" content="2016-01-24T12:54:52.881Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2016-01-19T20:24:52.218Z",
+    "dateModified": "2016-01-24T12:54:52.881Z",
     "image": "u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -220,7 +220,7 @@ var profile_resume ='NLP PhD student';
 <li><a href="index.html#downpoursgd">Downpour SGD</a></li>
 <li><a href="index.html#delaytolerantalgorithmsforsgd">Delay-tolerant Algorithms for SGD</a></li>
 <li><a href="index.html#tensorflow">TensorFlow</a></li>
-<li><a href="index.html#elasticaveragingsgd">Elasic Averaging SGD</a></li></ul></li>
+<li><a href="index.html#elasticaveragingsgd">Elastic Averaging SGD</a></li></ul></li>
 <li><a href="index.html#additionalstrategiesforoptimizingsgd">Additional strategies for optimizing SGD</a>
 <ul><li><a href="index.html#shufflingandcurriculumlearning">Shuffling and Curriculum Learning</a></li>
 <li><a href="index.html#batchnormalization">Batch normalization</a></li>
@@ -450,7 +450,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>\(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t \).</p>
 
-<p>\(v_t = \beta_2 v_{t-1} + (1 - \beta_1) g_t^2 \).</p>
+<p>\(v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \).</p>
 
 <p>\(m_t\) and \(v_t\) are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients respectively, hence the name of the method. As \(m_t\) and \(v_t\) are initialized as vectors of 0's, the authors of Adam observe that they are biased towards zero, especially during the initial time steps, and especially when the decay rates are small (i.e. \(\beta_1\) and \(\beta_2\) are close to 1). </p>
 
@@ -635,7 +635,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=0a58a56dc0" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=699962bf2c" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
