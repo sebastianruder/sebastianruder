@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=699962bf2c" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=7557feba55" />
     <link rel="canonical" href="http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2016-01-24T12:54:52.881Z" />
+    <meta property="article:modified_time" content="2016-03-03T15:24:09.098Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2016-01-24T12:54:52.881Z",
+    "dateModified": "2016-03-03T15:24:09.098Z",
     "image": "u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -303,9 +303,9 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <ul>
 <li><p>Choosing a proper learning rate can be difficult. A learning rate that is too small leads to painfully slow convergence, while a learning rate that is too large can hinder convergence and cause the loss function to fluctuate around the minimum or even to diverge.</p></li>
-<li><p>Learning rate schedules [11] try to adjust the learning rate during training by e.g. annealing, i.e. reducing the learning rate according to a pre-defined schedule or when the change in objective between epochs falls below a threshold. These schedules and thresholds, however, have to be defined in advance and are thus unable to adapt to a dataset's characteristics [10].</p></li>
+<li><p>Learning rate schedules [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>] try to adjust the learning rate during training by e.g. annealing, i.e. reducing the learning rate according to a pre-defined schedule or when the change in objective between epochs falls below a threshold. These schedules and thresholds, however, have to be defined in advance and are thus unable to adapt to a dataset's characteristics [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>].</p></li>
 <li><p>Additionally, the same learning rate applies to all parameter updates. If our data is sparse and our features have very different frequencies, we might not want to update all of them to the same extent, but perform a larger update for rarely occurring features.</p></li>
-<li><p>Another key challenge of minimizing highly non-convex error functions common for neural networks is avoiding getting trapped in their numerous suboptimal local minima. Dauphin et al. [19] argue that the difficulty arises in fact not from local minima but from saddle points, i.e. points where one dimension slopes up and another slopes down. These saddle points are usually surrounded by a plateau of the same error, which makes it notoriously hard for SGD to escape, as the gradient is close to zero in all dimensions.</p></li>
+<li><p>Another key challenge of minimizing highly non-convex error functions common for neural networks is avoiding getting trapped in their numerous suboptimal local minima. Dauphin et al. [<sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>] argue that the difficulty arises in fact not from local minima but from saddle points, i.e. points where one dimension slopes up and another slopes down. These saddle points are usually surrounded by a plateau of the same error, which makes it notoriously hard for SGD to escape, as the gradient is close to zero in all dimensions.</p></li>
 </ul>
 
 <h1 id="gradientdescentoptimizationalgorithms">Gradient descent optimization algorithms</h1>
@@ -314,7 +314,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <h2 id="momentum">Momentum</h2>
 
-<p>SGD has trouble navigating ravines, i.e. areas where the surface curves much more steeply in one dimension than in another [1], which are common around local optima. In these scenarios, SGD oscillates across the slopes of the ravine while only making hesitant progress along the bottom towards the local optimum as in Image 2.</p>
+<p>SGD has trouble navigating ravines, i.e. areas where the surface curves much more steeply in one dimension than in another [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>], which are common around local optima. In these scenarios, SGD oscillates across the slopes of the ravine while only making hesitant progress along the bottom towards the local optimum as in Image 2.</p>
 
 <table>  
   <tr>
@@ -333,7 +333,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
   </tr>
 </table>
 
-<p>Momentum [2] is a method that helps accelerate SGD in the relevant direction and dampens oscillations as can be seen in Image 3. It does this by adding a fraction \(\gamma\) of the update vector of the past time step to the current update vector:</p>
+<p>Momentum [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>] is a method that helps accelerate SGD in the relevant direction and dampens oscillations as can be seen in Image 3. It does this by adding a fraction \(\gamma\) of the update vector of the past time step to the current update vector:</p>
 
 <p>\(v_t = \gamma v_{t-1} + \eta \nabla_\theta J( \theta)\).</p>
 
@@ -347,26 +347,26 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>However, a ball that rolls down a hill, blindly following the slope, is highly unsatisfactory. We'd like to have a smarter ball, a ball that has a notion of where it is going so that it knows to slow down before the hill slopes up again.</p>
 
-<p>Nesterov accelerated gradient (NAG) [7] is a way to give our momentum term this kind of prescience. We know that we will use our momentum term \(\gamma v_{t-1}\) to move the parameters \(\theta\). Computing \( \theta - \gamma v_{t-1} \) thus gives us an approximation of the next position of the parameters (the gradient is missing for the full update), a rough idea where our parameters are going to be. We can now effectively look ahead by calculating the gradient not w.r.t. to our current parameters \(\theta\) but w.r.t. the approximate future position of our parameters:</p>
+<p>Nesterov accelerated gradient (NAG) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>] is a way to give our momentum term this kind of prescience. We know that we will use our momentum term \(\gamma v_{t-1}\) to move the parameters \(\theta\). Computing \( \theta - \gamma v_{t-1} \) thus gives us an approximation of the next position of the parameters (the gradient is missing for the full update), a rough idea where our parameters are going to be. We can now effectively look ahead by calculating the gradient not w.r.t. to our current parameters \(\theta\) but w.r.t. the approximate future position of our parameters:</p>
 
 <p>\(v_t = \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} )\).</p>
 
 <p>\(\theta = \theta - v_t\).</p>
 
-<p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [8].</p>
+<p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>].</p>
 
 <figure>  
       <img src="../content/images/2016/01/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation">
 <figcaption>Image 4: Nesterov update (Source: <a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">G. Hinton's lecture 6c</a>)</figcaption>  
 </figure>
 
-<p>Refer to <a href="http://cs231n.github.io/neural-networks-3/">here</a> for another explanation about the intuitions behind NAG, while Ilya Sutskever gives a more detailed overview in his PhD thesis [9].</p>
+<p>Refer to <a href="http://cs231n.github.io/neural-networks-3/">here</a> for another explanation about the intuitions behind NAG, while Ilya Sutskever gives a more detailed overview in his PhD thesis [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>].</p>
 
 <p>Now that we are able to adapt our updates to the slope of our error function and speed up SGD in turn, we would also like to adapt our updates to each individual parameter to perform larger or smaller updates depending on their importance.</p>
 
 <h2 id="adagrad">Adagrad</h2>
 
-<p>Adagrad [3] is an algorithm for gradient-based optimization that does just this: It adapts the learning rate to the parameters, performing larger updates for infrequent and smaller updates for frequent parameters. For this reason, it is well-suited for dealing with sparse data. Dean et al. [4] have found that Adagrad greatly improved the robustness of SGD and used it for training large-scale neural nets at Google, which -- among other things -- learned to <a href="http://www.wired.com/2012/06/google-x-neural-network/">recognize cats in Youtube videos</a>. Moreover, Pennington et al. [5] used Adagrad to train GloVe word embeddings, as infrequent words require much larger updates than frequent ones.</p>
+<p>Adagrad [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>] is an algorithm for gradient-based optimization that does just this: It adapts the learning rate to the parameters, performing larger updates for infrequent and smaller updates for frequent parameters. For this reason, it is well-suited for dealing with sparse data. Dean et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] have found that Adagrad greatly improved the robustness of SGD and used it for training large-scale neural nets at Google, which -- among other things -- learned to <a href="http://www.wired.com/2012/06/google-x-neural-network/">recognize cats in Youtube videos</a>. Moreover, Pennington et al. [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>] used Adagrad to train GloVe word embeddings, as infrequent words require much larger updates than frequent ones.</p>
 
 <p>Previously, we performed an update for all parameters \(\theta\) at once as every parameter \(\theta_i\) used the same learning rate \(\eta\). As Adagrad uses a different learning rate for every parameter \(\theta_i\) at every time step \(t\), we first show Adagrad's per-parameter update, which we then vectorize. For brevity, we set \(g_{t, i}\) to be the gradient of the objective function w.r.t. to the parameter \(\theta_i\) at time step \(t\):</p>
 
@@ -380,7 +380,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>\(\theta_{t+1, i} = \theta_{t, i} - \frac{\eta}{\sqrt{G_{t, ii} + \epsilon}} \cdot g_{t, i}\).</p>
 
-<p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) <sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>, while \(\epsilon\) is a smoothing term that avoids division by zero (usually on the order of \(1e-8\)). Interestingly, without the square root operation, the algorithm performs much worse.</p>
+<p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) <sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>, while \(\epsilon\) is a smoothing term that avoids division by zero (usually on the order of \(1e-8\)). Interestingly, without the square root operation, the algorithm performs much worse.</p>
 
 <p>As \(G_{t}\) contains the sum of the squares of the past gradients w.r.t. to all parameters \(\theta\) along its diagonal, we can now vectorize our implementation by performing an element-wise matrix-vector multiplication \(\odot\) between \(G_{t}\) and \(g_{t}\):</p>
 
@@ -392,7 +392,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <h2 id="adadelta">Adadelta</h2>
 
-<p>Adadelta [6] is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Instead of accumulating all past squared gradients, Adadelta restricts the window of accumulated past gradients to some fixed size \(w\).</p>
+<p>Adadelta [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Instead of accumulating all past squared gradients, Adadelta restricts the window of accumulated past gradients to some fixed size \(w\).</p>
 
 <p>Instead of inefficiently storing \(w\) previous squared gradients, the sum of gradients is recursively defined as a decaying average of all past squared gradients. The running average \(E[g^2]_t\) at time step \(t\) then depends (as a fraction \(\gamma \) similarly to the Momentum term) only on the previous average and the current gradient:</p>
 
@@ -446,7 +446,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <h2 id="adam">Adam</h2>
 
-<p>Adaptive Moment Estimation (Adam) [15] is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients \(v_t\) like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients \(m_t\), similar to momentum:</p>
+<p>Adaptive Moment Estimation (Adam) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients \(v_t\) like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients \(m_t\), similar to momentum:</p>
 
 <p>\(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t \).</p>
 
@@ -497,7 +497,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>So, which optimizer should you now use? If your input data is sparse, then you likely achieve the best results using one of the adaptive learning-rate methods. An additional benefit is that you won't need to tune the learning rate but likely achieve the best results with the default value.</p>
 
-<p>In summary, RMSprop is an extension of Adagrad that deals with its radically diminishing learning rates. It is identical to Adadelta, except that Adadelta uses the RMS of parameter updates in the numinator update rule. Adam, finally, adds bias-correction and momentum to RMSprop. Insofar, RMSprop, Adadelta, and Adam are very similar algorithms that do well in similar circumstances. Kingma et al. [15] show that its bias-correction helps Adam slightly outperform RMSprop towards the end of optimization as gradients become sparser. Insofar, Adam might be the best overall choice.</p>
+<p>In summary, RMSprop is an extension of Adagrad that deals with its radically diminishing learning rates. It is identical to Adadelta, except that Adadelta uses the RMS of parameter updates in the numinator update rule. Adam, finally, adds bias-correction and momentum to RMSprop. Insofar, RMSprop, Adadelta, and Adam are very similar algorithms that do well in similar circumstances. Kingma et al. [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] show that its bias-correction helps Adam slightly outperform RMSprop towards the end of optimization as gradients become sparser. Insofar, Adam might be the best overall choice.</p>
 
 <p>Interestingly, many recent papers use vanilla SGD without momentum and a simple learning rate annealing schedule. As has been shown, SGD usually achieves to find a minimum, but it might take significantly longer than with some of the optimizers, is much more reliant on a robust initialization and annealing schedule, and may get stuck in saddle points rather than local minima. Consequently, if you care about fast convergence and train a deep or complex neural network, you should choose one of the adaptive learning rate methods.</p>
 
@@ -508,41 +508,41 @@ SGD by itself is inherently sequential: Step-by-step, we progress further toward
 
 <h2 id="hogwild">Hogwild!</h2>
 
-<p>Niu et al. [23] introduce an update scheme called Hogwild! that allows performing SGD updates in parallel on CPUs. Processors are allowed to access shared memory without locking the parameters. This only works if the input data is sparse, as each update will only modify a fraction of all parameters. They show that in this case, the update scheme achieves almost an optimal rate of convergence, as it is unlikely that processors will overwrite useful information.</p>
+<p>Niu et al. [<sup id="fnref:23"><a href="index.html#fn:23" rel="footnote">23</a></sup>] introduce an update scheme called Hogwild! that allows performing SGD updates in parallel on CPUs. Processors are allowed to access shared memory without locking the parameters. This only works if the input data is sparse, as each update will only modify a fraction of all parameters. They show that in this case, the update scheme achieves almost an optimal rate of convergence, as it is unlikely that processors will overwrite useful information.</p>
 
 <h2 id="downpoursgd">Downpour SGD</h2>
 
-<p>Downpour SGD is an asynchronous variant of SGD that was used by Dean et al. [4] in their DistBelief framework (predecessor to TensorFlow) at Google. It runs multiple replicas of a model in parallel on subsets of the training data. These models send their updates to a parameter server, which is split across many machines. Each machine is responsible for storing and updating a fraction of the model's parameters. However, as replicas don't communicate with each other e.g. by sharing weights or updates, their parameters are continuously at risk of diverging, hindering convergence.</p>
+<p>Downpour SGD is an asynchronous variant of SGD that was used by Dean et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] in their DistBelief framework (predecessor to TensorFlow) at Google. It runs multiple replicas of a model in parallel on subsets of the training data. These models send their updates to a parameter server, which is split across many machines. Each machine is responsible for storing and updating a fraction of the model's parameters. However, as replicas don't communicate with each other e.g. by sharing weights or updates, their parameters are continuously at risk of diverging, hindering convergence.</p>
 
 <h2 id="delaytolerantalgorithmsforsgd">Delay-tolerant Algorithms for SGD</h2>
 
-<p>McMahan and Streeter [13] extend AdaGrad to the parallel setting by developing delay-tolerant algorithms that not only adapt to past gradients, but also to the update delays. This has been shown to work well in practice.</p>
+<p>McMahan and Streeter [<sup id="fnref:12"><a href="index.html#fn:12" rel="footnote">12</a></sup>] extend AdaGrad to the parallel setting by developing delay-tolerant algorithms that not only adapt to past gradients, but also to the update delays. This has been shown to work well in practice.</p>
 
 <h2 id="tensorflow">TensorFlow</h2>
 
-<p><a href="https://www.tensorflow.org/">TensorFlow</a> [14] is Google's recently open-sourced framework for the implementation and deployment of large-scale machine learning models. It is based on their experience with DistBelief and is already used internally to perform computations on a large range of mobile devices as well as on large-scale distributed systems. For distributed execution, a computation graph is split into a subgraph for every device and communication takes place using Send/Receive node pairs. However, the open source version of TensorFlow currently does not support distributed functionality (see <a href="https://github.com/tensorflow/tensorflow/issues/23">here</a>).</p>
+<p><a href="https://www.tensorflow.org/">TensorFlow</a> [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] is Google's recently open-sourced framework for the implementation and deployment of large-scale machine learning models. It is based on their experience with DistBelief and is already used internally to perform computations on a large range of mobile devices as well as on large-scale distributed systems. For distributed execution, a computation graph is split into a subgraph for every device and communication takes place using Send/Receive node pairs. However, the open source version of TensorFlow currently does not support distributed functionality (see <a href="https://github.com/tensorflow/tensorflow/issues/23">here</a>).</p>
 
 <h2 id="elasticaveragingsgd"> Elastic Averaging SGD</h2>
 
-<p>Zhang et al. [14] propose Elastic Averaging SGD (EASGD), which links the parameters of the workers of asynchronous SGD with an elastic force, i.e. a center variable stored by the parameter server. This allows the local variables to fluctuate further from the center variable, which in theory allows for more exploration of the parameter space. They show empirically that this increased capacity for exploration leads to improved performance by finding new local optima.</p>
+<p>Zhang et al. [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] propose Elastic Averaging SGD (EASGD), which links the parameters of the workers of asynchronous SGD with an elastic force, i.e. a center variable stored by the parameter server. This allows the local variables to fluctuate further from the center variable, which in theory allows for more exploration of the parameter space. They show empirically that this increased capacity for exploration leads to improved performance by finding new local optima.</p>
 
 <h1 id="additionalstrategiesforoptimizingsgd">Additional strategies for optimizing SGD</h1>
 
-<p>Finally, we introduce additional strategies that can be used alongside any of the previously mentioned algorithms to further improve the performance of SGD. For a great overview of some of some other common tricks, refer to [22].</p>
+<p>Finally, we introduce additional strategies that can be used alongside any of the previously mentioned algorithms to further improve the performance of SGD. For a great overview of some of some other common tricks, refer to [<sup id="fnref:22"><a href="index.html#fn:22" rel="footnote">22</a></sup>].</p>
 
 <h2 id="shufflingandcurriculumlearning">Shuffling and Curriculum Learning</h2>
 
 <p>Generally, we want to avoid providing the training examples in a meaningful order to our model as this may bias the optimization algorithm. Consequently, it is often a good idea to shuffle the training data after every epoch. </p>
 
-<p>On the other hand, for some cases where we aim to solve progressively harder problems, supplying the training examples in a meaningful order may actually lead to improved performance and better convergence. The method for establishing this meaningful order is called Curriculum Learning [16]. </p>
+<p>On the other hand, for some cases where we aim to solve progressively harder problems, supplying the training examples in a meaningful order may actually lead to improved performance and better convergence. The method for establishing this meaningful order is called Curriculum Learning [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>]. </p>
 
-<p>Zaremba and Sutskever [17] were only able to train LSTMs to evaluate simple programs using Curriculum Learning and show that a combined or mixed strategy is better than the naive one, which shorts examples by increasing difficulty.</p>
+<p>Zaremba and Sutskever [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>] were only able to train LSTMs to evaluate simple programs using Curriculum Learning and show that a combined or mixed strategy is better than the naive one, which shorts examples by increasing difficulty.</p>
 
 <h2 id="batchnormalization">Batch normalization</h2>
 
 <p>To facilitate learning, we typically normalize the initial values of our parameters by initializing them with zero mean and unit variance. As training progresses and we update parameters to different extents, we lose this normalization, which slows down training and amplifies changes as the network becomes deeper.</p>
 
-<p>Batch normalization [18] reestablishes these normalizations for every mini-batch and changes are back-propagated through the operation as well. By making normalization part of the model architecture, we are able to use higher learning rates and pay less attention to the initialization parameters. Batch normalization additionally acts as a regularizer, reducing (and sometimes even eliminating) the need for Dropout.</p>
+<p>Batch normalization [<sup id="fnref:18"><a href="index.html#fn:18" rel="footnote">18</a></sup>] reestablishes these normalizations for every mini-batch and changes are back-propagated through the operation as well. By making normalization part of the model architecture, we are able to use higher learning rates and pay less attention to the initialization parameters. Batch normalization additionally acts as a regularizer, reducing (and sometimes even eliminating) the need for Dropout.</p>
 
 <h2 id="earlystopping">Early stopping</h2>
 
@@ -550,7 +550,7 @@ SGD by itself is inherently sequential: Step-by-step, we progress further toward
 
 <h2 id="gradientnoise">Gradient noise</h2>
 
-<p>Neelakantan et al. [21] add noise that follows a Gaussian distribution \(N(0, \sigma^2_t\) to each gradient update:</p>
+<p>Neelakantan et al. [<sup id="fnref:21"><a href="index.html#fn:21" rel="footnote">21</a></sup>] add noise that follows a Gaussian distribution \(N(0, \sigma^2_t\) to each gradient update:</p>
 
 <p>\(g_{t, i} = g_{t, i} + N(0, \sigma^2_t)\).</p>
 
@@ -572,35 +572,32 @@ SGD by itself is inherently sequential: Step-by-step, we progress further toward
 
 <h1 id="references">References</h1>
 
-<ol>
-<li>Sutton, R. S. (1986). Two problems with backpropagation and other steepest-descent learning procedures for networks. Proc. 8th Annual Conf. Cognitive Science Society.  </li>
-<li>Qian, N. (1999). On the momentum term in gradient descent learning algorithms. Neural Networks : The Official Journal of the International Neural Network Society, 12(1), 145–151. <a href="http://doi.org/10.1016/S0893-6080(98)00116-6">http://doi.org/10.1016/S0893-6080(98)00116-6</a>  </li>
-<li>Duchi, J., Hazan, E., &amp; Singer, Y. (2011). Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. Journal of Machine Learning Research, 12, 2121–2159. Retrieved from <a href="http://jmlr.org/papers/v12/duchi11a.html">http://jmlr.org/papers/v12/duchi11a.html</a>  </li>
-<li>Dean, J., Corrado, G. S., Monga, R., Chen, K., Devin, M., Le, Q. V, … Ng, A. Y. (2012). Large Scale Distributed Deep Networks. NIPS 2012: Neural Information Processing Systems, 1–11. <a href="http://doi.org/10.1109/ICDAR.2011.95">http://doi.org/10.1109/ICDAR.2011.95</a>  </li>
-<li>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. <a href="http://doi.org/10.3115/v1/D14-1162">http://doi.org/10.3115/v1/D14-1162</a>  </li>
-<li>Zeiler, M. D. (2012). ADADELTA: An Adaptive Learning Rate Method. Retrieved from <a href="http://arxiv.org/abs/1212.5701">http://arxiv.org/abs/1212.5701</a>  </li>
-<li>Nesterov, Y. (1983). A method for unconstrained convex minimization problem with the rate of convergence o(1/k2). Doklady ANSSSR (translated as Soviet.Math.Docl.), vol. 269, pp. 543– 547.  </li>
-<li>Bengio, Y., Boulanger-Lewandowski, N., &amp; Pascanu, R. (2012). Advances in Optimizing Recurrent Networks. Retrieved from <a href="http://arxiv.org/abs/1212.0901">http://arxiv.org/abs/1212.0901</a>  </li>
-<li>Sutskever, I. (2013). Training Recurrent neural Networks. PhD Thesis.  </li>
-<li>Darken, C., Chang, J., &amp; Moody, J. (1992). Learning rate schedules for faster stochastic gradient search. Neural Networks for Signal Processing II Proceedings of the 1992 IEEE Workshop, (September), 1–11. <a href="http://doi.org/10.1109/NNSP.1992.253713">http://doi.org/10.1109/NNSP.1992.253713</a>  </li>
-<li>H. Robinds and S. Monro, “A stochastic approximation method,” Annals of Mathematical Statistics, vol. 22, pp. 400–407, 1951.  </li>
-<li>Mcmahan, H. B., &amp; Streeter, M. (2014). Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. Advances in Neural Information Processing Systems (Proceedings of NIPS), 1–9.  </li>
-<li>Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., … Zheng, X. (2015). TensorFlow : Large-Scale Machine Learning on Heterogeneous Distributed Systems.  </li>
-<li>Zhang, S., Choromanska, A., &amp; LeCun, Y. (2015). Deep learning with Elastic Averaging SGD. Neural Information Processing Systems Conference (NIPS 2015), 1–24. Retrieved from <a href="http://arxiv.org/abs/1412.6651">http://arxiv.org/abs/1412.6651</a>  </li>
-<li>Kingma, D. P., &amp; Ba, J. L. (2015). Adam: a Method for Stochastic Optimization. International Conference on Learning Representations, 1–13.  </li>
-<li>Bengio, Y., Louradour, J., Collobert, R., &amp; Weston, J. (2009). Curriculum learning. Proceedings of the 26th Annual International Conference on Machine Learning, 41–48. <a href="http://doi.org/10.1145/1553374.1553380">http://doi.org/10.1145/1553374.1553380</a>  </li>
-<li>Zaremba, W., &amp; Sutskever, I. (2014). Learning to Execute, 1–25. Retrieved from <a href="http://arxiv.org/abs/1410.4615">http://arxiv.org/abs/1410.4615</a>  </li>
-<li>Ioffe, S., &amp; Szegedy, C. (2015). Batch Normalization : Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv Preprint arXiv:1502.03167v3.  </li>
-<li>Dauphin, Y., Pascanu, R., Gulcehre, C., Cho, K., Ganguli, S., &amp; Bengio, Y. (2014). Identifying and attacking the saddle point problem in high-dimensional non-convex optimization. arXiv, 1–14. Retrieved from <a href="http://arxiv.org/abs/1406.2572">http://arxiv.org/abs/1406.2572</a>  </li>
-<li>Sutskever, I., &amp; Martens, J. (2013). On the importance of initialization and momentum in deep learning. <a href="http://doi.org/10.1109/ICASSP.2013.6639346">http://doi.org/10.1109/ICASSP.2013.6639346</a>  </li>
-<li>Neelakantan, A., Vilnis, L., Le, Q. V., Sutskever, I., Kaiser, L., Kurach, K., &amp; Martens, J. (2015). Adding Gradient Noise Improves Learning for Very Deep Networks, 1–11. Retrieved from <a href="http://arxiv.org/abs/1511.06807">http://arxiv.org/abs/1511.06807</a>  </li>
-<li>LeCun, Y., Bottou, L., Orr, G. B., &amp; Müller, K. R. (1998). Efficient BackProp. Neural Networks: Tricks of the Trade, 1524, 9–50. <a href="http://doi.org/10.1007/3-540-49430-8_2">http://doi.org/10.1007/3-540-49430-8_2</a>  </li>
-<li>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild ! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22.</li>
-</ol>
+<div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Sutton, R. S. (1986). Two problems with backpropagation and other steepest-descent learning procedures for networks. Proc. 8th Annual Conf. Cognitive Science Society. <a href="index.html#fnref:1" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:2"><p>Qian, N. (1999). On the momentum term in gradient descent learning algorithms. Neural Networks : The Official Journal of the International Neural Network Society, 12(1), 145–151. <a href="http://doi.org/10.1016/S0893-6080(98)00116-6">http://doi.org/10.1016/S0893-6080(98)00116-6</a> <a href="index.html#fnref:2" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:3"><p>Duchi, J., Hazan, E., &amp; Singer, Y. (2011). Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. Journal of Machine Learning Research, 12, 2121–2159. Retrieved from <a href="http://jmlr.org/papers/v12/duchi11a.html">http://jmlr.org/papers/v12/duchi11a.html</a> <a href="index.html#fnref:3" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:4"><p>Dean, J., Corrado, G. S., Monga, R., Chen, K., Devin, M., Le, Q. V, … Ng, A. Y. (2012). Large Scale Distributed Deep Networks. NIPS 2012: Neural Information Processing Systems, 1–11. <a href="http://doi.org/10.1109/ICDAR.2011.95">http://doi.org/10.1109/ICDAR.2011.95</a> <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:5"><p>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. <a href="http://doi.org/10.3115/v1/D14-1162">http://doi.org/10.3115/v1/D14-1162</a> <a href="index.html#fnref:5" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:6"><p>Zeiler, M. D. (2012). ADADELTA: An Adaptive Learning Rate Method. Retrieved from <a href="http://arxiv.org/abs/1212.5701">http://arxiv.org/abs/1212.5701</a> <a href="index.html#fnref:6" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:7"><p>Nesterov, Y. (1983). A method for unconstrained convex minimization problem with the rate of convergence o(1/k2). Doklady ANSSSR (translated as Soviet.Math.Docl.), vol. 269, pp. 543– 547. <a href="index.html#fnref:7" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:8"><p>Bengio, Y., Boulanger-Lewandowski, N., &amp; Pascanu, R. (2012). Advances in Optimizing Recurrent Networks. Retrieved from <a href="http://arxiv.org/abs/1212.0901">http://arxiv.org/abs/1212.0901</a> <a href="index.html#fnref:8" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:9"><p>Sutskever, I. (2013). Training Recurrent neural Networks. PhD Thesis. <a href="index.html#fnref:9" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:10"><p>Darken, C., Chang, J., &amp; Moody, J. (1992). Learning rate schedules for faster stochastic gradient search. Neural Networks for Signal Processing II Proceedings of the 1992 IEEE Workshop, (September), 1–11. <a href="http://doi.org/10.1109/NNSP.1992.253713">http://doi.org/10.1109/NNSP.1992.253713</a> <a href="index.html#fnref:10" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:11"><p>H. Robinds and S. Monro, “A stochastic approximation method,” Annals of Mathematical Statistics, vol. 22, pp. 400–407, 1951. <a href="index.html#fnref:11" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:12"><p>Mcmahan, H. B., &amp; Streeter, M. (2014). Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. Advances in Neural Information Processing Systems (Proceedings of NIPS), 1–9. <a href="index.html#fnref:12" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:13"><p>Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., … Zheng, X. (2015). TensorFlow : Large-Scale Machine Learning on Heterogeneous Distributed Systems. <a href="index.html#fnref:13" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:14"><p>Zhang, S., Choromanska, A., &amp; LeCun, Y. (2015). Deep learning with Elastic Averaging SGD. Neural Information Processing Systems Conference (NIPS 2015), 1–24. Retrieved from <a href="http://arxiv.org/abs/1412.6651">http://arxiv.org/abs/1412.6651</a> <a href="index.html#fnref:14" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:15"><p>Kingma, D. P., &amp; Ba, J. L. (2015). Adam: a Method for Stochastic Optimization. International Conference on Learning Representations, 1–13. <a href="index.html#fnref:15" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:16"><p>Bengio, Y., Louradour, J., Collobert, R., &amp; Weston, J. (2009). Curriculum learning. Proceedings of the 26th Annual International Conference on Machine Learning, 41–48. <a href="http://doi.org/10.1145/1553374.1553380">http://doi.org/10.1145/1553374.1553380</a> <a href="index.html#fnref:16" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:17"><p>Zaremba, W., &amp; Sutskever, I. (2014). Learning to Execute, 1–25. Retrieved from <a href="http://arxiv.org/abs/1410.4615">http://arxiv.org/abs/1410.4615</a> <a href="index.html#fnref:17" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:18"><p>Ioffe, S., &amp; Szegedy, C. (2015). Batch Normalization : Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv Preprint arXiv:1502.03167v3. <a href="index.html#fnref:18" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:19"><p>Dauphin, Y., Pascanu, R., Gulcehre, C., Cho, K., Ganguli, S., &amp; Bengio, Y. (2014). Identifying and attacking the saddle point problem in high-dimensional non-convex optimization. arXiv, 1–14. Retrieved from <a href="http://arxiv.org/abs/1406.2572">http://arxiv.org/abs/1406.2572</a> <a href="index.html#fnref:19" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:20"><p>Sutskever, I., &amp; Martens, J. (2013). On the importance of initialization and momentum in deep learning. <a href="http://doi.org/10.1109/ICASSP.2013.6639346">http://doi.org/10.1109/ICASSP.2013.6639346</a> <a href="index.html#fnref:20" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:21"><p>Neelakantan, A., Vilnis, L., Le, Q. V., Sutskever, I., Kaiser, L., Kurach, K., &amp; Martens, J. (2015). Adding Gradient Noise Improves Learning for Very Deep Networks, 1–11. Retrieved from <a href="http://arxiv.org/abs/1511.06807">http://arxiv.org/abs/1511.06807</a> <a href="index.html#fnref:21" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:22"><p>LeCun, Y., Bottou, L., Orr, G. B., &amp; Müller, K. R. (1998). Efficient BackProp. Neural Networks: Tricks of the Trade, 1524, 9–50. <a href="http://doi.org/10.1007/3-540-49430-8_2">http://doi.org/10.1007/3-540-49430-8_2</a> <a href="index.html#fnref:22" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:23"><p>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild ! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22. <a href="index.html#fnref:23" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:24"><p>Duchi et al. [3] give this matrix as an alternative to the <em>full</em> matrix containing the outer products of all previous gradients, as the computation of the matrix square root is infeasible even for a moderate number of parameters \(d\). <a href="index.html#fnref:24" title="return to article">↩</a></p></li></ol></div>
 
 <p>Image credit for cover photo: <a href="http://lossfunctions.tumblr.com/">Karpathy's beautiful loss functions tumblr</a></p>
-
-<p><a name="fn:1">1</a> Duchi et al. [3] give this matrix as an alternative to the <em>full</em> matrix containing the outer products of all previous gradients, as the computation of the matrix square root is infeasible even for a moderate number of parameters \(d\).</p>
     </div>
 
     <div class="post related">
@@ -635,7 +632,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=699962bf2c" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=7557feba55" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
