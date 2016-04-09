@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>On word embeddings - Part 1</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180x180.png?v=wAAv6Wqe6l">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png?v=wAAv6Wqe6l" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/favicon-194x194.png?v=wAAv6Wqe6l" sizes="194x194">
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png?v=wAAv6Wqe6l" sizes="96x96">
+<link rel="icon" type="image/png" href="../assets/img/android-chrome-192x192.png?v=wAAv6Wqe6l" sizes="192x192">
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png?v=wAAv6Wqe6l" sizes="16x16">
+<link rel="manifest" href="../assets/img/manifest.json?v=wAAv6Wqe6l">
+<link rel="shortcut icon" href="../assets/img/favicon.ico?v=wAAv6Wqe6l">
+<meta name="msapplication-TileColor" content="#e74c3c">
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
+<meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
+<meta name="theme-color" content="#e74c3c">
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=996dc5225f" />
+    <link rel="canonical" href="http://sebastianruder.com/word-embeddings-1/" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="On word embeddings - Part 1" />
+    <meta property="og:description" content="The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research." />
+    <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-1/" />
+    <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" />
+    <meta property="article:published_time" content="2016-02-13T11:09:00.000Z" />
+    <meta property="article:modified_time" content="2016-04-09T16:10:05.321Z" />
+    <meta property="article:tag" content="deep learning" />
+    <meta property="article:tag" content="word embeddings" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="On word embeddings - Part 1" />
+    <meta name="twitter:description" content="The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research." />
+    <meta name="twitter:url" content="u=http://sebastianruder.com/word-embeddings-1/" />
+    <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Sebastian Ruder",
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "url": "u=http://sebastianruder.com/author/sebastian",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "On word embeddings - Part 1",
+    "url": "u=http://sebastianruder.com/word-embeddings-1/",
+    "datePublished": "2016-02-13T11:09:00.000Z",
+    "dateModified": "2016-04-09T16:10:05.321Z",
+    "image": "u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png",
+    "keywords": "deep learning, word embeddings",
+    "description": "The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://sebastianruder.com/rss/" />
+    <script>
+var open_button = '.nav-blog > a'
+</script>
+<script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+  </head>
+  <body class="post-template tag-deep-learning tag-word-embeddings">
+    <header id="menu-button" class="expanded">
+      <a><i class="icon icon-list"></i></a>
+    </header>
+    <aside class="cover" style="background: url(../content/images/2015/12/ml_formulas.jpg) center/cover no-repeat fixed">
+  <div class="cover container">
+    <div class="profile">
+      <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://sebastianruder.com/#open">
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <h1 id="profile-title">Sebastian Ruder</h1>
+        <h3 id="profile-resume"></h3>
+      </a>
+
+      <hr class="divider long" />
+      <p>I&#x27;m a PhD student in Natural Language Processing and a researcher at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short" />
+      <div class="navigation">
+        <div class="profile contact">
+          <nav class="navigation left">
+  <ul class="links">
+      <li class="nav-blog ">
+        <a href="http://sebastianruder.com/">Blog</a>
+      </li>
+      <li class="nav-about ">
+        <a href="http://sebastianruder.com/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+          
+<nav class="navigation right">
+  <ul class="social expanded">
+
+  <!-- Twitter -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
+      <i class='icon icon-social-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  <!-- Linkedin -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
+      <i class='icon icon-social-linkedin'></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+
+  <!-- Github -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
+      <i class='icon icon-social-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+  <!-- E-mail -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="mailto:ruder.sebastian@gmail.com" title="send me an email">
+      <i class='icon icon-mail'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+
+  <!-- RSS -->
+  <li class="social item hvr-grow-rotate">
+    <a href="../rss/index.html" title="Subscribe to RSS">
+      <i class='icon icon-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+          <section class="icon icon-search" id="search-container">
+  <hr class="divider short" />
+  <form id="search-form">
+    <input type="text", name="search", placeholder="git, css, javascript,..." id="search-field" />
+  </form>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+    <main>
+      <section id="search-results"></section>
+      <section class="content">
+        
+
+  <article class="post tag-deep-learning tag-word-embeddings">
+    <header>
+      <div class="post meta">
+        <time datetime="13 Feb 2016">13 Feb 2016</time>
+        <span class="post tags">in <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/word-embeddings/index.html">word embeddings</a></span>
+
+
+        <span class="post reading-time"> ~ <span></span> read.</span>
+      </div>
+      <a alt="Tweet 'On word embeddings - Part 1'" href="https://twitter.com/intent/tweet?text=On%20word%20embeddings%20-%20Part%201%20%C2%BB&amp;hashtags=deep learning,word embeddings&amp;url=http://sebastianruder.com/word-embeddings-1/">
+        <img id="post-image" src="../content/images/2016/04/word_embeddings_colah.png" alt="On word embeddings - Part 1">
+        <h1 class="icon-reverse icon-social-twitter-post" id="post-title">On word embeddings - Part 1</h1>
+      </a>
+    </header>
+
+    <div id="post-content" class="post tag-deep-learning tag-word-embeddings">
+      <p>Table of contents:</p>
+
+<ul>
+<li><a href="index.html#abriefhistoryofwordembeddings">A brief history of word embeddings</a></li>
+<li><a href="index.html#wordembeddingmodels">Word embedding models</a>
+<ul><li><a href="index.html#anoteonlanguagemodeling">A note on language modeling</a></li>
+<li><a href="index.html#classicneurallanguagemodel">Classic neural language model</a></li>
+<li><a href="index.html#cwmodel">C&amp;W model</a></li>
+<li><a href="index.html#word2vec">Word2Vec</a></li>
+<li><a href="index.html#continuousbagofwordscbow">CBOW</a></li>
+<li><a href="index.html#skipgram">Skip-gram</a></li></ul></li>
+</ul>
+
+<p>Unsupervisedly learned word embeddings have been exceptionally successful in many NLP tasks and are frequently seen as something akin to a <em>silver bullet</em>. In fact, in many NLP architectures, they have almost completely replaced traditional distributional features such as Brown clusters and LSA features. </p>
+
+<p>Proceedings of last year's <a href="https://aclweb.org/anthology/P/P15/">ACL</a> and <a href="https://aclweb.org/anthology/D/D15/">EMNLP</a> conferences have been dominated by word embeddings, with some people musing that <em>Embedding Methods in Natural Language Processing</em> was a more appropriate name for EMNLP due to the plethora of papers on word embeddings. This year's ACL features not <a href="https://sites.google.com/site/repl4nlp2016/">one</a> but <a href="https://sites.google.com/site/repevalacl16/">two</a> workshops on word embeddings.</p>
+
+<p>Semantic relations between word embeddings seem nothing short of magical to the uninitiated and Deep Learning NLP talks frequently prelude with the notorious \(king - man + woman \approx queen \) slide, while <a href="http://cacm.acm.org/magazines/2016/3/198856-deep-or-shallow-nlp-is-breaking-out/fulltext">a recent article</a> in <em>Communications of the ACM</em> hails word embeddings as the primary reason for NLP's breakout.</p>
+
+<p>This post will be the first in a series that aims to give an extensive overview of word embeddings showcasing why this hype may or may not be warranted. In the course of this review, we will try to connect the disperse literature on word embedding models, highlighting many models, applications and interesting features of word embeddings, with a focus on multilingual embedding models and word embedding evaluation tasks in later posts. <br />
+This first post lays the foundations by presenting current word embeddings based on language modelling. While many of these models have been discussed at length, we hope that investigating and discussing their merits in the context of past and current research will provide new insights.</p>
+
+<p>A brief note on nomenclature: In the following we will use the currently prevalent term <em>word embeddings</em> to refer to dense representations of words in a low-dimensional vector space. Interchangeable terms are <em>word vectors</em> and <em>distributed representations</em>. We will particularly focus on <em>neural word embeddings</em>, i.e. word embeddings learned by a neural network.</p>
+
+<h1 id="abriefhistoryofwordembeddings">A brief history of word embeddings</h1>
+
+<p>Since the 1990s, vector space models have been used in distributional semantics. During this time, many models for estimating continuous representations of words have been developed, including Latent Semantic Analysis (LSA) and Latent Dirichlet Allocation (LDA). Have a look at <a href="https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/">this blog post</a> for a more detailed overview of distributional semantics history in the context of word embeddings.</p>
+
+<p>Bengio et al. are the first ones to introduce the concept of word embeddings in 2003, by training them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2011. Their landmark paper <em>Natural Language Processing from Scratch</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who made with word2vec a toolkit available that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. made with GloVe a competitive set of pre-trained word embeddings available, signalling that word embeddings had reached the main stream.</p>
+
+<p>Word embeddings are one of the few currently successful applications of unsupervised learning. Their main benefit arguably is that they don't require expensive annotation, but can be derived from large unannotated corpora that are readily available. Pre-trained embeddings can then be used in downstream tasks that use small amounts of labeled data.</p>
+
+<h1 id="wordembeddingmodels">Word embedding models</h1>
+
+<p>Naturally, every feed-forward neural network that takes words from a vocabulary as input and embeds them as vectors into a lower dimensional space, which it then fine-tunes through back-propagation, necessarily yields word embeddings as the weights of the first layer, which is usually referred to as embedding layer.</p>
+
+<p>The main difference between such a network that produces word embeddings as a by-product and a method such as word2vec whose explicit goal is the generation of word embeddings is its computational complexity. Generating word embeddings with a very deep architecture is simply too computationally expensive for a large vocabulary. This is the main reason why it took until 2013 for word embeddings to explode onto the NLP stage and will be a recurring theme in our review of word embedding models.</p>
+
+<p>Another difference is that methods such as word2vec and GloVe aim to produce general-purpose word embeddings that can be used in many downstream tasks and that encode general semantic relationships, while word embeddings produced by a regular neural network are specific to the task it is applied to. Note that a task that relies on semantically coherent representations such as language modelling will produce similar embeddings to word embedding models, which we will investigate in the next chapter.</p>
+
+<p>To facilitate comparison between models, we enforce the following notational standards. We assume a training corpus containing a sequence of \(T\) training words \(w_1, w_2, w_3, \cdots, w_T\) that belong to a vocabulary \(V\) whose size is \(|V|\). Our models consider a context of \( n \) words. We optimize an objective function \(J_\theta\) with regard to our model parameters \(\theta\) and our model outputs some score \(f_\theta(x)\) for every input \( x \). Finally, our vectors have some dimensionality \(d\). </p>
+
+<h2 id="anoteonlanguagemodelling">A note on language modelling</h2>
+
+<p>Word embedding models are quite closely intertwined with language models. The quality of language models is measured based on their ability to learn a probability distribution over a vocabulary. In fact, many state-of-the-art word embedding models try to predict the next word in a sequence to some extent. We will talk about this in more details in the following sections.</p>
+
+<p>Before we thus get into the gritty details of word embedding models, we will briefly introduce some language modeling fundamentals.</p>
+
+<p>Language models generally try to compute the probability of a word \(w_n\) given its \(n\) previous words, i.e. \(p(w_n \: | \: w_1,w_2, \cdots w_{n-1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
+
+<p>\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) \).</p>
+
+<p>In n-gram based language models, we can calculate a word's probability based on the frequencies of its constituent n-grams: <br />
+\( p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) = \dfrac{count(w_{i-n+1}, \cdots , w_{i-1},w_i)}{count({w_{i-n+1}, \cdots , w_{i-1}})}\).</p>
+
+<p>Setting \(n = 2\) yields bigram probabilities, while \(n = 5\) together with Kneser-Ney smoothing leads to smoothed 5-gram models that have been found to be a strong baseline for language modelling. For more details, you can refer to <a href="https://web.stanford.edu/class/cs124/lec/languagemodeling.pdf">these slides</a> from Stanford.</p>
+
+<p>In neural networks, we achieve the same objective using the well-known softmax layer:</p>
+
+<p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top e_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top e_{w_i}})} \).</p>
+
+<p>The inner product \( h^\top e_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) here is the output vector of the penultimate network layer, i.e. a representation of what the network has seen (an LSTM's state, an image, etc.), while \(e_w\) is a representation of the word \(w\). Note that even though \(e_w\) represents the word \(w\) in some way, it is generally learned separately from the word embedding of \(w\), as the multiplications both vectors are involved in differ.</p>
+
+<p>Note that as the output layer of the neural network, we need to calculate the probability of every word \( w \). To do this efficiently, we perform a matrix multiplication between \(h\) and a weight matrix whose rows consist of \(e_w\) of all words \(w\) in \(V\). We then feed the resulting vector, which is often referred to as a logit, i.e. the output of a previous layer that is not a probability, with \(d = |V|\) into the softmax. The softmax layer then squases it to a vector to a probability distribution over the words in \(V\).</p>
+
+<p>Note that the softmax layer (in contrast to the previous n-gram calculations) only implicitly takes into account \(n\) previous words: LSTMs, which are typically used for neural language models, encode these in their state \(h\), while Bengio's neural language model, which we will see in the next chapter, feeds the previous \(n\) words through a feed-forward layer.</p>
+
+<p>Keep this softmax layer in mind, as many of the subsequent word embedding models will use it in some fashion.</p>
+
+<p>Using this softmax layer, the model then tries to maximize the probability of predicting the correct word at every timestep \( t \). The whole model thus tries to maximize the averaged log probability of the whole corpus:</p>
+
+<p>\(J_\theta = \frac{1}{T} \text{log} \space p(w_1 , \cdots , w_T)\).</p>
+
+<p>Or, analogously through application of the chain rule, the average of the log probabilities of all words in the corpus:</p>
+
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1})\).</p>
+
+<p>In order to predict the next word, we simply choose the word with the highest probability \(p(w_t \: | \: w_{t-1} \cdots w_{t-n+1})\) at every time step \( t \). We can do this for instance to sample arbitrary text sequences as in <a href="https://github.com/karpathy/char-rnn">Karpathy's Char-RNN</a> or as part of a sequence prediction task, where an LSTM is used as the decoder.</p>
+
+<h2 id="classicneurallanguagemodel"> Classic neural language model</h2>
+
+<p>The classic neural language model proposed by  Bengio et al. [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] in 2003 consists of a one-hidden layer feed-forward neural network that predicts the next word in a sequence.</p>
+
+<p>Their model maximizes what we've described above as the prototypical neural language model objective (we omit the regularization term for simplicity):</p>
+
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space f(w_t , w_{t-1} , \cdots , w_{t-n+1})\).</p>
+
+<p>\( f(w_t , w_{t-1} , \cdots , w_{t-n+1}) \) is the output of the model, i.e. the probability \( p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) \) as computed by the softmax, where \(n \) is the number of previous words fed into the model.</p>
+
+<p>Bengio et al. are one of the first to introduce what we now refer to as a word embedding, a real-valued word feature vector in \(\mathbb{R}\). Their architecture forms very much the prototype upon which current approaches have gradually improved. The general building blocks of their model, however, are still found in all current neural language and word embedding models. These are:</p>
+
+<ol>
+<li><strong>Embedding Layer</strong>: a layer that generates word embeddings by multiplying an index vector with a word embedding matrix;  </li>
+<li><strong>Intermediate Layer(s)</strong>: one or more layers that produce an intermediate representation of the input, e.g. a fully-connected layer that applies a non-linearity to the concatenation of word embeddings of \(n\) previous words;  </li>
+<li><strong>Softmax Layer</strong>: the final layer that produces a probability distribution over words in \(V\).</li>
+</ol>
+
+<p>Additionally, Bengio et al. identify two issues that lie at the heart of state-of-the-art-models: a) They remark that <strong>2.</strong> can be replaced by an LSTM, which is used by state-of-the-art neural language models [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>, <sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>]; b) they identify the final softmax layer (more precisely: the normalization term) as the network's main bottleneck, as the cost of computing the softmax is proportional to the number of words in \(V\), which is typically on the order of hundreds of thousands or millions.</p>
+
+<p>Finding ways to mitigate the computational cost associated with computing the softmax over a large vocabulary is thus one of the key challenges both in neural language models as well as in word embedding models.</p>
+
+<h2 id="cwmodel"> C&amp;W model</h2>
+
+<p>Collobert et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] (the C&amp;W model is named after Collobert and Weston) first showcase that word embeddings trained on a sufficiently large dataset carry syntactic and semantic meaning and improve performance on downstream tasks.</p>
+
+<p>Their solution to avoid computing the expensive softmax is to use a different objective function: Instead of the cross-entropy-like criterion of Bengio et al., which maximizes the probability of the next word given the previous words, Collobert and Weston train a network to output a higher score \(f_\theta\) for a correct word sequence (a probable word sequence in Bengio's model) than for an incorrect one. For this purpose, they use a pairwise ranking criterion, which looks like this:</p>
+
+<p>\(J_\theta\ = \sum\limits_{x \in X} \sum\limits_{w \in V} \text{max} \lbrace 0, 1 - f_\theta(x) + f_\theta(x^{(w)}) \rbrace \).</p>
+
+<p>They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). Their objective now maximises the distance between the scores output by the model for the correct and the incorrect window with a margin of \(1\).</p>
+
+<p>The resulting language model produces embeddings that already possess many of the relations word embeddings have become known for, e.g. countries are clustered close together and syntactically similar words occupy similar locations in the vector space. While their ranking objective eliminates the complexity of the softmax, they keep the intermediate fully-connected hidden layer (<strong>2.</strong>) of Bengio et al. around, which constitutes another source of expensive computation. Partially due to this, their full model trains for seven weeks in total with \(|V| = 130000\).</p>
+
+<h2 id="word2vec"> Word2Vec</h2>
+
+<p>Let us now introduce arguably the most popular word embedding model, the model that launch'd a thousand word embedding papers: word2vec, the subject of two papers by Mikolov et al. in 2013. In their first paper [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>], they propose two architectures for learning word embeddings that are computationally less expensive than previous models. In their second paper [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>], they improve upon these models by employing additional strategies to enhance training speed and accuracy.</p>
+
+<p>These architectures offer two main benefits over the C&amp;W model and Bengio's language model:</p>
+
+<ul>
+<li>They do away with the expensive hidden layer.</li>
+<li>They enable the language model to take additional context into account.</li>
+</ul>
+
+<p>As we will later show, the success of their model is not only due to these changes, but especially due to certain training strategies.</p>
+
+<p>In the following, we will look at both of these architectures:</p>
+
+<h3 id="continuousbagofwordscbow">Continuous bag-of-words (CBOW)</h3>
+
+<p>While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word to predict it. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.</p>
+
+<p>The objective function of CBOW in turn is only slightly different than the language model one:</p>
+
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-n} , \cdots , w_{t-1}, w_{t+1}, \cdots , w_{t+n})\).</p>
+
+<p>Instead of feeding \( n \) previous words into the model, the model receives a window of \( n \) words around the target word \( w_t \) at each time step \( t \).</p>
+
+<table>  
+  <tr>
+    <td style="padding:1px">
+      <figure>
+      <img src="../content/images/2016/02/cbow.png" style="width: 90%; height: 90%" title="SGD without momentum">
+<figcaption>Image 1: Continuous bag-of-words</figcaption>  
+</figure>  
+    </td>
+    <td style="padding:1px">
+      <figure>
+      <img src="../content/images/2016/02/skip-gram.png" style="width: 90%; height: 90%" title="SGD with momentum">
+<figcaption>Image 2: Skip-gram</figcaption>  
+</figure>  
+    </td>
+  </tr>
+</table>
+
+<h3 id="skipgram">Skip-gram</h3>
+
+<p>While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words.</p>
+
+<p>The skip-gram objective thus sums the log probabilities of the surrounding words \( n \) words to the left and to the right of the target word \( w_t \) to produce the following objective:</p>
+
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \sum\limits_{-n \leq j \leq n , \neq 0} \text{log} \space p(w_{t+j} \: | \: w_t)\).</p>
+
+<p>To gain a better intuition of how the skip-gram model computes \( p(w_{t+j} \: | \: w_t) \), let's recall the definition of our softmax:</p>
+
+<p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top e_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top e_{w_i}})} \).</p>
+
+<p>Instead of computing the probability of the target word \( w_t \) given its previous words, we calculate the probability of the surrounding word \( w_{t+j} \) given \( w_t \). We can thus simply replace these probabilities in the equation:</p>
+
+<p>\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({h^\top e_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({h^\top e_{w_i}})} \).</p>
+
+<p>As the skip-gram architecture does not contain a hidden layer that produces an intermediate state vector \(h\), \(h\) is simply the word embedding of the input word \(w_t\), which we will refer to as \(v_{w_t}\). This also makes it clearer why we want to have different representations for input and output embeddings, as we would otherwise multiply the word embedding by itself. Replacing \(h \) with \(v_{w_t}\) yields:</p>
+
+<p>\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({v^\top_{w_t} e_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({v^\top_{w_t} e_{w_i}})} \).</p>
+
+<p>Note that the notation in Mikolov's paper differs slightly from ours, as they denote the centre word with \( w_I \), the surrounding words with \( w_O \), and the output word embeddings with \(v_{w}'\). If we replace \( w_t \) with \( w_I \), \( w_{t+j} \) with \( w_O \), \( e_w \) with \(v_{w}\), and swap the vectors in the inner product due to its commutativity, we arrive at the softmax notation in their paper:</p>
+
+<p>\(p(w_O|w_I) = \dfrac{\text{exp}(v'^\top_{w_O} v_{w_I})}{\sum^V_{w=1}\text{exp}(v'^\top_{w} v_{w_I})}\).</p>
+
+<p>In the next post, we will discuss different ways to approximate the expensive softmax as well as key training decisions that account for much of skip-gram's success. We will also introduce GloVe [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>], a word embedding model based on matrix factorisation and discuss the link between word embeddings and methods from distributional semantics.</p>
+
+<p>Credit for the post image goes to <a href="http://colah.github.io/">Christopher Olah</a>.</p>
+
+<p>Did I miss anything? <strong>Let me know in the comments below.</strong></p>
+
+<h1 id="references">References</h1>
+
+<div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Bengio, Y., Ducharme, R., Vincent, P., &amp; Janvin, C. (2003). A Neural Probabilistic Language Model. The Journal of Machine Learning Research, 3, 1137–1155. <a href="http://doi.org/10.1162/153244303322533223">http://doi.org/10.1162/153244303322533223</a> <a href="index.html#fnref:1" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:2"><p>Mikolov, T., Corrado, G., Chen, K., &amp; Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR 2013), 1–12. <a href="index.html#fnref:2" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:3"><p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS, 1–9. <a href="index.html#fnref:3" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:4"><p>Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., &amp; Kuksa, P. (2011). Natural Language Processing (almost) from Scratch. Journal of Machine Learning Research, 12 (Aug), 2493–2537. Retrieved from <a href="http://arxiv.org/abs/1103.0398">http://arxiv.org/abs/1103.0398</a> <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:5"><p>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. <a href="http://doi.org/10.3115/v1/D14-1162">http://doi.org/10.3115/v1/D14-1162</a> <a href="index.html#fnref:5" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:6"><p>Kim, Y., Jernite, Y., Sontag, D., &amp; Rush, A. M. (2016). Character-Aware Neural Language Models. AAAI. Retrieved from <a href="http://arxiv.org/abs/1508.06615">http://arxiv.org/abs/1508.06615</a> <a href="index.html#fnref:6" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:7"><p>Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. Retrieved from <a href="http://arxiv.org/abs/1602.02410">http://arxiv.org/abs/1602.02410</a> <a href="index.html#fnref:7" title="return to article">↩</a></p></li></ol></div>
+    </div>
+
+    <div class="post related">
+        <a rel="prev" id="prev-btn" class="btn small square" href="../optimizing-gradient-descent/index.html">← An overview of gradient descent optimization algorithms</a>
+
+    </div>
+
+    <footer class="post comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</footer>
+
+  </article>
+
+
+<script type="text/javascript"  
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+
+        <footer>
+  <span class="copyright">
+    &copy; 2016. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+  </span>
+</footer>
+      </section>
+    </main>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+    <script src="../assets/js/uno-zen.js?v=996dc5225f" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+  if (window.ga_id) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', window.ga_id, 'auto');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+  }
+</script>
+  </body>
+</html>
