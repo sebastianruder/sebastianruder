@@ -42,8 +42,8 @@
     <meta property="og:description" content="The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research." />
     <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-1/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" />
-    <meta property="article:published_time" content="2016-02-13T11:09:00.000Z" />
-    <meta property="article:modified_time" content="2016-04-09T16:10:05.321Z" />
+    <meta property="article:published_time" content="2016-04-09T10:09:00.000Z" />
+    <meta property="article:modified_time" content="2016-04-10T13:49:01.501Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     
@@ -67,8 +67,8 @@
     },
     "headline": "On word embeddings - Part 1",
     "url": "u=http://sebastianruder.com/word-embeddings-1/",
-    "datePublished": "2016-02-13T11:09:00.000Z",
-    "dateModified": "2016-04-09T16:10:05.321Z",
+    "datePublished": "2016-04-09T10:09:00.000Z",
+    "dateModified": "2016-04-10T13:49:01.501Z",
     "image": "u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png",
     "keywords": "deep learning, word embeddings",
     "description": "The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research."
@@ -184,7 +184,7 @@ var profile_resume ='NLP PhD student';
   <article class="post tag-deep-learning tag-word-embeddings">
     <header>
       <div class="post meta">
-        <time datetime="13 Feb 2016">13 Feb 2016</time>
+        <time datetime="09 Apr 2016">09 Apr 2016</time>
         <span class="post tags">in <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/word-embeddings/index.html">word embeddings</a></span>
 
 
@@ -225,32 +225,32 @@ This first post lays the foundations by presenting current word embeddings based
 
 <p>Since the 1990s, vector space models have been used in distributional semantics. During this time, many models for estimating continuous representations of words have been developed, including Latent Semantic Analysis (LSA) and Latent Dirichlet Allocation (LDA). Have a look at <a href="https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/">this blog post</a> for a more detailed overview of distributional semantics history in the context of word embeddings.</p>
 
-<p>Bengio et al. are the first ones to introduce the concept of word embeddings in 2003, by training them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2011. Their landmark paper <em>Natural Language Processing from Scratch</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who made with word2vec a toolkit available that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. made with GloVe a competitive set of pre-trained word embeddings available, signalling that word embeddings had reached the main stream.</p>
+<p>Bengio et al. are the first ones to introduce the concept of word embeddings in 2003, by training them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2008. Their landmark paper <em>A unified architecture for natural language processing</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who made word2vec available, a toolkit that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. released GloVe, a competitive set of pre-trained word embeddings, signalling that word embeddings had reached the main stream.</p>
 
 <p>Word embeddings are one of the few currently successful applications of unsupervised learning. Their main benefit arguably is that they don't require expensive annotation, but can be derived from large unannotated corpora that are readily available. Pre-trained embeddings can then be used in downstream tasks that use small amounts of labeled data.</p>
 
 <h1 id="wordembeddingmodels">Word embedding models</h1>
 
-<p>Naturally, every feed-forward neural network that takes words from a vocabulary as input and embeds them as vectors into a lower dimensional space, which it then fine-tunes through back-propagation, necessarily yields word embeddings as the weights of the first layer, which is usually referred to as embedding layer.</p>
+<p>Naturally, every feed-forward neural network that takes words from a vocabulary as input and embeds them as vectors into a lower dimensional space, which it then fine-tunes through back-propagation, necessarily yields word embeddings as the weights of the first layer, which is usually referred to as <em>Embedding Layer</em>.</p>
 
-<p>The main difference between such a network that produces word embeddings as a by-product and a method such as word2vec whose explicit goal is the generation of word embeddings is its computational complexity. Generating word embeddings with a very deep architecture is simply too computationally expensive for a large vocabulary. This is the main reason why it took until 2013 for word embeddings to explode onto the NLP stage and will be a recurring theme in our review of word embedding models.</p>
+<p>The main difference between such a network that produces word embeddings as a by-product and a method such as word2vec whose explicit goal is the generation of word embeddings is its computational complexity. Generating word embeddings with a very deep architecture is simply too computationally expensive for a large vocabulary. This is the main reason why it took until 2013 for word embeddings to explode onto the NLP stage; computational complexity is a key trade-off for word embedding models and will be a recurring theme in our review.</p>
 
 <p>Another difference is that methods such as word2vec and GloVe aim to produce general-purpose word embeddings that can be used in many downstream tasks and that encode general semantic relationships, while word embeddings produced by a regular neural network are specific to the task it is applied to. Note that a task that relies on semantically coherent representations such as language modelling will produce similar embeddings to word embedding models, which we will investigate in the next chapter.</p>
 
-<p>To facilitate comparison between models, we enforce the following notational standards. We assume a training corpus containing a sequence of \(T\) training words \(w_1, w_2, w_3, \cdots, w_T\) that belong to a vocabulary \(V\) whose size is \(|V|\). Our models consider a context of \( n \) words. We optimize an objective function \(J_\theta\) with regard to our model parameters \(\theta\) and our model outputs some score \(f_\theta(x)\) for every input \( x \). Finally, our vectors have some dimensionality \(d\). </p>
+<p>To facilitate comparison between models, we enforce the following notational standards: We assume a training corpus containing a sequence of \(T\) training words \(w_1, w_2, w_3, \cdots, w_T\) that belong to a vocabulary \(V\) whose size is \(|V|\). Our models generally consider a context of \( n \) words. We optimize an objective function \(J_\theta\) with regard to our model parameters \(\theta\) and our model outputs some score \(f_\theta(x)\) for every input \( x \). Finally, our vectors have some dimensionality \(d\). </p>
 
 <h2 id="anoteonlanguagemodelling">A note on language modelling</h2>
 
 <p>Word embedding models are quite closely intertwined with language models. The quality of language models is measured based on their ability to learn a probability distribution over a vocabulary. In fact, many state-of-the-art word embedding models try to predict the next word in a sequence to some extent. We will talk about this in more details in the following sections.</p>
 
-<p>Before we thus get into the gritty details of word embedding models, we will briefly introduce some language modeling fundamentals.</p>
+<p>Before we thus get into the gritty details of word embedding models, we will briefly introduce some language modelling fundamentals.</p>
 
-<p>Language models generally try to compute the probability of a word \(w_n\) given its \(n\) previous words, i.e. \(p(w_n \: | \: w_1,w_2, \cdots w_{n-1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
+<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
 
 <p>\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) \).</p>
 
 <p>In n-gram based language models, we can calculate a word's probability based on the frequencies of its constituent n-grams: <br />
-\( p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) = \dfrac{count(w_{i-n+1}, \cdots , w_{i-1},w_i)}{count({w_{i-n+1}, \cdots , w_{i-1}})}\).</p>
+\( p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{count(w_{t-n+1}, \cdots , w_{t-1},w_t)}{count({w_{t-n+1}, \cdots , w_{t-1}})}\).</p>
 
 <p>Setting \(n = 2\) yields bigram probabilities, while \(n = 5\) together with Kneser-Ney smoothing leads to smoothed 5-gram models that have been found to be a strong baseline for language modelling. For more details, you can refer to <a href="https://web.stanford.edu/class/cs124/lec/languagemodeling.pdf">these slides</a> from Stanford.</p>
 
@@ -258,9 +258,9 @@ This first post lays the foundations by presenting current word embeddings based
 
 <p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top e_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top e_{w_i}})} \).</p>
 
-<p>The inner product \( h^\top e_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) here is the output vector of the penultimate network layer, i.e. a representation of what the network has seen (an LSTM's state, an image, etc.), while \(e_w\) is a representation of the word \(w\). Note that even though \(e_w\) represents the word \(w\) in some way, it is generally learned separately from the word embedding of \(w\), as the multiplications both vectors are involved in differ.</p>
+<p>The inner product \( h^\top e_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer, i.e. a representation of what the network has seen, e.g. an LSTM's state, while \(e_w\) is a representation of the word \(w\). Note that even though \(e_w\) represents the word \(w\) in some way, it is generally learned separately from the word embedding of \(w\), as the multiplications both vectors are involved in differ.</p>
 
-<p>Note that as the output layer of the neural network, we need to calculate the probability of every word \( w \). To do this efficiently, we perform a matrix multiplication between \(h\) and a weight matrix whose rows consist of \(e_w\) of all words \(w\) in \(V\). We then feed the resulting vector, which is often referred to as a logit, i.e. the output of a previous layer that is not a probability, with \(d = |V|\) into the softmax. The softmax layer then squases it to a vector to a probability distribution over the words in \(V\).</p>
+<p>Note that as the output layer of the neural network, we need to calculate the probability of every word \( w \). To do this efficiently, we perform a matrix multiplication between \(h\) and a weight matrix whose rows consist of \(e_w\) of all words \(w\) in \(V\). We then feed the resulting vector, which is often referred to as a logit, i.e. the output of a previous layer that is not a probability, with \(d = |V|\) into the softmax. The softmax layer then "squashes" the vector to a probability distribution over the words in \(V\).</p>
 
 <p>Note that the softmax layer (in contrast to the previous n-gram calculations) only implicitly takes into account \(n\) previous words: LSTMs, which are typically used for neural language models, encode these in their state \(h\), while Bengio's neural language model, which we will see in the next chapter, feeds the previous \(n\) words through a feed-forward layer.</p>
 
@@ -270,7 +270,7 @@ This first post lays the foundations by presenting current word embeddings based
 
 <p>\(J_\theta = \frac{1}{T} \text{log} \space p(w_1 , \cdots , w_T)\).</p>
 
-<p>Or, analogously through application of the chain rule, the average of the log probabilities of all words in the corpus:</p>
+<p>Analogously, through application of the chain rule, it is usually trained to maximize the average of the log probabilities of all words in the corpus given their previous \( n \) words:</p>
 
 <p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1})\).</p>
 
@@ -294,15 +294,22 @@ This first post lays the foundations by presenting current word embeddings based
 <li><strong>Softmax Layer</strong>: the final layer that produces a probability distribution over words in \(V\).</li>
 </ol>
 
-<p>Additionally, Bengio et al. identify two issues that lie at the heart of state-of-the-art-models: a) They remark that <strong>2.</strong> can be replaced by an LSTM, which is used by state-of-the-art neural language models [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>, <sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>]; b) they identify the final softmax layer (more precisely: the normalization term) as the network's main bottleneck, as the cost of computing the softmax is proportional to the number of words in \(V\), which is typically on the order of hundreds of thousands or millions.</p>
+<p>Additionally, Bengio et al. identify two issues that lie at the heart of current state-of-the-art-models:</p>
+
+<ul>
+<li>They remark that <strong>2.</strong> can be replaced by an LSTM, which is used by state-of-the-art neural language models [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>, <sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>].</li>
+<li>They identify the final softmax layer (more precisely: the normalization term) as the network's main bottleneck, as the cost of computing the softmax is proportional to the number of words in \(V\), which is typically on the order of hundreds of thousands or millions.</li>
+</ul>
 
 <p>Finding ways to mitigate the computational cost associated with computing the softmax over a large vocabulary is thus one of the key challenges both in neural language models as well as in word embedding models.</p>
 
 <h2 id="cwmodel"> C&amp;W model</h2>
 
-<p>Collobert et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] (the C&amp;W model is named after Collobert and Weston) first showcase that word embeddings trained on a sufficiently large dataset carry syntactic and semantic meaning and improve performance on downstream tasks.</p>
+<p>After Bengio et al.'s first steps in neural language models, research in word embeddings stagnated as computing power and algorithms did not yet allow the training of a large vocabulary.</p>
 
-<p>Their solution to avoid computing the expensive softmax is to use a different objective function: Instead of the cross-entropy-like criterion of Bengio et al., which maximizes the probability of the next word given the previous words, Collobert and Weston train a network to output a higher score \(f_\theta\) for a correct word sequence (a probable word sequence in Bengio's model) than for an incorrect one. For this purpose, they use a pairwise ranking criterion, which looks like this:</p>
+<p>Collobert and Weston [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] (thus C&amp;W) showcase in 2008 that word embeddings trained on a sufficiently large dataset carry syntactic and semantic meaning and improve performance on downstream tasks. They elaborate upon this in their 2011 paper [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>].</p>
+
+<p>Their solution to avoid computing the expensive softmax is to use a different objective function: Instead of the cross-entropy criterion of Bengio et al., which maximizes the probability of the next word given the previous words, Collobert and Weston train a network to output a higher score \(f_\theta\) for a correct word sequence (a probable word sequence in Bengio's model) than for an incorrect one. For this purpose, they use a pairwise ranking criterion, which looks like this:</p>
 
 <p>\(J_\theta\ = \sum\limits_{x \in X} \sum\limits_{w \in V} \text{max} \lbrace 0, 1 - f_\theta(x) + f_\theta(x^{(w)}) \rbrace \).</p>
 
@@ -327,7 +334,7 @@ This first post lays the foundations by presenting current word embeddings based
 
 <h3 id="continuousbagofwordscbow">Continuous bag-of-words (CBOW)</h3>
 
-<p>While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word to predict it. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.</p>
+<p>While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word \( w_t \) to predict it. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.</p>
 
 <p>The objective function of CBOW in turn is only slightly different than the language model one:</p>
 
@@ -356,7 +363,7 @@ This first post lays the foundations by presenting current word embeddings based
 
 <p>While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words.</p>
 
-<p>The skip-gram objective thus sums the log probabilities of the surrounding words \( n \) words to the left and to the right of the target word \( w_t \) to produce the following objective:</p>
+<p>The skip-gram objective thus sums the log probabilities of the surrounding \( n \) words  to the left and to the right of the target word \( w_t \) to produce the following objective:</p>
 
 <p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \sum\limits_{-n \leq j \leq n , \neq 0} \text{log} \space p(w_{t+j} \: | \: w_t)\).</p>
 
@@ -364,11 +371,11 @@ This first post lays the foundations by presenting current word embeddings based
 
 <p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top e_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top e_{w_i}})} \).</p>
 
-<p>Instead of computing the probability of the target word \( w_t \) given its previous words, we calculate the probability of the surrounding word \( w_{t+j} \) given \( w_t \). We can thus simply replace these probabilities in the equation:</p>
+<p>Instead of computing the probability of the target word \( w_t \) given its previous words, we calculate the probability of the surrounding word \( w_{t+j} \) given \( w_t \). We can thus simply replace these variables in the equation:</p>
 
 <p>\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({h^\top e_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({h^\top e_{w_i}})} \).</p>
 
-<p>As the skip-gram architecture does not contain a hidden layer that produces an intermediate state vector \(h\), \(h\) is simply the word embedding of the input word \(w_t\), which we will refer to as \(v_{w_t}\). This also makes it clearer why we want to have different representations for input and output embeddings, as we would otherwise multiply the word embedding by itself. Replacing \(h \) with \(v_{w_t}\) yields:</p>
+<p>As the skip-gram architecture does not contain a hidden layer that produces an intermediate state vector \(h\), \(h\) is simply the word embedding of the input word \(w_t\), which we will refer to as \(v_{w_t}\). This also makes it clearer why we want to have different representations for input embeddings \(v_w\) and output embeddings \(e_w\), as we would otherwise multiply the word embedding by itself. Replacing \(h \) with \(v_{w_t}\) yields:</p>
 
 <p>\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({v^\top_{w_t} e_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({v^\top_{w_t} e_{w_i}})} \).</p>
 
@@ -390,13 +397,15 @@ This first post lays the foundations by presenting current word embeddings based
 
 <li class="footnote" id="fn:3"><p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS, 1–9. <a href="index.html#fnref:3" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:4"><p>Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., &amp; Kuksa, P. (2011). Natural Language Processing (almost) from Scratch. Journal of Machine Learning Research, 12 (Aug), 2493–2537. Retrieved from <a href="http://arxiv.org/abs/1103.0398">http://arxiv.org/abs/1103.0398</a> <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:4"><p>Collobert, R., &amp; Weston, J. (2008). A unified architecture for natural language processing. Proceedings of the 25th International Conference on Machine Learning - ICML ’08, 20(1), 160–167. <a href="http://doi.org/10.1145/1390156.1390177">http://doi.org/10.1145/1390156.1390177</a> <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
 
 <li class="footnote" id="fn:5"><p>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. <a href="http://doi.org/10.3115/v1/D14-1162">http://doi.org/10.3115/v1/D14-1162</a> <a href="index.html#fnref:5" title="return to article">↩</a></p></li>
 
 <li class="footnote" id="fn:6"><p>Kim, Y., Jernite, Y., Sontag, D., &amp; Rush, A. M. (2016). Character-Aware Neural Language Models. AAAI. Retrieved from <a href="http://arxiv.org/abs/1508.06615">http://arxiv.org/abs/1508.06615</a> <a href="index.html#fnref:6" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:7"><p>Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. Retrieved from <a href="http://arxiv.org/abs/1602.02410">http://arxiv.org/abs/1602.02410</a> <a href="index.html#fnref:7" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:7"><p>Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. Retrieved from <a href="http://arxiv.org/abs/1602.02410">http://arxiv.org/abs/1602.02410</a> <a href="index.html#fnref:7" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:8"><p>Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., &amp; Kuksa, P. (2011). Natural Language Processing (almost) from Scratch. Journal of Machine Learning Research, 12 (Aug), 2493–2537. Retrieved from <a href="http://arxiv.org/abs/1103.0398">http://arxiv.org/abs/1103.0398</a> <a href="index.html#fnref:8" title="return to article">↩</a></p></li></ol></div>
     </div>
 
     <div class="post related">
