@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-1/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" />
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-04-11T20:44:02.568Z" />
+    <meta property="article:modified_time" content="2016-04-16T11:44:56.443Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     
@@ -68,7 +68,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "u=http://sebastianruder.com/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2016-04-11T20:44:02.568Z",
+    "dateModified": "2016-04-16T11:44:56.443Z",
     "image": "u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png",
     "keywords": "deep learning, word embeddings",
     "description": "The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research."
@@ -259,7 +259,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 
 <p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
 
-<p>The inner product \( h^\top e_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).</p>
+<p>The inner product \( h^\top v'_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).</p>
 
 <figure>  
       <img src="../content/images/2016/04/nn_language_model-1.jpg" style="width: 80%; height: 80%" title="SGD without momentum">
