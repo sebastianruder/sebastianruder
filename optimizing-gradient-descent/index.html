@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2016-03-03T15:24:09.098Z" />
+    <meta property="article:modified_time" content="2016-04-25T16:39:50.941Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2016-03-03T15:24:09.098Z",
+    "dateModified": "2016-04-25T16:39:50.941Z",
     "image": "u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -462,9 +462,9 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>They then use these to update the parameters just as we have seen in Adadelta and RMSprop, which yields the Adam update rule:</p>
 
-<p>\(\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{\hat{v}_t + \epsilon}} \hat{m}_t\).</p>
+<p>\(\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t\).</p>
 
-<p>They propose default values of 0.9 for \(\beta_1\), 0.999 for \(\beta_2\), and \(10^{-8}\) for \(\epsilon\). They show empirically that Adam works well in practice and compares favorably to other adaptive learning-method algorithms.</p>
+<p>The authors propose default values of 0.9 for \(\beta_1\), 0.999 for \(\beta_2\), and \(10^{-8}\) for \(\epsilon\). They show empirically that Adam works well in practice and compares favorably to other adaptive learning-method algorithms.</p>
 
 <h2 id="visualizationofalgorithms">Visualization of algorithms</h2>
 
@@ -520,7 +520,8 @@ SGD by itself is inherently sequential: Step-by-step, we progress further toward
 
 <h2 id="tensorflow">TensorFlow</h2>
 
-<p><a href="https://www.tensorflow.org/">TensorFlow</a> [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] is Google's recently open-sourced framework for the implementation and deployment of large-scale machine learning models. It is based on their experience with DistBelief and is already used internally to perform computations on a large range of mobile devices as well as on large-scale distributed systems. For distributed execution, a computation graph is split into a subgraph for every device and communication takes place using Send/Receive node pairs. However, the open source version of TensorFlow currently does not support distributed functionality (see <a href="https://github.com/tensorflow/tensorflow/issues/23">here</a>).</p>
+<p><a href="https://www.tensorflow.org/">TensorFlow</a> [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] is Google's recently open-sourced framework for the implementation and deployment of large-scale machine learning models. It is based on their experience with DistBelief and is already used internally to perform computations on a large range of mobile devices as well as on large-scale distributed systems. For distributed execution, a computation graph is split into a subgraph for every device and communication takes place using Send/Receive node pairs. However, the open source version of TensorFlow currently does not support distributed functionality (see <a href="https://github.com/tensorflow/tensorflow/issues/23">here</a>).
+Update 13.04.16: A distributed version of TensorFlow has <a href="http://googleresearch.blogspot.ie/2016/04/announcing-tensorflow-08-now-with.html">been released</a>.</p>
 
 <h2 id="elasticaveragingsgd"> Elastic Averaging SGD</h2>
 
@@ -536,7 +537,7 @@ SGD by itself is inherently sequential: Step-by-step, we progress further toward
 
 <p>On the other hand, for some cases where we aim to solve progressively harder problems, supplying the training examples in a meaningful order may actually lead to improved performance and better convergence. The method for establishing this meaningful order is called Curriculum Learning [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>]. </p>
 
-<p>Zaremba and Sutskever [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>] were only able to train LSTMs to evaluate simple programs using Curriculum Learning and show that a combined or mixed strategy is better than the naive one, which shorts examples by increasing difficulty.</p>
+<p>Zaremba and Sutskever [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>] were only able to train LSTMs to evaluate simple programs using Curriculum Learning and show that a combined or mixed strategy is better than the naive one, which sorts examples by increasing difficulty.</p>
 
 <h2 id="batchnormalization">Batch normalization</h2>
 
@@ -583,7 +584,7 @@ SGD by itself is inherently sequential: Step-by-step, we progress further toward
 <li class="footnote" id="fn:9"><p>Sutskever, I. (2013). Training Recurrent neural Networks. PhD Thesis. <a href="index.html#fnref:9" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:10"><p>Darken, C., Chang, J., &amp; Moody, J. (1992). Learning rate schedules for faster stochastic gradient search. Neural Networks for Signal Processing II Proceedings of the 1992 IEEE Workshop, (September), 1–11. <a href="http://doi.org/10.1109/NNSP.1992.253713">http://doi.org/10.1109/NNSP.1992.253713</a> <a href="index.html#fnref:10" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:11"><p>H. Robinds and S. Monro, “A stochastic approximation method,” Annals of Mathematical Statistics, vol. 22, pp. 400–407, 1951. <a href="index.html#fnref:11" title="return to article">↩</a></p></li>
-<li class="footnote" id="fn:12"><p>Mcmahan, H. B., &amp; Streeter, M. (2014). Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. Advances in Neural Information Processing Systems (Proceedings of NIPS), 1–9. <a href="index.html#fnref:12" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:12"><p>Mcmahan, H. B., &amp; Streeter, M. (2014). Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. Advances in Neural Information Processing Systems (Proceedings of NIPS), 1–9. Retrieved from <a href="http://papers.nips.cc/paper/5242-delay-tolerant-algorithms-for-asynchronous-distributed-online-learning.pdf">http://papers.nips.cc/paper/5242-delay-tolerant-algorithms-for-asynchronous-distributed-online-learning.pdf</a> <a href="index.html#fnref:12" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:13"><p>Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., … Zheng, X. (2015). TensorFlow : Large-Scale Machine Learning on Heterogeneous Distributed Systems. <a href="index.html#fnref:13" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:14"><p>Zhang, S., Choromanska, A., &amp; LeCun, Y. (2015). Deep learning with Elastic Averaging SGD. Neural Information Processing Systems Conference (NIPS 2015), 1–24. Retrieved from <a href="http://arxiv.org/abs/1412.6651">http://arxiv.org/abs/1412.6651</a> <a href="index.html#fnref:14" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:15"><p>Kingma, D. P., &amp; Ba, J. L. (2015). Adam: a Method for Stochastic Optimization. International Conference on Learning Representations, 1–13. <a href="index.html#fnref:15" title="return to article">↩</a></p></li>
