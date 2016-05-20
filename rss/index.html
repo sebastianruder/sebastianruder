@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a researcher at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 25 Apr 2016 16:40:08 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[On word embeddings - Part 1]]></title><description><![CDATA[The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research.]]></description><link>http://sebastianruder.com/word-embeddings-1/</link><guid isPermaLink="false">4c791259-51e7-4e35-a5b4-a588296a9de3</guid><category><![CDATA[deep learning]]></category><category><![CDATA[word embeddings]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 11 Apr 2016 14:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" alt="On word embeddings - Part 1"><p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 20 May 2016 07:39:37 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[On word embeddings - Part 1]]></title><description><![CDATA[The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research.]]></description><link>http://sebastianruder.com/word-embeddings-1/</link><guid isPermaLink="false">4c791259-51e7-4e35-a5b4-a588296a9de3</guid><category><![CDATA[deep learning]]></category><category><![CDATA[word embeddings]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 11 Apr 2016 14:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" alt="On word embeddings - Part 1"><p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/word-embeddings-1/#abriefhistoryofwordembeddings">A brief history of word embeddings</a></li>
@@ -26,7 +26,7 @@ This first post lays the foundations by presenting current word embeddings based
 
 <p>Since the 1990s, vector space models have been used in distributional semantics. During this time, many models for estimating continuous representations of words have been developed, including Latent Semantic Analysis (LSA) and Latent Dirichlet Allocation (LDA). Have a look at <a href="https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/">this blog post</a> for a more detailed overview of distributional semantics history in the context of word embeddings.</p>
 
-<p>Bengio et al. are the first ones to introduce the concept of word embeddings in 2003, by training them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2008. Their landmark paper <em>A unified architecture for natural language processing</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who created word2vec, a toolkit that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. released GloVe, a competitive set of pre-trained word embeddings, signalling that word embeddings had reached the main stream.</p>
+<p>Bengio et al. coin the term word embeddings in 2003 and train them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2008. Their landmark paper <em>A unified architecture for natural language processing</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who created word2vec, a toolkit that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. released GloVe, a competitive set of pre-trained word embeddings, signalling that word embeddings had reached the main stream.</p>
 
 <p>Word embeddings are one of the few currently successful applications of unsupervised learning. Their main benefit arguably is that they don't require expensive annotation, but can be derived from large unannotated corpora that are readily available. Pre-trained embeddings can then be used in downstream tasks that use small amounts of labeled data.</p>
 
@@ -398,13 +398,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>In its update rule, Adagrad modifies the general learning rate \(\eta\) at each time step \(t\) for every parameter \(\theta_i\) based on the past gradients that have been computed for \(\theta_i\):</p>
 
-<p>\(\theta_{t+1, i} = \theta_{t, i} - \frac{\eta}{\sqrt{G_{t, ii} + \epsilon}} \cdot g_{t, i}\).</p>
+<p>\(\theta_{t+1, i} = \theta_{t, i} - \dfrac{\eta}{\sqrt{G_{t, ii} + \epsilon}} \cdot g_{t, i}\).</p>
 
 <p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) <sup id="fnref:24"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:24" rel="footnote">24</a></sup>, while \(\epsilon\) is a smoothing term that avoids division by zero (usually on the order of \(1e-8\)). Interestingly, without the square root operation, the algorithm performs much worse.</p>
 
 <p>As \(G_{t}\) contains the sum of the squares of the past gradients w.r.t. to all parameters \(\theta\) along its diagonal, we can now vectorize our implementation by performing an element-wise matrix-vector multiplication \(\odot\) between \(G_{t}\) and \(g_{t}\):</p>
 
-<p>\(\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{G_{t} + \epsilon}} \odot g_{t}\).</p>
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{G_{t} + \epsilon}} \odot g_{t}\).</p>
 
 <p>One of Adagrad's main benefits is that it eliminates the need to manually tune the learning rate. Most implementations use a default value of 0.01 and leave it at that.</p>
 
@@ -426,15 +426,15 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>The parameter update vector of Adagrad that we derived previously thus takes the form:</p>
 
-<p>\( \Delta \theta_t = - \frac{\eta}{\sqrt{G_{t} + \epsilon}} \odot g_{t}\).</p>
+<p>\( \Delta \theta_t = - \dfrac{\eta}{\sqrt{G_{t} + \epsilon}} \odot g_{t}\).</p>
 
 <p>We now simply replace the diagonal matrix \(G_{t}\) with the decaying average over past squared gradients \(E[g^2]_t\):</p>
 
-<p>\( \Delta \theta_t = - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}\).</p>
+<p>\( \Delta \theta_t = - \dfrac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}\).</p>
 
 <p>As the denominator is just the root mean squared (RMS) error criterion of the gradient, we can replace it with the criterion short-hand:</p>
 
-<p>\( \Delta \theta_t = - \frac{\eta}{RMS[g]_{t}}\).</p>
+<p>\( \Delta \theta_t = - \dfrac{\eta}{RMS[g]_{t}}\).</p>
 
 <p>The authors note that the units in this update (as well as in SGD, Momentum, or Adagrad) do not match, i.e. the update should have the same hypothetical units as the parameter. To realize this, they first define another exponentially decaying average, this time not of squared gradients but of squared parameter updates:</p>
 
@@ -444,9 +444,9 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>\(RMS[\Delta \theta]_{t} = \sqrt{E[\Delta \theta^2]_t + \epsilon} \).</p>
 
-<p>Replacing the learning rate \(\eta \) in the previous update rule with the RMS of parameter updates finally yields the Adadelta update rule:</p>
+<p>Replacing the learning rate \(\eta \) in the previous update rule with the RMS of parameter updates until the previous time step (since \(RMS[\Delta \theta]_{t-1}\) is unknown) finally yields the Adadelta update rule:</p>
 
-<p>\( \Delta \theta_t = - \frac{RMS[\Delta \theta]_{t}}{RMS[g]_{t}} g_{t}\).</p>
+<p>\( \Delta \theta_t = - \dfrac{RMS[\Delta \theta]_{t-1}}{RMS[g]_{t}} g_{t}\).</p>
 
 <p>\(\theta_{t+1} = \theta_t + \Delta \theta_t \).</p>
 
@@ -460,7 +460,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>\(E[g^2]_t = 0.9 E[g^2]_{t-1} + 0.1 g^2_t \).</p>
 
-<p>\(\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}\).</p>
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}\).</p>
 
 <p>RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests \(\gamma\) to be set to 0.9, while a good default value for the learning rate \(\eta\) is 0.001.</p>
 
@@ -476,13 +476,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>They counteract these biases by computing bias-corrected first and second moment estimates:</p>
 
-<p>\(\hat{m}_t = \frac{m_t}{1 - \beta^t_1} \).</p>
+<p>\(\hat{m}_t = \dfrac{m_t}{1 - \beta^t_1} \).</p>
 
-<p>\(\hat{v}_t = \frac{v_t}{1 - \beta^t_2} \).</p>
+<p>\(\hat{v}_t = \dfrac{v_t}{1 - \beta^t_2} \).</p>
 
 <p>They then use these to update the parameters just as we have seen in Adadelta and RMSprop, which yields the Adam update rule:</p>
 
-<p>\(\theta_{t+1} = \theta_{t} - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t\).</p>
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t\).</p>
 
 <p>The authors propose default values of 0.9 for \(\beta_1\), 0.999 for \(\beta_2\), and \(10^{-8}\) for \(\epsilon\). They show empirically that Adam works well in practice and compares favorably to other adaptive learning-method algorithms.</p>
 
@@ -571,13 +571,13 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
 <h2 id="gradientnoise">Gradient noise</h2>
 
-<p>Neelakantan et al. [<sup id="fnref:21"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:21" rel="footnote">21</a></sup>] add noise that follows a Gaussian distribution \(N(0, \sigma^2_t\) to each gradient update:</p>
+<p>Neelakantan et al. [<sup id="fnref:21"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:21" rel="footnote">21</a></sup>] add noise that follows a Gaussian distribution \(N(0, \sigma^2_t)\) to each gradient update:</p>
 
 <p>\(g_{t, i} = g_{t, i} + N(0, \sigma^2_t)\).</p>
 
 <p>They anneal the variance according to the following schedule:</p>
 
-<p>\( \sigma^2_t = \frac{\eta}{(1 + t)^\gamma} \).</p>
+<p>\( \sigma^2_t = \dfrac{\eta}{(1 + t)^\gamma} \).</p>
 
 <p>They show that adding this noise makes networks more robust to poor initialization and helps training particularly deep and complex networks. They suspect that the added noise gives the model more chances to escape and find new local minima, which are more frequent for deeper models.</p>
 
