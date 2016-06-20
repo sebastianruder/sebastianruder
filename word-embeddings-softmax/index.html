@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=c2bb53acc0" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=bae5a0906f" />
     <link rel="canonical" href="http://sebastianruder.com/word-embeddings-softmax/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-softmax/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" />
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-06-13T15:53:16.837Z" />
+    <meta property="article:modified_time" content="2016-06-20T15:03:43.402Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="softmax" />
@@ -69,7 +69,7 @@
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "u=http://sebastianruder.com/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
-    "dateModified": "2016-06-13T15:53:16.837Z",
+    "dateModified": "2016-06-20T15:03:43.402Z",
     "image": "u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png",
     "keywords": "deep learning, word embeddings, softmax",
     "description": "This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings."
@@ -332,7 +332,7 @@ During training, we aim to minimize the cross-entropy loss of our model for ever
 
 <p>\(J_\theta = - \: \text{log} \: \dfrac{\text{exp}({h^\top v'_{w}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
 
-<p>Note that in practice \(J_\theta\) would be the average of all negative log-probabilities over the whole corpus. To facilitate the derivation, we decompose \(J_\theta \) into a sum as \(\text{log} \: \dfrac{x}{y} = \text{log} \: x + \text{log} \: y \): </p>
+<p>Note that in practice \(J_\theta\) would be the average of all negative log-probabilities over the whole corpus. To facilitate the derivation, we decompose \(J_\theta \) into a sum as \(\text{log} \: \dfrac{x}{y} = \text{log} \: x - \text{log} \: y \): </p>
 
 <p>\(J_\theta = - \: h^\top v'_{w} + \text{log} \sum_{w_i \in V} \text{exp}(h^\top v'_{w_i}) \)</p>
 
@@ -681,6 +681,8 @@ Mnih and Teh (2012) and Vaswani et al. [<sup id="fnref:20"><a href="index.html#f
 <p>As it always is, there is no clear winner that beats all other approaches on all datasets or tasks. For language modelling, the regular softmax still achieves very good performance on small vocabulary datasets, such as the Penn Treebank, and even performs well on medium datasets, such as Gigaword, but does very poorly on large vocabulary datasets, e.g. the 1B Word Benchmark. Target Sampling, Hierarchical Softmax, and Infrequent Normalisation in turn do better with large vocabularies. <br />
 Differentiated Softmax generally does well for both small and large vocabularies and is the only approach that ensures a speed-up at test time. Interestingly, Hierarchical Softmax (HS) performs very poorly with small vocabularies. However, of all methods, HS is the fastest and processes most training examples in a given time frame. While NCE performs well with large vocabularies, it is generally worse than the other methods. Negative Sampling does not work well for language modelling, but it is generally superior for learning word representations, as attested by word2vec's success. Note that all results should be taken with a grain of salt: Chen et al. (2015) report having difficulties using Noise Contrastive Estimation in practice; Kim et al. (2016) use Hierarchical Softmax to achieve state-of-the-art with a small vocabulary, while Importance Sampling is used by the state-of-the-art language model by Jozefowicz et al. (2016) on a dataset with a large vocabulary.</p>
 
+<p>Finally, if you are looking to actually use the described methods, TensorFlow has <a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#candidate-sampling">implementations</a> for a few sampling-based approaches and also explains the differences between some of them <a href="https://www.tensorflow.org/extras/candidate_sampling.pdf">here</a>.</p>
+
 <h1 id="conclusion">Conclusion</h1>
 
 <p>This overview of different methods to approximate the softmax attempted to provide you with intuitions that can not only be applied to improve and speed-up learning word representations, but are also relevant for language modelling and machine translation. As we have seen, most of these approaches are closely related and are driven by one uniting factor: the necessity to approximate the expensive normalisation in the denominator of the softmax. With these approaches in mind, I hope you feel now better equipped to train and understand your models and that you might even feel ready to work on learning better word representations yourself.</p>
@@ -773,7 +775,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=c2bb53acc0" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=bae5a0906f" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
