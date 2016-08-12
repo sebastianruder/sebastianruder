@@ -1,4 +1,264 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 10 Aug 2016 09:02:30 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[On word embeddings - Part 2: Approximating the Softmax]]></title><description><![CDATA[This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings.]]></description><link>http://sebastianruder.com/word-embeddings-softmax/</link><guid isPermaLink="false">23b4d38f-dfda-4cbd-949b-7978ab56090e</guid><category><![CDATA[deep learning]]></category><category><![CDATA[word embeddings]]></category><category><![CDATA[softmax]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 13 Jun 2016 10:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" alt="On word embeddings - Part 2: Approximating the Softmax"><p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 12 Aug 2016 18:06:29 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Lisbon Machine Learning Summer School Highlights]]></title><description><![CDATA[<p>Table of contents:</p>
+
+<ul>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#sequencemodels">Sequence Models</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#machinetranslation">Machine Translation</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#structuredprediction">Structured Prediction</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#crfsvsmemms">CRFs vs. MEMMs</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#hmmsvscrfs">HMMs vs. CRFs</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#structuredpredictioninnlpwithimitationlearning">Structured Prediction in NLP with Imitation Learning</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#demoday">Demo Day</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#syntaxandparsing">Syntax and Parsing</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#fromdependenciestoconstituents">From Dependencies to Constituents</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#deeplearning">Deep Learning</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#explodingvanishinggradients">Exploding / vanishing gradients</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#deeplstms">Deep LSTMs</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#doesdepthmatter">Does Depth Matter?</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#minibatching">Mini-batching</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#characterbasedmodels">Character-based models</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#attention">Attention</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#memorynetworksforlanguageunderstanding">Memory Networks for Language Understanding</a></li></ul></li></ul>]]></description><link>http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/</link><guid isPermaLink="false">9e99b979-1000-4ae9-b85d-88cd01bc95c0</guid><category><![CDATA[deep learning]]></category><category><![CDATA[natural language processing]]></category><category><![CDATA[nlp]]></category><category><![CDATA[machine learning]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Fri, 12 Aug 2016 09:52:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/08/group_picture-1.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/08/group_picture-1.jpg" alt="Lisbon Machine Learning Summer School Highlights"><p>Table of contents:</p>
+
+<ul>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#sequencemodels">Sequence Models</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#machinetranslation">Machine Translation</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#structuredprediction">Structured Prediction</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#crfsvsmemms">CRFs vs. MEMMs</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#hmmsvscrfs">HMMs vs. CRFs</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#structuredpredictioninnlpwithimitationlearning">Structured Prediction in NLP with Imitation Learning</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#demoday">Demo Day</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#syntaxandparsing">Syntax and Parsing</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#fromdependenciestoconstituents">From Dependencies to Constituents</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#deeplearning">Deep Learning</a>
+<ul><li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#explodingvanishinggradients">Exploding / vanishing gradients</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#deeplstms">Deep LSTMs</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#doesdepthmatter">Does Depth Matter?</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#minibatching">Mini-batching</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#characterbasedmodels">Character-based models</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#attention">Attention</a></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#memorynetworksforlanguageunderstanding">Memory Networks for Language Understanding</a></li></ul></li>
+<li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#slides">Slides</a></li>
+</ul>
+
+<p>From July 20th to July 28th 2016, I had the opportunity of  attending the 6th Lisbon Machine Learning School. <a href="http://lxmls.it.pt/2016/">The Lisbon Machine Learning School (LxMLS)</a> is an annual event that brings together researchers and graduate students in the fields of NLP and Computational Linguistics, computer scientists with an interest in statistics and ML, and industry practitioners with a desire for a more in-depth understanding. <br>
+Participants had a chance to join workshops and labs, where they got hands-on experience with building and exploring state-of-the-art deep learning models, as well as to attend talks and speeches by prominent deep learning and NLP researchers from a variety of academic and industrial organisations. You can find the entire programme <a href="http://lxmls.it.pt/2016/?page_id=64">here</a>.</p>
+
+<p>In this blog post, I am going to share some of the highlights, key insights and takeaways of the summer school. I am going to skip the lectures of the first and second day as they introduce basic Python, Linear Algebra, and Probability Theory concepts and focus on the later lectures and talks. First, we are going to talk about sequence models. We will then turn to structured prediction, a type of supervised ML common to NLP. We will then summarize the lecture on Syntax and Parsing and finally provide insights with regard to Deep Learning. The accompanying slides can be found <a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#slides">here</a>.</p>
+
+<p><strong>Disclaimer</strong>: This blog post is not meant to give a comprehensive introduction of each of the topics discussed; it should rather give you an overview of the week-long event and provide you with pointers if you want to delve deeper into any of the topics.</p>
+
+<p><strong>Note</strong>: This blog post also appeared at the <a href="http://blog.aylien.com/">AYLIEN blog</a> <a href="http://blog.aylien.com/lisbon-machine-learning-summer-school-highlights/">here</a>.</p>
+
+<h1 id="sequencemodels">Sequence Models</h1>
+
+<p><a href="http://homes.cs.washington.edu/~nasmith/">Noah Smith</a> of the University Washington kicked off the third day of the summer school with a compelling lecture about sequence models.
+To test your understanding of sequence models, try to answer -- without reading further -- the following question: What is the most basic sequence model depicted in Figure 1?</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/bag_of_words.png" style="width: 50%; height: 50%" title="Bag-of-words model" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 1: The most basic sequence model</figcaption>  
+</figure>
+
+<p>Correct! It is the bag-of-words (notice which words have "fallen" out of the bag-of-words). The bag-of-words model makes the strongest independence assumption of all sequence models: It supposes that each word is entirely independent of its predecessors. It is obvious why models that rely on this assumption do only a poor job at modelling language: every word naturally depends on the words that have preceded it.</p>
+
+<p>Somewhat more sophisticated models thus relax this naive assumption to reduce the entropy: A 1st Order Markov model makes each word dependent on the word that immediately preceded it. This way, it is already able to capture some context of the context that can help to disambiguate a new word. More generally, \(m^{\text{th}}\) Order Markov Models make each word depend on its previous \(m\) words.</p>
+
+<p>In mathematical terms, in \(m^{\text{th}}\) Order Markov Models, the probability of a text sequence (we assume here that such a sequence is delimited by start and stop symbols) can be calculated using the chain rule as the product of the probabilities of the individual words:</p>
+
+<p>\(p(\text{start}, w_1, w_2, ..., w_n, \text{stop}) = \prod\limits_{i=1}^{n+1} \gamma (w_i \: | \: w_{i-m}, ..., w_{i-1}) \)</p>
+
+<p>where \(\gamma\) is the probability of the current word \(w_i\) given its \(m\) previous words, i.e. the probability to transition from the previous words to the current word.</p>
+
+<p>We can view bag-of-words and \(m^{\text{th}}\) Order Markov Models as occupying the following spectrum:</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%; height: 80%" title="From bag-of-words to history-based models" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 2: From bag-of-words to history-based models</figcaption>  
+</figure>
+
+<p>As we go right in Figure 2, we make weaker independence assumption and in exchange gain richer expressive power, while requiring more parameters -- until we eventually obtain the most expressive -- and most rigid -- model, a history-based model where each word depends on its entire history, i.e. all preceding words.</p>
+
+<p>As a side-note, state-of-the-art sequence modelling models such as recurrent neural networks and LSTMs can be thought of as being located on the right side of this spectrum, as they don't require an explicit specification of context words but are -- theoretically -- able to take into account the entire history.</p>
+
+<p>In many cases, we would not only like to model just the observed sequence of symbols, but take some additional information into account. Hidden Markov Models (HMMs) allow us to associate with each symbol \(w_i\) some missing information, its "state" \(s_i\). The probability of a word sequence in an HMM then not only depends on the transition probability \(\gamma\) but also on the so-called emission probability \(\eta\):</p>
+
+<p>\(p(\text{start}, w_1, w_2, ..., w_n, \text{stop}) = \prod\limits_{i=1}^{n+1} \eta (w_i \: | \: s_i) \: \gamma (s_i \: | \: s_{i-1}) \)</p>
+
+<p>Consequently, the HMM is a joint model over observable symbols and hidden/latent/unknown classes. HMMs have traditionally been used in part-of-speech tagging or named entity recognition where the hidden states are POS and NER tags respectively.</p>
+
+<p>If we want to determine the most probable sequence of hidden states, we face a space of potential sequences that grows exponentially with the sequence length. The classic dynamic algorithm to cope with this problem is the Viterbi algorithm, which is used in HMMs, CRFs, and other sequence models to calculate the most probable sequence of hidden states: It lays out the symbol sequence and all possible states in a grid and proceeds left-to-right to compute the maximum probability to transition in every new state given the previous states. The most probable sequence can then be found by back-tracking as in Figure 3.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/viterbi.png" style="width: 70%; height: 70%" title="Viterbi algorithm" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 3: The Viterbi algorithm</figcaption>  
+</figure>
+
+<p>A close relative is the forward-backward algorithm, which is used to calculate the probability of a word sequence and the probabilities of each word's states, e.g. for language modelling. Indeed, the only difference between Viterbi and the forward-backward algorithm is that Viterbi takes the maximum of the probabilities of the previous state, while forward-backward takes the sum. In this sense, they correspond to the same abstract algorithm, which is instantiated in two different semirings where a semiring informally is a set of values and some operations that obey certain properties.</p>
+
+<p>Finally, if we want to learn HMMs in an unsupervised way, we use the well-known Expectation Maximisation (EM) algorithm, which consists of two steps: During the E step, we calculate the probability of each possible transition and emission at every position with forward-backward (or Viterbi for "hard" EM); for the M step, we re-estimate the parameters with MLE.</p>
+
+<h2 id="machinetranslation">Machine Translation</h2>
+
+<p>On the evening of the third day, Philipp Koehn, one of the pioneers of MT and inventor of phrase-based machine translation gave a talk on Machine Translation as Sequence Modelling, including a detailed review of different MT and alignment approaches. If you are interested in a comprehensive history of MT that takes you from IBM Model 1 all the way to phrase-based, syntax-based and eventually neural MT, while delving into the details of alignment, translation, and decoding, definitely check out the slides <a href="http://lxmls.it.pt/2016/talk.pdf">here</a>. </p>
+
+<h1 id="structuredprediction"> Structured Prediction</h1>
+
+<p>HMMs can model sequences, but as their weights are tied to the generative process, strong independence assumptions need to be made to make their computation tractable. We will now turn to a category of models that are more expressive and can be used to predict more complex structures: Structured prediction -- which was introduced by Xavier Carreras of Xerox Research on the morning of the fourth day -- is used to refer to ML algorithms that don’t just predict scalar or real values, but more complex structures. As complex structures are common in language, so is structured prediction; example tasks of structured prediction in NLP include POS tagging, named entity recognition, machine translation, parsing, and many others.</p>
+
+<p>A successful category of structured prediction models are log-linear models, which are so-called because they model log-probabilities using a linear predictor. Such models try to estimate the parameters \(w\) by calculating the following probability:</p>
+
+<p>\(\text{log} \: \text{Pr}(\mathbf{y} \: | \: \mathbf{x}; \mathbf{w}) = \text{log} \: \dfrac{\text{exp}\{\mathbf{w} \cdot \mathbf{f}(\mathbf{x},\mathbf{y})\}}{Z(\mathbf{x};\mathbf{w})}\)</p>
+
+<p>where \(\mathbf{x} = x_1, x_2, ..., x_n \in \mathcal{X}\) is the sequence of symbols, \(\mathbf{y} = y_1, y_2, ..., y_n \in \mathcal{Y}\) is the corresponding sequence of labels, \(\mathbf{f}(\mathbf{x},\mathbf{y})\) is a feature representation of \(\mathbf{x}\) and \(\mathbf{y}\), and \(Z(\mathbf{x};\mathbf{w}) = \sum\limits_{\mathbf{y}' \in \mathcal{Y}} \text{exp}(\mathbf{w} \cdot \mathbf{f}(\mathbf{x},\mathbf{y}')) \) is also referred to as the partition function.</p>
+
+<p>Two approaches that can be used to estimate the model parameters \(w\) are:</p>
+
+<ol>
+<li>Maximum Entropy Markov Models (MEMMs), which assume that \(\text{Pr}(\mathbf{y} \: | \: \mathbf{x}; \mathbf{w})\) decomposes, i.e. that we can express it as a product of the individual label probabilities that only depend on the previous label (similar to HMMs).  </li>
+<li>Conditional Random Fields (CRFs), which make a weaker assumption by only assuming that \(\mathbf{f}(\mathbf{x},\mathbf{y})\) decomposes.</li>
+</ol>
+
+<p>In MEMMs, we assume -- similarly to Markov Models -- that the label \(y_i\) at does not depend on <em>all</em> past labels, but only on the previous label \(y_{i-1}\). In contrast to Markov Models, MEMMs allow us to condition the label \(y_i\) on the entire symbol sequence \(x_{1:n}\). Both assumptions combined lead to the following probability of label \(y_i\) in MEMMs:</p>
+
+<p>\(\text{Pr}(y_i \: | \: x_{1:n}, y_{1:i-1}) = \text{Pr}(y_i \: | \: x_{1:n}, y_{i-1})\)</p>
+
+<p>By this formulation, the objective of MEMMs reduces sequence modelling to multi-class logistic regression.</p>
+
+<p>In CRFs, we factorize on label bigrams. Instead of greedily predicting the most probable label \(y_i\) at every position \(i\), we instead aim to find the sequence of labels with the maximum probability:</p>
+
+<p>\(\underset{y \in \mathcal{Y}}{\text{argmax}} \sum_i \mathbf{w} \cdot \mathbf{f}(\mathbf{x}, i, y_{i-1}, y_i)\)</p>
+
+<p>We then estimate the parameters \(w\) of our model using gradient-based methods where we can use forward-backward to compute the gradient.</p>
+
+<h2 id="crfsvsmemms">CRFs vs. MEMMs</h2>
+
+<p>By choosing between MEMMs and CRFs, we make the choice between local and global normalisation. While MEMMs aim to predict the most probable label at every position, CRFs aim to find the most probable label sequence. This, however, leads to the so-called "Label Bias Problem" in MEMMs: As MEMMs choose the label with the highest probability, the model is biased towards more frequent labels, often irrespective of the local context.</p>
+
+<p>As MEMMs reduce to multi-class classification, they are cheaper to train. On the other hand, CRFs are more flexible and thus easier to extend to more complex structures.</p>
+
+<p>This distinction between local and global normalisation has been a recurring topic in sequence modelling and a key criterion when choosing an algorithm. For text generation tasks, global normalisation is still too expensive, however. Many state-of-the-art approaches thus employ beam search as a compromise between local and global normalisation. In most sequence modelling tasks, local normalisation is very popular due to its ease of use, but might fall out of favour as more advanced models and implementations for global normalisation become available. To this effect, a recent outstanding paper at ACL <a href="https://arxiv.org/abs/1603.06042">(Andor et al., 2016)</a> shows that globally normalised models are strictly more expressive than locally normalised ones.</p>
+
+<h2 id="hmmsvscrfs"> HMMs vs. CRFs</h2>
+
+<p>Another distinction that is worth investigating is the difference between generative and discriminative models: HMMs are generative models, while CRFs are discriminative. HMMs only take into account the previous word as its features are tied to the generative process. In contrast, CRF features are very flexible. They can look at the whole input \(x\) paired with a label bigram \((y_i , y_{i+1})\). In practice, for prediction tasks, such “good” discriminative features can improve accuracy a lot.</p>
+
+<p>Regarding the parameter estimation, the distinction between generative and discriminative becomes apparent: HMMs focus on explaining the data, both \(x\) and \(y\), while CRFs focus on the mapping from \(x\) to \(y\). Which model is more appropriate depends on the task: CRFs are commonly used in tasks such as POS tagging and NER, while HMMs have traditionally lain at the heart of speech recognition.</p>
+
+<h2 id="structuredpredictioninnlpwithimitationlearning">Structured Prediction in NLP with Imitation Learning</h2>
+
+<p><a href="http://andreasvlachos.github.io/">Andreas Vlachos</a> of the University of Sheffield gave a talk on using imitation learning for structured prediction in NLP, which followed the same distinction between local normalisation (aka incremental modelling), i.e. greedily predicting one label at a time and global normalisation (aka joint modelling), i.e. scoring the complete outputs with a CRF that we discussed above. Andreas talked about how imitation learning can be used to improve incremental modelling as it allows to a) explore the search space, b) to address error-propagation, and c) to train with regard to the task-level loss function.</p>
+
+<p>There are many popular imitation learning algorithms in the literature such as <a href="http://www.umiacs.umd.edu/~hal/docs/daume09searn.pdf">SEARN (Daumé III et al., 2009)</a>, <a href="https://www.ri.cmu.edu/pub_files/2011/4/Ross-AISTATS11-NoRegret.pdf">Dagger (Ross et al. 2011)</a>, or <a href="http://www.aclweb.org/anthology/Q14-1042">V-DAgger (Vlachos and Clark, 2014)</a>. Recently, <a href="http://www.aclweb.org/anthology/Q14-1042">MIXER (Ranzato et al., 2016)</a> has been proposed to directly optimise metrics for text generation, such as BLEU or ROUGE.</p>
+
+<p>An interesting perspective is that imitation learning can be seen as inverse reinforcement learning: Whereas we want to learn the best policy in reinforcement learning, we know the optimal policy in imitation learning, i.e. the labels in the training data; we then infer the per-action reward function and learn a policy, i.e. a classifier that can generalise to unseen data.</p>
+
+<h2 id="demoday">Demo Day</h2>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/demo_day.jpg" style="width: 70%; height: 70%" title="Aylien stand at Demo Day" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 4: Aylien stand at Demo Day</figcaption>  
+</figure>
+
+<p>In the evening of the fourth day, we presented -- along with other NLP companies and research labs -- Aylien at the LxMLS Demo Day.</p>
+
+<p>We presented an overview of our research directions at Aylien, as well as a 1D generative adversarial network <a href="http://notebooks.aylien.com/research/gan/gan_simple.html">demo and visualization</a>.</p>
+
+<h1 id="syntaxandparsing">Syntax and Parsing</h1>
+
+<p>Having looked at generic models that are able to cope with sequences and more complex structures, we now briefly mention some of the techniques that are commonly used to deal with one of language’s unique characteristics: syntax. To this end, <a href="http://research.google.com/pubs/author38945.html">Slav Petrov</a> of Google Research gave an in-depth lecture about syntax and parsing on the fifth day of the summer school, which discussed, among others, successful parsers such as the Charniak and the Berkeley parser, context-free grammars and phrase-based parsing, projective and non-projective dependency parsing, as well as more recent transition and graph-based parsers.</p>
+
+<p>To tie this to what we've already discussed, Figure 5 demonstrates how the distinction between generative and discriminative models applies to parsers.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/generative_discriminative.png" style="width: 80%; height: 80%" title="Generative vs. discriminative parsers" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 5: Generative vs. discriminative parsing models</figcaption>  
+</figure>
+
+<h2 id="fromdependenciestoconstituents"> From Dependencies to Constituents</h2>
+
+<p>In the evening of the fifth day, <a href="https://www.cs.cmu.edu/~afm/Home.html">André Martins</a> of Unbabel gave talk a on an <a href="https://www.cs.cmu.edu/~afm/Home_files/acl2015_reduction.pdf">ACL 2015 paper</a> of his, in which he shows that constituent parsing can be reduced to dependency parsing to get the best of both worlds: the informativeness of constituent parser output and the speed of dependency parsers.</p>
+
+<p>Their approach works for any out-of-the-box dependency parser, is competitive for English and morphologically rich languages, and achieves results above the state of the art for discontinuous parsing (where edges are allowed to intersect).</p>
+
+<h1 id="deeplearning">Deep Learning</h1>
+
+<p>Finally, the two last days were dedicated to Deep Learning and featured prolific researchers from academia and industry labs as speakers. On the morning of the sixth day, <a href="http://www.cs.cmu.edu/~lingwang/">Wang Ling</a> of Google DeepMind gave one of the most gentle, family-friendly intro to Deep Learning I've seen -- titled <em>Deep Neural Networks Are Our Friends</em> with a theme inspired by the Muppets.</p>
+
+<p>The evening talk by <a href="http://research.google.com/pubs/OriolVinyals.html">Oriol Vinyals</a> of Google DeepMind detailed some of his lessons learned when working on sequence-to-sequence models at Google and gave glimpses of interesting future challenges, among them, one-shot learning for NLP <a href="http://arxiv.org/abs/1606.04080">(Vinyals et al., 2016)</a> and enabling neural networks to ponder decisions <a href="https://arxiv.org/abs/1603.08983">(Graves, 2016)</a>.</p>
+
+<p>For the lecture on the last day, <a href="http://www.cs.cmu.edu/~cdyer/">Chris Dyer</a> of CMU and Google DeepMind discussed modelling sequential data with recurrent neural networks (RNNs) and shared some insights and intuitions with regard to working with RNNs and LSTMs.</p>
+
+<h2 id="explodingvanishinggradients">Exploding / vanishing gradients</h2>
+
+<p>If you've worked with RNNs before, then you're most likely familiar with the exploding/vanishing gradients problem: As the length of the sequence increases, computations of the model get amplified, which leads to either exploding or vanishing gradients and thus renders the model incapable to learn. The intuition why advanced models such as LSTMs and GRUs mitigate this problem is that they use summations instead of multiplications (which lead to exponential growth).</p>
+
+<h2 id="deeplstms">Deep LSTMs</h2>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/deep_lstms.png" style="width: 80%; height: 80%" title="Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 6: Deep LSTMs</figcaption>  
+</figure>
+
+<p>Deep or stacked LSTMs are by now a very common sight in the literature and state-of-the-art for many sequence modelling problems. Still, descriptions of implementations often omit details, which might be perceived as self-evident. This, however, means that it is not always clear how a model looks like exactly or how it differs from similar architectures. The same applies to Deep LSTMs. The most standard convention feeds the input not only to the first but (via skip connections) also to subsequent layers as in Figure 6. Additionally, dropout is generally applied only between layers and not on the recurrent connections as this would drop out more and more value over time.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%; height: 80%" title="Dropout in Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 7: Dropout in Deep LSTMs</figcaption>  
+</figure>
+
+<h2 id="doesdepthmatter"> Does Depth Matter?</h2>
+
+<p>Generally, depth helps. However, in comparison to other applications such as audio/visual processing, depth plays a less significant role in NLP. Hypotheses for this observation are: a) More transformation is required for speech processing, image recognition etc. than for common text applications; b) Less effort has been made to find good architectures (RNNs are expensive to train; have been widely used for less long); c) Backpropagation through time and depth is hard and we need better optimisers.</p>
+
+<p>Generally, 2-8 layers are standard across text applications. Input skip connections are used often but by no means universally.</p>
+
+<p>Only recently have also very deep architectures been proposed for NLP <a href="http://arxiv.org/abs/1606.01781">(Conneau et al., 2016)</a>.</p>
+
+<h2 id="minibatching"> Mini-batching</h2>
+
+<p>Mini-batching is generally necessary to make use of optimised matrix-matrix multiplication. In practice, however, this usually requires bucketing training instances based on similar lengths and padding with \(0\)'s, which can be a nuisance. Because of this, this is -- according to Chris Dyer -- "the era of assembly language programming for neural networks. Make the future an easier place to program!"</p>
+
+<h2 id="characterbasedmodels"> Character-based models</h2>
+
+<p>Character-based models have gained more popularity recently and for some tasks such as language modelling, using character-based LSTMs blows the results of word-based models out of the water, achieving a significantly lower perplexity with a lot fewer parameters particularly for morphologically rich languages.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/08/char_language_modeling.png" style="width: 80%; height: 80%" title="CharLSTM > Word Lookup" alt="Lisbon Machine Learning Summer School Highlights">
+<figcaption>Figure 8: CharLSTM > Word Lookup</figcaption>  
+</figure>
+
+<h2 id="attention"> Attention</h2>
+
+<p>Finally, no overview of recurrent neural networks is complete without the mention of attention, one of the most influential, recently proposed notions with regard to LSTMs. Attention is closely related to “pooling” operations in convolutional neural networks (and other architectures) as it also allows to selectively focus on particular elements of the input. <br>
+The most popular attention architecture pioneered by Bahdanau et al. <a href="https://arxiv.org/abs/1409.0473">(2015)</a> seems to only care about “content” in that it relies on computing the dot product, i.e. the cosine similarity between vectors. It contains no obvious bias in favor of diagonals, short jumps, fertility, or other structures that might guide actual attention from a psycho-linguistic perspective. <br>
+Some work has begun to add other “structural” biases (<a href="http://arxiv.org/abs/1508.04025">Luong et al., 2015</a>; <a href="https://arxiv.org/abs/1601.01085">Cohn et al., 2016</a>), but there are many more opportunities for research.</p>
+
+<p>Attention is similar to alignment, but there are important differences: a) alignment makes stochastic but hard decisions. Even if the alignment probability distribution is “flat”, the model picks one word or phrase at a time; b) <br>
+in contrast, attention is “soft” (all words are interpolated based on their attention weights). Finally, there is a big difference between “flat” and “peaked” attention weights.</p>
+
+<h2 id="memorynetworksforlanguageunderstanding">Memory Networks for Language Understanding</h2>
+
+<p><a href="https://research.facebook.com/antoine-bordes">Antoine Bordes</a> of Facebook AI Research gave the last talk of the summer school, in which he discussed Facebook AI Research's two main research directions:</p>
+
+<p>On the one hand, they are working on (Key-Value) Memory Networks, which can be used to jointly model symbolic and continuous systems. They can be trained end-to-end through back propagation and with SGD and provide great flexibility on how to design memories.</p>
+
+<p>On the other hand, they are working on new tools for developing learning algorithms. They have created <a href="https://research.facebook.com/research/babi/">several datasets</a> of reasonable sizes, such as bAbI, CBT, and MovieQA that are designed to ease interpretation of a model's capabilities and to foster research.</p>
+
+<p>That was the Lisbon Machine Learning Summer School 2016! I had a blast and hope to be back next year!</p>
+
+<h1 id="slides">Slides</h1>
+
+<ul>
+<li><a href="http://lxmls.it.pt/2016/sequencemodels.smith.7-23-16.pdf">Sequence Models (Noah Smith)</a></li>
+<li><a href="http://lxmls.it.pt/2016/talk.pdf">Machine Translation as Sequence Modelling (Philipp Koehn)</a></li>
+<li><a href="http://lxmls.it.pt/2016/strlearn.pdf">Learning Structured Predictors (Xavier Carreras)</a></li>
+<li><a href="http://andreasvlachos.github.io/assets/lectures_reveal_js/LxMLS22July2016/ImitationLearningTutorial.html#/">Structured Prediction in NLP with Imitation Learning (Andreas Vlachos)</a></li>
+<li>Syntax and Parsing - <a href="http://lxmls.it.pt/2016/Part_1_Constituency_Parsing_2016.pdf">I</a>, <a href="http://lxmls.it.pt/2016/Part2_Dependency_Parsing_2016.pdf">II</a> (Slav Petrov)</li>
+<li><a href="http://lxmls.it.pt/2016/lxmls2016_slides.pdf">Turbo Parser Redux: From Dependencies to Constituents (André Martins)</a></li>
+<li><a href="http://lxmls.it.pt/2016/Deep-Neural-Networks-Are-Our-Friends.pdf">Deep Neural Networks Are Our Friends (Wang Ling)</a></li>
+<li><a href="http://lxmls.it.pt/2016/lxmls-dl2.pdf">Modeling Sequential Data with Recurrent Networks (Chris Dyer)</a></li>
+<li><a href="http://lxmls.it.pt/2016/abordes-lxmlss.pdf">Memory Networks for Language Understanding (Antoine Bordes)</a></li>
+</ul>]]></content:encoded></item><item><title><![CDATA[On word embeddings - Part 2: Approximating the Softmax]]></title><description><![CDATA[This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings.]]></description><link>http://sebastianruder.com/word-embeddings-softmax/</link><guid isPermaLink="false">23b4d38f-dfda-4cbd-949b-7978ab56090e</guid><category><![CDATA[deep learning]]></category><category><![CDATA[word embeddings]]></category><category><![CDATA[softmax]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 13 Jun 2016 10:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" alt="On word embeddings - Part 2: Approximating the Softmax"><p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/word-embeddings-softmax/#softmaxarchitecturemodifications">Softmax-based Approaches</a>
