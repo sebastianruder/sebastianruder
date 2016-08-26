@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=be6580547c" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=11c8608da5" />
     <link rel="canonical" href="http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2016-08-10T08:51:49.785Z" />
+    <meta property="article:modified_time" content="2016-08-26T10:56:08.712Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2016-08-10T08:51:49.785Z",
+    "dateModified": "2016-08-26T10:56:08.712Z",
     "image": "u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -420,7 +420,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>As the denominator is just the root mean squared (RMS) error criterion of the gradient, we can replace it with the criterion short-hand:</p>
 
-<p>\( \Delta \theta_t = - \dfrac{\eta}{RMS[g]_{t}}\).</p>
+<p>\( \Delta \theta_t = - \dfrac{\eta}{RMS[g]_{t}} g_t\).</p>
 
 <p>The authors note that the units in this update (as well as in SGD, Momentum, or Adagrad) do not match, i.e. the update should have the same hypothetical units as the parameter. To realize this, they first define another exponentially decaying average, this time not of squared gradients but of squared parameter updates:</p>
 
@@ -640,7 +640,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=be6580547c" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=11c8608da5" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
