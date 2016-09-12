@@ -333,7 +333,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). Their objective now maximises the distance between the scores output by the model for the correct and the incorrect window with a margin of \(1\). Their model architecture, depicted in Figure 3 without the ranking objective, is analogous to Bengio et al.'s model.</p>
 
 <figure>  
-      <img src="http://127.0.0.1:2368/content/images/2016/04/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&W model">
+      <img src="http://sebastianruder.com/content/images/2016/04/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&W model">
 <figcaption>Figure 3: The C&W model without ranking objective (Collobert et al., 2011)</figcaption>  
 </figure>
 
