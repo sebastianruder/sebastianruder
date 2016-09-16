@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 16 Sep 2016 09:45:40 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Lisbon Machine Learning Summer School Highlights]]></title><description><![CDATA[<p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 16 Sep 2016 10:09:13 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Lisbon Machine Learning Summer School Highlights]]></title><description><![CDATA[<p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#sequencemodels">Sequence Models</a>
@@ -929,7 +929,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). Their objective now maximises the distance between the scores output by the model for the correct and the incorrect window with a margin of \(1\). Their model architecture, depicted in Figure 3 without the ranking objective, is analogous to Bengio et al.'s model.</p>
 
 <figure>  
-      <img src="http://sebastianruder.com/content/images/2016/04/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&W model" alt="On word embeddings - Part 1">
+      <img src="http://sebastianruder.com/content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&W model" alt="On word embeddings - Part 1">
 <figcaption>Figure 3: The C&W model without ranking objective (Collobert et al., 2011)</figcaption>  
 </figure>
 
@@ -1021,7 +1021,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 
 <li class="footnote" id="fn:9"><p>Chen, W., Grangier, D., &amp; Auli, M. (2015). Strategies for Training Large Vocabulary Neural Language Models, 12. Retrieved from <a href="http://arxiv.org/abs/1512.04906">http://arxiv.org/abs/1512.04906</a> <a href="http://sebastianruder.com/word-embeddings-1/#fnref:9" title="return to article">↩</a></p></li></ol></div>
 
-<p>Credit for the post image goes to <a href="http://colah.github.io/">Christopher Olah</a>.</p>]]></content:encoded></item><item><title><![CDATA[An overview of gradient descent optimization algorithms]]></title><description><![CDATA[This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them.]]></description><link>http://sebastianruder.com/optimizing-gradient-descent/</link><guid isPermaLink="false">f991a148-274f-497e-97b9-598455211f57</guid><category><![CDATA[optimization]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[sgd]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Tue, 19 Jan 2016 14:20:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms"><p>Table of contents:</p>
+<p>Credit for the post image goes to <a href="http://colah.github.io/">Christopher Olah</a>.</p>]]></content:encoded></item><item><title><![CDATA[An overview of gradient descent optimization algorithms]]></title><description><![CDATA[This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them.]]></description><link>http://sebastianruder.com/optimizing-gradient-descent/</link><guid isPermaLink="false">f991a148-274f-497e-97b9-598455211f57</guid><category><![CDATA[optimization]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[sgd]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Tue, 19 Jan 2016 14:20:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms"><p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#gradientdescentvariants">Gradient descent variants</a>
@@ -1091,7 +1091,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</p>
 
 <figure>  
-      <img src="http://sebastianruder.com/content/images/2016/01/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation" alt="An overview of gradient descent optimization algorithms">
+      <img src="http://sebastianruder.com/content/images/2016/09/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation" alt="An overview of gradient descent optimization algorithms">
 <figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
 </figure>
 
@@ -1179,7 +1179,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 <p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:8" rel="footnote">8</a></sup>].</p>
 
 <figure>  
-      <img src="http://sebastianruder.com/content/images/2016/01/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation" alt="An overview of gradient descent optimization algorithms">
+      <img src="http://sebastianruder.com/content/images/2016/09/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation" alt="An overview of gradient descent optimization algorithms">
 <figcaption>Image 4: Nesterov update (Source: <a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">G. Hinton's lecture 6c</a>)</figcaption>  
 </figure>
 
@@ -1301,13 +1301,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="http://sebastianruder.com/content/images/2016/01/contours_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD without momentum" alt="An overview of gradient descent optimization algorithms">
+      <img src="http://sebastianruder.com/content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD without momentum" alt="An overview of gradient descent optimization algorithms">
 <figcaption>Image 5: SGD optimization on loss surface contours</figcaption>  
 </figure>  
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="http://sebastianruder.com/content/images/2016/01/saddle_point_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD with momentum" alt="An overview of gradient descent optimization algorithms">
+      <img src="http://sebastianruder.com/content/images/2016/09/saddle_point_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD with momentum" alt="An overview of gradient descent optimization algorithms">
 <figcaption>Image 6: SGD optimization on saddle point</figcaption>  
 </figure>  
     </td>

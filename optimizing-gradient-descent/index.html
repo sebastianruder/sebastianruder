@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=a56812087b" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=1c1666ddb2" />
     <link rel="canonical" href="http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta name="referrer" content="origin" />
     
@@ -41,9 +41,9 @@
     <meta property="og:title" content="An overview of gradient descent optimization algorithms" />
     <meta property="og:description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them." />
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
-    <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" />
+    <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2016-09-16T09:37:56.910Z" />
+    <meta property="article:modified_time" content="2016-09-16T10:07:01.348Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -52,7 +52,7 @@
     <meta name="twitter:title" content="An overview of gradient descent optimization algorithms" />
     <meta name="twitter:description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them." />
     <meta name="twitter:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
-    <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png" />
+    <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" />
     
     <script type="application/ld+json">
 {
@@ -69,8 +69,8 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2016-09-16T09:37:56.910Z",
-    "image": "u=http://sebastianruder.com/content/images/2016/01/loss_function_image_tumblr.png",
+    "dateModified": "2016-09-16T10:07:01.348Z",
+    "image": "u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
 }
@@ -98,11 +98,11 @@ var ga_id = 'UA-60512592-1';
     <header id="menu-button" class="expanded">
       <a><i class="icon icon-list"></i></a>
     </header>
-    <aside class="cover" style="background: url(http://127.0.0.1:2368/content/images/2015/12/ml_formulas.jpg) center/cover no-repeat fixed">
+    <aside class="cover" style="background: url(../content/images/2015/12/ml_formulas.jpg) center/cover no-repeat fixed">
   <div class="cover container">
     <div class="profile">
       <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://sebastianruder.com/#open">
-        <img src="http://127.0.0.1:2368/content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
         <h1 id="profile-title">Sebastian Ruder</h1>
         <h3 id="profile-resume"></h3>
       </a>
@@ -198,7 +198,7 @@ var ga_id = 'UA-60512592-1';
         <span class="post reading-time"> ~ <span></span> read.</span>
       </div>
       <a alt="Tweet 'An overview of gradient descent optimization algorithms'" href="https://twitter.com/intent/tweet?text=An%20overview%20of%20gradient%20descent%20optimization%20algorithms%20%C2%BB&amp;hashtags=optimization,deep learning,sgd&amp;url=http://sebastianruder.com/optimizing-gradient-descent/">
-        <img id="post-image" src="http://127.0.0.1:2368/content/images/2016/01/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms">
+        <img id="post-image" src="../content/images/2016/09/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms">
         <h1 class="icon-reverse icon-social-twitter-post" id="post-title">An overview of gradient descent optimization algorithms</h1>
       </a>
     </header>
@@ -274,7 +274,7 @@ var ga_id = 'UA-60512592-1';
 SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</p>
 
 <figure>  
-      <img src="http://127.0.0.1:2368/content/images/2016/01/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation">
+      <img src="../content/images/2016/09/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation">
 <figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
 </figure>
 
@@ -326,13 +326,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="http://127.0.0.1:2368/content/images/2015/12/without_momentum.gif" style="width: 90%; height: 90%" title="SGD without momentum">
+      <img src="../content/images/2015/12/without_momentum.gif" style="width: 90%; height: 90%" title="SGD without momentum">
 <figcaption>Image 2: SGD without momentum</figcaption>  
 </figure>  
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="http://127.0.0.1:2368/content/images/2015/12/with_momentum.gif" style="width: 90%; height: 90%" title="SGD with momentum">
+      <img src="../content/images/2015/12/with_momentum.gif" style="width: 90%; height: 90%" title="SGD with momentum">
 <figcaption>Image 3: SGD with momentum</figcaption>  
 </figure>  
     </td>
@@ -362,7 +362,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 <p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>].</p>
 
 <figure>  
-      <img src="http://127.0.0.1:2368/content/images/2016/01/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation">
+      <img src="../content/images/2016/09/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation">
 <figcaption>Image 4: Nesterov update (Source: <a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">G. Hinton's lecture 6c</a>)</figcaption>  
 </figure>
 
@@ -484,13 +484,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="http://127.0.0.1:2368/content/images/2016/01/contours_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD without momentum">
+      <img src="../content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD without momentum">
 <figcaption>Image 5: SGD optimization on loss surface contours</figcaption>  
 </figure>  
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="http://127.0.0.1:2368/content/images/2016/01/saddle_point_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD with momentum">
+      <img src="../content/images/2016/09/saddle_point_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD with momentum">
 <figcaption>Image 6: SGD optimization on saddle point</figcaption>  
 </figure>  
     </td>
@@ -647,7 +647,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=a56812087b" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=1c1666ddb2" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
