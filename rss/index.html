@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 12 Sep 2016 14:38:57 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Lisbon Machine Learning Summer School Highlights]]></title><description><![CDATA[<p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 16 Sep 2016 09:45:40 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Lisbon Machine Learning Summer School Highlights]]></title><description><![CDATA[<p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/#sequencemodels">Sequence Models</a>
@@ -1077,7 +1077,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
   params_grad = evaluate_gradient(loss_function, data, params)
   params = params - learning_rate * params_grad</code></pre>
 
-<p>For a pre-defined number of epochs,  we first compute the gradient vector <code class="language-python">weights_grad</code> of the loss function for the whole dataset w.r.t. our parameter vector <code class="language-python">params</code>.  Note that state-of-the-art deep learning libraries provide automatic differentiation that efficiently computes the gradient w.r.t. some parameters. If you derive the gradients yourself, then gradient checking is a good idea. (See <a href="http://cs231n.github.io/neural-networks-3/">here</a> for some great tips on how to check gradients properly.)</p>
+<p>For a pre-defined number of epochs,  we first compute the gradient vector <code class="language-python">params_grad</code> of the loss function for the whole dataset w.r.t. our parameter vector <code class="language-python">params</code>.  Note that state-of-the-art deep learning libraries provide automatic differentiation that efficiently computes the gradient w.r.t. some parameters. If you derive the gradients yourself, then gradient checking is a good idea. (See <a href="http://cs231n.github.io/neural-networks-3/">here</a> for some great tips on how to check gradients properly.)</p>
 
 <p>We then update our parameters in the direction of the gradients with the learning rate determining how big of an update we perform. Batch gradient descent is guaranteed to converge to the global minimum for convex error surfaces and to a local minimum for non-convex surfaces.</p>
 
@@ -1092,7 +1092,7 @@ SGD performs frequent updates with a high variance that cause the objective func
 
 <figure>  
       <img src="http://sebastianruder.com/content/images/2016/01/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation" alt="An overview of gradient descent optimization algorithms">
-<figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/en/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
+<figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
 </figure>
 
 <p>While batch gradient descent converges to the minimum of the basin the parameters are placed in, SGD's fluctuation, on the one hand, enables it to jump to new and potentially better local minima. On the other hand, this ultimately complicates convergence to the exact minimum, as SGD will keep overshooting. However, it has been shown that when we slowly decrease the learning rate, SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively. <br>
@@ -1352,7 +1352,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
 <h1 id="additionalstrategiesforoptimizingsgd">Additional strategies for optimizing SGD</h1>
 
-<p>Finally, we introduce additional strategies that can be used alongside any of the previously mentioned algorithms to further improve the performance of SGD. For a great overview of some of some other common tricks, refer to [<sup id="fnref:22"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:22" rel="footnote">22</a></sup>].</p>
+<p>Finally, we introduce additional strategies that can be used alongside any of the previously mentioned algorithms to further improve the performance of SGD. For a great overview of some other common tricks, refer to [<sup id="fnref:22"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:22" rel="footnote">22</a></sup>].</p>
 
 <h2 id="shufflingandcurriculumlearning">Shuffling and Curriculum Learning</h2>
 
@@ -1394,6 +1394,13 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
 <p>Thanks to <a href="https://twitter.com/dennybritz">Denny Britz</a> and <a href="https://twitter.com/cesarsvs">Cesar Salgado</a> for reading drafts of this post and providing suggestions.</p>
 
+<h1 id="printableversionandcitation">Printable version and citation</h1>
+
+<p>This blog post is also available as an <a href="http://arxiv.org/abs/1609.04747">article on arXiv</a>, in case you want to refer to it later.</p>
+
+<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br>
+<em>Sebastian Ruder (2016). An overview of gradient descent optimisation algorithms. arXiv preprint arXiv:1609.04747.</em></p>
+
 <h1 id="references">References</h1>
 
 <div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Sutton, R. S. (1986). Two problems with backpropagation and other steepest-descent learning procedures for networks. Proc. 8th Annual Conf. Cognitive Science Society. <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:1" title="return to article">↩</a></p></li>
@@ -1418,7 +1425,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 <li class="footnote" id="fn:20"><p>Sutskever, I., &amp; Martens, J. (2013). On the importance of initialization and momentum in deep learning. <a href="http://doi.org/10.1109/ICASSP.2013.6639346">http://doi.org/10.1109/ICASSP.2013.6639346</a> <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:20" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:21"><p>Neelakantan, A., Vilnis, L., Le, Q. V., Sutskever, I., Kaiser, L., Kurach, K., &amp; Martens, J. (2015). Adding Gradient Noise Improves Learning for Very Deep Networks, 1–11. Retrieved from <a href="http://arxiv.org/abs/1511.06807">http://arxiv.org/abs/1511.06807</a> <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:21" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:22"><p>LeCun, Y., Bottou, L., Orr, G. B., &amp; Müller, K. R. (1998). Efficient BackProp. Neural Networks: Tricks of the Trade, 1524, 9–50. <a href="http://doi.org/10.1007/3-540-49430-8_2">http://doi.org/10.1007/3-540-49430-8_2</a> <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:22" title="return to article">↩</a></p></li>
-<li class="footnote" id="fn:23"><p>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild ! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22. <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:23" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:23"><p>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22. <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:23" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:24"><p>Duchi et al. [3] give this matrix as an alternative to the <em>full</em> matrix containing the outer products of all previous gradients, as the computation of the matrix square root is infeasible even for a moderate number of parameters \(d\). <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:24" title="return to article">↩</a></p></li></ol></div>
 
 <p>Image credit for cover photo: <a href="http://lossfunctions.tumblr.com/">Karpathy's beautiful loss functions tumblr</a></p>]]></content:encoded></item></channel></rss>
