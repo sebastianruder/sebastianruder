@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=1c1666ddb2" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=f3cff519f6" />
     <link rel="canonical" href="http://sebastianruder.com/word-embeddings-softmax/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-softmax/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" />
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-08-01T20:47:38.280Z" />
+    <meta property="article:modified_time" content="2016-09-21T16:57:51.451Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="softmax" />
@@ -69,7 +69,7 @@
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "u=http://sebastianruder.com/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
-    "dateModified": "2016-08-01T20:47:38.280Z",
+    "dateModified": "2016-09-21T16:57:51.451Z",
     "image": "u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png",
     "keywords": "deep learning, word embeddings, softmax",
     "description": "This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings."
@@ -390,7 +390,7 @@ During training, we aim to minimize the cross-entropy loss of our model for ever
 
 <p>This is essentially what classical Importance Sampling (IS) does: It uses Monte-Carlo sampling to approximate a target distribution \(P\) via a proposal distribution \(Q\). However, this still requires computing \(P(w)\) for every word \(w\) that is sampled. To avoid this, Bengio and Senécal (2003) use a biased estimator that was first proposed by Liu [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>]. This estimator can be used when \( P(w) \) is computed as a product, which is the case here, since every division can be transformed into a multiplication. <br />
 Essentially, instead of weighting the gradient \(\nabla_\theta \mathcal{E}(w_i)\) with the expensive to compute probability \(P_{w_i}\), we weight it with a factor that leverages the proposal distribution \(Q\). For biased IS, this factor is \(\dfrac{1}{R}r(w_i)\) where \( r(w) = \dfrac{\text{exp}(- \mathcal{E}(w))}{Q(w)} \) and \( R = \sum^m_{j=1} r(w_j) \). <br />
-Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio and Senécal (2003, 2008) to avoid name clashes. As we can see, we still compute the nominator of the softmax, but replace the normalisation in the denominator with the proposal distribution \(Q\). Our biased estimator that approximates the expectation thus looks like the following:</p>
+Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio and Senécal (2003, 2008) to avoid name clashes. As we can see, we still compute the numerator of the softmax, but replace the normalisation in the denominator with the proposal distribution \(Q\). Our biased estimator that approximates the expectation thus looks like the following:</p>
 
 <p>\( \mathbb{E}_{w_i \sim P}[\nabla_\theta \mathcal{E}(w_i)] \approx  \dfrac{1}{R} \sum\limits^m_{i=1} r(w_i) \nabla_\theta \: \mathcal{E}(w_i)\)</p>
 
@@ -530,7 +530,7 @@ Mnih and Teh (2012) and Vaswani et al. [<sup id="fnref:20"><a href="index.html#f
 
 <p>\(J_\theta = - \sum\limits_i [h^\top v'_{w_i} + \text{log} \: Z(c) - \alpha \: \text{log}^2 Z(c)] \)</p>
 
-<p>where \(\alpha\) allows us to trade-off between model accuracy and mean self-normalisation. By doing this, we can essentially guarantee that \(Z(c)\) will be as close to \(1\) as we want. At decoding time in their MT system, Devlin et al. (2014) then set the denominator of the softmax to \(1\) and only use the nominator for computing \(P(w \: | \: c)\) together with their penalty term:</p>
+<p>where \(\alpha\) allows us to trade-off between model accuracy and mean self-normalisation. By doing this, we can essentially guarantee that \(Z(c)\) will be as close to \(1\) as we want. At decoding time in their MT system, Devlin et al. (2014) then set the denominator of the softmax to \(1\) and only use the numerator for computing \(P(w \: | \: c)\) together with their penalty term:</p>
 
 <p>\(J_\theta = - \sum\limits_i [h^\top v'_{w_i} - \alpha \: \text{log}^2 Z(c)] \)</p>
 
@@ -782,7 +782,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=1c1666ddb2" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=f3cff519f6" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
