@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 24 Sep 2016 16:44:53 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[On word embeddings - Part 3: The secret ingredients of word2vec]]></title><description><![CDATA[<p>Table of Contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 14 Nov 2016 23:43:12 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Highlights of EMNLP 2016: Dialogue, deep learning, and more]]></title><description><![CDATA[<p><em>This post originally appeared on the <a href="http://blog.aylien.com/highlights-emnlp-2016-dialogue-deeplearning-and-more/">AYLIEN blog</a>.</em></p>
+
+<p>I spent the past week in Austin, Texas at <a href="http://www.emnlp2016.net/">EMNLP 2016</a>, the Conference on Empirical Methods in Natural Language Processing.</p>
+
+<p>There were a lot of papers at the conference (179 long papers, 87 short papers, and 9 TACL papers all in all)</p>]]></description><link>http://sebastianruder.com/emnlp-2016-highlights/</link><guid isPermaLink="false">f6de1480-bbe8-4681-b822-d06e812602a1</guid><category><![CDATA[natural language processing]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[machine learning]]></category><category><![CDATA[word embeddings]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 14 Nov 2016 12:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/11/emnlp_cover_image.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/11/emnlp_cover_image.jpg" alt="Highlights of EMNLP 2016: Dialogue, deep learning, and more"><p><em>This post originally appeared on the <a href="http://blog.aylien.com/highlights-emnlp-2016-dialogue-deeplearning-and-more/">AYLIEN blog</a>.</em></p>
+
+<p>I spent the past week in Austin, Texas at <a href="http://www.emnlp2016.net/">EMNLP 2016</a>, the Conference on Empirical Methods in Natural Language Processing.</p>
+
+<p>There were a lot of papers at the conference (179 long papers, 87 short papers, and 9 TACL papers all in all) -- too many to read each single one. The entire program can be found <a href="http://www.emnlp2016.net/proceedings/2016-emnlp-handbook.pdf">here</a>. In the following, I will highlight some trends and papers that caught my eye:</p>
+
+<p><strong>Reinforcement learning</strong>: One thing that stood out was that RL seems to be slowly finding its footing in NLP, with more and more people using it to solve complex problems:</p>
+
+<ul>
+<li><a href="http://sebastianruder.com/emnlp-2016-highlights/(https://arxiv.org/pdf/1608.05604.pdf">Hahn and Keller</a> model human reading;</li>
+<li><a href="https://arxiv.org/pdf/1609.07317.pdf">Miao and Blunsom</a> summarise sentences;</li>
+<li><a href="https://arxiv.org/pdf/1606.01541.pdf">Li et al.</a> generate dialogues;</li>
+<li><a href="https://arxiv.org/pdf/1606.03667.pdf">He et al.</a> predict reddit threads;</li>
+<li><a href="https://arxiv.org/pdf/1609.08667.pdf">Clark and Manning</a> perform coreference resolution;</li>
+<li><a href="https://arxiv.org/pdf/1603.07954.pdf">Narasimhan et al.</a> query the web for additional evidence to improve information extraction in one of the two best papers.</li>
+</ul>
+
+<p><strong>Dialogue</strong>: Dialogue was a focus of the conference with all of the three keynote speakers dealing with different aspects of dialogue: Christopher Potts talked about pragmatics and how to reason about the intentions of the conversation partner; Stefanie Tellex concentrated on how to use dialogue for human-robot collaboration; finally, Andreas Stolcke focused on the problem of addressee detection in his talk. Among the papers, a few that dealt with dialogue stood out:</p>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1604.00562.pdf">Andreas and Klein</a> model pragmatics in dialogue with neural speakers and listeners;</li>
+<li><a href="https://arxiv.org/pdf/1603.08023.pdf">Liu et al.</a> show how <em>not</em> to evaluate your dialogue system;</li>
+<li><a href="http://www.aclweb.org/anthology/D/D16/D16-1231.pdf">Ouchi and Tsuboi</a> select addressees and responses in multi-party conversations;</li>
+<li><a href="http://arxiv.org/abs/1606.03352">Wen et al.</a> study diverse architectures for dialogue modelling. </li>
+</ul>
+
+<p><strong>Sequence-to-sequence</strong>: Seq2seq models were again front and center. It is not common for a method to have its own session two years after its introduction <a href="http://arxiv.org/abs/1409.3215\nhttp://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks">(Sutskever et al., 2014)</a>. While in the past years, many papers employed seq2seq e.g. for Neural Machine Translation, some papers this year focused on improving the seq2seq framework:</p>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1606.02960.pdf">Wiseman and Rush</a> extend seq2seq to learn global sequence scores;</li>
+<li><a href="https://arxiv.org/pdf/1609.08194">Yu et al.</a> perform online seq2seq learning;</li>
+<li><a href="https://arxiv.org/pdf/1606.07947">Kim and Rush</a> extend Knowledge Distillation (<a href="https://arxiv.org/pdf/1503.02531.pdf">Hinton et al., 2015</a>) to seq2seq learning;</li>
+<li><a href="https://arxiv.org/pdf/1609.09552.pdf">Kikuchi et al.</a> propose a method to control the output length in seq2seq models.</li>
+</ul>
+
+<p><strong>Semantic parsing</strong>: Since seq2seq's use for dialogue modelling was popularised by <a href="https://arxiv.org/pdf/1506.05869.pdf (http://arxiv.org/pdf/1506.05869.pdf)">Vinyals and Le</a>, it is harder to get it to work with goal-oriented tasks that require an intermediate representation on which to act. Semantic parsing is used to convert a message into a more meaningful representation that can be used by another component of the system. As this technique is useful for sophisticated dialogue systems, it is great to see progress in this area:</p>
+
+<ul>
+<li><a href="https://www.aclweb.org/anthology/D/D16/D16-1015.pdf">Yaruz et al.</a> infer answer types for semantic parsing;</li>
+<li><a href="https://arxiv.org/pdf/1606.07046.pdf">Krishnamurthy et al.</a> parse to probabilistic programs;</li>
+<li><a href="https://arxiv.org/pdf/1609.09315.pdf">Kocisky et al.</a> perform semantic parsing with semi-supervised sequential auto encoders.</li>
+</ul>
+
+<p><strong>X-to-text (or natural language generation)</strong>: While mapping from text-to-text with the seq2seq paradigm is still prevalent, EMNLP featured some cool papers on natural language generation from other inputs:</p>
+
+<ul>
+<li><a href="https://www.aclweb.org/anthology/D/D16/D16-1032.pdf">Kiddon et al.</a> map from a recipe name and ingredients to a recipe by ticking of items off a checklist;</li>
+<li><a href="https://www.aclweb.org/anthology/D/D16/D16-1126.pdf">Ghazvininejad et al.</a> generate a poem based on a topic;</li>
+<li><a href="https://arxiv.org/pdf/1606.03821.pdf">Monroe et al.</a> map from a color to its name;</li>
+<li><a href="https://arxiv.org/pdf/1610.06210.pdf">Koncel-Kedziorski et al.</a> re-write the theme of an algebra problem (think: boring physics book to Star Wars);</li>
+<li><a href="http://arxiv.org/abs/1603.07771">Lebret et al.</a> generate biographical sentences from Wikipedia fact tables.</li>
+</ul>
+
+<p><strong>Parsing</strong>: Parsing and syntax are a mainstay of every NLP conference and the community seems to particularly appreciate innovative models that push the state-of-the-art in parsing: The ACL '16 outstanding paper by <a href="https://arxiv.org/pdf/1603.06042.pdf">Andor et al.</a> introduced a globally normalized model for parsing, while the best EMNLP ‘16 paper by <a href="https://arxiv.org/pdf/1607.01432.pdf">Lee et al.</a> combines a global parsing model with a local search over subtrees.</p>
+
+<p><strong>Word embeddings</strong>: There were still papers on word embeddings, but it felt less overwhelming than at the past EMNLP or ACL, with most methods trying to fix a particular flaw rather than training embeddings for embeddings' sake. <a href="https://arxiv.org/pdf/1608.01961.pdf">Pilevhar and Collier</a> de-conflate senses in word embeddings, while <a href="https://arxiv.org/pdf/1607.02789.pdf">Wieting et al.</a> achieve state-of-the-art results for character-based embeddings.</p>
+
+<p><strong>Sentiment analysis</strong>: Sentiment analysis has been popular in recent years (as attested by the introductions of many recent papers on sentiment analysis). Sadly, many of the conference papers on sentiment analysis reduce to leveraging the latest deep neural network for the task to beat the previous state-of-the-art without providing additional insights. There are, however, some that break the mold: <a href="http://www.aclweb.org/anthology/D/D16/D16-1169.pdf">Teng et al.</a> find an effective way to incorporate sentiment lexicons into a neural network, while <a href="https://www.aclweb.org/anthology/D/D16/D16-1173.pdf">Hu et al.</a> incorporate structured knowledge into their sentiment analysis model.</p>
+
+<p><strong>Deep Learning</strong>: By now, it is clear to everyone: Deep Learning is here to stay. In fact, <em>deep learning</em> and <em>neural networks</em> claimed the two top spots of keywords that were used to describe the submitted papers. The majority of papers used at least an LSTM; using no neural network seems almost contrarian now and is something that needs to be justified. However, there are still many things that need to be improved -- which leads us to...</p>
+
+<p><strong>Uphill Battles</strong>: While making incremental progress is important to secure grants and publish papers, we should not lose track of the long-term goals. In this spirit, one of the best workshops that I've attended was the <em>Uphill Battles in Language Processing</em> workshop, which featured 12 talks and not one, but <em>four</em> all-star panels on text understanding, natural language generation, dialogue and speech, and grounded language. Summaries of the panel discussions should be available soon at the <a href="http://www.coli.uni-saarland.de/~mroth/UphillBattles/">workshop website</a>.</p>
+
+<p>This was my brief review of some of the trends of EMNLP 2016. I hope it was helpful.</p>
+
+<p>Cover image credit: <a href="https://www.flickr.com/photos/148956535@N07/">Jackie Cheung</a></p>]]></content:encoded></item><item><title><![CDATA[On word embeddings - Part 3: The secret ingredients of word2vec]]></title><description><![CDATA[<p>Table of Contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/secret-word2vec/#glove">GloVe</a></li>
@@ -1205,7 +1274,10 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 
 <p>Did I miss anything? <strong>Let me know in the comments below.</strong></p>
 
-<p>Update 21.06.16: This post was posted to Hacker News. <a href="https://news.ycombinator.com/item?id=11943685">The discussion</a> provides some interesting pointers to related work and other techniques.</p>
+<h1 id="translations">Translations</h1>
+
+<p>This blog post has been translated into the following languages: <br>
+- <a href="http://geek.csdn.net/news/detail/111466">Chinese</a></p>
 
 <h1 id="references">References</h1>
 
@@ -1606,6 +1678,13 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
 <p>In case you found it helpful, consider citing the corresponding arXiv article as: <br>
 <em>Sebastian Ruder (2016). An overview of gradient descent optimisation algorithms. arXiv preprint arXiv:1609.04747.</em></p>
+
+<h1 id="translations">Translations</h1>
+
+<p>This blog post has been translated into the following languages: <br>
+- <a href="http://postd.cc/optimizing-gradient-descent/">Japanese</a></p>
+
+<p>Update 21.06.16: This post was posted to Hacker News. <a href="https://news.ycombinator.com/item?id=11943685">The discussion</a> provides some interesting pointers to related work and other techniques.</p>
 
 <h1 id="references">References</h1>
 
