@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=a98161a5e4" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=70b239b393" />
     <link rel="canonical" href="http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" />
     <meta property="article:published_time" content="2016-11-28T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-11-28T10:44:06.194Z" />
+    <meta property="article:modified_time" content="2016-11-28T15:36:07.247Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "A survey of cross-lingual embedding models",
     "url": "u=http://sebastianruder.com/cross-lingual-embeddings/",
     "datePublished": "2016-11-28T10:00:00.000Z",
-    "dateModified": "2016-11-28T10:44:06.194Z",
+    "dateModified": "2016-11-28T15:36:07.247Z",
     "image": "u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png",
     "keywords": "word embeddings, deep learning, nlp",
     "description": "In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..."
@@ -702,9 +702,11 @@ For this reason, they propose another merging strategy that assumes that the str
 
 <p>Models that use joint optimisation aim to do exactly this: They not only consider a cross-lingual constraint, but jointly optimize mono-lingual and cross-lingual objectives.</p>
 
-<p>In practice, for two languages \(l_1\) and \(l_2\), these models optimize a monolingual loss \(\mathcal{M}\) for each language and one or multiple cross-lingual regularisation terms \(\Omega\):</p>
+<p>In practice, for two languages \(l_1\) and \(l_2\), these models optimize a monolingual loss \(\mathcal{M}\) for each language and one or multiple terms \(\Omega\) that regularize the transfer from language \(l_1\) to \(l_2\) (and vice versa):</p>
 
-<p>\(\gamma (\mathcal{M}_{l_1} + \mathcal{M}_{l_2}) + \delta (\Omega_{l_1 \rightarrow l_2} + \Omega_{l_2 \rightarrow l_1}) \)</p>
+<p>\(\mathcal{M}_{l_1} + \mathcal{M}_{l_2} + \lambda (\Omega_{l_1 \rightarrow l_2} + \Omega_{l_2 \rightarrow l_1}) \)</p>
+
+<p>where \(\lambda\) is an interpolation parameter that adjusts the impact of the cross-lingual regularization.</p>
 
 <h2 id="multitasklanguagemodel">Multi-task language model</h2>
 
@@ -731,9 +733,9 @@ Intuitively, if a word in the source language is only aligned with one word in t
 
 <p>They employ the max-margin hinge loss objective by Collobert et al. (2008) as monolingual objective \(\mathcal{M}\) and train the English and Chinese word embeddings to minimise the corresponding objective above together with a monolingual objective. For instance, for English, the training objective is:</p>
 
-<p>\(\mathcal{M}_{en} + \lambda \Omega_{zh\rightarrow en} \)</p>
+<p>\(\mathcal{M}_{en} + \lambda \Omega_{zh\rightarrow en} \).</p>
 
-<p>It is interesting to observe that the authors train their embeddings using a curriculum, training different frequency bands of the vocabulary at a time. The entire training process takes 19 days.</p>
+<p>It is interesting to observe that the authors learn embeddings using a curriculum, training different frequency bands of the vocabulary at a time. The entire training process takes 19 days.</p>
 
 <h2 id="bilingualskipgram">Bilingual skip-gram</h2>
 
@@ -1125,7 +1127,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=a98161a5e4" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=70b239b393" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
