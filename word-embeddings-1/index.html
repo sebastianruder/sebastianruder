@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=d91328f58b" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=a98161a5e4" />
     <link rel="canonical" href="http://sebastianruder.com/word-embeddings-1/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-1/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png" />
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-11-06T17:06:58.526Z" />
+    <meta property="article:modified_time" content="2016-11-22T10:53:10.622Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     
@@ -68,7 +68,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "u=http://sebastianruder.com/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2016-11-06T17:06:58.526Z",
+    "dateModified": "2016-11-22T10:53:10.622Z",
     "image": "u=http://sebastianruder.com/content/images/2016/04/word_embeddings_colah.png",
     "keywords": "deep learning, word embeddings",
     "description": "The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research."
@@ -208,7 +208,7 @@ var ga_id = 'UA-60512592-1';
 <ul>
 <li><a href="index.html#abriefhistoryofwordembeddings">A brief history of word embeddings</a></li>
 <li><a href="index.html#wordembeddingmodels">Word embedding models</a>
-<ul><li><a href="index.html#anoteonlanguagemodeling">A note on language modeling</a></li>
+<ul><li><a href="index.html#anoteonlanguagemodelling">A note on language modelling</a></li>
 <li><a href="index.html#classicneurallanguagemodel">Classic neural language model</a></li>
 <li><a href="index.html#cwmodel">C&amp;W model</a></li>
 <li><a href="index.html#word2vec">Word2Vec</a></li>
@@ -252,7 +252,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 
 <p>Before we get into the gritty details of word embedding models, let us briefly talk about some language modelling fundamentals.</p>
 
-<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
+<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n - 1\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
 
 <p>\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) \).</p>
 
@@ -465,7 +465,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=d91328f58b" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=a98161a5e4" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {

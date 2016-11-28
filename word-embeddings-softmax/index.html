@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=d91328f58b" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=a98161a5e4" />
     <link rel="canonical" href="http://sebastianruder.com/word-embeddings-softmax/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/word-embeddings-softmax/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png" />
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-09-21T16:57:51.451Z" />
+    <meta property="article:modified_time" content="2016-11-22T10:04:54.517Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="softmax" />
@@ -69,7 +69,7 @@
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "u=http://sebastianruder.com/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
-    "dateModified": "2016-09-21T16:57:51.451Z",
+    "dateModified": "2016-11-22T10:04:54.517Z",
     "image": "u=http://sebastianruder.com/content/images/2016/06/softmax_classifier.png",
     "keywords": "deep learning, word embeddings, softmax",
     "description": "This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings."
@@ -522,7 +522,7 @@ Mnih and Teh (2012) and Vaswani et al. [<sup id="fnref:20"><a href="index.html#f
 
 <p>\(J_\theta \: P(w \: | \: c) = - \sum\limits_i [h^\top v'_{w_i} + \text{log} \: Z(c)] \).</p>
 
-<p>If we are able to constrain our model so that it sets \(Z(c) = 1\) or similarly \(\text{log} \: Z(c) = 0\), then we can avoid computing the normalisation in \(Z(c)\) altogether. Devlin et al. (2014) thus propose to add a squared error penalty term to the loss function that encourages the model to keep \( Z(c)\) as close as possible to \(0\): </p>
+<p>If we are able to constrain our model so that it sets \(Z(c) = 1\) or similarly \(\text{log} \: Z(c) = 0\), then we can avoid computing the normalisation in \(Z(c)\) altogether. Devlin et al. (2014) thus propose to add a squared error penalty term to the loss function that encourages the model to keep \(\text{log} \: Z(c)\) as close as possible to \(0\): </p>
 
 <p>\(J_\theta = - \sum\limits_i [h^\top v'_{w_i} + \text{log} \: Z(c) - \alpha \:(\text{log}(Z(c)) - 0)^2] \),</p>
 
@@ -697,6 +697,12 @@ Differentiated Softmax generally does well for both small and large vocabularies
 
 <p><strong>As always, let me know about any mistakes I made and approaches I missed in the comments below.</strong></p>
 
+<h1 id="citation">Citation</h1>
+
+<p>If you found this blog post helpful, please consider citing it as:</p>
+
+<p><em>Sebastian Ruder. On word embeddings - Part 2: Approximating the Softmax. <a href="http://sebastianruder.com/word-embeddings-softmax">http://sebastianruder.com/word-embeddings-softmax</a>, 2016.</em></p>
+
 <h1 id="references">References</h1>
 
 <div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS, 1–9. <a href="index.html#fnref:1" title="return to article">↩</a></p></li>
@@ -782,7 +788,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=d91328f58b" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=a98161a5e4" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {

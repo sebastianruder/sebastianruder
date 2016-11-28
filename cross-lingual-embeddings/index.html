@@ -32,25 +32,25 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=d91328f58b" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=a98161a5e4" />
     <link rel="canonical" href="http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta name="referrer" content="origin" />
     
     <meta property="og:site_name" content="Sebastian Ruder" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="A survey of cross-lingual embedding models" />
-    <meta property="og:description" content="In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in a single language.  In our globalised society,..." />
+    <meta property="og:description" content="In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..." />
     <meta property="og:url" content="u=http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" />
-    <meta property="article:published_time" content="2016-11-21T17:54:00.000Z" />
-    <meta property="article:modified_time" content="2016-11-21T23:29:37.933Z" />
+    <meta property="article:published_time" content="2016-11-28T10:00:00.000Z" />
+    <meta property="article:modified_time" content="2016-11-28T10:44:06.194Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="A survey of cross-lingual embedding models" />
-    <meta name="twitter:description" content="In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in a single language.  In our globalised society,..." />
+    <meta name="twitter:description" content="In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..." />
     <meta name="twitter:url" content="u=http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" />
     
@@ -68,11 +68,11 @@
     },
     "headline": "A survey of cross-lingual embedding models",
     "url": "u=http://sebastianruder.com/cross-lingual-embeddings/",
-    "datePublished": "2016-11-21T17:54:00.000Z",
-    "dateModified": "2016-11-21T23:29:37.933Z",
+    "datePublished": "2016-11-28T10:00:00.000Z",
+    "dateModified": "2016-11-28T10:44:06.194Z",
     "image": "u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png",
     "keywords": "word embeddings, deep learning, nlp",
-    "description": "In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in a single language.  In our globalised society,..."
+    "description": "In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..."
 }
     </script>
 
@@ -191,7 +191,7 @@ var ga_id = 'UA-60512592-1';
   <article class="post tag-word-embeddings tag-deep-learning tag-nlp">
     <header>
       <div class="post meta">
-        <time datetime="21 Nov 2016">21 Nov 2016</time>
+        <time datetime="28 Nov 2016">28 Nov 2016</time>
         <span class="post tags">in <a href="../tag/word-embeddings/index.html">word embeddings</a> <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/nlp/index.html">nlp</a></span>
 
 
@@ -204,9 +204,8 @@ var ga_id = 'UA-60512592-1';
     </header>
 
     <div id="post-content" class="post tag-word-embeddings tag-deep-learning tag-nlp">
-      <p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in a single language. <br />
-In our globalised society, where national borders blur increasingly, where the Internet gives everyone equal access to information, it is imperative that we do not only seek to eliminate bias pertaining to <a href="http://arxiv.org/abs/1607.06520">gender or race</a> inherent in our representations, but also aim to address our bias towards <em>language</em>. <br />
-The availability of resources, training data, and benchmarks in English leads to a disproportionate focus on the English language and a negligence of the plethora of other languages that are spoken around the world.</p>
+      <p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads to a disproportionate focus on the English language and a negligence of the plethora of other languages that are spoken around the world. <br />
+In our globalised society, where national borders increasingly blur, where the Internet gives everyone equal access to information, it is thus imperative that we do not only seek to eliminate bias pertaining to <a href="http://arxiv.org/abs/1607.06520">gender or race</a> inherent in our representations, but also aim to address our bias towards <em>language</em>.</p>
 
 <p>To remedy this and level the linguistic playing field, we would like to leverage our existing knowledge in English to equip our models with the capability to process other languages. <br />
 Perfect machine translation would allow this. However, we do not need to actually translate examples, as long as we are able to project examples into a common subspace such as the one in Figure 1.</p>
@@ -216,9 +215,7 @@ Perfect machine translation would allow this. However, we do not need to actuall
 <figcaption>Figure 1: A shared embedding space between two languages (Zou et al., 2013)</figcaption>  
 </figure>
 
-<p>Ultimately, our goal is to learn a shared embedding space between words in <em>all</em> languages. </p>
-
-<p>Equipped with such a vector space, we are able to train our models on data in any language. By projecting examples available in one language into this space, our model simultaneously obtains the capability to perform predictions in all other languages (we are glossing over some considerations here; for these, refer to <a href="index.html#challenges">this section</a>). This is the promise of cross-lingual embeddings. </p>
+<p>Ultimately, our goal is to learn a shared embedding space between words in <em>all</em> languages. Equipped with such a vector space, we are able to train our models on data in any language. By projecting examples available in one language into this space, our model simultaneously obtains the capability to perform predictions in all other languages (we are glossing over some considerations here; for these, refer to <a href="index.html#challenges">this section</a>). This is the promise of cross-lingual embeddings. </p>
 
 <p>Over the course of this blog post, I will give an overview of models and algorithms that have been used to come closer to this elusive goal of capturing the relations between words in multiple languages in a common embedding space.</p>
 
@@ -229,20 +226,20 @@ Note that while the nature of the parallel data used is equally discriminatory a
 Cross-lingual embedding models generally use four different approaches:</p>
 
 <ol>
-<li><strong>Monolingual mapping</strong>: These models initially train monolingual word embeddings on large monolingual corpora. They then learn a linear mapping between monolingual representations in different languages to enable them to map unknown words from the source to the target language.  </li>
-<li><strong>Pseudo-cross-lingual</strong>: These approaches create a pseudo-cross-lingual by mixing contexts of different languages. They then train an off-the-shelf word embedding model on the created corpus and the learned representations should capture cross-lingual relations.  </li>
-<li><strong>Cross-lingual training</strong>: These models learn their embeddings on a parallel corpus and optimize a cross-lingual constraint between embeddings of different languages that should bring embeddings of similar words close together in a vector space.  </li>
+<li><strong>Monolingual mapping</strong>: These models initially train monolingual word embeddings on large monolingual corpora. They then learn a linear mapping between monolingual representations in different languages to enable them to map unknown words from the source language to the target language.  </li>
+<li><strong>Pseudo-cross-lingual</strong>: These approaches create a pseudo-cross-lingual corpus by mixing contexts of different languages. They then train an off-the-shelf word embedding model on the created corpus. The intuition is that the cross-lingual contexts allow the learned representations to capture cross-lingual relations.  </li>
+<li><strong>Cross-lingual training</strong>: These models train their embeddings on a parallel corpus and optimize a cross-lingual constraint between embeddings of different languages that encourages embeddings of similar words to be close to each other in a shared vector space.  </li>
 <li><strong>Joint optimization</strong>: These approaches train their models on parallel (and optionally monolingual data). They jointly optimise a combination of monolingual and cross-lingual losses.</li>
 </ol>
 
 <p>In terms of parallel data, methods may use different supervision signals that depend on the type of data used. These are, from most to least expensive:</p>
 
 <ol>
-<li><strong>Word-aligned data</strong>: A parallel corpus with word alignments that is commonly used for machine translation; at the same time, this is the most expensive type of parallel data to use.  </li>
-<li><strong>Sentence-aligned data</strong>: A parallel corpus without word alignments. If not otherwise specified, the model uses the <a href="http://www.statmt.org/europarl/">Europarl corpus</a> consisting of sentence-aligned text of the proceedings of the European parliament that is generally used for Statistical Machine Translation.  </li>
+<li><strong>Word-aligned data</strong>: A parallel corpus with word alignments that is commonly used for machine translation; this is the most expensive type of parallel data to use.  </li>
+<li><strong>Sentence-aligned data</strong>: A parallel corpus without word alignments. If not otherwise specified, the model uses the <a href="http://www.statmt.org/europarl/">Europarl corpus</a> consisting of sentence-aligned text from the proceedings of the European parliament that is generally used for training Statistical Machine Translation models.  </li>
 <li><strong>Document-aligned data</strong>: A corpus containing documents in different languages. The documents can be topic-aligned (e.g. Wikipedia) or label/class-aligned (e.g. sentiment analysis and multi-class classification datasets).  </li>
 <li><strong>Lexicon</strong>: A bilingual or cross-lingual dictionary with pairs of translations between words in different languages.  </li>
-<li><strong>No parallel data</strong>: No parallel data whatsoever. Learning cross-lingual representations from only monolingual resources would enable zero-shot learning for this task.</li>
+<li><strong>No parallel data</strong>: No parallel data whatsoever. Learning cross-lingual representations from only monolingual resources would enable zero-shot learning across languages.</li>
 </ol>
 
 <p>To make the distinctions clearer, we provide the following table, which serves equally as the table of contents and a springboard to delve deeper into the different cross-lingual models:</p>
@@ -373,7 +370,7 @@ Cross-lingual embedding models generally use four different approaches:</p>
   </tr>
 </table>
 
-<p>After the discussion of cross-lingual embedding models, we will additionally briefly look into <a href="index.html#incorporatingvisualinformation">incorporating visual information</a> into word representations, <a href="index.html#challenges">challenges</a> of learning cross-lingual representations, and which models perform best and how to <a href="index.html#evaluate">evaluate</a> them.</p>
+<p>After the discussion of cross-lingual embedding models, we will additionally look into how to <a href="index.html#incorporatingvisualinformation">incorporate visual information</a> into word representations, discuss the <a href="index.html#challenges">challenges</a> that still remain in learning cross-lingual representations, and finally summarize which models perform best and how to <a href="index.html#evaluate">evaluate</a> them.</p>
 
 <h1 id="monolingualmapping">Monolingual mapping</h1>
 
@@ -440,7 +437,7 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 <figcaption>Figure 5: Word representations before (left) and after (right) normalisation (Xing et al., 2015)</figcaption>  
 </figure>
 
-<p>They resolve the inconsistency between the cosine similarity measure now used in training and the mean squared error employed for learning the transformation by replacing the latter with the former, which yields:</p>
+<p>They resolve the inconsistency between the cosine similarity measure now used in training and the mean squared error employed for learning the transformation by replacing the mean squared error with cosine similarity for learning the mapping, which yields:</p>
 
 <p>\(\max\limits_W \sum\limits_i (Wx_i)^T z_i \).</p>
 
@@ -454,11 +451,11 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 
 <p>where \(k\) is the number of negative examples and \(\gamma\) is the margin. </p>
 
-<p>They show that selecting max-margin over the least-squares loss consistently improves performance and reduces hubness. In addition, the choice of the negative examples, i.e. the target words compared to which the model should rank the correct translation higher, is important. They hypothesise that an informative negative example is an intruder, i.e. it is near the current projected vector \(\hat{y_i}\) but far from the actual translation vector \(y_i\) as depicted in Figure 6.</p>
+<p>They show that selecting max-margin over the least-squares loss consistently improves performance and reduces hubness. In addition, the choice of the negative examples, i.e. the target words compared to which the model should rank the correct translation higher, is important. They hypothesise that an informative negative example is an <em>intruder</em> ("truck" in the example), i.e. it is near the current projected vector \(\hat{y_i}\) but far from the actual translation vector \(y_i\) ("cat") as depicted in Figure 6.</p>
 
 <figure>  
       <img src="../content/images/2016/10/intruders_in_the_vector_space.png" style="width: 20%; height: 20%" title="Similar geometric relations between two languages">
-<figcaption>Figure 6: The intruder <i>truck<i> is selected over <i>dog</i> as the negative example for <i>cat</i>. (Lazaridou et al., 2015)</figcaption>  
+<figcaption>Figure 6: The intruder "truck" is selected over "dog" as the negative example for "cat". (Lazaridou et al., 2015)</figcaption>  
 </figure>
 
 <p>These intruders should help the model identify cases where it is failing considerably to approximate the target function and should thus allow it to correct its behaviour. At every step of gradient descent, they compute \(s_j = cos(\hat{y_i}, y_j) - cos(y_i, y_j) \) for all vectors \(y_t\) in the target embedding space with \(j \neq i\) and choose the vector with the largest \(s_j\) as negative example for \(x_i\). Using intruders instead of random negative examples yields a small improvement of 2 percentage points on their comparison task.</p>
@@ -862,9 +859,13 @@ In the second step, they then simply use the previously described method to lear
 <li>"It was not the sales manager, who hit the bottle that day, but the office worker with a serious drinking problem".</li>
 </ul>
 
+<h2 id="compositionality"> Compositionality</h2>
+
+<p>Most approaches for learning cross-lingual representations focus on word representations. These approaches are not able to easily compose word representations to form representations of sentences and documents. Even approaches that learn jointly learn word and sentence representations do so by via simple summation of words in the sentence. In the future, it will be interesting to see if LSTMs or CNNs that can form more composable sentence representations can be applied efficiently to learn cross-lingual representations.</p>
+
 <h2 id="polysemy">Polysemy</h2>
 
-<p>While conflating multiple senses of a word is already a problem for learning mono-lingual word representations, this issue is amplified in a cross-lingual embedding space: Monosemous words in one language might align with polysemous words in another language and thus fail to capture the entirety of the cross-lingual relations. There has already been promising work on learning monolingual multi-sense embeddings. We hypothesize that learning cross-lingual multi-sense embeddings will become increasingly relevant, as it enables us to capture more fine-grained cross-lingual meaning.</p>
+<p>While conflating multiple senses of a word is already problematic for learning mono-lingual word representations, this issue is amplified in a cross-lingual embedding space: Monosemous words in one language might align with polysemous words in another language and thus fail to capture the entirety of the cross-lingual relations. There has already been promising work on learning monolingual multi-sense embeddings. We hypothesize that learning cross-lingual multi-sense embeddings will become increasingly relevant, as it enables us to capture more fine-grained cross-lingual meaning.</p>
 
 <h2 id="feasibility">Feasibility</h2>
 
@@ -986,10 +987,10 @@ In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-d
   </tr>
 </table>
 
-<p>This table, however, is not should not be considered as representative of the general performance of cross-lingual embedding models as authors tend to evaluate their approaches on tasks that are in line with the strengths of their model. <br />
+<p>These results, however, should not be considered as representative of the general performance of cross-lingual embedding models as different methods tend to well on different tasks depending on the type of approach and the type of data used. <br />
 Upadhyay et al. [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31</a></sup>] evaluate cross-lingual embedding models that require different forms of supervision on various tasks. They find that on word similarity datasets, models that require cheaper forms of supervision (sentence-aligned and document-aligned data) are almost as good as models with more expensive supervision in the form of word alignments. For cross-lingual classification and dictionary induction, more informative supervision is better. Finally, for parsing, models with word-level alignment are able to capture syntax more accurately and thus perform better overall.</p>
 
-<p>The findings by Upadhyay et al. underline the perception that the choice of the data is important. Levy et al. (2016) go even further than this: They compare models for learning cross-lingual word representations to traditional alignment models on dictionary induction and word alignment tasks. They argue that whether or not an algorithm uses a particular feature set is more important than the choice of the algorithm. In their experiments, using sentence ids, i.e. creating a sentence's language-independent representation (for instance with doc2vec) achieves better results than just using the source and target words.</p>
+<p>The findings by Upadhyay et al. are further proof for the intuition that the choice of the data is important. Levy et al. (2016) go even further than this in comparing models for learning cross-lingual word representations to traditional alignment models on dictionary induction and word alignment tasks. They argue that whether or not an algorithm uses a particular feature set is more important than the choice of the algorithm. In their experiments, using sentence ids, i.e. creating a sentence's language-independent representation (for instance with doc2vec) achieves better results than just using the source and target words.</p>
 
 <p>Finally, to facilitate evaluation of cross-lingual word embeddings, Ammar et al. (2016) make a <a href="http://128.2.220.95/multilingual">website</a> available where learned representations can be uploaded and automatically evaluated on a wide range of tasks.</p>
 
@@ -1003,7 +1004,7 @@ Upadhyay et al. [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31
 
 <p>If you found this blog post helpful, please consider citing it as:</p>
 
-<p><em>Sebastian Ruder, "A survey of cross-lingual embedding models", 2016.</em></p>
+<p><em>Sebastian Ruder. A survey of cross-lingual embedding models. <a href="http://sebastianruder.com/cross-lingual-embeddings">http://sebastianruder.com/cross-lingual-embeddings</a>, 2016.</em></p>
 
 <h1 id="references">References</h1>
 
@@ -1121,7 +1122,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=d91328f58b" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=a98161a5e4" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
