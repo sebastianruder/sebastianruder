@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" />
     <meta property="article:published_time" content="2016-11-28T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-11-28T16:58:45.102Z" />
+    <meta property="article:modified_time" content="2016-11-29T09:44:57.222Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "A survey of cross-lingual embedding models",
     "url": "u=http://sebastianruder.com/cross-lingual-embeddings/",
     "datePublished": "2016-11-28T10:00:00.000Z",
-    "dateModified": "2016-11-28T16:58:45.102Z",
+    "dateModified": "2016-11-29T09:44:57.222Z",
     "image": "u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png",
     "keywords": "word embeddings, deep learning, nlp",
     "description": "In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..."
@@ -211,7 +211,7 @@ var ga_id = 'UA-60512592-1';
 In our globalised society, where national borders increasingly blur, where the Internet gives everyone equal access to information, it is thus imperative that we do not only seek to eliminate bias pertaining to <a href="http://arxiv.org/abs/1607.06520">gender or race</a> inherent in our representations, but also aim to address our bias towards <em>language</em>.</p>
 
 <p>To remedy this and level the linguistic playing field, we would like to leverage our existing knowledge in English to equip our models with the capability to process other languages. <br />
-Perfect machine translation would allow this. However, we do not need to actually translate examples, as long as we are able to project examples into a common subspace such as the one in Figure 1.</p>
+Perfect machine translation (MT) would allow this. However, we do not need to actually translate examples, as long as we are able to project examples into a common subspace such as the one in Figure 1.</p>
 
 <figure>  
       <img src="../content/images/2016/10/luong_et_al_2015.jpg" style="width: 100%; height: 100%" title="Bilingual embedding space">
@@ -221,6 +221,8 @@ Perfect machine translation would allow this. However, we do not need to actuall
 <p>Ultimately, our goal is to learn a shared embedding space between words in <em>all</em> languages. Equipped with such a vector space, we are able to train our models on data in any language. By projecting examples available in one language into this space, our model simultaneously obtains the capability to perform predictions in all other languages (we are glossing over some considerations here; for these, refer to <a href="index.html#challenges">this section</a>). This is the promise of cross-lingual embeddings. </p>
 
 <p>Over the course of this blog post, I will give an overview of models and algorithms that have been used to come closer to this elusive goal of capturing the relations between words in multiple languages in a common embedding space.</p>
+
+<p>Note: While neural MT approaches <em>implicitly</em> learn a shared cross-lingual embedding space by optimizing for the MT objective, we will focus on models that <em>explicitly</em> learn cross-lingual word representations throughout this blog post. These methods generally do so at a much lower cost than MT and can be considered to be to MT what word embedding models (word2vec, GloVe, etc.) are to language modelling. </p>
 
 <h1 id="typesofcrosslingualembeddingmodels">Types of cross-lingual embedding models</h1>
 
