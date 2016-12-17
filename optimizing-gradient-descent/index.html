@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=70b239b393" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=6b3fc331f3" />
     <link rel="canonical" href="http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2016-12-07T09:55:06.566Z" />
+    <meta property="article:modified_time" content="2016-12-17T14:08:08.343Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2016-12-07T09:55:06.566Z",
+    "dateModified": "2016-12-17T14:08:08.343Z",
     "image": "u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -364,7 +364,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>\(\theta = \theta - v_t\).</p>
 
-<p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>].</p>
+<p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>].</p>
 
 <figure>  
       <img src="../content/images/2016/09/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation">
@@ -659,7 +659,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=70b239b393" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=6b3fc331f3" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
