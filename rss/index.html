@@ -1,4 +1,252 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 17 Dec 2016 14:11:06 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[A survey of cross-lingual embedding models]]></title><description><![CDATA[<p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads</p>]]></description><link>http://sebastianruder.com/cross-lingual-embeddings/</link><guid isPermaLink="false">9337835e-1bdf-4fa1-acd1-f23a262380ac</guid><category><![CDATA[word embeddings]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 28 Nov 2016 10:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" alt="A survey of cross-lingual embedding models"><p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads to a disproportionate focus on the English language and a negligence of the plethora of other languages that are spoken around the world. <br>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 22 Dec 2016 10:10:19 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more]]></title><description><![CDATA[<p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-nips-2016/">AYLIEN blog</a>.</em></p>
+
+<p>I attended NIPS 2016 in Barcelona from Monday, December 5 to Saturday, December 10. The full conference program is available <a href="https://media.nips.cc/Conferences/2016/NIPS-2016-Conference-Book.pdf">here</a>. In the following, I will share some of my highlights.</p>
+
+<h1 id="nips">NIPS</h1>
+
+<p>The Conference on Neural Information Processing Systems (NIPS) is (besides</p>]]></description><link>http://sebastianruder.com/highlights-nips-2016/</link><guid isPermaLink="false">dca20ced-1519-4c56-bc75-5f8202fe7e16</guid><category><![CDATA[deep learning]]></category><category><![CDATA[natural language processing]]></category><category><![CDATA[nlp]]></category><category><![CDATA[nips]]></category><category><![CDATA[reinforcement learning]]></category><category><![CDATA[meta-learning]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Wed, 21 Dec 2016 19:29:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/12/nips_entry-2.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/12/nips_entry-2.jpg" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"><p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-nips-2016/">AYLIEN blog</a>.</em></p>
+
+<p>I attended NIPS 2016 in Barcelona from Monday, December 5 to Saturday, December 10. The full conference program is available <a href="https://media.nips.cc/Conferences/2016/NIPS-2016-Conference-Book.pdf">here</a>. In the following, I will share some of my highlights.</p>
+
+<h1 id="nips">NIPS</h1>
+
+<p>The Conference on Neural Information Processing Systems (NIPS) is (besides ICML) one of the two top conferences in machine learning. It took place for the first time in 1987 and is held every December, historically in close proximity to a ski resort. This year, in slight juxtaposition, it took place in sunny Barcelona.</p>
+
+<p>Machine Learning seems to become more pervasive every month. However, it is still sometimes hard to keep track of the actual extent of this development. One of the most accurate barometers for this evolution is the growth of NIPS itself. The number of attendees skyrocketed at this year’s conference growing by over 50% year-over-year.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/terry_law.jpg" style="width: 60%; height: 60%" title="Terry's Law" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 1: The growth of the number of attendees at NIPS follows (the newly coined) Terry’s Law (named after Terrence Sejnowski, the president of the NIPS foundation; faster growth than Murphy’s Law)</figcaption>  
+</figure>
+
+<p>Unsurprisingly, Deep Learning (DL) was by far the most popular research topic, with about every fourth of more than 2,500 submitted papers (and 568 accepted papers) dealing with deep neural networks.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/submissions_distribution.png" style="width: 100%; height: 100%" title="Distribution of topics across NIPS 2016 submissions" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 2: Distribution of topics across all submitted papers (Source: <a href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/misc/nips2016/index.php">The review process for NIPS 2016</a>)  
+</figcaption>  
+</figure>
+
+<p>On the other hand, the distribution of research paper topics has quite a long tail and reflects the diversity of topics at the conference that span everything from theory to applications, from robotics to neuroscience, and from healthcare to self-driving cars.</p>
+
+<h1 id="generativeadversarialnetworks">Generative Adversarial Networks</h1>
+
+<p>One of the hottest developments within Deep Learning was Generative Adversarial Networks (GANs). The minimax game playing networks have by now won the favor of many luminaries in the field. Yann LeCun hails them as the most exciting development in ML in recent years. The organizers and attendees of NIPS seem to side with him: NIPS featured a tutorial by Ian Goodfellow about his brainchild, which led to a packed main conference hall.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/full_conference_hall_gan_tutorial.jpg" style="width: 70%; height: 70%" title="Full conference hall at GAN tutorial" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 3: A full conference hall at the GAN tutorial  
+</figcaption>  
+</figure>
+
+<p>Though a fairly recent development, there are many cool extensions of GANs among the conference papers:</p>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/6111-learning-what-and-where-to-draw.pdf">Reed et al.</a> propose a model that allows you to specify not only what you want to draw (e.g. a bird) but also where to put it in an image.</li>
+<li><a href="https://papers.nips.cc/paper/6399-infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets.pdf">Chen et al.</a> disentangle factors of variation in GANs by representing them with latent codes. The resulting models allow you to adjust e.g. the type of a digit, its breadth and width, etc.</li>
+</ul>
+
+<p>In spite of their popularity, we know alarmingly little about what makes GANs so capable of generating realistic-looking images. In addition, making them work in practice is an arduous endeavour and a lot of (undocumented) hacks are necessary to achieve the best performance. Soumith Chintala presents a collection of these hacks in his <a href="https://github.com/soumith/ganhacks">"How to train your GAN" talk</a> at the Adversarial Training workshop.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/soumith_chintala_nips_2016_how_to_train_your_gan_poster.png" style="width: 50%; height: 50%" title="How to train your GAN" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 4: How to train your GAN (Source: <a href="https://twitter.com/soumithchintala/status/805111562503589889">Soumith Chintala</a>)  
+</figcaption>  
+</figure>
+
+<p>Yann LeCun muses in his keynote that the development of GANs parallels the history of neural networks themselves: They were poorly understood and hard to get to work in the beginning and only took off once researchers figured out the right tricks and learned how to make them work. At this point, it seems unlikely that GANs will experience a winter anytime soon; the research community is still at the beginning in learning how to make the best use of them and it will be exciting to see what progress we can make in the coming years.</p>
+
+<p>On the other hand, the success of GANs so far has been limited mostly to Computer Vision due to their difficulty in modelling discrete rather than continuous data. The Adversarial Training workshop showcased some promising work in this direction (see e.g. my colleague <a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_19.pdf">John Glover’s paper</a> on modeling documents, <a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_20.pdf">this</a> and <a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_27.pdf">this</a> paper on generating text, and <a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_32.pdf">this paper</a> on adversarial evaluation of dialogue models). We will see if 2017 will be the year in which GANs break through in NLP.</p>
+
+<h1 id="thenutsandboltsofmachinelearning">The Nuts and Bolts of Machine Learning</h1>
+
+<p>Andrew Ng gave one of the best tutorials of the conference with his take on building AI applications using Deep Learning. Drawing from his experience of managing the 1,300 people AI team at Baidu and hundreds of applied AI projects and equipped solely with two whiteboards, he shared many insights about how to build and deploy AI applications in production.</p>
+
+<p>Besides better hardware, Ng attributes the success of Deep Learning to two factors: In contrast to traditional methods, deep NNs are able to learn more effectively from large amounts of data. Secondly, end-to-end (supervised) Deep Learning allows us to learn to map from inputs directly to outputs.</p>
+
+<p>While this approach to training chatbots or self-driving cars is sufficient to write innovative research papers, Ng emphasized end-to-end DL is often not production-ready: A chatbot that maps from text directly to a response is not able to have a coherent conversation or fulfill a request, while mapping from an image directly to a steering command might have literally fatal side effects if the model has not encountered the corresponding part of the input space before. Rather, for a production model, we still want to have intermediate steps: For a chatbot, we prefer to have an inference engine that generates a response, while in a self-driving car, DL is used to identify obstacles, while the steering is performed by a traditional planning algorithm.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/ng_tutorial_end_to_end_dl.jpg" style="width: 100%; height: 100%" title="Andrew Ng on end-to-end Deep Learning" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 5: Andrew Ng on end-to-end DL (right: end-to-end DL chatbot and chatbot with inference engine; left bottom: end-to-end DL self-driving car and self-driving car with intermediate steps)  
+</figcaption>  
+</figure>
+
+<p>Ng also shared that the most common mistake he sees in project teams is that they track the wrong metrics: In an applied machine learning project, the only relevant metrics are the training error, the development error, and the test error. These metrics alone enable the project team to know what steps to take, as he demonstrated in the diagram below:</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/ng_tutorial_bias_variance.jpg" style="width: 100%; height: 100%" title="Andrew Ng's flowchart for applied ML projects" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 6: Andrew Ng’s flowchart for applied ML projects  
+</figcaption>  
+</figure>
+
+<p>A key facilitator of the recent success of ML have been the advances in hardware that allowed faster computation and storage. Given that Murphy’s Law will reach its limits sooner or later, one might reason that also the rise of ML might plateau. Ng, however, argued that the <a href="http://fortune.com/2016/11/18/intel-ai-nvidia-analysts/">commitment by leading hardware manufacturers such as NVIDIA and Intel</a> and the ensuing performance improvements to ML hardware would fuel further growth.</p>
+
+<p>Among ML research areas, supervised learning is the undisputed driver of the recent success of ML and will likely continue to drive it for the foreseeable future. In second place, Ng saw neither unsupervised learning nor reinforcement learning, but transfer learning. We at AYLIEN are bullish on transfer learning for NLP and think that it has massive potential.</p>
+
+<h1 id="recurrentneuralnetworks">Recurrent Neural Networks</h1>
+
+<p>The conference also featured a symposium dedicated to Recurrent Neural Networks (RNNs). The symposium coincided with the 20 year anniversary of LSTM...</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/rnn_symposium.png" style="width: 70%; height: 70%" title="Jürgen Schmidhuber at the RNN symposium" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 7: Jürgen Schmidhuber kicking off the RNN symposium  
+</figcaption>  
+</figure>
+
+<p>...being rejected from NIPS 1996. The fact that papers that <em>do not</em> use LSTMs have been rare in the most recent NLP conferences (see my <a href="http://sebastianruder.com/emnlp-2016-highlights/index.html">EMNLP 2016 blog post</a>) is a testament to the perseverance of the authors of the original paper, Sepp Hochreiter and Jürgen Schmidhuber.</p>
+
+<p>At NIPS, we had several papers that sought to improve RNNs in different ways:</p>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/6057-using-fast-weights-to-attend-to-the-recent-past.pdf">Ba et al.</a> and <a href="https://papers.nips.cc/paper/6310-phased-lstm-accelerating-recurrent-network-training-for-long-or-event-based-sequences.pdf">Neil et al.</a> enable RNNs to handle different time scales using slow weights and a phased variant of the LSTM respectively.</li>
+<li><a href="https://papers.nips.cc/paper/6039-sequential-neural-models-with-stochastic-layers.pdf">Fraccaro et al.</a> model uncertainty.</li>
+</ul>
+
+<p>Other improvements apply to Deep Learning in general:</p>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/6114-weight-normalization-a-simple-reparameterization-to-accelerate-training-of-deep-neural-networks.pdf">Salimans and Kingma</a> propose Weight Normalisation to accelerate training that can be applied in two lines of Python code.</li>
+<li><a href="https://papers.nips.cc/paper/6561-improved-dropout-for-shallow-and-deep-learning.pdf">Li et al.</a> propose a multinomial variant of dropout that sets neurons to zero depending on the data distribution.</li>
+</ul>
+
+<p>The <a href="https://uclmr.github.io/nampi/">Neural Abstract Machines &amp; Program Induction (NAMPI) workshop</a> also featured several speakers talking about RNNs:</p>
+
+<ul>
+<li>Alex Graves focused on his recent work on Adaptive Computation Time (ACT) for RNNs that allows to decouple the processing time from the sequence length. He showed that a word-level language model with ACT could reach state-of-the-art with fewer computations.</li>
+<li>Edward Grefenstette outlined several limitations and potential future research directions in the context of RNNs in <a href="https://uclmr.github.io/nampi/talk_slides/grefenstette-nampi.pdf">his talk</a>.</li>
+</ul>
+
+<h1 id="improvingclassicalgorithms">Improving classic algorithms</h1>
+
+<p>While Deep Learning is a fairly recent development, the conference featured also several improvements to algorithms that have been around for decades:</p>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/6048-matrix-completion-has-no-spurious-local-minimum.pdf">Ge et al.</a> show in their best paper that the non-convex objective for matrix completion has no spurious local minima, i.e. every local minimum is a global minimum.</li>
+<li><a href="https://papers.nips.cc/paper/6478-fast-and-provably-good-seedings-for-k-means.pdf">Bachem et al.</a> present a method that guarantees accurate and fast seedings for large-scale k-means++ clustering. The presentation was one of the most polished ones of the conference and the code is <a href="https://github.com/obachem/kmc2">open-source</a> and can be installed via pip.</li>
+<li><a href="https://papers.nips.cc/paper/6449-clustering-with-same-cluster-queries.pdf">Ashtiani et al.</a> show that we can make NP-hard k-means clustering problems solvable by allowing the model to pose queries for a few examples to a domain expert.</li>
+</ul>
+
+<h1 id="reinforcementlearning">Reinforcement Learning</h1>
+
+<p>Reinforcement Learning (RL) was another much-discussed topic at NIPS with an <a href="http://people.eecs.berkeley.edu/~pabbeel/nips-tutorial-policy-optimization-Schulman-Abbeel.pdf">excellent tutorial</a> by Pieter Abbeel and John Schulman. John Schulman also gave some <a href="http://rll.berkeley.edu/deeprlcourse/docs/nuts-and-bolts.pdf">practical advice</a> for getting started with RL.</p>
+
+<p>One of the best papers of the conference introduces <a href="https://papers.nips.cc/paper/6046-value-iteration-networks.pdf">Value Iteration Networks</a>, which learn to plan by providing a differentiable approximation to a classic planning algorithm via a CNN. This paper was another cool example of one of the major benefits of deep neural networks: They allow us to learn increasingly complex behaviour as long as we can represent it in a differentiable way. I hope to see more approaches in the future that integrate classic algorithms to enhance the capabilities of a neural network.</p>
+
+<p>During the week of the conference, several research environments for RL were simultaneously released, among them <a href="https://openai.com/blog/universe/">OpenAI’s Universe</a>, <a href="https://deepmind.com/blog/open-sourcing-deepmind-lab/">Deep Mind Lab</a>, and <a href="https://arxiv.org/abs/1611.00625">FAIR’s Torchcraft</a>. These will likely be a key driver in future RL research and should open up new research opportunities.</p>
+
+<h1 id="learningtolearnmetalearning">Learning-to-learn / Meta-learning</h1>
+
+<p>Another topic that came up in several discussions over the course of the conference was Learning-to-learn or Meta-learning:</p>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/6461-learning-to-learn-by-gradient-descent-by-gradient-descent.pdf">Andrychowicz et al.</a> learn an optimizer in a paper with the ingenious title "Learning to learn by gradient descent by gradient descent".</li>
+<li><a href="https://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf">Vinyals et al.</a> learn how to one shot-learn in a paper that frames one-shot learning in the sequence-to-sequence framework and has inspired new approaches for one-shot learning.</li>
+</ul>
+
+<p>Most of the existing papers on meta-learning demonstrate that wherever you are doing something that gives you gradients, you can optimize them using another algorithm via gradient descent. Prepare for a surge of “Meta-learning for X” and “(Meta-)+learning” papers in 2017. It’s LSTMs all the way down!</p>
+
+<p>Meta-learning was also one of the key talking points at the RNN symposium. Jürgen Schmidhuber argued that a true meta-learner would be able to learn in the space of all programs and would have the ability to modify itself and elaborated on these ideas at <a href="https://uclmr.github.io/nampi/talk_slides/schmidhuber-nampi.pdf">his talk</a> at the NAMPI workshop. Ilya Sutskever remarked that we currently have no good meta-learning models. However, there is hope as the plethora of new research environments should also bring progress in this area.</p>
+
+<h1 id="generalartificialintelligence">General Artificial Intelligence</h1>
+
+<p>Learning how to learn also plays a role in the pursuit of the elusive goal of attaining General Artificial Intelligence, which was a topic in several keynotes. Yann LeCun argued that in order to achieve General AI, machines need to learn common sense. While common sense is often vaguely mentioned in research papers, Yann LeCun gave a succinct explanation of what common sense is: "Predicting any part of the past, present or future percepts from whatever information is available." He called this predictive learning, but notes that this is really unsupervised learning.</p>
+
+<p>His talk also marked the appearance of a controversial and often tongue-in-cheek copied image of a cake, which he used to demonstrate that unsupervised learning is the most challenging task where we should concentrate our efforts, while RL is only the cherry on the icing of the cake.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/lecun_nips_2016_cake_slide.png" style="width: 70%; height: 70%" title="Yann LeCun's Cake slide" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 8: The Cake slide of <a href="https://drive.google.com/file/d/0BxKBnD5y2M8NREZod0tVdW5FLTQ/view">Yann LeCun's keynote</a></figcaption>  
+</figure>
+
+<p>Drew Purves focused on the bilateral relationship between the environment and AI in what was probably the most aesthetically pleasing keynote of the conference (just look at those illustrations!).</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/drew_purves_agent_illustrations.jpg" style="width: 70%; height: 70%" title="Drew Purves keynote illustrations" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 9: Illustrations by Max Cant of Drew Purves' keynote (Source: <a href="https://twitter.com/DrewPurves/status/806427029306560512">Drew Purves</a>)</figcaption>  
+</figure>
+
+<p>He emphasized that while simulations of ecological tasks in naturalistic environments could be an important test bed for General AI, General AI is needed to maintain the biosphere in a state that will allow the continued existence of our civilization.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/drew_purves_nips_2016_nature_needs_ai_slide.png" style="width: 60%; height: 60%" title="Nature needs AI" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 10: Nature needs AI and AI needs Nature from Drew Purves' keynote</figcaption>  
+</figure>
+
+<p>While it is frequently — and incorrectly — claimed that neural networks work so well because they emulate the brain’s behaviour, Saket Navlakha argued during his keynote that we can still learn a great deal from the engineering principles of the brain. For instance, rather than pre-allocating a large number of neurons, the brain generates 1000s of synapses per minutes until its second year. Afterwards, until adolescence, the number of synapses is pruned and decreases by ~50%.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/saket_navlakha_slide.jpg" style="width: 70%; height: 70%" title="Saket Navlakha keynote" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 11: Saket Navlakha’s keynote</figcaption>  
+</figure>
+
+<p>It will be interesting to see how neuroscience can help us to advance our field further.</p>
+
+<p>In the context of the <a href="https://mainatnips.github.io/">Machine Intelligence workshop</a>, another environment was introduced in the form of FAIR’s CommAI-env that allows to train agents through interaction with a teacher. During the panel discussion, the ability to learn hierarchical representations and to identify patterns was emphasized. However, although the field is making rapid progress on standard tasks such as object recognition, it is unclear if the focus on such specific tasks brings us indeed closer to General AI.</p>
+
+<h1 id="naturallanguageprocessing">Natural Language Processing</h1>
+
+<p>While NLP is more of a niche topic at NIPS, there were a few papers with improvements relevant to NLP:</p>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/6469-dual-learning-for-machine-translation.pdf">He et al.</a> propose a dual learning framework for MT that has two agents translating in opposite directions teaching each other via reinforcement learning.</li>
+<li><a href="https://papers.nips.cc/paper/6134-stochastic-structured-prediction-under-bandit-feedback.pdf">Sokolov et al.</a> explore how to use structured prediction under bandit feedback.</li>
+<li><a href="https://papers.nips.cc/paper/6139-supervised-word-movers-distance.pdf">Huang et al.</a> extend Word Mover’s Distance, an unsupervised document similarity metric to the supervised setting.</li>
+<li><a href="https://papers.nips.cc/paper/6362-beyond-exchangeability-the-chinese-voting-process.pdf">Lee et al.</a> model the helpfulness of reviews by taking into account position and presentation biases.</li>
+</ul>
+
+<p>Finally, a <a href="http://letsdiscussnips2016.weebly.com/">workshop on learning methods for dialogue</a> explored how end-to-end DL, linguistics and ML methods can be used to create dialogue agents.</p>
+
+<h1 id="miscellaneous">Miscellaneous</h1>
+
+<h2 id="schmidhuber">Schmidhuber</h2>
+
+<p>Jürgen Schmidhuber, the father of the LSTM was not only present on several panels, but did his best to remind everyone that whatever your idea, he had had a similar idea two decades ago and you should better cite him lest he interrupt your tutorial.</p>
+
+<blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">NIPS2016 Day 1: Poor <a href="https://twitter.com/goodfellow_ian">@Goodfellow_Ian</a> gets Schmidhuber&#39;ed during educational GAN Tutorial session. <a href="https://t.co/IeQzKcJYiv">pic.twitter.com/IeQzKcJYiv</a></p>&mdash; hardmaru (@hardmaru) <a href="https://twitter.com/hardmaru/status/805789874813026304">5. Dezember 2016</a></blockquote>  
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="robotics">Robotics</h2>
+
+<p>Boston Robotics’ Spot proved that — even though everyone is excited by learning and learning-to-learn — traditional planning algorithms are enough to win the admiration of a hall full of learning enthusiasts.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/boston_dynamics_spot.png" style="width: 70%; height: 70%" title="Boston Dynamics Spot" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 12: Boston Robotics’ Spot amid a crowd of fascinated onlookers</figcaption>  
+</figure>
+
+<h2 id="apple">Apple</h2>
+
+<p>Apple, one of the most secretive companies in the world, has decided to be more open, to publish, and to engage with academia. This can only be good for the community. I'm particularly looking forward to more <a href="https://arxiv.org/abs/1610.08120v1">apple research papers</a>.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/russ_salakhutdinov_apple_nips_2016_slide.png" style="width: 60%; height: 60%" title="Ruslan Salakhutdinov at Apple lunch event" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 13: Ruslan Salakhutdinov at the Apple lunch event</figcaption>  
+</figure>
+
+<h2 id="uber">Uber</h2>
+
+<p>Uber announced their acquisition of Cambridge-based AI startup Geometric Intelligence and threw one of the most popular parties of NIPS.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2016/12/geometric_intelligence_logo.jpg" style="width: 30%; height: 30%" title="Geometric Intelligence Logo" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
+<figcaption>Figure 14: The Geometric Intelligence logo</figcaption>  
+</figure>
+
+<h2 id="rocketai">Rocket AI</h2>
+
+<p>Talking about startups, the "launch" of Rocket AI and their patented Temporally Recurrent Optimal Learning had some people fooled (note the acronyms in the below tweets). Riva-Melissa Tez finally <a href="https://medium.com/the-mission/rocket-ai-2016s-most-notorious-ai-launch-and-the-problem-with-ai-hype-d7908013f8c9#.9l7sozt7a">cleared up the confusion</a>.</p>
+
+<blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/rocketai?src=hash">#rocketai</a> just drove me home. the team is just mind-blowing. so excited about Temporally Recurrent Optimal Learning, the next GAN!</p>&mdash; Soumith Chintala (@soumithchintala) <a href="https://twitter.com/soumithchintala/status/807762876245176320">11. Dezember 2016</a></blockquote>  
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/rocketai?src=hash">#rocketai</a> definitely has the most popular Jacobian-Optimized Kernel Expansion of NIPS 2016</p>&mdash; Ian Goodfellow (@goodfellow_ian) <a href="https://twitter.com/goodfellow_ian/status/807721903976841216">10. Dezember 2016</a></blockquote>  
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!</p>]]></content:encoded></item><item><title><![CDATA[A survey of cross-lingual embedding models]]></title><description><![CDATA[<p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads</p>]]></description><link>http://sebastianruder.com/cross-lingual-embeddings/</link><guid isPermaLink="false">9337835e-1bdf-4fa1-acd1-f23a262380ac</guid><category><![CDATA[word embeddings]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 28 Nov 2016 10:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" alt="A survey of cross-lingual embedding models"><p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads to a disproportionate focus on the English language and a negligence of the plethora of other languages that are spoken around the world. <br>
 In our globalised society, where national borders increasingly blur, where the Internet gives everyone equal access to information, it is thus imperative that we do not only seek to eliminate bias pertaining to <a href="http://arxiv.org/abs/1607.06520">gender or race</a> inherent in our representations, but also aim to address our bias towards <em>language</em>.</p>
 
 <p>To remedy this and level the linguistic playing field, we would like to leverage our existing knowledge in English to equip our models with the capability to process other languages. <br>
