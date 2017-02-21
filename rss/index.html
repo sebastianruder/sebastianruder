@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 22 Dec 2016 10:10:19 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more]]></title><description><![CDATA[<p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-nips-2016/">AYLIEN blog</a>.</em></p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 21 Feb 2017 09:21:34 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more]]></title><description><![CDATA[<p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-nips-2016/">AYLIEN blog</a>.</em></p>
 
 <p>I attended NIPS 2016 in Barcelona from Monday, December 5 to Saturday, December 10. The full conference program is available <a href="https://media.nips.cc/Conferences/2016/NIPS-2016-Conference-Book.pdf">here</a>. In the following, I will share some of my highlights.</p>
 
@@ -1233,7 +1233,7 @@ Even though this is no new insight, I feel that traditional methods are frequent
 
 <p>In a <a href="http://sebastianruder.com/word-embeddings-1/index.html">previous blog post</a>, we have given an overview of popular word embedding models. One model that we have omitted so far is GloVe [<sup id="fnref:2"><a href="http://sebastianruder.com/secret-word2vec/#fn:2" rel="footnote">2</a></sup>].</p>
 
-<p>Briefly, GloVe seeks to make explicit what SNGS does implicitly: Encoding meaning as vector offsets in an embedding space -- seemingly only a serendipitous by-product of word2vec -- is the specified goal of GloVe. <br>
+<p>Briefly, GloVe seeks to make explicit what SGNS does implicitly: Encoding meaning as vector offsets in an embedding space -- seemingly only a serendipitous by-product of word2vec -- is the specified goal of GloVe. <br>
 Specifically, the authors of Glove show that the ratio of the co-occurrence probabilities of two words (rather than their co-occurrence probabilities themselves) is what contains information and aim to encode this information as vector differences. <br>
 To achieve this, they propose a weighted least squares objective \(J\) that directly aims to minimise the difference between the dot product of the vectors of two words and the logarithm of their number of co-occurrences:</p>
 
@@ -1364,7 +1364,7 @@ In 3 out of 6 cases, tuning hyperparameters is more beneficial.</li>
 <li>Are embeddings superior to distributional methods? <br>
 With the right hyperparameters, no approach has a consistent advantage over another.  </li>
 <li>Is GloVe superior to SGNS? <br>
-SNGS outperforms GloVe on all tasks.  </li>
+SGNS outperforms GloVe on all tasks.  </li>
 <li>Is CBOW a good word2vec configuration? <br>
 CBOW does not outperform SGNS on any task.</li>
 </ol>
@@ -2165,6 +2165,11 @@ Differentiated Softmax generally does well for both small and large vocabularies
 <p>If you found this blog post helpful, please consider citing it as:</p>
 
 <p><em>Sebastian Ruder. On word embeddings - Part 2: Approximating the Softmax. <a href="http://sebastianruder.com/word-embeddings-softmax">http://sebastianruder.com/word-embeddings-softmax</a>, 2016.</em></p>
+
+<h1 id="translations">Translations</h1>
+
+<p>This blog post has been translated into the following languages: <br>
+- <a href="http://geek.csdn.net/news/detail/135736">Chinese</a></p>
 
 <h1 id="references">References</h1>
 
