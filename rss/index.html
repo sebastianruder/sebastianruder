@@ -1,4 +1,423 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 28 Feb 2017 09:24:31 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more]]></title><description><![CDATA[<p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-nips-2016/">AYLIEN blog</a>.</em></p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 20 Mar 2017 23:31:14 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Transfer Learning - Machine Learning's Next Frontier]]></title><description><![CDATA[<p>Table of contents:</p>
+
+<ul>
+<li><a href="http://sebastianruder.com/transfer-learning/#whatistransferlearning">What is Transfer Learning?</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#whytransferlearningnow">Why Transfer Learning Now?</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#adefinitionoftransferlearning">A Definition of Transfer Learning</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#transferlearningscenarios">Transfer Learning Scenarios</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#applicationsoftransferlearning">Applications of Transfer Learning</a>
+<ul><li><a href="http://sebastianruder.com/transfer-learning/#learningfromsimulations">Learning from simulations</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#adaptingtonewdomains">Adapting to new domains</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#transferringknowledgeacrosslanguages">Transferring knowledge across languages</a></li></ul></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#transferlearningmethods">Transfer Learning Methods</a>
+<ul><li><a href="http://sebastianruder.com/transfer-learning/#usingpretrainedcnnfeatures">Using pre-trained CNN features</a> </li>
+<li><a href="http://sebastianruder.com/transfer-learning/#learningdomaininvariantrepresentations">Learning domain-invariant representations</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#makingrepresentationsmoresimilar">Making representations more similar</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#confusingdomains">Confusing domains</a></li></ul></li></ul>]]></description><link>http://sebastianruder.com/transfer-learning/</link><guid isPermaLink="false">97502b6e-1a86-443a-a0ce-272bc5d6fa44</guid><category><![CDATA[transfer learning]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 20 Mar 2017 14:40:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png" alt="Transfer Learning - Machine Learning's Next Frontier"><p>Table of contents:</p>
+
+<ul>
+<li><a href="http://sebastianruder.com/transfer-learning/#whatistransferlearning">What is Transfer Learning?</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#whytransferlearningnow">Why Transfer Learning Now?</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#adefinitionoftransferlearning">A Definition of Transfer Learning</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#transferlearningscenarios">Transfer Learning Scenarios</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#applicationsoftransferlearning">Applications of Transfer Learning</a>
+<ul><li><a href="http://sebastianruder.com/transfer-learning/#learningfromsimulations">Learning from simulations</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#adaptingtonewdomains">Adapting to new domains</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#transferringknowledgeacrosslanguages">Transferring knowledge across languages</a></li></ul></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#transferlearningmethods">Transfer Learning Methods</a>
+<ul><li><a href="http://sebastianruder.com/transfer-learning/#usingpretrainedcnnfeatures">Using pre-trained CNN features</a> </li>
+<li><a href="http://sebastianruder.com/transfer-learning/#learningdomaininvariantrepresentations">Learning domain-invariant representations</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#makingrepresentationsmoresimilar">Making representations more similar</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#confusingdomains">Confusing domains</a></li></ul></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#relatedresearchareas">Related Research Areas</a>
+<ul><li><a href="http://sebastianruder.com/transfer-learning/#semisupervisedlearning">Semi-supervised learning</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#usingavailabledatamoreeffectively">Using available data more effectively</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#improvingmodelsabilitytogeneralize">Improving models' ability to generalize</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#makingmodelsmorerobust">Making models more robust</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#multitasklearning">Multi-task learning</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#continuouslearning">Continuous learning</a></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#zeroshotlearning">Zero-shot learning</a></li></ul></li>
+<li><a href="http://sebastianruder.com/transfer-learning/#conclusion">Conclusion</a></li>
+</ul>
+
+<p>In recent years, we have become increasingly good at training deep neural networks to learn a very accurate mapping from inputs to outputs, whether they are images, sentences, label predictions, etc. from large amounts of labeled data.</p>
+
+<p>What our models still frightfully lack is the ability to generalize to conditions that are different from the ones encountered during training. When is this necessary? Every time you apply your model not to a carefully constructed dataset but to the real world. The real world is messy and contains an infinite number of novel scenarios, many of which your model has not encountered during training and for which it is in turn ill-prepared to make predictions. The ability to transfer knowledge to new conditions is generally known as transfer learning and is what we will discuss in the rest of this post.</p>
+
+<p>Over the course of this blog post, I will first contrast transfer learning with machine learning's most pervasive and successful paradigm, supervised learning. I will then outline reasons why transfer learning warrants our attention. Subsequently, I will give a more technical definition and detail different transfer learning scenarios. I will then provide examples of applications of transfer learning before delving into practical methods that can be used to transfer knowledge. Finally, I will give an overview of related directions and provide an outlook into the future.</p>
+
+<h1 id="whatistransferlearning">What is Transfer Learning?</h1>
+
+<p>In the classic supervised learning scenario of machine learning, if we intend to train a model for some task and domain \(A\), we assume that we are provided with labeled data for the same task and domain. We can see this clearly in Figure 1, where the task and domain of the training and test data of our model \(A\) is the same. We will later define in more detail what exactly a task and a domain are). For the moment, let us assume that a task is the objective our model aims  to perform, e.g. recognize objects in images, and a domain is where our data is coming from, e.g. images taken in San Francisco coffee shops.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/traditional_ml_setup.png" style="width: 70%; height: 70%" title="Traditional ML setup" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 1: The traditional supervised learning setup in ML</figcaption>  
+</figure>
+
+<p>We can now train a model \(A\) on this dataset and expect it to perform well on unseen data of the same task and domain. On another occasion, when given data for some other task or domain \(B\), we require again labeled data of the same task or domain that we can use to train a new model \(B\) so that we can expect it to perform well on this data.</p>
+
+<p>The traditional supervised learning paradigm breaks down when we do not have sufficient labeled data for the task or domain we care about to train a reliable model. <br>
+If we want to train a model to detect pedestrians on night-time images, we could apply a model that has been trained on a similar domain, e.g. on day-time images. In practice, however, we often experience a deterioration or collapse in performance as the model has inherited the bias of its training data and does not know how to generalize to the new domain. <br>
+If we want to train a model to perform a new task, such as detecting bicyclists, we cannot even reuse an existing model, as the labels between the tasks differ.</p>
+
+<p>Transfer learning allows us to deal with these scenarios by leveraging the already existing labeled data of some related task or domain. We try to store this knowledge gained in solving the source task in the source domain and apply it to our problem of interest as can be seen in Figure 2. </p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/transfer_learning_setup.png" style="width: 70%; height: 70%" title="Transfer learning setup" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 2: The transfer learning setup</figcaption>  
+</figure>
+
+<p>In practice, we seek to transfer as much knowledge as we can from the source setting to our target task or domain. This knowledge can take on various forms depending on the data: it can pertain to how objects are composed to allow us to more easily identify novel objects; it can be with regard to the general words people use to express their opinions, etc.</p>
+
+<h1 id="whytransferlearningnow">Why Transfer Learning Now?</h1>
+
+<p>Andrew Ng, chief scientist at Baidu and professor at Stanford, said during <a href="http://sebastianruder.com/highlights-nips-2016/index.html#thenutsandboltsofmachinelearning">his widely popular NIPS 2016 tutorial</a> that transfer learning will be -- after supervised learning -- the next driver of ML commercial success.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/andrew_ng_nips_2016_transfer_learning-1.png" style="width: 70%; height: 70%" title="Andrew Ng on transfer learning" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 3: Andrew Ng on transfer learning at NIPS 2016</figcaption>  
+</figure>
+
+<p>In particular, he sketched out a chart on a whiteboard that I've sought to replicate as faithfully as possible in Figure 4 below. According to Andrew Ng, transfer learning will become a key driver of Machine Learning success in industry.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/andrew_ng_drivers_ml_success-1.png" style="width: 70%; height: 70%" title="Drivers of ML success in industry" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 4: Drivers of ML industrial success according to Andrew Ng</figcaption>  
+</figure>
+
+<p>It is indisputable that ML use and success in industry has so far been mostly driven by supervised learning. Fuelled by advances in Deep Learning, more capable computing utilities, and large labeled datasets, supervised learning has been largely responsible for the wave of renewed interest in AI, funding rounds and acquisitions, and in particular the applications of machine learning that we have seen in recent years and that have become part of our daily lives. If we disregard naysayers and heralds of another AI winter and instead trust the prescience of Andrew Ng, this success will likely continue.</p>
+
+<p>It is less clear, however, why transfer learning which has been around for decades and is currently little utilized in industry, will see the explosive growth predicted by Ng. Even more so as transfer learning currently receives relatively little visibility compared to other areas of machine learning such as unsupervised learning and reinforcement learning, which have come to enjoy increasing popularity: Unsupervised learning -- the <a href="http://sebastianruder.com/highlights-nips-2016/index.html#generalartificialintelligence">key ingredient on the quest to General AI</a> according to Yann LeCun as can be seen in Figure 5 -- has seen a resurgence of interest, driven in particular by Generative Adversarial Networks. Reinforcement learning, in turn, spear-headed by Google DeepMind has led to advances in game-playing AI exemplified by the success of <a href="https://deepmind.com/research/alphago/">AlphaGo</a> and has already seen success in the real world, e.g. by <a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/">reducing Google's data center cooling bill by 40%</a>. Both of these areas, while promising, will likely only have a comparatively small commercial impact in the foreseeable future and mostly remain within the confines of cutting-edge research papers as they still face <a href="http://www.maluuba.com/blog/2017/3/14/the-next-challenges-for-reinforcement-learning">many challenges</a>.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/lecun_nips_2016_cake_slide.png" style="width: 60%; height: 60%" title="Yann LeCun NIPS 2016 keynote cake slide" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 5: Transfer Learning is suspiciously absent as ingredient from Yann LeCun's cake.</figcaption>  
+</figure>
+
+<p>What makes transfer learning different? In the following, we will look at the factors that -- in our opinion -- motivate Ng's prognosis and outline the reasons why just now is the time to pay attention to transfer learning.</p>
+
+<p>The current use of machine learning in industry is characterised by a dichotomy: <br>
+On the one hand, over the course of the last years, we have obtained the ability to train more and more accurate models. We are now at the stage that for many tasks, state-of-the-art models have reached a level where their performance is so good that it is no longer a hindrance for users. How good? The newest residual networks [<sup id="fnref:1"><a href="http://sebastianruder.com/transfer-learning/#fn:1" rel="footnote">1</a></sup>] on ImageNet achieve <a href="http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/">superhuman performance</a> at recognising objects; Google's Smart Reply [<sup id="fnref:2"><a href="http://sebastianruder.com/transfer-learning/#fn:2" rel="footnote">2</a></sup>] automatically handles 10% of all mobile responses; speech recognition error has consistently dropped and is more accurate than typing [<sup id="fnref:3"><a href="http://sebastianruder.com/transfer-learning/#fn:3" rel="footnote">3</a></sup>]; we can automatically <a href="http://news.stanford.edu/2017/01/25/artificial-intelligence-used-identify-skin-cancer/">identify skin cancer as well as dermatologists</a>; Google's NMT system [<sup id="fnref:4"><a href="http://sebastianruder.com/transfer-learning/#fn:4" rel="footnote">4</a></sup>] is used in production for more than 10 language pairs; Baidu can generate realistic sounding speech <a href="https://www.engadget.com/2017/03/09/baidu-deep-voice-natural-sounding-speec/">in real-time</a>; the list goes on and on. This level of maturity has allowed the large-scale deployment of these models to millions of users and has enabled widespread adoption.</p>
+
+<p>On the other hand, these successful models are immensely data-hungry and rely on huge amounts of labeled data to achieve their performance. For some tasks and domains, this data is available as it has been painstakingly gathered over many years. In a few cases, it is public, e.g. ImageNet [<sup id="fnref:5"><a href="http://sebastianruder.com/transfer-learning/#fn:5" rel="footnote">5</a></sup>], but large amounts of labeled data are usually proprietary, as in the case of many speech or MT datasets, as they provide an edge over the competition.</p>
+
+<p>At the same time, when applying a machine learning model in the wild, it is faced with a myriad of conditions which the model has never seen before and does not know how to deal with; each client and every user has their own preferences, possesses or generates data that is different than the data used for training; a model is asked to perform many tasks that are related to but not the same as the task it was trained for. In all of these situations, our current state-of-the-art models, despite exhibiting human-level or even super-human performance on the task and domain they were trained on, suffer a significant loss in performance or even break down completely. </p>
+
+<p>Transfer learning can help us deal with these novel scenarios and is necessary for production-scale use of machine learning that goes beyond tasks and domains were labeled data is plentiful. So far, we have applied our models to the tasks and domains that -- while impactful -- are the low-hanging fruits in terms of data availability. To also serve the long tail of the distribution, we must learn to transfer the knowledge we have acquired to new tasks and domains.</p>
+
+<p>To be able to do this, we need to understand the concepts that transfer learning involves. For this reason, we will give a more technical definition in the following section.</p>
+
+<h1 id="adefinitionoftransferlearning">A Definition of Transfer Learning</h1>
+
+<p>For this definition, we will closely follow the excellent survey by Pan and Yang (2010) [<sup id="fnref:6"><a href="http://sebastianruder.com/transfer-learning/#fn:6" rel="footnote">6</a></sup>] with binary document classification as a running example. <br>
+Transfer learning involves the concepts of a domain and a task. A domain \(\mathcal{D}\) consists of a feature space \(\mathcal{X}\) and a marginal probability distribution \(P(X)\) over the feature space, where \(X = {x_1, \cdots, x_n} \in \mathcal{X}\). For document classification with a bag-of-words representation, \(\mathcal{X}\) is the space of all document representations, \(x_i\) is the binary feature of the \(i\)-th word and \(X\) is a particular document.</p>
+
+<p>Given a domain, \(\mathcal{D} = \{\mathcal{X},P(X)\}\), a task consists of a label space \(\mathcal{Y}\) and a conditional probability distribution \(P(Y|X)\) that is typically learned from the training data consisting of pairs \(x_i \in X\) and \(y_i \in \mathcal{Y}\). In our document classification example, \(\mathcal{Y}\) is the set of all labels, i.e. <em>True</em>, <em>False</em> and \(y_i\) is either <em>True</em> or <em>False</em>.</p>
+
+<p>Given a source domain \(\mathcal{D}_S\), a corresponding source task \(\mathcal{T}_S\), as well as a target domain \(\mathcal{D}_T\) and a target task \(\mathcal{T}_T\), the objective of transfer learning now is to enable us to learn the target conditional probability distribution \(P(Y_T|X_T)\) in \(\mathcal{D}_T\) with the information gained from \(\mathcal{D}_S\) and \(\mathcal{T}_S\) where \(\mathcal{D}_S \neq \mathcal{D}_T\) or \(\mathcal{T}_S \neq \mathcal{T}_T\).</p>
+
+<p>As both the domain \(\mathcal{D}\) and the task \(\mathcal{T}\) are defined as tuples, these inequalities give rise to four transfer learning scenarios, which we will discus below.</p>
+
+<h1 id="transferlearningscenarios">Transfer Learning Scenarios</h1>
+
+<p>Given source and target domains \(\mathcal{D}_S\) and \(\mathcal{D}_T\) where \(\mathcal{D} = \{\mathcal{X},P(X)\}\) and source and target tasks \(\mathcal{T}_S\) and \(\mathcal{T}_T\) where \(\mathcal{T} = \{\mathcal{Y}, P(Y|X)\}\) source and target conditions can vary in four ways, which we will illustrate in the following again using our document classification example:</p>
+
+<ol>
+<li>\(\mathcal{X}_S \neq \mathcal{X}_T\). The feature spaces of the source and target domain are different, e.g. the documents are written in two different languages. In the context of natural language processing, this is generally referred to as cross-lingual adaptation.  </li>
+<li>\(P(X_S) \neq P(X_T)\). The marginal probability distributions of source and target domain are different, e.g. the documents discuss different topics. This scenario is generally known as domain adaptation.  </li>
+<li>\(\mathcal{Y}_S \neq \mathcal{Y}_T\). The label spaces between the two tasks are different, e.g. documents need to be assigned different labels in the target task. In practice, this scenario usually occurs with scenario 4, as it is extremely rare for two different tasks to have different label spaces, but exactly the same conditional probability distributions.  </li>
+<li>\(P(Y_S|X_S) \neq P(Y_T|X_T)\). The conditional probability distributions of the source and target tasks are different, e.g. source and target documents are unbalanced with regard to their classes. This scenario is quite common in practice and approaches such as over-sampling, under-sampling, or SMOTE [<sup id="fnref:7"><a href="http://sebastianruder.com/transfer-learning/#fn:7" rel="footnote">7</a></sup>] are widely used.</li>
+</ol>
+
+<p>After we are now aware of the concepts relevant for transfer learning and the scenarios in which it is applied, we will look to different applications of transfer learning that illustrate some of its potential.</p>
+
+<h1 id="applicationsoftransferlearning">Applications of Transfer Learning</h1>
+
+<h2 id="learningfromsimulations">Learning from simulations</h2>
+
+<p>One particular application of transfer learning that I'm very excited about and that I assume we'll see more of in the future is learning from simulations. For many machine learning applications that rely on hardware for interaction, gathering data and training a model in the real world is either expensive, time-consuming, or simply too dangerous. It is thus advisable to gather data in some other, less risky way.</p>
+
+<p>Simulation is the preferred tool for this and is used towards enabling many advanced ML systems in the real world. Learning from a simulation and applying the acquired knowledge to the real world is an instance of transfer learning scenario 2, as the feature spaces between source and target domain are the same (both generally rely on pixels), but the marginal probability distributions between simulation and reality are different, i.e. objects in the simulation and the source <em>look</em> different, although this difference diminishes as simulations get more realistic. At the same time, the conditional probability distributions between simulation and real wold might be different as the simulation is not able to fully replicate all reactions in the real world, e.g. a physics engine can not completely mimic the complex interactions of real-world objects.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/self_driving_car_city.jpg" style="width: 60%; height: 60%" title="Google self-driving car" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 6: A Google self-driving car (source: <a href="https://googleblog.blogspot.ie/2014/04/the-latest-chapter-for-self-driving-car.html">Google Research blog</a>)</figcaption>  
+</figure>
+
+<p>Learning from simulations has the benefit of making data gathering easy as objects can be easily bounded and analyzed, while simultaneously enabling fast training, as learning can be parallelized across multiple instances. Consequently, it is a prerequisite for large-scale machine learning projects that need to interact with the real world, such as self-driving cars (Figure 6). According to Zhaoyin Jia, Google's self-driving car tech lead, "Simulation is essential if you really want to do a self-driving car". Udacity has <a href="https://techcrunch.com/2017/02/08/udacity-open-sources-its-self-driving-car-simulator-for-anyone-to-use/">open-sourced the simulator</a> it uses for teaching its self-driving car engineer nanodegree, which can be seen in Figure 7 and <a href="https://universe.openai.com/">OpenAI's Universe</a> will potentially allows to train a self-driving car <a href="https://techcrunch.com/2017/01/11/training-self-driving-cars-on-the-streets-of-los-santos-with-gta-v-just-got-easier/">using GTA 5</a> or other video games.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/udacity_self_driving_car_simulator.png" style="width: 60%; height: 60%" title="Udacity self-driving car simulator" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 7: Udacity's self-driving car simulator (source: <a href="https://techcrunch.com/2017/02/08/udacity-open-sources-its-self-driving-car-simulator-for-anyone-to-use/">TechCrunch</a>)</figcaption>  
+</figure>
+
+<p>Another area where learning from simulations is key is robotics: Training models on a real robot is too slow and robots are expensive to train. Learning from a simulation and transferring the knowledge to real-world robot alleviates this problem and has recently been garnering additional interest [<sup id="fnref:8"><a href="http://sebastianruder.com/transfer-learning/#fn:8" rel="footnote">8</a></sup>]. An example of a data manipulation task in the real world and in a simulation can be seen in Figure 8.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/robot_and_simulation_images_hadsell.png" style="width: 100%; height: 100%" title="Robot and simulation images" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 8: Robot and simulation images (Rusu et al., 2016)</figcaption>  
+</figure>
+
+<p>Finally, another direction where simulation will be an integral part is on the path towards general AI. Training an agent to achieve general artificial intelligence directly in the real world is too costly and hinders learning initially through unnecessary complexity. Rather, learning may be more successful if it is based on a simulated environment such as <a href="https://github.com/facebookresearch/CommAI-env">CommAI-env</a> [<sup id="fnref:9"><a href="http://sebastianruder.com/transfer-learning/#fn:9" rel="footnote">9</a></sup>] that is visible in Figure 9.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/commai-env_environment.png" style="width: 30%; height: 30%" title="CommAI-env" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 9: Facebook AI Research's CommAI-env (Mikolov et al., 2015)</figcaption>  
+</figure>
+
+<h2 id="adaptingtonewdomains">Adapting to new domains</h2>
+
+<p>While learning from simulations is a particular instance of domain adaptation, it is worth outlining some other examples of domain adaptation.</p>
+
+<p>Domain adaptation is a common requirement in vision as often the data where labeled information is easily accessible and the data that we actually care about are different, whether this pertains to identifying bikes as in Figure 11 or some other objects in the wild. Even if the training and the the test data <em>look</em> the same, the training data may still contain a bias that is imperceptible to humans but the model will leverage to overfit on the training data [<sup id="fnref:10"><a href="http://sebastianruder.com/transfer-learning/#fn:10" rel="footnote">10</a></sup>].</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/visual_domain_adaptation_bikes.png" style="width: 60%; height: 60%" title="Visual domains" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 10: Different visual domains (Sun et al., 2016)</figcaption>  
+</figure>
+
+<p>Another common domain adaptation scenario pertains to adapting to different text types: Standard NLP tools such as part-of-speech taggers or parsers are typically trained on news data such as the WSJ, which has historically been used to evaluate these models. Models trained on news data, however, have difficulty coping with more recent text forms such as social media messages and the challenges they present.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/domain_adaptation_text_types-2.png" style="width: 60%; height: 60%" title="Different text types" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 11: Different text types / genres</figcaption>  
+</figure>
+
+<p>In within one domain such as product reviews, people use totally different words and phrases to express the same opinion. A model trained on one type of review must thus be able to disentangle the general and domain-specific opinion words that people use in order not to be confused by the domain shift. </p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/domain_adaptation_reviews.png" style="width: 60%; height: 60%" title="" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 12: Different topics</figcaption>  
+</figure>
+
+<p>Finally, while the above challenges deal with regarding general text or image types, problems are amplified if we look at domains that pertain to individual or groups of users: Consider the case of automatic speech recognition (ASR). Speech is poised to become <a href="https://backchannel.com/voice-is-the-next-big-platform-unless-you-have-an-accent-6a787f7e8500#.koqx9pc2h">the next big platform</a>, with 50% of all our searches predicted to performed by voice by 2020. Most ASR are evaluated traditionally on the Switchboard dataset, which comprises 500 speakers. This means that most people with a standard accent are perfectly recognized, while immigrants, people with non-standard accents, people with a speech impediment, or children have trouble being understood. Now more than ever do we need systems that are able to adapt to individual users and minorities to ensure that everyone's voice is heard.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/domain_adaptation_accents.png" style="width: 60%; height: 60%" title="Different accents" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 13: Different accents</figcaption>  
+</figure>
+
+<h2 id="transferringknowledgeacrosslanguages">Transferring knowledge across languages</h2>
+
+<p>Finally, learning from one language and applying our knowledge to another language is -- in my opinion -- another killer application of transfer learning, which I have written about before <a href="http://sebastianruder.com/cross-lingual-embeddings/index.html">here</a> in the context of cross-lingual embedding models. Reliable cross-lingual adaptation methods would allow us to leverage the vast amounts of labeled data we have in English and apply them to any language, particularly underserved and truly low-resource languages. Given the <a href="http://sebastianruder.com/cross-lingual-embeddings/index.html#evaluation">current state-of-the-art</a>, this still seems utopian, but recent advances such as zero-shot translation [<sup id="fnref:11"><a href="http://sebastianruder.com/transfer-learning/#fn:11" rel="footnote">11</a></sup>] promise rapid progress in this area.</p>
+
+<p>While we have so far considered particular applications of transfer learning, we will now look at practical methods and directions in the literature that are used to solve some of the presented challenges.</p>
+
+<h1 id="transferlearningmethods">Transfer Learning Methods</h1>
+
+<p>Transfer learning has a long history of research and techniques exist to tackle each of the four transfer learning scenarios described above. The advent of Deep Learning has led to a range of new transfer learning approaches, some of which we will review in the following. For a survey of earlier methods, refer to [<sup id="fnref:6"><a href="http://sebastianruder.com/transfer-learning/#fn:6" rel="footnote">6</a></sup>]. </p>
+
+<h2 id="usingpretrainedcnnfeatures">Using pre-trained CNN features</h2>
+
+<p>In order to motivate the most common way of transfer learning is currently applied, we must understand what accounts for the outstanding success of large convolutional neural networks on ImageNet [<sup id="fnref:12"><a href="http://sebastianruder.com/transfer-learning/#fn:12" rel="footnote">12</a></sup>].  </p>
+
+<h3 id="understandingconvolutionalneuralnetworks">Understanding convolutional neural networks</h3>
+
+<p>While many details of how these models work still remain a mystery, we are by now aware that lower convolutional layers capture low-level image features, e.g. edges (see Figure 14), while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/example_filters.jpeg" style="width: 70%; height: 70%" title="Andrew Ng on transfer learning" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 14: Example filters learned by AlexNet (Krizhevsky et al., 2012). </figcaption>  
+</figure>
+
+<p>The final fully-connected layers are generally assumed to capture information that is relevant for solving the respective task, e.g. AlexNet's fully-connected layers would indicate which features are relevant to classify an image into one of 1000 object categories.</p>
+
+<p>However, while knowing that a cat has whiskers, paws, fur, etc. is necessary for identifying an animal as a cat (see Figure 15), it does not help us with identifying new objects or to solve other common vision tasks such as scene recognition, fine grained recognition, attribute detection and image retrieval.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/cat.jpg" style="width: 70%; height: 70%" title="Token cat" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 15: This post's token cat</figcaption>  
+</figure>
+
+<p>What can help us, however, are representations that capture general information of how an image is composed and what combinations of edges and shapes it contains. This information is contained in one of the final convolutional layers or early fully-connected layers in large convolutional neural networks trained on ImageNet as we have described above.</p>
+
+<p>For a new task, we can thus simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features. In practice, we either keep the pre-trained parameters fixed or tune them with a small learning rate in order to ensure that we do not unlearn the previously acquired knowledge. This simple approach has been shown to achieve astounding results on an array of vision tasks [<sup id="fnref:13"><a href="http://sebastianruder.com/transfer-learning/#fn:13" rel="footnote">13</a></sup>]. A model trained on ImageNet seems to capture details about the way animals and objects are structured and composed that is generally relevant when dealing with images. As such, the ImageNet task seems to be a good proxy for general computer vision problems, as the same knowledge that is required to excel in it is also relevant for many other tasks.</p>
+
+<h3 id="learningtheunderlyingstructureofimages">Learning the underlying structure of images</h3>
+
+<p>A similar assumption is used to motivate generative models: When training generative models, we assume that the ability to generate realistic images requires an understanding of the underlying structure of images, which in turn can be applied to many other tasks. This assumption itself relies on the premise that all images lie on a low-dimensional manifold, i.e. that there is some underlying structure to images that can be extracted by a model. Recent advances in generating photorealistic images with Generative Adversarial Networks [<sup id="fnref:14"><a href="http://sebastianruder.com/transfer-learning/#fn:14" rel="footnote">14</a></sup>] indicate that such a structure might indeed exist, as evidenced by the model's ability to show realistic transitions between points in the bedroom image space in Figure 16.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/walking_the_image_manifold.png" style="width: 80%; height: 80%" title="Walking the image manifold" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 16: Walking along the bedroom image manifold</figcaption>  
+</figure>
+
+<h3 id="arepretrainedfeaturesusefulbeyondvision">Are pre-trained features useful beyond vision?</h3>
+
+<p>Off-the-shelf CNN features have seen unparalleled results in vision, but the question  remains if this success can be replicated in other disciplines using other types of data, such as languages. Currently, there are no off-the-shelf features that achieve results for natural language processing that are as astounding as their vision equivalent. Why is that? Do such features exist at all or -- if not -- why is vision more conducive to this form of transfer than language?</p>
+
+<p>The output of lower-level tasks such as part-of-speech tagging or chunking can be likened as off-the-shelf features, but these do not capture more fine-grained rules of language use beyond syntax and are not helpful for all tasks. As we have seen, the existence of generalizable off-the-shelf features seems to be intertwined with the existence of a task that can be seen as a prototype for many tasks in the field. In vision, object recognition occupies such a role. In language, the closest analogue might be language modelling: In order to predict the next word or sentence given a sequence of words, a model needs to possess knowledge of how language is structured, needs to understand what words likely are related to and likely follow each other, needs to model long-term dependencies, etc.</p>
+
+<p>While state-of-the-art language models increasingly approach human levels [<sup id="fnref:15"><a href="http://sebastianruder.com/transfer-learning/#fn:15" rel="footnote">15</a></sup>], their features are only of limited use. At the same time, advances in language modelling have led to positive results for other tasks: Pre-training a model with a language model objective improves performance [<sup id="fnref:16"><a href="http://sebastianruder.com/transfer-learning/#fn:16" rel="footnote">16</a></sup>]. In addition, word embeddings pre-trained on a large unlabelled corpus with an approximated language modelling objective have become pervasive [<sup id="fnref:17"><a href="http://sebastianruder.com/transfer-learning/#fn:17" rel="footnote">17</a></sup>]. While they are not as effective as off-the-shelf features in vision, they still provide sizeable gains [<sup id="fnref:18"><a href="http://sebastianruder.com/transfer-learning/#fn:18" rel="footnote">18</a></sup>] and can be seen a simple form of transfer of general domain knowledge derived from a large unlabelled corpus.</p>
+
+<p>While a general proxy task seems currently out of reach in natural language processing, auxiliary tasks can take the form of local proxies. Whether through multi-task objectives [<sup id="fnref:19"><a href="http://sebastianruder.com/transfer-learning/#fn:19" rel="footnote">19</a></sup>] or synthetic task objectives [<sup id="fnref:20"><a href="http://sebastianruder.com/transfer-learning/#fn:20" rel="footnote">20</a></sup>, <sup id="fnref:21"><a href="http://sebastianruder.com/transfer-learning/#fn:21" rel="footnote">21</a></sup>], they can be used to inject additional relevant knowledge into the model.</p>
+
+<p>Using pre-trained features is currently the most straightforward and most commonly used way to perform transfer learning. However, it is by far not the only one.</p>
+
+<h2 id="learningdomaininvariantrepresentations"> Learning domain-invariant representations</h2>
+
+<p>Pre-trained features are in practice mostly used for adaptation scenario 3 where we want to adapt to a new task. For the other scenarios, another way to transfer knowledge enabled by Deep Learning is to learn representations that do not change based on our domain. This approach is conceptually very similar to the way we have been thinking about using pre-trained CNN features: Both encode general knowledge about our domain. However, creating representations that do not change based on the domain is a lot less expensive and more feasible for non-vision tasks than generating representations that are useful for all tasks. ImageNet has taken years and thousands of hours to create, while we typically only need unlabelled data of each domain for creating domain-invariant representations. These representations are generally learned using stacked denoising autoencoders and have seen success in natural language processing [<sup id="fnref:22"><a href="http://sebastianruder.com/transfer-learning/#fn:22" rel="footnote">22</a></sup>, <sup id="fnref:23"><a href="http://sebastianruder.com/transfer-learning/#fn:23" rel="footnote">23</a></sup>] as well as in vision [<sup id="fnref:24"><a href="http://sebastianruder.com/transfer-learning/#fn:24" rel="footnote">24</a></sup>]. </p>
+
+<h2 id="makingrepresentationsmoresimilar">Making representations more similar</h2>
+
+<p>In order to improve the transferability of the learned representations from the source to the target domain, we would like the representations between the two domains to be as similar as possible so that the model does not take into account domain-specific characteristics that may hinder transfer but the commonalities between the domains.</p>
+
+<p>Rather than just letting our autoencoder learn some representation, we can thus actively encourage the representations of both domains to be more similar to each other. We can apply this as a pre-processing step directly to the representations of our data [<sup id="fnref:25"><a href="http://sebastianruder.com/transfer-learning/#fn:25" rel="footnote">25</a></sup>, <sup id="fnref:26"><a href="http://sebastianruder.com/transfer-learning/#fn:26" rel="footnote">26</a></sup>] and can then use the new representations for training. We can also encourage the representations of the domains in our model to be more similar to each other [<sup id="fnref:27"><a href="http://sebastianruder.com/transfer-learning/#fn:27" rel="footnote">27</a></sup>, <sup id="fnref:28"><a href="http://sebastianruder.com/transfer-learning/#fn:28" rel="footnote">28</a></sup>].</p>
+
+<h2 id="confusingdomains">Confusing domains</h2>
+
+<p>Another way to ensure similarity between the representations of both domains that has recently become more popular is to add another objective to an existing model that encourages it to confuse the two domains [<sup id="fnref:29"><a href="http://sebastianruder.com/transfer-learning/#fn:29" rel="footnote">29</a></sup>, <sup id="fnref:30"><a href="http://sebastianruder.com/transfer-learning/#fn:30" rel="footnote">30</a></sup>]. This domain confusion loss is a regular classification loss where the model tries to predict the domain of the input example. The difference to a regular loss, however, is that gradients that flow from the loss to the rest of the network are reversed, as can be seen in Figure 17. </p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/confusing_domains_with_gradient_reversal_layer.png" style="width: 80%; height: 80%" title="Confusing domains with gradient reversal layer" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 17: Confusing domains with a gradient reversal layer (Ganin and Lempitsky, 2015)</figcaption>  
+</figure>
+
+<p>Instead of learning to minimize the error of the domain classification loss, the gradient reversal layer causes the model to maximize the error. In practice, this means that the model learns representations that allow it to minimize its original objective, while not allowing it to differentiate between the two domains, which is beneficial for knowledge transfer. While a model trained only with the regular objective is shown in Figure 18 to be clearly able to separate domains based on its learned representation, a model whose objective has been augmented with the domain confusion term is unable to do so.</p>
+
+<figure>  
+      <img src="http://sebastianruder.com/content/images/2017/03/domain_confusion_tzeng.png" style="width: 80%; height: 80%" title="Domain confusion" alt="Transfer Learning - Machine Learning's Next Frontier">
+<figcaption>Figure 18: Domain classifier score of a regular and a domain confusion model (Tzeng et al, 2015)</figcaption>  
+</figure>
+
+<h1 id="relatedresearchareas">Related Research Areas</h1>
+
+<p>While this post is about transfer learning, transfer learning is by far not the only area of machine learning that seeks to leverage limited amounts of data, use learned knowledge for new endeavours, and enable models to generalize better to new settings. In the following, we will thus introduce other directions that are related or complementary to the goals of transfer learning.</p>
+
+<h2 id="semisupervisedlearning">Semi-supervised learning</h2>
+
+<p>Transfer learning seeks to leverage unlabelled data in the target task or domain to the most effect. This is also the maxim of semi-supervised learning, which follows the classical machine learning setup but assumes only a limited amount of labeled samples for training. Insofar, semi-supervised domain adaptation is essentially semi-supervised learning under domain shift. Many lessons and insights from semi-supervised learning are thus equally applicable and relevant for transfer learning. Refer to [<sup id="fnref:31"><a href="http://sebastianruder.com/transfer-learning/#fn:31" rel="footnote">31</a></sup>] for a great survey on semi-supervised learning.</p>
+
+<h2 id="usingavailabledatamoreeffectively"> Using available data more effectively</h2>
+
+<p>Another direction that is related to transfer learning and semi-supervised learning is to enable models to work better with limited amounts of data.</p>
+
+<p>This can be done in several ways: One can leverage unsupervised or semi-supervised learning to extract information from unlabelled data thereby reducing the reliance on labelled samples; one can give the model access to other features inherent in the data while reducing its tendency to overfit via regularization; finally, one can leverage data that so far remains neglected or rests in non-obvious places.</p>
+
+<p>Such fortuitous data [<sup id="fnref:32"><a href="http://sebastianruder.com/transfer-learning/#fn:32" rel="footnote">32</a></sup>] may be created as a side effect of user-generated content, such as hyperlinks that can be used to improve named entity and part-of-speech taggers; it may come as a by-product of annotation, e.g. annotator disagreement that may improve tagging or parsing; or it may be derived from user behaviour such as eye tracking or keystroke dynamics, which can inform NLP tasks. While such data has only been exploited in limited ways, such examples encourage us to look for data in unexpected places and to investigate new ways of retrieving data.</p>
+
+<h2 id="improvingmodelsabilitytogeneralize">Improving models' ability to generalize</h2>
+
+<p>Related to this is also the direction of making models generalize better. In order to achieve this, we must first better understand the behaviour and intricacies of large neural networks and investigate why and how they generalize. Recent work has taken promising steps towards this end [<sup id="fnref:33"><a href="http://sebastianruder.com/transfer-learning/#fn:33" rel="footnote">33</a></sup>], but many questions are still left unanswered.</p>
+
+<h2 id="makingmodelsmorerobust">Making models more robust</h2>
+
+<p>While improving our models' generalization ability goes a long way, we might generalize well to similar instances but still fail catastrophically on unexpected or atypical inputs. Therefore, a key complementary objective is to make our models more robust. This direction has seen increasing interest recently fuelled by advances in adversarial learning and recent approaches have investigated many ways of how models can be made more robust to worst-case or adversarial examples in different settings [<sup id="fnref:34"><a href="http://sebastianruder.com/transfer-learning/#fn:34" rel="footnote">34</a></sup>, <sup id="fnref:35"><a href="http://sebastianruder.com/transfer-learning/#fn:35" rel="footnote">35</a></sup>]. </p>
+
+<h2 id="multitasklearning">Multi-task learning</h2>
+
+<p>In transfer learning, we mainly care about doing well on our target task or domain. In multi-task learning, in contrast, the objective is to do well on all available tasks, while some labeled data is usually assumed for each task. While multi-task learning approaches are not directly applicable to transfer learning setups, insights about tasks that are beneficial for multi-task learning [<sup id="fnref:19"><a href="http://sebastianruder.com/transfer-learning/#fn:19" rel="footnote">19</a></sup>] can still inform transfer learning decisions.</p>
+
+<h2 id="continuouslearning">Continuous learning</h2>
+
+<p>While multi-task learning allows us to retain the knowledge across many tasks without suffering a performance penalty on our source tasks, this is only possible if all tasks are present at training time. For each new task, we would generally need to retrain our model on all tasks again.</p>
+
+<p>In the real world, however, we would like an agent to be able to deal with tasks that gradually become more complex by leveraging its past experience. To this end, we need to enable a model to learn continuously without forgetting. This area of machine learning is known as learning to learn [<sup id="fnref:36"><a href="http://sebastianruder.com/transfer-learning/#fn:36" rel="footnote">36</a></sup>], meta-learning, life-long learning, or continuous learning. It has seen some recent developments in the context of RL [<sup id="fnref:37"><a href="http://sebastianruder.com/transfer-learning/#fn:37" rel="footnote">37</a></sup>, <sup id="fnref:38"><a href="http://sebastianruder.com/transfer-learning/#fn:38" rel="footnote">38</a></sup>, <sup id="fnref:39"><a href="http://sebastianruder.com/transfer-learning/#fn:39" rel="footnote">39</a></sup>] most notably by <a href="https://deepmind.com/blog/enabling-continual-learning-in-neural-networks/">Google DeepMind on their quest towards general learning agents</a> and is also being applied to sequence-to-sequence models [<sup id="fnref:40"><a href="http://sebastianruder.com/transfer-learning/#fn:40" rel="footnote">40</a></sup>]. </p>
+
+<h2 id="zeroshotlearning">Zero-shot learning</h2>
+
+<p>Finally, if we take transfer learning to the extreme and aim to learn from only a few, one or even zero instances of a class, we arrive at few-shot, one-shot, and zero-shot learning respectively. Enabling models to perform one-shot and zero-shot learning is admittedly among the hardest problems in machine learning. At the same time, it is something that comes naturally to us humans: Toddlers only need to be told once what a dog is in order to be able to identify any other dog, while adults can understand the essence of an object just by reading about it in context, without ever having encountered it before.</p>
+
+<p>Recent advances in one-shot learning have leveraged the insight that models need to be trained explicitly to perform one-shot learning in order to achieve good performance at test time [<sup id="fnref:41"><a href="http://sebastianruder.com/transfer-learning/#fn:41" rel="footnote">41</a></sup>, <sup id="fnref:42"><a href="http://sebastianruder.com/transfer-learning/#fn:42" rel="footnote">42</a></sup>], while the more realistic generalized zero-shot learning setting where training classes are present at test time has garnered attention lately [<sup id="fnref:43"><a href="http://sebastianruder.com/transfer-learning/#fn:43" rel="footnote">43</a></sup>].</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>In summary, there are many exciting research directions that transfer learning offers and -- in particular -- many applications that are in need of models that can transfer knowledge to new tasks and adapt to new domains. I hope that I was able to provide you with an overview of transfer learning in this blog post and maybe was able to pique your interest.</p>
+
+<p>Some of the statements in this blog post are deliberately phrased <em>slightly</em> controversial. Let me know your thoughts about any contentious issues and any errors that I undoubtedly made in writing this post in the comments below.</p>
+
+<p>Note: Title image taken from [<sup id="fnref:44"><a href="http://sebastianruder.com/transfer-learning/#fn:44" rel="footnote">44</a></sup>].</p>
+
+<h1 id="references">References</h1>
+
+<div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Szegedy, C., Ioffe, S., Vanhoucke, V., &amp; Alemi, A. (2016). Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning. arXiv preprint arXiv:1602.07261. <a href="http://sebastianruder.com/transfer-learning/#fnref:1" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:2"><p>Kannan, A., Kurach, K., Ravi, S., Kaufmann, T., Tomkins, A., Miklos, B., … Ramavajjala, V. (2016). Smart Reply: Automated Response Suggestion for Email. In KDD 2016. <a href="http://doi.org/10.475/123">http://doi.org/10.475/123</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:2" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:3"><p>Ruan, S., Wobbrock, J. O., Liou, K., Ng, A., &amp; Landay, J. (2016). Speech Is 3x Faster than Typing for English and Mandarin Text Entry on Mobile Devices. arXiv preprint arXiv:1608.07323. <a href="http://sebastianruder.com/transfer-learning/#fnref:3" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:4"><p>Wu, Y., Schuster, M., Chen, Z., Le, Q. V, Norouzi, M., Macherey, W., … Dean, J. (2016). Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation. arXiv preprint arXiv:1609.08144. <a href="http://sebastianruder.com/transfer-learning/#fnref:4" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:5"><p>Deng, J., Dong, W., Socher, R., Li, L., Li, K., &amp; Fei-fei, L. (2009). ImageNet : A Large-Scale Hierarchical Image Database. In IEEE Conference on Computer Vision and Pattern Recognition. <a href="http://sebastianruder.com/transfer-learning/#fnref:5" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:6"><p>Pan, S. J., &amp; Yang, Q. (2010). A survey on transfer learning. IEEE Transactions on Knowledge and Data Engineering, 22(10), 1345–1359. <a href="http://sebastianruder.com/transfer-learning/#fnref:6" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:7"><p>Chawla, N. V, Bowyer, K. W., Hall, L. O., &amp; Kegelmeyer, W. P. (2002). SMOTE : Synthetic Minority Over-sampling Technique. Journal of Artificial Intelligence Research, 16, 321–357. <a href="http://sebastianruder.com/transfer-learning/#fnref:7" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:8"><p>Rusu, A. A., Vecerik, M., Rothörl, T., Heess, N., Pascanu, R., &amp; Hadsell, R. (2016). Sim-to-Real Robot Learning from Pixels with Progressive Nets. arXiv Preprint arXiv:1610.04286. Retrieved from <a href="http://arxiv.org/abs/1610.04286">http://arxiv.org/abs/1610.04286</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:8" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:9"><p>Mikolov, T., Joulin, A., &amp; Baroni, M. (2015). A Roadmap towards Machine Intelligence. arXiv Preprint arXiv:1511.08130. Retrieved from <a href="http://arxiv.org/abs/1511.08130">http://arxiv.org/abs/1511.08130</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:9" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:10"><p>Torralba, A., &amp; Efros, A. A. (2011). Unbiased Look at Dataset Bias. In 2011 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). <a href="http://sebastianruder.com/transfer-learning/#fnref:10" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:11"><p>Johnson, M., Schuster, M., Le, Q. V, Krikun, M., Wu, Y., Chen, Z., … Dean, J. (2016). Google’s Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation. arXiv Preprint arXiv:1611.0455. <a href="http://sebastianruder.com/transfer-learning/#fnref:11" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:12"><p>Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2012). ImageNet Classification with Deep Convolutional Neural Networks. Advances In Neural Information Processing Systems, 1–9. <a href="http://sebastianruder.com/transfer-learning/#fnref:12" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:13"><p>Razavian, A. S., Azizpour, H., Sullivan, J., &amp; Carlsson, S. (2014). CNN features off-the-shelf: An astounding baseline for recognition. IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops, 512–519. <a href="http://sebastianruder.com/transfer-learning/#fnref:13" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:14"><p>Radford, A., Metz, L., &amp; Chintala, S. (2016). Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks. ICLR. Retrieved from <a href="http://arxiv.org/abs/1511.06434">http://arxiv.org/abs/1511.06434</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:14" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:15"><p>Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. arXiv Preprint arXiv:1602.02410. Retrieved from <a href="http://arxiv.org/abs/1602.02410">http://arxiv.org/abs/1602.02410</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:15" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:16"><p>Ramachandran, P., Liu, P. J., &amp; Le, Q. V. (2016). Unsupervised Pretrainig for Sequence to Sequence Learning. arXiv Preprint arXiv:1611.02683. <a href="http://sebastianruder.com/transfer-learning/#fnref:16" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:17"><p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS. <a href="http://sebastianruder.com/transfer-learning/#fnref:17" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:18"><p>Kim, Y. (2014). Convolutional Neural Networks for Sentence Classification. Proceedings of the Conference on Empirical Methods in Natural Language Processing, 1746–1751. Retrieved from <a href="http://arxiv.org/abs/1408.5882">http://arxiv.org/abs/1408.5882</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:18" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:19"><p>Bingel, J., &amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from <a href="http://arxiv.org/abs/1702.08303">http://arxiv.org/abs/1702.08303</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:19" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:20"><p>Plank, B., &amp; Søgaard, A. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. <a href="http://sebastianruder.com/transfer-learning/#fnref:20" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:21"><p>Yu, J., &amp; Jiang, J. (2016). Learning Sentence Embeddings with Auxiliary Tasks for Cross-Domain Sentiment Classification. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP2016), 236–246. Retrieved from <a href="http://www.aclweb.org/anthology/D/D16/D16-1023.pdf">http://www.aclweb.org/anthology/D/D16/D16-1023.pdf</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:21" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:22"><p>Glorot, X., Bordes, A., &amp; Bengio, Y. (2011). Domain Adaptation for Large-Scale Sentiment Classification: A Deep Learning Approach. Proceedings of the 28th International Conference on Machine Learning, 513–520. Retrieved from <a href="http://www.icml-2011.org/papers/342_icmlpaper.pdf">http://www.icml-2011.org/papers/342_icmlpaper.pdf</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:22" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:23"><p>Chen, M., Xu, Z., Weinberger, K. Q., &amp; Sha, F. (2012). Marginalized Denoising Autoencoders for Domain Adaptation. Proceedings of the 29th International Conference on Machine Learning (ICML-12), 767--774. <a href="http://doi.org/10.1007/s11222-007-9033-z">http://doi.org/10.1007/s11222-007-9033-z</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:23" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:24"><p>Zhuang, F., Cheng, X., Luo, P., Pan, S. J., &amp; He, Q. (2015). Supervised Representation Learning: Transfer Learning with Deep Autoencoders. IJCAI International Joint Conference on Artificial Intelligence, 4119–4125. <a href="http://sebastianruder.com/transfer-learning/#fnref:24" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:25"><p>Daumé III, H. (2007). Frustratingly Easy Domain Adaptation. Association for Computational Linguistic (ACL), (June), 256–263. <a href="http://doi.org/10.1.1.110.2062">http://doi.org/10.1.1.110.2062</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:25" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:26"><p>Sun, B., Feng, J., &amp; Saenko, K. (2016). Return of Frustratingly Easy Domain Adaptation. In Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence (AAAI-16). Retrieved from <a href="http://arxiv.org/abs/1511.05547">http://arxiv.org/abs/1511.05547</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:26" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:27"><p>Bousmalis, K., Trigeorgis, G., Silberman, N., Krishnan, D., &amp; Erhan, D. (2016). Domain Separation Networks. NIPS. <a href="http://sebastianruder.com/transfer-learning/#fnref:27" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:28"><p>Tzeng, E., Hoffman, J., Zhang, N., Saenko, K., &amp; Darrell, T. (2014). Deep Domain Confusion: Maximizing for Domain Invariance. CoRR. Retrieved from <a href="https://arxiv.org/pdf/1412.3474.pdf">https://arxiv.org/pdf/1412.3474.pdf</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:28" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:29"><p>Ganin, Y., &amp; Lempitsky, V. (2015). Unsupervised Domain Adaptation by Backpropagation. In Proceedings of the 32nd International Conference on Machine Learning. (Vol. 37). <a href="http://sebastianruder.com/transfer-learning/#fnref:29" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:30"><p>Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., … Lempitsky, V. (2016). Domain-Adversarial Training of Neural Networks. Journal of Machine Learning Research, 17, 1–35. <a href="http://doi.org/10.1088/1475-7516/2015/08/013">http://doi.org/10.1088/1475-7516/2015/08/013</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:30" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:31"><p>Zhu, X. (2005). Semi-Supervised Learning Literature Survey. <a href="http://sebastianruder.com/transfer-learning/#fnref:31" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:32"><p>Plank, B. (2016). What to do about non-standard (or non-canonical) language in NLP. KONVENS 2016. Retrieved from <a href="https://arxiv.org/pdf/1608.07836.pdf">https://arxiv.org/pdf/1608.07836.pdf</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:32" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:33"><p>Zhang, C., Bengio, S., Hardt, M., Recht, B., &amp; Vinyals, O. (2017). Understanding deep learning requires rethinking generalization. ICLR 2017. <a href="http://sebastianruder.com/transfer-learning/#fnref:33" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:34"><p>Kurakin, A., Goodfellow, I., &amp; Bengio, S. (2017). Adversarial examples in the physical world. In ICLR 2017. Retrieved from <a href="http://arxiv.org/abs/1607.02533">http://arxiv.org/abs/1607.02533</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:34" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:35"><p>Huang, S., Papernot, N., Goodfellow, I., Duan, Y., &amp; Abbeel, P. (2017). Adversarial Attacks on Neural Network Policies. In Workshop Track - ICLR 2017. <a href="http://sebastianruder.com/transfer-learning/#fnref:35" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:36"><p>Thrun, S., &amp; Pratt, L. (1998). Learning to learn. Springer Science &amp; Business Media. <a href="http://sebastianruder.com/transfer-learning/#fnref:36" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:37"><p>Kirkpatrick, J., Pascanu, R., Rabinowitz, N., Veness, J., Desjardins, G., Rusu, A. A., … Hadsell, R. (2017). Overcoming catastrophic forgetting in neural networks. PNAS. <a href="http://sebastianruder.com/transfer-learning/#fnref:37" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:38"><p>Rusu, A. A., Rabinowitz, N. C., Desjardins, G., Soyer, H., Kirkpatrick, J., Kavukcuoglu, K., ... Deepmind, G. (2016). Progressive Neural Networks. arXiv preprint arXiv:1606.04671. <a href="http://sebastianruder.com/transfer-learning/#fnref:38" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:39"><p>Fernando, C., Banarse, D., Blundell, C., Zwols, Y., Ha, D., Rusu, A. A., ... Wierstra, D. (2017). PathNet: Evolution Channels Gradient Descent in Super Neural Networks. In arXiv preprint arXiv:1701.08734. <a href="http://sebastianruder.com/transfer-learning/#fnref:39" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:40"><p>Kaiser, Ł., Nachum, O., Roy, A., &amp; Bengio, S. (2017). Learning to Remember Rare Events. In ICLR 2017. <a href="http://sebastianruder.com/transfer-learning/#fnref:40" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:41"><p>Vinyals, O., Blundell, C., Lillicrap, T., Kavukcuoglu, K., &amp; Wierstra, D. (2016). Matching Networks for One Shot Learning. NIPS 2016. Retrieved from <a href="http://arxiv.org/abs/1606.04080">http://arxiv.org/abs/1606.04080</a> <a href="http://sebastianruder.com/transfer-learning/#fnref:41" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:42"><p>Ravi, S., &amp; Larochelle, H. (2017). Optimization as a Model for Few-Shot Learning. In ICLR 2017. <a href="http://sebastianruder.com/transfer-learning/#fnref:42" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:43"><p>Xian, Y., Schiele, B., Akata, Z., Campus, S. I., &amp; Machine, A. (2017). Zero-Shot Learning - The Good, the Bad and the Ugly. In CVPR 2017. <a href="http://sebastianruder.com/transfer-learning/#fnref:43" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:44"><p>Tzeng, E., Hoffman, J., Saenko, K., &amp; Darrell, T. (2017). Adversarial Discriminative Domain Adaptation. <a href="http://sebastianruder.com/transfer-learning/#fnref:44" title="return to article">↩</a></p></li></ol></div>]]></content:encoded></item><item><title><![CDATA[Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more]]></title><description><![CDATA[<p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-nips-2016/">AYLIEN blog</a>.</em></p>
 
 <p>I attended NIPS 2016 in Barcelona from Monday, December 5 to Saturday, December 10. The full conference program is available <a href="https://media.nips.cc/Conferences/2016/NIPS-2016-Conference-Book.pdf">here</a>. In the following, I will share some of my highlights.</p>
 
@@ -16,7 +435,7 @@
 
 <figure>  
       <img src="http://sebastianruder.com/content/images/2016/12/terry_law.jpg" style="width: 60%; height: 60%" title="Terry's Law" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
-<figcaption>Figure 1: The growth of the number of attendees at NIPS follows (the newly coined) Terry’s Law (named after Terrence Sejnowski, the president of the NIPS foundation; faster growth than Murphy’s Law)</figcaption>  
+<figcaption>Figure 1: The growth of the number of attendees at NIPS follows (the newly coined) Terry’s Law (named after Terrence Sejnowski, the president of the NIPS foundation; faster growth than Moore's Law Law)</figcaption>  
 </figure>
 
 <p>Unsurprisingly, Deep Learning (DL) was by far the most popular research topic, with about every fourth of more than 2,500 submitted papers (and 568 accepted papers) dealing with deep neural networks.</p>
@@ -80,7 +499,7 @@
 </figcaption>  
 </figure>
 
-<p>A key facilitator of the recent success of ML have been the advances in hardware that allowed faster computation and storage. Given that Murphy’s Law will reach its limits sooner or later, one might reason that also the rise of ML might plateau. Ng, however, argued that the <a href="http://fortune.com/2016/11/18/intel-ai-nvidia-analysts/">commitment by leading hardware manufacturers such as NVIDIA and Intel</a> and the ensuing performance improvements to ML hardware would fuel further growth.</p>
+<p>A key facilitator of the recent success of ML have been the advances in hardware that allowed faster computation and storage. Given that Moore's Law will reach its limits sooner or later, one might reason that also the rise of ML might plateau. Ng, however, argued that the <a href="http://fortune.com/2016/11/18/intel-ai-nvidia-analysts/">commitment by leading hardware manufacturers such as NVIDIA and Intel</a> and the ensuing performance improvements to ML hardware would fuel further growth.</p>
 
 <p>Among ML research areas, supervised learning is the undisputed driver of the recent success of ML and will likely continue to drive it for the foreseeable future. In second place, Ng saw neither unsupervised learning nor reinforcement learning, but transfer learning. We at AYLIEN are bullish on transfer learning for NLP and think that it has massive potential.</p>
 
