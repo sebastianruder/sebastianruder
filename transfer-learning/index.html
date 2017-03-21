@@ -43,10 +43,10 @@
     <meta property="og:url" content="u=http://sebastianruder.com/transfer-learning/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png" />
     <meta property="article:published_time" content="2017-03-20T14:40:00.000Z" />
-    <meta property="article:modified_time" content="2017-03-20T23:31:10.686Z" />
-    <meta property="article:tag" content="transfer learning" />
+    <meta property="article:modified_time" content="2017-03-21T09:30:33.388Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
+    <meta property="article:tag" content="transfer learning" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Transfer Learning - Machine Learning&#x27;s Next Frontier" />
@@ -69,9 +69,9 @@
     "headline": "Transfer Learning - Machine Learning&#x27;s Next Frontier",
     "url": "u=http://sebastianruder.com/transfer-learning/",
     "datePublished": "2017-03-20T14:40:00.000Z",
-    "dateModified": "2017-03-20T23:31:10.686Z",
+    "dateModified": "2017-03-21T09:30:33.388Z",
     "image": "u=http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png",
-    "keywords": "transfer learning, deep learning, nlp",
+    "keywords": "deep learning, nlp, transfer learning",
     "description": "Table of contents: What is Transfer Learning? Why Transfer Learning Now? A Definition of Transfer Learning Transfer Learning Scenarios Applications of Transfer Learning Learning from simulations Adapting to new domains Transferring knowledge across languages Transfer Learning Methods Using pre-trained CNN..."
 }
     </script>
@@ -94,7 +94,7 @@ var profile_resume ='NLP PhD student';
 var ga_id = 'UA-60512592-1';
 </script>
   </head>
-  <body class="post-template tag-transfer-learning tag-deep-learning tag-nlp">
+  <body class="post-template tag-deep-learning tag-nlp tag-transfer-learning">
     <header id="menu-button" class="expanded">
       <a><i class="icon icon-list"></i></a>
     </header>
@@ -191,22 +191,22 @@ var ga_id = 'UA-60512592-1';
       <section class="content">
         
 
-  <article class="post tag-transfer-learning tag-deep-learning tag-nlp">
+  <article class="post tag-deep-learning tag-nlp tag-transfer-learning">
     <header>
       <div class="post meta">
         <time datetime="20 Mar 2017">20 Mar 2017</time>
-        <span class="post tags">in <a href="../tag/transfer-learning/index.html">transfer learning</a> <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/nlp/index.html">nlp</a></span>
+        <span class="post tags">in <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/nlp/index.html">nlp</a> <a href="../tag/transfer-learning/index.html">transfer learning</a></span>
 
 
         <span class="post reading-time"> ~ <span></span> read.</span>
       </div>
-      <a alt="Tweet 'Transfer Learning - Machine Learning&#x27;s Next Frontier'" href="https://twitter.com/intent/tweet?text=Transfer%20Learning%20-%20Machine%20Learning's%20Next%20Frontier%20%C2%BB&amp;hashtags=transfer learning,deep learning,nlp&amp;url=http://sebastianruder.com/transfer-learning/">
+      <a alt="Tweet 'Transfer Learning - Machine Learning&#x27;s Next Frontier'" href="https://twitter.com/intent/tweet?text=Transfer%20Learning%20-%20Machine%20Learning's%20Next%20Frontier%20%C2%BB&amp;hashtags=deep learning,nlp,transfer learning&amp;url=http://sebastianruder.com/transfer-learning/">
         <img id="post-image" src="../content/images/2017/03/transfer_learning_digits.png" alt="Transfer Learning - Machine Learning&#x27;s Next Frontier">
         <h1 class="icon-reverse icon-social-twitter-post" id="post-title">Transfer Learning - Machine Learning&#x27;s Next Frontier</h1>
       </a>
     </header>
 
-    <div id="post-content" class="post tag-transfer-learning tag-deep-learning tag-nlp">
+    <div id="post-content" class="post tag-deep-learning tag-nlp tag-transfer-learning">
       <p>Table of contents:</p>
 
 <ul>
@@ -286,10 +286,10 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 
 <figure>  
       <img src="../content/images/2017/03/lecun_nips_2016_cake_slide.png" style="width: 60%; height: 60%" title="Yann LeCun NIPS 2016 keynote cake slide">
-<figcaption>Figure 5: Transfer Learning is suspiciously absent as ingredient from Yann LeCun's cake.</figcaption>  
+<figcaption>Figure 5: Transfer Learning is conspicuously absent as ingredient from Yann LeCun's cake</figcaption>  
 </figure>
 
-<p>What makes transfer learning different? In the following, we will look at the factors that -- in our opinion -- motivate Ng's prognosis and outline the reasons why just now is the time to pay attention to transfer learning.</p>
+<p>What makes transfer learning different? In the following, we will look at the factors that -- in my opinion -- motivate Ng's prognosis and outline the reasons why just now is the time to pay attention to transfer learning.</p>
 
 <p>The current use of machine learning in industry is characterised by a dichotomy: <br />
 On the one hand, over the course of the last years, we have obtained the ability to train more and more accurate models. We are now at the stage that for many tasks, state-of-the-art models have reached a level where their performance is so good that it is no longer a hindrance for users. How good? The newest residual networks [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] on ImageNet achieve <a href="http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/">superhuman performance</a> at recognising objects; Google's Smart Reply [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>] automatically handles 10% of all mobile responses; speech recognition error has consistently dropped and is more accurate than typing [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>]; we can automatically <a href="http://news.stanford.edu/2017/01/25/artificial-intelligence-used-identify-skin-cancer/">identify skin cancer as well as dermatologists</a>; Google's NMT system [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] is used in production for more than 10 language pairs; Baidu can generate realistic sounding speech <a href="https://www.engadget.com/2017/03/09/baidu-deep-voice-natural-sounding-speec/">in real-time</a>; the list goes on and on. This level of maturity has allowed the large-scale deployment of these models to millions of users and has enabled widespread adoption.</p>
@@ -364,28 +364,28 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <p>While learning from simulations is a particular instance of domain adaptation, it is worth outlining some other examples of domain adaptation.</p>
 
-<p>Domain adaptation is a common requirement in vision as often the data where labeled information is easily accessible and the data that we actually care about are different, whether this pertains to identifying bikes as in Figure 11 or some other objects in the wild. Even if the training and the the test data <em>look</em> the same, the training data may still contain a bias that is imperceptible to humans but the model will leverage to overfit on the training data [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>].</p>
+<p>Domain adaptation is a common requirement in vision as often the data where labeled information is easily accessible and the data that we actually care about are different, whether this pertains to identifying bikes as in Figure 11 or some other objects in the wild. Even if the training and the the test data <em>look</em> the same, the training data may still contain a bias that is imperceptible to humans but which the model will exploit to overfit on the training data [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>].</p>
 
 <figure>  
       <img src="../content/images/2017/03/visual_domain_adaptation_bikes.png" style="width: 60%; height: 60%" title="Visual domains">
 <figcaption>Figure 10: Different visual domains (Sun et al., 2016)</figcaption>  
 </figure>
 
-<p>Another common domain adaptation scenario pertains to adapting to different text types: Standard NLP tools such as part-of-speech taggers or parsers are typically trained on news data such as the WSJ, which has historically been used to evaluate these models. Models trained on news data, however, have difficulty coping with more recent text forms such as social media messages and the challenges they present.</p>
+<p>Another common domain adaptation scenario pertains to adapting to different text types: Standard NLP tools such as part-of-speech taggers or parsers are typically trained on news data such as the Wall Street Journal, which has historically been used to evaluate these models. Models trained on news data, however, have difficulty coping with more novel text forms such as social media messages and the challenges they present.</p>
 
 <figure>  
       <img src="../content/images/2017/03/domain_adaptation_text_types-2.png" style="width: 60%; height: 60%" title="Different text types">
 <figcaption>Figure 11: Different text types / genres</figcaption>  
 </figure>
 
-<p>In within one domain such as product reviews, people use totally different words and phrases to express the same opinion. A model trained on one type of review must thus be able to disentangle the general and domain-specific opinion words that people use in order not to be confused by the domain shift. </p>
+<p>Even within one domain such as product reviews, people employ different words and phrases to express the same opinion. A model trained on one type of review should thus be able to disentangle the general and domain-specific opinion words that people use in order not to be confused by the shift in domain. </p>
 
 <figure>  
       <img src="../content/images/2017/03/domain_adaptation_reviews.png" style="width: 60%; height: 60%" title="">
 <figcaption>Figure 12: Different topics</figcaption>  
 </figure>
 
-<p>Finally, while the above challenges deal with regarding general text or image types, problems are amplified if we look at domains that pertain to individual or groups of users: Consider the case of automatic speech recognition (ASR). Speech is poised to become <a href="https://backchannel.com/voice-is-the-next-big-platform-unless-you-have-an-accent-6a787f7e8500#.koqx9pc2h">the next big platform</a>, with 50% of all our searches predicted to performed by voice by 2020. Most ASR are evaluated traditionally on the Switchboard dataset, which comprises 500 speakers. This means that most people with a standard accent are perfectly recognized, while immigrants, people with non-standard accents, people with a speech impediment, or children have trouble being understood. Now more than ever do we need systems that are able to adapt to individual users and minorities to ensure that everyone's voice is heard.</p>
+<p>Finally, while the above challenges deal with general text or image types, problems are amplified if we look at domains that pertain to individual or groups of users: Consider the case of automatic speech recognition (ASR). Speech is poised to become <a href="https://backchannel.com/voice-is-the-next-big-platform-unless-you-have-an-accent-6a787f7e8500#.koqx9pc2h">the next big platform</a>, with 50% of all our searches predicted to be performed by voice by 2020. Most ASR systems are evaluated traditionally on the Switchboard dataset, which comprises 500 speakers. Most people with a standard accent are thus fortunate, while immigrants, people with non-standard accents, people with a speech impediment, or children have trouble being understood. Now more than ever do we need systems that are able to adapt to individual users and minorities to ensure that everyone's voice is heard.</p>
 
 <figure>  
       <img src="../content/images/2017/03/domain_adaptation_accents.png" style="width: 60%; height: 60%" title="Different accents">
@@ -417,7 +417,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <p>The final fully-connected layers are generally assumed to capture information that is relevant for solving the respective task, e.g. AlexNet's fully-connected layers would indicate which features are relevant to classify an image into one of 1000 object categories.</p>
 
-<p>However, while knowing that a cat has whiskers, paws, fur, etc. is necessary for identifying an animal as a cat (see Figure 15), it does not help us with identifying new objects or to solve other common vision tasks such as scene recognition, fine grained recognition, attribute detection and image retrieval.</p>
+<p>However, while knowing that a cat has whiskers, paws, fur, etc. is necessary for identifying an animal as a cat (for an example, see Figure 15), it does not help us with identifying new objects or to solve other common vision tasks such as scene recognition, fine grained recognition, attribute detection and image retrieval.</p>
 
 <figure>  
       <img src="../content/images/2017/03/cat.jpg" style="width: 70%; height: 70%" title="Token cat">
@@ -521,7 +521,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <p>Some of the statements in this blog post are deliberately phrased <em>slightly</em> controversial. Let me know your thoughts about any contentious issues and any errors that I undoubtedly made in writing this post in the comments below.</p>
 
-<p>Note: Title image taken from [<sup id="fnref:44"><a href="index.html#fn:44" rel="footnote">44</a></sup>].</p>
+<p>Note: Title image is credited to [<sup id="fnref:44"><a href="index.html#fn:44" rel="footnote">44</a></sup>].</p>
 
 <h1 id="references">References</h1>
 
