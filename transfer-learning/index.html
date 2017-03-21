@@ -39,18 +39,18 @@
     <meta property="og:site_name" content="Sebastian Ruder" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Transfer Learning - Machine Learning&#x27;s Next Frontier" />
-    <meta property="og:description" content="Table of contents: What is Transfer Learning? Why Transfer Learning Now? A Definition of Transfer Learning Transfer Learning Scenarios Applications of Transfer Learning Learning from simulations Adapting to new domains Transferring knowledge across languages Transfer Learning Methods Using pre-trained CNN..." />
+    <meta property="og:description" content="This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods." />
     <meta property="og:url" content="u=http://sebastianruder.com/transfer-learning/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png" />
-    <meta property="article:published_time" content="2017-03-20T14:40:00.000Z" />
-    <meta property="article:modified_time" content="2017-03-21T09:30:33.388Z" />
+    <meta property="article:published_time" content="2017-03-21T15:40:00.000Z" />
+    <meta property="article:modified_time" content="2017-03-21T17:12:54.584Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
     <meta property="article:tag" content="transfer learning" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Transfer Learning - Machine Learning&#x27;s Next Frontier" />
-    <meta name="twitter:description" content="Table of contents: What is Transfer Learning? Why Transfer Learning Now? A Definition of Transfer Learning Transfer Learning Scenarios Applications of Transfer Learning Learning from simulations Adapting to new domains Transferring knowledge across languages Transfer Learning Methods Using pre-trained CNN..." />
+    <meta name="twitter:description" content="This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods." />
     <meta name="twitter:url" content="u=http://sebastianruder.com/transfer-learning/" />
     <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png" />
     
@@ -68,11 +68,11 @@
     },
     "headline": "Transfer Learning - Machine Learning&#x27;s Next Frontier",
     "url": "u=http://sebastianruder.com/transfer-learning/",
-    "datePublished": "2017-03-20T14:40:00.000Z",
-    "dateModified": "2017-03-21T09:30:33.388Z",
+    "datePublished": "2017-03-21T15:40:00.000Z",
+    "dateModified": "2017-03-21T17:12:54.584Z",
     "image": "u=http://sebastianruder.com/content/images/2017/03/transfer_learning_digits.png",
     "keywords": "deep learning, nlp, transfer learning",
-    "description": "Table of contents: What is Transfer Learning? Why Transfer Learning Now? A Definition of Transfer Learning Transfer Learning Scenarios Applications of Transfer Learning Learning from simulations Adapting to new domains Transferring knowledge across languages Transfer Learning Methods Using pre-trained CNN..."
+    "description": "This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods."
 }
     </script>
 
@@ -194,7 +194,7 @@ var ga_id = 'UA-60512592-1';
   <article class="post tag-deep-learning tag-nlp tag-transfer-learning">
     <header>
       <div class="post meta">
-        <time datetime="20 Mar 2017">20 Mar 2017</time>
+        <time datetime="21 Mar 2017">21 Mar 2017</time>
         <span class="post tags">in <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/nlp/index.html">nlp</a> <a href="../tag/transfer-learning/index.html">transfer learning</a></span>
 
 
@@ -273,7 +273,7 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 <figcaption>Figure 3: Andrew Ng on transfer learning at NIPS 2016</figcaption>  
 </figure>
 
-<p>In particular, he sketched out a chart on a whiteboard that I've sought to replicate as faithfully as possible in Figure 4 below. According to Andrew Ng, transfer learning will become a key driver of Machine Learning success in industry.</p>
+<p>In particular, he sketched out a chart on a whiteboard that I've sought to replicate as faithfully as possible in Figure 4 below (sorry about the <a href="https://xkcd.com/833/">unlabelled axes</a>). According to Andrew Ng, transfer learning will become a key driver of Machine Learning success in industry.</p>
 
 <figure>  
       <img src="../content/images/2017/03/andrew_ng_drivers_ml_success-1.png" style="width: 70%; height: 70%" title="Drivers of ML success in industry">
@@ -289,12 +289,12 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 <figcaption>Figure 5: Transfer Learning is conspicuously absent as ingredient from Yann LeCun's cake</figcaption>  
 </figure>
 
-<p>What makes transfer learning different? In the following, we will look at the factors that -- in my opinion -- motivate Ng's prognosis and outline the reasons why just now is the time to pay attention to transfer learning.</p>
+<p>What makes transfer learning different? In the following, we will look at the factors that -- in our opinion -- motivate Ng's prognosis and outline the reasons why just now is the time to pay attention to transfer learning.</p>
 
 <p>The current use of machine learning in industry is characterised by a dichotomy: <br />
 On the one hand, over the course of the last years, we have obtained the ability to train more and more accurate models. We are now at the stage that for many tasks, state-of-the-art models have reached a level where their performance is so good that it is no longer a hindrance for users. How good? The newest residual networks [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] on ImageNet achieve <a href="http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/">superhuman performance</a> at recognising objects; Google's Smart Reply [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>] automatically handles 10% of all mobile responses; speech recognition error has consistently dropped and is more accurate than typing [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>]; we can automatically <a href="http://news.stanford.edu/2017/01/25/artificial-intelligence-used-identify-skin-cancer/">identify skin cancer as well as dermatologists</a>; Google's NMT system [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] is used in production for more than 10 language pairs; Baidu can generate realistic sounding speech <a href="https://www.engadget.com/2017/03/09/baidu-deep-voice-natural-sounding-speec/">in real-time</a>; the list goes on and on. This level of maturity has allowed the large-scale deployment of these models to millions of users and has enabled widespread adoption.</p>
 
-<p>On the other hand, these successful models are immensely data-hungry and rely on huge amounts of labeled data to achieve their performance. For some tasks and domains, this data is available as it has been painstakingly gathered over many years. In a few cases, it is public, e.g. ImageNet [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>], but large amounts of labeled data are usually proprietary, as in the case of many speech or MT datasets, as they provide an edge over the competition.</p>
+<p>On the other hand, these successful models are immensely data-hungry and rely on huge amounts of labeled data to achieve their performance. For some tasks and domains, this data is available as it has been painstakingly gathered over many years. In a few cases, it is public, e.g. ImageNet [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>], but large amounts of labeled data are usually proprietary or expensive to obtain, as in the case of many speech or MT datasets, as they provide an edge over the competition.</p>
 
 <p>At the same time, when applying a machine learning model in the wild, it is faced with a myriad of conditions which the model has never seen before and does not know how to deal with; each client and every user has their own preferences, possesses or generates data that is different than the data used for training; a model is asked to perform many tasks that are related to but not the same as the task it was trained for. In all of these situations, our current state-of-the-art models, despite exhibiting human-level or even super-human performance on the task and domain they were trained on, suffer a significant loss in performance or even break down completely. </p>
 
@@ -307,9 +307,9 @@ On the one hand, over the course of the last years, we have obtained the ability
 <p>For this definition, we will closely follow the excellent survey by Pan and Yang (2010) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] with binary document classification as a running example. <br />
 Transfer learning involves the concepts of a domain and a task. A domain \(\mathcal{D}\) consists of a feature space \(\mathcal{X}\) and a marginal probability distribution \(P(X)\) over the feature space, where \(X = {x_1, \cdots, x_n} \in \mathcal{X}\). For document classification with a bag-of-words representation, \(\mathcal{X}\) is the space of all document representations, \(x_i\) is the binary feature of the \(i\)-th word and \(X\) is a particular document.</p>
 
-<p>Given a domain, \(\mathcal{D} = \{\mathcal{X},P(X)\}\), a task consists of a label space \(\mathcal{Y}\) and a conditional probability distribution \(P(Y|X)\) that is typically learned from the training data consisting of pairs \(x_i \in X\) and \(y_i \in \mathcal{Y}\). In our document classification example, \(\mathcal{Y}\) is the set of all labels, i.e. <em>True</em>, <em>False</em> and \(y_i\) is either <em>True</em> or <em>False</em>.</p>
+<p>Given a domain, \(\mathcal{D} = \{\mathcal{X},P(X)\}\), a task \(\mathcal{T}\) consists of a label space \(\mathcal{Y}\) and a conditional probability distribution \(P(Y|X)\) that is typically learned from the training data consisting of pairs \(x_i \in X\) and \(y_i \in \mathcal{Y}\). In our document classification example, \(\mathcal{Y}\) is the set of all labels, i.e. <em>True</em>, <em>False</em> and \(y_i\) is either <em>True</em> or <em>False</em>.</p>
 
-<p>Given a source domain \(\mathcal{D}_S\), a corresponding source task \(\mathcal{T}_S\), as well as a target domain \(\mathcal{D}_T\) and a target task \(\mathcal{T}_T\), the objective of transfer learning now is to enable us to learn the target conditional probability distribution \(P(Y_T|X_T)\) in \(\mathcal{D}_T\) with the information gained from \(\mathcal{D}_S\) and \(\mathcal{T}_S\) where \(\mathcal{D}_S \neq \mathcal{D}_T\) or \(\mathcal{T}_S \neq \mathcal{T}_T\).</p>
+<p>Given a source domain \(\mathcal{D}_S\), a corresponding source task \(\mathcal{T}_S\), as well as a target domain \(\mathcal{D}_T\) and a target task \(\mathcal{T}_T\), the objective of transfer learning now is to enable us to learn the target conditional probability distribution \(P(Y_T|X_T)\) in \(\mathcal{D}_T\) with the information gained from \(\mathcal{D}_S\) and \(\mathcal{T}_S\) where \(\mathcal{D}_S \neq \mathcal{D}_T\) or \(\mathcal{T}_S \neq \mathcal{T}_T\). In most cases, a limited number of labeled target examples, which is exponentially smaller than the number of labeled source examples are assumed to be available.</p>
 
 <p>As both the domain \(\mathcal{D}\) and the task \(\mathcal{T}\) are defined as tuples, these inequalities give rise to four transfer learning scenarios, which we will discus below.</p>
 
@@ -426,7 +426,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <p>What can help us, however, are representations that capture general information of how an image is composed and what combinations of edges and shapes it contains. This information is contained in one of the final convolutional layers or early fully-connected layers in large convolutional neural networks trained on ImageNet as we have described above.</p>
 
-<p>For a new task, we can thus simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features. In practice, we either keep the pre-trained parameters fixed or tune them with a small learning rate in order to ensure that we do not unlearn the previously acquired knowledge. This simple approach has been shown to achieve astounding results on an array of vision tasks [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>]. A model trained on ImageNet seems to capture details about the way animals and objects are structured and composed that is generally relevant when dealing with images. As such, the ImageNet task seems to be a good proxy for general computer vision problems, as the same knowledge that is required to excel in it is also relevant for many other tasks.</p>
+<p>For a new task, we can thus simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features. In practice, we either keep the pre-trained parameters fixed or tune them with a small learning rate in order to ensure that we do not unlearn the previously acquired knowledge. This simple approach has been shown to achieve astounding results on an array of vision tasks [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] as well as tasks that rely on visual input such as image captioning. A model trained on ImageNet seems to capture details about the way animals and objects are structured and composed that is generally relevant when dealing with images. As such, the ImageNet task seems to be a good proxy for general computer vision problems, as the same knowledge that is required to excel in it is also relevant for many other tasks.</p>
 
 <h3 id="learningtheunderlyingstructureofimages">Learning the underlying structure of images</h3>
 
@@ -517,7 +517,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>In summary, there are many exciting research directions that transfer learning offers and -- in particular -- many applications that are in need of models that can transfer knowledge to new tasks and adapt to new domains. I hope that I was able to provide you with an overview of transfer learning in this blog post and maybe was able to pique your interest.</p>
+<p>In summary, there are many exciting research directions that transfer learning offers and -- in particular -- many applications that are in need of models that can transfer knowledge to new tasks and adapt to new domains. I hope that I was able to provide you with an overview of transfer learning in this blog post and was able to pique your interest.</p>
 
 <p>Some of the statements in this blog post are deliberately phrased <em>slightly</em> controversial. Let me know your thoughts about any contentious issues and any errors that I undoubtedly made in writing this post in the comments below.</p>
 
