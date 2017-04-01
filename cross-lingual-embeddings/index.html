@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" />
     <meta property="article:published_time" content="2016-11-28T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-11-29T09:46:53.597Z" />
+    <meta property="article:modified_time" content="2017-04-01T06:24:36.658Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "A survey of cross-lingual embedding models",
     "url": "u=http://sebastianruder.com/cross-lingual-embeddings/",
     "datePublished": "2016-11-28T10:00:00.000Z",
-    "dateModified": "2016-11-29T09:46:53.597Z",
+    "dateModified": "2017-04-01T06:24:36.658Z",
     "image": "u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png",
     "keywords": "word embeddings, deep learning, nlp",
     "description": "In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..."
@@ -816,7 +816,7 @@ For optimisation, a PMI matrix \(M^{\text{bi}}_{jk}\) can be calculated based on
 
 <h2 id="bilingualsparserepresentations"> Bilingual sparse representations</h2>
 
-<p>Vyas and Carpet [<sup id="fnref:21"><a href="index.html#fn:21" rel="footnote">21</a></sup>] propose another method based on matrix factorisation that -- in contrast to previous approaches -- allows learning sparse cross-lingual representations. They first independently train two monolingual word representations \(X_e\) and \(X_f\) in two different languages using GloVe (Pennington et al., 2014) on two large monolingual corpora.</p>
+<p>Vyas and Carpuat [<sup id="fnref:21"><a href="index.html#fn:21" rel="footnote">21</a></sup>] propose another method based on matrix factorisation that -- in contrast to previous approaches -- allows learning sparse cross-lingual representations. They first independently train two monolingual word representations \(X_e\) and \(X_f\) in two different languages using GloVe (Pennington et al., 2014) on two large monolingual corpora.</p>
 
 <p>They then learn monolingual sparse representations from these dense representations by decomposing \(X\) into two matrices \(A\) and \(D\) such that the \(l_2\) reconstruction error is minimised, with an additional constraint on \(A\) for sparsity:</p>
 
