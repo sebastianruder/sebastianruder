@@ -39,15 +39,15 @@
     <meta property="og:site_name" content="Sebastian Ruder" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="An Overview of Multi-Task Learning for Deep Neural Networks" />
-    <meta property="og:description" content="Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Why does MTL work? MTL in non-neural models Recent work on MTL for Deep Learning Auxiliary tasks Introduction In Machine Learning (ML), we typically care about optimizing for a..." />
+    <meta property="og:description" content="Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Hard parameter sharing Soft parameter sharing Why does MTL work? Implicit data augmentation Attention focusing Eavesdropping Representation bias Regularization MTL in non-neural models Block-sparse regularization Learning task relationships Recent..." />
     <meta property="og:url" content="u=http://sebastianruder.com/multi-task/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" />
     <meta property="article:published_time" content="2017-05-24T13:23:15.660Z" />
-    <meta property="article:modified_time" content="2017-05-27T20:13:38.853Z" />
+    <meta property="article:modified_time" content="2017-05-28T09:24:27.156Z" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="An Overview of Multi-Task Learning for Deep Neural Networks" />
-    <meta name="twitter:description" content="Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Why does MTL work? MTL in non-neural models Recent work on MTL for Deep Learning Auxiliary tasks Introduction In Machine Learning (ML), we typically care about optimizing for a..." />
+    <meta name="twitter:description" content="Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Hard parameter sharing Soft parameter sharing Why does MTL work? Implicit data augmentation Attention focusing Eavesdropping Representation bias Regularization MTL in non-neural models Block-sparse regularization Learning task relationships Recent..." />
     <meta name="twitter:url" content="u=http://sebastianruder.com/multi-task/" />
     <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" />
     
@@ -66,9 +66,9 @@
     "headline": "An Overview of Multi-Task Learning for Deep Neural Networks",
     "url": "u=http://sebastianruder.com/multi-task/",
     "datePublished": "2017-05-24T13:23:15.660Z",
-    "dateModified": "2017-05-27T20:13:38.853Z",
+    "dateModified": "2017-05-28T09:24:27.156Z",
     "image": "u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png",
-    "description": "Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Why does MTL work? MTL in non-neural models Recent work on MTL for Deep Learning Auxiliary tasks Introduction In Machine Learning (ML), we typically care about optimizing for a..."
+    "description": "Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Hard parameter sharing Soft parameter sharing Why does MTL work? Implicit data augmentation Attention focusing Eavesdropping Representation bias Regularization MTL in non-neural models Block-sparse regularization Learning task relationships Recent..."
 }
     </script>
 
@@ -208,11 +208,39 @@ var ga_id = 'UA-60512592-1';
 <ul>
 <li><a href="index.html#introduction">Introduction</a> </li>
 <li><a href="index.html#motivation">Motivation</a></li>
-<li><a href="index.html#twomtlmethodsfordeeplearning">Two MTL methods for Deep Learning</a></li>
-<li><a href="index.html#whydoesmtlwork">Why does MTL work?</a></li>
-<li><a href="index.html#mtlinnonneuralmodels">MTL in non-neural models</a></li>
-<li><a href="index.html#recentworkonmtlfordeeplearning">Recent work on MTL for Deep Learning</a></li>
-<li><a href="index.html#auxiliarytasks">Auxiliary tasks</a></li>
+<li><a href="index.html#twomtlmethodsfordeeplearning">Two MTL methods for Deep Learning</a>
+<ul><li><a href="index.html#hardparametersharing">Hard parameter sharing</a></li>
+<li><a href="index.html#softparametersharing">Soft parameter sharing</a></li></ul></li>
+<li><a href="index.html#whydoesmtlwork">Why does MTL work?</a>
+<ul><li><a href="index.html#implicitdataaugmentation">Implicit data augmentation</a></li>
+<li><a href="index.html#attentionfocusing">Attention focusing</a></li>
+<li><a href="index.html#eavesdropping">Eavesdropping</a></li>
+<li><a href="index.html#representationbias">Representation bias</a></li>
+<li><a href="index.html#regularization">Regularization</a></li></ul></li>
+<li><a href="index.html#mtlinnonneuralmodels">MTL in non-neural models</a>
+<ul><li><a href="index.html#blocksparseregularization">Block-sparse regularization</a></li>
+<li><a href="index.html#learningtaskrelationships">Learning task relationships</a></li></ul></li>
+<li><a href="index.html#recentworkonmtlfordeeplearning">Recent work on MTL for Deep Learning</a>
+<ul><li><a href="index.html#deeprelationshipnetworks">Deep Relationship Networks</a></li>
+<li><a href="index.html#fullyadaptivefeaturesharing">Fully-Adaptive Feature Sharing</a></li>
+<li><a href="index.html#crossstitchnetworks">Cross-stitch Networks</a></li>
+<li><a href="index.html#lowsupervision">Low supervision</a></li>
+<li><a href="index.html#ajointmanytaskmodel">A Joint Many-Task model</a></li>
+<li><a href="index.html#weightinglosseswithuncertainty">Weighting losses with uncertainty</a></li>
+<li><a href="index.html#tensorfactorisationformtl">Tensor factorisation for MTL</a></li>
+<li><a href="index.html#sluicenetworks">Sluice Networks</a></li>
+<li><a href="index.html#whatshouldishareinmymodel">What should I share in my model?</a></li></ul></li>
+<li><a href="index.html#auxiliarytasks">Auxiliary tasks</a>
+<ul><li><a href="index.html#relatedtask">Related task</a></li>
+<li><a href="index.html#adversarial">Adversarial</a></li>
+<li><a href="index.html#hints">Hints</a></li>
+<li><a href="index.html#focusingattention">Focusing attention</a></li>
+<li><a href="index.html#quantizationsmoothing">Quantization smoothing</a></li>
+<li><a href="index.html#predictinginputs">Predicting inputs</a></li>
+<li><a href="index.html#usingthefuturetopredictthepresent">Using the future to predict the present</a></li>
+<li><a href="index.html#representationlearning">Representation learning</a></li>
+<li><a href="index.html#whatauxiliarytasksarehelpful">What auxiliary tasks are helpful?</a></li></ul></li>
+<li><a href="index.html#conclusion">Conclusion</a></li>
 </ul>
 
 <h1 id="introduction">Introduction</h1>
@@ -435,12 +463,6 @@ var ga_id = 'UA-60512592-1';
 
 <p>Using a related task as an auxiliary task for MTL is the classical choice. To get an idea what a related task can be, we will present some prominent examples. Caruana (1997) uses tasks that predict different characteristics of the road as auxiliary tasks for predicting the steering direction in a self-driving car; [<sup id="fnref:42"><a href="index.html#fn:42" rel="footnote">42</a></sup>] use head pose estimation and facial attribute inference as auxiliary tasks for facial landmark detection; [<sup id="fnref:43"><a href="index.html#fn:43" rel="footnote">43</a></sup>] jointly learn query classification and web search; [<sup id="fnref:44"><a href="index.html#fn:44" rel="footnote">44</a></sup>] jointly predicts the class and the coordinates of an object in an image; finally, [<sup id="fnref:45"><a href="index.html#fn:45" rel="footnote">45</a></sup>] jointly predict the phoneme duration and frequency profile for text-to-speech.</p>
 
-<h3 id="whenaretwotaskssimilar"> When are two tasks similar?</h3>
-
-<p>The above is only a small collection of task combinations that have been used for MTL. The multitude of task combinations that have been tried already and that are possible hints at a deeper question: When should two tasks be considered similar or related? Caruana (1997) defines two tasks to be similar if they use the same features to make a decision. Xue et al. (2007) on the other hand argue that two tasks are similar if their classification boundaries, i.e. parameter vectors are close.</p>
-
-<p>Task similarity is not binary, but resides on a spectrum. More similar tasks should help more in MTL, while less similar tasks should help less. Allowing our models to learn what to share with each task is the first step in making better use even of only loosely related tasks. However, we also need to develop a more principled notion of task similarity with regard to multi-task learning in order to know which tasks we should prefer.</p>
-
 <h2 id="adversarial"> Adversarial</h2>
 
 <p>Often, labeled data for a related task is unavailable. In some circumstances, however, we have access to a task that is <em>opposite</em> of what we want to achieve. This data can be leveraged using an adversarial loss, which does not seek to minimize but maximize the training error using a gradient reversal layer. This setup has found recent success in domain adaptation [<sup id="fnref:46"><a href="index.html#fn:46" rel="footnote">46</a></sup>]. The adversarial task in this case is predicting the domain of the input; by reversing the gradient of the adversarial task, the adversarial task loss is maximized, which is beneficial for the main task as it forces the model to learn representations that cannot distinguish between domains.</p>
@@ -469,9 +491,15 @@ var ga_id = 'UA-60512592-1';
 
 <p>The goal of an auxiliary task in MTL is to enable the model to learn representations that are shared or helpful for the main task. All auxiliary tasks discussed so far do this implicitly: They are closely related to the main task, so that learning them likely allows the model to learn beneficial representations. A more explicit modelling is possible, for instance by employing a task that is known to enable a model to learn transferable representations. The language modelling objective as employed by Cheng et al. (2015) and [<sup id="fnref:50"><a href="index.html#fn:50" rel="footnote">50</a></sup>] fulfils this role. In a similar vein, an autoencoder objective can also be used as an auxiliary task.</p>
 
-<h2 id="whatauxiliarytaskshouldichoose">What auxiliary task should I choose?</h2>
+<h2 id="whatauxiliarytasksarehelpful">What auxiliary tasks are helpful?</h2>
 
-<p>In this section, we have discussed different auxiliary tasks that can be used to leverage MTL even if we only care about one task. However, we still do not have a principled notion of what tasks are actually useful. Finding an auxiliary task is largely based on a few assumptions: The task should share some features with the main task and be helpful for predicting the main task. Recent work [<sup id="fnref:51"><a href="index.html#fn:51" rel="footnote">51</a></sup>] has found auxiliary tasks with compact and uniform label distributions to be preferable for sequence tagging problems in NLP, which we have confirmed in experiments (Ruder et al., 2017). In addition, gains have been found to be more likely for main tasks that quickly plateau with non-plateauing auxiliary tasks [<sup id="fnref:52"><a href="index.html#fn:52" rel="footnote">52</a></sup>].</p>
+<p>In this section, we have discussed different auxiliary tasks that can be used to leverage MTL even if we only care about one task. However, we still do not know what auxiliary task will be useful in practice. Finding an auxiliary task is largely based on the assumption that the auxiliary task should be related to the main task in some way and that it should be helpful for predicting the main task.</p>
+
+<p>We still do not have a good notion of when to tasks should be considered similar or related. Caruana (1997) defines two tasks to be similar if they use the same features to make a decision. Baxter (2000) argues only theoretically that related tasks share a common optimal hypothesis class, i.e. have the same inductive bias. [<sup id="fnref:50"><a href="index.html#fn:50" rel="footnote">50</a></sup>] propose that two tasks are \(\mathcal{F}\)-related if the data for both tasks can be generated from a fixed probability distribution using a set of transformations \(\mathcal{F}\). While this allows to reason over tasks where different sensors collect data for the same classification problem, e.g. object recognition with data from cameras with different angles and lighting conditions, it is not applicable to tasks that do not deal with the same problem. Xue et al. (2007) finally argue that two tasks are similar if their classification boundaries, i.e. parameter vectors are close.</p>
+
+<p>In spite of these early theoretical advances in understanding task relatedness, we have not made much recent progress towards this goal. Task similarity is not binary, but resides on a spectrum. More similar tasks should help more in MTL, while less similar tasks should help less. Allowing our models to learn what to share with each task might allow us to temporarily circumvent the lack of theory and make better use even of only loosely related tasks. However, we also need to develop a more principled notion of task similarity with regard to multi-task learning in order to know which tasks we should prefer.</p>
+
+<p>Recent work [<sup id="fnref:52"><a href="index.html#fn:52" rel="footnote">52</a></sup>] have found auxiliary tasks with compact and uniform label distributions to be preferable for sequence tagging problems in NLP, which we have confirmed in experiments (Ruder et al., 2017). In addition, gains have been found to be more likely for main tasks that quickly plateau with non-plateauing auxiliary tasks [<sup id="fnref:53"><a href="index.html#fn:53" rel="footnote">53</a></sup>].</p>
 
 <p>These experiments, however, have so far been limited in scope and recent findings only provide the first clues towards a deeper understanding of multi-task learning in neural networks. </p>
 
@@ -583,9 +611,11 @@ var ga_id = 'UA-60512592-1';
 
 <li class="footnote" id="fn:50"><p>Rei, M. (2017). Semi-supervised Multitask Learning for Sequence Labeling. In ACL 2017. <a href="index.html#fnref:50" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:51"><p>Alonso, H. M., &amp; Plank, B. (2017). When is multitask learning effective? Multitask learning for semantic sequence prediction under varying data conditions. In EACL. Retrieved from <a href="http://arxiv.org/abs/1612.02251">http://arxiv.org/abs/1612.02251</a> <a href="index.html#fnref:51" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:51"><p>Ben-David, S., &amp; Schuller, R. (2003). Exploiting task relatedness for multiple task learning. Learning Theory and Kernel Machines, 567–580. <a href="https://doi.org/10.1007/978-3-540-45167-9_41">https://doi.org/10.1007/978-3-540-45167-9_41</a> <a href="index.html#fnref:51" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:52"><p>Bingel, J., &amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from <a href="http://arxiv.org/abs/1702.08303">http://arxiv.org/abs/1702.08303</a> <a href="index.html#fnref:52" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:52"><p>Alonso, H. M., &amp; Plank, B. (2017). When is multitask learning effective? Multitask learning for semantic sequence prediction under varying data conditions. In EACL. Retrieved from <a href="http://arxiv.org/abs/1612.02251">http://arxiv.org/abs/1612.02251</a> <a href="index.html#fnref:52" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:53"><p>Bingel, J., &amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from <a href="http://arxiv.org/abs/1702.08303">http://arxiv.org/abs/1702.08303</a> <a href="index.html#fnref:53" title="return to article">↩</a></p></li></ol></div>
     </div>
 
     <div class="post related">
