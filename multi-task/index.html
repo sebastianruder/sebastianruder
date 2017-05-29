@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>An Overview of Multi-Task Learning in Deep Neural Networks</title>
+    <title>An Overview of Multi-Task Learning for Deep Learning</title>
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
@@ -38,16 +38,19 @@
     
     <meta property="og:site_name" content="Sebastian Ruder" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="An Overview of Multi-Task Learning in Deep Neural Networks" />
-    <meta property="og:description" content="Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Hard parameter sharing Soft parameter sharing Why does MTL work? Implicit data augmentation Attention focusing Eavesdropping Representation bias Regularization MTL in non-neural models Block-sparse regularization Learning task relationships Recent..." />
+    <meta property="og:title" content="An Overview of Multi-Task Learning for Deep Learning" />
+    <meta property="og:description" content="This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances." />
     <meta property="og:url" content="u=http://sebastianruder.com/multi-task/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" />
     <meta property="article:published_time" content="2017-05-29T13:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-05-29T13:07:41.717Z" />
+    <meta property="article:modified_time" content="2017-05-29T14:13:59.019Z" />
+    <meta property="article:tag" content="deep learning" />
+    <meta property="article:tag" content="transfer learning" />
+    <meta property="article:tag" content="nlp" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="An Overview of Multi-Task Learning in Deep Neural Networks" />
-    <meta name="twitter:description" content="Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Hard parameter sharing Soft parameter sharing Why does MTL work? Implicit data augmentation Attention focusing Eavesdropping Representation bias Regularization MTL in non-neural models Block-sparse regularization Learning task relationships Recent..." />
+    <meta name="twitter:title" content="An Overview of Multi-Task Learning for Deep Learning" />
+    <meta name="twitter:description" content="This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances." />
     <meta name="twitter:url" content="u=http://sebastianruder.com/multi-task/" />
     <meta name="twitter:image:src" content="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" />
     
@@ -63,12 +66,13 @@
         "sameAs": null,
         "description": null
     },
-    "headline": "An Overview of Multi-Task Learning in Deep Neural Networks",
+    "headline": "An Overview of Multi-Task Learning for Deep Learning",
     "url": "u=http://sebastianruder.com/multi-task/",
     "datePublished": "2017-05-29T13:00:00.000Z",
-    "dateModified": "2017-05-29T13:07:41.717Z",
+    "dateModified": "2017-05-29T14:13:59.019Z",
     "image": "u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png",
-    "description": "Table of contents: Introduction  Motivation Two MTL methods for Deep Learning Hard parameter sharing Soft parameter sharing Why does MTL work? Implicit data augmentation Attention focusing Eavesdropping Representation bias Regularization MTL in non-neural models Block-sparse regularization Learning task relationships Recent..."
+    "keywords": "deep learning, transfer learning, nlp",
+    "description": "This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances."
 }
     </script>
 
@@ -90,7 +94,7 @@ var profile_resume ='NLP PhD student';
 var ga_id = 'UA-60512592-1';
 </script>
   </head>
-  <body class="post-template">
+  <body class="post-template tag-deep-learning tag-transfer-learning tag-nlp">
     <header id="menu-button" class="expanded">
       <a><i class="icon icon-list"></i></a>
     </header>
@@ -187,22 +191,22 @@ var ga_id = 'UA-60512592-1';
       <section class="content">
         
 
-  <article class="post">
+  <article class="post tag-deep-learning tag-transfer-learning tag-nlp">
     <header>
       <div class="post meta">
         <time datetime="29 May 2017">29 May 2017</time>
-        <span class="post tags"></span>
+        <span class="post tags">in <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/transfer-learning/index.html">transfer learning</a> <a href="../tag/nlp/index.html">nlp</a></span>
 
 
         <span class="post reading-time"> ~ <span></span> read.</span>
       </div>
-      <a alt="Tweet 'An Overview of Multi-Task Learning in Deep Neural Networks'" href="https://twitter.com/intent/tweet?text=An%20Overview%20of%20Multi-Task%20Learning%20in%20Deep%20Neural%20Networks%20%C2%BB&amp;hashtags=&amp;url=http://sebastianruder.com/multi-task/">
+      <a alt="Tweet 'An Overview of Multi-Task Learning in Deep Neural Networks'" href="https://twitter.com/intent/tweet?text=An%20Overview%20of%20Multi-Task%20Learning%20in%20Deep%20Neural%20Networks%20%C2%BB&amp;hashtags=deep learning,transfer learning,nlp&amp;url=http://sebastianruder.com/multi-task/">
         <img id="post-image" src="../content/images/2017/05/mtl_images-002-2.png" alt="An Overview of Multi-Task Learning in Deep Neural Networks">
         <h1 class="icon-reverse icon-social-twitter-post" id="post-title">An Overview of Multi-Task Learning in Deep Neural Networks</h1>
       </a>
     </header>
 
-    <div id="post-content" class="post">
+    <div id="post-content" class="post tag-deep-learning tag-transfer-learning tag-nlp">
       <p>Table of contents:</p>
 
 <ul>
