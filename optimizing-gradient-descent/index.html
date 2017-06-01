@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2017-04-18T08:26:11.563Z" />
+    <meta property="article:modified_time" content="2017-06-01T14:13:41.212Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2017-04-18T08:26:11.563Z",
+    "dateModified": "2017-06-01T14:13:41.212Z",
     "image": "u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -481,7 +481,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>The following two animations (Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a>) provide some intuitions towards the optimization behaviour of the presented optimization algorithms. Also have a look <a href="http://cs231n.github.io/neural-networks-3/">here</a> for a description of the same images by Karpathy and another concise overview of the algorithms discussed.</p>
 
-<p>In Image 5, we see their behaviour on the contours of a loss surface over time. Note that Adagrad, Adadelta, and RMSprop almost immediately head off in the right direction and converge similarly fast, while Momentum and NAG are led off-track, evoking the image of a ball rolling down the hill. NAG, however, is quickly able to correct its course due to its increased responsiveness by looking ahead and heads to the minimum.</p>
+<p>In Image 5, we see their behaviour on the contours of a loss surface (<a href="https://www.sfu.ca/~ssurjano/beale.html">the Beale function</a>) over time. Note that Adagrad, Adadelta, and RMSprop almost immediately head off in the right direction and converge similarly fast, while Momentum and NAG are led off-track, evoking the image of a ball rolling down the hill. NAG, however, is quickly able to correct its course due to its increased responsiveness by looking ahead and heads to the minimum.</p>
 
 <p>Image 6 shows the behaviour of the algorithms at a saddle point, i.e. a point where one dimension has a positive slope, while the other dimension has a negative slope, which pose a difficulty for SGD as we mentioned before. Notice here that SGD, Momentum, and NAG find it difficulty to break symmetry, although the two latter eventually manage to escape the saddle point, while Adagrad, RMSprop, and Adadelta quickly head down the negative slope.</p>
 
