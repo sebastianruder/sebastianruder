@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/cross-lingual-embeddings/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png" />
     <meta property="article:published_time" content="2016-11-28T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-06-01T12:58:52.439Z" />
+    <meta property="article:modified_time" content="2017-06-02T15:13:29.890Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "A survey of cross-lingual embedding models",
     "url": "u=http://sebastianruder.com/cross-lingual-embeddings/",
     "datePublished": "2016-11-28T10:00:00.000Z",
-    "dateModified": "2017-06-01T12:58:52.439Z",
+    "dateModified": "2017-06-02T15:13:29.890Z",
     "image": "u=http://sebastianruder.com/content/images/2016/10/zou_et_al_2013.png",
     "keywords": "word embeddings, deep learning, nlp",
     "description": "In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The..."
@@ -375,7 +375,7 @@ Cross-lingual embedding models generally use four different approaches:</p>
   </tr>
 </table>
 
-<p>After the discussion of cross-lingual embedding models, we will additionally look into how to <a href="index.html#incorporatingvisualinformation">incorporate visual information</a> into word representations, discuss the <a href="index.html#challenges">challenges</a> that still remain in learning cross-lingual representations, and finally summarize which models perform best and how to <a href="index.html#evaluate">evaluate</a> them.</p>
+<p>After the discussion of cross-lingual embedding models, we will additionally look into how to <a href="index.html#incorporatingvisualinformation">incorporate visual information</a> into word representations, discuss the <a href="index.html#challenges">challenges</a> that still remain in learning cross-lingual representations, and finally summarize which models perform best and how to <a href="index.html#evaluation">evaluate</a> them.</p>
 
 <h1 id="monolingualmapping">Monolingual mapping</h1>
 
@@ -792,7 +792,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 
 <h2 id="jointmatrixfactorisation">Joint matrix factorisation</h2>
 
-<p>Shi et al. [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>] use a joint matrix factorisation model to learn cross-lingual representations. In contrast to Zou et al. (2014), they also take into account additional monolingual data. Similar to the former, they also use the GloVe objective (Pennington et al., 2014) as monolingual objective:</p>
+<p>Shi et al. [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>] use a joint matrix factorisation model to learn cross-lingual representations. In contrast to Zou et al. (2013), they also take into account additional monolingual data. Similar to the former, they also use the GloVe objective (Pennington et al., 2014) as monolingual objective:</p>
 
 <p>\(\mathcal{M}_{l_i} = \sum\limits_{j,k} f(X_{jk}^{l_i})(w_j^{l_i} \cdot c_k^{l_i} + b_{w_j}^{l_i} + b_{c_k}^{l_i} + b^{l_i} - M_{jk}^{l_{i}}) \)</p>
 
