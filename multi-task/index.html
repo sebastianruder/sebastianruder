@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/multi-task/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" />
     <meta property="article:published_time" content="2017-05-29T13:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-05-31T11:30:46.022Z" />
+    <meta property="article:modified_time" content="2017-06-08T07:44:23.293Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="transfer learning" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "An Overview of Multi-Task Learning for Deep Learning",
     "url": "u=http://sebastianruder.com/multi-task/",
     "datePublished": "2017-05-29T13:00:00.000Z",
-    "dateModified": "2017-05-31T11:30:46.022Z",
+    "dateModified": "2017-06-08T07:44:23.293Z",
     "image": "u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png",
     "keywords": "deep learning, transfer learning, nlp",
     "description": "This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances."
@@ -255,7 +255,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>Even if you're only optimizing one loss as is the typical case, chances are there is an auxiliary task that will help you improve upon your main task. Rich Caruana [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>] summarizes the goal of MTL succinctly: "MTL improves generalization by leveraging the domain-specific information contained in the training signals of related tasks".</p>
 
-<p>Over the course of this blog post, I will try to give a general overview of the current state of multi-task learning, in particular when it comes to MTL with deep neural networks. I will first motivate MTL from different perspectives. I will then introduce the two most commonly methods for MTL in Deep Learning. Subsequently, I will describe mechanisms that together illustrate why MTL works in practice. Before looking at more advanced neural network-based MTL methods, I will provide some context by discussing the literature in MTL. I will then introduce some more powerful recently proposed methods for MTL in deep neural networks. Finally, I will talk about commonly used types of auxiliary tasks and discuss what makes a good auxiliary task for MTL.</p>
+<p>Over the course of this blog post, I will try to give a general overview of the current state of multi-task learning, in particular when it comes to MTL with deep neural networks. I will first motivate MTL from different perspectives. I will then introduce the two most frequently employed methods for MTL in Deep Learning. Subsequently, I will describe mechanisms that together illustrate why MTL works in practice. Before looking at more advanced neural network-based MTL methods, I will provide some context by discussing the literature in MTL. I will then introduce some more powerful recently proposed methods for MTL in deep neural networks. Finally, I will talk about commonly used types of auxiliary tasks and discuss what makes a good auxiliary task for MTL.</p>
 
 <h1 id="motivation">Motivation</h1>
 
@@ -311,7 +311,7 @@ var ga_id = 'UA-60512592-1';
 
 <h2 id="representationbias">Representation bias</h2>
 
-<p>MTL biases the model to prefer representations that other tasks also prefer. This will also help the model to generalize to new tasks in the future as a hypothesis space that performs well for a sufficiently number of training tasks will also perform well for learning novel tasks as long as they are from the same environment [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>].</p>
+<p>MTL biases the model to prefer representations that other tasks also prefer. This will also help the model to generalize to new tasks in the future as a hypothesis space that performs well for a sufficiently large number of training tasks will also perform well for learning novel tasks as long as they are from the same environment [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>].</p>
 
 <h2 id="regularization"> Regularization</h2>
 
