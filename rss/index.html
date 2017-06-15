@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 08 Jun 2017 07:44:38 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[An Overview of Multi-Task Learning in Deep Neural Networks]]></title><description><![CDATA[This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances.]]></description><link>http://sebastianruder.com/multi-task/</link><guid isPermaLink="false">c52283dd-3a6e-4430-a7e9-49626ce9c43e</guid><category><![CDATA[deep learning]]></category><category><![CDATA[transfer learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 29 May 2017 13:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" alt="An Overview of Multi-Task Learning in Deep Neural Networks"><p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 15 Jun 2017 13:08:48 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[An Overview of Multi-Task Learning in Deep Neural Networks]]></title><description><![CDATA[This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances.]]></description><link>http://sebastianruder.com/multi-task/</link><guid isPermaLink="false">c52283dd-3a6e-4430-a7e9-49626ce9c43e</guid><category><![CDATA[deep learning]]></category><category><![CDATA[transfer learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 29 May 2017 13:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" alt="An Overview of Multi-Task Learning in Deep Neural Networks"><p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/multi-task/#introduction">Introduction</a> </li>
@@ -3310,6 +3310,8 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 
 <p>Credit for the post image goes to <a href="http://colah.github.io/">Christopher Olah</a>.</p>]]></content:encoded></item><item><title><![CDATA[An overview of gradient descent optimization algorithms]]></title><description><![CDATA[This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them.]]></description><link>http://sebastianruder.com/optimizing-gradient-descent/</link><guid isPermaLink="false">f991a148-274f-497e-97b9-598455211f57</guid><category><![CDATA[optimization]]></category><category><![CDATA[deep learning]]></category><category><![CDATA[sgd]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Tue, 19 Jan 2016 14:20:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms"><p>Note: If you are looking for a review paper, this blog post is also available as an <a href="http://arxiv.org/abs/1609.04747">article on arXiv</a>.</p>
 
+<p>Update 15.06.2017: Added descriptions of <a href="http://sebastianruder.com/optimizing-gradient-descent/#adamax">AdaMax</a> and <a href="http://sebastianruder.com/optimizing-gradient-descent/#nadam">Nadam</a>.</p>
+
 <p>Table of contents:</p>
 
 <ul>
@@ -3325,6 +3327,8 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#adadelta">Adadelta</a></li>
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#rmsprop">RMSprop</a></li>
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#adam">Adam</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#adamax">AdaMax</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/#nadam">Nadam</a></li>
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#visualizationofalgorithms">Visualization of algorithms</a></li>
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#whichoptimizertochoose">Which optimizer to choose?</a></li></ul></li>
 <li><a href="http://sebastianruder.com/optimizing-gradient-descent/#parallelizinganddistributingsgd">Parallelizing and distributing SGD</a>
@@ -3447,9 +3451,14 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>Momentum [<sup id="fnref:2"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:2" rel="footnote">2</a></sup>] is a method that helps accelerate SGD in the relevant direction and dampens oscillations as can be seen in Image 3. It does this by adding a fraction \(\gamma\) of the update vector of the past time step to the current update vector:</p>
 
-<p>\(v_t = \gamma v_{t-1} + \eta \nabla_\theta J( \theta)\).</p>
-
-<p>\(\theta = \theta - v_t\).</p>
+<p>\(
+\begin{align}
+\begin{split}
+v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\ <br>
+\theta &amp;= \theta - v_t
+\end{split}
+\end{align}
+\)</p>
 
 <p>Note: Some implementations exchange the signs in the equations. The momentum term \(\gamma\) is usually set to 0.9 or a similar value.</p>
 
@@ -3461,9 +3470,14 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>Nesterov accelerated gradient (NAG) [<sup id="fnref:7"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:7" rel="footnote">7</a></sup>] is a way to give our momentum term this kind of prescience. We know that we will use our momentum term \(\gamma v_{t-1}\) to move the parameters \(\theta\). Computing \( \theta - \gamma v_{t-1} \) thus gives us an approximation of the next position of the parameters (the gradient is missing for the full update), a rough idea where our parameters are going to be. We can now effectively look ahead by calculating the gradient not w.r.t. to our current parameters \(\theta\) but w.r.t. the approximate future position of our parameters:</p>
 
-<p>\(v_t = \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} )\).</p>
-
-<p>\(\theta = \theta - v_t\).</p>
+<p>\(
+\begin{align}
+\begin{split}
+v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\ <br>
+\theta &amp;= \theta - v_t
+\end{split}
+\end{align}
+\)</p>
 
 <p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:8" rel="footnote">8</a></sup>].</p>
 
@@ -3492,7 +3506,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>\(\theta_{t+1, i} = \theta_{t, i} - \dfrac{\eta}{\sqrt{G_{t, ii} + \epsilon}} \cdot g_{t, i}\).</p>
 
-<p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) <sup id="fnref:24"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:24" rel="footnote">24</a></sup>, while \(\epsilon\) is a smoothing term that avoids division by zero (usually on the order of \(1e-8\)). Interestingly, without the square root operation, the algorithm performs much worse.</p>
+<p>\(G_{t} \in \mathbb{R}^{d \times d} \) here is a diagonal matrix where each diagonal element \(i, i\) is the sum of the squares of the gradients w.r.t. \(\theta_i\) up to time step \(t\) [<sup id="fnref:25"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:25" rel="footnote">25</a></sup>], while \(\epsilon\) is a smoothing term that avoids division by zero (usually on the order of \(1e-8\)). Interestingly, without the square root operation, the algorithm performs much worse.</p>
 
 <p>As \(G_{t}\) contains the sum of the squares of the past gradients w.r.t. to all parameters \(\theta\) along its diagonal, we can now vectorize our implementation by performing an element-wise matrix-vector multiplication \(\odot\) between \(G_{t}\) and \(g_{t}\):</p>
 
@@ -3512,9 +3526,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>We set \(\gamma\) to a similar value as the momentum term, around 0.9. For clarity, we now rewrite our vanilla SGD update in terms of the parameter update vector \( \Delta \theta_t \):</p>
 
-<p>\(\Delta \theta_t = - \eta \cdot g_{t, i}\).</p>
-
-<p>\(\theta_{t+1} = \theta_t + \Delta \theta_t \).</p>
+<p>\(
+\begin{align}
+\begin{split}
+\Delta \theta_t &amp;= - \eta \cdot g_{t, i} \\
+\theta_{t+1} &amp;= \theta_t + \Delta \theta_t \end{split}
+\end{align}
+\)</p>
 
 <p>The parameter update vector of Adagrad that we derived previously thus takes the form:</p>
 
@@ -3538,9 +3556,14 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>Since \(RMS[\Delta \theta]_{t}\) is unknown, we approximate it with the RMS of parameter updates until the previous time step. Replacing the learning rate \(\eta \) in the previous update rule with \(RMS[\Delta \theta]_{t-1}\) finally yields the Adadelta update rule:</p>
 
-<p>\( \Delta \theta_t = - \dfrac{RMS[\Delta \theta]_{t-1}}{RMS[g]_{t}} g_{t}\).</p>
-
-<p>\(\theta_{t+1} = \theta_t + \Delta \theta_t \).</p>
+<p>\(
+\begin{align}
+\begin{split}
+\Delta \theta_t &amp;= - \dfrac{RMS[\Delta \theta]_{t-1}}{RMS[g]_{t}} g_{t} \\
+\theta_{t+1} &amp;= \theta_t + \Delta \theta_t 
+\end{split}
+\end{align}
+\)</p>
 
 <p>With Adadelta, we do not even need to set a default learning rate, as it has been eliminated from the update rule.</p>
 
@@ -3550,9 +3573,14 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>RMSprop and Adadelta have both been developed independently around the same time stemming from the need to resolve Adagrad's radically diminishing learning rates. RMSprop in fact is identical to the first update vector of Adadelta that we derived above:</p>
 
-<p>\(E[g^2]_t = 0.9 E[g^2]_{t-1} + 0.1 g^2_t \).</p>
-
-<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}\).</p>
+<p>\(
+\begin{align}
+\begin{split}
+E[g^2]_t &amp;= 0.9 E[g^2]_{t-1} + 0.1 g^2_t \\ <br>
+\theta_{t+1} &amp;= \theta_{t} - \dfrac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}
+\end{split}
+\end{align}
+\)</p>
 
 <p>RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests \(\gamma\) to be set to 0.9, while a good default value for the learning rate \(\eta\) is 0.001.</p>
 
@@ -3560,23 +3588,131 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 
 <p>Adaptive Moment Estimation (Adam) [<sup id="fnref:15"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:15" rel="footnote">15</a></sup>] is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients \(v_t\) like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients \(m_t\), similar to momentum:</p>
 
-<p>\(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t \).</p>
-
-<p>\(v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \).</p>
+<p>\(
+\begin{align}
+\begin{split}
+m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\ <br>
+v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 <br>
+\end{split}
+\end{align}
+\)</p>
 
 <p>\(m_t\) and \(v_t\) are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients respectively, hence the name of the method. As \(m_t\) and \(v_t\) are initialized as vectors of 0's, the authors of Adam observe that they are biased towards zero, especially during the initial time steps, and especially when the decay rates are small (i.e. \(\beta_1\) and \(\beta_2\) are close to 1). </p>
 
 <p>They counteract these biases by computing bias-corrected first and second moment estimates:</p>
 
-<p>\(\hat{m}_t = \dfrac{m_t}{1 - \beta^t_1} \).</p>
-
-<p>\(\hat{v}_t = \dfrac{v_t}{1 - \beta^t_2} \).</p>
+<p>\(
+\begin{align}
+\begin{split}
+\hat{m}_t &amp;= \dfrac{m_t}{1 - \beta^t_1} \\
+\hat{v}_t &amp;= \dfrac{v_t}{1 - \beta^t_2} \end{split}
+\end{align}
+\)</p>
 
 <p>They then use these to update the parameters just as we have seen in Adadelta and RMSprop, which yields the Adam update rule:</p>
 
 <p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t\).</p>
 
 <p>The authors propose default values of 0.9 for \(\beta_1\), 0.999 for \(\beta_2\), and \(10^{-8}\) for \(\epsilon\). They show empirically that Adam works well in practice and compares favorably to other adaptive learning-method algorithms.</p>
+
+<h2 id="adamax">AdaMax</h2>
+
+<p>The \(v_t\) factor in the Adam update rule scales the gradient inversely proportionally to the \(\ell_2\) norm of the past gradients (via the \(v_{t-1}\) term) and current gradient \(|g_t|^2\):</p>
+
+<p>\(v_t = \beta_2 v_{t-1} + (1 - \beta_2) |g_t|^2\)</p>
+
+<p>We can generalize this update to the \(\ell_p\) norm. Note that Kingma and Ba also parameterize \(\beta_2\) as \(\beta^p_2\):</p>
+
+<p>\(v_t = \beta_2^p v_{t-1} + (1 - \beta_2^p) |g_t|^p\)</p>
+
+<p>Norms for large \(p\) values generally become numerically unstable, which is why \(\ell_1\) and \(\ell_2\) norms are most common in practice. However, \(\ell_\infty\) also generally exhibits stable behavior. For this reason, the authors propose AdaMax (Kingma and Ba, 2015) and show that \(v_t\) with \(\ell_\infty\) converges to the following more stable value. To avoid confusion with Adam, we use \(u_t\) to denote the infinity norm-constrained \(v_t\):</p>
+
+<p>\(
+\begin{align}
+\begin{split}
+u_t &amp;= \beta_2^\infty v_{t-1} + (1 - \beta_2^\infty) |g_t|^\infty\\ <br>
+              &amp; = \max(\beta_2 \cdot v_{t-1}, |g_t|)
+\end{split}
+\end{align}
+\)</p>
+
+<p>We can now plug this into the Adam update equation by replacing \(\sqrt{\hat{v}_t} + \epsilon\) with \(u_t\) to obtain the AdaMax update rule:</p>
+
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{u_t} \hat{m}_t\)</p>
+
+<p>Note that as \(u_t\) relies on the \(\max\) operation, it is not as suggestible to bias towards zero as \(m_t\) and \(v_t\) in Adam, which is why we do not need to compute a bias correction for \(u_t\). Good default values are again \(\eta = 0.002\), \(\beta_1 = 0.9\), and \(\beta_2 = 0.999\).</p>
+
+<h2 id="nadam">Nadam</h2>
+
+<p>As we have seen before, Adam can be viewed as a combination of RMSprop and momentum: RMSprop contributes the exponentially decaying average of past squared gradients \(v_t\), while momentum accounts for the exponentially decaying average of past gradients \(m_t\). We have also seen that Nesterov accelerated gradient (NAG) is superior to vanilla momentum. </p>
+
+<p>Nadam (Nesterov-accelerated Adaptive Moment Estimation) [<sup id="fnref:24"><a href="http://sebastianruder.com/optimizing-gradient-descent/#fn:24" rel="footnote">24</a></sup>] thus combines Adam and NAG. In order to incorporate NAG into Adam, we need to modify its momentum term \(m_t\). </p>
+
+<p>First, let us recall the momentum update rule using our current notation :</p>
+
+<p>\(
+\begin{align}
+\begin{split}
+g_t &amp;= \nabla_{\theta_t}J(\theta_t)\\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
+\theta_{t+1} &amp;= \theta_t - m_t
+\end{split}
+\end{align}
+\)</p>
+
+<p>where \(J\) is our objective function, \(\gamma\) is the momentum decay term, and \(\eta\) is our step size. Expanding the third equation above yields:</p>
+
+<p>\(\theta_{t+1} = \theta_t - ( \gamma m_{t-1} + \eta g_t)\)</p>
+
+<p>This demonstrates again that momentum involves taking a step in the direction of the previous momentum vector and a step in the direction of the current gradient.</p>
+
+<p>NAG then allows us to perform a more accurate step in the gradient direction by updating the parameters with the momentum step <em>before</em> computing the gradient. We thus only need to modify the gradient \(g_t\) to arrive at NAG:</p>
+
+<p>\(
+\begin{align}
+\begin{split}
+g_t &amp;= \nabla_{\theta_t}J(\theta_t - \gamma m_{t-1})\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\ <br>
+\theta_{t+1} &amp;= \theta_t - m_t
+\end{split}
+\end{align}
+\)</p>
+
+<p>Dozat (2016) proposes to modify NAG the following way: Rather than applying the momentum step twice -- one time for updating the gradient \(g_t\) and a second time for updating the parameters \(\theta_{t+1}\) -- we now apply the look-ahead momentum vector directly to update the current parameters:</p>
+
+<p>\(
+\begin{align}
+\begin{split}
+g_t &amp;= \nabla_{\theta_t}J(\theta_t)\\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
+\theta_{t+1} &amp;= \theta_t - (\gamma m_t + \eta g_t)
+\end{split}
+\end{align}
+\)</p>
+
+<p>Notice that rather than utilizing the previous momentum vector \(m_{t-1}\) as in the equation of the expanded momentum update rule above, we now use the current momentum vector \(m_t\) to look ahead. In order to add Nesterov momentum to Adam, we can thus similarly replace the previous momentum vector with the current momentum vector. First, recall that the Adam update rule is the following (note that we do not need to modify \(\hat{v}_t\)):</p>
+
+<p>\(
+\begin{align} 
+\begin{split}
+m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t\\ <br>
+\hat{m}_t &amp; = \frac{m_t}{1 - \beta^t_1}\\
+\theta_{t+1} &amp;= \theta_{t} - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t
+\end{split}
+\end{align}
+\)</p>
+
+<p>Expanding the second equation with the definitions of \(\hat{m}_t\) and \(m_t\) in turn gives us:</p>
+
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{\hat{v}_t} + \epsilon} (\dfrac{\beta_1 m_{t-1}}{1 - \beta^t_1} + \dfrac{(1 - \beta_1) g_t}{1 - \beta^t_1})\)</p>
+
+<p>Note that \(\dfrac{\beta_1 m_{t-1}}{1 - \beta^t_1}\) is just the bias-corrected estimate of the momentum vector of the previous time step. We can thus replace it with \(\hat{m}_{t-1}\):</p>
+
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{\hat{v}_t} + \epsilon} (\beta_1 \hat{m}_{t-1} + \dfrac{(1 - \beta_1) g_t}{1 - \beta^t_1})\)</p>
+
+<p>This equation again looks very similar to our expanded momentum update rule above. We can now add Nesterov momentum just as we did previously by simply replacing this bias-corrected estimate of the momentum vector of the previous time step \(\hat{m}_{t-1}\) with the bias-corrected estimate of the current momentum vector \(\hat{m}_t\), which gives us the Nadam update rule:</p>
+
+<p>\(\theta_{t+1} = \theta_{t} - \dfrac{\eta}{\sqrt{\hat{v}_t} + \epsilon} (\beta_1 \hat{m}_t + \dfrac{(1 - \beta_1) g_t}{1 - \beta^t_1})\)</p>
 
 <h2 id="visualizationofalgorithms">Visualization of algorithms</h2>
 
@@ -3726,6 +3862,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 <li class="footnote" id="fn:21"><p>Neelakantan, A., Vilnis, L., Le, Q. V., Sutskever, I., Kaiser, L., Kurach, K., &amp; Martens, J. (2015). Adding Gradient Noise Improves Learning for Very Deep Networks, 1–11. Retrieved from <a href="http://arxiv.org/abs/1511.06807">http://arxiv.org/abs/1511.06807</a> <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:21" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:22"><p>LeCun, Y., Bottou, L., Orr, G. B., &amp; Müller, K. R. (1998). Efficient BackProp. Neural Networks: Tricks of the Trade, 1524, 9–50. <a href="http://doi.org/10.1007/3-540-49430-8_2">http://doi.org/10.1007/3-540-49430-8_2</a> <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:22" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:23"><p>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22. <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:23" title="return to article">↩</a></p></li>
-<li class="footnote" id="fn:24"><p>Duchi et al. [3] give this matrix as an alternative to the <em>full</em> matrix containing the outer products of all previous gradients, as the computation of the matrix square root is infeasible even for a moderate number of parameters \(d\). <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:24" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:24"><p>Dozat, T. (2016). Incorporating Nesterov Momentum into Adam. ICLR Workshop, (1), 2013–2016. <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:24" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:25"><p>Duchi et al. [3] give this matrix as an alternative to the <em>full</em> matrix containing the outer products of all previous gradients, as the computation of the matrix square root is infeasible even for a moderate number of parameters \(d\). <a href="http://sebastianruder.com/optimizing-gradient-descent/#fnref:25" title="return to article">↩</a></p></li></ol></div>
 
 <p>Image credit for cover photo: <a href="http://lossfunctions.tumblr.com/">Karpathy's beautiful loss functions tumblr</a></p>]]></content:encoded></item></channel></rss>
