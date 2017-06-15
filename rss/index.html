@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 15 Jun 2017 13:22:30 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[An Overview of Multi-Task Learning in Deep Neural Networks]]></title><description><![CDATA[This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances.]]></description><link>http://sebastianruder.com/multi-task/</link><guid isPermaLink="false">c52283dd-3a6e-4430-a7e9-49626ce9c43e</guid><category><![CDATA[deep learning]]></category><category><![CDATA[transfer learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 29 May 2017 13:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" alt="An Overview of Multi-Task Learning in Deep Neural Networks"><p>Table of contents:</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://sebastianruder.com/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 15 Jun 2017 21:29:13 GMT</lastBuildDate><atom:link href="http://sebastianruder.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[An Overview of Multi-Task Learning in Deep Neural Networks]]></title><description><![CDATA[This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances.]]></description><link>http://sebastianruder.com/multi-task/</link><guid isPermaLink="false">c52283dd-3a6e-4430-a7e9-49626ce9c43e</guid><category><![CDATA[deep learning]]></category><category><![CDATA[transfer learning]]></category><category><![CDATA[nlp]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Mon, 29 May 2017 13:00:00 GMT</pubDate><media:content url="u=http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" medium="image"/><content:encoded><![CDATA[<img src="http://sebastianruder.com/content/images/2017/05/mtl_images-002-2.png" alt="An Overview of Multi-Task Learning in Deep Neural Networks"><p>Table of contents:</p>
 
 <ul>
 <li><a href="http://sebastianruder.com/multi-task/#introduction">Introduction</a> </li>
@@ -75,7 +75,7 @@
 
 <h2 id="softparametersharing"> Soft parameter sharing</h2>
 
-<p>In soft parameter sharing on the other hand, each task has its own model with its own parameters. The distance between the parameters of the model is then regularized in order to encourage the parameters to be similar. [<sup id="fnref:8"><a href="http://sebastianruder.com/multi-task/#fn:8" rel="footnote">8</a></sup>] for instance use l2 distance for regularization, while [<sup id="fnref:9"><a href="http://sebastianruder.com/multi-task/#fn:9" rel="footnote">9</a></sup>] use the trace norm.</p>
+<p>In soft parameter sharing on the other hand, each task has its own model with its own parameters. The distance between the parameters of the model is then regularized in order to encourage the parameters to be similar. [<sup id="fnref:8"><a href="http://sebastianruder.com/multi-task/#fn:8" rel="footnote">8</a></sup>] for instance use the \(\ell_2\) norm for regularization, while [<sup id="fnref:9"><a href="http://sebastianruder.com/multi-task/#fn:9" rel="footnote">9</a></sup>] use the trace norm.</p>
 
 <figure>  
       <img src="http://sebastianruder.com/content/images/2017/05/mtl_images-002-1.png" style="width: 80%; height: 80%" title="Soft parameter sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks">
@@ -3671,8 +3671,8 @@ m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
 <p>\(
 \begin{align}
 \begin{split}
-g_t &amp;= \nabla_{\theta_t}J(\theta_t - \gamma m_{t-1})\ <br>
-m_t &amp;= \gamma m_{t-1} + \eta g_t\ <br>
+g_t &amp;= \nabla_{\theta_t}J(\theta_t - \gamma m_{t-1})\\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
 \theta_{t+1} &amp;= \theta_t - m_t
 \end{split}
 \end{align}
