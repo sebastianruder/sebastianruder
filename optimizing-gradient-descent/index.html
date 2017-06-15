@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://sebastianruder.com/optimizing-gradient-descent/" />
     <meta property="og:image" content="u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2017-06-15T13:08:07.721Z" />
+    <meta property="article:modified_time" content="2017-06-15T13:10:23.175Z" />
     <meta property="article:tag" content="optimization" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="sgd" />
@@ -69,7 +69,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://sebastianruder.com/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2017-06-15T13:08:07.721Z",
+    "dateModified": "2017-06-15T13:10:23.175Z",
     "image": "u=http://sebastianruder.com/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -577,7 +577,7 @@ m_t &amp;= \gamma m_{t-1} + \eta g_t\ <br />
 \end{align}
 \)</p>
 
-<p>Dozat (2016) proposes to modify NAG the following way: Rather than applying the momentum step twice -- one time for updating the gradient \(g_t\) and a second time for updating the parameters \(\theta_{t+1}\) -- we now apply the look-ahead momentum vector directly to update the current parameters:</p>
+<p>Dozat proposes to modify NAG the following way: Rather than applying the momentum step twice -- one time for updating the gradient \(g_t\) and a second time for updating the parameters \(\theta_{t+1}\) -- we now apply the look-ahead momentum vector directly to update the current parameters:</p>
 
 <p>\(
 \begin{align}
