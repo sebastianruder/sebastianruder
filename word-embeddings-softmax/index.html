@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=48cd81c62a" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=509ab5aa18" />
     <link rel="canonical" href="http://ruder.io/word-embeddings-softmax/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-softmax/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/06/softmax_classifier.png" />
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-05-29T13:12:57.237Z" />
+    <meta property="article:modified_time" content="2017-07-21T19:37:34.383Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="softmax" />
@@ -69,7 +69,7 @@
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "u=http://ruder.io/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
-    "dateModified": "2017-05-29T13:12:57.237Z",
+    "dateModified": "2017-07-21T19:37:34.383Z",
     "image": "u=http://ruder.io/content/images/2016/06/softmax_classifier.png",
     "keywords": "deep learning, word embeddings, softmax",
     "description": "This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings."
@@ -420,7 +420,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 
 <figure>  
       <img src="../content/images/2016/06/negative_sampling.png" style="width: 70%; height: 70%" title="Noise Contrastive Estimation">
-<figcaption>Figure 4: Noise Contrastive Estimation (<a href="https://www.tensorflow.org/versions/r0.9/tutorials/word2vec/index.html">TensorFlow</a>)</figcaption>  
+<figcaption>Figure 4: Noise Contrastive Estimation (Stephan Gouws' PhD dissertation [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>]) </figcaption>  
 </figure>
 
 <p>For every word \(w_i\) given its context \(c_i \) of \(n\) previous words \(w_{t-1} , \cdots , w_{t-n+1}\) in the training set, we thus generate \(k\) noise samples \(\tilde{w}_{ik}\) from a noise distribution \(Q\). As in IS, we can sample from the unigram distribution of the training set. As we need labels to perform our binary classification task, we designate all correct words \(w_i\) given their context \(c_i\) as true (\(y=1\)) and all noise samples \(\tilde{w}_{ik}\) as false (\(y=0\)).</p>
@@ -707,7 +707,7 @@ Differentiated Softmax generally does well for both small and large vocabularies
 
 <p>If you found this blog post helpful, please consider citing it as:</p>
 
-<p><em>Sebastian Ruder. On word embeddings - Part 2: Approximating the Softmax. <a href="http://sebastianruder.com/word-embeddings-softmax">http://sebastianruder.com/word-embeddings-softmax</a>, 2016.</em></p>
+<p><em>Sebastian Ruder. On word embeddings - Part 2: Approximating the Softmax. <a href="http://ruder.io/word-embeddings-softmax">http://ruder.io/word-embeddings-softmax</a>, 2016.</em></p>
 
 <h1 id="otherblogpostsonwordembeddings">Other blog posts on word embeddings</h1>
 
@@ -770,9 +770,11 @@ Differentiated Softmax generally does well for both small and large vocabularies
 
 <li class="footnote" id="fn:22"><p>Goldberg, Y., &amp; Levy, O. (2014). word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method. arXiv Preprint arXiv:1402.3722, (2), 1–5. Retrieved from <a href="http://arxiv.org/abs/1402.3722">http://arxiv.org/abs/1402.3722</a> <a href="index.html#fnref:22" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:23"><p>Devlin, J., Zbib, R., Huang, Z., Lamar, T., Schwartz, R., &amp; Makhoul, J. (2014). Fast and robust neural network joint models for statistical machine translation. Proc. ACL’2014, 1370–1380. <a href="index.html#fnref:23" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:23"><p>Devlin, J., Zbib, R., Huang, Z., Lamar, T., Schwartz, R., &amp; Makhoul, J. (2014). Fast and robust neural network joint models for statistical machine translation. Proc. ACL’2014, 1370–1380. <a href="index.html#fnref:23" title="return to article">↩</a></p></li>
 
-<p>Credit for the cover image goes to the <a href="https://www.tensorflow.org/versions/r0.9/tutorials/word2vec/index.html">Tensorflow</a> team.</p>
+<li class="footnote" id="fn:24"><p>Gouws, S. (2016). Training neural word embeddings for transfer learning and translation (Doctoral dissertation, Stellenbosch: Stellenbosch University). <a href="index.html#fnref:24" title="return to article">↩</a></p></li></ol></div>
+
+<p>Credit for the cover image goes to <a href="http://stephangouws.com/">Stephan Gouws</a> who included the image in his <a href="http://scholar.sun.ac.za/handle/10019.1/98758">PhD dissertation</a> and in the <a href="https://www.tensorflow.org/versions/r0.9/tutorials/word2vec/index.html">Tensorflow word2vec tutorial</a>.</p>
     </div>
 
     <div class="post related">
@@ -809,7 +811,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=48cd81c62a" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=509ab5aa18" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {

@@ -32,7 +32,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=48cd81c62a" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=509ab5aa18" />
     <link rel="canonical" href="http://ruder.io/multi-task/" />
     <meta name="referrer" content="origin" />
     
@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/multi-task/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png" />
     <meta property="article:published_time" content="2017-05-29T13:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-06-26T14:32:52.243Z" />
+    <meta property="article:modified_time" content="2017-07-18T15:58:13.658Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="transfer learning" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "An Overview of Multi-Task Learning for Deep Learning",
     "url": "u=http://ruder.io/multi-task/",
     "datePublished": "2017-05-29T13:00:00.000Z",
-    "dateModified": "2017-06-26T14:32:52.243Z",
+    "dateModified": "2017-07-18T15:58:13.658Z",
     "image": "u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png",
     "keywords": "deep learning, transfer learning, nlp",
     "description": "This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances."
@@ -458,7 +458,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>Having surveyed these recent approaches, let us now briefly summarize and draw a conclusion on what to share in our deep MTL models. Most approaches in the history of MTL have focused on the scenario where tasks are drawn from the same distribution (Baxter, 1997). While this scenario is beneficial for sharing, it does not always hold. In order to develop robust models for MTL, we thus have to be able to deal with unrelated or only loosely related tasks.</p>
 
-<p>While early work in MTL for Deep Learning has pre-specified which layers to share for each task pairing, this strategy does not scale and heavily biases MTL architectures. Hard parameter sharing, a technique that was originally proposed by Caruana (1997), is still the norm 20 years later. While useful in many scenarios, hard parameter sharing quickly breaks down if tasks are not closely related or require reasoning on different levels. Recent approaches have thus looked towards <em>learning</em> what to share and generally outperform hard parameter sharing. In addition, giving our models the capacity to learn a task hierarchy is helpful, particularly in cases that require different granularities.</p>
+<p>While early work in MTL for Deep Learning has pre-specified which layers to share for each task pairing, this strategy does not scale and heavily biases MTL architectures. Hard parameter sharing, a technique that was originally proposed by Caruana (1996), is still the norm 20 years later. While useful in many scenarios, hard parameter sharing quickly breaks down if tasks are not closely related or require reasoning on different levels. Recent approaches have thus looked towards <em>learning</em> what to share and generally outperform hard parameter sharing. In addition, giving our models the capacity to learn a task hierarchy is helpful, particularly in cases that require different granularities.</p>
 
 <p>As mentioned initially, we are doing MTL as soon as we are optimizing more than one loss function. Rather than constraining our model to compress the knowledge of all tasks into the same parameter space, it is thus helpful to draw on the advances in MTL that we have discussed and enable our model to learn how the tasks should interact with each other.</p>
 
@@ -470,7 +470,7 @@ var ga_id = 'UA-60512592-1';
 
 <h2 id="relatedtask"> Related task</h2>
 
-<p>Using a related task as an auxiliary task for MTL is the classical choice. To get an idea what a related task can be, we will present some prominent examples. Caruana (1997) uses tasks that predict different characteristics of the road as auxiliary tasks for predicting the steering direction in a self-driving car; [<sup id="fnref:46"><a href="index.html#fn:46" rel="footnote">46</a></sup>] use head pose estimation and facial attribute inference as auxiliary tasks for facial landmark detection; [<sup id="fnref:47"><a href="index.html#fn:47" rel="footnote">47</a></sup>] jointly learn query classification and web search; Girshick (2015) jointly predicts the class and the coordinates of an object in an image; finally, [<sup id="fnref:48"><a href="index.html#fn:48" rel="footnote">48</a></sup>] jointly predict the phoneme duration and frequency profile for text-to-speech.</p>
+<p>Using a related task as an auxiliary task for MTL is the classical choice. To get an idea what a related task can be, we will present some prominent examples. Caruana (1998) uses tasks that predict different characteristics of the road as auxiliary tasks for predicting the steering direction in a self-driving car; [<sup id="fnref:46"><a href="index.html#fn:46" rel="footnote">46</a></sup>] use head pose estimation and facial attribute inference as auxiliary tasks for facial landmark detection; [<sup id="fnref:47"><a href="index.html#fn:47" rel="footnote">47</a></sup>] jointly learn query classification and web search; Girshick (2015) jointly predicts the class and the coordinates of an object in an image; finally, [<sup id="fnref:48"><a href="index.html#fn:48" rel="footnote">48</a></sup>] jointly predict the phoneme duration and frequency profile for text-to-speech.</p>
 
 <h2 id="adversarial"> Adversarial</h2>
 
@@ -482,7 +482,7 @@ var ga_id = 'UA-60512592-1';
 
 <h2 id="focusingattention">Focusing attention</h2>
 
-<p>Similarly, the auxiliary task can be used to focus attention on parts of the image that a network might normally ignore. For instance, for learning to steer (Caruana, 1997) a single-task model might typically ignore lane markings as these make up only a small part of the image and are not always present. Predicting lane markings as auxiliary task, however, forces the model to learn to represent them; this knowledge can then also be used for the main task. Analogously, for facial recognition, one might learn to predict the location of facial landmarks as auxiliary tasks, since these are often distinctive.</p>
+<p>Similarly, the auxiliary task can be used to focus attention on parts of the image that a network might normally ignore. For instance, for learning to steer (Caruana, 1998) a single-task model might typically ignore lane markings as these make up only a small part of the image and are not always present. Predicting lane markings as auxiliary task, however, forces the model to learn to represent them; this knowledge can then also be used for the main task. Analogously, for facial recognition, one might learn to predict the location of facial landmarks as auxiliary tasks, since these are often distinctive.</p>
 
 <h2 id="quantizationsmoothing">Quantization smoothing</h2>
 
@@ -494,7 +494,7 @@ var ga_id = 'UA-60512592-1';
 
 <h2 id="usingthefuturetopredictthepresent">Using the future to predict the present</h2>
 
-<p>In many situations, some features only become available <em>after</em> the predictions are supposed to be made. For instance, for self-driving cars, more accurate measurements of obstacles and lane markings can be made once the car is passing them. Caruana (1997) also gives the example of pneumonia prediction, after which the results of additional medical trials will be available. For these examples, the additional data cannot be used as features as it will not be available as input at runtime. However, it can be used as an auxiliary task to impart additional knowledge to the model during training.</p>
+<p>In many situations, some features only become available <em>after</em> the predictions are supposed to be made. For instance, for self-driving cars, more accurate measurements of obstacles and lane markings can be made once the car is passing them. Caruana (1998) also gives the example of pneumonia prediction, after which the results of additional medical trials will be available. For these examples, the additional data cannot be used as features as it will not be available as input at runtime. However, it can be used as an auxiliary task to impart additional knowledge to the model during training.</p>
 
 <h2 id="representationlearning">Representation learning</h2>
 
@@ -504,7 +504,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>In this section, we have discussed different auxiliary tasks that can be used to leverage MTL even if we only care about one task. We still do not know, though, what auxiliary task will be useful in practice. Finding an auxiliary task is largely based on the assumption that the auxiliary task should be related to the main task in some way and that it should be helpful for predicting the main task.</p>
 
-<p>However, we still do not have a good notion of when two tasks should be considered similar or related. Caruana (1997) defines two tasks to be similar if they use the same features to make a decision. Baxter (2000) argues only theoretically that related tasks share a common optimal hypothesis class, i.e. have the same inductive bias. [<sup id="fnref:54"><a href="index.html#fn:54" rel="footnote">54</a></sup>] propose that two tasks are \(\mathcal{F}\)-related if the data for both tasks can be generated from a fixed probability distribution using a set of transformations \(\mathcal{F}\). While this allows to reason over tasks where different sensors collect data for the same classification problem, e.g. object recognition with data from cameras with different angles and lighting conditions, it is not applicable to tasks that do not deal with the same problem. Xue et al. (2007) finally argue that two tasks are similar if their classification boundaries, i.e. parameter vectors are close.</p>
+<p>However, we still do not have a good notion of when two tasks should be considered similar or related. Caruana (1998) defines two tasks to be similar if they use the same features to make a decision. Baxter (2000) argues only theoretically that related tasks share a common optimal hypothesis class, i.e. have the same inductive bias. [<sup id="fnref:54"><a href="index.html#fn:54" rel="footnote">54</a></sup>] propose that two tasks are \(\mathcal{F}\)-related if the data for both tasks can be generated from a fixed probability distribution using a set of transformations \(\mathcal{F}\). While this allows to reason over tasks where different sensors collect data for the same classification problem, e.g. object recognition with data from cameras with different angles and lighting conditions, it is not applicable to tasks that do not deal with the same problem. Xue et al. (2007) finally argue that two tasks are similar if their classification boundaries, i.e. parameter vectors are close.</p>
 
 <p>In spite of these early theoretical advances in understanding task relatedness, we have not made much recent progress towards this goal. Task similarity is not binary, but resides on a spectrum. More similar tasks should help more in MTL, while less similar tasks should help less. Allowing our models to learn what to share with each task might allow us to temporarily circumvent the lack of theory and make better use even of only loosely related tasks. However, we also need to develop a more principled notion of task similarity with regard to multi-task learning in order to know which tasks we should prefer.</p>
 
@@ -673,7 +673,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=48cd81c62a" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=509ab5aa18" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
