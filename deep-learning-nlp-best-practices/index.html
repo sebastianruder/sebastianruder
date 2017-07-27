@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/deep-learning-nlp-best-practices/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/07/attention_bahdanau-1.png" />
     <meta property="article:published_time" content="2017-07-25T19:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-07-26T22:40:58.570Z" />
+    <meta property="article:modified_time" content="2017-07-27T11:18:22.187Z" />
     <meta property="article:tag" content="nlp" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="deep learning" />
@@ -70,7 +70,7 @@
     "headline": "Deep Learning for NLP Best Practices",
     "url": "u=http://ruder.io/deep-learning-nlp-best-practices/",
     "datePublished": "2017-07-25T19:00:00.000Z",
-    "dateModified": "2017-07-26T22:40:58.570Z",
+    "dateModified": "2017-07-27T11:18:22.187Z",
     "image": "u=http://ruder.io/content/images/2017/07/attention_bahdanau-1.png",
     "keywords": "nlp, natural language processing, deep learning, machine learning",
     "description": "A collection of best practices for Deep Learning for a wide array of Natural Language Processing tasks."
@@ -267,7 +267,7 @@ var ga_id = 'UA-60512592-1';
 
 <p><strong>Highway layers</strong> &nbsp; Highway layers (Srivastava et al., 2015) [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] are inspired by the gates of an LSTM. First let us assume a one-layer MLP, which applies an affine transformation followed by a non-linearity \(g\) to its input \(\mathbf{x}\): </p>
 
-<p>\(\mathbf{h} = g(\mathbf{W}\mathbf{x} + b)\)</p>
+<p>\(\mathbf{h} = g(\mathbf{W}\mathbf{x} + \mathbf{b})\)</p>
 
 <p>A highway layer then computes the following function instead:</p>
 
@@ -277,13 +277,13 @@ var ga_id = 'UA-60512592-1';
 
 <p>Highway layers have been used pre-dominantly to achieve state-of-the-art results for language modelling (Kim et al., 2016; Jozefowicz et al., 2016; Zilly et al., 2017) [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>, <sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>, <sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>], but have also been used for other tasks such as speech recognition (Zhang et al., 2016) [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>]. <a href="http://people.idsia.ch/~rupesh/very_deep_learning/">Sristava's page</a> contains more information and code regarding highway layers.</p>
 
-<p><strong>Residual connections</strong> &nbsp; Residual connections (He et al., 2016) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] have been first proposed for computer vision and were the main factor for winning ImageNet 2016. Residual connections are even more straightforward than highway layers. Let us augment our previous layer output \(h\) with indices \(l\) indicating the current layer. Residual connections then learn the following function:</p>
+<p><strong>Residual connections</strong> &nbsp; Residual connections (He et al., 2016) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] have been first proposed for computer vision and were the main factor for winning ImageNet 2016. Residual connections are even more straightforward than highway layers and learn the following function:</p>
 
-<p>\(\mathbf{h}^l = g(\mathbf{W}\mathbf{x}^l + \mathbf{b}) + \mathbf{x}^{l-1}\) </p>
+<p>\(\mathbf{h} = g(\mathbf{W}\mathbf{x} + \mathbf{b}) + \mathbf{x}\) </p>
 
-<p>which simply adds the input of the previous layer to the current layer via a short-cut connection. This simple modification mitigates the vanishing gradient problem, as the model can default to using the identity function if the layer is not beneficial.  </p>
+<p>which simply adds the input of the current layer to its output via a short-cut connection. This simple modification mitigates the vanishing gradient problem, as the model can default to using the identity function if the layer is not beneficial.</p>
 
-<p><strong>Dense residual connections</strong> &nbsp; Rather than just adding layers from each layer to the next, dense residual connections (Huang et al., 2017) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>] (best paper award at CVPR 2017) add connections from each layer to all subsequent layers:</p>
+<p><strong>Dense residual connections</strong> &nbsp; Rather than just adding layers from each layer to the next, dense residual connections (Huang et al., 2017) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>] (best paper award at CVPR 2017) add connections from each layer to all subsequent layers. Let us augment the layer output \(h\) and layer input \(x\) with indices \(l\) indicating the current layer. Dense residual connections then add the input from all previous layers to the output of the current layer:</p>
 
 <p>\(\mathbf{h}^l = g(\mathbf{W}\mathbf{x}^l + \mathbf{b}) + \sum\limits^l_{j=0} \mathbf{x}^j\)</p>
 
