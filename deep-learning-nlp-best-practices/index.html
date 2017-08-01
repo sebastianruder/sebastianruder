@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/deep-learning-nlp-best-practices/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/07/attention_bahdanau-1.png" />
     <meta property="article:published_time" content="2017-07-25T19:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-07-27T11:18:22.187Z" />
+    <meta property="article:modified_time" content="2017-08-01T10:13:24.321Z" />
     <meta property="article:tag" content="nlp" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="deep learning" />
@@ -70,7 +70,7 @@
     "headline": "Deep Learning for NLP Best Practices",
     "url": "u=http://ruder.io/deep-learning-nlp-best-practices/",
     "datePublished": "2017-07-25T19:00:00.000Z",
-    "dateModified": "2017-07-27T11:18:22.187Z",
+    "dateModified": "2017-08-01T10:13:24.321Z",
     "image": "u=http://ruder.io/content/images/2017/07/attention_bahdanau-1.png",
     "keywords": "nlp, natural language processing, deep learning, machine learning",
     "description": "A collection of best practices for Deep Learning for a wide array of Natural Language Processing tasks."
@@ -263,7 +263,7 @@ var ga_id = 'UA-60512592-1';
 
 <h2 id="layerconnections">Layer connections</h2>
 
-<p>For training deep neural networks, some tricks are essential to avoid the vanishing gradient problem. Different layers and connections have been proposed. Here, we will discuss three: i) highway layers, ii) residual connections, and iii) dense residual connections.</p>
+<p>For training deep neural networks, some tricks are essential to avoid the vanishing gradient problem. Different layers and connections have been proposed. Here, we will discuss three: i) highway layers, ii) residual connections, and iii) dense connections.</p>
 
 <p><strong>Highway layers</strong> &nbsp; Highway layers (Srivastava et al., 2015) [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] are inspired by the gates of an LSTM. First let us assume a one-layer MLP, which applies an affine transformation followed by a non-linearity \(g\) to its input \(\mathbf{x}\): </p>
 
@@ -283,11 +283,11 @@ var ga_id = 'UA-60512592-1';
 
 <p>which simply adds the input of the current layer to its output via a short-cut connection. This simple modification mitigates the vanishing gradient problem, as the model can default to using the identity function if the layer is not beneficial.</p>
 
-<p><strong>Dense residual connections</strong> &nbsp; Rather than just adding layers from each layer to the next, dense residual connections (Huang et al., 2017) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>] (best paper award at CVPR 2017) add connections from each layer to all subsequent layers. Let us augment the layer output \(h\) and layer input \(x\) with indices \(l\) indicating the current layer. Dense residual connections then add the input from all previous layers to the output of the current layer:</p>
+<p><strong>Dense connections</strong> &nbsp; Rather than just adding layers from each layer to the next, dense connections (Huang et al., 2017) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>] (best paper award at CVPR 2017) add direct connections from each layer to all subsequent layers. Let us augment the layer output \(h\) and layer input \(x\) with indices \(l\) indicating the current layer. Dense connections then feed the concatenated output from all previous layers as input to the current layer:</p>
 
-<p>\(\mathbf{h}^l = g(\mathbf{W}\mathbf{x}^l + \mathbf{b}) + \sum\limits^l_{j=0} \mathbf{x}^j\)</p>
+<p>\(\mathbf{h}^l = g(\mathbf{W}[\mathbf{x}^1; \ldots; \mathbf{x}^l] + \mathbf{b})\)</p>
 
-<p>Dense residual connections have been successfully used in computer vision, but have also been shown to consistently outperform residual connections for neural machine translation (Britz et al., 2017) [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>].</p>
+<p>where \([\cdot; \cdot]\) represents concatenation. Dense connections have been successfully used in computer vision. They have also found to be useful for Multi-Task Learning of different NLP tasks (Ruder et al., 2017) [<sup id="fnref:49"><a href="index.html#fn:49" rel="footnote">49</a></sup>], while a residual variant that uses summation has been shown to consistently outperform residual connections for neural machine translation (Britz et al., 2017) [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>].</p>
 
 <h2 id="dropout">Dropout</h2>
 
@@ -318,7 +318,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>\(f_{att}(\mathbf{h}_i, \mathbf{s}_j) = \mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_a[\mathbf{h}_i; \mathbf{s}_j]) \)</p>
 
-<p>where \(\mathbf{v}_a\) and \(\mathbf{W}_a\) are learned attention parameters and \([\cdot; \cdot]\) represents concatenation. Analogously, we can also use matrices \(\mathbf{W}_1\) and \(\mathbf{W}_2\) to learn separate transformations for \(\mathbf{h}_i\) and \(\mathbf{s}_j\) respectively, which are then summed:</p>
+<p>where \(\mathbf{v}_a\) and \(\mathbf{W}_a\) are learned attention parameters. Analogously, we can also use matrices \(\mathbf{W}_1\) and \(\mathbf{W}_2\) to learn separate transformations for \(\mathbf{h}_i\) and \(\mathbf{s}_j\) respectively, which are then summed:</p>
 
 <p>\(f_{att}(\mathbf{h}_i, \mathbf{s}_j) = \mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_1 \mathbf{h}_i + \mathbf{W}_2 \mathbf{s}_j) \)</p>
 
