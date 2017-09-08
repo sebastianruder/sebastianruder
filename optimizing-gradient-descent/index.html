@@ -653,7 +653,7 @@ m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t\\ <br />
 
 <h1 id="parallelizinganddistributingsgd">Parallelizing and distributing SGD</h1>
 
-<p>Given the ubiquity of large-scale data solutions and the availability of low-commodity clusters, distributing SGD to speed it up further is an obvious choice. <br />
+<p>Given the ubiquity of large-scale data solutions and the availability of low-cost commodity clusters, distributing SGD to speed it up further is an obvious choice. <br />
 SGD by itself is inherently sequential: Step-by-step, we progress further towards the minimum. Running it provides good convergence but can be slow particularly on large datasets. In contrast, running SGD asynchronously is faster, but suboptimal communication between workers can lead to poor convergence. Additionally, we can also parallelize SGD on one machine without the need for a large computing cluster. The following are algorithms and architectures that have been proposed to optimize parallelized and distributed SGD.</p>
 
 <h2 id="hogwild">Hogwild!</h2>
