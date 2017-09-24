@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/multi-task-learning-nlp/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" />
     <meta property="article:published_time" content="2017-09-24T13:42:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-24T13:39:01.645Z" />
+    <meta property="article:modified_time" content="2017-09-24T13:51:19.792Z" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="nlp" />
     <meta property="article:tag" content="multi-task learning" />
@@ -69,7 +69,7 @@
     "headline": "Multi-Task Learning Objectives for Natural Language Processing",
     "url": "u=http://ruder.io/multi-task-learning-nlp/",
     "datePublished": "2017-09-24T13:42:00.000Z",
-    "dateModified": "2017-09-24T13:39:01.645Z",
+    "dateModified": "2017-09-24T13:51:19.792Z",
     "image": "u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png",
     "keywords": "natural language processing, nlp, multi-task learning",
     "description": "An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing."
@@ -239,7 +239,7 @@ var ga_id = 'UA-60512592-1';
 
 <h1 id="jointtrainingofexistingnlptasks">Joint training of existing NLP tasks</h1>
 
-<p>In this second section, we will now look at existing NLP tasks, which have been used to improve the performance of a main task. </p>
+<p>In this second section, we will now look at existing NLP tasks, which have been used to improve the performance of a main task. While certain tasks such as chunking and semantic tagging have been found to be useful for many tasks [<sup id="fnref:60"><a href="index.html#fn:60" rel="footnote">60</a></sup>], the choice whether to use a particular auxiliary task largely depends on characteristics of the main task. In the following, I will thus highlight different strategies and rationals that were used to select auxiliary tasks for many common tasks in NLP:</p>
 
 <p><strong>Speech recognition</strong> &nbsp; Recent multi-task learning approaches for automatic speech recognition (ASR) typically use additional supervision signals that are available in the speech recognition pipeline as auxiliary tasks to train an ASR model end-to-end. Phonetic recognition and frame-level state classification can be used as auxiliary tasks to induce helpful intermediate representations. Toshniwal et al. (2017) [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>] find that positioning the auxiliary loss at an intermediate layer improves performance. Similarly, Arık et al. (2017) [<sup id="fnref:12"><a href="index.html#fn:12" rel="footnote">12</a></sup>] predict the phoneme duration and frequency profile as auxiliary tasks for speech synthesis.</p>
 
@@ -386,7 +386,9 @@ Arık, S. Ö., Chrzanowski, M., Coates, A., Diamos, G., Gibiansky, A., Kang, Y.,
 
 <li class="footnote" id="fn:58"><p>Katiyar, A., &amp; Cardie, C. (2017). Going out on a limb : Joint Extraction of Entity Mentions and Relations without Dependency Trees. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 917–928). <a href="index.html#fnref:58" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:59"><p>Hashimoto, K., Xiong, C., Tsuruoka, Y., &amp; Socher, R. (2017). A Joint Many-Task Model: Growing a Neural Network for Multiple NLP Tasks. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1611.01587">http://arxiv.org/abs/1611.01587</a> <a href="index.html#fnref:59" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:59"><p>Hashimoto, K., Xiong, C., Tsuruoka, Y., &amp; Socher, R. (2017). A Joint Many-Task Model: Growing a Neural Network for Multiple NLP Tasks. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1611.01587">http://arxiv.org/abs/1611.01587</a> <a href="index.html#fnref:59" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:60"><p>Bingel, J., &amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from <a href="http://arxiv.org/abs/1702.08303">http://arxiv.org/abs/1702.08303</a> <a href="index.html#fnref:60" title="return to article">↩</a></p></li></ol></div>
     </div>
 
     <div class="post related">
