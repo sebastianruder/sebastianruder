@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multi-Task Learning Objectives for Natural Language Processing</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180x180.png?v=wAAv6Wqe6l">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png?v=wAAv6Wqe6l" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/favicon-194x194.png?v=wAAv6Wqe6l" sizes="194x194">
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png?v=wAAv6Wqe6l" sizes="96x96">
+<link rel="icon" type="image/png" href="../assets/img/android-chrome-192x192.png?v=wAAv6Wqe6l" sizes="192x192">
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png?v=wAAv6Wqe6l" sizes="16x16">
+<link rel="manifest" href="../assets/img/manifest.json?v=wAAv6Wqe6l">
+<link rel="shortcut icon" href="../assets/img/favicon.ico?v=wAAv6Wqe6l">
+<meta name="msapplication-TileColor" content="#e74c3c">
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
+<meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
+<meta name="theme-color" content="#e74c3c">
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=fea0d41435" />
+    <link rel="canonical" href="http://ruder.io/multi-task-learning-nlp/" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Multi-Task Learning Objectives for Natural Language Processing" />
+    <meta property="og:description" content="An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing." />
+    <meta property="og:url" content="u=http://ruder.io/multi-task-learning-nlp/" />
+    <meta property="og:image" content="u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" />
+    <meta property="article:published_time" content="2017-09-24T13:42:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-24T13:39:01.645Z" />
+    <meta property="article:tag" content="natural language processing" />
+    <meta property="article:tag" content="nlp" />
+    <meta property="article:tag" content="multi-task learning" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Multi-Task Learning Objectives for Natural Language Processing" />
+    <meta name="twitter:description" content="An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing." />
+    <meta name="twitter:url" content="u=http://ruder.io/multi-task-learning-nlp/" />
+    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Sebastian Ruder",
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "url": "u=http://ruder.io/author/sebastian",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Multi-Task Learning Objectives for Natural Language Processing",
+    "url": "u=http://ruder.io/multi-task-learning-nlp/",
+    "datePublished": "2017-09-24T13:42:00.000Z",
+    "dateModified": "2017-09-24T13:39:01.645Z",
+    "image": "u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png",
+    "keywords": "natural language processing, nlp, multi-task learning",
+    "description": "An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
+    <script>
+var open_button = '.nav-blog > a'
+</script>
+<script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+  </head>
+  <body class="post-template tag-natural-language-processing tag-nlp tag-multi-task-learning">
+    <header id="menu-button" class="expanded">
+      <a><i class="icon icon-list"></i></a>
+    </header>
+    <aside class="cover" style="background: url(../content/images/2017/05/imageedit_8_8459453433.jpg) center/cover no-repeat fixed">
+  <div class="cover container">
+    <div class="profile">
+      <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <h1 id="profile-title">Sebastian Ruder</h1>
+        <h3 id="profile-resume"></h3>
+      </a>
+
+      <hr class="divider long" />
+      <p>I&#x27;m a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short" />
+      <div class="navigation">
+        <div class="profile contact">
+          <nav class="navigation left">
+  <ul class="links">
+      <li class="nav-blog ">
+        <a href="http://ruder.io/">Blog</a>
+      </li>
+      <li class="nav-about ">
+        <a href="http://ruder.io/about/">About</a>
+      </li>
+      <li class="nav-papers ">
+        <a href="http://ruder.io/publications/">Papers</a>
+      </li>
+      <li class="nav-news ">
+        <a href="http://ruder.io/news">News</a>
+      </li>
+      <li class="nav-newsletter ">
+        <a href="http://newsletter.ruder.io">Newsletter</a>
+      </li>
+      <li class="nav-faq ">
+        <a href="http://ruder.io/faq">FAQ</a>
+      </li>
+  </ul>
+</nav>
+
+          
+<nav class="navigation right">
+  <ul class="social expanded">
+
+  <!-- Twitter -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
+      <i class='icon icon-social-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  <!-- Linkedin -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
+      <i class='icon icon-social-linkedin'></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+
+  <!-- Github -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
+      <i class='icon icon-social-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+  <!-- E-mail -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
+      <i class='icon icon-mail'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+
+  <!-- RSS -->
+  <li class="social item hvr-grow-rotate">
+    <a href="../rss/index.html" title="Subscribe to RSS">
+      <i class='icon icon-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+          <section class="icon icon-search" id="search-container">
+  <hr class="divider short" />
+  <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
+    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field" />
+  </form>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+    <main>
+      <section id="search-results"></section>
+      <section class="content">
+        
+
+  <article class="post tag-natural-language-processing tag-nlp tag-multi-task-learning">
+    <header>
+      <div class="post meta">
+        <time datetime="24 Sep 2017">24 Sep 2017</time>
+        <span class="post tags">in <a href="../tag/natural-language-processing/index.html">natural language processing</a> <a href="../tag/nlp/index.html">nlp</a> <a href="../tag/multi-task-learning/index.html">multi-task learning</a></span>
+
+
+        <span class="post reading-time"> ~ <span></span> read.</span>
+      </div>
+      <a alt="Tweet 'Multi-Task Learning Objectives for Natural Language Processing'" href="https://twitter.com/intent/tweet?text=Multi-Task%20Learning%20Objectives%20for%20Natural%20Language%20Processing%20%C2%BB&amp;hashtags=natural language processing,nlp,multi-task learning&amp;url=http://ruder.io/multi-task-learning-nlp/">
+        <img id="post-image" src="../content/images/2017/09/soft_parameter_sharing.png" alt="Multi-Task Learning Objectives for Natural Language Processing">
+        <h1 class="icon-reverse icon-social-twitter-post" id="post-title">Multi-Task Learning Objectives for Natural Language Processing</h1>
+      </a>
+    </header>
+
+    <div id="post-content" class="post tag-natural-language-processing tag-nlp tag-multi-task-learning">
+      <p>In a <a href="http://ruder.io/multi-task/index.html">previous blog post</a>, I discussed how multi-task learning (MTL) can be used to improve the performance of a model by leveraging a related task. Multi-task learning consists of two main components: a) The architecture used for learning and b) the auxiliary task(s) that are trained jointly. Both facets still have a lot of room for improvement. In addition, multi-task learning has the potential to be a key technique on the path to more robust models that learn from limited data: Training a model to acquire proficiency in performing a wide range of NLP tasks would allow us to induce representations, which should be useful for transferring knowledge to many other tasks, as outlined in <a href="http://ruder.io/transfer-learning/index.html">this blog post</a>.</p>
+
+<p>On the way to this goal, we first need to learn more about the relationships between our tasks, what we can learn from each, and how to combine them most effectively. Most of the existing theory in MTL has focused on homogeneous tasks, i.e. tasks that are variations of the same classification or regression problem, such as classifying individual MNIST digits. These guarantees, however, do not hold for the heterogeneous tasks to which MTL is most often applied in Natural Language Processing (NLP) and Computer Vision.</p>
+
+<p>There have been some recent studies looking into when multi-task learning between different NLP tasks works but we still do not understand very well which tasks are useful. To this end, as inspiration, I will give an overview in the following of different approaches for multi-task learning for NLP. I will focus on the second component of multi-task learning; instead of discussing <em>how</em> a model is trained, as most architectures only differ in which layers they share, I will concentrate on the auxiliary tasks and objectives that are used for learning.</p>
+
+<p>This post has two main parts: In the first part, I will talk about artificial tasks that can be used as auxiliary objectives for MTL. In the second part, I will focus on common NLP tasks and discuss which other NLP tasks have benefited them.</p>
+
+<h1 id="artificialauxiliaryobjectives">Artificial auxiliary objectives</h1>
+
+<p>Multi-task learning is all about coming up with ways to add a suitable bias to your model. Incorporating artificial auxiliary tasks that cleverly complement your target task is arguably one of the most ingenious and fun ways to do MTL. It is a feature-engineering of sorts: instead of engineering the features, you are engineering the auxiliary task you optimize. Similarly to feature engineering, domain expertise is therefore required as we will see in the following:</p>
+
+<p><strong>Language modelling</strong> Language modelling has been shown to beneficial for many NLP tasks and can be incorporated in various ways. Word embeddings pre-trained by word2vec have been shown to beneficial -- as is known, word2vec approximates the language modelling objective; languages models have been used to pre-train MT and sequence-to-sequence models [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>]; contextual language model embeddings have also been found useful for many tasks [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>]. In this context, we can also treat language modelling as an auxiliary task that is learned together with the main task. Rei (2017) [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>] shows that this improves performance on several sequence labelling tasks.</p>
+
+<p><strong>Conditioning the initial state</strong> &nbsp; The initial state of a recurrent neural network is typically initialized to a \(0\) vector. According to a <a href="https://www.cs.toronto.edu/~hinton/csc2535/notes/lec10new.pdf">lecture by Hinton in 2013</a>, it is beneficial to learn the initial state just like any other sets of weights. While a learned state will be more helpful than a \(0\) vector it will be independent of the sequence and thus unable to adapt. Weng et al. (2017) [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] propose to add a suitable bias to the initial encoder and decoder states for NMT by training it to predict the words in the sentence. In this sense, this objective can essentially be seen as a <em>language modelling objective for the initial state</em> and might thus be helpful for other tasks. Similarly, we can think of other task-specific biases that could be encoded in the initial state to aid learning: A sentiment model might benefit from knowing about the general audience response to a movie or whether a user is more likely to be sarcastic while a parser might be able to leverage prior knowledge of the domain's tree depth or complexity.</p>
+
+<p><strong>Adversarial loss</strong> &nbsp; An auxiliary adversarial loss was first found to be useful for domain adaptation [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>, <sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>], where it is used to learn domain-invariant representations by rendering the model unable to distinguish between different domains. This is typically done by adding a gradient reversal layer that reverses the sign of the gradient during back-propagation, which in turn leads to a maximization rather than a minimization of the adversarial loss. It is not to be confused with adversarial examples [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>], which significantly increase the model's loss typically via small perturbations to its input; adversarial training [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>], which trains a model to correctly classify such examples; or Generative Adversarial Networks, which are trained to generate some output representation. An adversarial loss can be added to many tasks in order to learn task-independent representations [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>]. It can also be used to ignore certain features of the input that have been found to be detrimental to generalization, such as data-specific properties that are unlikely to generalize. Finally, an adversarial auxiliary task might also help to combat bias and ensure more privacy by encouraging the model to learn representations, which do not contain information that would allow the reconstruction of sensitive user attributes.</p>
+
+<p><strong>Predicting data statistics</strong> &nbsp; An auxiliary loss can also be to predict certain underlying statistics of the training data. In contrast to the adversarial loss, which tries to make the model oblivious to certain features, this auxiliary task explicitly encourages the model to predict certain data statistics. Plank et al. (2016) [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>] predict the log frequency of a word as an auxiliary task for language modelling. Intuitively, this makes the representation predictive of frequency, which encourages the model to not share representations between common and rare words, which benefits the handling of rare tokens. Another facet of this auxiliary task is to predict attributes of the user, such as their gender, which has been shown to be beneficial for predicting mental health conditions [<sup id="fnref:49"><a href="index.html#fn:49" rel="footnote">49</a></sup>] or other demographic information [<sup id="fnref:51"><a href="index.html#fn:51" rel="footnote">51</a></sup>]. We can think of other statistics that might be beneficial for a model to encode, such as the frequency of POS tags, parsing structures, or entities, the preferences of users, a sentence's coverage for summarization, or even a user's website usage patterns.</p>
+
+<p><strong>Learning the inverse</strong> &nbsp; Another auxiliary task that might be useful in many circumstances is to learn the inverse of the task together with the main task. A popular example of this framework is CycleGAN [<sup id="fnref:43"><a href="index.html#fn:43" rel="footnote">43</a></sup>], which can <a href="https://github.com/junyanz/CycleGAN">generate photos from paintings</a>. An inverse auxiliary loss, however, is applicable to many other tasks: MT might be the most intuitive, as every translation direction such as English->French directly provides data for the inverse direction, as Xia et al. (2016) [<sup id="fnref:44"><a href="index.html#fn:44" rel="footnote">44</a></sup>] demonstrate. Xia et al. (2017) [<sup id="fnref:45"><a href="index.html#fn:45" rel="footnote">45</a></sup>] show that this has applications not only to MT, but also to image classification (with image generation as its inverse) and sentiment classification (paired with sentence generation). For multimodal translation, Elliott and Kádár (2017) [<sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>] jointly learn an inverse task by predicting image representations. It is not difficult to think of inverse complements for many other tasks: Entailment has hypothesis generation; video captioning has video generation; speech recognition has speech synthesis, etc. </p>
+
+<p><strong>Predicting what should be there</strong> &nbsp; For many tasks, where a model has to pick up on certain features of the training data, we can focus the model's attention on these characteristics by encouraging it explicitly to predict them. For sentiment analysis, for instance, Yu and Jiang (2016) [<sup id="fnref:20"><a href="index.html#fn:20" rel="footnote">20</a></sup>] predict whether the sentence contains a positive or negative domain-independent sentiment word, which sensitizes the model towards the sentiment of the words in the sentence. For name error detection, Cheng et al. (2015) [<sup id="fnref:50"><a href="index.html#fn:50" rel="footnote">50</a></sup>] predict if a sentence contains a name. We can envision similar auxiliary tasks that might be useful for other tasks: Predicting whether certain entities occur in a sentence might be useful for relation extraction; predicting whether a headline contains certain lurid terms might help for clickbait detection, while predicting whether an emotion word occurs in the sentence might benefit emotion detection. In summary, this auxiliary task should be helpful whenever a task includes certain highly predictive terms or features.</p>
+
+<h1 id="jointtrainingofexistingnlptasks">Joint training of existing NLP tasks</h1>
+
+<p>In this second section, we will now look at existing NLP tasks, which have been used to improve the performance of a main task. </p>
+
+<p><strong>Speech recognition</strong> &nbsp; Recent multi-task learning approaches for automatic speech recognition (ASR) typically use additional supervision signals that are available in the speech recognition pipeline as auxiliary tasks to train an ASR model end-to-end. Phonetic recognition and frame-level state classification can be used as auxiliary tasks to induce helpful intermediate representations. Toshniwal et al. (2017) [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>] find that positioning the auxiliary loss at an intermediate layer improves performance. Similarly, Arık et al. (2017) [<sup id="fnref:12"><a href="index.html#fn:12" rel="footnote">12</a></sup>] predict the phoneme duration and frequency profile as auxiliary tasks for speech synthesis.</p>
+
+<p><strong>Machine translation</strong> &nbsp; The main benefit MTL has brought to machine translation (MT) is by jointly training translation models from and to different languages: Dong et al. (2015) [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] jointly train the decoders; Zoph and Knight (2016) [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] jointly train the encoders, while Johnson et al. (2016) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] jointly train both encoders and decoders; Malaviya et al. (2017) [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>] train one model to translate from 1017 languages into English.</p>
+
+<p>Other tasks have also shown to be useful for MT: Luong et al. (2015) [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>] show gains using parsing and image captioning as auxiliary tasks; Niehues and Cho (2017) [<sup id="fnref:18"><a href="index.html#fn:18" rel="footnote">18</a></sup>] combine NMT with POS tagging and NER; Wu et al. (2017) [<sup id="fnref:55"><a href="index.html#fn:55" rel="footnote">55</a></sup>] jointly model the target word sequence and its dependency tree structure.</p>
+
+<p><strong>Multilingual tasks</strong> &nbsp; Similarly to MT, it can often be beneficial to jointly train models for different languages: Gains have been shown for dependency parsing [<sup id="fnref:22"><a href="index.html#fn:22" rel="footnote">22</a></sup>, <sup id="fnref:28"><a href="index.html#fn:28" rel="footnote">28</a></sup>], named entity recognition [<sup id="fnref:23"><a href="index.html#fn:23" rel="footnote">23</a></sup>], part-of-speech tagging [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>], document classification [<sup id="fnref:25"><a href="index.html#fn:25" rel="footnote">25</a></sup>], discourse segmentation [<sup id="fnref:26"><a href="index.html#fn:26" rel="footnote">26</a></sup>], and sequence tagging [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>]. </p>
+
+<p><strong>Language grounding</strong> &nbsp; For grounding language in images or videos, it is often useful to enable the model to learn causal relationships in the data. For video captioning, Pasunuru and Bansal (2017) [<sup id="fnref:30"><a href="index.html#fn:30" rel="footnote">30</a></sup>] jointly learn to predict the next frame in the video and to predict entailment, while Hermann et al. (2017) [<sup id="fnref:46"><a href="index.html#fn:46" rel="footnote">46</a></sup>] also predict the next frame in a video and the words that represent the visual state for language learning in a simulated environment.</p>
+
+<p><strong>Semantic parsing</strong> &nbsp; For a task where multiple label sets or formalisms are available such as for semantic parsing, an interesting MTL strategy is to learn these formalisms together: To this end, Guo et al. (2016) [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31</a></sup>] jointly train on multi-typed treebanks; Peng et al. (2017) [<sup id="fnref:32"><a href="index.html#fn:32" rel="footnote">32</a></sup>] learn three semantic dependency graph formalisms simultaneously; Fan et al. (2017) [<sup id="fnref:33"><a href="index.html#fn:33" rel="footnote">33</a></sup>] jointly learn different Alexa-based semantic parsing formalisms; and Zhao and Huang (2017) [<sup id="fnref:57"><a href="index.html#fn:57" rel="footnote">57</a></sup>] jointly train a syntactic and a discourse parser. </p>
+
+<p><strong>Representation learning</strong> &nbsp; For learning general-purpose representations, the challenge often is in defining the objective. Most existing representation learning models have been based on a single loss function, such as predicting the next word [<sup id="fnref:34"><a href="index.html#fn:34" rel="footnote">34</a></sup>] or sentence [<sup id="fnref:35"><a href="index.html#fn:35" rel="footnote">35</a></sup>] or training on a certain task such as entailment [<sup id="fnref:36"><a href="index.html#fn:36" rel="footnote">36</a></sup>] or MT [<sup id="fnref:37"><a href="index.html#fn:37" rel="footnote">37</a></sup>]. Rather than learning representations based on a single loss, intuitively, representations should become more general as more tasks are used to learn them. As an example of this strategy, Hashimoto et al. (2017) [<sup id="fnref:59"><a href="index.html#fn:59" rel="footnote">59</a></sup>] jointly train a model on multiple NLP tasks, while Jernite et al. (2017) [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>] propose several discourse-based artificial auxiliary tasks for sentence representation learning.</p>
+
+<p><strong>Question answering</strong> &nbsp; For question answering (QA) and reading comprehension, it is beneficial to learn the different parts of a more complex end-to-end model together: Choi et al. (2017) [<sup id="fnref:52"><a href="index.html#fn:52" rel="footnote">52</a></sup>] jointly learn a sentence selection and answer generation model, while Wang et al. (2017) [<sup id="fnref:56"><a href="index.html#fn:56" rel="footnote">56</a></sup>] jointly train a ranking and reader model for open-domain QA. </p>
+
+<p><strong>Information retrieval</strong> &nbsp; For relation extraction, information related to different relations or roles can often be shared. To this end, Jiang (2009) [<sup id="fnref:29"><a href="index.html#fn:29" rel="footnote">29</a></sup>] jointly learn linear models between different relation types; Yang and Mitchell (2017) [<sup id="fnref:53"><a href="index.html#fn:53" rel="footnote">53</a></sup>] jointly predict semantic role labels and relations; Katiyar and Cardie (2017) [<sup id="fnref:58"><a href="index.html#fn:58" rel="footnote">58</a></sup>] jointly extract entities and relations; and Liu et al. (2015) [<sup id="fnref:39"><a href="index.html#fn:39" rel="footnote">39</a></sup>] jointly train domain classification and web search ranking. </p>
+
+<p><strong>Chunking</strong> &nbsp; Chunking has been shown to benefit from being jointly trained with low-level tasks such as POS tagging [<sup id="fnref:40"><a href="index.html#fn:40" rel="footnote">40</a></sup>, <sup id="fnref:41"><a href="index.html#fn:41" rel="footnote">41</a></sup>, <sup id="fnref:42"><a href="index.html#fn:42" rel="footnote">42</a></sup>]. </p>
+
+<p><strong>Miscellaneous</strong> &nbsp; Besides the tasks mentioned above, various other tasks have been shown to benefit from MTL: Balikas and Moura (2017) [<sup id="fnref:21"><a href="index.html#fn:21" rel="footnote">21</a></sup>] jointly train coarse-grained and fine-grained sentiment analysis; Luo et al. (2017) [<sup id="fnref:47"><a href="index.html#fn:47" rel="footnote">47</a></sup>] jointly predict charges and extract articles; Augenstein and Søgaard (2017) [<sup id="fnref:48"><a href="index.html#fn:48" rel="footnote">48</a></sup>] use several auxiliary tasks for keyphrase boundary detection; and Isonuma et al. (2017) [<sup id="fnref:54"><a href="index.html#fn:54" rel="footnote">54</a></sup>] pair sentence extraction with document classification.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I hope this blog post was able to provide you with some insight with regard to which strategies are employed to select auxiliary tasks and objectives for multi-task learning in NLP. As I mentioned <a href="http://ruder.io/multi-task/index.html">before</a>, multi-task learning can be very broadly defined. I have tried to provide as broad of an overview as possible but I still likely have omitted many relevant approaches. If you are aware of an approach that provides a valuable perspective that is not represented here, please let me know in the comments below.</p>
+
+<h1 id="references">References</h1>
+
+<div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Weng, R., Huang, S., Zheng, Z., Dai, X., &amp; Chen, J. (2017). Neural Machine Translation with Word Predictions. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:1" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:2"><p>Rei, M. (2017). Semi-supervised Multitask Learning for Sequence Labeling. In Proceedings of ACL 2017. <a href="index.html#fnref:2" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:3"><p>Ramachandran, P., Liu, P. J., &amp; Le, Q. V. (2016). Unsupervised Pretrainig for Sequence to Sequence Learning. arXiv Preprint arXiv:1611.02683. <a href="index.html#fnref:3" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:4"><p>Peters, M. E., Ammar, W., Bhagavatula, C., &amp; Power, R. (2017). Semi-supervised sequence tagging with bidirectional language models. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 1756–1765). <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:5"><p>Ganin, Y., &amp; Lempitsky, V. (2015). Unsupervised Domain Adaptation by Backpropagation. In Proceedings of the 32nd International Conference on Machine Learning. (Vol. 37). <a href="index.html#fnref:5" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:6"><p>Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., … Lempitsky, V. (2016). Domain-Adversarial Training of Neural Networks. Journal of Machine Learning Research, 17, 1–35. <a href="http://www.jmlr.org/papers/volume17/15-239/source/15-239.pdf">http://www.jmlr.org/papers/volume17/15-239/source/15-239.pdf</a> <a href="index.html#fnref:6" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:7"><p>Szegedy, C., Zaremba, W., Sutskever, I., Bruna, J., Erhan, D., Goodfellow, I., &amp; Fergus, R. (2014). Intriguing properties of neural networks. In ICLR 2014. Retrieved from <a href="http://arxiv.org/abs/1312.6199">http://arxiv.org/abs/1312.6199</a> <a href="index.html#fnref:7" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:8"><p>Miyato, T., Dai, A. M., &amp; Goodfellow, I. (2016). Virtual Adversarial Training for Semi-Supervised Text Classification. Retrieved from <a href="http://arxiv.org/abs/1605.07725">http://arxiv.org/abs/1605.07725</a> <a href="index.html#fnref:8" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:9"><p>Liu, P., Qiu, X., &amp; Huang, X. (2017). Adversarial Multi-task Learning for Text Classification. In ACL 2017. Retrieved from <a href="http://arxiv.org/abs/1704.05742">http://arxiv.org/abs/1704.05742</a> <a href="index.html#fnref:9" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:10"><p>Plank, B., Søgaard, A., &amp; Goldberg, Y. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. <a href="index.html#fnref:10" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:11"><p>Toshniwal, S., Tang, H., Lu, L., &amp; Livescu, K. (2017). Multitask Learning with Low-Level Auxiliary Tasks for Encoder-Decoder Based Speech Recognition. Retrieved from <a href="http://arxiv.org/abs/1704.01631">http://arxiv.org/abs/1704.01631</a> <a href="index.html#fnref:11" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:12"><p>Phoneme duration and frequency profile <a href="index.html#fnref:12" title="return to article">↩</a></p></li>
+Arık, S. Ö., Chrzanowski, M., Coates, A., Diamos, G., Gibiansky, A., Kang, Y., … Shoeybi, M. (2017). Deep Voice: Real-time Neural Text-to-Speech. In ICML 2017.
+
+<li class="footnote" id="fn:13"><p>Dong, D., Wu, H., He, W., Yu, D., &amp; Wang, H. (2015). Multi-Task Learning for Multiple Language Translation. In Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (pp. 1723–1732). <a href="index.html#fnref:13" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:14"><p>Zoph, B., &amp; Knight, K. (2016). Multi-Source Neural Translation. NAACL, 30–34. Retrieved from <a href="http://arxiv.org/abs/1601.00710">http://arxiv.org/abs/1601.00710</a> <a href="index.html#fnref:14" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:15"><p>Johnson, M., Schuster, M., Le, Q. V, Krikun, M., Wu, Y., Chen, Z., … Dean, J. (2016). Google’s Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation. arXiv Preprint arXiv:1611.0455. <a href="index.html#fnref:15" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:16"><p>Malaviya, C., Neubig, G., &amp; Littell, P. (2017). Learning Language Representations for Typology Prediction. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1707.09569">http://arxiv.org/abs/1707.09569</a> <a href="index.html#fnref:16" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:17"><p>Luong, M.-T., Le, Q. V., Sutskever, I., Vinyals, O., &amp; Kaiser, L. (2015). Multi-task Sequence to Sequence Learning. In arXiv preprint arXiv:1511.06114. Retrieved from <a href="http://arxiv.org/abs/1511.06114">http://arxiv.org/abs/1511.06114</a> <a href="index.html#fnref:17" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:18"><p>Niehues, J., &amp; Cho, E. (2017). Exploiting Linguistic Resources for Neural Machine Translation Using Multi-task Learning. In WMT 2017. Retrieved from <a href="http://arxiv.org/abs/1708.00993">http://arxiv.org/abs/1708.00993</a> <a href="index.html#fnref:18" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:19"><p>Elliott, D., &amp; Kádár, Á. (2017). Imagination improves Multimodal Translation. Retrieved from <a href="http://arxiv.org/abs/1705.04350">http://arxiv.org/abs/1705.04350</a> <a href="index.html#fnref:19" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:20"><p>Yu, J., &amp; Jiang, J. (2016). Learning Sentence Embeddings with Auxiliary Tasks for Cross-Domain Sentiment Classification. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP2016), 236–246. Retrieved from <a href="http://www.aclweb.org/anthology/D/D16/D16-1023.pdf">http://www.aclweb.org/anthology/D/D16/D16-1023.pdf</a> <a href="index.html#fnref:20" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:21"><p>Balikas, G., &amp; Moura, S. (2017). Multitask Learning for Fine-Grained Twitter Sentiment Analysis. In International ACM SIGIR Conference on Research and Development in Information Retrieval 2017. <a href="index.html#fnref:21" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:22"><p>Duong, L., Cohn, T., Bird, S., &amp; Cook, P. (2015). Low Resource Dependency Parsing: Cross-lingual Parameter Sharing in a Neural Network Parser. Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Short Papers), 845–850. <a href="index.html#fnref:22" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:23"><p>Gillick, D., Brunk, C., Vinyals, O., &amp; Subramanya, A. (2016). Multilingual Language Processing From Bytes. NAACL, 1296–1306. Retrieved from <a href="http://arxiv.org/abs/1512.00103">http://arxiv.org/abs/1512.00103</a> <a href="index.html#fnref:23" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:24"><p>Fang, M., &amp; Cohn, T. (2017). Model Transfer for Tagging Low-resource Languages using a Bilingual Dictionary. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL 2017). <a href="index.html#fnref:24" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:25"><p>Popescu-belis, A. (2017). Multilingual Hierarchical Attention Networks for Document Classification. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:25" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:26"><p>Braud, C., Lacroix, O., &amp; Søgaard, A. (2017). Cross-lingual and cross-domain discourse segmentation of entire documents. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics. <a href="index.html#fnref:26" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:27"><p>Yang, Z., Salakhutdinov, R., &amp; Cohen, W. (2016). Multi-Task Cross-Lingual Sequence Tagging from Scratch. <a href="index.html#fnref:27" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:28"><p>Ammar, W., Mulcaire, G., Ballesteros, M., Dyer, C., &amp; Smith, N. A. (2016). One Parser, Many Languages. Transactions of the Association for Computational Linguistics, Vol. 4, Pp. 431–444, 2016, 4, 431–444. Retrieved from <a href="http://arxiv.org/abs/1602.01595">http://arxiv.org/abs/1602.01595</a> <a href="index.html#fnref:28" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:29"><p>Jiang, J. (2009). Multi-task transfer learning for weakly-supervised relation extraction. Proceedings of the 47th Annual Meeting of the ACL and the 4th IJCNLP of the AFNLP, (August), 1012–1020. <a href="https://doi.org/10.3115/1690219.1690288">https://doi.org/10.3115/1690219.1690288</a> <a href="index.html#fnref:29" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:30"><p>Pasunuru, R., &amp; Bansal, M. (2017). Multi-Task Video Captioning with Video and Entailment Generation. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL 2017). <a href="index.html#fnref:30" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:31"><p>Guo, J., Che, W., Wang, H., &amp; Liu, T. (2016). Exploiting Multi-typed Treebanks for Parsing with Deep Multi-task Learning. Retrieved from <a href="http://arxiv.org/abs/1606.01161">http://arxiv.org/abs/1606.01161</a> <a href="index.html#fnref:31" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:32"><p>Peng, H., Thomson, S., Smith, N. A., &amp; Allen, P. G. (2017). Deep Multitask Learning for Semantic Dependency Parsing. In ACL 2017. Retrieved from <a href="https://arxiv.org/pdf/1704.06855.pdf">https://arxiv.org/pdf/1704.06855.pdf</a> <a href="index.html#fnref:32" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:33"><p>Fan, X., Monti, E., Mathias, L., &amp; Dreyer, M. (2017). Transfer Learning for Neural Semantic Parsing. ACL Repl4NLP 2017. Retrieved from <a href="http://arxiv.org/abs/1706.04326">http://arxiv.org/abs/1706.04326</a> <a href="index.html#fnref:33" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:34"><p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS. <a href="index.html#fnref:34" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:35"><p>Kiros, R., Zhu, Y., Salakhutdinov, R., Zemel, R. S., Torralba, A., Urtasun, R., &amp; Fidler, S. (2015). Skip-Thought Vectors, (786). Retrieved from <a href="http://arxiv.org/abs/1506.06726">http://arxiv.org/abs/1506.06726</a> <a href="index.html#fnref:35" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:36"><p>Conneau, A., Kiela, D., Schwenk, H., Barrault, L., &amp; Bordes, A. (2017). Supervised Learning of Universal Sentence Representations from Natural Language Inference Data. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:36" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:37"><p>Mccann, B., Bradbury, J., Xiong, C., &amp; Socher, R. (2017). Learned in Translation: Contextualized Word Vectors. <a href="index.html#fnref:37" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:38"><p>Jernite, Y., Bowman, S. R., &amp; Sontag, D. (2017). Discourse-Based Objectives for Fast Unsupervised Sentence Representation Learning. Retrieved from <a href="http://arxiv.org/abs/1705.00557">http://arxiv.org/abs/1705.00557</a> <a href="index.html#fnref:38" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:39"><p>Liu, X., Gao, J., He, X., Deng, L., Duh, K., &amp; Wang, Y.-Y. (2015). Representation Learning Using Multi-Task Deep Neural Networks for Semantic Classification and Information Retrieval. NAACL-2015, 912–921. <a href="index.html#fnref:39" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:40"><p>Collobert, R., &amp; Weston, J. (2008). A unified architecture for natural language processing. Proceedings of the 25th International Conference on Machine Learning - ICML ’08, 20(1), 160–167. <a href="https://doi.org/10.1145/1390156.1390177">https://doi.org/10.1145/1390156.1390177</a> <a href="index.html#fnref:40" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:41"><p>Søgaard, A., &amp; Goldberg, Y. (2016). Deep multi-task learning with low level tasks supervised at lower layers. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics, 231–235. <a href="index.html#fnref:41" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:42"><p>Ruder, S., Bingel, J., Augenstein, I., &amp; Søgaard, A. (2017). Sluice networks: Learning what to share between loosely related tasks. arXiv Preprint arXiv:1705.08142. Retrieved from <a href="http://arxiv.org/abs/1705.08142">http://arxiv.org/abs/1705.08142</a> <a href="index.html#fnref:42" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:43"><p>Zhu, J., Park, T., Efros, A. A., Ai, B., &amp; Berkeley, U. C. (2017). Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks. <a href="index.html#fnref:43" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:44"><p>Xia, Y., He, D., Qin, T., Wang, L., Yu, N., Liu, T.-Y., &amp; Ma, W.-Y. (2016). Dual Learning for Machine Translation. In Advances in Neural Information Processing Systems 29 (NIPS 2016) (pp. 1–9). Retrieved from <a href="http://arxiv.org/abs/1611.00179">http://arxiv.org/abs/1611.00179</a> <a href="index.html#fnref:44" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:45"><p>Xia, Y., Qin, T., Chen, W., Bian, J., Yu, N., &amp; Liu, T. (2017). Dual Supervised Learning. In ICML. <a href="index.html#fnref:45" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:46"><p>Hermann, K. M., Hill, F., Green, S., Wang, F., Faulkner, R., Soyer, H., … Phil Blunsom. (2017). Grounded Language Learning in a Simulated 3D World. Retrieved from <a href="https://arxiv.org/pdf/1706.06551.pdf">https://arxiv.org/pdf/1706.06551.pdf</a> <a href="index.html#fnref:46" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:47"><p>Luo, B., Feng, Y., Xu, J., Zhang, X., &amp; Zhao, D. (2017). Learning to Predict Charges for Criminal Cases with Legal Basis. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1707.09168">http://arxiv.org/abs/1707.09168</a> <a href="index.html#fnref:47" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:48"><p>Augenstein, I., &amp; Søgaard, A. (2017). Multi-Task Learning of Keyphrase Boundary Classification. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics. Retrieved from <a href="http://arxiv.org/abs/1704.00514">http://arxiv.org/abs/1704.00514</a> <a href="index.html#fnref:48" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:49"><p>Benton, A., Mitchell, M., &amp; Hovy, D. (2017). Multi-Task Learning for Mental Health using Social Media Text. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume 1, Long Papers. Retrieved from <a href="http://m-mitchell.com/publications/multitask-clinical.pdf">http://m-mitchell.com/publications/multitask-clinical.pdf</a> <a href="index.html#fnref:49" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:50"><p>Cheng, H., Fang, H., &amp; Ostendorf, M. (2015). Open-Domain Name Error Detection using a Multi-Task RNN. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (pp. 737–746). <a href="index.html#fnref:50" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:51"><p>Roy, D. (2017). Twitter Demographic Classification Using Deep Multi-modal Multi-task Learning. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 478–483). <a href="index.html#fnref:51" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:52"><p>Choi, E., Hewlett, D., Uszkoreit, J., Lacoste, A., &amp; Berant, J. (2017). Coarse-to-Fine Question Answering for Long Documents. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 209–220). <a href="index.html#fnref:52" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:53"><p>Yang, B., &amp; Mitchell, T. (2017). A Joint Sequential and Relational Model for Frame-Semantic Parsing. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:53" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:54"><p>Isonuma, M., Fujino, T., Mori, J., Matsuo, Y., &amp; Sakata, I. (2017). Extractive Summarization Using Multi-Task Learning with Document Classification. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 2091–2100). <a href="index.html#fnref:54" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:55"><p>Wu, S., Zhang, D., Yang, N., Li, M., &amp; Zhou, M. (2017). Sequence-to-Dependency Neural Machine Translation. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 698–707). <a href="index.html#fnref:55" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:56"><p>Wang, S., Yu, M., Guo, X., Wang, Z., Klinger, T., &amp; Zhang, W. (2017). R^3: Reinforced Reader-Ranker for Open-Domain Question Answering. <a href="index.html#fnref:56" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:57"><p>Zhao, K., &amp; Huang, L. (2017). Joint Syntacto-Discourse Parsing and the Syntacto-Discourse Treebank. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:57" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:58"><p>Katiyar, A., &amp; Cardie, C. (2017). Going out on a limb : Joint Extraction of Entity Mentions and Relations without Dependency Trees. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 917–928). <a href="index.html#fnref:58" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:59"><p>Hashimoto, K., Xiong, C., Tsuruoka, Y., &amp; Socher, R. (2017). A Joint Many-Task Model: Growing a Neural Network for Multiple NLP Tasks. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1611.01587">http://arxiv.org/abs/1611.01587</a> <a href="index.html#fnref:59" title="return to article">↩</a></p></li></ol></div>
+    </div>
+
+    <div class="post related">
+        <a rel="prev" id="prev-btn" class="btn small square" href="../highlights-emnlp-2017/index.html">← Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more</a>
+
+    </div>
+
+    <footer class="post comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</footer>
+
+  </article>
+
+
+<script type="text/javascript"  
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+
+        <footer>
+  <span class="copyright">
+    &copy; 2017. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+  </span>
+</footer>
+      </section>
+    </main>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+    <script src="../assets/js/uno-zen.js?v=fea0d41435" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+  if (window.ga_id) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', window.ga_id, 'auto');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+  }
+</script>
+  </body>
+</html>
