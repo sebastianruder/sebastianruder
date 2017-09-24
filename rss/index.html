@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 24 Sep 2017 13:41:01 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Multi-Task Learning Objectives for Natural Language Processing]]></title><description><![CDATA[An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing.]]></description><link>http://ruder.io/multi-task-learning-nlp/</link><guid isPermaLink="false">2e84d768-9785-4ce7-bf05-7f4773fc34b2</guid><category><![CDATA[natural language processing]]></category><category><![CDATA[nlp]]></category><category><![CDATA[multi-task learning]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Sun, 24 Sep 2017 13:42:00 GMT</pubDate><media:content url="u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" medium="image"/><content:encoded><![CDATA[<img src="http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" alt="Multi-Task Learning Objectives for Natural Language Processing"><p>In a <a href="http://ruder.io/multi-task/index.html">previous blog post</a>, I discussed how multi-task learning (MTL) can be used to improve the performance of a model by leveraging a related task. Multi-task learning consists of two main components: a) The architecture used for learning and b) the auxiliary task(s) that are trained jointly. Both facets still have a lot of room for improvement. In addition, multi-task learning has the potential to be a key technique on the path to more robust models that learn from limited data: Training a model to acquire proficiency in performing a wide range of NLP tasks would allow us to induce representations, which should be useful for transferring knowledge to many other tasks, as outlined in <a href="http://ruder.io/transfer-learning/index.html">this blog post</a>.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Sebastian Ruder]]></title><description><![CDATA[I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.]]></description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 24 Sep 2017 13:41:35 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Multi-Task Learning Objectives for Natural Language Processing]]></title><description><![CDATA[An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing.]]></description><link>http://ruder.io/multi-task-learning-nlp/</link><guid isPermaLink="false">2e84d768-9785-4ce7-bf05-7f4773fc34b2</guid><category><![CDATA[natural language processing]]></category><category><![CDATA[nlp]]></category><category><![CDATA[multi-task learning]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Sun, 24 Sep 2017 13:42:00 GMT</pubDate><media:content url="u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" medium="image"/><content:encoded><![CDATA[<img src="http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" alt="Multi-Task Learning Objectives for Natural Language Processing"><p>In a <a href="http://ruder.io/multi-task/index.html">previous blog post</a>, I discussed how multi-task learning (MTL) can be used to improve the performance of a model by leveraging a related task. Multi-task learning consists of two main components: a) The architecture used for learning and b) the auxiliary task(s) that are trained jointly. Both facets still have a lot of room for improvement. In addition, multi-task learning has the potential to be a key technique on the path to more robust models that learn from limited data: Training a model to acquire proficiency in performing a wide range of NLP tasks would allow us to induce representations, which should be useful for transferring knowledge to many other tasks, as outlined in <a href="http://ruder.io/transfer-learning/index.html">this blog post</a>.</p>
 
 <p>On the way to this goal, we first need to learn more about the relationships between our tasks, what we can learn from each, and how to combine them most effectively. Most of the existing theory in MTL has focused on homogeneous tasks, i.e. tasks that are variations of the same classification or regression problem, such as classifying individual MNIST digits. These guarantees, however, do not hold for the heterogeneous tasks to which MTL is most often applied in Natural Language Processing (NLP) and Computer Vision.</p>
 
@@ -171,7 +171,177 @@ Arık, S. Ö., Chrzanowski, M., Coates, A., Diamos, G., Gibiansky, A., Kang, Y.,
 
 <li class="footnote" id="fn:58"><p>Katiyar, A., &amp; Cardie, C. (2017). Going out on a limb : Joint Extraction of Entity Mentions and Relations without Dependency Trees. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 917–928). <a href="http://ruder.io/multi-task-learning-nlp/#fnref:58" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:59"><p>Hashimoto, K., Xiong, C., Tsuruoka, Y., &amp; Socher, R. (2017). A Joint Many-Task Model: Growing a Neural Network for Multiple NLP Tasks. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1611.01587">http://arxiv.org/abs/1611.01587</a> <a href="http://ruder.io/multi-task-learning-nlp/#fnref:59" title="return to article">↩</a></p></li></ol></div>]]></content:encoded></item><item><title><![CDATA[Learning to select data for transfer learning]]></title><description><![CDATA[This blog post discusses the motivation and findings of our EMNLP 2017 paper Learning to select data for transfer learning.]]></description><link>http://ruder.io/learning-select-data/</link><guid isPermaLink="false">2d2ccdff-15b1-493d-888a-bec8acb5a346</guid><category><![CDATA[natural language processing]]></category><category><![CDATA[nlp]]></category><category><![CDATA[transfer learning]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Fri, 18 Aug 2017 10:59:23 GMT</pubDate><content:encoded><![CDATA[<p><em>This post originally appeared on the <a href="http://blog.aylien.com/learning-select-data-transfer-learning/">AYLIEN blog</a>.</em></p>
+<li class="footnote" id="fn:59"><p>Hashimoto, K., Xiong, C., Tsuruoka, Y., &amp; Socher, R. (2017). A Joint Many-Task Model: Growing a Neural Network for Multiple NLP Tasks. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1611.01587">http://arxiv.org/abs/1611.01587</a> <a href="http://ruder.io/multi-task-learning-nlp/#fnref:59" title="return to article">↩</a></p></li></ol></div>]]></content:encoded></item><item><title><![CDATA[Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more]]></title><description><![CDATA[This post gives an overview of highlights of the Conference on Empirical Methods in Natural Language Processing (EMNLP) 2017 in Copenhagen.]]></description><link>http://ruder.io/highlights-emnlp-2017/</link><guid isPermaLink="false">9205b2f6-88bb-4db7-ac6d-9449953f1348</guid><category><![CDATA[nlp]]></category><category><![CDATA[natural language processing]]></category><category><![CDATA[word embeddings]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Fri, 22 Sep 2017 16:06:14 GMT</pubDate><media:content url="u=http://ruder.io/content/images/2017/09/emnlp_landscape.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://ruder.io/content/images/2017/09/emnlp_landscape.jpg" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more"><p><em>This post originally appeared at the <a href="http://blog.aylien.com/highlights-emnlp-2017-exciting-datasets-return-clusters/">AYLIEN blog</a>.</em></p>
+
+<p>I spent the past week at the Conference on Empirical Methods in Natural Language Processing (EMNLP) 2017 in Copenhagen, Denmark. The conference handbook can be found <a href="http://emnlp2017.net/downloads/handbook.pdf">here</a> and the proceedings can be found <a href="http://aclweb.org/anthology/D/D17/">here</a>. Videos of the conference talks and presentations can be found <a href="https://ku.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx#folderID=%229042b495-7b6b-4169-a5a1-d250cc0ee4ec%22">here</a>.</p>
+
+<p>The program consisted of two days of workshops and tutorials and three days of main conference. The conference was superbly organized, had a great venue, and a social event with fireworks.</p>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/emnlp_fireworks-1.jpg" style="width: 60%; height: 60%" title="EMNLP 2017 fireworks" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 1: Fireworks at the social event</figcaption>  
+</figure>
+
+<p>225 long papers, 107 papers, and 9 TACL papers had been accepted, with a clear uptick of submissions compared to last year. The number of long and short paper submissions to EMNLP this year was even higher than those at ACL for the first time within the last 13 years, as can be seen in Figure 2.</p>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/long_short_paper_submissions_emnlp_2017.jpg" style="width: 60%; height: 60%" title="Long and short paper submissions EMNLP 2017" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 2: Long and short paper submissions at ACL and EMNLP from 2004-2017</figcaption>  
+</figure>
+
+<p>In the following, I will outline my highlights and list some research papers that caught my eye.</p>
+
+<p><strong>Exciting datasets</strong> &nbsp; Evaluating your approach on CoNLL-2003 or PTB is appropriate for comparing against previous state-of-the-art, but kind of boring. The two following papers introduce datasets that allow you to test your model in more exciting settings:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1274.pdf">Durrett et al.</a> release a new domain adaptation dataset. The dataset evaluates models on their ability to identify products being bought and sold in online cybercrime forums.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1194.pdf">Kutuzov et al.</a> evaluate their word embedding model on a new dataset that focuses on predicting insurgent armed groups based on geographical locations.</li>
+<li>While he did not introduce a new dataset, Nando de Freitas made the point during <a href="http://emnlp2017.net/invited-speakers.html">his keynote</a> that the best environment for learning and evaluating language is simulation.</li>
+</ul>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/nando_de_freitas_vision.jpg" style="width: 60%; height: 60%" title="Nando de Freitas' vision for AI research" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 3: Nando de Freitas’ vision for AI research</figcaption>  
+</figure>
+
+<p><strong>Return of the clusters</strong> &nbsp; Brown clusters, an agglomerative, hierarchical clustering of word types based on contexts that was introduced in 1992 seem to come in vogue again. They were found to be particularly helpful for cross-lingual applications, while clusters were key features in several approaches:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1268.pdf">Mayhew et al.</a> found that Brown cluster features were an important signal for cross-lingual NER.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1308.pdf">Botha et al.</a> use word clusters as a key feature in their small, efficient feed-forward neural networks.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1070.pdf">Mekala et al.</a>’s new document representations cluster word embeddings, which give it an edge for text classification.</li>
+<li>In his talk at the <a href="https://sites.google.com/view/sclem2017/home">SCLeM workshop</a>, Noah Smith cites the benefits of using Brown clusters as features for tasks such as POS tagging and sentiment analysis.</li>
+</ul>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/noah_smith_benefits_clustering.jpg" style="width: 60%; height: 60%" title="Nando de Freitas' vision for AI research" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 4: Noah Smith on the benefits of clustering in his invited talk at the SCLeM workshop</figcaption>  
+</figure>
+
+<p><strong>Distant supervision</strong> &nbsp; Distant supervision can be leveraged to collect large amounts of noisy training data, which can be useful in many applications. Some papers used novel forms of distant supervision to create new corpora or to train a model more effectively:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1127.pdf">Lan et al.</a> use urls in tweets to collect a large corpus of paraphrase data. Paraphrase data is usually hard to create, so this approach facilitates the process significantly and enables a continuously expanding collection of paraphrases.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1169.pdf">Felbo et al.</a> show that training on fine-grained emoji detection is more effective for pre-training sentiment and emotion models. Previous approaches primarily pre-trained on positive and negative emoticons or emotion hashtags.</li>
+</ul>
+
+<p><strong>Data selection</strong> &nbsp; The current generation of deep learning models is excellent at learning from data. However, we often do not pay much attention to the actual data our model is using. In many settings, we can improve upon the model by selecting the most relevant data:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1064.pdf">Fang et al.</a> reframe active learning as reinforcement learning and explicitly learn a data selection policy. Active learning is one of the best ways to create a model with as few annotations as possible; any improvement to this process is beneficial.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1148.pdf">Van der Wees et al.</a> introduce dynamic data selection for NMT, which varies the selected subset of the training data between different training epochs. This approach has the potential to reduce the training time of NMT models at comparable or better performance.</li>
+<li>In <a href="http://aclweb.org/anthology/D/D17/D17-1038.pdf">my paper with Barbara Plank</a>, we use Bayesian Optimization to learn data selection policies for transfer learning and investigate how well these transfer across models, domains, and tasks. This approach brings us a step closer towards gaining a better understanding of what constitutes similarity between different tasks and domains.</li>
+</ul>
+
+<p><strong>Character-level models</strong> &nbsp; Characters are nowadays used as standard features in most sequence models. The <a href="https://sites.google.com/view/sclem2017/home">Subword and Character-level Models in NLP workshop</a> discussed approaches in more detail, with invited talks on subword language models and character-level NMT. </p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1297.pdf">Schmaltz et al.</a> find that character-based sequence-to-sequence models outperform word-based models and models with character convolutions for sentence correction.</li>
+<li><a href="https://ryancotterell.github.io/">Ryan Cotterell</a> gave a great, movie-inspired tutorial on combining the best of FSTs (cowboys) and sequence-to-sequence models (aliens) for string-to-string transduction. While evaluated on morphological segmentation, the tutorial raised awareness in an entertaining way that often the best of both worlds, i.e. a combination of traditional and neural approaches performs best.</li>
+</ul>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/ryan_cotterell_fsts_seq2seq.jpg" style="width: 60%; height: 60%" title="Combining FSTs and seq2seq models" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 5: Ryan Cotterell on combining FSTs and seq2seq models for string-to-string transduction  
+</figcaption>  
+</figure>
+
+<p><strong>Word embeddings</strong> &nbsp; Research in word embeddings has matured and now mainly tries to 1) address deficits of word2vec, such as its ability of dealing with OOV words; 2) extend it to new settings, e.g. modelling the relations of words over time; and 3) understand the induced representations better:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1010.pdf">Pinter et al.</a> propose an approach for generating OOV word embeddings by training a character-based BiLSTM to generate embeddings that are close to pre-trained ones. This approach is promising as it provides us with a more sophisticated way to deal with out-of-vocabulary words than replacing them with an <unk> token. </unk></li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1030.pdf">Herbelot and Baroni</a> slightly modify word2vec to allow it to learn embeddings for OOV words from few data.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1122.pdf">Rosin et al.</a> propose a model for analyzing <em>when</em> two words relate to each other.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1194.pdf">Kutuzov et al.</a> propose another model that analyzes how two words relate to each other over time.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1033.pdf">Hasan and Curry</a> improve the performance of word embeddings on word similarity tasks by re-embedding them in a manifold.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1311.pdf">Yang et al.</a> introduce a simple approach to learning cross-domain word embeddings. Creating embeddings tuned on a small, in-domain corpus is still a challenge, so it is nice to see more approaches addressing this pain point.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1307.pdf">Mimno and Thompson</a> try to understand the geometry of word2vec better. They show that the learned word embeddings are positioned diametrically opposite of their context vectors in the embedding space.</li>
+</ul>
+
+<p><strong>Cross-lingual</strong> &nbsp; An increasing number of papers evaluate their methods on multiple languages. In addition, there was an excellent <a href="http://emnlp2017.net/tutorials/day2/xling_word_rep.html">tutorial on cross-lingual word representations</a>, which summarized and tried to unify much of the existing literature. Slides of the tutorial are available <a href="http://people.ds.cam.ac.uk/iv250/tutorial/xlingrep-tutorial.pdf">here</a>.</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1267.pdf">Malaviya et al.</a> train a many-to-one NMT to translate 1017 languages into English and use this model to predict information missing from typological databases. </li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1268.pdf">Mayhew et al.</a> introduce a cheap translation method for cross-lingual NER that only requires a bilingual dictionary. They even perform a case study on Uyghur, a truly low-resource language.</li>
+<li><a href="http://www.aclweb.org/anthology/D/D17/D17-1301.pdf">Kim et al.</a> present a cross-lingual transfer learning model for POS tagging without parallel data. Parallel data is expensive to create and rarely available for low-resource languages, so this approach fills an important need.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1269.pdf">Vulic et al.</a> propose a new cross-lingual transfer method for inducing VerbNets for different languages. The method leverages vector space specialisation, an effective word embedding post-processing technique similar to retro-fitting.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1257.pdf">Braud et al.</a> propose a robust, cross-lingual discourse segmentation model that only relies on POS tags. They show that dependency information is less useful than expected; it is important to evaluate our models on multiple languages, so we do not overfit to features that are specific to analytic languages, such as English.</li>
+</ul>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/anders_sogaard_crosslingual.jpg" style="width: 60%; height: 60%" title="Anders Søgaard on cross-lingual embeddings" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 6: Anders Søgaard demonstrating the similarities between different cross-lingual embedding models at the cross-lingual representations tutorial  
+</figcaption>  
+</figure>
+
+<p><strong>Summarization</strong> &nbsp; <a href="https://summarization2017.github.io/">The Workshop on New Frontiers of Summarization</a> brought researchers together to discuss key issues related to automatic summarization. Much of the research on summarization sought to develop new datasets and tasks:</p>
+
+<ul>
+<li><a href="https://research.google.com/pubs/author39008.html">Katja Filippova</a> gave an interesting talk on sentence compression and passage summarization for Q&amp;A. She described how they went from syntax-based methods to Deep Learning.</li>
+<li><a href="http://www.aclweb.org/anthology/W/W17/W17-4508.pdf">Volkse et al.</a> created a new summarization corpus by looking for ‘TL;DR’ on Reddit. This is another example of a creative use of distant supervision, leveraging information that is already contained in the data in order to create a new corpus.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1322.pdf">Falke and Gurevych</a> won the best resource paper award for creating a new summary corpus that is based on concept maps rather than textual summaries. The concept map can be explored using a <a href="https://github.com/UKPLab/emnlp2017-graphdocexplore">graph-based document exploration system</a>, which is available as a <a href="http://cmaps.ukp.informatik.tu-darmstadt.de/graph-doc-explorer/#!/">demo</a>.</li>
+<li><a href="http://www.aclweb.org/anthology/W17-4504">Pasunuru et al.</a> use multi-task learning to improve abstractive summarization by leveraging entailment generation.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1222.pdf">Isonuma et al.</a> also use multi-task learning with document classification in conjunction with curriculum learning.</li>
+<li><a href="http://www.aclweb.org/anthology/W/W17/W17-4512.pdf">Li et al.</a> propose a new task, reader-aware multi-document summarization, which uses comments of articles, along with a dataset for this task.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1065.pdf">Naranyan et al.</a> propose another new task, split and rephrase, which aims to split a complex sentence into a sequence of shorter sentences with the same meaning, and also release a new dataset.</li>
+<li><a href="http://www.aclweb.org/anthology/W/W17/W17-4511.pdf">Ghalandari</a> revisits the traditional centroid-based method and proposes a new strong baseline for multi-document summarization.</li>
+</ul>
+
+<p><strong>Bias</strong> &nbsp; Data and model-inherent bias is an issue that is receiving more attention in the community. Some papers investigate and propose methods to address the bias in certain datasets and evaluations:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1110.pdf">Chaganty et al.</a> investigate bias in the evaluation of knowledge base population models and propose an importance sampling-based evaluation to mitigate the bias.</li>
+<li>Dan Jurafsky gave a truly insightful <a href="http://emnlp2017.net/invited-speakers.html">keynote</a> about his three year-long study analyzing the body camera recordings his team obtained from the Oakland police department for racial bias. Besides describing the first contemporary linguistic study of officer-community member interaction, he also provided entertaining insights on the language of food (cheaper restaurants use terms related to addiction, more expensive venues use language related to indulgence) and the challenges of interdisciplinary publishing. The entire keynote can be viewed <a href="https://ku.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4f45fc4c-e7d6-4743-b843-0aae2ae8b17e&amp;utm_campaign=Revue%20newsletter&amp;utm_medium=Newsletter&amp;utm_source=NLP%20News">here</a>. </li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1119.pdf">Dubossarsky et al.</a> analyze the bias in word representation models and propose that recently proposed laws of semantic change must be revised. </li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1319.pdf">Zhao et al.</a> won the best paper award for an approach using Lagrangian relaxation to inject constraints based on corpus-level label statistics. An important finding of their work is bias amplification: While some bias is inherent in all datasets, they observed that models trained on the data amplified its bias. While a gendered dataset might only contain women in 30% of examples, the situation at prediction time might thus be even more dire.</li>
+</ul>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/bias_amplification.jpg" style="width: 60%; height: 60%" title="Reducing bias amplification" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 7: Zhao et al.’s proposed method for reducing bias amplification  
+</figcaption>  
+</figure>
+
+<p><strong>Argument mining &amp; debate analysis</strong> &nbsp; Argument mining is closely related to summarization. In order to summarize argumentative texts, we have to understand claims and their justifications. This research area had the <a href="https://argmining2017.wordpress.com/">4th Workshop on Argument Mining</a> dedicated to it:</p>
+
+<ul>
+<li><a href="http://www.aclweb.org/anthology/W/W17/W17-5102.pdf">Hidey et al.</a> analyse the semantic types of claims (e.g. agreement, interpretation) and premises (ethos, logos, pathos) in the Subreddit <a href="https://www.reddit.com/r/changemyview/">Change My View</a>. This is another creative use of reddit to create a dataset and analyze linguistic patterns.</li>
+<li><a href="http://www.aclweb.org/anthology/W/W17/W17-5106.pdf">Wachsmut et al.</a> presented an argument web search engine, which can be queried <a href="http://www.args.me/">here</a>.</li>
+<li><a href="http://aclweb.org/anthology/D17-1260">Potash and Rumshinsky</a> predict the winner of debates, based on audience favorability.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1166.pdf">Swamy et al.</a> also forecast winners for the Oscars, the US presidential primaries, and many other contests based on user predictions on Twitter. They create a dataset to test their approach.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1164.pdf">Zhang et al.</a> analyze the rhetorical role of questions in discourse.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1143.pdf">Liu et al.</a> show that argument-based features are also helpful for predicting review helpfulness.</li>
+</ul>
+
+<p><strong>Multi-agent communication</strong> &nbsp; Multi-agent communication is a niche topic, which has nevertheless received some recent interest, notably in the representation learning community. Most papers deal with a scenario where two agents play a communicative referential game. The task is interesting, as the agents are required to cooperate and have been observed to develop a common pseudo-language in the process.</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1310.pdf">Andreas and Klein</a> investigate the structure encoded by RNN representations for messages in a communication game. They find that the mistakes are similar to the ones made by humans. In addition, they find that negation is encoded as a linear relationship in the vector space.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1320.pdf">Kottur et al.</a> show in their best short paper that language does not emerge naturally when two agents are cooperating, but that they can be coerced to develop compositional expressions.</li>
+</ul>
+
+<figure>  
+      <img src="http://ruder.io/content/images/2017/09/multi-agent_setup.jpg" style="width: 60%; height: 60%" title="Reducing bias amplification" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
+<figcaption>Figure 8: The multi-agent setup in the paper of Kottur et al.  
+</figcaption>  
+</figure>
+
+<p><strong>Relation extraction</strong> &nbsp; Extracting relations from documents is more compelling than simply extracting entities or concepts. Some papers improve upon existing approaches using better distant supervision or adversarial training:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D17-1189">Liu et al.</a> reduce the noise in distantly supervised relation extraction with a soft-label method.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1004.pdf">Zhang et al.</a> publish TACRED, a large supervised dataset knowledge base population, as well as a new model.</li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1187.pdf">Wu et al.</a> improve the precision of relation extraction with adversarial training.</li>
+</ul>
+
+<p><strong>Document and sentence representations</strong> &nbsp; Learning better sentence representations is closely related to learning more general word representations. While word embeddings still have to be contextualized, sentence representations are promising as they can be directly applied to many different tasks:</p>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1070.pdf">Mekala et al.</a> propose a novel technique for building document vectors from word embeddings, with good results for text classification. They use a combination of adding and concatenating word embeddings to represent multiple topics of a document, based on word clusters. </li>
+<li><a href="http://aclweb.org/anthology/D/D17/D17-1071.pdf">Conneau et al.</a> learn sentence representations from the SNLI dataset and evaluate them on 12 different tasks. </li>
+</ul>
+
+<p>These were my highlights. Naturally, I was not able to attend every session and see every paper. What were your highlights from the conference or which papers from the <a href="http://aclweb.org/anthology/D/D17/">proceedings</a> did you like most? Let me know in the comments below.</p>]]></content:encoded></item><item><title><![CDATA[Learning to select data for transfer learning]]></title><description><![CDATA[This blog post discusses the motivation and findings of our EMNLP 2017 paper Learning to select data for transfer learning.]]></description><link>http://ruder.io/learning-select-data/</link><guid isPermaLink="false">2d2ccdff-15b1-493d-888a-bec8acb5a346</guid><category><![CDATA[natural language processing]]></category><category><![CDATA[nlp]]></category><category><![CDATA[transfer learning]]></category><dc:creator><![CDATA[Sebastian Ruder]]></dc:creator><pubDate>Fri, 18 Aug 2017 10:59:23 GMT</pubDate><content:encoded><![CDATA[<p><em>This post originally appeared on the <a href="http://blog.aylien.com/learning-select-data-transfer-learning/">AYLIEN blog</a>.</em></p>
 
 <h1 id="introduction">Introduction</h1>
 
