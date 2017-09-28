@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/transfer-learning/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/03/transfer_learning_digits.png" />
     <meta property="article:published_time" content="2017-03-21T15:40:00.000Z" />
-    <meta property="article:modified_time" content="2017-06-06T15:38:53.164Z" />
+    <meta property="article:modified_time" content="2017-09-28T11:28:21.841Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="nlp" />
     <meta property="article:tag" content="transfer learning" />
@@ -69,7 +69,7 @@
     "headline": "Transfer Learning - Machine Learning&#x27;s Next Frontier",
     "url": "u=http://ruder.io/transfer-learning/",
     "datePublished": "2017-03-21T15:40:00.000Z",
-    "dateModified": "2017-06-06T15:38:53.164Z",
+    "dateModified": "2017-09-28T11:28:21.841Z",
     "image": "u=http://ruder.io/content/images/2017/03/transfer_learning_digits.png",
     "keywords": "deep learning, nlp, transfer learning",
     "description": "This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods."
@@ -311,7 +311,7 @@ On the one hand, over the course of the last years, we have obtained the ability
 <h1 id="adefinitionoftransferlearning">A Definition of Transfer Learning</h1>
 
 <p>For this definition, we will closely follow the excellent survey by Pan and Yang (2010) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] with binary document classification as a running example. <br />
-Transfer learning involves the concepts of a domain and a task. A domain \(\mathcal{D}\) consists of a feature space \(\mathcal{X}\) and a marginal probability distribution \(P(X)\) over the feature space, where \(X = {x_1, \cdots, x_n} \in \mathcal{X}\). For document classification with a bag-of-words representation, \(\mathcal{X}\) is the space of all document representations, \(x_i\) is the binary feature of the \(i\)-th word and \(X\) is a particular document.</p>
+Transfer learning involves the concepts of a domain and a task. A domain \(\mathcal{D}\) consists of a feature space \(\mathcal{X}\) and a marginal probability distribution \(P(X)\) over the feature space, where \(X = {x_1, \cdots, x_n} \in \mathcal{X}\). For document classification with a bag-of-words representation, \(\mathcal{X}\) is the space of all document representations, \(x_i\) is the \(i\)-th term vector corresponding to some document and \(X\) is the sample of documents used for training.</p>
 
 <p>Given a domain, \(\mathcal{D} = \{\mathcal{X},P(X)\}\), a task \(\mathcal{T}\) consists of a label space \(\mathcal{Y}\) and a conditional probability distribution \(P(Y|X)\) that is typically learned from the training data consisting of pairs \(x_i \in X\) and \(y_i \in \mathcal{Y}\). In our document classification example, \(\mathcal{Y}\) is the set of all labels, i.e. <em>True</em>, <em>False</em> and \(y_i\) is either <em>True</em> or <em>False</em>.</p>
 

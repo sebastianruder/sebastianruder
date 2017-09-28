@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/multi-task-learning-nlp/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png" />
     <meta property="article:published_time" content="2017-09-24T13:42:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-24T13:51:19.792Z" />
+    <meta property="article:modified_time" content="2017-09-25T21:28:29.900Z" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="nlp" />
     <meta property="article:tag" content="multi-task learning" />
@@ -69,7 +69,7 @@
     "headline": "Multi-Task Learning Objectives for Natural Language Processing",
     "url": "u=http://ruder.io/multi-task-learning-nlp/",
     "datePublished": "2017-09-24T13:42:00.000Z",
-    "dateModified": "2017-09-24T13:51:19.792Z",
+    "dateModified": "2017-09-25T21:28:29.900Z",
     "image": "u=http://ruder.io/content/images/2017/09/soft_parameter_sharing.png",
     "keywords": "natural language processing, nlp, multi-task learning",
     "description": "An overview of auxiliary tasks and objectives that have been used for multi-task learning for natural language processing."
@@ -225,7 +225,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>Multi-task learning is all about coming up with ways to add a suitable bias to your model. Incorporating artificial auxiliary tasks that cleverly complement your target task is arguably one of the most ingenious and fun ways to do MTL. It is a feature-engineering of sorts: instead of engineering the features, you are engineering the auxiliary task you optimize. Similarly to feature engineering, domain expertise is therefore required as we will see in the following:</p>
 
-<p><strong>Language modelling</strong> Language modelling has been shown to beneficial for many NLP tasks and can be incorporated in various ways. Word embeddings pre-trained by word2vec have been shown to beneficial -- as is known, word2vec approximates the language modelling objective; languages models have been used to pre-train MT and sequence-to-sequence models [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>]; contextual language model embeddings have also been found useful for many tasks [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>]. In this context, we can also treat language modelling as an auxiliary task that is learned together with the main task. Rei (2017) [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>] shows that this improves performance on several sequence labelling tasks.</p>
+<p><strong>Language modelling</strong> Language modelling has been shown to be beneficial for many NLP tasks and can be incorporated in various ways. Word embeddings pre-trained by word2vec have been shown to beneficial -- as is known, word2vec approximates the language modelling objective; languages models have been used to pre-train MT and sequence-to-sequence models [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>]; contextual language model embeddings have also been found useful for many tasks [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>]. In this context, we can also treat language modelling as an auxiliary task that is learned together with the main task. Rei (2017) [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>] shows that this improves performance on several sequence labelling tasks.</p>
 
 <p><strong>Conditioning the initial state</strong> &nbsp; The initial state of a recurrent neural network is typically initialized to a \(0\) vector. According to a <a href="https://www.cs.toronto.edu/~hinton/csc2535/notes/lec10new.pdf">lecture by Hinton in 2013</a>, it is beneficial to learn the initial state just like any other sets of weights. While a learned state will be more helpful than a \(0\) vector it will be independent of the sequence and thus unable to adapt. Weng et al. (2017) [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] propose to add a suitable bias to the initial encoder and decoder states for NMT by training it to predict the words in the sentence. In this sense, this objective can essentially be seen as a <em>language modelling objective for the initial state</em> and might thus be helpful for other tasks. Similarly, we can think of other task-specific biases that could be encoded in the initial state to aid learning: A sentiment model might benefit from knowing about the general audience response to a movie or whether a user is more likely to be sarcastic while a parser might be able to leverage prior knowledge of the domain's tree depth or complexity.</p>
 
