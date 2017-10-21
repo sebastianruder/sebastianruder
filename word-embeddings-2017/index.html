@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word embeddings in 2017: Trends and future directions</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180x180.png?v=wAAv6Wqe6l">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png?v=wAAv6Wqe6l" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/favicon-194x194.png?v=wAAv6Wqe6l" sizes="194x194">
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png?v=wAAv6Wqe6l" sizes="96x96">
+<link rel="icon" type="image/png" href="../assets/img/android-chrome-192x192.png?v=wAAv6Wqe6l" sizes="192x192">
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png?v=wAAv6Wqe6l" sizes="16x16">
+<link rel="manifest" href="../assets/img/manifest.json?v=wAAv6Wqe6l">
+<link rel="shortcut icon" href="../assets/img/favicon.ico?v=wAAv6Wqe6l">
+<meta name="msapplication-TileColor" content="#e74c3c">
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
+<meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
+<meta name="theme-color" content="#e74c3c">
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=602eebbd81" />
+    <link rel="canonical" href="http://ruder.io/word-embeddings-2017/" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Word embeddings in 2017: Trends and future directions" />
+    <meta property="og:description" content="This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them." />
+    <meta property="og:url" content="u=http://ruder.io/word-embeddings-2017/" />
+    <meta property="og:image" content="u=http://ruder.io/content/images/2017/10/semantic_change.png" />
+    <meta property="article:published_time" content="2017-10-21T09:00:00.000Z" />
+    <meta property="article:modified_time" content="2017-10-21T13:44:10.825Z" />
+    <meta property="article:tag" content="word embeddings" />
+    <meta property="article:tag" content="natural language processing" />
+    <meta property="article:tag" content="nlp" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Word embeddings in 2017: Trends and future directions" />
+    <meta name="twitter:description" content="This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them." />
+    <meta name="twitter:url" content="u=http://ruder.io/word-embeddings-2017/" />
+    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2017/10/semantic_change.png" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Sebastian Ruder",
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "url": "u=http://ruder.io/author/sebastian",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Word embeddings in 2017: Trends and future directions",
+    "url": "u=http://ruder.io/word-embeddings-2017/",
+    "datePublished": "2017-10-21T09:00:00.000Z",
+    "dateModified": "2017-10-21T13:44:10.825Z",
+    "image": "u=http://ruder.io/content/images/2017/10/semantic_change.png",
+    "keywords": "word embeddings, natural language processing, nlp",
+    "description": "This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
+    <script>
+var open_button = '.nav-blog > a'
+</script>
+<script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+  </head>
+  <body class="post-template tag-word-embeddings tag-natural-language-processing tag-nlp">
+    <header id="menu-button" class="expanded">
+      <a><i class="icon icon-list"></i></a>
+    </header>
+    <aside class="cover" style="background: url(../content/images/2017/05/imageedit_8_8459453433.jpg) center/cover no-repeat fixed">
+  <div class="cover container">
+    <div class="profile">
+      <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <h1 id="profile-title">Sebastian Ruder</h1>
+        <h3 id="profile-resume"></h3>
+      </a>
+
+      <hr class="divider long" />
+      <p>I&#x27;m a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short" />
+      <div class="navigation">
+        <div class="profile contact">
+          <nav class="navigation left">
+  <ul class="links">
+      <li class="nav-blog ">
+        <a href="http://ruder.io/">Blog</a>
+      </li>
+      <li class="nav-about ">
+        <a href="http://ruder.io/about/">About</a>
+      </li>
+      <li class="nav-papers ">
+        <a href="http://ruder.io/publications/">Papers</a>
+      </li>
+      <li class="nav-news ">
+        <a href="http://ruder.io/news">News</a>
+      </li>
+      <li class="nav-newsletter ">
+        <a href="http://newsletter.ruder.io">Newsletter</a>
+      </li>
+      <li class="nav-faq ">
+        <a href="http://ruder.io/faq">FAQ</a>
+      </li>
+  </ul>
+</nav>
+
+          
+<nav class="navigation right">
+  <ul class="social expanded">
+
+  <!-- Twitter -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
+      <i class='icon icon-social-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  <!-- Linkedin -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
+      <i class='icon icon-social-linkedin'></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+
+  <!-- Github -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
+      <i class='icon icon-social-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+  <!-- E-mail -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
+      <i class='icon icon-mail'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+
+  <!-- RSS -->
+  <li class="social item hvr-grow-rotate">
+    <a href="../rss/index.html" title="Subscribe to RSS">
+      <i class='icon icon-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+          <section class="icon icon-search" id="search-container">
+  <hr class="divider short" />
+  <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
+    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field" />
+  </form>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+    <main>
+      <section id="search-results"></section>
+      <section class="content">
+        
+
+  <article class="post tag-word-embeddings tag-natural-language-processing tag-nlp">
+    <header>
+      <div class="post meta">
+        <time datetime="21 Oct 2017">21 Oct 2017</time>
+        <span class="post tags">in <a href="../tag/word-embeddings/index.html">word embeddings</a> <a href="../tag/natural-language-processing/index.html">natural language processing</a> <a href="../tag/nlp/index.html">nlp</a></span>
+
+
+        <span class="post reading-time"> ~ <span></span> read.</span>
+      </div>
+      <a alt="Tweet 'Word embeddings in 2017: Trends and future directions'" href="https://twitter.com/intent/tweet?text=Word%20embeddings%20in%202017%3A%20Trends%20and%20future%20directions%20%C2%BB&amp;hashtags=word embeddings,natural language processing,nlp&amp;url=http://ruder.io/word-embeddings-2017/">
+        <img id="post-image" src="../content/images/2017/10/semantic_change.png" alt="Word embeddings in 2017: Trends and future directions">
+        <h1 class="icon-reverse icon-social-twitter-post" id="post-title">Word embeddings in 2017: Trends and future directions</h1>
+      </a>
+    </header>
+
+    <div id="post-content" class="post tag-word-embeddings tag-natural-language-processing tag-nlp">
+      <p>Table of contents:</p>
+
+<ul>
+<li><a href="index.html#subwordlevelembeddings">Subword-level embeddings</a></li>
+<li><a href="index.html#oovhandling">OOV handling</a></li>
+<li><a href="index.html#evaluation">Evaluation</a></li>
+<li><a href="index.html#multisenseembeddings">Multi-sense embeddings</a></li>
+<li><a href="index.html#beyondwordsaspoints">Beyond words as points</a></li>
+<li><a href="index.html#phrasesandmultiwordexpressions">Phrases and multi-word expressions</a></li>
+<li><a href="index.html#bias">Bias</a></li>
+<li><a href="index.html#temporaldimension">Temporal dimension</a></li>
+<li><a href="index.html#lackoftheoreticalunderstanding">Lack of theoretical understanding</a></li>
+<li><a href="index.html#taskanddomainspecificembeddings">Task and domain-specific embeddings</a></li>
+<li><a href="index.html#embeddingsformultiplelanguages">Embeddings for multiple languages</a></li>
+<li><a href="index.html#embeddingsbasedonothercontexts">Embeddings based on other contexts</a></li>
+</ul>
+
+<p>The word2vec method based on skip-gram with negative sampling (Mikolov et al., 2013) [<sup id="fnref:49"><a href="index.html#fn:49" rel="footnote">49</a></sup>] was published in 2013 and had a large impact on the field, mainly through its accompanying software package, which enabled efficient training of dense word representations and a straightforward integration into downstream models. In some respects, we have come far since then: Word embeddings have established themselves as an integral part of Natural Language Processing (NLP) models. In other aspects, we might as well be in 2013 as we have not found ways to pre-train word embeddings that have managed to supersede the original word2vec.</p>
+
+<p>This post will focus on the deficiencies of word embeddings and how recent approaches have tried to resolve them. If not otherwise stated, this post discusses <em>pre-trained</em> word embeddings, i.e. word representations that have been learned on a large corpus using word2vec and its variants. Pre-trained word embeddings are most useful if the number of training examples is not huge, which is true for most tasks in NLP. For an introduction to word embeddings, refer to <a href="http://ruder.io/word-embeddings-1/">this blog post</a>.</p>
+
+<h2 id="subwordlevelembeddings">Subword-level embeddings</h2>
+
+<p>Word embeddings have been augmented with subword-level information for many applications such as named entity recognition (Lample et al., 2016) [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>], part-of-speech tagging (Plank et al., 2016) [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>], dependency parsing (Ballesteros et al., 2015; Yu &amp; Vu, 2017) [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>, <sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>], and language modelling (Kim et al., 2016) [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>]. Most of these models employ a CNN or a BiLSTM that takes as input the characters of a word and outputs a <em>character-based</em> word representation.</p>
+
+<p>For incorporating character information into pre-trained embeddings, however, character n-grams features have been shown to be more powerful than composition functions over individual characters (Wieting et al., 2016; Bojanowski et al., 2017) [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>, <sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>]. Character n-grams -- by far not a novel feature for text categorization (Cavnar et al., 1994) [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] -- are particularly efficient and also form the basis Facebook's fastText classifier (Joulin et al., 2016) [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>]. Embeddings learned using fastText are <a href="https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md">available in 294 languages</a>.</p>
+
+<p>Subword units based on byte-pair encoding have been found to be particularly useful for machine translation (Sennrich et al., 2016) [<sup id="fnref:12"><a href="index.html#fn:12" rel="footnote">12</a></sup>] where they have replaced words as the standard input units. They are also useful for tasks with many unknown words such as entity typing (Heinzerling &amp; Strube, 2017) [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>], but have not been shown to be helpful yet for standard NLP tasks, where this is not a major concern. While they can be learned easily, it is difficult to see their advantage over character-based representations for most tasks (Vania &amp; Lopez, 2017) [<sup id="fnref:50"><a href="index.html#fn:50" rel="footnote">50</a></sup>]. </p>
+
+<p>Another choice for using pre-trained embeddings that integrate character information is to leverage a state-of-the-art language model (Jozefowicz et al., 2016) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>] trained on a large in-domain corpus, e.g. the 1 Billion Word Benchmark (a pre-trained Tensorflow model can be found <a href="https://github.com/tensorflow/models/tree/master/research/lm_1b">here</a>). While language modelling has been found to be useful for different tasks as auxiliary objective (Rei, 2017) [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>], pre-trained language model embeddings have also found to be useful to augment word embeddings (Peters et al., 2017) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>]. As we start to better understand how to pre-train and initialize our models, pre-trained language model embeddings are poised to become more effective. They might even supersede word2vec as the go-to choice for initializing word embeddings by virtue of having become more expressive and easier to train due to better frameworks and more computational resources over the last years.</p>
+
+<h2 id="oovhandling">OOV handling</h2>
+
+<p>One of the main problems of using pre-trained word embeddings is that they are unable to deal with out-of-vocabulary (OOV) words, i.e. words that have not been seen during training. Typically, such words are set to the UNK token and are assigned the same vector, which is an ineffective choice if the number of OOV words is large. Subword-level embeddings as discussed in the last section are one way to mitigate this issue. Another way, which is effective for reading comprehension (Dhingra et al., 2017) [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] is to assign OOV words their pre-trained word embedding, if one is available. </p>
+
+<p>Recently, different approaches have been proposed for generating embeddings for OOV words on-the-fly. Herbelot and Baroni (2017) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] initialize the embedding of OOV words as the sum of their context words and then rapidly refine only the OOV embedding with a high learning rate. Their approach is successful for a dataset that explicitly requires to model nonce words, but it is unclear if it can be scaled up to work reliably for more typical NLP tasks. Another interesting approach for generating OOV word embeddings is to train a character-based model to explicitly re-create pre-trained embeddings (Pinter et al., 2017) [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>]. While this allows us to generate embeddings even for OOV words, using pre-trained embeddings as intermediate representations begs the question why we would not optimize a character-based model directly for the original embedding objective.</p>
+
+<h2 id="evaluation"> Evaluation</h2>
+
+<p>Evaluation of pre-trained embeddings has been a contentious issue since their inception as the commonly used evaluation via word similarity or analogy datasets has been shown to only correlate weakly with downstream performance (Tsvetkov et al., 2015) [<sup id="fnref:21"><a href="index.html#fn:21" rel="footnote">21</a></sup>]. The <a href="https://sites.google.com/site/repevalacl16/">RepEval Workshop at ACL 2016</a> exclusively focused on better ways to evaluate pre-trained embeddings. As it stands, the consensus seems to be that -- while pre-trained embeddings can be evaluated on intrinsic tasks such as word similarity for comparison against previous approaches -- the best way to evaluate them is extrinsic evaluation on downstream tasks.</p>
+
+<h2 id="multisenseembeddings">Multi-sense embeddings</h2>
+
+<p>A commonly cited criticism of word embeddings is that they are unable to capture polysemy. <a href="http://wwwusers.di.uniroma1.it/~collados/Slides_ACL16Tutorial_SemanticRepresentation.pdf">A tutorial at ACL 2016</a> outlined the work in recent years that focused on learning separate embeddings for multiple senses of a word (Neelakantan et al., 2014; Iacobacci et al., 2015; Pilehvar &amp; Collier, 2016) [<sup id="fnref:18"><a href="index.html#fn:18" rel="footnote">18</a></sup>, <sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>, <sup id="fnref:20"><a href="index.html#fn:20" rel="footnote">20</a></sup>]. However, most existing approaches for learning multi-sense embeddings solely evaluate on word similarity. Pilehvar et al. (2017) [<sup id="fnref:22"><a href="index.html#fn:22" rel="footnote">22</a></sup>] are one of the first to show results on topic categorization as a downstream task; while multi-sense embeddings outperform randomly initialized word embeddings in their experiments, they are outperformed by pre-trained word embeddings.</p>
+
+<p>Given the stellar results Neural Machine Translation systems using word embeddings have achieved in recent years (Johnson et al., 2016) [<sup id="fnref:23"><a href="index.html#fn:23" rel="footnote">23</a></sup>], it seems that the current generation of models is expressive enough to contextualize and disambiguate words in context without having to rely on a dedicated disambiguation pipeline or multi-sense embeddings. However, we still need better ways to understand whether our models are actually able to sufficiently disambiguate words and how to improve this disambiguation behaviour if necessary.</p>
+
+<h2 id="beyondwordsaspoints">Beyond words as points</h2>
+
+<p>While we might not need separate embeddings for every sense of each word for good downstream performance, reducing each word to a point in a vector space is unarguably overly simplistic and causes us to miss out on nuances that might be useful for downstream tasks. An interesting direction is thus to employ other representations that are better able to capture these facets. Vilnis &amp; McCallum (2015) [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>] propose to model each word as a probability distribution rather than a point vector, which allows us to represent probability mass and uncertainty across certain dimensions. Athiwaratkun &amp; Wilson (2017) [<sup id="fnref:25"><a href="index.html#fn:25" rel="footnote">25</a></sup>] extend this approach to a multimodal distribution that allows to deal with polysemy, entailment, uncertainty, and enhances interpretability.</p>
+
+<p>Finding other ways to represent words that incorporate linguistic assumptions or better deal with the characteristics of downstream tasks is a compelling research direction.</p>
+
+<h2 id="phrasesandmultiwordexpressions">Phrases and multi-word expressions</h2>
+
+<p>In addition to not being able to capture multiple senses of words, word embeddings also fail to capture the meanings of phrases and multi-word expressions, which can be a function of the meaning of their constituent words, or have an entirely new meaning. Phrase embeddings have been proposed already in the original word2vec paper (Mikolov et al., 2013) [<sup id="fnref:37"><a href="index.html#fn:37" rel="footnote">37</a></sup>] and there has been consistent work on learning better compositional and non-compositional phrase embeddings (Yu &amp; Dredze, 2015; Hashimoto &amp; Tsuruoka, 2016) [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>, <sup id="fnref:39"><a href="index.html#fn:39" rel="footnote">39</a></sup>]. However, similar to multi-sense embeddings, explicitly modelling phrases has so far not shown significant improvements on downstream tasks that would justify the additional complexity. Analogously, a better understanding of how phrases are modelled in neural networks would pave the way to methods that augment the capabilities of our models to capture compositionality and non-compositionality of expressions.</p>
+
+<h2 id="bias">Bias</h2>
+
+<p>Bias in our models is becoming a larger issue and we are only starting to understand its implications for training and evaluating our models. Even word embeddings trained on Google News articles exhibit female/male gender stereotypes to a disturbing extent (Bolukbasi et al., 2016) [<sup id="fnref:26"><a href="index.html#fn:26" rel="footnote">26</a></sup>]. Understanding what other biases word embeddings capture and finding better ways to remove theses biases will be key to developing fair algorithms for natural language processing.</p>
+
+<h2 id="temporaldimension">Temporal dimension</h2>
+
+<p>Words are a mirror of the zeitgeist and their meanings are subject to continuous change; current representations of words might differ substantially from the way these words where used in the past and will be used in the future. An interesting direction is thus to take into account the temporal dimension and the diachronic nature of words. This can allows us to reveal laws of semantic change (Hamilton et al., 2016; Bamler &amp; Mandt, 2017; Dubossarsky et al., 2017) [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>, <sup id="fnref:28"><a href="index.html#fn:28" rel="footnote">28</a></sup>, <sup id="fnref:29"><a href="index.html#fn:29" rel="footnote">29</a></sup>], to model temporal word analogy or relatedness (Szymanski, 2017; Rosin et al., 2017) [<sup id="fnref:30"><a href="index.html#fn:30" rel="footnote">30</a></sup>, <sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31</a></sup>], or to capture the dynamics of semantic relations (Kutuzov et al., 2017) [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31</a></sup>]. </p>
+
+<h2 id="lackoftheoreticalunderstanding"> Lack of theoretical understanding</h2>
+
+<p>Besides the insight that word2vec with skip-gram negative sampling implicitly factorizes a PMI matrix (Levy &amp; Goldberg, 2014) [<sup id="fnref:33"><a href="index.html#fn:33" rel="footnote">33</a></sup>], there has been comparatively little work on gaining a better theoretical understanding of the word embedding space and its properties, e.g. that summation captures analogy relations. Arora et al. (2016) [<sup id="fnref:34"><a href="index.html#fn:34" rel="footnote">34</a></sup>] propose a new generative model for word embeddings, which treats corpus generation as a random walk of a discourse vector and establishes some theoretical motivations regarding the analogy behaviour. Gittens et al. (2017) [<sup id="fnref:35"><a href="index.html#fn:35" rel="footnote">35</a></sup>] provide a more thorough theoretical justification of additive compositionality and show that skip-gram word vectors are optimal in an information-theoretic sense. Mimno &amp; Thompson (2017) [<sup id="fnref:36"><a href="index.html#fn:36" rel="footnote">36</a></sup>] furthermore reveal an interesting relation between word embeddings and the embeddings of context words, i.e. that they are not evenly dispersed across the vector space, but occupy a narrow cone that is diametrically opposite to the context word embeddings. Despite these additional insights, our understanding regarding the location and properties of word embeddings is still lacking and more theoretical work is necessary. </p>
+
+<h2 id="taskanddomainspecificembeddings"> Task and domain-specific embeddings</h2>
+
+<p>One of the major downsides of using pre-trained embeddings is that the news data used for training them is often very different from the data on which we would like to use them. In most cases, however, we do not have access to millions of unlabelled documents in our target domain that would allow for pre-training good embeddings from scratch. We would thus like to be able to adapt embeddings pre-trained on large news corpora, so that they capture the characteristics of our target domain, but still retain all relevant existing knowledge. Lu &amp; Zheng (2017) [<sup id="fnref:40"><a href="index.html#fn:40" rel="footnote">40</a></sup>] proposed a regularized skip-gram model for learning such cross-domain embeddings. In the future, we will need even better ways to adapt pre-trained embeddings to new domains or to incorporate the knowledge from multiple relevant domains.</p>
+
+<p>Rather than adapting to a new domain, we can also use existing knowledge encoded in semantic lexicons to augment pre-trained embeddings with information that is relevant for our task. An effective way to inject such relations into the embedding space is retro-fitting (Faruqui et al., 2015) [<sup id="fnref:41"><a href="index.html#fn:41" rel="footnote">41</a></sup>], which has been recently extended as semantic specialisation (Mrkšić et al., 2017) [<sup id="fnref:42"><a href="index.html#fn:42" rel="footnote">42</a></sup>] with an intelligent selection of positive and negative examples. Injecting additional prior knowledge into word embeddings such as monotonicity (You et al., 2017) [<sup id="fnref:51"><a href="index.html#fn:51" rel="footnote">51</a></sup>], task-related grading or intensity, or logical relations is an important research direction that will allow to make our models more robust.</p>
+
+<h2 id="embeddingsformultiplelanguages">Embeddings for multiple languages</h2>
+
+<p>As NLP models are being increasingly employed and evaluated on multiple languages, creating multilingual word embeddings is becoming a more important issue and has received increased interest over recent years. A promising direction is to develop methods that learn cross-lingual representations with as few parallel data as possible, so that they can be easily applied to learn representations even for low-resource languages. For a recent survey in this area, refer to Ruder et al. (2017) [<sup id="fnref:43"><a href="index.html#fn:43" rel="footnote">43</a></sup>]. </p>
+
+<h2 id="embeddingsbasedonothercontexts">Embeddings based on other contexts</h2>
+
+<p>Word embeddings are typically learned only based on the window of surrounding context words. Levy &amp; Goldberg (2014) [<sup id="fnref:44"><a href="index.html#fn:44" rel="footnote">44</a></sup>] have shown that dependency structures can be used as context to capture more syntactic word relations; Köhn (2015) [<sup id="fnref:45"><a href="index.html#fn:45" rel="footnote">45</a></sup>] finds that such dependency-based embeddings perform best for a particular multilingual evaluation method that clusters embeddings along different syntactic features. </p>
+
+<p>Melamud et al. (2016) [<sup id="fnref:46"><a href="index.html#fn:46" rel="footnote">46</a></sup>] observe that different context types work well for different downstream tasks and that simple concatenation of word embeddings learned with different context types can yield further performance gains. Given the recent success of incorporating graph structures into neural models for different tasks as -- for instance -- exhibited by graph-convolutional neural networks (Bastings et al., 2017; Marcheggiani &amp; Titov, 2017) [<sup id="fnref:47"><a href="index.html#fn:47" rel="footnote">47</a></sup>, <sup id="fnref:48"><a href="index.html#fn:48" rel="footnote">48</a></sup>], we can conjecture that incorporating such structures for learning embeddings for downstream tasks may also be beneficial.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>It is nice to see that as a community we are progressing from applying word embeddings to every possible problem to gaining a more principled, nuanced, and practical understanding of them. This post was meant to highlight some of the current trends and future directions for learning word embeddings that I found most compelling. I've undoubtedly failed to mention many other areas that are equally important and noteworthy. Please let me know in the comments below what I missed, where I made a mistake or misrepresented a method, or just which aspect of word embeddings you find particularly exciting or unexplored.</p>
+
+<h2 id="otherblogpostsonwordembeddings">Other blog posts on word embeddings</h2>
+
+<p>If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:</p>
+
+<ul>
+<li><a href="http://sebastianruder.com/word-embeddings-1/index.html">On word embeddings - Part 1</a></li>
+<li><a href="http://sebastianruder.com/word-embeddings-softmax/index.html">On word embeddings - Part 2: Approximating the softmax</a></li>
+<li><a href="http://sebastianruder.com/secret-word2vec/index.html">On word embeddings - Part 3: The secret ingredients of word2vec</a></li>
+<li><a href="http://sebastianruder.com/cross-lingual-embeddings/index.html">Unofficial Part 4: A survey of cross-lingual embedding models</a></li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Cavnar, W. B., Trenkle, J. M., &amp; Mi, A. A. (1994). N-Gram-Based Text Categorization. Ann Arbor MI 48113.2, 161–175. <a href="https://doi.org/10.1.1.53.9367">https://doi.org/10.1.1.53.9367</a> <a href="index.html#fnref:1" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:2"><p>Wieting, J., Bansal, M., Gimpel, K., &amp; Livescu, K. (2016). Charagram: Embedding Words and Sentences via Character n-grams. Retrieved from <a href="http://arxiv.org/abs/1607.02789">http://arxiv.org/abs/1607.02789</a> <a href="index.html#fnref:2" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:3"><p>Bojanowski, P., Grave, E., Joulin, A., &amp; Mikolov, T. (2017). Enriching Word Vectors with Subword Information. Transactions of the Association for Computational Linguistics. Retrieved from <a href="http://arxiv.org/abs/1607.04606">http://arxiv.org/abs/1607.04606</a> <a href="index.html#fnref:3" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:4"><p>Joulin, A., Grave, E., Bojanowski, P., &amp; Mikolov, T. (2016). Bag of Tricks for Efficient Text Classification. arXiv Preprint arXiv:1607.01759. Retrieved from <a href="http://arxiv.org/abs/1607.01759">http://arxiv.org/abs/1607.01759</a> <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:5"><p>Rei, M. (2017). Semi-supervised Multitask Learning for Sequence Labeling. In Proceedings of ACL 2017. <a href="index.html#fnref:5" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:6"><p>Peters, M. E., Ammar, W., Bhagavatula, C., &amp; Power, R. (2017). Semi-supervised sequence tagging with bidirectional language models. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 1756–1765). <a href="index.html#fnref:6" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:7"><p>Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. arXiv Preprint arXiv:1602.02410. Retrieved from <a href="http://arxiv.org/abs/1602.02410">http://arxiv.org/abs/1602.02410</a> <a href="index.html#fnref:7" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:8"><p>Lample, G., Ballesteros, M., Subramanian, S., Kawakami, K., &amp; Dyer, C. (2016). Neural Architectures for Named Entity Recognition. In NAACL-HLT 2016. <a href="index.html#fnref:8" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:9"><p>Plank, B., Søgaard, A., &amp; Goldberg, Y. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. <a href="index.html#fnref:9" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:10"><p>Yu, X., &amp; Vu, N. T. (2017). Character Composition Model with Convolutional Neural Networks for Dependency Parsing on Morphologically Rich Languages. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 672–678). <a href="index.html#fnref:10" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:11"><p>Kim, Y., Jernite, Y., Sontag, D., &amp; Rush, A. M. (2016). Character-Aware Neural Language Models. AAAI. Retrieved from <a href="http://arxiv.org/abs/1508.06615">http://arxiv.org/abs/1508.06615</a> <a href="index.html#fnref:11" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:12"><p>Sennrich, R., Haddow, B., &amp; Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL 2016). Retrieved from <a href="http://arxiv.org/abs/1508.07909">http://arxiv.org/abs/1508.07909</a> <a href="index.html#fnref:12" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:13"><p>Heinzerling, B., &amp; Strube, M. (2017). BPEmb: Tokenization-free Pre-trained Subword Embeddings in 275 Languages. Retrieved from <a href="http://arxiv.org/abs/1710.02187">http://arxiv.org/abs/1710.02187</a> <a href="index.html#fnref:13" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:14"><p>Dhingra, B., Liu, H., Salakhutdinov, R., &amp; Cohen, W. W. (2017). A Comparative Study of Word Embeddings for Reading Comprehension. arXiv preprint arXiv:1703.00993. <a href="index.html#fnref:14" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:15"><p>Herbelot, A., &amp; Baroni, M. (2017). High-risk learning: acquiring new word vectors from tiny data. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:15" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:16"><p>Pinter, Y., Guthrie, R., &amp; Eisenstein, J. (2017). Mimicking Word Embeddings using Subword RNNs. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1707.06961">http://arxiv.org/abs/1707.06961</a> <a href="index.html#fnref:16" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:17"><p>Ballesteros, M., Dyer, C., &amp; Smith, N. A. (2015). Improved Transition-Based Parsing by Modeling Characters instead of Words with LSTMs. In Proceedings of EMNLP 2015. <a href="https://doi.org/10.18653/v1/D15-1041">https://doi.org/10.18653/v1/D15-1041</a> <a href="index.html#fnref:17" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:18"><p>Neelakantan, A., Shankar, J., Passos, A., &amp; Mccallum, A. (2014). Efficient Non-parametric Estimation of Multiple Embeddings per Word in Vector Space. In Proceedings fo (pp. 1059–1069). <a href="index.html#fnref:18" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:19"><p>Iacobacci, I., Pilehvar, M. T., &amp; Navigli, R. (2015). SensEmbed: Learning Sense Embeddings for Word and Relational Similarity. In Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (pp. 95–105). <a href="index.html#fnref:19" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:20"><p>Pilehvar, M. T., &amp; Collier, N. (2016). De-Conflated Semantic Representations. In Proceedings of EMNLP. <a href="index.html#fnref:20" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:21"><p>Tsvetkov, Y., Faruqui, M., Ling, W., Lample, G., &amp; Dyer, C. (2015). Evaluation of Word Vector Representations by Subspace Alignment. Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, Lisbon, Portugal, 17-21 September 2015, 2049–2054. <a href="index.html#fnref:21" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:22"><p>Pilehvar, M. T., Camacho-Collados, J., Navigli, R., &amp; Collier, N. (2017). Towards a Seamless Integration of Word Senses into Downstream NLP Applications. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (pp. 1857–1869). <a href="https://doi.org/10.18653/v1/P17-1170">https://doi.org/10.18653/v1/P17-1170</a> <a href="index.html#fnref:22" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:23"><p>Johnson, M., Schuster, M., Le, Q. V, Krikun, M., Wu, Y., Chen, Z., … Dean, J. (2016). Google’s Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation. arXiv Preprint arXiv:1611.0455. <a href="index.html#fnref:23" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:24"><p>Vilnis, L., &amp; McCallum, A. (2015). Word Representations via Gaussian Embedding. ICLR. Retrieved from <a href="http://arxiv.org/abs/1412.6623">http://arxiv.org/abs/1412.6623</a> <a href="index.html#fnref:24" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:25"><p>Athiwaratkun, B., &amp; Wilson, A. G. (2017). Multimodal Word Distributions. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL 2017). <a href="index.html#fnref:25" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:26"><p>Bolukbasi, T., Chang, K.-W., Zou, J., Saligrama, V., &amp; Kalai, A. (2016). Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings. In 30th Conference on Neural Information Processing Systems (NIPS 2016). Retrieved from <a href="http://arxiv.org/abs/1607.06520">http://arxiv.org/abs/1607.06520</a> <a href="index.html#fnref:26" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:27"><p>Hamilton, W. L., Leskovec, J., &amp; Jurafsky, D. (2016). Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (pp. 1489–1501). <a href="index.html#fnref:27" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:28"><p>Bamler, R., &amp; Mandt, S. (2017). Dynamic Word Embeddings via Skip-Gram Filtering. In Proceedings of ICML 2017. Retrieved from <a href="http://arxiv.org/abs/1702.08359">http://arxiv.org/abs/1702.08359</a> <a href="index.html#fnref:28" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:29"><p>Dubossarsky, H., Grossman, E., &amp; Weinshall, D. (2017). Outta Control: Laws of Semantic Change and Inherent Biases in Word Representation Models. In Conference on Empirical Methods in Natural Language Processing (pp. 1147–1156). Retrieved from <a href="http://aclweb.org/anthology/D17-1119">http://aclweb.org/anthology/D17-1119</a> <a href="index.html#fnref:29" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:30"><p>Szymanski, T. (2017). Temporal Word Analogies : Identifying Lexical Replacement with Diachronic Word Embeddings. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 448–453). <a href="index.html#fnref:30" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:31"><p>Rosin, G., Radinsky, K., &amp; Adar, E. (2017). Learning Word Relatedness over Time. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="https://arxiv.org/pdf/1707.08081.pdf">https://arxiv.org/pdf/1707.08081.pdf</a> <a href="index.html#fnref:31" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:32"><p>Kutuzov, A., Velldal, E., &amp; Øvrelid, L. (2017). Temporal dynamics of semantic relations in word embeddings: an application to predicting armed conflict participants. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://arxiv.org/abs/1707.08660">http://arxiv.org/abs/1707.08660</a> <a href="index.html#fnref:32" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:33"><p>Levy, O., &amp; Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. Advances in Neural Information Processing Systems (NIPS), 2177–2185. Retrieved from <a href="http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization">http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization</a> <a href="index.html#fnref:33" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:34"><p>Arora, S., Li, Y., Liang, Y., Ma, T., &amp; Risteski, A. (2016). A Latent Variable Model Approach to PMI-based Word Embeddings. TACL, 4, 385–399. Retrieved from <a href="https://transacl.org/ojs/index.php/tacl/article/viewFile/742/204">https://transacl.org/ojs/index.php/tacl/article/viewFile/742/204</a> <a href="index.html#fnref:34" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:35"><p>Gittens, A., Achlioptas, D., &amp; Mahoney, M. W. (2017). Skip-Gram – Zipf + Uniform = Vector Additivity. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 69–76). <a href="https://doi.org/10.18653/v1/P17-1007">https://doi.org/10.18653/v1/P17-1007</a> <a href="index.html#fnref:35" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:36"><p>Mimno, D., &amp; Thompson, L. (2017). The strange geometry of skip-gram with negative sampling. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 2863–2868). <a href="index.html#fnref:36" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:37"><p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS. <a href="index.html#fnref:37" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:38"><p>Yu, M., &amp; Dredze, M. (2015). Learning Composition Models for Phrase Embeddings. Transactions of the ACL, 3, 227–242. <a href="index.html#fnref:38" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:39"><p>Hashimoto, K., &amp; Tsuruoka, Y. (2016). Adaptive Joint Learning of Compositional and Non-Compositional Phrase Embeddings. ACL, 205–215. Retrieved from <a href="http://arxiv.org/abs/1603.06067">http://arxiv.org/abs/1603.06067</a> <a href="index.html#fnref:39" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:40"><p>Lu, W., &amp; Zheng, V. W. (2017). A Simple Regularization-based Algorithm for Learning Cross-Domain Word Embeddings. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 2888–2894). <a href="index.html#fnref:40" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:41"><p>Faruqui, M., Dodge, J., Jauhar, S. K., Dyer, C., Hovy, E., &amp; Smith, N. A. (2015). Retrofitting Word Vectors to Semantic Lexicons. In NAACL 2015. <a href="index.html#fnref:41" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:42"><p>Mrkšić, N., Vulić, I., Séaghdha, D. Ó., Leviant, I., Reichart, R., Gašić, M., … Young, S. (2017). Semantic Specialisation of Distributional Word Vector Spaces using Monolingual and Cross-Lingual Constraints. TACL. Retrieved from <a href="http://arxiv.org/abs/1706.00374">http://arxiv.org/abs/1706.00374</a> <a href="index.html#fnref:42" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:43"><p>Ruder, S., Vulić, I., &amp; Søgaard, A. (2017). A Survey of Cross-lingual Word Embedding Models Sebastian. arXiv preprint arXiv:1706.04902. Retrieved from <a href="http://arxiv.org/abs/1706.04902">http://arxiv.org/abs/1706.04902</a> <a href="index.html#fnref:43" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:44"><p>Levy, O., &amp; Goldberg, Y. (2014). Dependency-Based Word Embeddings. Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Short Papers), 302–308. <a href="https://doi.org/10.3115/v1/P14-2050">https://doi.org/10.3115/v1/P14-2050</a> <a href="index.html#fnref:44" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:45"><p>Köhn, A. (2015). What’s in an Embedding? Analyzing Word Embeddings through Multilingual Evaluation. Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, Lisbon, Portugal, 17-21 September 2015, (2014), 2067–2073. <a href="index.html#fnref:45" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:46"><p>Melamud, O., McClosky, D., Patwardhan, S., &amp; Bansal, M. (2016). The Role of Context Types and Dimensionality in Learning Word Embeddings. In Proceedings of NAACL-HLT 2016 (pp. 1030–1040). Retrieved from <a href="http://arxiv.org/abs/1601.00893">http://arxiv.org/abs/1601.00893</a> <a href="index.html#fnref:46" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:47"><p>Bastings, J., Titov, I., Aziz, W., Marcheggiani, D., &amp; Sima’an, K. (2017). Graph Convolutional Encoders for Syntax-aware Neural Machine Translation. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:47" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:48"><p>Marcheggiani, D., &amp; Titov, I. (2017). Encoding Sentences with Graph Convolutional Networks for Semantic Role Labeling. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:48" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:49"><p>Mikolov, T., Corrado, G., Chen, K., &amp; Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR 2013), 1–12. <a href="index.html#fnref:49" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:50"><p>Vania, C., &amp; Lopez, A. (2017). From Characters to Words to in Between: Do We Capture Morphology? In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 2016–2027). <a href="index.html#fnref:50" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:51"><p>You, S., Ding, D., Canini, K., Pfeifer, J., &amp; Gupta, M. (2017). Deep Lattice Networks and Partial Monotonic Functions. In 31st Conference on Neural Information Processing Systems (NIPS 2017). Retrieved from <a href="http://arxiv.org/abs/1709.06680">http://arxiv.org/abs/1709.06680</a> <a href="index.html#fnref:51" title="return to article">↩</a></p></li></ol></div>
+
+<p>Cover image credit: Hamilton et al. (2016)</p>
+    </div>
+
+    <div class="post related">
+        <a rel="prev" id="prev-btn" class="btn small square" href="../multi-task-learning-nlp/index.html">← Multi-Task Learning Objectives for Natural Language Processing</a>
+
+    </div>
+
+    <footer class="post comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</footer>
+
+  </article>
+
+
+<script type="text/javascript"  
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+
+        <footer>
+  <span class="copyright">
+    &copy; 2017. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+  </span>
+</footer>
+      </section>
+    </main>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+    <script src="../assets/js/uno-zen.js?v=602eebbd81" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+  if (window.ga_id) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', window.ga_id, 'auto');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+  }
+</script>
+  </body>
+</html>
