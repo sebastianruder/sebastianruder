@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-2017/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/10/semantic_change.png" />
     <meta property="article:published_time" content="2017-10-21T09:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-21T13:54:07.850Z" />
+    <meta property="article:modified_time" content="2017-10-21T14:12:21.682Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "Word embeddings in 2017: Trends and future directions",
     "url": "u=http://ruder.io/word-embeddings-2017/",
     "datePublished": "2017-10-21T09:00:00.000Z",
-    "dateModified": "2017-10-21T13:54:07.850Z",
+    "dateModified": "2017-10-21T14:12:21.682Z",
     "image": "u=http://ruder.io/content/images/2017/10/semantic_change.png",
     "keywords": "word embeddings, natural language processing, nlp",
     "description": "This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them."
@@ -264,7 +264,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>While we might not need separate embeddings for every sense of each word for good downstream performance, reducing each word to a point in a vector space is unarguably overly simplistic and causes us to miss out on nuances that might be useful for downstream tasks. An interesting direction is thus to employ other representations that are better able to capture these facets. Vilnis &amp; McCallum (2015) [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>] propose to model each word as a probability distribution rather than a point vector, which allows us to represent probability mass and uncertainty across certain dimensions. Athiwaratkun &amp; Wilson (2017) [<sup id="fnref:25"><a href="index.html#fn:25" rel="footnote">25</a></sup>] extend this approach to a multimodal distribution that allows to deal with polysemy, entailment, uncertainty, and enhances interpretability.</p>
 
-<p>Finding other ways to represent words that incorporate linguistic assumptions or better deal with the characteristics of downstream tasks is a compelling research direction.</p>
+<p>Rather than altering the representation, the embedding space can also be changed to better represent certain features. Nickel and Kiela (2017) [<sup id="fnref:52"><a href="index.html#fn:52" rel="footnote">52</a></sup>], for instance, embed words in a hyperbolic space, to learn hierarchical representations. Finding other ways to represent words that incorporate linguistic assumptions or better deal with the characteristics of downstream tasks is a compelling research direction.</p>
 
 <h2 id="phrasesandmultiwordexpressions">Phrases and multi-word expressions</h2>
 
@@ -415,7 +415,9 @@ var ga_id = 'UA-60512592-1';
 
 <li class="footnote" id="fn:50"><p>Vania, C., &amp; Lopez, A. (2017). From Characters to Words to in Between: Do We Capture Morphology? In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (pp. 2016–2027). <a href="index.html#fnref:50" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:51"><p>You, S., Ding, D., Canini, K., Pfeifer, J., &amp; Gupta, M. (2017). Deep Lattice Networks and Partial Monotonic Functions. In 31st Conference on Neural Information Processing Systems (NIPS 2017). Retrieved from <a href="http://arxiv.org/abs/1709.06680">http://arxiv.org/abs/1709.06680</a> <a href="index.html#fnref:51" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:51"><p>You, S., Ding, D., Canini, K., Pfeifer, J., &amp; Gupta, M. (2017). Deep Lattice Networks and Partial Monotonic Functions. In 31st Conference on Neural Information Processing Systems (NIPS 2017). Retrieved from <a href="http://arxiv.org/abs/1709.06680">http://arxiv.org/abs/1709.06680</a> <a href="index.html#fnref:51" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:52"><p>Nickel, M., &amp; Kiela, D. (2017). Poincaré Embeddings for Learning Hierarchical Representations. arXiv Preprint arXiv:1705.08039. Retrieved from <a href="http://arxiv.org/abs/1705.08039">http://arxiv.org/abs/1705.08039</a> <a href="index.html#fnref:52" title="return to article">↩</a></p></li></ol></div>
 
 <p>Cover image credit: Hamilton et al. (2016)</p>
     </div>
