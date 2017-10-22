@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-2017/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/10/semantic_change.png" />
     <meta property="article:published_time" content="2017-10-21T09:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-22T13:47:44.088Z" />
+    <meta property="article:modified_time" content="2017-10-22T14:06:51.868Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "Word embeddings in 2017: Trends and future directions",
     "url": "u=http://ruder.io/word-embeddings-2017/",
     "datePublished": "2017-10-21T09:00:00.000Z",
-    "dateModified": "2017-10-22T13:47:44.088Z",
+    "dateModified": "2017-10-22T14:06:51.868Z",
     "image": "u=http://ruder.io/content/images/2017/10/semantic_change.png",
     "keywords": "word embeddings, natural language processing, nlp",
     "description": "This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them."
@@ -288,6 +288,8 @@ var ga_id = 'UA-60512592-1';
 
 <p>Rather than adapting to a new domain, we can also use existing knowledge encoded in semantic lexicons to augment pre-trained embeddings with information that is relevant for our task. An effective way to inject such relations into the embedding space is retro-fitting (Faruqui et al., 2015) [<sup id="fnref:41"><a href="index.html#fn:41" rel="footnote">41</a></sup>], which has been recently extended as semantic specialisation (Mrkšić et al., 2017) [<sup id="fnref:42"><a href="index.html#fn:42" rel="footnote">42</a></sup>] with an intelligent selection of positive and negative examples. Injecting additional prior knowledge into word embeddings such as monotonicity (You et al., 2017) [<sup id="fnref:51"><a href="index.html#fn:51" rel="footnote">51</a></sup>], word similarity (Niebler et al., 2017) [<sup id="fnref:53"><a href="index.html#fn:53" rel="footnote">53</a></sup>], task-related grading or intensity, or logical relations is an important research direction that will allow to make our models more robust.</p>
 
+<p>Word embeddings are useful for a wide variety of applications beyond NLP such as information retrieval, recommendation, and link prediction in knowledge bases, which all have their own task-specific approaches. Wu et al. (2017) [<sup id="fnref:54"><a href="index.html#fn:54" rel="footnote">54</a></sup>] propose a general-purpose model that is compatible with many of these applications and can serve as a strong baseline.</p>
+
 <h2 id="embeddingsformultiplelanguages">Embeddings for multiple languages</h2>
 
 <p>As NLP models are being increasingly employed and evaluated on multiple languages, creating multilingual word embeddings is becoming a more important issue and has received increased interest over recent years. A promising direction is to develop methods that learn cross-lingual representations with as few parallel data as possible, so that they can be easily applied to learn representations even for low-resource languages. For a recent survey in this area, refer to Ruder et al. (2017) [<sup id="fnref:43"><a href="index.html#fn:43" rel="footnote">43</a></sup>]. </p>
@@ -423,7 +425,9 @@ var ga_id = 'UA-60512592-1';
 
 <li class="footnote" id="fn:52"><p>Nickel, M., &amp; Kiela, D. (2017). Poincaré Embeddings for Learning Hierarchical Representations. arXiv Preprint arXiv:1705.08039. Retrieved from <a href="http://arxiv.org/abs/1705.08039">http://arxiv.org/abs/1705.08039</a> <a href="index.html#fnref:52" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:53"><p>Niebler, T., Becker, M., Pölitz, C., &amp; Hotho, A. (2017). Learning Semantic Relatedness From Human Feedback Using Metric Learning. In Proceedings of ISWC 2017. Retrieved from <a href="http://arxiv.org/abs/1705.07425">http://arxiv.org/abs/1705.07425</a> <a href="index.html#fnref:53" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:53"><p>Niebler, T., Becker, M., Pölitz, C., &amp; Hotho, A. (2017). Learning Semantic Relatedness From Human Feedback Using Metric Learning. In Proceedings of ISWC 2017. Retrieved from <a href="http://arxiv.org/abs/1705.07425">http://arxiv.org/abs/1705.07425</a> <a href="index.html#fnref:53" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:54"><p>Wu, L., Fisch, A., Chopra, S., Adams, K., Bordes, A., &amp; Weston, J. (2017). StarSpace: Embed All The Things! arXiv preprint arXiv:1709.03856. <a href="index.html#fnref:54" title="return to article">↩</a></p></li></ol></div>
 
 <p>Cover image credit: Hamilton et al. (2016)</p>
     </div>
