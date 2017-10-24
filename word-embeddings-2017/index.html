@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-2017/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/10/semantic_change.png" />
     <meta property="article:published_time" content="2017-10-21T09:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-24T08:34:09.064Z" />
+    <meta property="article:modified_time" content="2017-10-24T08:46:40.042Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "Word embeddings in 2017: Trends and future directions",
     "url": "u=http://ruder.io/word-embeddings-2017/",
     "datePublished": "2017-10-21T09:00:00.000Z",
-    "dateModified": "2017-10-24T08:34:09.064Z",
+    "dateModified": "2017-10-24T08:46:40.042Z",
     "image": "u=http://ruder.io/content/images/2017/10/semantic_change.png",
     "keywords": "word embeddings, natural language processing, nlp",
     "description": "This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them."
@@ -248,7 +248,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>One of the main problems of using pre-trained word embeddings is that they are unable to deal with out-of-vocabulary (OOV) words, i.e. words that have not been seen during training. Typically, such words are set to the UNK token and are assigned the same vector, which is an ineffective choice if the number of OOV words is large. Subword-level embeddings as discussed in the last section are one way to mitigate this issue. Another way, which is effective for reading comprehension (Dhingra et al., 2017) [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] is to assign OOV words their pre-trained word embedding, if one is available. </p>
 
-<p>Recently, different approaches have been proposed for generating embeddings for OOV words on-the-fly. Herbelot and Baroni (2017) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] initialize the embedding of OOV words as the sum of their context words and then rapidly refine only the OOV embedding with a high learning rate. Their approach is successful for a dataset that explicitly requires to model nonce words, but it is unclear if it can be scaled up to work reliably for more typical NLP tasks. Another interesting approach for generating OOV word embeddings is to train a character-based model to explicitly re-create pre-trained embeddings (Pinter et al., 2017) [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>]. While this allows us to generate embeddings even for OOV words, using pre-trained embeddings as intermediate representations begs the question why we would not optimize a character-based model directly for the original embedding objective.</p>
+<p>Recently, different approaches have been proposed for generating embeddings for OOV words on-the-fly. Herbelot and Baroni (2017) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] initialize the embedding of OOV words as the sum of their context words and then rapidly refine only the OOV embedding with a high learning rate. Their approach is successful for a dataset that explicitly requires to model nonce words, but it is unclear if it can be scaled up to work reliably for more typical NLP tasks. Another interesting approach for generating OOV word embeddings is to train a character-based model to explicitly re-create pre-trained embeddings (Pinter et al., 2017) [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>]. This is particularly useful in low-resource scenarios, where a large corpus is inaccessible and only pre-trained embeddings are available.</p>
 
 <h2 id="evaluation"> Evaluation</h2>
 
