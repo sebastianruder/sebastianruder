@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-2017/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/10/semantic_change.png" />
     <meta property="article:published_time" content="2017-10-21T09:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-24T10:43:01.190Z" />
+    <meta property="article:modified_time" content="2017-10-24T11:12:37.588Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="nlp" />
@@ -69,7 +69,7 @@
     "headline": "Word embeddings in 2017: Trends and future directions",
     "url": "u=http://ruder.io/word-embeddings-2017/",
     "datePublished": "2017-10-21T09:00:00.000Z",
-    "dateModified": "2017-10-24T10:43:01.190Z",
+    "dateModified": "2017-10-24T11:12:37.588Z",
     "image": "u=http://ruder.io/content/images/2017/10/semantic_change.png",
     "keywords": "word embeddings, natural language processing, nlp",
     "description": "This post gives an overview of the deficiencies of pre-trained word embeddings in 2017 and how recent approaches have tried to resolve them."
@@ -300,6 +300,8 @@ var ga_id = 'UA-60512592-1';
 
 <p>Melamud et al. (2016) [<sup id="fnref:46"><a href="index.html#fn:46" rel="footnote">46</a></sup>] observe that different context types work well for different downstream tasks and that simple concatenation of word embeddings learned with different context types can yield further performance gains. Given the recent success of incorporating graph structures into neural models for different tasks as -- for instance -- exhibited by graph-convolutional neural networks (Bastings et al., 2017; Marcheggiani &amp; Titov, 2017) [<sup id="fnref:47"><a href="index.html#fn:47" rel="footnote">47</a></sup>, <sup id="fnref:48"><a href="index.html#fn:48" rel="footnote">48</a></sup>], we can conjecture that incorporating such structures for learning embeddings for downstream tasks may also be beneficial.</p>
 
+<p>Besides selecting context words differently, additional context may also be used in other ways: Tissier et al. (2017) [<sup id="fnref:56"><a href="index.html#fn:56" rel="footnote">56</a></sup>] incorporate co-occurrence information from dictionary definitions into the negative sampling process to move related works closer together and prevent them from being used as negative samples. We can think of topical or relatedness information derived from other contexts such as article headlines or Wikipedia intro paragraphs that could similarly be used to make the representations more applicable to a particular downstream task.</p>
+
 <h2 id="conclusion">Conclusion</h2>
 
 <p>It is nice to see that as a community we are progressing from applying word embeddings to every possible problem to gaining a more principled, nuanced, and practical understanding of them. This post was meant to highlight some of the current trends and future directions for learning word embeddings that I found most compelling. I've undoubtedly failed to mention many other areas that are equally important and noteworthy. Please let me know in the comments below what I missed, where I made a mistake or misrepresented a method, or just which aspect of word embeddings you find particularly exciting or unexplored.</p>
@@ -429,7 +431,9 @@ var ga_id = 'UA-60512592-1';
 
 <li class="footnote" id="fn:54"><p>Wu, L., Fisch, A., Chopra, S., Adams, K., Bordes, A., &amp; Weston, J. (2017). StarSpace: Embed All The Things! arXiv preprint arXiv:1709.03856. <a href="index.html#fnref:54" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:55"><p>Speer, R., Chin, J., &amp; Havasi, C. (2017). ConceptNet 5.5: An Open Multilingual Graph of General Knowledge. In AAAI 31 (pp. 4444–4451). Retrieved from <a href="http://arxiv.org/abs/1612.03975">http://arxiv.org/abs/1612.03975</a> <a href="index.html#fnref:55" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:55"><p>Speer, R., Chin, J., &amp; Havasi, C. (2017). ConceptNet 5.5: An Open Multilingual Graph of General Knowledge. In AAAI 31 (pp. 4444–4451). Retrieved from <a href="http://arxiv.org/abs/1612.03975">http://arxiv.org/abs/1612.03975</a> <a href="index.html#fnref:55" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:56"><p>Tissier, J., Gravier, C., &amp; Habrard, A. (2017). Dict2Vec : Learning Word Embeddings using Lexical Dictionaries. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from <a href="http://aclweb.org/anthology/D17-1024">http://aclweb.org/anthology/D17-1024</a> <a href="index.html#fnref:56" title="return to article">↩</a></p></li></ol></div>
 
 <p>Cover image credit: Hamilton et al. (2016)</p>
     </div>
