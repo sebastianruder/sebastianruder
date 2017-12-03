@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/deep-learning-optimization-2017/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/12/snapshot_ensembles.png" />
     <meta property="article:published_time" content="2017-12-03T15:36:00.000Z" />
-    <meta property="article:modified_time" content="2017-12-03T20:17:39.631Z" />
+    <meta property="article:modified_time" content="2017-12-03T22:06:18.397Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="optimization" />
     
@@ -68,7 +68,7 @@
     "headline": "Optimization for Deep Learning Highlights in 2017",
     "url": "u=http://ruder.io/deep-learning-optimization-2017/",
     "datePublished": "2017-12-03T15:36:00.000Z",
-    "dateModified": "2017-12-03T20:17:39.631Z",
+    "dateModified": "2017-12-03T22:06:18.397Z",
     "image": "u=http://ruder.io/content/images/2017/12/snapshot_ensembles.png",
     "keywords": "deep learning, optimization",
     "description": "An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017."
@@ -247,7 +247,8 @@ var ga_id = 'UA-60512592-1';
 
 <p>\(\mathcal{L}_\text{reg} = \dfrac{w_t}{2} \|\theta_t \|^2_2 \)</p>
 
-<p>Weight decay is commonly implemented in many neural network libraries either as the above regularization term or directly to modify the gradient. As the gradient is modified in both the momentum and Adam update equations (via multiplication with other decay terms), weight decay no longer equals \(\ell_2\) regularization. Loshchilov and Hutter (2017) [<sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>] thus propose to decouple weight decay from the gradient update by adding it after the parameter update as in the original definition. For SGD with momentum, this update then looks like the following:</p>
+<p>Weight decay is commonly implemented in many neural network libraries either as the above regularization term or directly to modify the gradient. As the gradient is modified in both the momentum and Adam update equations (via multiplication with other decay terms), weight decay no longer equals \(\ell_2\) regularization. Loshchilov and Hutter (2017) [<sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>] thus propose to decouple weight decay from the gradient update by adding it after the parameter update as in the original definition. <br />
+The SGD + momentum with weight decay (SGDW) then looks like the following:</p>
 
 <p>\(
 \begin{align}
@@ -258,7 +259,7 @@ v_t &amp;= \gamma v_{t-1} + \eta g_t \\ <br />
 \end{align}
 \)</p>
 
-<p>where \(\eta\) is the learning rate and the third term in the second equation is the decoupled weight decay. Similarly, for Adam we obtain:</p>
+<p>where \(\eta\) is the learning rate and the third term in the second equation is the decoupled weight decay. Similarly, for Adam with weight decay (AdamW) we obtain:</p>
 
 <p>\(
 \begin{align}
@@ -273,6 +274,8 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ <br />
 \)</p>
 
 <p>where \(m_t\) and \(\hat{m}_t\) and \(v_t\) and \(\hat{v}_t\) are the biased and bias-corrected estimates of the first and second moments respectively and \(\beta_1\) and \(\beta_2\) are their decay rates, with the same weight decay term added to it. The authors show that this substantially improves Adam’s generalization performance and allows it to compete with SGD with momentum on image classification datasets.</p>
+
+<p>In addition, it decouples the choice of the learning rate from the choice of the weight decay, which enables better hyperparameter optimization as the hyperparameters no longer depend on each other. It also separates the implementation of the optimizer from the implementation of the weight decay, which contributes to cleaner and more reusable code (see e.g. the <a href="https://github.com/fastai/fastai/pull/46/files">fast.ai AdamW/SGDW implementation</a>).</p>
 
 <h3 id="fixingtheexponentialmovingaverage">Fixing the exponential moving average</h3>
 
@@ -331,7 +334,7 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ <br />
 
 <p>The high initial learning rate after a restart is used to essentially catapult the parameters out of the minimum to which they previously converged and to a different area of the loss surface. The aggressive annealing then enables the model to rapidly converge to a new and better solution. The authors empirically find that SGD with warm restarts requires 2 to 4 times fewer epochs than learning rate annealing and achieves comparable or better performance.</p>
 
-<p>Learning rate annealing with warm restarts is also known as cyclical learning rates and has been originally proposed by Smith (2017) [<sup id="fnref:22"><a href="index.html#fn:22" rel="footnote">22</a></sup>]. Two more articles by students of fast.ai (which has recently started to teach this method) that discuss warm restarts and cyclical learning rates can be found <a href="https://medium.com/@bushaev/improving-the-way-we-work-with-learning-rate-5e99554f163b">here</a> and <a href="http://teleported.in/posts/cyclic-learning-rate/">here</a>.</p>
+<p>Learning rate annealing with warm restarts is also known as cyclical learning rates and has been originally proposed by Smith (2017) [<sup id="fnref:22"><a href="index.html#fn:22" rel="footnote">22</a></sup>]. Two more articles by students of <a href="http://www.fast.ai/">fast.ai</a> (which has recently started to teach this method) that discuss warm restarts and cyclical learning rates can be found <a href="https://medium.com/@bushaev/improving-the-way-we-work-with-learning-rate-5e99554f163b">here</a> and <a href="http://teleported.in/posts/cyclic-learning-rate/">here</a>.</p>
 
 <h3 id="snapshotensembles"> Snapshot ensembles</h3>
 
