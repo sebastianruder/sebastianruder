@@ -43,7 +43,7 @@
     <meta property="og:url" content="u=http://ruder.io/deep-learning-optimization-2017/" />
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/12/snapshot_ensembles.png" />
     <meta property="article:published_time" content="2017-12-03T15:36:00.000Z" />
-    <meta property="article:modified_time" content="2017-12-03T22:06:18.397Z" />
+    <meta property="article:modified_time" content="2017-12-03T22:08:03.206Z" />
     <meta property="article:tag" content="deep learning" />
     <meta property="article:tag" content="optimization" />
     
@@ -68,7 +68,7 @@
     "headline": "Optimization for Deep Learning Highlights in 2017",
     "url": "u=http://ruder.io/deep-learning-optimization-2017/",
     "datePublished": "2017-12-03T15:36:00.000Z",
-    "dateModified": "2017-12-03T22:06:18.397Z",
+    "dateModified": "2017-12-03T22:08:03.206Z",
     "image": "u=http://ruder.io/content/images/2017/12/snapshot_ensembles.png",
     "keywords": "deep learning, optimization",
     "description": "An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017."
@@ -248,7 +248,7 @@ var ga_id = 'UA-60512592-1';
 <p>\(\mathcal{L}_\text{reg} = \dfrac{w_t}{2} \|\theta_t \|^2_2 \)</p>
 
 <p>Weight decay is commonly implemented in many neural network libraries either as the above regularization term or directly to modify the gradient. As the gradient is modified in both the momentum and Adam update equations (via multiplication with other decay terms), weight decay no longer equals \(\ell_2\) regularization. Loshchilov and Hutter (2017) [<sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>] thus propose to decouple weight decay from the gradient update by adding it after the parameter update as in the original definition. <br />
-The SGD + momentum with weight decay (SGDW) then looks like the following:</p>
+The SGD with momentum and weight decay (SGDW) update then looks like the following:</p>
 
 <p>\(
 \begin{align}
