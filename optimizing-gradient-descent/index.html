@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
   <head>
     <title>An overview of gradient descent optimization algorithms</title>
     <meta charset="utf-8">
@@ -32,27 +31,27 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=e86e0adc82" />
-    <link rel="canonical" href="http://ruder.io/optimizing-gradient-descent/" />
-    <meta name="referrer" content="origin" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=e86e0adc82">
+    <link rel="canonical" href="http://ruder.io/optimizing-gradient-descent/">
+    <meta name="referrer" content="origin">
     
-    <meta property="og:site_name" content="Sebastian Ruder" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="An overview of gradient descent optimization algorithms" />
-    <meta property="og:description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them." />
-    <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/" />
-    <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png" />
-    <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2018-01-19T11:29:10.026Z" />
-    <meta property="article:tag" content="optimization" />
-    <meta property="article:tag" content="deep learning" />
-    <meta property="article:tag" content="sgd" />
+    <meta property="og:site_name" content="Sebastian Ruder">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="An overview of gradient descent optimization algorithms">
+    <meta property="og:description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them.">
+    <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
+    <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
+    <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
+    <meta property="article:modified_time" content="2018-01-19T11:29:10.026Z">
+    <meta property="article:tag" content="optimization">
+    <meta property="article:tag" content="deep learning">
+    <meta property="article:tag" content="sgd">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="An overview of gradient descent optimization algorithms" />
-    <meta name="twitter:description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them." />
-    <meta name="twitter:url" content="u=http://ruder.io/optimizing-gradient-descent/" />
-    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="An overview of gradient descent optimization algorithms">
+    <meta name="twitter:description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them.">
+    <meta name="twitter:url" content="u=http://ruder.io/optimizing-gradient-descent/">
+    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     
     <script type="application/ld+json">
 {
@@ -76,8 +75,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7" />
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var open_button = '.nav-blog > a'
 </script>
@@ -102,14 +101,14 @@ var ga_id = 'UA-60512592-1';
   <div class="cover container">
     <div class="profile">
       <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
-        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out">
         <h1 id="profile-title">Sebastian Ruder</h1>
         <h3 id="profile-resume"></h3>
       </a>
 
-      <hr class="divider long" />
-      <p>I&#x27;m a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
-      <hr class="divider short" />
+      <hr class="divider long">
+      <p>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short">
       <div class="navigation">
         <div class="profile contact">
           <nav class="navigation left">
@@ -142,7 +141,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Twitter -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
-      <i class='icon icon-social-twitter'></i>
+      <i class="icon icon-social-twitter"></i>
       <span class="label">Twitter</span>
     </a>
   </li>
@@ -150,7 +149,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Linkedin -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
-      <i class='icon icon-social-linkedin'></i>
+      <i class="icon icon-social-linkedin"></i>
       <span class="label">Linkedin</span>
     </a>
   </li>
@@ -158,7 +157,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Github -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
-      <i class='icon icon-social-github'></i>
+      <i class="icon icon-social-github"></i>
       <span class="label">Github</span>
     </a>
   </li>
@@ -166,15 +165,15 @@ var ga_id = 'UA-60512592-1';
   <!-- E-mail -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
-      <i class='icon icon-mail'></i>
+      <i class="icon icon-mail"></i>
       <span class="label">Email</span>
     </a>
   </li>
 
   <!-- RSS -->
   <li class="social item hvr-grow-rotate">
-    <a href="../rss/index.html" title="Subscribe to RSS">
-      <i class='icon icon-rss'></i>
+    <a href="../rss/index.rss" title="Subscribe to RSS">
+      <i class="icon icon-rss"></i>
       <span class="label">RSS</span>
     </a>
   </li>
@@ -182,9 +181,9 @@ var ga_id = 'UA-60512592-1';
   </ul>
 </nav>
           <section class="icon icon-search" id="search-container">
-  <hr class="divider short" />
+  <hr class="divider short">
   <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
-    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field" />
+    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field">
   </form>
 </section>
         </div>
@@ -201,12 +200,12 @@ var ga_id = 'UA-60512592-1';
     <header>
       <div class="post meta">
         <time datetime="19 Jan 2016">19 Jan 2016</time>
-        <span class="post tags">in <a href="../tag/optimization/index.html">optimization</a> <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/sgd/index.html">sgd</a></span>
+        <span class="post tags">in <a href="../tag/optimization/">optimization</a> <a href="../tag/deep-learning/">deep learning</a> <a href="../tag/sgd/">sgd</a></span>
 
 
         <span class="post reading-time"> ~ <span></span> read.</span>
       </div>
-      <a alt="Tweet 'An overview of gradient descent optimization algorithms'" href="https://twitter.com/intent/tweet?text=An%20overview%20of%20gradient%20descent%20optimization%20algorithms%20%C2%BB&amp;hashtags=optimization,deep learning,sgd&amp;url=http://ruder.io/optimizing-gradient-descent/">
+      <a alt="Tweet 'An overview of gradient descent optimization algorithms'" href="https://twitter.com/intent/tweet?text=An%20overview%20of%20gradient%20descent%20optimization%20algorithms%20%C2%BB&amp;hashtags=optimization,deep%20learning,sgd&amp;url=http://ruder.io/optimizing-gradient-descent/">
         <img id="post-image" src="../content/images/2016/09/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms">
         <h1 class="icon-reverse icon-social-twitter-post" id="post-title">An overview of gradient descent optimization algorithms</h1>
       </a>
@@ -285,7 +284,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>\(\theta = \theta - \eta \cdot \nabla_\theta J( \theta; x^{(i)}; y^{(i)})\).</p>
 
-<p>Batch gradient descent performs redundant computations for large datasets, as it recomputes gradients for similar examples before each parameter update. SGD does away with this redundancy by performing one update at a time. It is therefore usually much faster and can also be used to learn online. <br />
+<p>Batch gradient descent performs redundant computations for large datasets, as it recomputes gradients for similar examples before each parameter update. SGD does away with this redundancy by performing one update at a time. It is therefore usually much faster and can also be used to learn online. <br>
 SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</p>
 
 <figure>  
@@ -293,7 +292,7 @@ SGD performs frequent updates with a high variance that cause the objective func
 <figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
 </figure>
 
-<p>While batch gradient descent converges to the minimum of the basin the parameters are placed in, SGD's fluctuation, on the one hand, enables it to jump to new and potentially better local minima. On the other hand, this ultimately complicates convergence to the exact minimum, as SGD will keep overshooting. However, it has been shown that when we slowly decrease the learning rate, SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively. <br />
+<p>While batch gradient descent converges to the minimum of the basin the parameters are placed in, SGD's fluctuation, on the one hand, enables it to jump to new and potentially better local minima. On the other hand, this ultimately complicates convergence to the exact minimum, as SGD will keep overshooting. However, it has been shown that when we slowly decrease the learning rate, SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively. <br>
 Its code fragment simply adds a loop over the training examples and evaluates the gradient w.r.t. each example. Note that we shuffle the training data at every epoch as explained in <a href="index.html#shufflingandcurriculumlearning">this section</a>.</p>
 
 <pre><code class="language-python">for i in range(nb_epochs):
@@ -359,7 +358,7 @@ Its code fragment simply adds a loop over the training examples and evaluates th
 <p>\(
 \begin{align}
 \begin{split}
-v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\ <br />
+v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\ <br>
 \theta &amp;= \theta - v_t
 \end{split}
 \end{align}
@@ -378,7 +377,7 @@ v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\ <br />
 <p>\(
 \begin{align}
 \begin{split}
-v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\ <br />
+v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\ <br>
 \theta &amp;= \theta - v_t
 \end{split}
 \end{align}
@@ -481,7 +480,7 @@ v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\ <
 <p>\(
 \begin{align}
 \begin{split}
-E[g^2]_t &amp;= 0.9 E[g^2]_{t-1} + 0.1 g^2_t \\ <br />
+E[g^2]_t &amp;= 0.9 E[g^2]_{t-1} + 0.1 g^2_t \\ <br>
 \theta_{t+1} &amp;= \theta_{t} - \dfrac{\eta}{\sqrt{E[g^2]_t + \epsilon}} g_{t}
 \end{split}
 \end{align}
@@ -496,8 +495,8 @@ E[g^2]_t &amp;= 0.9 E[g^2]_{t-1} + 0.1 g^2_t \\ <br />
 <p>\(
 \begin{align}
 \begin{split}
-m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\ <br />
-v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 <br />
+m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t \\ <br>
+v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 <br>
 \end{split}
 \end{align}
 \)</p>
@@ -535,7 +534,7 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 <br />
 <p>\(
 \begin{align}
 \begin{split}
-u_t &amp;= \beta_2^\infty v_{t-1} + (1 - \beta_2^\infty) |g_t|^\infty\\ <br />
+u_t &amp;= \beta_2^\infty v_{t-1} + (1 - \beta_2^\infty) |g_t|^\infty\\ <br>
               &amp; = \max(\beta_2 \cdot v_{t-1}, |g_t|)
 \end{split}
 \end{align}
@@ -558,8 +557,8 @@ u_t &amp;= \beta_2^\infty v_{t-1} + (1 - \beta_2^\infty) |g_t|^\infty\\ <br />
 <p>\(
 \begin{align}
 \begin{split}
-g_t &amp;= \nabla_{\theta_t}J(\theta_t)\\ <br />
-m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br />
+g_t &amp;= \nabla_{\theta_t}J(\theta_t)\\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
 \theta_{t+1} &amp;= \theta_t - m_t
 \end{split}
 \end{align}
@@ -576,8 +575,8 @@ m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br />
 <p>\(
 \begin{align}
 \begin{split}
-g_t &amp;= \nabla_{\theta_t}J(\theta_t - \gamma m_{t-1})\\ <br />
-m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br />
+g_t &amp;= \nabla_{\theta_t}J(\theta_t - \gamma m_{t-1})\\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
 \theta_{t+1} &amp;= \theta_t - m_t
 \end{split}
 \end{align}
@@ -588,8 +587,8 @@ m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br />
 <p>\(
 \begin{align}
 \begin{split}
-g_t &amp;= \nabla_{\theta_t}J(\theta_t)\\ <br />
-m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br />
+g_t &amp;= \nabla_{\theta_t}J(\theta_t)\\ <br>
+m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br>
 \theta_{t+1} &amp;= \theta_t - (\gamma m_t + \eta g_t)
 \end{split}
 \end{align}
@@ -600,7 +599,7 @@ m_t &amp;= \gamma m_{t-1} + \eta g_t\\ <br />
 <p>\(
 \begin{align} 
 \begin{split}
-m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t\\ <br />
+m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t\\ <br>
 \hat{m}_t &amp; = \frac{m_t}{1 - \beta^t_1}\\
 \theta_{t+1} &amp;= \theta_{t} - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t
 \end{split}
@@ -658,7 +657,7 @@ m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t\\ <br />
 
 <h1 id="parallelizinganddistributingsgd">Parallelizing and distributing SGD</h1>
 
-<p>Given the ubiquity of large-scale data solutions and the availability of low-commodity clusters, distributing SGD to speed it up further is an obvious choice. <br />
+<p>Given the ubiquity of large-scale data solutions and the availability of low-commodity clusters, distributing SGD to speed it up further is an obvious choice. <br>
 SGD by itself is inherently sequential: Step-by-step, we progress further towards the minimum. Running it provides good convergence but can be slow particularly on large datasets. In contrast, running SGD asynchronously is faster, but suboptimal communication between workers can lead to poor convergence. Additionally, we can also parallelize SGD on one machine without the need for a large computing cluster. The following are algorithms and architectures that have been proposed to optimize parallelized and distributed SGD.</p>
 
 <h2 id="hogwild">Hogwild!</h2>
@@ -730,7 +729,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
 <p>This blog post is also available as an <a href="http://arxiv.org/abs/1609.04747">article on arXiv</a>, in case you want to refer to it later.</p>
 
-<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br />
+<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br>
 <em>Sebastian Ruder (2016). An overview of gradient descent optimisation algorithms. arXiv preprint arXiv:1609.04747.</em></p>
 
 <h1 id="translations">Translations</h1>
@@ -778,7 +777,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
     <div class="post related">
 
-        <a rel="next" id="next-btn" class="btn small square" href="../word-embeddings-1/index.html">On word embeddings - Part 1 →</a>
+        <a rel="next" id="next-btn" class="btn small square" href="../word-embeddings-1/">On word embeddings - Part 1 →</a>
     </div>
 
     <footer class="post comments">
@@ -797,12 +796,11 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
   </article>
 
 
-<script type="text/javascript"  
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
 
         <footer>
   <span class="copyright">
-    &copy; 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+    © 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
   </span>
 </footer>
       </section>
@@ -823,4 +821,3 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
   }
 </script>
   </body>
-</html>

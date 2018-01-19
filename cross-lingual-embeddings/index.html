@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
   <head>
     <title>A survey of cross-lingual embedding models</title>
     <meta charset="utf-8">
@@ -32,27 +31,27 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=e86e0adc82" />
-    <link rel="canonical" href="http://ruder.io/cross-lingual-embeddings/" />
-    <meta name="referrer" content="origin" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=e86e0adc82">
+    <link rel="canonical" href="http://ruder.io/cross-lingual-embeddings/">
+    <meta name="referrer" content="origin">
     
-    <meta property="og:site_name" content="Sebastian Ruder" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="A survey of cross-lingual embedding models" />
-    <meta property="og:description" content="Note: If you are looking for a survey paper, this blog post is also available as an article on arXiv. In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word..." />
-    <meta property="og:url" content="u=http://ruder.io/cross-lingual-embeddings/" />
-    <meta property="og:image" content="u=http://ruder.io/content/images/2016/10/zou_et_al_2013.png" />
-    <meta property="article:published_time" content="2016-11-28T10:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-21T13:51:00.644Z" />
-    <meta property="article:tag" content="word embeddings" />
-    <meta property="article:tag" content="deep learning" />
-    <meta property="article:tag" content="nlp" />
+    <meta property="og:site_name" content="Sebastian Ruder">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A survey of cross-lingual embedding models">
+    <meta property="og:description" content="Note: If you are looking for a survey paper, this blog post is also available as an article on arXiv. In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word...">
+    <meta property="og:url" content="u=http://ruder.io/cross-lingual-embeddings/">
+    <meta property="og:image" content="u=http://ruder.io/content/images/2016/10/zou_et_al_2013.png">
+    <meta property="article:published_time" content="2016-11-28T10:00:00.000Z">
+    <meta property="article:modified_time" content="2017-10-21T13:51:00.644Z">
+    <meta property="article:tag" content="word embeddings">
+    <meta property="article:tag" content="deep learning">
+    <meta property="article:tag" content="nlp">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="A survey of cross-lingual embedding models" />
-    <meta name="twitter:description" content="Note: If you are looking for a survey paper, this blog post is also available as an article on arXiv. In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word..." />
-    <meta name="twitter:url" content="u=http://ruder.io/cross-lingual-embeddings/" />
-    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2016/10/zou_et_al_2013.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A survey of cross-lingual embedding models">
+    <meta name="twitter:description" content="Note: If you are looking for a survey paper, this blog post is also available as an article on arXiv. In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word...">
+    <meta name="twitter:url" content="u=http://ruder.io/cross-lingual-embeddings/">
+    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2016/10/zou_et_al_2013.png">
     
     <script type="application/ld+json">
 {
@@ -76,8 +75,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7" />
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var open_button = '.nav-blog > a'
 </script>
@@ -102,14 +101,14 @@ var ga_id = 'UA-60512592-1';
   <div class="cover container">
     <div class="profile">
       <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
-        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out">
         <h1 id="profile-title">Sebastian Ruder</h1>
         <h3 id="profile-resume"></h3>
       </a>
 
-      <hr class="divider long" />
-      <p>I&#x27;m a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
-      <hr class="divider short" />
+      <hr class="divider long">
+      <p>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short">
       <div class="navigation">
         <div class="profile contact">
           <nav class="navigation left">
@@ -142,7 +141,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Twitter -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
-      <i class='icon icon-social-twitter'></i>
+      <i class="icon icon-social-twitter"></i>
       <span class="label">Twitter</span>
     </a>
   </li>
@@ -150,7 +149,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Linkedin -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
-      <i class='icon icon-social-linkedin'></i>
+      <i class="icon icon-social-linkedin"></i>
       <span class="label">Linkedin</span>
     </a>
   </li>
@@ -158,7 +157,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Github -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
-      <i class='icon icon-social-github'></i>
+      <i class="icon icon-social-github"></i>
       <span class="label">Github</span>
     </a>
   </li>
@@ -166,15 +165,15 @@ var ga_id = 'UA-60512592-1';
   <!-- E-mail -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
-      <i class='icon icon-mail'></i>
+      <i class="icon icon-mail"></i>
       <span class="label">Email</span>
     </a>
   </li>
 
   <!-- RSS -->
   <li class="social item hvr-grow-rotate">
-    <a href="../rss/index.html" title="Subscribe to RSS">
-      <i class='icon icon-rss'></i>
+    <a href="../rss/index.rss" title="Subscribe to RSS">
+      <i class="icon icon-rss"></i>
       <span class="label">RSS</span>
     </a>
   </li>
@@ -182,9 +181,9 @@ var ga_id = 'UA-60512592-1';
   </ul>
 </nav>
           <section class="icon icon-search" id="search-container">
-  <hr class="divider short" />
+  <hr class="divider short">
   <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
-    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field" />
+    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field">
   </form>
 </section>
         </div>
@@ -201,12 +200,12 @@ var ga_id = 'UA-60512592-1';
     <header>
       <div class="post meta">
         <time datetime="28 Nov 2016">28 Nov 2016</time>
-        <span class="post tags">in <a href="../tag/word-embeddings/index.html">word embeddings</a> <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/nlp/index.html">nlp</a></span>
+        <span class="post tags">in <a href="../tag/word-embeddings/">word embeddings</a> <a href="../tag/deep-learning/">deep learning</a> <a href="../tag/nlp/">nlp</a></span>
 
 
         <span class="post reading-time"> ~ <span></span> read.</span>
       </div>
-      <a alt="Tweet 'A survey of cross-lingual embedding models'" href="https://twitter.com/intent/tweet?text=A%20survey%20of%20cross-lingual%20embedding%20models%20%C2%BB&amp;hashtags=word embeddings,deep learning,nlp&amp;url=http://ruder.io/cross-lingual-embeddings/">
+      <a alt="Tweet 'A survey of cross-lingual embedding models'" href="https://twitter.com/intent/tweet?text=A%20survey%20of%20cross-lingual%20embedding%20models%20%C2%BB&amp;hashtags=word%20embeddings,deep%20learning,nlp&amp;url=http://ruder.io/cross-lingual-embeddings/">
         <img id="post-image" src="../content/images/2016/10/zou_et_al_2013.png" alt="A survey of cross-lingual embedding models">
         <h1 class="icon-reverse icon-social-twitter-post" id="post-title">A survey of cross-lingual embedding models</h1>
       </a>
@@ -215,10 +214,10 @@ var ga_id = 'UA-60512592-1';
     <div id="post-content" class="post tag-word-embeddings tag-deep-learning tag-nlp">
       <p>Note: If you are looking for a survey paper, this blog post is also available as an <a href="https://arxiv.org/abs/1706.04902">article on arXiv</a>.</p>
 
-<p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads to a disproportionate focus on the English language and a negligence of the plethora of other languages that are spoken around the world. <br />
+<p>In past blog posts, we discussed different <a href="http://sebastianruder.com/word-embeddings-1/index.html">models</a>, <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">objective functions</a>, and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">hyperparameter choices</a> that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations of words in the language they were trained on. The availability of resources, training data, and benchmarks in English leads to a disproportionate focus on the English language and a negligence of the plethora of other languages that are spoken around the world. <br>
 In our globalised society, where national borders increasingly blur, where the Internet gives everyone equal access to information, it is thus imperative that we do not only seek to eliminate bias pertaining to <a href="http://arxiv.org/abs/1607.06520">gender or race</a> inherent in our representations, but also aim to address our bias towards <em>language</em>.</p>
 
-<p>To remedy this and level the linguistic playing field, we would like to leverage our existing knowledge in English to equip our models with the capability to process other languages. <br />
+<p>To remedy this and level the linguistic playing field, we would like to leverage our existing knowledge in English to equip our models with the capability to process other languages. <br>
 Perfect machine translation (MT) would allow this. However, we do not need to actually translate examples, as long as we are able to project examples into a common subspace such as the one in Figure 1.</p>
 
 <figure>  
@@ -234,8 +233,8 @@ Perfect machine translation (MT) would allow this. However, we do not need to ac
 
 <h1 id="typesofcrosslingualembeddingmodels">Types of cross-lingual embedding models</h1>
 
-<p>In recent years, various models for learning cross-lingual representations have been proposed. In the following, we will order them by the type of approach that they employ. <br />
-Note that while the nature of the parallel data used is equally discriminatory and has been shown to account for inter-model performance differences [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>], we consider the type of approach more conducive to understanding the assumptions a model makes and -- consequently -- its advantages and deficiencies. <br />
+<p>In recent years, various models for learning cross-lingual representations have been proposed. In the following, we will order them by the type of approach that they employ. <br>
+Note that while the nature of the parallel data used is equally discriminatory and has been shown to account for inter-model performance differences [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>], we consider the type of approach more conducive to understanding the assumptions a model makes and -- consequently -- its advantages and deficiencies. <br>
 Cross-lingual embedding models generally use four different approaches:</p>
 
 <ol>
@@ -415,7 +414,7 @@ Cross-lingual embedding models generally use four different approaches:</p>
 <figcaption>Figure 3: Cross-lingual projection using CCA (Faruqui and Dyer, 2014)</figcaption>  
 </figure>
 
-<p>Similar to linear projection, CCA also requires a number of translation pairs in \(\Sigma'\) and \(\Omega'\) whose correlation can be maximised. Faruqui and Dyer obtain these pairs by selecting for each source word the target word to which it has been aligned most often in a parallel corpus. Alternatively, they could have also used a bilingual dictionary. <br />
+<p>Similar to linear projection, CCA also requires a number of translation pairs in \(\Sigma'\) and \(\Omega'\) whose correlation can be maximised. Faruqui and Dyer obtain these pairs by selecting for each source word the target word to which it has been aligned most often in a parallel corpus. Alternatively, they could have also used a bilingual dictionary. <br>
 As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Faruqui and Dyer perform experiments using only the top \(k\) correlated projection vectors and find that using the \(80\) % projection vectors with the highest correlation generally yields the highest performance. </p>
 
 <figure>  
@@ -487,7 +486,7 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 
 <p>\(v(w_{OOV}^T) = Avg(v(w_T))\)</p>
 
-<p>where \(C = \{ w \:|\: EditDist(w_{OOV}^T, w) \leq \tau \} \). They set the threshold \(\tau\) empirically to \(1\). <br />
+<p>where \(C = \{ w \:|\: EditDist(w_{OOV}^T, w) \leq \tau \} \). They set the threshold \(\tau\) empirically to \(1\). <br>
 Even though this approach seems simplistic, they actually observe significant improvements over projection via CCA in their experiments.</p>
 
 <h2 id="multilingualcca">Multilingual CCA</h2>
@@ -500,8 +499,8 @@ Even though this approach seems simplistic, they actually observe significant im
 
 <p>The previous mapping approaches used a bilingual dictionary as inherent component of their model, but did not pay much attention to the quality of the dictionary entries, using either automatic translations of frequent words or word alignments of all words. </p>
 
-<p>Vulić and Korhonen [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] in turn emphasise the role of the seed lexicon that is used for learning the projection matrix. They propose a hybrid model that initially learns a first shared bilingual embedding space based on an existing cross-lingual embedding model. They then use this initial vector space to obtain translations for a list of frequent source words by projecting them into the space and using the nearest neighbour in the target language as translation. With these translation pairs as seed words, they learn a projection matrix analogously to Mikolov et al. (2013). <br />
-In addition, they propose a symmetry constraint, which enforces that words are only included if their projections are neighbours of each other in the first embedding space. Additionally, one can retain pairs whose second nearest neighbours are less similar than the first nearest neighbours up to some threshold. <br />
+<p>Vulić and Korhonen [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] in turn emphasise the role of the seed lexicon that is used for learning the projection matrix. They propose a hybrid model that initially learns a first shared bilingual embedding space based on an existing cross-lingual embedding model. They then use this initial vector space to obtain translations for a list of frequent source words by projecting them into the space and using the nearest neighbour in the target language as translation. With these translation pairs as seed words, they learn a projection matrix analogously to Mikolov et al. (2013). <br>
+In addition, they propose a symmetry constraint, which enforces that words are only included if their projections are neighbours of each other in the first embedding space. Additionally, one can retain pairs whose second nearest neighbours are less similar than the first nearest neighbours up to some threshold. <br>
 They run experiments showing that their model with the symmetry constraint outperforms comparison models and that a small threshold of \(0.01\) or \(0.025\) leads to slightly improved performance.</p>
 
 <h2 id="orthogonaltransformationnormalisationandmeancentering">Orthogonal transformation, normalisation, and mean centering</h2>
@@ -579,13 +578,13 @@ They run experiments showing that their model with the symmetry constraint outpe
 
 <p>Xiao and Guo [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>] propose the first pseudo-cross-lingual method that leverages translation pairs: They first translate all words that appear in the source language corpus into the target language using Wiktionary. As these translation pairs are still very noisy, they filter them by removing polysemous words in the source and target language and translations that do not appear in the target language corpus. From this bilingual dictionary, they now create a joint vocabulary, in which each translation pair has the same vector representation.</p>
 
-<p>For training, they use the margin-based ranking loss of Collobert et al. (2008) to rank correct word windows higher than corrupted ones, where the middle word is replaced by an arbitrary word. <br />
-In contrast to the subsequent methods, they do not construct a pseudo-cross-lingual corpus explicitly. Instead, they feed windows of both the source and target corpus into the model during training, thereby essentially interpolating source and target language. <br />
+<p>For training, they use the margin-based ranking loss of Collobert et al. (2008) to rank correct word windows higher than corrupted ones, where the middle word is replaced by an arbitrary word. <br>
+In contrast to the subsequent methods, they do not construct a pseudo-cross-lingual corpus explicitly. Instead, they feed windows of both the source and target corpus into the model during training, thereby essentially interpolating source and target language. <br>
 It is thus most likely that, for ease of training, the authors replace translation pairs in source and target corpus with a placeholder to ensure a common vector representation, similar to the procedure of subsequent models.</p>
 
 <h2 id="randomtranslationreplacement">Random translation replacement</h2>
 
-<p>Gouws and Søgaard [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>] in turn explicitly create a pseudo-cross-lingual corpus: They leverage translation pairs of words in the source and in the target language obtained via Google Translate. They concatenate the source and target corpus and replace each word that is part of a translation pair with its translation equivalent with a probability of 50%. They then train CBOW on this corpus. <br />
+<p>Gouws and Søgaard [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>] in turn explicitly create a pseudo-cross-lingual corpus: They leverage translation pairs of words in the source and in the target language obtained via Google Translate. They concatenate the source and target corpus and replace each word that is part of a translation pair with its translation equivalent with a probability of 50%. They then train CBOW on this corpus. <br>
 It is interesting to note that they also experiment with replacing words not based on translation but part-of-speech equivalence, i.e. words with the same part-of-speech in different languages will be replaced with one another. While replacement based on part-of-speech leads to small improvements for cross-lingual part-of-speech tagging, replacement based on translation equivalences yields even better performance for the task. </p>
 
 <h2 id="ontheflyreplacementandpolysemyhandling">On-the-fly replacement and polysemy handling</h2>
@@ -610,7 +609,7 @@ It is interesting to note that they also experiment with replacing words not bas
 
 <p>Vulić and Moens [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>] present a model that  does without translation pairs and learns cross-lingual embeddings only from document-aligned data. In contrast to the previous methods, the authors propose not to merge two monolingual corpora but two aligned documents of different languages into a pseudo-bilingual document.</p>
 
-<p>They concatenate the documents and then shuffle them by randomly permutating the words. The intuition is that as most methods rely on learning word embeddings based on their context, shuffling the documents would lead to bilingual contexts for each word that will enable the creation of a robust embedding space. As shuffling is necessarily random, however, it might lead to sub-optimal configurations. <br />
+<p>They concatenate the documents and then shuffle them by randomly permutating the words. The intuition is that as most methods rely on learning word embeddings based on their context, shuffling the documents would lead to bilingual contexts for each word that will enable the creation of a robust embedding space. As shuffling is necessarily random, however, it might lead to sub-optimal configurations. <br>
 For this reason, they propose another merging strategy that assumes that the structures of the document are similar: They then alternatingly insert words from each language into the pseudo-bilingual document in the order in which they appear in their monolingual document and based on the mono-lingual documents' length ratio.</p>
 
 <p>While pseudo-cross-lingual approaches are attractive due to their simplicity and ease of implementation, relying on naive replacement and permutation does not allow them to capture more sophisticated facets of cross-lingual relations.</p>
@@ -732,7 +731,7 @@ For this reason, they propose another merging strategy that assumes that the str
 
 <h2 id="bilingualmatrixfactorisation"> Bilingual matrix factorisation</h2>
 
-<p>Zou et al. [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] use a matrix factorisation approach in the spirit of GloVe (Pennington et al. [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>]) to learn cross-lingual word representations for English and Chinese. They create two alignment matrices \(A_{en \rightarrow zh}\) and \(A_{zh \rightarrow en}\) using alignment counts automatically learned from the Chinese Gigaword corpus. In \(A_{en \rightarrow zh}\), each element \(a_{ij}\) contains the number of times the \(i\)-th Chinese word was aligned with the \(j\)-th English word, with each row normalised to sum to \(1\). <br />
+<p>Zou et al. [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] use a matrix factorisation approach in the spirit of GloVe (Pennington et al. [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>]) to learn cross-lingual word representations for English and Chinese. They create two alignment matrices \(A_{en \rightarrow zh}\) and \(A_{zh \rightarrow en}\) using alignment counts automatically learned from the Chinese Gigaword corpus. In \(A_{en \rightarrow zh}\), each element \(a_{ij}\) contains the number of times the \(i\)-th Chinese word was aligned with the \(j\)-th English word, with each row normalised to sum to \(1\). <br>
 Intuitively, if a word in the source language is only aligned with one word in the target language, then those words should have the same representation. If the target word is aligned with more than one source word, then its representation should be a combination of the representations of its aligned words. Consequently, the authors represent the embeddings in the target language as the product of the source embeddings \(V_{en}\) and their corresponding alignment counts \(A_{en \rightarrow zh}\). They then minimise the squared difference between these two terms:</p>
 
 <p>\(\Omega_{en\rightarrow zh} = || V_{zh} - A_{en \rightarrow zh} V_{en}||^2 \)</p>
@@ -776,7 +775,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 
 <p>The cross-lingual objective in the BilBOWA model is thus:</p>
 
-<p>\(\Omega = \|\dfrac{1}{m} \sum\limits_{w_i \in s^{l_1}}^m r_i^{l_1} - \dfrac{1}{n} \sum\limits_{w_j \in s^{l_2}}^n r_j^{l_2} <br />
+<p>\(\Omega = \|\dfrac{1}{m} \sum\limits_{w_i \in s^{l_1}}^m r_i^{l_1} - \dfrac{1}{n} \sum\limits_{w_j \in s^{l_2}}^n r_j^{l_2} <br>
 \|^2 \)</p>
 
 <p>where \(r_i\) and \(r_j\) are the word embeddings of word \(w_i\) and \(w_j\) in each sentence \(s^{l_1}\) and \(s^{l_2}\) of length \(m\) and \(n\) in languages \(l_1\) and \(l_2\) respectively.</p>
@@ -811,7 +810,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 <figcaption>Figure 17: Learning cross-lingual word representations via matrix factorisation (Shi et al., 2015)</figcaption>  
 </figure>
 
-<p>They then place cross-lingual constraints on the monolingual representations as can be seen in Figure 17. The authors propose two cross-lingual regularisation objectives: The first one is based on calculating cross-lingual co-occurrence counts. These co-occurrences can be calculated without alignment information using a uniform alignment model as in Gouws et al. (2015). Alternatively, co-occurrence counts can also be calculated by leveraging automatically learned word alignments. The co-occurrence counts are then stored in a matrix \(X^{\text{bi}}\) where every entry \(X_{jk}^{\text{bi}}\) contains the number of times the source word \(j\) occurred with the target word \(k\) in an aligned sentence pair in the parallel corpus. <br />
+<p>They then place cross-lingual constraints on the monolingual representations as can be seen in Figure 17. The authors propose two cross-lingual regularisation objectives: The first one is based on calculating cross-lingual co-occurrence counts. These co-occurrences can be calculated without alignment information using a uniform alignment model as in Gouws et al. (2015). Alternatively, co-occurrence counts can also be calculated by leveraging automatically learned word alignments. The co-occurrence counts are then stored in a matrix \(X^{\text{bi}}\) where every entry \(X_{jk}^{\text{bi}}\) contains the number of times the source word \(j\) occurred with the target word \(k\) in an aligned sentence pair in the parallel corpus. <br>
 For optimisation, a PMI matrix \(M^{\text{bi}}_{jk}\) can be calculated based on the co-occurrence counts in \(X^{\text{bi}}\). This matrix can again be factorised as in the GloVe objective, where now the context word representation \(c_k^{l_i}\) is replaced with the representation of the word in the target language \(w_k^{l_2}\):</p>
 
 <p>\(\Omega = \sum\limits_{j \in V^{l_1}, k \in V^{l_2}} f(X_{jk}^{l_1})(w_j^{l_1} \cdot w_k^{l_2} + b_{w_j}^{l_1} + b_{w_k}^{l_2} + b^{\text{bi}} - M_{jk}^{\text{bi}}) \).</p>
@@ -852,7 +851,7 @@ For optimisation, a PMI matrix \(M^{\text{bi}}_{jk}\) can be calculated based on
 
 <p>where \(W_i^{l_1}\) and \(W_k^{l_2}\) are the word embeddings of word \(w_i\) and \(w_k\) in each sentence \(s_j\) of length \(m\) and \(n\) in languages \(l_1\) and \(l_2\) respectively. </p>
 
-<p>To leverage data that is not sentence-aligned, but where an alignment is still present on the document level, they propose a two-step approach: They use <a href="https://en.wikipedia.org/wiki/Procrustes_analysis">Procrustes analysis</a>, a method for statistical shape analysis, to find for each document in language \(l_1\) the most similar document in language \(l_2\). This is done by first learning monolingual representations of the documents in each language using paragraph vectors on each corpus. Subsequently, Procrustes analysis aims to learn a transformation between the two vector spaces by translating, rotating, and scaling the embeddings in the first space until they most closely align to the document representations in the second space. <br />
+<p>To leverage data that is not sentence-aligned, but where an alignment is still present on the document level, they propose a two-step approach: They use <a href="https://en.wikipedia.org/wiki/Procrustes_analysis">Procrustes analysis</a>, a method for statistical shape analysis, to find for each document in language \(l_1\) the most similar document in language \(l_2\). This is done by first learning monolingual representations of the documents in each language using paragraph vectors on each corpus. Subsequently, Procrustes analysis aims to learn a transformation between the two vector spaces by translating, rotating, and scaling the embeddings in the first space until they most closely align to the document representations in the second space. <br>
 In the second step, they then simply use the previously described method to learn cross-lingual word representations from the alignment documents, this time treating the entire documents as paragraphs.</p>
 
 <h1 id="incorporatingvisualinformation">Incorporating visual information</h1>
@@ -884,12 +883,12 @@ In the second step, they then simply use the previously described method to lear
 
 <h2 id="feasibility">Feasibility</h2>
 
-<p>The final challenge pertains to the feasibility of the venture of learning cross-lingual embeddings itself: Languages are incredibly complex, human artefacts. Learning a monolingual embedding space is already difficult; sharing such a vector space between two languages and expecting that inter-language and intra-language relations are reliably reflected then seems utopian. <br />
+<p>The final challenge pertains to the feasibility of the venture of learning cross-lingual embeddings itself: Languages are incredibly complex, human artefacts. Learning a monolingual embedding space is already difficult; sharing such a vector space between two languages and expecting that inter-language and intra-language relations are reliably reflected then seems utopian. <br>
 Additionally, some languages show linguistic features, which other languages lack. The ease of constructing a shared embedding space between languages and consequently the success of cross-lingual transfer is intuitively proportional to the similarity of the languages: An embedding space shared between Spanish and Portuguese tends to capture more linguistic nuances of meaning than an embedding space populated with English and Chinese representations. Furthermore, if two languages are too dissimilar, cross-linguistic transfer might not be possible at all -- similar to the negative transfer that occurs in domain adaptation between very dissimilar domains.</p>
 
 <h1 id="evaluation">Evaluation</h1>
 
-<p>Having surveyed models to learn cross-lingual word representations, we would now like to know which is the best method to use for the task we care about. Cross-lingual representation models have been evaluated on a wide range of tasks such as cross-lingual document classification (CLDC), Machine Translation (MT), word similarity, as well as cross-lingual variations of the following tasks: named entity recognition, part-of-speech tagging, super sense tagging, dependency parsing, and dictionary induction. <br />
+<p>Having surveyed models to learn cross-lingual word representations, we would now like to know which is the best method to use for the task we care about. Cross-lingual representation models have been evaluated on a wide range of tasks such as cross-lingual document classification (CLDC), Machine Translation (MT), word similarity, as well as cross-lingual variations of the following tasks: named entity recognition, part-of-speech tagging, super sense tagging, dependency parsing, and dictionary induction. <br>
 In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-dimensional cross-lingual word embeddings are learned to classify documents in one language and evaluated on the documents of another language. As CLDC is among the most widely used, we show below exemplarily the evaluation table of Mogadala and Rettinger (2016) for this task:</p>
 
 <style type="text/css">  
@@ -929,7 +928,7 @@ In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-d
     <td class="tg-yw4l">58.4</td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><a href="index.html#multitasklanguagemodel">Multi-task language model (Klementiev et al., 2012)</td>
+    <td class="tg-yw4l"><a href="index.html#multitasklanguagemodel">Multi-task language model (Klementiev et al., 2012)</a></td>
     <td class="tg-yw4l">77.6</td>
     <td class="tg-yw4l">71.1</td>
     <td class="tg-yw4l">74.5</td>
@@ -956,7 +955,7 @@ In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-d
     <td class="tg-yw4l">-</td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><a href="index.html#distributedwordalignment">Distributed word alignment (Kočiský et al., 2014)</td>
+    <td class="tg-yw4l"><a href="index.html#distributedwordalignment">Distributed word alignment (Kočiský et al., 2014)</a></td>
     <td class="tg-yw4l">83.1</td>
     <td class="tg-yw4l">75.4</td>
     <td class="tg-yw4l">-</td>
@@ -983,7 +982,7 @@ In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-d
     <td class="tg-yw4l">-</td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><a href="index.html#bilingualskipgramwithoutwordalignments">Bilingual skip-gram without word alignments (Coulmance et al., 2015)</td>
+    <td class="tg-yw4l"><a href="index.html#bilingualskipgramwithoutwordalignments">Bilingual skip-gram without word alignments (Coulmance et al., 2015)</a></td>
     <td class="tg-yw4l">87.8</td>
     <td class="tg-yw4l">78.7</td>
     <td class="tg-yw4l">-</td>
@@ -992,7 +991,7 @@ In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-d
     <td class="tg-yw4l">-</td>
   </tr>
   <tr>
-    <td class="tg-yw4l"><a href="index.html#bilingualparagraphvectorswithoutparalleldata">Bilingual paragraph vectors (without parallel data) (Mogadala and Rettinger, 2016)</td>
+    <td class="tg-yw4l"><a href="index.html#bilingualparagraphvectorswithoutparalleldata">Bilingual paragraph vectors (without parallel data) (Mogadala and Rettinger, 2016)</a></td>
     <td class="tg-yw4l">88.1</td>
     <td class="tg-9hbo">78.9</td>
     <td class="tg-yw4l">79.2</td>
@@ -1002,7 +1001,7 @@ In the context of the CLDC evaluation setup by Klementiev et al. (2012) \(40\)-d
   </tr>
 </table>
 
-<p>These results, however, should not be considered as representative of the general performance of cross-lingual embedding models as different methods tend to well on different tasks depending on the type of approach and the type of data used. <br />
+<p>These results, however, should not be considered as representative of the general performance of cross-lingual embedding models as different methods tend to well on different tasks depending on the type of approach and the type of data used. <br>
 Upadhyay et al. [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31</a></sup>] evaluate cross-lingual embedding models that require different forms of supervision on various tasks. They find that on word similarity datasets, models that require cheaper forms of supervision (sentence-aligned and document-aligned data) are almost as good as models with more expensive supervision in the form of word alignments. For cross-lingual classification and dictionary induction, more informative supervision is better. Finally, for parsing, models with word-level alignment are able to capture syntax more accurately and thus perform better overall.</p>
 
 <p>The findings by Upadhyay et al. are further proof for the intuition that the choice of the data is important. Levy et al. (2016) go even further than this in comparing models for learning cross-lingual word representations to traditional alignment models on dictionary induction and word alignment tasks. They argue that whether or not an algorithm uses a particular feature set is more important than the choice of the algorithm. In their experiments, using sentence ids, i.e. creating a sentence's language-independent representation (for instance with doc2vec) achieves better results than just using the source and target words.</p>
@@ -1019,7 +1018,7 @@ Upadhyay et al. [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31
 
 <p>This blog post is also available as an <a href="https://arxiv.org/abs/1706.04902">article on arXiv</a>, in case you want to refer to it later.</p>
 
-<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br />
+<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br>
 <em>Sebastian Ruder (2017). A survey of cross-lingual embedding models. arXiv preprint     arXiv:1706.04902.</em></p>
 
 <h1 id="otherblogpostsonwordembeddings">Other blog posts on word embeddings</h1>
@@ -1117,9 +1116,9 @@ Upadhyay et al. [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31
     </div>
 
     <div class="post related">
-        <a rel="prev" id="prev-btn" class="btn small square" href="../emnlp-2016-highlights/index.html">← Highlights of EMNLP 2016: Dialogue, deep learning, and more</a>
+        <a rel="prev" id="prev-btn" class="btn small square" href="../emnlp-2016-highlights/">← Highlights of EMNLP 2016: Dialogue, deep learning, and more</a>
 
-        <a rel="next" id="next-btn" class="btn small square" href="../highlights-nips-2016/index.html">Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more →</a>
+        <a rel="next" id="next-btn" class="btn small square" href="../highlights-nips-2016/">Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more →</a>
     </div>
 
     <footer class="post comments">
@@ -1138,12 +1137,11 @@ Upadhyay et al. [<sup id="fnref:31"><a href="index.html#fn:31" rel="footnote">31
   </article>
 
 
-<script type="text/javascript"  
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
 
         <footer>
   <span class="copyright">
-    &copy; 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+    © 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
   </span>
 </footer>
       </section>
@@ -1164,4 +1162,3 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
   }
 </script>
   </body>
-</html>

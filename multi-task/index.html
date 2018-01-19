@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
   <head>
     <title>An Overview of Multi-Task Learning for Deep Learning</title>
     <meta charset="utf-8">
@@ -32,27 +31,27 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=e86e0adc82" />
-    <link rel="canonical" href="http://ruder.io/multi-task/" />
-    <meta name="referrer" content="origin" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=e86e0adc82">
+    <link rel="canonical" href="http://ruder.io/multi-task/">
+    <meta name="referrer" content="origin">
     
-    <meta property="og:site_name" content="Sebastian Ruder" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="An Overview of Multi-Task Learning for Deep Learning" />
-    <meta property="og:description" content="This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances." />
-    <meta property="og:url" content="u=http://ruder.io/multi-task/" />
-    <meta property="og:image" content="u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png" />
-    <meta property="article:published_time" content="2017-05-29T13:00:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-10T11:52:36.824Z" />
-    <meta property="article:tag" content="deep learning" />
-    <meta property="article:tag" content="transfer learning" />
-    <meta property="article:tag" content="nlp" />
+    <meta property="og:site_name" content="Sebastian Ruder">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="An Overview of Multi-Task Learning for Deep Learning">
+    <meta property="og:description" content="This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances.">
+    <meta property="og:url" content="u=http://ruder.io/multi-task/">
+    <meta property="og:image" content="u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png">
+    <meta property="article:published_time" content="2017-05-29T13:00:00.000Z">
+    <meta property="article:modified_time" content="2017-10-10T11:52:36.824Z">
+    <meta property="article:tag" content="deep learning">
+    <meta property="article:tag" content="transfer learning">
+    <meta property="article:tag" content="nlp">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="An Overview of Multi-Task Learning for Deep Learning" />
-    <meta name="twitter:description" content="This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances." />
-    <meta name="twitter:url" content="u=http://ruder.io/multi-task/" />
-    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="An Overview of Multi-Task Learning for Deep Learning">
+    <meta name="twitter:description" content="This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances.">
+    <meta name="twitter:url" content="u=http://ruder.io/multi-task/">
+    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png">
     
     <script type="application/ld+json">
 {
@@ -76,8 +75,8 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7" />
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var open_button = '.nav-blog > a'
 </script>
@@ -102,14 +101,14 @@ var ga_id = 'UA-60512592-1';
   <div class="cover container">
     <div class="profile">
       <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
-        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out" />
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out">
         <h1 id="profile-title">Sebastian Ruder</h1>
         <h3 id="profile-resume"></h3>
       </a>
 
-      <hr class="divider long" />
-      <p>I&#x27;m a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
-      <hr class="divider short" />
+      <hr class="divider long">
+      <p>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short">
       <div class="navigation">
         <div class="profile contact">
           <nav class="navigation left">
@@ -142,7 +141,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Twitter -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
-      <i class='icon icon-social-twitter'></i>
+      <i class="icon icon-social-twitter"></i>
       <span class="label">Twitter</span>
     </a>
   </li>
@@ -150,7 +149,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Linkedin -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
-      <i class='icon icon-social-linkedin'></i>
+      <i class="icon icon-social-linkedin"></i>
       <span class="label">Linkedin</span>
     </a>
   </li>
@@ -158,7 +157,7 @@ var ga_id = 'UA-60512592-1';
   <!-- Github -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
-      <i class='icon icon-social-github'></i>
+      <i class="icon icon-social-github"></i>
       <span class="label">Github</span>
     </a>
   </li>
@@ -166,15 +165,15 @@ var ga_id = 'UA-60512592-1';
   <!-- E-mail -->
   <li class="social item hvr-grow-rotate">
     <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
-      <i class='icon icon-mail'></i>
+      <i class="icon icon-mail"></i>
       <span class="label">Email</span>
     </a>
   </li>
 
   <!-- RSS -->
   <li class="social item hvr-grow-rotate">
-    <a href="../rss/index.html" title="Subscribe to RSS">
-      <i class='icon icon-rss'></i>
+    <a href="../rss/index.rss" title="Subscribe to RSS">
+      <i class="icon icon-rss"></i>
       <span class="label">RSS</span>
     </a>
   </li>
@@ -182,9 +181,9 @@ var ga_id = 'UA-60512592-1';
   </ul>
 </nav>
           <section class="icon icon-search" id="search-container">
-  <hr class="divider short" />
+  <hr class="divider short">
   <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
-    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field" />
+    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field">
   </form>
 </section>
         </div>
@@ -201,12 +200,12 @@ var ga_id = 'UA-60512592-1';
     <header>
       <div class="post meta">
         <time datetime="29 May 2017">29 May 2017</time>
-        <span class="post tags">in <a href="../tag/deep-learning/index.html">deep learning</a> <a href="../tag/transfer-learning/index.html">transfer learning</a> <a href="../tag/nlp/index.html">nlp</a></span>
+        <span class="post tags">in <a href="../tag/deep-learning/">deep learning</a> <a href="../tag/transfer-learning/">transfer learning</a> <a href="../tag/nlp/">nlp</a></span>
 
 
         <span class="post reading-time"> ~ <span></span> read.</span>
       </div>
-      <a alt="Tweet 'An Overview of Multi-Task Learning in Deep Neural Networks'" href="https://twitter.com/intent/tweet?text=An%20Overview%20of%20Multi-Task%20Learning%20in%20Deep%20Neural%20Networks%20%C2%BB&amp;hashtags=deep learning,transfer learning,nlp&amp;url=http://ruder.io/multi-task/">
+      <a alt="Tweet 'An Overview of Multi-Task Learning in Deep Neural Networks'" href="https://twitter.com/intent/tweet?text=An%20Overview%20of%20Multi-Task%20Learning%20in%20Deep%20Neural%20Networks%20%C2%BB&amp;hashtags=deep%20learning,transfer%20learning,nlp&amp;url=http://ruder.io/multi-task/">
         <img id="post-image" src="../content/images/2017/05/mtl_images-002-2.png" alt="An Overview of Multi-Task Learning in Deep Neural Networks">
         <h1 class="icon-reverse icon-social-twitter-post" id="post-title">An Overview of Multi-Task Learning in Deep Neural Networks</h1>
       </a>
@@ -333,7 +332,7 @@ var ga_id = 'UA-60512592-1';
 
 <h2 id="blocksparseregularization">Block-sparse regularization</h2>
 
-<p>In order to better connect the following approaches, let us first introduce some notation. We have \(T\) tasks. For each task \(t\), we have a model \(m_t\) with parameters \(a_t\) of dimensionality \(d\). We can write the parameters as a column vector \(a_t = \begin{bmatrix}a_{1, t} \ \ldots \ a_{d, t} \end{bmatrix}^\top \). We now stack these column vectors \(a_1, \ldots, a_T\) column by column to form a matrix \(A \in <br />
+<p>In order to better connect the following approaches, let us first introduce some notation. We have \(T\) tasks. For each task \(t\), we have a model \(m_t\) with parameters \(a_t\) of dimensionality \(d\). We can write the parameters as a column vector \(a_t = \begin{bmatrix}a_{1, t} \ \ldots \ a_{d, t} \end{bmatrix}^\top \). We now stack these column vectors \(a_1, \ldots, a_T\) column by column to form a matrix \(A \in <br>
 \mathbb{R}^{d \times T}\). The \(i\)-th row of \(A\) then contains the parameter \(a_{i, \cdot}\) corresponding to the \(i\)-th feature of the model for every task, while the \(j\)-th column of \(A\) contains the parameters \(a_{\cdot,j}\) corresponding to the \(j\)-th model.</p>
 
 <p>Many existing methods make some sparsity assumption with regard to the parameters of our models. [<sup id="fnref:12"><a href="index.html#fn:12" rel="footnote">12</a></sup>] assume that all models share a small set of features. In terms of our task parameter matrix \(A\), this means that all but a few rows are \(0\), which corresponds to only a few features being used across <em>all</em> tasks. In order to enforce this, they generalize the \(\ell_1\) norm to the MTL setting. Recall that the \(\ell_1\) norm is a constraint on the sum of the parameters, which forces all but a few parameters to be exactly \(0\). It is also known as lasso (<strong>l</strong>east <strong>a</strong>bsolute <strong>s</strong>hrinkage and <strong>s</strong>election <strong>o</strong>perator).</p>
@@ -378,7 +377,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>While the previous approaches to modelling the relationship between tasks employ norm regularization, other approaches do so without regularization: [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>] were the first ones who presented a task clustering algorithm using k-nearest neighbour, while [<sup id="fnref:25"><a href="index.html#fn:25" rel="footnote">25</a></sup>] learn a common structure from multiple related tasks with an application to semi-supervised learning.</p>
 
-<p>Much other work on learning task relationships for multi-task learning uses Bayesian methods: <br />
+<p>Much other work on learning task relationships for multi-task learning uses Bayesian methods: <br>
 [<sup id="fnref:26"><a href="index.html#fn:26" rel="footnote">26</a></sup>] propose a Bayesian neural network for multi-task learning by placing a prior on the model parameters to encourage similar parameters across tasks. [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>] extend Gaussian processes (GP) to MTL by inferring parameters for a shared covariance matrix. As this is computationally very expensive, they adopt a sparse approximation scheme that greedily selects the most informative examples. [<sup id="fnref:28"><a href="index.html#fn:28" rel="footnote">28</a></sup>] also use GP for MTL by assuming that all models are sampled from a common prior. </p>
 
 <p>[<sup id="fnref:29"><a href="index.html#fn:29" rel="footnote">29</a></sup>] place a Gaussian as a prior distribution on each task-specific layer. In order to encourage similarity between different tasks, they propose to make the mean task-dependent and introduce a clustering of the tasks using a mixture distribution. Importantly, they require task characteristics that define the clusters and the number of mixtures to be specified in advance.</p>
@@ -525,7 +524,7 @@ var ga_id = 'UA-60512592-1';
 
 <p>This blog post is also available as an <a href="https://arxiv.org/abs/1706.05098">article on arXiv</a>, in case you want to refer to it later.</p>
 
-<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br />
+<p>In case you found it helpful, consider citing the corresponding arXiv article as: <br>
 <em>Sebastian Ruder (2017). An Overview of Multi-Task Learning in Deep Neural Networks. arXiv preprint arXiv:1706.05098.</em></p>
 
 <h1 id="references">References</h1>
@@ -644,9 +643,9 @@ var ga_id = 'UA-60512592-1';
     </div>
 
     <div class="post related">
-        <a rel="prev" id="prev-btn" class="btn small square" href="../transfer-learning/index.html">← Transfer Learning - Machine Learning&#x27;s Next Frontier</a>
+        <a rel="prev" id="prev-btn" class="btn small square" href="../transfer-learning/">← Transfer Learning - Machine Learning's Next Frontier</a>
 
-        <a rel="next" id="next-btn" class="btn small square" href="../deep-learning-nlp-best-practices/index.html">Deep Learning for NLP Best Practices →</a>
+        <a rel="next" id="next-btn" class="btn small square" href="../deep-learning-nlp-best-practices/">Deep Learning for NLP Best Practices →</a>
     </div>
 
     <footer class="post comments">
@@ -665,12 +664,11 @@ var ga_id = 'UA-60512592-1';
   </article>
 
 
-<script type="text/javascript"  
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
 
         <footer>
   <span class="copyright">
-    &copy; 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+    © 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
   </span>
 </footer>
       </section>
@@ -691,4 +689,3 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
   }
 </script>
   </body>
-</html>
