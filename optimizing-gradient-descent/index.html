@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
-    <meta property="article:modified_time" content="2018-02-09T16:50:25.316Z">
+    <meta property="article:modified_time" content="2018-02-09T22:04:39.765Z">
     <meta property="article:tag" content="optimization">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="sgd">
@@ -68,7 +68,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2018-02-09T16:50:25.316Z",
+    "dateModified": "2018-02-09T22:04:39.765Z",
     "image": "u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -654,11 +654,11 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ <br>
 \end{align}
 \)</p>
 
-<p>The authors observe improved performance compared to Adam on small datasets and on CIFAR-10. For more information about recent advances in Deep Learning optimization, refer to <a href="http://ruder.io/deep-learning-optimization-2017/">this blog post</a>.</p>
+<p>The authors observe improved performance compared to Adam on small datasets and on CIFAR-10. <a href="https://fdlm.github.io/post/amsgrad/">Other experiments</a>, however, show similar or worse performance than Adam. It remains to be seen whether AMSGrad is able to consistently outperform Adam in practice. For more information about recent advances in Deep Learning optimization, refer to <a href="http://ruder.io/deep-learning-optimization-2017/">this blog post</a>.</p>
 
 <h2 id="visualizationofalgorithms">Visualization of algorithms</h2>
 
-<p>The following two animations (Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a>) provide some intuitions towards the optimization behaviour of the presented optimization algorithms. Also have a look <a href="http://cs231n.github.io/neural-networks-3/">here</a> for a description of the same images by Karpathy and another concise overview of the algorithms discussed.</p>
+<p>The following two animations (Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a>) provide some intuitions towards the optimization behaviour of most of the presented optimization methods. Also have a look <a href="http://cs231n.github.io/neural-networks-3/">here</a> for a description of the same images by Karpathy and another concise overview of the algorithms discussed.</p>
 
 <p>In Image 5, we see their behaviour on the contours of a loss surface (<a href="https://www.sfu.ca/~ssurjano/beale.html">the Beale function</a>) over time. Note that Adagrad, Adadelta, and RMSprop almost immediately head off in the right direction and converge similarly fast, while Momentum and NAG are led off-track, evoking the image of a ball rolling down the hill. NAG, however, is quickly able to correct its course due to its increased responsiveness by looking ahead and heads to the minimum.</p>
 
