@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
-    <meta property="article:modified_time" content="2018-02-09T22:04:39.765Z">
+    <meta property="article:modified_time" content="2018-02-10T09:56:54.987Z">
     <meta property="article:tag" content="optimization">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="sgd">
@@ -68,7 +68,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2018-02-09T22:04:39.765Z",
+    "dateModified": "2018-02-10T09:56:54.987Z",
     "image": "u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -625,7 +625,7 @@ m_t &amp;= \beta_1 m_{t-1} + (1 - \beta_1) g_t\\ <br>
 
 <p>As adaptive learning rate methods have become the norm in training neural networks, practitioners noticed that in some cases, e.g. for object recognition [<sup id="fnref:26"><a href="index.html#fn:26" rel="footnote">26</a></sup>] or machine translation [<sup id="fnref:27"><a href="index.html#fn:27" rel="footnote">27</a></sup>] they fail to converge to an optimal solution and are outperformed by SGD with momentum. </p>
 
-<p>Reddit et al. (2018) [<sup id="fnref:28"><a href="index.html#fn:28" rel="footnote">28</a></sup>] formalize this issue and pinpoint the exponential moving average of past squared gradients as a reason for the poor generalization behaviour of adaptive learning rate methods. Recall that the introduction of the exponential average was well-motivated: It should prevent the learning rates to become infinitesimally small as training progresses, the key flaw of the Adagrad algorithm. However, this short-term memory of the gradients becomes an obstacle in other scenarios.</p>
+<p>Reddi et al. (2018) [<sup id="fnref:28"><a href="index.html#fn:28" rel="footnote">28</a></sup>] formalize this issue and pinpoint the exponential moving average of past squared gradients as a reason for the poor generalization behaviour of adaptive learning rate methods. Recall that the introduction of the exponential average was well-motivated: It should prevent the learning rates to become infinitesimally small as training progresses, the key flaw of the Adagrad algorithm. However, this short-term memory of the gradients becomes an obstacle in other scenarios.</p>
 
 <p>In settings where Adam converges to a suboptimal solution, it has been observed that some minibatches provide large and informative gradients, but as these minibatches only occur rarely, exponential averaging diminishes their influence, which leads to poor convergence. The authors provide an example for a simple convex optimization problem where the same behaviour can be observed for Adam.</p>
 
