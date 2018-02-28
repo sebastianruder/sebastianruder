@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 28 Feb 2018 09:25:48 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 28 Feb 2018 09:27:12 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://localhost:2368/deep-learning-optimization-2017/#improvingadam"&gt;Improving Adam&lt;/a&gt;
@@ -2297,75 +2297,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
-&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>News</title><description>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
-
-&lt;p&gt;01.-06.07.2018: I will be attending &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presenting our paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="past"&gt;Past&lt;/h1&gt;</description><link>http://localhost:2368/news/</link><guid isPermaLink="false">acc3aa19-ab08-418c-842c-ddae0887b3b7</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:47:27 GMT</pubDate><content:encoded>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
-
-&lt;p&gt;01.-06.07.2018: I will be attending &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presenting our paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="past"&gt;Past&lt;/h1&gt;
-
-&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;
-
-&lt;p&gt;14.02.2018: My paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; with Isabelle Augenstein and Anders Søgaard was accepted as an oral presentation to &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="2017"&gt;2017&lt;/h2&gt;
-
-&lt;p&gt;24.11.2017: I gave a &lt;a href="https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning"&gt;guest lecture on Optimization for Deep Learning&lt;/a&gt; in the Advanced Topics in Computational Intelligence course at the Dublin Institute for Technology.&lt;/p&gt;
-
-&lt;p&gt;08.11.2017: My startup Aylien has &lt;a href="https://aylien.com/ai-startup-aylien-announces-2m-investment-and-the-creation-of-70-jobs/"&gt;raised €2m new funding&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;13.10.2017: I gave a &lt;a href="https://talks.cam.ac.uk/talk/index/80741"&gt;talk on transfer learning for NLP at Cambridge, UK&lt;/a&gt; and was invited by &lt;a href="https://alexgkendall.com/"&gt;Alex Kendall&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;12.10.2017: I gave a &lt;a href="https://www.meetup.com/South-England-Natural-Language-Processing-Meetup/events/242617956/"&gt;talk on transfer learning for NLP at The Alan Turing Institute&lt;/a&gt; and was invited by &lt;a href="http://pontus.stenetorp.se/"&gt;Pontus Stenetorp&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;25.-27.09.2017: I attended the second Google NLP Summit in Zurich.&lt;/p&gt;
-
-&lt;p&gt;07.-11.09.2017: I attended &lt;a href="http://emnlp2017.net/"&gt;EMNLP 2017&lt;/a&gt; in Copenhagen, Denmark and presented &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;a poster&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;01.07.2017: My paper with Barbara Plank &lt;a href="https://arxiv.org/abs/1707.05246"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt; was accepted to EMNLP 2017.&lt;/p&gt;
-
-&lt;p&gt;31.05.2017: I gave a talk on transfer learning for NLP at the &lt;a href="https://www.meetup.com/Natural-Language-Processing-Copenhagen-Meetup/events/240082070/"&gt;Natural Language Processing Copenhagen meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;April - June 2017: I was visiting the &lt;a href="http://coastalcph.github.io/"&gt;NLP group&lt;/a&gt; at the Department of Computer Science, University of Copenhagen and was hosted by &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;03.03.2017: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at Accenture, Dublin and was invited by &lt;a href="https://www.linkedin.com/in/dcahalane"&gt;Diarmuid Cahalane&lt;/a&gt;. &lt;/p&gt;
-
-&lt;p&gt;01.03.2017: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at LinkedIn, Dublin and was invited by &lt;a href="http://yazdani.me/"&gt;Majid Yazdani&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="2016"&gt;2016&lt;/h2&gt;
-
-&lt;p&gt;13.12.2016. I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/nips-2016-highlights-sebastian-ruder"&gt;NIPS 2016 highlights&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/235149644/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;05.-10.12.2016: I attended &lt;a href="https://nips.cc/"&gt;NIPS 2016&lt;/a&gt; in Barcelona, Spain. &lt;a href="http://sebastianruder.com/highlights-nips-2016/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;01.-05.11.2016: I attended &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt; in Austin, Texas. &lt;a href="http://sebastianruder.com/emnlp-2016-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;02.11.2016: We've announced &lt;a href="http://blog.aylien.com/funded-phd-masters-opportunities-aylien/"&gt;funded PhD and Master's opportunities&lt;/a&gt; at AYLIEN.&lt;/p&gt;
-
-&lt;p&gt;09.09.2016: My paper &lt;a href="http://aclweb.org/anthology/W/W16/W16-6012.pdf"&gt;&lt;em&gt;Towards a continuous modeling of natural language domains&lt;/em&gt;&lt;/a&gt; has been accepted at the Uphill Battles in Language Processing workshop at EMNLP 2016.&lt;/p&gt;
-
-&lt;p&gt;24.08.2016: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/a-hierarchical-model-of-reviews-for-aspectbased-sentiment-analysis"&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/a&gt; at the Insight SIG NLP meeting at NUIG.&lt;/p&gt;
-
-&lt;p&gt;11.-12.08.2016: I attended the &lt;a href="https://sites.google.com/site/repl4nlp2016/"&gt;RepL4NLP&lt;/a&gt; and &lt;a href="https://sites.google.com/site/repevalacl16/"&gt;RepEval&lt;/a&gt; workshops at &lt;a href="http://acl2016.org/"&gt;ACL 2016&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;03.08.2016: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/softmax-approximations-for-learning-word-embeddings-and-language-modeling-sebastian-ruder"&gt;Softmax Approximations for Learning Word Embeddings and Language Modeling&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/232278017/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;29.07.2016: My paper &lt;a href="https://arxiv.org/pdf/1609.02745v1.pdf"&gt;&lt;em&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/em&gt;&lt;/a&gt; has been accepted to EMNLP 2016.&lt;/p&gt;
-
-&lt;p&gt;21.-28.07.2016: I attended the &lt;a href="http://lxmls.it.pt/2016/"&gt;6th Lisbon Machine Learning School&lt;/a&gt;. &lt;a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;July 2016: I started organizing the &lt;a href="http://www.meetup.com/NLP-Dublin/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;21.-24.03.2016: I attended the &lt;a href="http://ivl-net.eu/ivl-net-training-school-2016/"&gt;2nd Summer School on Integrating Vision and Language&lt;/a&gt; with a focus on Deep Learning in Malta.&lt;/p&gt;
-
-&lt;p&gt;February 2016: Two papers accepted at the SemEval-2016 tasks 4, &lt;a href="http://alt.qcri.org/semeval2016/task4/"&gt;Twitter Sentiment Analysis&lt;/a&gt; and 5, &lt;a href="http://alt.qcri.org/semeval2016/task5/"&gt;Aspect-based Sentiment Analysis&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>A survey of cross-lingual embedding models</title><description>&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>A survey of cross-lingual embedding models</title><description>&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In past blog posts, we discussed different &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;models&lt;/a&gt;, &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;objective functions&lt;/a&gt;, and &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;hyperparameter choices&lt;/a&gt; that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations&lt;/p&gt;</description><link>http://localhost:2368/cross-lingual-embeddings/</link><guid isPermaLink="false">9337835e-1bdf-4fa1-acd1-f23a262380ac</guid><category>word embeddings</category><category>deep learning</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:00:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/10/zou_et_al_2013.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/10/zou_et_al_2013.png" alt="A survey of cross-lingual embedding models"&gt;&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
 
@@ -3813,57 +3745,805 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 &lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/Deep-Neural-Networks-Are-Our-Friends.pdf"&gt;Deep Neural Networks Are Our Friends (Wang Ling)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/lxmls-dl2.pdf"&gt;Modeling Sequential Data with Recurrent Networks (Chris Dyer)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/abordes-lxmlss.pdf"&gt;Memory Networks for Language Understanding (Antoine Bordes)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>Publications</title><description>&lt;p&gt;You can find my Google Scholar profile &lt;a href="https://scholar.google.de/citations?user=8ONXPV8AAAAJ&amp;amp;hl"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>On word embeddings - Part 2: Approximating the Softmax</title><description>This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings.</description><link>http://localhost:2368/word-embeddings-softmax/</link><guid isPermaLink="false">23b4d38f-dfda-4cbd-949b-7978ab56090e</guid><category>deep learning</category><category>word embeddings</category><category>softmax</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 13 Jun 2016 10:00:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/06/softmax_classifier.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/06/softmax_classifier.png" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
 
-&lt;h1 id="selectedpublications"&gt;Selected publications&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#softmaxarchitecturemodifications"&gt;Softmax-based Approaches&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#hierarchicalsoftmax"&gt;Hierarchical Softmax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#differentiatedsoftmax"&gt;Differentiated Softmax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#cnnsoftmax"&gt;CNN-Softmax&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#samplingbasedapproaches"&gt;Sampling-based Approaches&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#importancesampling"&gt;Importance Sampling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#adaptiveimportancesampling"&gt;Adaptive Importance Sampling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#targetsampling"&gt;Target Sampling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#noisecontrastiveestimation"&gt;Noise Contrastive Estimation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#negativesampling"&gt;Negative Sampling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#selfnormalisation"&gt;Self-Normalisation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#infrequentnormalisation"&gt;Infrequent Normalisation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#otherapproaches"&gt;Other Approaches&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#whichapproachtochoose"&gt;Which Approach to Choose?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
+&lt;p&gt;This is the second post in a series on word embeddings and representation learning. In the &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;previous post&lt;/a&gt;, we gave an overview of word embedding models and introduced the classic neural language model by Bengio et al. (2003), the C&amp;amp;W model by Collobert and Weston (2008), and the word2vec model by Mikolov et al. (2013). We observed that mitigating the complexity of computing the final softmax layer has been one of the main challenges in devising better word embedding models, a commonality with machine translation (MT) (Jean et al. [&lt;sup id="fnref:10"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:10" rel="footnote"&gt;10&lt;/a&gt;&lt;/sup&gt;]) and language modelling (Jozefowicz et al. [&lt;sup id="fnref:6"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;]).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Barbara Plank (2017). &lt;a href="http://www.aclweb.org/anthology/D17-1038"&gt;Learning to select data for transfer learning with Bayesian&lt;/a&gt;&lt;/p&gt;</description><link>http://localhost:2368/publications/</link><guid isPermaLink="false">22cda420-5a7f-4ee4-a14f-9e0fe080af28</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 09 Aug 2016 09:46:55 GMT</pubDate><content:encoded>&lt;p&gt;You can find my Google Scholar profile &lt;a href="https://scholar.google.de/citations?user=8ONXPV8AAAAJ&amp;amp;hl"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this post, we will thus focus on giving an overview of various approximations to the softmax layer that have been proposed over the last years, some of which have so far only been employed in the context of language modelling or MT. We will postpone the discussion of additional hyperparameters to the subsequent post.&lt;/p&gt;
 
-&lt;h1 id="selectedpublications"&gt;Selected publications&lt;/h1&gt;
+&lt;p&gt;Let us know partially re-introduce the previous post's notation both for consistency and to facilitate comparison as well as introduce some new notation: We assume a training corpus containing a sequence of \(T\) training words \(w_1, w_2, w_3, \cdots, w_T\) that belong to a vocabulary \(V\) whose size is \(|V|\). Our models generally consider a context \(c\) of \( n \) words. We associate every word with an input embedding \( v_w \) (the eponymous word embedding in the Embedding Layer) with \(d\) dimensions and an output embedding \( v'_w \) (the representation of the word in the weight matrix of the softmax layer). We finally optimize an objective function \(J_\theta\) with regard to our model parameters \(\theta\).&lt;/p&gt;
 
-&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
+&lt;p&gt;Recall that the softmax calculates the probability of a word \(w\) given its context \(c\) and can be computed using the following equation:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Barbara Plank (2017). &lt;a href="http://www.aclweb.org/anthology/D17-1038"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt;. In &lt;em&gt;Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing&lt;/em&gt;, pages 372–382, Copenhagen, Denmark. &lt;a href="https://github.com/sebastianruder/learn-to-select-data"&gt;Code&lt;/a&gt;, &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;poster&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;\(p(w \: | \: c) = \dfrac{\text{exp}({h^\top v'_w})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \)&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt; (2016). &lt;a href="https://arxiv.org/abs/1609.04747"&gt;An overview of gradient descent optimization algorithms&lt;/a&gt;. arXiv preprint arXiv:1609.04747.&lt;/p&gt;
+&lt;p&gt;where \(h\) is the output vector of the penultimate network layer. Note that we use \(c\) for the context as mentioned above and drop the index \(t\) of the target word \(w_t\) for simplicity. Computing the softmax is expensive as the inner product between \(h\) and the output embedding of every word \(w_i\) in the vocabulary \(V\) needs to be computed as part of the sum in the denominator in order to obtain the normalized probability of the target word \(w\) given its context \(c\).&lt;/p&gt;
 
-&lt;p&gt;*: Equal contribution.&lt;/p&gt;
+&lt;p&gt;In the following we will discuss different strategies that have been proposed to approximate the softmax. These approaches can be grouped into softmax-based and sampling-based approaches. Softmax-based approaches are methods that keep the softmax layer intact, but modify its architecture to improve its efficiency. Sampling-based approaches on the other hand completely do away with the softmax layer and instead optimise some other loss function that approximates the softmax.&lt;/p&gt;
 
-&lt;h1 id="2018"&gt;2018&lt;/h1&gt;
+&lt;h1 id="softmaxbasedapproaches"&gt;Softmax-based Approaches&lt;/h1&gt;
 
-&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
+&lt;h2 id="hierarchicalsoftmax"&gt; Hierarchical Softmax&lt;/h2&gt;
 
-&lt;h1 id="2017"&gt;2017&lt;/h1&gt;
+&lt;p&gt;Hierarchical softmax (H-Softmax) is an approximation inspired by binary trees that was proposed by Morin and Bengio [&lt;sup id="fnref:3"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;]. H-Softmax essentially replaces the flat softmax layer with a hierarchical layer that has the words as leaves, as can be seen in Figure 1. &lt;br&gt;
+This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least \(50 \times\) and is thus critical for low-latency tasks such as real-time communication in &lt;a href="http://googleresearch.blogspot.ie/2016/05/chat-smarter-with-allo.html"&gt;Google's new messenger app Allo&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Ivan Vulić, Anders Søgaard (2017). &lt;a href="https://arxiv.org/abs/1706.04902"&gt;A Survey Of Cross-lingual Word Embedding Models&lt;/a&gt;. arXiv preprint arXiv:1706.04902.&lt;/p&gt;
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%; height: 70%" title="Hierarchical softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+&lt;figcaption&gt;Figure 1: Hierarchical softmax (&lt;a href="https://www.quora.com/Word2vec-How-can-hierarchical-soft-max-training-method-of-CBOW-guarantee-its-self-consistence"&gt;Quora&lt;/a&gt;)&lt;/figcaption&gt;  
+&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Barbara Plank (2017). &lt;a href="http://www.aclweb.org/anthology/D17-1038"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt;. In &lt;em&gt;Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing&lt;/em&gt;, pages 372–382, Copenhagen, Denmark. &lt;a href="https://github.com/sebastianruder/learn-to-select-data"&gt;Code&lt;/a&gt;, &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;poster&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We can think of the regular softmax as a tree of depth \(1\), with each word in \(V\) as a leaf node.  Computing the softmax probability of one word then requires normalizing over the probabilities of all \(|V|\) leaves. If we instead structure the softmax as a binary tree, with the words as leaf nodes, then we only need to follow the path to the leaf node of that word, without having to consider any of the other nodes. &lt;br&gt;
+Since a balanced binary tree has a depth of \(\text{log}_2 (\:|V|\:)\), we only need to evaluate at most \(\text{log}_2 (\:|V|\:)\) nodes to obtain the final probability of a word. Note that this probability is already normalized, as the probabilities of all leaves in a binary tree sum to \( 1 \) and thus form a probability distribution. To informally verify this, we can reason that at a tree's root node (Node 0) in Figure 1), the probabilities of branching decisions must sum to \(1\). At each subsequent node, the probability mass is then split among its children, until it eventually ends up at the leaf nodes, i.e. the words. Since no probability is lost along the way and since all words are leaves, the probabilities of all words must necessarily sum to \(1\) and hence the hierarchical softmax defines a normalized probability distribution over all words in \(V\).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Joachim Bingel, Isabelle Augenstein, Anders Søgaard (2017). &lt;a href="https://arxiv.org/abs/1705.08142"&gt;Sluice networks: Learning what to share between loosely related tasks&lt;/a&gt;. arXiv preprint arXiv:1705.08142. &lt;a href="https://github.com/sebastianruder/sluice-networks"&gt;Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To get a bit more concrete, as we go through the tree, we have to be able to calculate the probability of taking the left or right branch at every junction. For this reason, we assign a representation to every node. In contrast to the regular softmax, we thus no longer have output embeddings \(v'_w\) for every word \(w\) -- instead, we have embeddings \(v'_n\) for every node \(n\). As we have \(|V|-1\) nodes and each one possesses a unique representation, the number of parameters of H-Softmax is almost the same as for the regular softmax. We can now calculate the probability of going right (or left) at a given node \(n\) given the context \(c\) the following way:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt; (2017). &lt;a href="https://arxiv.org/abs/1706.05098"&gt;An Overview of Multi-Task Learning in Deep Neural Networks&lt;/a&gt;. arXiv preprint arXiv:1706.05098.&lt;/p&gt;
+&lt;p&gt;\( p(\: \text{right}\: | \: n, c) = \sigma (h^\top v'_{n})\).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2017). &lt;a href="https://arxiv.org/abs/1702.02426"&gt;Data Selection Strategies for Multi-Domain Sentiment Analysis&lt;/a&gt;. arXiv preprint arXiv:1702.02426.&lt;/p&gt;
+&lt;p&gt;This is almost the same as the computations in the regular softmax; now instead of computing the dot product between \(h\) and the output word embedding \(v'_{w}\), we compute the dot product between \(h\) and the embedding \(v'_{w}\) of each node in the tree; additionally, instead of computing a probability distribution over the entire vocabulary words, we output just one probability, the probability of going right at node \(n\) in this case, with the sigmoid function. Conversely, the probability of turning left is simply \( 1 - p(\:\text{right}\: | \: n,c)\).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2017). &lt;a href="https://arxiv.org/abs/1702.02052"&gt;Knowledge Adaptation: Teaching to Adapt&lt;/a&gt;. arXiv preprint arXiv:1702.02052.&lt;/p&gt;
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/05/hierarchical_softmax.png" style="width: 70%; height: 70%" title="Hierarchical softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+&lt;figcaption&gt;Figure 2: Hierarchical softmax computations (&lt;a href="https://www.youtube.com/watch?v=B95LTf2rVWM"&gt;Hugo Lachorelle's Youtube lectures&lt;/a&gt;)&lt;/figcaption&gt;  
+&lt;/figure&gt;
 
-&lt;h1 id="2016"&gt;2016&lt;/h1&gt;
+&lt;p&gt;The probability of a word \(w\) given its context \(c\) is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. To illustrate this, given the context "the", "dog", "and", "the", the probability of the word "cat" in Figure 2 can be computed as the product of the probability of turning left at node 1, turning right at node 2, and turning right at node 5. Hugo Lachorelle gives a more detailed account in his excellent &lt;a href="https://www.youtube.com/watch?v=B95LTf2rVWM"&gt;lecture video&lt;/a&gt;. Rong [&lt;sup id="fnref:7"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;] also does a good job of explaining these concepts and also derives the derivatives of H-Softmax.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2016). &lt;a href="http://www.aclweb.org/anthology/W/W16/W16-6012.pdf"&gt;Towards a continuous modeling of natural language domains&lt;/a&gt;. In &lt;em&gt;Proceedings of EMNLP 2016 Workshop on Uphill Battles in Language Processing: Scaling Early Achievements to Robust Methods&lt;/em&gt;, pages 53-57, Austin, Texas, US. &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtNWw0SU5WcXlSelE/view?usp=sharing"&gt;Poster&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Obviously, the structure of the tree is of significance. Intuitively, we should be able to achieve better performance, if we make it easier for the model to learn the binary predictors at every node, e.g. by enabling it to assign similar probabilities to similar paths. Based on this idea, Morin and Bengio use the synsets in WordNet as clusters for the tree. However, they still report inferior performance to the regular softmax. Mnih and Hinton [&lt;sup id="fnref:8"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;] learn the tree structure with a clustering algorithm that recursively partitions the words in two clusters and allows them to achieve the same performance as the regular softmax at a fraction of the computation.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2016). &lt;a href="http://www.aclweb.org/anthology/D/D16/D16-1103.pdf"&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/a&gt;. In &lt;em&gt;Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing&lt;/em&gt;, pages 999–1005, Austin, Texas, US. &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtWlBvcWdsUmpKVnc/view?usp=sharing"&gt;Poster&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Notably, we are only able to obtain this speed-up during training, when we know the word we want to predict (and consequently its path) in advance. During testing, when we need to find the most likely prediction, we still need to calculate the probability of all words, although narrowing down the choices in advance helps here.&lt;/p&gt;
 
-&lt;p&gt;Ian D. Wood, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt; (2016). &lt;a href="http://gsi.dit.upm.es/esa2016/Proceedings-ESA2016.pdf"&gt;Emoji as emotion tags for tweets&lt;/a&gt;. In &lt;em&gt;Emotion and Sentiment Analysis Workshop&lt;/em&gt;, LREC, Portorož, Slovenia.&lt;/p&gt;
+&lt;p&gt;In practice, instead of using "right" and "left" in order to designate nodes, we can index every node with a bit vector that corresponds to the path it takes to reach that node. In Figure 2, if we assume a &lt;code class="language-python"&gt;0&lt;/code&gt; bit for turning left and a &lt;code class="language-python"&gt;1&lt;/code&gt; bit for turning right, we can thus represent the path to "cat" as &lt;code class="language-python"&gt;011&lt;/code&gt;. &lt;br&gt;
+Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). If we set \(|V| = 10000\), this amounts to an average path length of about \( 13.3 \). Analogously, we can represent every word by the bit vector of its path that is on average \(13.3\) bits long. In information theory, this is referred to as an  information content of \(13.3\) bits per word.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Peiman Barnaghi, John G. Breslin (2016). Analysis and Applications of a Novel Corpus of Influencers on Twitter. In &lt;em&gt;Twitter for Research Conference&lt;/em&gt;, Galway, Ireland.&lt;/p&gt;
+&lt;h3 id="anoteontheinformationcontentofwords"&gt;A note on the information content of words&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2016). &lt;a href="http://www.anthology.aclweb.org/S/S16/S16-1026.pdf"&gt;INSIGHT-1 at SemEval-2016 Task 4: Convolutional Neural Networks for Sentiment Classification and Quantification&lt;/a&gt;. In &lt;em&gt;Proceedings of the 10th International Workshop on Semantic Evaluation (SemEval 2016)&lt;/em&gt;, San Diego, US.&lt;/p&gt;
+&lt;p&gt;Recall that the information content \(I(w)\) of a word \(w\) is the negative logarithm of its probability \(p(w)\):&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2016). &lt;a href="http://www.aclweb.org/anthology/S/S16/S16-1053.pdf"&gt;INSIGHT-1 at SemEval-2016 Task 5: Convolutional Neural Networks for Multilingual Aspect-based Sentiment Analysis&lt;/a&gt;. In &lt;em&gt;Proceedings of the 10th International Workshop on Semantic Evaluation (SemEval 2016)&lt;/em&gt;, San Diego, US.&lt;/p&gt;
+&lt;p&gt;\(I(w) = -\log_2 p(w) \).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt; (2016). &lt;a href="https://arxiv.org/abs/1609.04747"&gt;An overview of gradient descent optimization algorithms&lt;/a&gt;. arXiv preprint arXiv:1609.04747.&lt;/p&gt;
+&lt;p&gt;The entropy \( H \) of all words in a corpus is then the expectation of the information content of all words in the vocabulary:  &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Parsa Ghaffari, John G. Breslin (2016). &lt;a href="https://arxiv.org/pdf/1609.06686.pdf"&gt;Character-level and Multi-channel Convolutional Neural Networks for
-Large-scale Authorship Attribution&lt;/a&gt;. arXiv preprint arXiv:1609.06686.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;\( H = \sum_{i\in V} p(w_i) \: I(w_i) \).&lt;/p&gt;
+
+&lt;p&gt;We can also conceive of the entropy of a data source as the average number of bits needed to encode it. For a fair coin flip, we need \(1\) bit per flip, whereas we need \(0\) bits for a data source that always emits the same symbol. For a balanced binary tree, where we treat every word equally, the word entropy \(H\) equals the information content \(I(w)\) of every word \(w\), as each word has the same probability. The average word entropy \(H\) in a balanced binary tree with \(|V| = 10000\) thus coincides with its average path length:&lt;/p&gt;
+
+&lt;p&gt;\( H = - \sum_{i\in V} \dfrac{1}{10000} \log_2  \dfrac{1}{10000} = 13.3\).&lt;/p&gt;
+
+&lt;p&gt;We saw before that the structure of the tree is important. Notably, we can leverage the tree structure not only to gain better performance, but also to speed up computation: If we manage to encode more information into the tree, we can get away with taking shorter paths for less informative words. Morin and Bengio point out that leveraging word probabilities should work even better; as some words are more likely to occur than others, they can be encoded using less information. They note that the word entropy of their corpus (with \(|V| = 10,000\)) is about \( 9.16 \). &lt;/p&gt;
+
+&lt;p&gt;Thus, by taking into account frequencies, we can reduce the average number of bits per word in the corpus from \( 13.3 \) to \( 9.16 \) in this case, which amounts to a speed-up of 31%. A &lt;a href="https://en.wikipedia.org/wiki/Huffman_coding"&gt;Huffman tree&lt;/a&gt;, which is used by Mikolov et al. [&lt;sup id="fnref:1"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] for their hierarchical softmax, generates such a coding by assigning fewer bits to more common symbols. For instance, "the", the most common word in the English language, would be assigned the shortest bit code in the tree, the second most frequent word would be assigned the second-shortest bit code, and so on. While we still need the same number of codes to designate all words, when we predict the words in a corpus, short codes appear now a lot more often, and we consequently need fewer bits to represent each word on average.&lt;/p&gt;
+
+&lt;p&gt;A coding such as Huffman coding is also known as entropy encoding, as the length of each codeword is approximately proportional to the entropy of each symbol as we have observed. Shannon [&lt;sup id="fnref:5"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:5" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;] establishes in his experiments that the lower bound on the information rate in English is between \(0.6\) to \(1.3\) bits per character; given an average word length of \(4.5\), this amounts to \(2.7\) - \(5.85\) bits per word.&lt;/p&gt;
+
+&lt;p&gt;To tie this back to language modelling (which we already talked about in the previous post): perplexity, the evaluation measure of language modelling, is \(2^{H}\) where \(H\) is the entropy. A unigram entropy of \( 9.16 \) thus entails a still very high perplexity of \( 2^{9.16} = 572.0\). We can render this value more tangible by observing that a model with a perplexity of \(572\) is as confused by the data as if it had to choose among \(572\) possibilities for each word uniformly and independently.&lt;/p&gt;
+
+&lt;p&gt;To put this into context: The state-of-the-art language model by Jozefowicz et al. (2016) achieves a perplexity of \(24.2\) per word on the 1B Word Benchmark. Such a model would thus require an average of around \(4.60\) bits to encode each word, as \( 2^{4.60} = 24.2 \), which is incredibly close to the experimental lower bounds documented by Shannon. If and how we could use such a model to construct a better hierarchical softmax layer is still left to be explored.&lt;/p&gt;
+
+&lt;h2 id="differentiatedsoftmax"&gt; Differentiated Softmax&lt;/h2&gt;
+
+&lt;p&gt;Chen et al. [&lt;sup id="fnref:9"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:9" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt;] introduce a variation on the traditional softmax layer, the Differentiated Softmax (D-Softmax). D-Softmax is based on the intuition that not all words require the same number of parameters: Many occurrences of frequent words allow us to fit many parameters to them, while extremely rare words might only allow to fit a few.&lt;/p&gt;
+
+&lt;p&gt;In order to do this, instead of the dense matrix of the regular softmax layer of size \(d \: \times \: |V| \) containing the output word embeddings \( v'_w \in \mathbb{R}^d \), they use a sparse matrix. They then arrange \( v'_w\) in blocks sorted by frequency, with the embeddings in each block being of a certain dimensionality \(d_k \). The number of blocks and their embedding sizes are hyperparameters that can be tuned.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/05/differentiated_softmax_1.png" style="width: 30%; height: 30%" title="Differentiated softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+&lt;figcaption&gt;Figure 3: Differentiated softmax (Chen et al. (2015))&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;In Figure 3, embeddings in partition \(A\) are of dimensionality \(d_A\) (these are embeddings of frequent words, as they are allocated more parameters), while embeddings in partitions \(B\) and \(C\) have \(d_B\) and \(d_C\) dimensions respectively. Note that all areas not part of any partition, i.e. the non-shaded areas in Figure 1, are set to \(0\).&lt;/p&gt;
+
+&lt;p&gt;The output of the previous hidden layer \(h\) is treated as a concatenation of features corresponding to each partition of the dimensionality of that partition, e.g. \(h\) in Figure 3 is made up of partitions of size \(d_A\), \(d_B\), and \(d_B\) respectively. Instead of computing the matrix-vector product between the entire output embedding matrix and \(h\) as in the regular softmax, D-Softmax then computes the product of each partition and its corresponding section in \(h\).&lt;/p&gt;
+
+&lt;p&gt;As many words will only require comparatively few parameters, the complexity of computing the softmax is reduced, which speeds up training. In contrast to H-Softmax, this speed-up persists during testing. Chen et al. (2015) observe that D-Softmax is the fastest method when testing, while being one of the most accurate. However, as it assigns fewer parameters to rare words, D-Softmax does a worse job at modelling them.&lt;/p&gt;
+
+&lt;h2 id="cnnsoftmax"&gt;CNN-Softmax&lt;/h2&gt;
+
+&lt;p&gt;Another modification to the traditional softmax layer is inspired by recent work by Kim et al. [&lt;sup id="fnref:13"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:13" rel="footnote"&gt;13&lt;/a&gt;&lt;/sup&gt;] who produce input word embeddings \(v_w\) via a character-level CNN. Jozefowicz et al. (2016) in turn suggest to do the same thing for the output word embeddings \(v'_w\) via a character-level CNN -- and refer to this as CNN-Softmax. Note that if we have a CNN at the input and at the output as in Figure 4, the CNN generating the output word embeddings \(v'_w\) is necessarily different from the CNN generating the input word embeddings \(v_w\), just as the input and output word embedding matrices would be different.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/05/cnn-softmax_1.png" style="width: 30%; height: 30%" title="CNN-Softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+&lt;figcaption&gt;Figure 4: CNN-Softmax (Jozefowicz et al. (2016))&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;While this still requires computing the regular softmax normalization, this approach drastically reduces the number of parameters of the model: Instead of storing an embedding matrix of \(d \: \times \: |V| \), we now only need to keep track of the parameters of the CNN. During testing, the output word embeddings \(v'_w\) can be pre-computed, so that there is no loss in performance. &lt;/p&gt;
+
+&lt;p&gt;However, as characters are represented in a continuous space and as the resulting model tends to learn a smooth function mapping characters to a word embedding, character-based models often find it difficult to differentiate between similarly spelled words with different meanings. To mitigate this, the authors add a correction factor that is learned per word, which significantly reduces the performance gap between regular and CNN-softmax. By adjusting the dimensionality of the correction term, the authors are able to trade-off model size versus performance.&lt;/p&gt;
+
+&lt;p&gt;The authors also note that instead of using a CNN-softmax, the output of the previous layer \(h\) can be fed to a character-level LSTM, which predicts the output word one character at a time. Instead of a softmax over words, a softmax outputting a probability distribution over characters would thus be used at every time step. They, however, fail to achieve competitive performance with this layer. Ling et al. [&lt;sup id="fnref:14"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:14" rel="footnote"&gt;14&lt;/a&gt;&lt;/sup&gt;] use a similar layer for machine translation and achieve competitive results.&lt;/p&gt;
+
+&lt;h1 id="samplingbasedapproaches"&gt;Sampling-based Approaches&lt;/h1&gt;
+
+&lt;p&gt;While the approaches discussed so far still maintain the overall structure of the softmax, sampling-based approaches on the other hand completely do away with the softmax layer. They do this by approximating the normalization in the denominator of the softmax with some other loss that is cheap to compute. However, sampling-based approaches are only useful at training time -- during inference, the full softmax still needs to be computed to obtain a normalised probability.&lt;/p&gt;
+
+&lt;p&gt;In order to gain some intuitions about the softmax denominator's impact on the loss, we will derive the gradient of our loss function \(J_\theta\) w.r.t. the parameters of our model \(\theta\). &lt;br&gt;
+During training, we aim to minimize the cross-entropy loss of our model for every word \(w\) in the training set. This is simply the negative logarithm of the output of our softmax. If you are unsure of this connection, have a look at &lt;a href="http://cs231n.github.io/linear-classify/#softmax-classifier"&gt;Karpathy's explanation&lt;/a&gt; to gain some more intuitions about the connection between softmax and cross-entropy. The loss of our model is then the following:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \: \text{log} \: \dfrac{\text{exp}({h^\top v'_{w}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).&lt;/p&gt;
+
+&lt;p&gt;Note that in practice \(J_\theta\) would be the average of all negative log-probabilities over the whole corpus. To facilitate the derivation, we decompose \(J_\theta \) into a sum as \(\text{log} \: \dfrac{x}{y} = \text{log} \: x - \text{log} \: y \): &lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \: h^\top v'_{w} + \text{log} \sum_{w_i \in V} \text{exp}(h^\top v'_{w_i}) \)&lt;/p&gt;
+
+&lt;p&gt;For brevity and to conform with the notation of  Bengio and Senécal [&lt;sup id="fnref:4"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:15"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:15" rel="footnote"&gt;15&lt;/a&gt;&lt;/sup&gt;] (note that in the first paper, they compute the gradient of the &lt;em&gt;positive&lt;/em&gt; logarithm), we replace the dot product \( h^\top v'_{w} \) with \( - \mathcal{E}(w) \). Our loss then looks like the following:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = \: \mathcal{E}(w) + \text{log} \sum_{w_i \in V} \text{exp}( - \mathcal{E}(w_i)) \)&lt;/p&gt;
+
+&lt;p&gt;For back-propagation, we can now compute the gradient \(\nabla \) of \(J_\theta \) w.r.t. our model's parameters \(\theta\):&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w)  + \nabla_\theta \text{log} \sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i)) \)&lt;/p&gt;
+
+&lt;p&gt;As the gradient of \( \text{log} \: x \) is \(\dfrac{1}{x} \), an application of the chain rule yields:&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w) + \dfrac{1}{\sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i))} \nabla_\theta \sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i) \)&lt;/p&gt;
+
+&lt;p&gt;We can now move the gradient inside the sum:&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w)  + \dfrac{1}{\sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i))} \sum_{w_i \in V} \nabla_\theta \: \text{exp}(- \mathcal{E}(w_i)) \)&lt;/p&gt;
+
+&lt;p&gt;As the gradient of \(\text{exp}(x)\) is just \(\text{exp}(x)\), another application of the chain rule yields:&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w) + \dfrac{1}{\sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i))} \sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i)) \nabla_\theta (- \mathcal{E}(w_i)) \)&lt;/p&gt;
+
+&lt;p&gt;We can rewrite this as:&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w) + \sum_{w_i \in V} \dfrac{\text{exp}(- \mathcal{E}(w_i))}{\sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i))} \nabla_\theta (- \mathcal{E}(w_i)) \)&lt;/p&gt;
+
+&lt;p&gt;Note that \( \dfrac{\text{exp}(- \mathcal{E}(w_i))}{\sum_{w_i \in V} \text{exp}(- \mathcal{E}(w_i))} \) is just the softmax probability \(P(w_i) \) of \(w_i\) (we omit the dependence on the context \(c\) here for brevity). Replacing it yields:&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w) + \sum_{w_i \in V} P(w_i) \nabla_\theta (- \mathcal{E}(w_i)) \)&lt;/p&gt;
+
+&lt;p&gt;Finally, repositioning the negative coefficient in front of the sum yields:&lt;/p&gt;
+
+&lt;p&gt;\(\nabla_\theta J_\theta = \: \nabla_\theta \mathcal{E}(w) - \sum_{w_i \in V} P(w_i) \nabla_\theta \mathcal{E}(w_i) \)&lt;/p&gt;
+
+&lt;p&gt;Bengio and Senécal (2003) note that the gradient essentially has two parts: a positive reinforcement for the target word \(w\) (the first term in the above equation) and a negative reinforcement for all other words \(w_i\), which is weighted by their probability (the second term). As we can see, this negative reinforcement is just the expectation \(\mathbb{E}_{w_i \sim P}\) of the gradient of \(\mathcal{E} \) for all words \(w_i\) in \(V\):&lt;/p&gt;
+
+&lt;p&gt;\(\sum_{w_i \in V} P(w_i) \nabla_\theta \mathcal{E}(w_i) =  \mathbb{E}_{w_i \sim P}[\nabla_\theta \mathcal{E}(w_i)]\).&lt;/p&gt;
+
+&lt;p&gt;The crux of most sampling-based approach now is to approximate this negative reinforcement in some way to make it easier to compute, since we don't want to sum over the probabilities for all words in \(V\).&lt;/p&gt;
+
+&lt;h2 id="importancesampling"&gt;Importance Sampling&lt;/h2&gt;
+
+&lt;p&gt;We can approximate the expected value \(\mathbb{E}\) of any probability distribution using the Monte Carlo method, i.e. by taking the mean of random samples of the probability distribution. If we knew the network's distribution, i.e. \(P(w)\), we could thus directly sample \(m\) words \( w_1 , \cdots , w_m \) from it and approximate the above expectation with:&lt;/p&gt;
+
+&lt;p&gt;\( \mathbb{E}_{w_i \sim P}[\nabla_\theta \mathcal{E}(w_i)] \approx \dfrac{1}{m} \sum\limits^m_{i=1} \nabla_\theta \mathcal{E}(w_i) \).&lt;/p&gt;
+
+&lt;p&gt;However, in order to sample from the probability distribution \( P \), we need to compute \( P \), which is just what we wanted to avoid in the first place. We therefore have find some other distribution \( Q \) (we call this the proposal distribution), from which it is cheap to sample and which can be used as the basis of Monte-Carlo sampling. Preferably, \(Q\) should also be similar to \(P\), since we want our approximated expectation to be as accurate as possible. A straightforward choice in the case of language modelling is to simply use the unigram distribution of the training set for \( Q \).&lt;/p&gt;
+
+&lt;p&gt;This is essentially what classical Importance Sampling (IS) does: It uses Monte-Carlo sampling to approximate a target distribution \(P\) via a proposal distribution \(Q\). However, this still requires computing \(P(w)\) for every word \(w\) that is sampled. To avoid this, Bengio and Senécal (2003) use a biased estimator that was first proposed by Liu [&lt;sup id="fnref:16"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:16" rel="footnote"&gt;16&lt;/a&gt;&lt;/sup&gt;]. This estimator can be used when \( P(w) \) is computed as a product, which is the case here, since every division can be transformed into a multiplication. &lt;br&gt;
+Essentially, instead of weighting the gradient \(\nabla_\theta \mathcal{E}(w_i)\) with the expensive to compute probability \(P_{w_i}\), we weight it with a factor that leverages the proposal distribution \(Q\). For biased IS, this factor is \(\dfrac{1}{R}r(w_i)\) where \( r(w) = \dfrac{\text{exp}(- \mathcal{E}(w))}{Q(w)} \) and \( R = \sum^m_{j=1} r(w_j) \). &lt;br&gt;
+Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio and Senécal (2003, 2008) to avoid name clashes. As we can see, we still compute the numerator of the softmax, but replace the normalisation in the denominator with the proposal distribution \(Q\). Our biased estimator that approximates the expectation thus looks like the following:&lt;/p&gt;
+
+&lt;p&gt;\( \mathbb{E}_{w_i \sim P}[\nabla_\theta \mathcal{E}(w_i)] \approx  \dfrac{1}{R} \sum\limits^m_{i=1} r(w_i) \nabla_\theta \: \mathcal{E}(w_i)\)&lt;/p&gt;
+
+&lt;p&gt;Note that the fewer samples we use, the worse is our approximation. We additionally need to adjust our sample size during training, as the network's distribution \(P\) might diverge from the unigram distribution \(Q \) during training, which leads to divergence of the model, if the sample size that is used is too small. Consequently, Bengio and Senécal introduce a measure to calculate the effective sample size in order to protect against possible divergence. Finally, the authors report a speed-up factor of \(19 \) over the regular softmax for this method.&lt;/p&gt;
+
+&lt;h2 id="adaptiveimportancesampling"&gt;Adaptive Importance Sampling&lt;/h2&gt;
+
+&lt;p&gt;Bengio and Senécal (2008) note that for Importance Sampling, substituting more complex distributions, e.g. bigram and trigram distributions, later in training to combat the divergence of the unigram distribution \(Q\) from the model's true distribution \(P\) does not help, as n-gram distributions seem to be quite different from the distribution of trained neural language models. As an alternative, they propose an n-gram distribution that is adapted during training to follow the target distribution \(P\) more closely. To this end, they interpolate a bigram distribution and a unigram distribution according to some mixture function, whose parameters they train with SGD for different frequency bins to minimize the Kullback-Leibler divergence between the distribution \( Q \) and the target distribution \( P\). For experiments, they report a speed-up factor of about \(100\).&lt;/p&gt;
+
+&lt;h2 id="targetsampling"&gt; Target Sampling&lt;/h2&gt;
+
+&lt;p&gt;Jean et al. (2015) propose to use Adaptive Importance Sampling for machine translation. In order to make the method more suitable for processing on a GPU with limited memory, they limit the number of target words that need to be sampled from. They do this by partitioning the training set and including only a fixed number of sample words in every partition, which form a subset \(V'\) of the vocabulary.&lt;/p&gt;
+
+&lt;p&gt;This essentially means that a separate proposal distribution \(Q_i \) can be used for every partition \(i\) of the training set, which assigns equal probability to all words included in the vocabulary subset \(V'_i\) and zero probability to all other words.&lt;/p&gt;
+
+&lt;h2 id="noisecontrastiveestimation"&gt;Noise Contrastive Estimation&lt;/h2&gt;
+
+&lt;p&gt;Noise Contrastive Estimation (NCE) (Gutmann and Hyvärinen) [&lt;sup id="fnref:17"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:17" rel="footnote"&gt;17&lt;/a&gt;&lt;/sup&gt;] is proposed by Mnih and Teh [&lt;sup id="fnref:18"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:18" rel="footnote"&gt;18&lt;/a&gt;&lt;/sup&gt;] as a more stable sampling method than Importance Sampling (IS), as we have seen that IS poses the risk of having the proposal distribution \(Q\) diverge from the distribution \(P\) that should be optimized. In contrast to the former, NCE does not try to estimate the probability of a word directly. Instead, it uses an auxiliary loss that also optimises the goal of maximizing the probability of correct words.&lt;/p&gt;
+
+&lt;p&gt;Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;previous post&lt;/a&gt;. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/06/negative_sampling.png" style="width: 70%; height: 70%" title="Noise Contrastive Estimation" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+&lt;figcaption&gt;Figure 4: Noise Contrastive Estimation (Stephan Gouws' PhD dissertation [&lt;sup id="fnref:24"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:24" rel="footnote"&gt;24&lt;/a&gt;&lt;/sup&gt;]) &lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;For every word \(w_i\) given its context \(c_i \) of \(n\) previous words \(w_{t-1} , \cdots , w_{t-n+1}\) in the training set, we thus generate \(k\) noise samples \(\tilde{w}_{ik}\) from a noise distribution \(Q\). As in IS, we can sample from the unigram distribution of the training set. As we need labels to perform our binary classification task, we designate all correct words \(w_i\) given their context \(c_i\) as true (\(y=1\)) and all noise samples \(\tilde{w}_{ik}\) as false (\(y=0\)).&lt;/p&gt;
+
+&lt;p&gt;We can now use logistic regression to minimize the negative log-likelihood, i.e. cross-entropy of our training examples against the noise (conversely, we could also maximize the &lt;em&gt;positive&lt;/em&gt; log-likelihood as some papers do):&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: P(y=1\:|\:w_i,c_i) + k \: \mathbb{E}_{\tilde{w}_{ik} \sim Q} [ \:\text{log} \: P(y=0 \:|\:\tilde{w}_{ij},c_i)]] \).&lt;/p&gt;
+
+&lt;p&gt;Instead of computing the expectation \(\mathbb{E}_{\tilde{w}_{ik} \sim Q}\) of our noise samples, which would still require summing over all words in \(V\) to predict the normalised probability of a negative label, we can again take the mean with the Monte Carlo approximation:&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: P(y=1\:|\:w_i,c_i) + k \: \sum_{j=1}^k \dfrac{1}{k} \:\text{log} \: P(y=0 \:|\:\tilde{w}_{ij},c_i)] \),&lt;/p&gt;
+
+&lt;p&gt;which reduces to:&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: P(y=1\:|\:w_i,c_i) + \: \sum_{j=1}^k \:\text{log} \: P(y=0 \:|\:\tilde{w}_{ij},c_i)] \),&lt;/p&gt;
+
+&lt;p&gt;By generating \(k\) noise samples for every genuine word \(w_i\) given its context \(c\), we are effectively sampling words from two different distributions: Correct words are sampled from the empirical distribution of the training set \(P_{\text{train}}\) and depend on their context \(c\), whereas noise samples come from the noise distribution \(Q\). We can thus represent the probability of sampling either a positive or a noise sample as a mixture of those two distributions, which are weighted based on the number of samples that come from each:&lt;/p&gt;
+
+&lt;p&gt;\(P(y, w \: | \: c) = \dfrac{1}{k+1} P_{\text{train}}(w \: | \: c)+ \dfrac{k}{k+1}Q(w) \).&lt;/p&gt;
+
+&lt;p&gt;Given this mixture, we can now calculate the probability that a sample came from the training \(P_{\text{train}}\) distribution as a conditional probability of \(y\) given \(w\) and \(c\):&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{\dfrac{1}{k+1} P_{\text{train}}(w \: | \: c)}{\dfrac{1}{k+1} P_{\text{train}}(w \: | \: c)+ \dfrac{k}{k+1}Q(w)} \),&lt;/p&gt;
+
+&lt;p&gt;which can be simplified to:&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{P_{\text{train}}(w \: | \: c)}{P_{\text{train}}(w \: | \: c) + k \: Q(w)} \).&lt;/p&gt;
+
+&lt;p&gt;As we don't know \(P_{\text{train}}\) (which is what we would like to calculate), we replace \(P_{\text{train}}\) with the probability of our model \(P\):&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{P(w \: | \: c)}{P(w \: | \: c) + k \: Q(w)} \).&lt;/p&gt;
+
+&lt;p&gt;The probability of predicting a noise sample (\(y=0\)) is then simply \(P(y=0\:|\:w,c) = 1 - P(y=1\:|\:w,c)\). Note that computing \( P(w \: | \: c) \), i.e. the probability of a word \(w\) given its context \(c\) is essentially the definition of our softmax:&lt;/p&gt;
+
+&lt;p&gt;\(P(w \: | \: c) = \dfrac{\text{exp}({h^\top v'_{w}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).&lt;/p&gt;
+
+&lt;p&gt;For notational brevity and unambiguity, let us designate the denominator of the softmax with \(Z(c)\), since the denominator only depends on \(h\), which is generated from \(c\) (assuming a fixed \(V\)). The softmax then looks like this:&lt;/p&gt;
+
+&lt;p&gt;\(P(w \: | \: c) = \dfrac{\text{exp}({h^\top v'_{w}})}{Z(c)} \). &lt;/p&gt;
+
+&lt;p&gt;Having to compute \(P(w \: | \: c)\) means that -- again -- we need to compute \(Z(c)\), which requires us to sum over the probabilities of all words in \(V\). In the case of NCE, there exists a neat trick to circumvent this issue: We can treat the normalisation denominator \(Z(c)\) as a parameter that the model can learn. &lt;br&gt;
+Mnih and Teh (2012) and Vaswani et al. [&lt;sup id="fnref:20"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:20" rel="footnote"&gt;20&lt;/a&gt;&lt;/sup&gt;] actually keep \(Z(c)\) fixed at \(1\), which they report does not affect the model's performance. This assumption has the nice side-effect of reducing the model's parameters, while ensuring that the model self-normalises by not depending on the explicit normalisation in \(Z(c)\). Indeed, Zoph et al. [&lt;sup id="fnref:19"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:19" rel="footnote"&gt;19&lt;/a&gt;&lt;/sup&gt;] find that even when learned, \(Z(c)\) is close to \(1\) and has low variance.&lt;/p&gt;
+
+&lt;p&gt;If we thus set \(Z(c)\) to \(1\) in the above softmax equation, we are left with the following probability of word \(w\) given a context \(c\):&lt;/p&gt;
+
+&lt;p&gt;\(P(w \: | \: c) = \text{exp}({h^\top v'_{w}})\).&lt;/p&gt;
+
+&lt;p&gt;We can now insert this term in the above equation to compute \(P(y=1\:|\:w,c)\):&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{\text{exp}({h^\top v'_{w}})}{\text{exp}({h^\top v'_{w}}) + k \: Q(w)} \).&lt;/p&gt;
+
+&lt;p&gt;Inserting this term in turn in our logistic regression objective finally yields the full NCE loss:&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: \dfrac{\text{exp}({h^\top v'_{w_i}})}{\text{exp}({h^\top v'_{w_i}}) + k \: Q(w_i)} + \sum_{j=1}^k \:\text{log} \: (1 - \dfrac{\text{exp}({h^\top v'_{\tilde{w}_{ij}}})}{\text{exp}({h^\top v'_{\tilde{w}_{ij}}}) + k \: Q(\tilde{w}_{ij})})] \).&lt;/p&gt;
+
+&lt;p&gt;Note that NCE has nice theoretical guarantees: It can be shown that as we increase the number of noise samples \(k\), the NCE derivative tends towards the gradient of the softmax function. Mnih and Teh (2012) report that \(25\) noise samples are sufficient to match the performance of the regular softmax, with an expected speed-up factor of about \(45\). For more information on NCE, Chris Dyer has published some excellent notes [&lt;sup id="fnref:21"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:21" rel="footnote"&gt;21&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;p&gt;One caveat of NCE is that as typically different noise samples are sampled for every training word \(w\), the noise samples and their gradients cannot be stored in dense matrices, which reduces the benefit of using NCE with GPUs, as it cannot benefit from fast dense matrix multiplications. Jozefowicz et al. (2016) and Zoph et al. (2016) independently propose to share noise samples across all training words in a mini-batch, so that NCE gradients can be computed with dense matrix operations, which are more efficient on GPUs.&lt;/p&gt;
+
+&lt;h3 id="similaritybetweennceandis"&gt;Similarity between NCE and IS&lt;/h3&gt;
+
+&lt;p&gt;Jozefowicz et al. (2016) show that NCE and IS are not only similar as both are sampling-based approaches, but are strongly connected. While NCE uses a binary classification task, they show that IS can be described similarly using a surrogate loss function: Instead of performing binary classification with a logistic loss function like NCE, IS then optimises a multi-class classification problem with a softmax and cross-entropy loss function. They observe that as IS performs multi-class classification, it may be a better choice for language modelling, as the loss leads to tied updates between the data and noise samples rather than independent updates as with NCE. Indeed, Jozefowicz et al. (2016) use IS for language modelling and obtain state-of-the-art performance (as mentioned above) on the 1B Word benchmark.&lt;/p&gt;
+
+&lt;h2 id="negativesampling"&gt;Negative Sampling&lt;/h2&gt;
+
+&lt;p&gt;Negative Sampling (NEG), the objective that has been popularised by Mikolov et al. (2013), can be seen as an approximation to NCE. As we have mentioned above, NCE can be shown to approximate the loss of the softmax as the number of samples \(k\) increases. NEG simplifies NCE and does away with this guarantee, as the objective of NEG is to learn high-quality word representations rather than achieving low perplexity on a test set, as is the goal in language modelling.&lt;/p&gt;
+
+&lt;p&gt;NEG also uses a logistic loss function to minimise the negative log-likelihood of words in the training set. Recall that NCE calculated the probability that a word \(w\) comes from the empirical training distribution \(P_{\text{train}}\) given a context \(c\) as follows:&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{\text{exp}({h^\top v'_{w}})}{\text{exp}({h^\top v'_{w}}) + k \: Q(w)} \).&lt;/p&gt;
+
+&lt;p&gt;The key difference to NCE is that NEG only approximates this probability by making it as easy to compute as possible. For this reason, it sets the most expensive term, \(k \: Q(w)\) to \(1\), which leaves us with:&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{\text{exp}({h^\top v'_{w}})}{\text{exp}({h^\top v'_{w}}) + 1} \).&lt;/p&gt;
+
+&lt;p&gt;\(k \: Q(w) = 1\) is exactly then true, when \(k=\: |V|\) and \(Q\) is a uniform distribution. In this case, NEG is equivalent to NCE. The reason we set \(k \: Q(w) = 1\) and not to some other constant can be seen by rewriting the equation, as \(P(y=1\:|\:w,c)\) can be transformed into the sigmoid function:&lt;/p&gt;
+
+&lt;p&gt;\( P(y=1\:|\:w,c)= \dfrac{1}{1 + \text{exp}({-h^\top v'_{w}})} \).&lt;/p&gt;
+
+&lt;p&gt;If we now insert this back into the logistic regression loss from before, we get:&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: \dfrac{1}{1 + \text{exp}({-h^\top v'_{w_i}})} + \: \sum_{j=1}^k \:\text{log} \: (1 - \dfrac{1}{1 + \text{exp}({-h^\top v'_{\tilde{w}_{ij}}})}] \).&lt;/p&gt;
+
+&lt;p&gt;By simplifying slightly, we obtain:&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: \dfrac{1}{1 + \text{exp}({-h^\top v'_{w_i}})} + \: \sum_{j=1}^k \:\text{log} \: (\dfrac{1}{1 + \text{exp}({h^\top v'_{\tilde{w}_{ij}}})}] \).&lt;/p&gt;
+
+&lt;p&gt;Setting \(\sigma(x) = \dfrac{1}{1 + \text{exp}({-x})}\) finally yields the NEG loss:&lt;/p&gt;
+
+&lt;p&gt;\( J_\theta = - \sum_{w_i \in V} [ \text{log} \: \sigma(h^\top v'_{w_i}) + \: \sum_{j=1}^k \:\text{log} \: \sigma(-h^\top v'_{\tilde{w}_{ij}})] \).&lt;/p&gt;
+
+&lt;p&gt;To conform with the notation of Mikolov et al. (2013), \(h\) must be replaced with \(v_{w_I}\), \(v'_{w_i}\) with \(v'_{w_O}\) and \(v_{\tilde{w}_{ij}}\) with \(v'_{w_i}\). Also, in contrast to Mikolov's NEG objective, we a) optimise the objective over the whole corpus, b) minimise negative log-likelihood instead of maximising positive log-likelihood (as mentioned before), and c) have already replaced the expectation \(\mathbb{E}_{\tilde{w}_{ik} \sim Q}\) with its Monte Carlo approximation. For more insights on the derivation of NEG, have a look at Goldberg and Levy's notes [&lt;sup id="fnref:22"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:22" rel="footnote"&gt;22&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;p&gt;We have seen that NEG is only equivalent to NCE when \(k=\: |V|\) and \(Q\) is uniform. In all other cases, NEG only approximates NCE, which means that it will not directly optimise the likelihood of correct words, which is key for language modelling. While NEG may thus be useful for learning word embeddings, its lack of asymptotic consistency guarantees makes it inappropriate for language modelling.&lt;/p&gt;
+
+&lt;h2 id="selfnormalisation"&gt;Self-Normalisation&lt;/h2&gt;
+
+&lt;p&gt;Even though the self-normalisation technique proposed by Devlin et al. &lt;sup id="fnref:23"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:23" rel="footnote"&gt;23&lt;/a&gt;&lt;/sup&gt; is not a sampling-based approach, it provides further intuitions on self-normalisation of language models, which we briefly touched upon. We previously mentioned in passing that by setting the denominator \(Z(c)\) of the NCE loss to \(1\), the model essentially self-normalises. This is a useful property as it allows us to skip computing the expensive normalisation in \(Z(c)\).&lt;/p&gt;
+
+&lt;p&gt;Recall that our loss function \(J_\theta\) minimises the negative log-likelihood of all words \(w_i\) in our training data:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \sum\limits_i [\text{log} \: \dfrac{\text{exp}({h^\top v'_{w_i}})}{Z(c)}] \). &lt;/p&gt;
+
+&lt;p&gt;We can decompose the softmax into a sum as we did before:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta \: P(w \: | \: c) = - \sum\limits_i [h^\top v'_{w_i} + \text{log} \: Z(c)] \).&lt;/p&gt;
+
+&lt;p&gt;If we are able to constrain our model so that it sets \(Z(c) = 1\) or similarly \(\text{log} \: Z(c) = 0\), then we can avoid computing the normalisation in \(Z(c)\) altogether. Devlin et al. (2014) thus propose to add a squared error penalty term to the loss function that encourages the model to keep \(\text{log} \: Z(c)\) as close as possible to \(0\): &lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \sum\limits_i [h^\top v'_{w_i} + \text{log} \: Z(c) - \alpha \:(\text{log}(Z(c)) - 0)^2] \),&lt;/p&gt;
+
+&lt;p&gt;which can be rewritten as:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \sum\limits_i [h^\top v'_{w_i} + \text{log} \: Z(c) - \alpha \: \text{log}^2 Z(c)] \)&lt;/p&gt;
+
+&lt;p&gt;where \(\alpha\) allows us to trade-off between model accuracy and mean self-normalisation. By doing this, we can essentially guarantee that \(Z(c)\) will be as close to \(1\) as we want. At decoding time in their MT system, Devlin et al. (2014) then set the denominator of the softmax to \(1\) and only use the numerator for computing \(P(w \: | \: c)\) together with their penalty term:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \sum\limits_i [h^\top v'_{w_i} - \alpha \: \text{log}^2 Z(c)] \)&lt;/p&gt;
+
+&lt;p&gt;They report that self-normalisation achieves a speed-up factor of about \(15\), while only resulting in a small degradation of BLEU scores compared to a regular non-self-normalizing neural language model.&lt;/p&gt;
+
+&lt;h2 id="infrequentnormalisation"&gt;Infrequent Normalisation&lt;/h2&gt;
+
+&lt;p&gt;Andreas and Klein [&lt;sup id="fnref:11"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:11" rel="footnote"&gt;11&lt;/a&gt;&lt;/sup&gt;] suggest that it should even be sufficient to only normalise a fraction of the training examples and still obtain approximate self-normalising behaviour. They thus propose Infrequent Normalisation (IN), which down-samples the penalty term, making this a sampling-based approach.&lt;/p&gt;
+
+&lt;p&gt;Let us first decompose the sum of the previous loss \(J_\theta\) into two separate sums:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \sum\limits_i h^\top v'_{w_i} +  \alpha \sum\limits_i \text{log}^2 Z(c) \).&lt;/p&gt;
+
+&lt;p&gt;We can now down-sample the second term by only computing the normalisation for a subset \(C\) of words \(w_j\) and thus of contexts \(c_j\) (as \(Z(c)\) only depends on the context \(c\)) in the training data:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = - \sum\limits_i h^\top v'_{w_i} +  \dfrac{\alpha}{\gamma} \sum\limits_{c_j \in C} \text{log}^2 Z(c_j) \)&lt;/p&gt;
+
+&lt;p&gt;where \(\gamma\) controls the size of the subset \(C\). Andreas and Klein (2015) suggest that IF combines the strengths of NCE and self-normalisation as it does not require computing the normalisation for all training examples (which NCE avoids entirely), but like self-normalisation allows trading-off between the accuracy of the model and how well normalisation is approximated. They observe a speed-up factor of \(10\) when normalising only a tenth of the training set, with no noticeable performance penalty.&lt;/p&gt;
+
+&lt;h3 id="otherapproaches"&gt;Other Approaches&lt;/h3&gt;
+
+&lt;p&gt;So far, we have focused exclusively on approximating or even entirely avoiding the computation of the softmax denominator \(Z(c)\), as it is the most expensive term in the computation. We have thus not paid particular attention to \(h^\top v'_{w}\), i.e. the dot-product between the penultimate layer representation \(h\) and output word embedding \(v'_{w}\). Vijayanarasimhan et al. [&lt;sup id="fnref:12"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:12" rel="footnote"&gt;12&lt;/a&gt;&lt;/sup&gt;] propose fast locality-sensitive hashing to approximate \(h^\top v'_{w}\). However, while this technique accelerates the model at test time, during training, these speed-ups virtually vanish as embeddings must be re-indexed and the batch size increases.&lt;/p&gt;
+
+&lt;h1 id="whichapproachtochoose"&gt;Which Approach to Choose?&lt;/h1&gt;
+
+&lt;p&gt;Having reviewed the most popular softmax-based and sampling-based approaches, we have shown that there are plenty of alternatives to the good ol' softmax and almost all of them promise a significant speed-up and equivalent or at most marginally deteriorated performance. This naturally poses the question which approach is the best for a particular task.&lt;/p&gt;
+
+&lt;figure&gt;  
+&lt;style type="text/css"&gt;  
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-e3zv{font-weight:bold}
+.tg .tg-9hbo{font-weight:bold;vertical-align:top}
+.tg .tg-yw4l{vertical-align:top}
+&lt;/style&gt;  
+
+&lt;table class="tg"&gt;  
+  &lt;tr&gt;
+    &lt;th class="tg-e3zv"&gt;Approach&lt;/th&gt;
+    &lt;th class="tg-e3zv"&gt;Speed-up&lt;br&gt;factor&lt;/th&gt;
+    &lt;th class="tg-e3zv"&gt;During&lt;br&gt;training?&lt;/th&gt;
+    &lt;th class="tg-9hbo"&gt;During&lt;br&gt;testing?&lt;/th&gt;
+    &lt;th class="tg-9hbo"&gt;Performance&lt;br&gt;(small vocab)&lt;/th&gt;
+    &lt;th class="tg-9hbo"&gt;Performance&lt;br&gt;(large vocab)&lt;/th&gt;
+    &lt;th class="tg-9hbo"&gt;Proportion of&lt;br&gt;parameters&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-031e"&gt;Softmax&lt;/td&gt;
+    &lt;td class="tg-031e"&gt;1x&lt;/td&gt;
+    &lt;td class="tg-031e"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very poor&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Hierarchical Softmax&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;25x (50-100x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very poor&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Differentiated Softmax&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;2x&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;&amp;lt; 100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;CNN-Softmax&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;bad - good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;30%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Importance Sampling&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;(19x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Adaptive&lt;br&gt;Importance Sampling&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;(100x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Target Sampling&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;2x&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;bad&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Noise Contrastive&lt;br&gt;Estimation&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;8x (45x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very bad&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very bad&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Negative Sampling&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;(50-100x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Self-Normalisation&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;(15x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-yw4l"&gt;Infrequent&lt;br&gt;Normalisation&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;6x (10x)&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;X&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;-&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;very good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;good&lt;/td&gt;
+    &lt;td class="tg-yw4l"&gt;100%&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;  
+
+&lt;figcaption&gt;Table 1: Comparison of approaches to approximate the softmax for language modelling.&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;We compare the performance of the approaches we discussed in this post for language modelling in Table 1. Speed-up factors and performance are based on the experiments by Chen et al. (2015), while we show speed-up factors reported by the authors of the original papers in brackets. The third and fourth columns indicate if the speed-up is achieved during training and testing respectively. Note that divergence of speed-up factors might be due to unoptimised implementations or the fact that the original authors might not have had access to GPUs, which benefit the regular softmax more than some of the other approaches. Performance for approaches where no comparison is available should largely be analogous to similar approaches, i.e. Self-Normalisation should achieve similar performance as Infrequent Normalisation and Importance Sampling and Adaptive Importance Sampling should achieve similar performance as Target Sampling. The performance of CNN-Softmax is as reported by Jozefowicz et al. (2016) and ranges from bad to good depending on the size of the correction. Of all approaches, only CNN-Softmax achieves a substantial reduction in parameters as the other approaches still require storing output embeddings. Differentiated Softmax reduces parameters by being able to store a sparse weight matrix.&lt;/p&gt;
+
+&lt;p&gt;As it always is, there is no clear winner that beats all other approaches on all datasets or tasks. For language modelling, the regular softmax still achieves very good performance on small vocabulary datasets, such as the Penn Treebank, and even performs well on medium datasets, such as Gigaword, but does very poorly on large vocabulary datasets, e.g. the 1B Word Benchmark. Target Sampling, Hierarchical Softmax, and Infrequent Normalisation in turn do better with large vocabularies. &lt;br&gt;
+Differentiated Softmax generally does well for both small and large vocabularies and is the only approach that ensures a speed-up at test time. Interestingly, Hierarchical Softmax (HS) performs very poorly with small vocabularies. However, of all methods, HS is the fastest and processes most training examples in a given time frame. While NCE performs well with large vocabularies, it is generally worse than the other methods. Negative Sampling does not work well for language modelling, but it is generally superior for learning word representations, as attested by word2vec's success. Note that all results should be taken with a grain of salt: Chen et al. (2015) report having difficulties using Noise Contrastive Estimation in practice; Kim et al. (2016) use Hierarchical Softmax to achieve state-of-the-art with a small vocabulary, while Importance Sampling is used by the state-of-the-art language model by Jozefowicz et al. (2016) on a dataset with a large vocabulary.&lt;/p&gt;
+
+&lt;p&gt;Finally, if you are looking to actually use the described methods, TensorFlow has &lt;a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#candidate-sampling"&gt;implementations&lt;/a&gt; for a few sampling-based approaches and also explains the differences between some of them &lt;a href="https://www.tensorflow.org/extras/candidate_sampling.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;This overview of different methods to approximate the softmax attempted to provide you with intuitions that can not only be applied to improve and speed-up learning word representations, but are also relevant for language modelling and machine translation. As we have seen, most of these approaches are closely related and are driven by one uniting factor: the necessity to approximate the expensive normalisation in the denominator of the softmax. With these approaches in mind, I hope you feel now better equipped to train and understand your models and that you might even feel ready to work on learning better word representations yourself.&lt;/p&gt;
+
+&lt;p&gt;As we have seen, learning word representations is a vast field and many factors are relevant for success. In the previous blog post, we looked at the architectures of popular models and in this blog post, we investigated more closely a key component, the softmax layer. In the next one, we will introduce GloVe, a method that relies on matrix factorisation rather than language modelling, and turn our attention to other hyperparameters that are essential for successfully learning word embeddings.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;As always, let me know about any mistakes I made and approaches I missed in the comments below.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id="citation"&gt;Citation&lt;/h1&gt;
+
+&lt;p&gt;If you found this blog post helpful, please consider citing it as:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Sebastian Ruder. On word embeddings - Part 2: Approximating the Softmax. &lt;a href="http://ruder.io/word-embeddings-softmax"&gt;http://ruder.io/word-embeddings-softmax&lt;/a&gt;, 2016.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id="otherblogpostsonwordembeddings"&gt;Other blog posts on word embeddings&lt;/h1&gt;
+
+&lt;p&gt;If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;On word embeddings - Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://sebastianruder.com/secret-word2vec/index.html"&gt;On word embeddings - Part 3: The secret ingredients of word2vec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://sebastianruder.com/cross-lingual-embeddings/index.html"&gt;Unofficial Part 4: A survey of cross-lingual embedding models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/word-embeddings-2017/index.html"&gt;Unofficial Part 5: Word embeddings in 2017 -  Trends and future directions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id="translations"&gt;Translations&lt;/h1&gt;
+
+&lt;p&gt;This blog post has been translated into the following languages: &lt;br&gt;
+- &lt;a href="http://geek.csdn.net/news/detail/135736"&gt;Chinese&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="references"&gt;References&lt;/h1&gt;
+
+&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li class="footnote" id="fn:1"&gt;&lt;p&gt;Mikolov, T., Chen, K., Corrado, G., &amp;amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS, 1–9. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:1" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:2"&gt;&lt;p&gt;Mikolov, T., Corrado, G., Chen, K., &amp;amp; Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR 2013), 1–12. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:2" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:3"&gt;&lt;p&gt;Morin, F., &amp;amp; Bengio, Y. (2005). Hierarchical Probabilistic Neural Network Language Model. Aistats, 5. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:3" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:4"&gt;&lt;p&gt;Bengio, Y., &amp;amp; Senécal, J.-S. (2003). Quick Training of Probabilistic Neural Nets by Importance Sampling. AISTATS. &lt;a href="http://www.iro.umontreal.ca/~lisa/pointeurs/submit_aistats2003.pdf"&gt;http://www.iro.umontreal.ca/~lisa/pointeurs/submit_aistats2003.pdf&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:4" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:5"&gt;&lt;p&gt;Shannon, C. E. (1951). Prediction and Entropy of Printed English. Bell System Technical Journal, 30(1), 50–64. &lt;a href="http://doi.org/10.1002/j.1538-7305.1951.tb01366.x"&gt;http://doi.org/10.1002/j.1538-7305.1951.tb01366.x&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:5" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp;amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. Retrieved from &lt;a href="http://arxiv.org/abs/1602.02410"&gt;http://arxiv.org/abs/1602.02410&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:7"&gt;&lt;p&gt;Rong, X. (2014). word2vec Parameter Learning Explained. arXiv:1411.2738, 1–19. Retrieved from &lt;a href="http://arxiv.org/abs/1411.2738"&gt;http://arxiv.org/abs/1411.2738&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:7" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:8"&gt;&lt;p&gt;Mnih, A., &amp;amp; Hinton, G. E. (2008). A Scalable Hierarchical Distributed Language Model. Advances in Neural Information Processing Systems, 1–8. Retrieved from &lt;a href="http://papers.nips.cc/paper/3583-a-scalable-hierarchical-distributed-language-model.pdf"&gt;http://papers.nips.cc/paper/3583-a-scalable-hierarchical-distributed-language-model.pdf&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:8" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:9"&gt;&lt;p&gt;Chen, W., Grangier, D., &amp;amp; Auli, M. (2015). Strategies for Training Large Vocabulary Neural Language Models. Retrieved from &lt;a href="http://arxiv.org/abs/1512.04906"&gt;http://arxiv.org/abs/1512.04906&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:9" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:10"&gt;&lt;p&gt;Jean, S., Cho, K., Memisevic, R., &amp;amp; Bengio, Y. (2015). On Using Very Large Target Vocabulary for Neural Machine Translation. Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), 1–10. Retrieved from &lt;a href="http://www.aclweb.org/anthology/P15-1001"&gt;http://www.aclweb.org/anthology/P15-1001&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:10" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:11"&gt;&lt;p&gt;Andreas, J., &amp;amp; Klein, D. (2015). When and why are log-linear models self-normalizing? Naacl-2015, 244–249. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:11" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:12"&gt;&lt;p&gt;Vijayanarasimhan, S., Shlens, J., Monga, R., &amp;amp; Yagnik, J. (2015). Deep Networks With Large Output Spaces. Iclr, 1–9. Retrieved from &lt;a href="http://arxiv.org/abs/1412.7479"&gt;http://arxiv.org/abs/1412.7479&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:12" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:13"&gt;&lt;p&gt;Kim, Y., Jernite, Y., Sontag, D., &amp;amp; Rush, A. M. (2016). Character-Aware Neural Language Models. AAAI. Retrieved from &lt;a href="http://arxiv.org/abs/1508.06615"&gt;http://arxiv.org/abs/1508.06615&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:13" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:14"&gt;&lt;p&gt;Ling, W., Trancoso, I., Dyer, C., &amp;amp; Black, A. W. (2016). Character-based Neural Machine Translation. ICLR, 1–11. Retrieved from &lt;a href="http://arxiv.org/abs/1511.04586"&gt;http://arxiv.org/abs/1511.04586&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:14" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:15"&gt;&lt;p&gt;Bengio, Y., &amp;amp; Senécal, J.-S. (2008). Adaptive importance sampling to accelerate training of a neural probabilistic language model. IEEE Transactions on Neural Networks, 19(4), 713–722. &lt;a href="http://doi.org/10.1109/TNN.2007.912312"&gt;http://doi.org/10.1109/TNN.2007.912312&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:15" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:16"&gt;&lt;p&gt;Liu, J. S. (2001). Monte Carlo Strategies in Scientific Computing. Springer. &lt;a href="http://doi.org/10.1017/CBO9781107415324.004"&gt;http://doi.org/10.1017/CBO9781107415324.004&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:16" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:17"&gt;&lt;p&gt;Gutmann, M., &amp;amp; Hyvärinen, A. (2010). Noise-contrastive estimation: A new estimation principle for unnormalized statistical models. International Conference on Artificial Intelligence and Statistics, 1–8. Retrieved from &lt;a href="http://www.cs.helsinki.fi/u/ahyvarin/papers/Gutmann10AISTATS.pdf"&gt;http://www.cs.helsinki.fi/u/ahyvarin/papers/Gutmann10AISTATS.pdf&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:17" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:18"&gt;&lt;p&gt;Mnih, A., &amp;amp; Teh, Y. W. (2012). A Fast and Simple Algorithm for Training Neural Probabilistic Language Models. Proceedings of the 29th International Conference on Machine Learning (ICML’12), 1751–1758. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:18" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:19"&gt;&lt;p&gt;Zoph, B., Vaswani, A., May, J., &amp;amp; Knight, K. (2016). Simple, Fast Noise-Contrastive Estimation for Large RNN Vocabularies. NAACL. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:19" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:20"&gt;&lt;p&gt;Vaswani, A., Zhao, Y., Fossum, V., &amp;amp; Chiang, D. (2013). Decoding with Large-Scale Neural Language Models Improves Translation. Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP 2013), (October), 1387–1392. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:20" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:21"&gt;&lt;p&gt;Dyer, C. (2014). Notes on Noise Contrastive Estimation and Negative Sampling. Arxiv preprint. Retrieved from &lt;a href="http://arxiv.org/abs/1410.8251"&gt;http://arxiv.org/abs/1410.8251&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:21" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:22"&gt;&lt;p&gt;Goldberg, Y., &amp;amp; Levy, O. (2014). word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method. arXiv Preprint arXiv:1402.3722, (2), 1–5. Retrieved from &lt;a href="http://arxiv.org/abs/1402.3722"&gt;http://arxiv.org/abs/1402.3722&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:22" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:23"&gt;&lt;p&gt;Devlin, J., Zbib, R., Huang, Z., Lamar, T., Schwartz, R., &amp;amp; Makhoul, J. (2014). Fast and robust neural network joint models for statistical machine translation. Proc. ACL’2014, 1370–1380. &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:23" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:24"&gt;&lt;p&gt;Gouws, S. (2016). Training neural word embeddings for transfer learning and translation (Doctoral dissertation, Stellenbosch: Stellenbosch University). &lt;a href="http://localhost:2368/word-embeddings-softmax/#fnref:24" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+
+&lt;p&gt;Credit for the cover image goes to &lt;a href="http://stephangouws.com/"&gt;Stephan Gouws&lt;/a&gt; who included the image in his &lt;a href="http://scholar.sun.ac.za/handle/10019.1/98758"&gt;PhD dissertation&lt;/a&gt; and in the &lt;a href="https://www.tensorflow.org/versions/r0.9/tutorials/word2vec/index.html"&gt;Tensorflow word2vec tutorial&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>On word embeddings - Part 1</title><description>The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research.</description><link>http://localhost:2368/word-embeddings-1/</link><guid isPermaLink="false">4c791259-51e7-4e35-a5b4-a588296a9de3</guid><category>deep learning</category><category>word embeddings</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 11 Apr 2016 14:00:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/04/word_embeddings_colah.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/04/word_embeddings_colah.png" alt="On word embeddings - Part 1"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#abriefhistoryofwordembeddings"&gt;A brief history of word embeddings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#wordembeddingmodels"&gt;Word embedding models&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#anoteonlanguagemodelling"&gt;A note on language modelling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#classicneurallanguagemodel"&gt;Classic neural language model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#cwmodel"&gt;C&amp;amp;W model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#word2vec"&gt;Word2Vec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#continuousbagofwordscbow"&gt;CBOW&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#skipgram"&gt;Skip-gram&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unsupervisedly learned word embeddings have been exceptionally successful in many NLP tasks and are frequently seen as something akin to a &lt;em&gt;silver bullet&lt;/em&gt;. In fact, in many NLP architectures, they have almost completely replaced traditional distributional features such as Brown clusters and LSA features. &lt;/p&gt;
+
+&lt;p&gt;Proceedings of last year's &lt;a href="https://aclweb.org/anthology/P/P15/"&gt;ACL&lt;/a&gt; and &lt;a href="https://aclweb.org/anthology/D/D15/"&gt;EMNLP&lt;/a&gt; conferences have been dominated by word embeddings, with some people musing that &lt;em&gt;Embedding Methods in Natural Language Processing&lt;/em&gt; was a more fitting name for EMNLP. This year's ACL features not &lt;a href="https://sites.google.com/site/repl4nlp2016/"&gt;one&lt;/a&gt; but &lt;a href="https://sites.google.com/site/repevalacl16/"&gt;two&lt;/a&gt; workshops on word embeddings.&lt;/p&gt;
+
+&lt;p&gt;Semantic relations between word embeddings seem nothing short of magical to the uninitiated and Deep Learning NLP talks frequently prelude with the notorious \(king - man + woman \approx queen \) slide, while &lt;a href="http://cacm.acm.org/magazines/2016/3/198856-deep-or-shallow-nlp-is-breaking-out/fulltext"&gt;a recent article&lt;/a&gt; in &lt;em&gt;Communications of the ACM&lt;/em&gt; hails word embeddings as the primary reason for NLP's breakout.&lt;/p&gt;
+
+&lt;p&gt;This post will be the first in a series that aims to give an extensive overview of word embeddings showcasing why this hype may or may not be warranted. In the course of this review, we will try to connect the disperse literature on word embedding models, highlighting many models, applications and interesting features of word embeddings, with a focus on multilingual embedding models and word embedding evaluation tasks in later posts. &lt;br&gt;
+This first post lays the foundations by presenting current word embeddings based on language modelling. While many of these models have been discussed at length, we hope that investigating and discussing their merits in the context of past and current research will provide new insights.&lt;/p&gt;
+
+&lt;p&gt;A brief note on nomenclature: In the following we will use the currently prevalent term &lt;em&gt;word embeddings&lt;/em&gt; to refer to dense representations of words in a low-dimensional vector space. Interchangeable terms are &lt;em&gt;word vectors&lt;/em&gt; and &lt;em&gt;distributed representations&lt;/em&gt;. We will particularly focus on &lt;em&gt;neural word embeddings&lt;/em&gt;, i.e. word embeddings learned by a neural network.&lt;/p&gt;
+
+&lt;h1 id="abriefhistoryofwordembeddings"&gt;A brief history of word embeddings&lt;/h1&gt;
+
+&lt;p&gt;Since the 1990s, vector space models have been used in distributional semantics. During this time, many models for estimating continuous representations of words have been developed, including Latent Semantic Analysis (LSA) and Latent Dirichlet Allocation (LDA). Have a look at &lt;a href="https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/"&gt;this blog post&lt;/a&gt; for a more detailed overview of distributional semantics history in the context of word embeddings.&lt;/p&gt;
+
+&lt;p&gt;Bengio et al. coin the term word embeddings in 2003 and train them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2008. Their landmark paper &lt;em&gt;A unified architecture for natural language processing&lt;/em&gt; not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who created word2vec, a toolkit that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. released GloVe, a competitive set of pre-trained word embeddings, signalling that word embeddings had reached the main stream.&lt;/p&gt;
+
+&lt;p&gt;Word embeddings are one of the few currently successful applications of unsupervised learning. Their main benefit arguably is that they don't require expensive annotation, but can be derived from large unannotated corpora that are readily available. Pre-trained embeddings can then be used in downstream tasks that use small amounts of labeled data.&lt;/p&gt;
+
+&lt;h1 id="wordembeddingmodels"&gt;Word embedding models&lt;/h1&gt;
+
+&lt;p&gt;Naturally, every feed-forward neural network that takes words from a vocabulary as input and embeds them as vectors into a lower dimensional space, which it then fine-tunes through back-propagation, necessarily yields word embeddings as the weights of the first layer, which is usually referred to as &lt;em&gt;Embedding Layer&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The main difference between such a network that produces word embeddings as a by-product and a method such as word2vec whose explicit goal is the generation of word embeddings is its computational complexity. Generating word embeddings with a very deep architecture is simply too computationally expensive for a large vocabulary. This is the main reason why it took until 2013 for word embeddings to explode onto the NLP stage; computational complexity is a key trade-off for word embedding models and will be a recurring theme in our review.&lt;/p&gt;
+
+&lt;p&gt;Another difference is the training objective: word2vec and GloVe are geared towards producing word embeddings that encode general semantic relationships, which are beneficial to many downstream tasks; notably, word embeddings trained this way won't be helpful in tasks that do not rely on these kind of relationships. In contrast, regular neural networks typically produce task-specific embeddings that are only of limited use elsewhere. Note that a task that relies on semantically coherent representations such as language modelling will produce similar embeddings to word embedding models, which we will investigate in the next chapter. &lt;br&gt;
+As a side-note, word2vec and Glove might be said to be to NLP what &lt;a href="https://github.com/BVLC/caffe/wiki/Model-Zoo"&gt;VGGNet&lt;/a&gt; is to vision, i.e. a common weight initialisation that provides generally helpful features without the need for lengthy training.&lt;/p&gt;
+
+&lt;p&gt;To facilitate comparison between models, we assume the following notational standards: We assume a training corpus containing a sequence of \(T\) training words \(w_1, w_2, w_3, \cdots, w_T\) that belong to a vocabulary \(V\) whose size is \(|V|\). Our models generally consider a context of \( n \) words. We associate every word with an input embedding \( v_w \) (the eponymous word embedding in the Embedding Layer) with \(d\) dimensions and an output embedding \( v'_w \) (another word representation whose role will soon become clearer). We finally optimize an objective function \(J_\theta\) with regard to our model parameters \(\theta\) and our model outputs some score \(f_\theta(x)\) for every input \( x \).&lt;/p&gt;
+
+&lt;h2 id="anoteonlanguagemodelling"&gt;A note on language modelling&lt;/h2&gt;
+
+&lt;p&gt;Word embedding models are quite closely intertwined with language models. The quality of language models is measured based on their ability to learn a probability distribution over words in \( V \). In fact, many state-of-the-art word embedding models try to predict the next word in a sequence to some extent. Additionally, word embedding models are often evaluated using &lt;a href="https://en.wikipedia.org/wiki/Perplexity"&gt;perplexity&lt;/a&gt;, a cross-entropy based measure borrowed from language modelling.&lt;/p&gt;
+
+&lt;p&gt;Before we get into the gritty details of word embedding models, let us briefly talk about some language modelling fundamentals.&lt;/p&gt;
+
+&lt;p&gt;Language models generally try to compute the probability of a word \(w_t\) given its \(n - 1\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:&lt;/p&gt;
+
+&lt;p&gt;\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) \).&lt;/p&gt;
+
+&lt;p&gt;In n-gram based language models, we can calculate a word's probability based on the frequencies of its constituent n-grams: &lt;br&gt;
+\( p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{count(w_{t-n+1}, \cdots , w_{t-1},w_t)}{count({w_{t-n+1}, \cdots , w_{t-1}})}\).&lt;/p&gt;
+
+&lt;p&gt;Setting \(n = 2\) yields bigram probabilities, while \(n = 5\) together with Kneser-Ney smoothing leads to smoothed 5-gram models that have been found to be a strong baseline for language modelling. For more details, you can refer to &lt;a href="https://web.stanford.edu/class/cs124/lec/languagemodeling.pdf"&gt;these slides&lt;/a&gt; from Stanford.&lt;/p&gt;
+
+&lt;p&gt;In neural networks, we achieve the same objective using the well-known softmax layer:&lt;/p&gt;
+
+&lt;p&gt;\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).&lt;/p&gt;
+
+&lt;p&gt;The inner product \( h^\top v'_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/04/nn_language_model-1.jpg" style="width: 80%; height: 80%" title="SGD without momentum" alt="On word embeddings - Part 1"&gt;
+&lt;figcaption&gt;Figure 1: A neural language model (Bengio et al., 2006)&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;Note that we need to calculate the probability of every word \( w \) at the output layer of the neural network. To do this efficiently, we perform a matrix multiplication between \(h\) and a weight matrix whose rows consist of \(v'_w\) of all words \(w\) in \(V\). We then feed the resulting vector, which is often referred to as a logit, i.e. the output of a previous layer that is not a probability, with \(d = |V|\) into the softmax, while the softmax layer "squashes" the vector to a probability distribution over the words in \(V\).&lt;/p&gt;
+
+&lt;p&gt;Note that the softmax layer (in contrast to the previous n-gram calculations) only implicitly takes into account \(n\) previous words: LSTMs, which are typically used for neural language models, encode these in their state \(h\), while Bengio's neural language model, which we will see in the next chapter, feeds the previous \(n\) words through a feed-forward layer.&lt;/p&gt;
+
+&lt;p&gt;Keep this softmax layer in mind, as many of the subsequent word embedding models will use it in some fashion.&lt;/p&gt;
+
+&lt;p&gt;Using this softmax layer, the model tries to maximize the probability of predicting the correct word at every timestep \( t \). The whole model thus tries to maximize the averaged log probability of the whole corpus:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = \frac{1}{T} \text{log} \space p(w_1 , \cdots , w_T)\).&lt;/p&gt;
+
+&lt;p&gt;Analogously, through application of the chain rule, it is usually trained to maximize the average of the log probabilities of all words in the corpus given their previous \( n \) words:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1})\).&lt;/p&gt;
+
+&lt;p&gt;To sample words from the language model at test time, we can either greedily choose the word with the highest probability \(p(w_t \: | \: w_{t-1} \cdots w_{t-n+1})\) at every time step \( t \) or use beam search. We can do this for instance to generate arbitrary text sequences as in &lt;a href="https://github.com/karpathy/char-rnn"&gt;Karpathy's Char-RNN&lt;/a&gt; or as part of a sequence prediction task, where an LSTM is used as the decoder.&lt;/p&gt;
+
+&lt;h2 id="classicneurallanguagemodel"&gt; Classic neural language model&lt;/h2&gt;
+
+&lt;p&gt;The classic neural language model proposed by  Bengio et al. [&lt;sup id="fnref:1"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] in 2003 consists of a one-hidden layer feed-forward neural network that predicts the next word in a sequence as in Figure 2.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/04/bengio_language_model.png" style="width: 70%; height: 70%" title="Language model by Bengio et al." alt="On word embeddings - Part 1"&gt;
+&lt;figcaption&gt;Figure 2: Classic neural language model (Bengio et al., 2003)&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;Their model maximizes what we've described above as the prototypical neural language model objective (we omit the regularization term for simplicity):&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space f(w_t , w_{t-1} , \cdots , w_{t-n+1})\).&lt;/p&gt;
+
+&lt;p&gt;\( f(w_t , w_{t-1} , \cdots , w_{t-n+1}) \) is the output of the model, i.e. the probability \( p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) \) as computed by the softmax, where \(n \) is the number of previous words fed into the model.&lt;/p&gt;
+
+&lt;p&gt;Bengio et al. are one of the first to introduce what we now refer to as a word embedding, a real-valued word feature vector in \(\mathbb{R}\). Their architecture forms very much the prototype upon which current approaches have gradually improved. The general building blocks of their model, however, are still found in all current neural language and word embedding models. These are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Embedding Layer&lt;/strong&gt;: a layer that generates word embeddings by multiplying an index vector with a word embedding matrix;  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intermediate Layer(s)&lt;/strong&gt;: one or more layers that produce an intermediate representation of the input, e.g. a fully-connected layer that applies a non-linearity to the concatenation of word embeddings of \(n\) previous words;  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Softmax Layer&lt;/strong&gt;: the final layer that produces a probability distribution over words in \(V\).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Additionally, Bengio et al. identify two issues that lie at the heart of current state-of-the-art-models:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They remark that &lt;strong&gt;2.&lt;/strong&gt; can be replaced by an LSTM, which is used by state-of-the-art neural language models [&lt;sup id="fnref:6"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:7"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;].&lt;/li&gt;
+&lt;li&gt;They identify the final softmax layer (more precisely: the normalization term) as the network's main bottleneck, as the cost of computing the softmax is proportional to the number of words in \(V\), which is typically on the order of hundreds of thousands or millions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finding ways to mitigate the computational cost associated with computing the softmax over a large vocabulary [&lt;sup id="fnref:9"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:9" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt;] is thus one of the key challenges both in neural language models as well as in word embedding models.&lt;/p&gt;
+
+&lt;h2 id="cwmodel"&gt; C&amp;amp;W model&lt;/h2&gt;
+
+&lt;p&gt;After Bengio et al.'s first steps in neural language models, research in word embeddings stagnated as computing power and algorithms did not yet allow the training of a large vocabulary.&lt;/p&gt;
+
+&lt;p&gt;Collobert and Weston [&lt;sup id="fnref:4"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt;] (thus C&amp;amp;W) showcase in 2008 that word embeddings trained on a sufficiently large dataset carry syntactic and semantic meaning and improve performance on downstream tasks. They elaborate upon this in their 2011 paper [&lt;sup id="fnref:8"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;p&gt;Their solution to avoid computing the expensive softmax is to use a different objective function: Instead of the cross-entropy criterion of Bengio et al., which maximizes the probability of the next word given the previous words, Collobert and Weston train a network to output a higher score \(f_\theta\) for a correct word sequence (a probable word sequence in Bengio's model) than for an incorrect one. For this purpose, they use a pairwise ranking criterion, which looks like this:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta\ = \sum\limits_{x \in X} \sum\limits_{w \in V} \text{max} \lbrace 0, 1 - f_\theta(x) + f_\theta(x^{(w)}) \rbrace \).&lt;/p&gt;
+
+&lt;p&gt;They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). Their objective now maximises the distance between the scores output by the model for the correct and the incorrect window with a margin of \(1\). Their model architecture, depicted in Figure 3 without the ranking objective, is analogous to Bengio et al.'s model.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&amp;W model" alt="On word embeddings - Part 1"&gt;
+&lt;figcaption&gt;Figure 3: The C&amp;W model without ranking objective (Collobert et al., 2011)&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;The resulting language model produces embeddings that already possess many of the relations word embeddings have become known for, e.g. countries are clustered close together and syntactically similar words occupy similar locations in the vector space. While their ranking objective eliminates the complexity of the softmax, they keep the intermediate fully-connected hidden layer (&lt;strong&gt;2.&lt;/strong&gt;) of Bengio et al. around (the &lt;strong&gt;HardTanh&lt;/strong&gt; layer in Figure 3), which constitutes another source of expensive computation. Partially due to this, their full model trains for seven weeks in total with \(|V| = 130000\).&lt;/p&gt;
+
+&lt;h2 id="word2vec"&gt; Word2Vec&lt;/h2&gt;
+
+&lt;p&gt;Let us now introduce arguably the most popular word embedding model, the model that launched a thousand word embedding papers: word2vec, the subject of two papers by Mikolov et al. in 2013. As word embeddings are a key building block of deep learning models for NLP, word2vec is often assumed to belong to the same group. Technically however, word2vec is not be considered to be part of deep learning, as its architecture is neither deep nor uses non-linearities (in contrast to Bengio's model and the C&amp;amp;W model). &lt;/p&gt;
+
+&lt;p&gt;In their first paper [&lt;sup id="fnref:2"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;], Mikolov et al. propose two architectures for learning word embeddings that are computationally less expensive than previous models. In their second paper [&lt;sup id="fnref:3"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;], they improve upon these models by employing additional strategies to enhance training speed and accuracy. &lt;br&gt;
+These architectures offer two main benefits over the C&amp;amp;W model and Bengio's language model:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They do away with the expensive hidden layer.&lt;/li&gt;
+&lt;li&gt;They enable the language model to take additional context into account.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As we will later show, the success of their model is not only due to these changes, but especially due to certain training strategies.&lt;/p&gt;
+
+&lt;p&gt;In the following, we will look at both of these architectures:&lt;/p&gt;
+
+&lt;h3 id="continuousbagofwordscbow"&gt;Continuous bag-of-words (CBOW)&lt;/h3&gt;
+
+&lt;p&gt;While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word \( w_t \) to predict it as depicted in Figure 4. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/02/cbow.png" style="width: 50%; height: 50%" title="Continuous bag-of-words" alt="On word embeddings - Part 1"&gt;
+&lt;figcaption&gt;Figure 4: Continuous bag-of-words (Mikolov et al., 2013)&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;The objective function of CBOW in turn is only slightly different than the language model one:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-n} , \cdots , w_{t-1}, w_{t+1}, \cdots , w_{t+n})\).&lt;/p&gt;
+
+&lt;p&gt;Instead of feeding \( n \) previous words into the model, the model receives a window of \( n \) words around the target word \( w_t \) at each time step \( t \).&lt;/p&gt;
+
+&lt;h3 id="skipgram"&gt;Skip-gram&lt;/h3&gt;
+
+&lt;p&gt;While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words as can be seen in Figure 5.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://localhost:2368/content/images/2016/02/skip-gram.png" style="width: 50%; height: 50%" title="Skip-gram" alt="On word embeddings - Part 1"&gt;
+&lt;figcaption&gt;Figure 5: Skip-gram (Mikolov et al., 2013)&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;The skip-gram objective thus sums the log probabilities of the surrounding \( n \) words  to the left and to the right of the target word \( w_t \) to produce the following objective:&lt;/p&gt;
+
+&lt;p&gt;\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \sum\limits_{-n \leq j \leq n , \neq 0} \text{log} \space p(w_{t+j} \: | \: w_t)\).&lt;/p&gt;
+
+&lt;p&gt;To gain a better intuition of how the skip-gram model computes \( p(w_{t+j} \: | \: w_t) \), let's recall the definition of our softmax:&lt;/p&gt;
+
+&lt;p&gt;\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).&lt;/p&gt;
+
+&lt;p&gt;Instead of computing the probability of the target word \( w_t \) given its previous words, we calculate the probability of the surrounding word \( w_{t+j} \) given \( w_t \). We can thus simply replace these variables in the equation:&lt;/p&gt;
+
+&lt;p&gt;\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({h^\top v'_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).&lt;/p&gt;
+
+&lt;p&gt;As the skip-gram architecture does not contain a hidden layer that produces an intermediate state vector \(h\), \(h\) is simply the word embedding \(v_{w_t}\) of the input word \(w_t\). This also makes it clearer why we want to have different representations for input embeddings \(v_w\) and output embeddings \(v'_w\), as we would otherwise multiply the word embedding by itself. Replacing \(h \) with \(v_{w_t}\) yields:&lt;/p&gt;
+
+&lt;p&gt;\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({v^\top_{w_t} v'_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({v^\top_{w_t} v'_{w_i}})} \).&lt;/p&gt;
+
+&lt;p&gt;Note that the notation in Mikolov's paper differs slightly from ours, as they denote the centre word with \( w_I \) and the surrounding words with \( w_O \). If we replace \( w_t \) with \( w_I \), \( w_{t+j} \) with \( w_O \), and swap the vectors in the inner product due to its commutativity, we arrive at the softmax notation in their paper:&lt;/p&gt;
+
+&lt;p&gt;\(p(w_O|w_I) = \dfrac{\text{exp}(v'^\top_{w_O} v_{w_I})}{\sum^V_{w=1}\text{exp}(v'^\top_{w} v_{w_I})}\).&lt;/p&gt;
+
+&lt;p&gt;In the next post, we will discuss different ways to approximate the expensive softmax as well as key training decisions that account for much of skip-gram's success. We will also introduce GloVe [&lt;sup id="fnref:5"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:5" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;], a word embedding model based on matrix factorisation and discuss the link between word embeddings and methods from distributional semantics.&lt;/p&gt;
+
+&lt;p&gt;Did I miss anything? &lt;strong&gt;Let me know in the comments below.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id="otherblogpostsonwordembeddings"&gt;Other blog posts on word embeddings&lt;/h1&gt;
+
+&lt;p&gt;If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;On word embeddings - Part 2: Approximating the softmax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://sebastianruder.com/secret-word2vec/index.html"&gt;On word embeddings - Part 3: The secret ingredients of word2vec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://sebastianruder.com/cross-lingual-embeddings/index.html"&gt;Unofficial Part 4: A survey of cross-lingual embedding models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/word-embeddings-2017/index.html"&gt;Unofficial Part 5: Word embeddings in 2017 -  Trends and future directions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id="translations"&gt;Translations&lt;/h1&gt;
+
+&lt;p&gt;This blog post has been translated into the following languages: &lt;br&gt;
+- &lt;a href="http://geek.csdn.net/news/detail/111466"&gt;Chinese&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="references"&gt;References&lt;/h1&gt;
+
+&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li class="footnote" id="fn:1"&gt;&lt;p&gt;Bengio, Y., Ducharme, R., Vincent, P., &amp;amp; Janvin, C. (2003). A Neural Probabilistic Language Model. The Journal of Machine Learning Research, 3, 1137–1155. Retrieved from &lt;a href="http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf"&gt;http://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:1" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:2"&gt;&lt;p&gt;Mikolov, T., Corrado, G., Chen, K., &amp;amp; Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR 2013), 1–12. &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:2" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:3"&gt;&lt;p&gt;Mikolov, T., Chen, K., Corrado, G., &amp;amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS, 1–9. &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:3" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:4"&gt;&lt;p&gt;Collobert, R., &amp;amp; Weston, J. (2008). A unified architecture for natural language processing. Proceedings of the 25th International Conference on Machine Learning - ICML ’08, 20(1), 160–167. &lt;a href="http://doi.org/10.1145/1390156.1390177"&gt;http://doi.org/10.1145/1390156.1390177&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:4" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:5"&gt;&lt;p&gt;Pennington, J., Socher, R., &amp;amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. &lt;a href="http://doi.org/10.3115/v1/D14-1162"&gt;http://doi.org/10.3115/v1/D14-1162&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:5" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;Kim, Y., Jernite, Y., Sontag, D., &amp;amp; Rush, A. M. (2016). Character-Aware Neural Language Models. AAAI. Retrieved from &lt;a href="http://arxiv.org/abs/1508.06615"&gt;http://arxiv.org/abs/1508.06615&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:7"&gt;&lt;p&gt;Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp;amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. Retrieved from &lt;a href="http://arxiv.org/abs/1602.02410"&gt;http://arxiv.org/abs/1602.02410&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:7" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:8"&gt;&lt;p&gt;Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., &amp;amp; Kuksa, P. (2011). Natural Language Processing (almost) from Scratch. Journal of Machine Learning Research, 12 (Aug), 2493–2537. Retrieved from &lt;a href="http://arxiv.org/abs/1103.0398"&gt;http://arxiv.org/abs/1103.0398&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:8" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:9"&gt;&lt;p&gt;Chen, W., Grangier, D., &amp;amp; Auli, M. (2015). Strategies for Training Large Vocabulary Neural Language Models, 12. Retrieved from &lt;a href="http://arxiv.org/abs/1512.04906"&gt;http://arxiv.org/abs/1512.04906&lt;/a&gt; &lt;a href="http://localhost:2368/word-embeddings-1/#fnref:9" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+
+&lt;p&gt;Credit for the post image goes to &lt;a href="http://colah.github.io/"&gt;Christopher Olah&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>
