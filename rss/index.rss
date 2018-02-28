@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 28 Feb 2018 09:23:26 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 28 Feb 2018 09:25:48 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://localhost:2368/deep-learning-optimization-2017/#improvingadam"&gt;Improving Adam&lt;/a&gt;
@@ -2299,13 +2299,13 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>News</title><description>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
 
-&lt;p&gt;01.-06.07.2018: I will be attending &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presenting our paper &lt;a href="https://arxiv.org/pdf/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;01.-06.07.2018: I will be attending &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presenting our paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id="past"&gt;Past&lt;/h1&gt;</description><link>http://localhost:2368/news/</link><guid isPermaLink="false">acc3aa19-ab08-418c-842c-ddae0887b3b7</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:47:27 GMT</pubDate><content:encoded>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
 
-&lt;p&gt;01.-06.07.2018: I will be attending &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presenting our paper &lt;a href="https://arxiv.org/pdf/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;01.-06.07.2018: I will be attending &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presenting our paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
 
@@ -2313,7 +2313,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;h2 id="2018"&gt; 2018&lt;/h2&gt;
 
-&lt;p&gt;14.02.2018: My paper &lt;a href="https://arxiv.org/pdf/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; with Isabelle Augenstein and Anders Søgaard was accepted as an oral presentation to &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;14.02.2018: My paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; with Isabelle Augenstein and Anders Søgaard was accepted as an oral presentation to &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id="2017"&gt;2017&lt;/h2&gt;
 
@@ -3817,13 +3817,13 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 
 &lt;h1 id="selectedpublications"&gt;Selected publications&lt;/h1&gt;
 
-&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/pdf/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
+&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Barbara Plank (2017). &lt;a href="http://www.aclweb.org/anthology/D17-1038"&gt;Learning to select data for transfer learning with Bayesian&lt;/a&gt;&lt;/p&gt;</description><link>http://localhost:2368/publications/</link><guid isPermaLink="false">22cda420-5a7f-4ee4-a14f-9e0fe080af28</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 09 Aug 2016 09:46:55 GMT</pubDate><content:encoded>&lt;p&gt;You can find my Google Scholar profile &lt;a href="https://scholar.google.de/citations?user=8ONXPV8AAAAJ&amp;amp;hl"&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id="selectedpublications"&gt;Selected publications&lt;/h1&gt;
 
-&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/pdf/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
+&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Sebastian Ruder&lt;/strong&gt;, Barbara Plank (2017). &lt;a href="http://www.aclweb.org/anthology/D17-1038"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt;. In &lt;em&gt;Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing&lt;/em&gt;, pages 372–382, Copenhagen, Denmark. &lt;a href="https://github.com/sebastianruder/learn-to-select-data"&gt;Code&lt;/a&gt;, &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;poster&lt;/a&gt;&lt;/p&gt;
 
@@ -3833,9 +3833,7 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 
 &lt;h1 id="2018"&gt;2018&lt;/h1&gt;
 
-&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/pdf/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
-
-&lt;p&gt;*: Equal contribution.&lt;/p&gt;
+&lt;p&gt;Isabelle Augenstein*, &lt;strong&gt;Sebastian Ruder&lt;/strong&gt;*, Anders Søgaard (2018). &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt;. In &lt;em&gt;Proceedings of NAACL-HLT 2018&lt;/em&gt;, New Orleans, US. &lt;/p&gt;
 
 &lt;h1 id="2017"&gt;2017&lt;/h1&gt;
 
