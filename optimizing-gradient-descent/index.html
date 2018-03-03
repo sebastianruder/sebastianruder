@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
-    <meta property="article:modified_time" content="2018-02-13T14:36:27.816Z">
+    <meta property="article:modified_time" content="2018-03-03T11:26:33.563Z">
     <meta property="article:tag" content="optimization">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="sgd">
@@ -68,7 +68,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2018-02-13T14:36:27.816Z",
+    "dateModified": "2018-03-03T11:26:33.563Z",
     "image": "u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -293,7 +293,7 @@ var ga_id = 'UA-60512592-1';
 SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</p>
 
 <figure>  
-      <img src="../content/images/2016/09/sgd_fluctuation.png" style="width: 50%; height: 50%" title="SGD fluctuation">
+      <img src="../content/images/2016/09/sgd_fluctuation.png" style="width: 50%" title="SGD fluctuation">
 <figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">Wikipedia</a>)</figcaption>  
 </figure>
 
@@ -345,13 +345,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2015/12/without_momentum.gif" style="width: 90%; height: 90%" title="SGD without momentum">
+      <img src="../content/images/2015/12/without_momentum.gif" style="width: 90%" title="SGD without momentum">
 <figcaption>Image 2: SGD without momentum</figcaption>  
 </figure>  
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2015/12/with_momentum.gif" style="width: 90%; height: 90%" title="SGD with momentum">
+      <img src="../content/images/2015/12/with_momentum.gif" style="width: 90%" title="SGD with momentum">
 <figcaption>Image 3: SGD with momentum</figcaption>  
 </figure>  
     </td>
@@ -391,7 +391,7 @@ v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\ <
 <p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>].</p>
 
 <figure>  
-      <img src="../content/images/2016/09/nesterov_update_vector.png" style="width: 50%; height: 50%" title="SGD fluctuation">
+      <img src="../content/images/2016/09/nesterov_update_vector.png" style="width: 50%" title="SGD fluctuation">
 <figcaption>Image 4: Nesterov update (Source: <a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">G. Hinton's lecture 6c</a>)</figcaption>  
 </figure>
 
@@ -670,13 +670,13 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ <br>
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD without momentum">
+      <img src="../content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 90%" title="SGD without momentum">
 <figcaption>Image 5: SGD optimization on loss surface contours</figcaption>  
 </figure>  
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2016/09/saddle_point_evaluation_optimizers.gif" style="width: 90%; height: 90%" title="SGD with momentum">
+      <img src="../content/images/2016/09/saddle_point_evaluation_optimizers.gif" style="width: 90%" title="SGD with momentum">
 <figcaption>Image 6: SGD optimization on saddle point</figcaption>  
 </figure>  
     </td>
