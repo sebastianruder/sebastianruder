@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/transfer-learning/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/03/transfer_learning_digits.png">
     <meta property="article:published_time" content="2017-03-21T15:40:00.000Z">
-    <meta property="article:modified_time" content="2018-03-03T11:23:33.339Z">
+    <meta property="article:modified_time" content="2018-03-03T11:25:45.983Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="nlp">
     <meta property="article:tag" content="transfer learning">
@@ -68,7 +68,7 @@
     "headline": "Transfer Learning - Machine Learning&#x27;s Next Frontier",
     "url": "u=http://ruder.io/transfer-learning/",
     "datePublished": "2017-03-21T15:40:00.000Z",
-    "dateModified": "2018-03-03T11:23:33.339Z",
+    "dateModified": "2018-03-03T11:25:45.983Z",
     "image": "u=http://ruder.io/content/images/2017/03/transfer_learning_digits.png",
     "keywords": "deep learning, nlp, transfer learning",
     "description": "This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods."
@@ -263,7 +263,7 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 <p>Transfer learning allows us to deal with these scenarios by leveraging the already existing labeled data of some related task or domain. We try to store this knowledge gained in solving the source task in the source domain and apply it to our problem of interest as can be seen in Figure 2. </p>
 
 <figure>  
-      <img src="../content/images/2017/03/transfer_learning_setup.png" style="width: 70%; height: 70%" title="Transfer learning setup">
+      <img src="../content/images/2017/03/transfer_learning_setup.png" style="width: 70%" title="Transfer learning setup">
 <figcaption>Figure 2: The transfer learning setup</figcaption>  
 </figure>
 
@@ -274,14 +274,14 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 <p>Andrew Ng, chief scientist at Baidu and professor at Stanford, said during <a href="http://sebastianruder.com/highlights-nips-2016/index.html#thenutsandboltsofmachinelearning">his widely popular NIPS 2016 tutorial</a> that transfer learning will be -- after supervised learning -- the next driver of ML commercial success.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/andrew_ng_nips_2016_transfer_learning-1.png" style="width: 70%; height: 70%" title="Andrew Ng on transfer learning">
+      <img src="../content/images/2017/03/andrew_ng_nips_2016_transfer_learning-1.png" style="width: 70%" title="Andrew Ng on transfer learning">
 <figcaption>Figure 3: Andrew Ng on transfer learning at NIPS 2016</figcaption>  
 </figure>
 
 <p>In particular, he sketched out a chart on a whiteboard that I've sought to replicate as faithfully as possible in Figure 4 below (sorry about the <a href="https://xkcd.com/833/">unlabelled axes</a>). According to Andrew Ng, transfer learning will become a key driver of Machine Learning success in industry.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/andrew_ng_drivers_ml_success-1.png" style="width: 70%; height: 70%" title="Drivers of ML success in industry">
+      <img src="../content/images/2017/03/andrew_ng_drivers_ml_success-1.png" style="width: 70%" title="Drivers of ML success in industry">
 <figcaption>Figure 4: Drivers of ML industrial success according to Andrew Ng</figcaption>  
 </figure>
 
@@ -290,7 +290,7 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 <p>It is less clear, however, why transfer learning which has been around for decades and is currently little utilized in industry, will see the explosive growth predicted by Ng. Even more so as transfer learning currently receives relatively little visibility compared to other areas of machine learning such as unsupervised learning and reinforcement learning, which have come to enjoy increasing popularity: Unsupervised learning -- the <a href="http://sebastianruder.com/highlights-nips-2016/index.html#generalartificialintelligence">key ingredient on the quest to General AI</a> according to Yann LeCun as can be seen in Figure 5 -- has seen a resurgence of interest, driven in particular by Generative Adversarial Networks. Reinforcement learning, in turn, spear-headed by Google DeepMind has led to advances in game-playing AI exemplified by the success of <a href="https://deepmind.com/research/alphago/">AlphaGo</a> and has already seen success in the real world, e.g. by <a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/">reducing Google's data center cooling bill by 40%</a>. Both of these areas, while promising, will likely only have a comparatively small commercial impact in the foreseeable future and mostly remain within the confines of cutting-edge research papers as they still face <a href="http://www.maluuba.com/blog/2017/3/14/the-next-challenges-for-reinforcement-learning">many challenges</a>.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/lecun_nips_2016_cake_slide.png" style="width: 60%; height: 60%" title="Yann LeCun NIPS 2016 keynote cake slide">
+      <img src="../content/images/2017/03/lecun_nips_2016_cake_slide.png" style="width: 60%" title="Yann LeCun NIPS 2016 keynote cake slide">
 <figcaption>Figure 5: Transfer Learning is conspicuously absent as ingredient from Yann LeCun's cake</figcaption>  
 </figure>
 
@@ -340,7 +340,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>Simulation is the preferred tool for this and is used towards enabling many advanced ML systems in the real world. Learning from a simulation and applying the acquired knowledge to the real world is an instance of transfer learning scenario 2, as the feature spaces between source and target domain are the same (both generally rely on pixels), but the marginal probability distributions between simulation and reality are different, i.e. objects in the simulation and the source <em>look</em> different, although this difference diminishes as simulations get more realistic. At the same time, the conditional probability distributions between simulation and real wold might be different as the simulation is not able to fully replicate all reactions in the real world, e.g. a physics engine can not completely mimic the complex interactions of real-world objects.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/self_driving_car_city.jpg" style="width: 60%; height: 60%" title="Google self-driving car">
+      <img src="../content/images/2017/03/self_driving_car_city.jpg" style="width: 60%" title="Google self-driving car">
 <figcaption>Figure 6: A Google self-driving car (source: <a href="https://googleblog.blogspot.ie/2014/04/the-latest-chapter-for-self-driving-car.html">Google Research blog</a>)</figcaption>  
 </figure>
 
@@ -354,14 +354,14 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>Another area where learning from simulations is key is robotics: Training models on a real robot is too slow and robots are expensive to train. Learning from a simulation and transferring the knowledge to real-world robot alleviates this problem and has recently been garnering additional interest [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>]. An example of a data manipulation task in the real world and in a simulation can be seen in Figure 8.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/robot_and_simulation_images_hadsell.png" style="width: 100%; height: 100%" title="Robot and simulation images">
+      <img src="../content/images/2017/03/robot_and_simulation_images_hadsell.png" style="width: 100%" title="Robot and simulation images">
 <figcaption>Figure 8: Robot and simulation images (Rusu et al., 2016)</figcaption>  
 </figure>
 
 <p>Finally, another direction where simulation will be an integral part is on the path towards general AI. Training an agent to achieve general artificial intelligence directly in the real world is too costly and hinders learning initially through unnecessary complexity. Rather, learning may be more successful if it is based on a simulated environment such as <a href="https://github.com/facebookresearch/CommAI-env">CommAI-env</a> [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>] that is visible in Figure 9.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/commai-env_environment.png" style="width: 30%; height: 30%" title="CommAI-env">
+      <img src="../content/images/2017/03/commai-env_environment.png" style="width: 30%" title="CommAI-env">
 <figcaption>Figure 9: Facebook AI Research's CommAI-env (Mikolov et al., 2015)</figcaption>  
 </figure>
 
@@ -372,28 +372,28 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>Domain adaptation is a common requirement in vision as often the data where labeled information is easily accessible and the data that we actually care about are different, whether this pertains to identifying bikes as in Figure 10 or some other objects in the wild. Even if the training and the the test data <em>look</em> the same, the training data may still contain a bias that is imperceptible to humans but which the model will exploit to overfit on the training data [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>].</p>
 
 <figure>  
-      <img src="../content/images/2017/03/visual_domain_adaptation_bikes.png" style="width: 60%; height: 60%" title="Visual domains">
+      <img src="../content/images/2017/03/visual_domain_adaptation_bikes.png" style="width: 60%" title="Visual domains">
 <figcaption>Figure 10: Different visual domains (Sun et al., 2016)</figcaption>  
 </figure>
 
 <p>Another common domain adaptation scenario pertains to adapting to different text types: Standard NLP tools such as part-of-speech taggers or parsers are typically trained on news data such as the Wall Street Journal, which has historically been used to evaluate these models. Models trained on news data, however, have difficulty coping with more novel text forms such as social media messages and the challenges they present.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/domain_adaptation_text_types-2.png" style="width: 60%; height: 60%" title="Different text types">
+      <img src="../content/images/2017/03/domain_adaptation_text_types-2.png" style="width: 60%" title="Different text types">
 <figcaption>Figure 11: Different text types / genres</figcaption>  
 </figure>
 
 <p>Even within one domain such as product reviews, people employ different words and phrases to express the same opinion. A model trained on one type of review should thus be able to disentangle the general and domain-specific opinion words that people use in order not to be confused by the shift in domain. </p>
 
 <figure>  
-      <img src="../content/images/2017/03/domain_adaptation_reviews.png" style="width: 60%; height: 60%" title="">
+      <img src="../content/images/2017/03/domain_adaptation_reviews.png" style="width: 60%" title="">
 <figcaption>Figure 12: Different topics</figcaption>  
 </figure>
 
 <p>Finally, while the above challenges deal with general text or image types, problems are amplified if we look at domains that pertain to individual or groups of users: Consider the case of automatic speech recognition (ASR). Speech is poised to become <a href="https://backchannel.com/voice-is-the-next-big-platform-unless-you-have-an-accent-6a787f7e8500#.koqx9pc2h">the next big platform</a>, with 50% of all our searches predicted to be performed by voice by 2020. Most ASR systems are evaluated traditionally on the Switchboard dataset, which comprises 500 speakers. Most people with a standard accent are thus fortunate, while immigrants, people with non-standard accents, people with a speech impediment, or children have trouble being understood. Now more than ever do we need systems that are able to adapt to individual users and minorities to ensure that everyone's voice is heard.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/domain_adaptation_accents.png" style="width: 60%; height: 60%" title="Different accents">
+      <img src="../content/images/2017/03/domain_adaptation_accents.png" style="width: 60%" title="Different accents">
 <figcaption>Figure 13: Different accents</figcaption>  
 </figure>
 
@@ -416,7 +416,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>While many details of how these models work still remain a mystery, we are by now aware that lower convolutional layers capture low-level image features, e.g. edges (see Figure 14), while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/example_filters.jpeg" style="width: 70%; height: 70%" title="Andrew Ng on transfer learning">
+      <img src="../content/images/2017/03/example_filters.jpeg" style="width: 70%" title="Andrew Ng on transfer learning">
 <figcaption>Figure 14: Example filters learned by AlexNet (Krizhevsky et al., 2012). </figcaption>  
 </figure>
 
@@ -425,7 +425,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>However, while knowing that a cat has whiskers, paws, fur, etc. is necessary for identifying an animal as a cat (for an example, see Figure 15), it does not help us with identifying new objects or to solve other common vision tasks such as scene recognition, fine grained recognition, attribute detection and image retrieval.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/cat.jpg" style="width: 70%; height: 70%" title="Token cat">
+      <img src="../content/images/2017/03/cat.jpg" style="width: 70%" title="Token cat">
 <figcaption>Figure 15: This post's token cat</figcaption>  
 </figure>
 
@@ -438,7 +438,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>A similar assumption is used to motivate generative models: When training generative models, we assume that the ability to generate realistic images requires an understanding of the underlying structure of images, which in turn can be applied to many other tasks. This assumption itself relies on the premise that all images lie on a low-dimensional manifold, i.e. that there is some underlying structure to images that can be extracted by a model. Recent advances in generating photorealistic images with Generative Adversarial Networks [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>] indicate that such a structure might indeed exist, as evidenced by the model's ability to show realistic transitions between points in the bedroom image space in Figure 16.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/walking_the_image_manifold.png" style="width: 80%; height: 80%" title="Walking the image manifold">
+      <img src="../content/images/2017/03/walking_the_image_manifold.png" style="width: 80%" title="Walking the image manifold">
 <figcaption>Figure 16: Walking along the bedroom image manifold</figcaption>  
 </figure>
 
@@ -469,14 +469,14 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 <p>Another way to ensure similarity between the representations of both domains that has recently become more popular is to add another objective to an existing model that encourages it to confuse the two domains [<sup id="fnref:29"><a href="index.html#fn:29" rel="footnote">29</a></sup>, <sup id="fnref:30"><a href="index.html#fn:30" rel="footnote">30</a></sup>]. This domain confusion loss is a regular classification loss where the model tries to predict the domain of the input example. The difference to a regular loss, however, is that gradients that flow from the loss to the rest of the network are reversed, as can be seen in Figure 17. </p>
 
 <figure>  
-      <img src="../content/images/2017/03/confusing_domains_with_gradient_reversal_layer.png" style="width: 80%; height: 80%" title="Confusing domains with gradient reversal layer">
+      <img src="../content/images/2017/03/confusing_domains_with_gradient_reversal_layer.png" style="width: 80%" title="Confusing domains with gradient reversal layer">
 <figcaption>Figure 17: Confusing domains with a gradient reversal layer (Ganin and Lempitsky, 2015)</figcaption>  
 </figure>
 
 <p>Instead of learning to minimize the error of the domain classification loss, the gradient reversal layer causes the model to maximize the error. In practice, this means that the model learns representations that allow it to minimize its original objective, while not allowing it to differentiate between the two domains, which is beneficial for knowledge transfer. While a model trained only with the regular objective is shown in Figure 18 to be clearly able to separate domains based on its learned representation, a model whose objective has been augmented with the domain confusion term is unable to do so.</p>
 
 <figure>  
-      <img src="../content/images/2017/03/domain_confusion_tzeng.png" style="width: 80%; height: 80%" title="Domain confusion">
+      <img src="../content/images/2017/03/domain_confusion_tzeng.png" style="width: 80%" title="Domain confusion">
 <figcaption>Figure 18: Domain classifier score of a regular and a domain confusion model (Tzeng et al, 2015)</figcaption>  
 </figure>
 
