@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-softmax/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/06/softmax_classifier.png">
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z">
-    <meta property="article:modified_time" content="2017-10-21T13:50:17.230Z">
+    <meta property="article:modified_time" content="2018-03-03T11:28:36.856Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="word embeddings">
     <meta property="article:tag" content="softmax">
@@ -68,7 +68,7 @@
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "u=http://ruder.io/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
-    "dateModified": "2017-10-21T13:50:17.230Z",
+    "dateModified": "2018-03-03T11:28:36.856Z",
     "image": "u=http://ruder.io/content/images/2016/06/softmax_classifier.png",
     "keywords": "deep learning, word embeddings, softmax",
     "description": "This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings."
@@ -254,7 +254,7 @@ var ga_id = 'UA-60512592-1';
 This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least \(50 \times\) and is thus critical for low-latency tasks such as real-time communication in <a href="http://googleresearch.blogspot.ie/2016/05/chat-smarter-with-allo.html">Google's new messenger app Allo</a>.</p>
 
 <figure>  
-      <img src="../content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%; height: 70%" title="Hierarchical softmax">
+      <img src="../content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 1: Hierarchical softmax (<a href="https://www.quora.com/Word2vec-How-can-hierarchical-soft-max-training-method-of-CBOW-guarantee-its-self-consistence">Quora</a>)</figcaption>  
 </figure>
 
@@ -268,7 +268,7 @@ Since a balanced binary tree has a depth of \(\text{log}_2 (\:|V|\:)\), we only 
 <p>This is almost the same as the computations in the regular softmax; now instead of computing the dot product between \(h\) and the output word embedding \(v'_{w}\), we compute the dot product between \(h\) and the embedding \(v'_{w}\) of each node in the tree; additionally, instead of computing a probability distribution over the entire vocabulary words, we output just one probability, the probability of going right at node \(n\) in this case, with the sigmoid function. Conversely, the probability of turning left is simply \( 1 - p(\:\text{right}\: | \: n,c)\).</p>
 
 <figure>  
-      <img src="../content/images/2016/05/hierarchical_softmax.png" style="width: 70%; height: 70%" title="Hierarchical softmax">
+      <img src="../content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 2: Hierarchical softmax computations (<a href="https://www.youtube.com/watch?v=B95LTf2rVWM">Hugo Lachorelle's Youtube lectures</a>)</figcaption>  
 </figure>
 
@@ -312,7 +312,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <p>In order to do this, instead of the dense matrix of the regular softmax layer of size \(d \: \times \: |V| \) containing the output word embeddings \( v'_w \in \mathbb{R}^d \), they use a sparse matrix. They then arrange \( v'_w\) in blocks sorted by frequency, with the embeddings in each block being of a certain dimensionality \(d_k \). The number of blocks and their embedding sizes are hyperparameters that can be tuned.</p>
 
 <figure>  
-      <img src="../content/images/2016/05/differentiated_softmax_1.png" style="width: 30%; height: 30%" title="Differentiated softmax">
+      <img src="../content/images/2016/05/differentiated_softmax_1.png" style="width: 30%" title="Differentiated softmax">
 <figcaption>Figure 3: Differentiated softmax (Chen et al. (2015))</figcaption>  
 </figure>
 
@@ -327,7 +327,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <p>Another modification to the traditional softmax layer is inspired by recent work by Kim et al. [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] who produce input word embeddings \(v_w\) via a character-level CNN. Jozefowicz et al. (2016) in turn suggest to do the same thing for the output word embeddings \(v'_w\) via a character-level CNN -- and refer to this as CNN-Softmax. Note that if we have a CNN at the input and at the output as in Figure 4, the CNN generating the output word embeddings \(v'_w\) is necessarily different from the CNN generating the input word embeddings \(v_w\), just as the input and output word embedding matrices would be different.</p>
 
 <figure>  
-      <img src="../content/images/2016/05/cnn-softmax_1.png" style="width: 30%; height: 30%" title="CNN-Softmax">
+      <img src="../content/images/2016/05/cnn-softmax_1.png" style="width: 30%" title="CNN-Softmax">
 <figcaption>Figure 4: CNN-Softmax (Jozefowicz et al. (2016))</figcaption>  
 </figure>
 
@@ -421,7 +421,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 <p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the <a href="http://sebastianruder.com/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
 
 <figure>  
-      <img src="../content/images/2016/06/negative_sampling.png" style="width: 70%; height: 70%" title="Noise Contrastive Estimation">
+      <img src="../content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
 <figcaption>Figure 4: Noise Contrastive Estimation (Stephan Gouws' PhD dissertation [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>]) </figcaption>  
 </figure>
 

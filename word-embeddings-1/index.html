@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-1/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/04/word_embeddings_colah.png">
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z">
-    <meta property="article:modified_time" content="2018-01-19T12:39:29.236Z">
+    <meta property="article:modified_time" content="2018-03-03T11:28:02.452Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="word embeddings">
     
@@ -67,7 +67,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "u=http://ruder.io/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2018-01-19T12:39:29.236Z",
+    "dateModified": "2018-03-03T11:28:02.452Z",
     "image": "u=http://ruder.io/content/images/2016/04/word_embeddings_colah.png",
     "keywords": "deep learning, word embeddings",
     "description": "The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research."
@@ -276,7 +276,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>The inner product \( h^\top v'_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).</p>
 
 <figure>  
-      <img src="../content/images/2016/04/nn_language_model-1.jpg" style="width: 80%; height: 80%" title="SGD without momentum">
+      <img src="../content/images/2016/04/nn_language_model-1.jpg" style="width: 80%" title="SGD without momentum">
 <figcaption>Figure 1: A neural language model (Bengio et al., 2006)</figcaption>  
 </figure>
 
@@ -301,7 +301,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>The classic neural language model proposed by  Bengio et al. [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] in 2003 consists of a one-hidden layer feed-forward neural network that predicts the next word in a sequence as in Figure 2.</p>
 
 <figure>  
-      <img src="../content/images/2016/04/bengio_language_model.png" style="width: 70%; height: 70%" title="Language model by Bengio et al.">
+      <img src="../content/images/2016/04/bengio_language_model.png" style="width: 70%" title="Language model by Bengio et al.">
 <figcaption>Figure 2: Classic neural language model (Bengio et al., 2003)</figcaption>  
 </figure>
 
@@ -341,7 +341,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). Their objective now maximises the distance between the scores output by the model for the correct and the incorrect window with a margin of \(1\). Their model architecture, depicted in Figure 3 without the ranking objective, is analogous to Bengio et al.'s model.</p>
 
 <figure>  
-      <img src="../content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&amp;W model">
+      <img src="../content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%" title="C&amp;W model">
 <figcaption>Figure 3: The C&amp;W model without ranking objective (Collobert et al., 2011)</figcaption>  
 </figure>
 
@@ -368,7 +368,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <p>While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word \( w_t \) to predict it as depicted in Figure 4. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.</p>
 
 <figure>  
-      <img src="../content/images/2016/02/cbow.png" style="width: 50%; height: 50%" title="Continuous bag-of-words">
+      <img src="../content/images/2016/02/cbow.png" style="width: 50%" title="Continuous bag-of-words">
 <figcaption>Figure 4: Continuous bag-of-words (Mikolov et al., 2013)</figcaption>  
 </figure>
 
@@ -383,7 +383,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <p>While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words as can be seen in Figure 5.</p>
 
 <figure>  
-      <img src="../content/images/2016/02/skip-gram.png" style="width: 50%; height: 50%" title="Skip-gram">
+      <img src="../content/images/2016/02/skip-gram.png" style="width: 50%" title="Skip-gram">
 <figcaption>Figure 5: Skip-gram (Mikolov et al., 2013)</figcaption>  
 </figure>
 

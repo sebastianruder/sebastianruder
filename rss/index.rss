@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 03 Mar 2018 11:25:51 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 03 Mar 2018 11:28:51 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://localhost:2368/deep-learning-optimization-2017/#improvingadam"&gt;Improving Adam&lt;/a&gt;
@@ -3787,7 +3787,7 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least \(50 \times\) and is thus critical for low-latency tasks such as real-time communication in &lt;a href="http://googleresearch.blogspot.ie/2016/05/chat-smarter-with-allo.html"&gt;Google's new messenger app Allo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%; height: 70%" title="Hierarchical softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%" title="Hierarchical softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
 &lt;figcaption&gt;Figure 1: Hierarchical softmax (&lt;a href="https://www.quora.com/Word2vec-How-can-hierarchical-soft-max-training-method-of-CBOW-guarantee-its-self-consistence"&gt;Quora&lt;/a&gt;)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3801,7 +3801,7 @@ Since a balanced binary tree has a depth of \(\text{log}_2 (\:|V|\:)\), we only 
 &lt;p&gt;This is almost the same as the computations in the regular softmax; now instead of computing the dot product between \(h\) and the output word embedding \(v'_{w}\), we compute the dot product between \(h\) and the embedding \(v'_{w}\) of each node in the tree; additionally, instead of computing a probability distribution over the entire vocabulary words, we output just one probability, the probability of going right at node \(n\) in this case, with the sigmoid function. Conversely, the probability of turning left is simply \( 1 - p(\:\text{right}\: | \: n,c)\).&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/05/hierarchical_softmax.png" style="width: 70%; height: 70%" title="Hierarchical softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
 &lt;figcaption&gt;Figure 2: Hierarchical softmax computations (&lt;a href="https://www.youtube.com/watch?v=B95LTf2rVWM"&gt;Hugo Lachorelle's Youtube lectures&lt;/a&gt;)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3845,7 +3845,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 &lt;p&gt;In order to do this, instead of the dense matrix of the regular softmax layer of size \(d \: \times \: |V| \) containing the output word embeddings \( v'_w \in \mathbb{R}^d \), they use a sparse matrix. They then arrange \( v'_w\) in blocks sorted by frequency, with the embeddings in each block being of a certain dimensionality \(d_k \). The number of blocks and their embedding sizes are hyperparameters that can be tuned.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/05/differentiated_softmax_1.png" style="width: 30%; height: 30%" title="Differentiated softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/05/differentiated_softmax_1.png" style="width: 30%" title="Differentiated softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
 &lt;figcaption&gt;Figure 3: Differentiated softmax (Chen et al. (2015))&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3860,7 +3860,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 &lt;p&gt;Another modification to the traditional softmax layer is inspired by recent work by Kim et al. [&lt;sup id="fnref:13"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:13" rel="footnote"&gt;13&lt;/a&gt;&lt;/sup&gt;] who produce input word embeddings \(v_w\) via a character-level CNN. Jozefowicz et al. (2016) in turn suggest to do the same thing for the output word embeddings \(v'_w\) via a character-level CNN -- and refer to this as CNN-Softmax. Note that if we have a CNN at the input and at the output as in Figure 4, the CNN generating the output word embeddings \(v'_w\) is necessarily different from the CNN generating the input word embeddings \(v_w\), just as the input and output word embedding matrices would be different.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/05/cnn-softmax_1.png" style="width: 30%; height: 30%" title="CNN-Softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/05/cnn-softmax_1.png" style="width: 30%" title="CNN-Softmax" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
 &lt;figcaption&gt;Figure 4: CNN-Softmax (Jozefowicz et al. (2016))&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3954,7 +3954,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 &lt;p&gt;Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;previous post&lt;/a&gt;. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/06/negative_sampling.png" style="width: 70%; height: 70%" title="Noise Contrastive Estimation" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation" alt="On word embeddings - Part 2: Approximating the Softmax"&gt;
 &lt;figcaption&gt;Figure 4: Noise Contrastive Estimation (Stephan Gouws' PhD dissertation [&lt;sup id="fnref:24"&gt;&lt;a href="http://localhost:2368/word-embeddings-softmax/#fn:24" rel="footnote"&gt;24&lt;/a&gt;&lt;/sup&gt;]) &lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -4375,7 +4375,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what &lt;a href="h
 &lt;p&gt;The inner product \( h^\top v'_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/04/nn_language_model-1.jpg" style="width: 80%; height: 80%" title="SGD without momentum" alt="On word embeddings - Part 1"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/04/nn_language_model-1.jpg" style="width: 80%" title="SGD without momentum" alt="On word embeddings - Part 1"&gt;
 &lt;figcaption&gt;Figure 1: A neural language model (Bengio et al., 2006)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -4400,7 +4400,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what &lt;a href="h
 &lt;p&gt;The classic neural language model proposed by  Bengio et al. [&lt;sup id="fnref:1"&gt;&lt;a href="http://localhost:2368/word-embeddings-1/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] in 2003 consists of a one-hidden layer feed-forward neural network that predicts the next word in a sequence as in Figure 2.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/04/bengio_language_model.png" style="width: 70%; height: 70%" title="Language model by Bengio et al." alt="On word embeddings - Part 1"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/04/bengio_language_model.png" style="width: 70%" title="Language model by Bengio et al." alt="On word embeddings - Part 1"&gt;
 &lt;figcaption&gt;Figure 2: Classic neural language model (Bengio et al., 2003)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -4440,7 +4440,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what &lt;a href="h
 &lt;p&gt;They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). Their objective now maximises the distance between the scores output by the model for the correct and the incorrect window with a margin of \(1\). Their model architecture, depicted in Figure 3 without the ranking objective, is analogous to Bengio et al.'s model.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%; height: 50%" title="C&amp;W model" alt="On word embeddings - Part 1"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%" title="C&amp;W model" alt="On word embeddings - Part 1"&gt;
 &lt;figcaption&gt;Figure 3: The C&amp;W model without ranking objective (Collobert et al., 2011)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -4467,7 +4467,7 @@ These architectures offer two main benefits over the C&amp;amp;W model and Bengi
 &lt;p&gt;While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word \( w_t \) to predict it as depicted in Figure 4. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/02/cbow.png" style="width: 50%; height: 50%" title="Continuous bag-of-words" alt="On word embeddings - Part 1"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/02/cbow.png" style="width: 50%" title="Continuous bag-of-words" alt="On word embeddings - Part 1"&gt;
 &lt;figcaption&gt;Figure 4: Continuous bag-of-words (Mikolov et al., 2013)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -4482,7 +4482,7 @@ These architectures offer two main benefits over the C&amp;amp;W model and Bengi
 &lt;p&gt;While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words as can be seen in Figure 5.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/02/skip-gram.png" style="width: 50%; height: 50%" title="Skip-gram" alt="On word embeddings - Part 1"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/02/skip-gram.png" style="width: 50%" title="Skip-gram" alt="On word embeddings - Part 1"&gt;
 &lt;figcaption&gt;Figure 5: Skip-gram (Mikolov et al., 2013)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
