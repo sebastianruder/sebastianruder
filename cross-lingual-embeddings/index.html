@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/cross-lingual-embeddings/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/10/zou_et_al_2013.png">
     <meta property="article:published_time" content="2016-11-28T10:00:00.000Z">
-    <meta property="article:modified_time" content="2017-10-21T13:51:00.644Z">
+    <meta property="article:modified_time" content="2018-03-03T11:31:49.154Z">
     <meta property="article:tag" content="word embeddings">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="nlp">
@@ -68,7 +68,7 @@
     "headline": "A survey of cross-lingual embedding models",
     "url": "u=http://ruder.io/cross-lingual-embeddings/",
     "datePublished": "2016-11-28T10:00:00.000Z",
-    "dateModified": "2017-10-21T13:51:00.644Z",
+    "dateModified": "2018-03-03T11:31:49.154Z",
     "image": "u=http://ruder.io/content/images/2016/10/zou_et_al_2013.png",
     "keywords": "word embeddings, deep learning, nlp",
     "description": "Note: If you are looking for a survey paper, this blog post is also available as an article on arXiv. In past blog posts, we discussed different models, objective functions, and hyperparameter choices that allow us to learn accurate word..."
@@ -221,7 +221,7 @@ In our globalised society, where national borders increasingly blur, where the I
 Perfect machine translation (MT) would allow this. However, we do not need to actually translate examples, as long as we are able to project examples into a common subspace such as the one in Figure 1.</p>
 
 <figure>  
-      <img src="../content/images/2016/10/luong_et_al_2015.jpg" style="width: 100%; height: 100%" title="Bilingual embedding space">
+      <img src="../content/images/2016/10/luong_et_al_2015.jpg" style="width: 100%" title="Bilingual embedding space">
 <figcaption>Figure 1: A shared embedding space between two languages (<a href="http://stanford.edu/~lmthang/bivec/">Luong et al., 2015</a>)</figcaption>  
 </figure>
 
@@ -395,7 +395,7 @@ Cross-lingual embedding models generally use four different approaches:</p>
 <p>Mikolov et al. have popularised the notion that vector spaces can encode meaningful relations between words. In addition, they notice that the geometric relations that hold between words are similar across languages [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>], e.g. numbers and animals in English show a similar geometric constellation as their Spanish counterparts in Figure 2.</p>
 
 <figure>  
-      <img src="../content/images/2016/10/mikolov_et_al_linear_relationship.png" style="width: 90%; height: 90%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/10/mikolov_et_al_linear_relationship.png" style="width: 90%" title="Similar geometric relations between two languages">
 <figcaption>Figure 2: Similar geometric relations between numbers and animals in English and Spanish (Mikolov et al., 2013)</figcaption>  
 </figure>
 
@@ -410,7 +410,7 @@ Cross-lingual embedding models generally use four different approaches:</p>
 <p>Faruqui and Dyer [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>] propose to use another technique to learn the linear mapping. They use canonical correlation analysis (CCA) to project words from two languages into a shared embedding space. Different to linear projection, CCA learns a transformation matrix for every language, as can be seen in Figure 3, where the transformation matrix \(V\) is used to project word representations from the embedding space \(\Sigma\) to a new space \(\Sigma^\ast\), while \(W\) transforms words from \(\Omega\) to \(\Omega^\ast\). Note that \(\Sigma^\ast\) and \(\Omega^\ast\) can be seen as the same shared embedding space.</p>
 
 <figure>  
-      <img src="../content/images/2016/10/cca_projection.png" style="width: 60%; height: 60%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/10/cca_projection.png" style="width: 60%" title="Similar geometric relations between two languages">
 <figcaption>Figure 3: Cross-lingual projection using CCA (Faruqui and Dyer, 2014)</figcaption>  
 </figure>
 
@@ -418,7 +418,7 @@ Cross-lingual embedding models generally use four different approaches:</p>
 As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Faruqui and Dyer perform experiments using only the top \(k\) correlated projection vectors and find that using the \(80\) % projection vectors with the highest correlation generally yields the highest performance. </p>
 
 <figure>  
-      <img src="../content/images/2016/10/synonym_antonym_projections.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/10/synonym_antonym_projections.png" style="width: 80%" title="Similar geometric relations between two languages">
 <figcaption>Figure 4: Monolingual (top) and multi-lingual (bottom; marked with apostrophe) projections of the synonyms and antonyms of "beautiful" (Faruqui and Dyer, 2014)</figcaption>  
 </figure>
 
@@ -445,7 +445,7 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 <p>They subsequently propose a method to resolve each of these inconsistencies: In order to fix the mismatch between the inner product similarity measure \(c_w^T c_{w'}\) during training and the cosine similarity measure \(\dfrac{c_w^T c_w'}{\|c_w\| \|c_{w'}\|}\) for testing, the inner product could also be used for testing. Cosine similarity, however, is used conventionally as an evaluation measure in NLP and generally performs better than the inner product. For this reason, they propose to normalise the word vectors to be unit length during training, which makes the inner product the same as cosine similarity and places all word vectors on a hypersphere as a side-effect, as can be seen in Figure 5.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/hypersphere_word_representations.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/11/hypersphere_word_representations.png" style="width: 80%" title="Similar geometric relations between two languages">
 <figcaption>Figure 5: Word representations before (left) and after (right) normalisation (Xing et al., 2015)</figcaption>  
 </figure>
 
@@ -466,7 +466,7 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 <p>They show that selecting max-margin over the least-squares loss consistently improves performance and reduces hubness. In addition, the choice of the negative examples, i.e. the target words compared to which the model should rank the correct translation higher, is important. They hypothesise that an informative negative example is an <em>intruder</em> ("truck" in the example), i.e. it is near the current projected vector \(\hat{y_i}\) but far from the actual translation vector \(y_i\) ("cat") as depicted in Figure 6.</p>
 
 <figure>  
-      <img src="../content/images/2016/10/intruders_in_the_vector_space.png" style="width: 20%; height: 20%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/10/intruders_in_the_vector_space.png" style="width: 20%" title="Similar geometric relations between two languages">
 <figcaption>Figure 6: The intruder "truck" is selected over "dog" as the negative example for "cat". (Lazaridou et al., 2015)</figcaption>  
 </figure>
 
@@ -562,7 +562,7 @@ They run experiments showing that their model with the symmetry constraint outpe
 <p>Barone [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>], in contrast, seeks to get closer to the elusive goal of creating cross-lingual representations without parallel data. He proposes to use an adversarial auto-encoder to transform source embeddings into the target embedding space. The auto-encoder is then trained to reconstruct the source embeddings, while the discriminator is trained to differentiate the projected source embeddings from the actual target embeddings as in Figure 7.</p>
 
 <figure>  
-      <img src="../content/images/2016/10/adversarial_autoencoder-1.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/10/adversarial_autoencoder-1.png" style="width: 80%" title="Similar geometric relations between two languages">
 <figcaption>Figure 7: Cross-lingual mapping with an adversarial auto-encoder (Barone, 2016)</figcaption>  
 </figure>
 
@@ -627,7 +627,7 @@ For this reason, they propose another merging strategy that assumes that the str
 <p>where \(a_{\text{root}}\) and \(b_{\text{root}}\) are the representations of two aligned sentences from different languages. They compose \(a_{\text{root}}\) and \(b_{\text{root}}\) simply as the sum of the embeddings of the words in the corresponding sentence. The full model is depicted in Figure 8.</p>
 
 <figure>  
-      <img src="../content/images/2016/10/hermann_blunsom_2013.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/10/hermann_blunsom_2013.png" style="width: 80%" title="Similar geometric relations between two languages">
 <figcaption>Figure 8: The bilingual compositional sentence model (Hermann and Blunsom, 2013)</figcaption>  
 </figure>
 
@@ -638,7 +638,7 @@ For this reason, they propose another merging strategy that assumes that the str
 <p>Instead of minimising the distance between two sentence representations in different languages, Lauly et al. [<sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] aim to reconstruct the target sentence from the original source sentence. They start with a monolingual autoencoder that encodes an input sentence as a sum of its word embeddings and tries to reconstruct the original source sentence. For efficient reconstruction, they opt for a tree-based decoder that is similar to a hierarchical softmax. They then augment this autoencoder with a second decoder that reconstructs the aligned target sentence from the representation of the source sentence as in Figure 9.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/lauly_autoencoder.png" style="width: 70%; height: 70%" title="Similar geometric relations between two languages">
+      <img src="../content/images/2016/11/lauly_autoencoder.png" style="width: 70%" title="Similar geometric relations between two languages">
 <figcaption>Figure 9: A bilingual autoencoder (Lauly et al., 2013)</figcaption>  
 </figure>
 
@@ -661,7 +661,7 @@ For this reason, they propose another merging strategy that assumes that the str
 <p>Hermann and Blunsom [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>] extend their approach (Hermann and Blunsom, 2013) to documents, by applying their composition and objective function recursively to compose sentences into documents. First, sentence representations are computed as <a href="index.html#bilingualcompositionalsentencemodel">before</a>. These sentence representations are then fed into  a document-level compositional vector model, which integrates the sentence representations in the same way as can be seen in Figure 10.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/hermann_blunsom_2014.png" style="width: 80%; height: 80%" title="Compositional document model">
+      <img src="../content/images/2016/11/hermann_blunsom_2014.png" style="width: 80%" title="Compositional document model">
 <figcaption>Figure 10: A bilingual compositional document model (Hermann and Blunsom, 2014)</figcaption>  
 </figure>
 
@@ -678,7 +678,7 @@ For this reason, they propose another merging strategy that assumes that the str
 <p>Chandar et al. [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>] extend the approach by Lauly et al. (2013) in two ways: Instead of using a tree-based decoder for calculating the reconstruction loss, they reconstruct a sparse binary vector of word occurrences as in Figure 11. Due to the high-dimensionality of the binary bag-of-words vector, reconstruction is slower. As they perform training using mini-batch gradient descent, where each mini-batch consists of adjacent sentences, they propose to merge the bags-of-words of the mini-batch into a single bag-of-words and to perform updates based on the merged bag-of-words. They find that this yields good performance and even outperforms the tree-based decoder.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/binary_bow_autoencoder.png" style="width: 50%; height: 50%" title="Compositional document model">
+      <img src="../content/images/2016/11/binary_bow_autoencoder.png" style="width: 50%" title="Compositional document model">
 <figcaption>Figure 11: A bilingual autoencoder with binary reconstruction error (Chandar et al., 2014)</figcaption>  
 </figure>
 
@@ -689,7 +689,7 @@ For this reason, they propose another merging strategy that assumes that the str
 <p>Similar to the previous methods, Pham et al. [<sup id="fnref:18"><a href="index.html#fn:18" rel="footnote">18</a></sup>] learn sentence representations as a means for learning cross-lingual word embeddings. They extend paragraph vectors (Mikolov et al. [<sup id="fnref:36"><a href="index.html#fn:36" rel="footnote">36</a></sup>]) to the multilingual setting by forcing aligned sentences of different languages to share the same vector representation as in Figure 12 where \(sent\) is the shared sentence representation. The shared sentence representation is concatenated with the sum of the previous \(N\) words in the sentence and the model is trained to predict the next word in the sentence.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/bilingual_paragraph_vector.png" style="width: 80%; height: 80%" title="Compositional document model">
+      <img src="../content/images/2016/11/bilingual_paragraph_vector.png" style="width: 80%" title="Compositional document model">
 <figcaption>Figure 12: Bilingual paragraph vectors (Pham et al., 2015)</figcaption>  
 </figure>
 
@@ -751,7 +751,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 <p>Luong et al. [<sup id="fnref:24"><a href="index.html#fn:24" rel="footnote">24</a></sup>] in turn extend skip-gram to the cross-lingual setting and use the skip-gram objectives as monolingual and cross-lingual objectives. Rather than just predicting the surrounding words in the source language, they use the words in the source language to additionally predict their aligned words in the target language as in Figure 13.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/bilingual_skipgram.png" style="width: 80%; height: 80%" title="Bilingual skip-gram">
+      <img src="../content/images/2016/11/bilingual_skipgram.png" style="width: 80%" title="Bilingual skip-gram">
 <figcaption>Figure 13: Bilingual skip-gram (Luong et al., 2015)</figcaption>  
 </figure>
 
@@ -762,14 +762,14 @@ Intuitively, if a word in the source language is only aligned with one word in t
 <p>Gouws et al. [<sup id="fnref:25"><a href="index.html#fn:25" rel="footnote">25</a></sup>] propose a Bilingual Bag-of-Words without Word Alignments (BilBOWA) that leverages additional monolingual data. They use the skip-gram objective as a monolingual objective and a novel sampled \(l_2\) loss as cross-lingual regularizer as in Figure 14.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/bilbowa.png" style="width: 80%; height: 80%" title="The BilBOWA model">
+      <img src="../content/images/2016/11/bilbowa.png" style="width: 80%" title="The BilBOWA model">
 <figcaption>Figure 14: The BilBOWA model (Gouws et al., 2015)</figcaption>  
 </figure>
 
 <p>More precisely, instead of relying on expensive word alignments, they simply assume that each word in a source sentence is aligned with <em>every</em> word in the target sentence under a uniform alignment model. Thus, instead of minimising the distance between words that were aligned to each other, they minimise the distance between the means of the word representations in the aligned sentences, which is shown in Figure 15, where \(s^e\) and \(s^f\) are the sentences in source and target language respectively. </p>
 
 <figure>  
-      <img src="../content/images/2016/11/approxmating_alignments_bilbowa.png" style="width: 80%; height: 80%" title="Approximating word alignments">
+      <img src="../content/images/2016/11/approxmating_alignments_bilbowa.png" style="width: 80%" title="Approximating word alignments">
 <figcaption>Figure 15: Approximating word alignments with uniform alignments (Gouws et al., 2015)</figcaption>  
 </figure>
 
@@ -791,7 +791,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 <p>where \(s\) is the sentence in the respective language, \(C\) is the sentence-aligned corpus, \(w\) are word and \(c\) are context representations respectively, and \( - \text{log} \: \sigma(\centerdot)\) is the standard skip-gram loss function.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/transgram.png" style="width: 80%; height: 80%" title="Trans-gram">
+      <img src="../content/images/2016/11/transgram.png" style="width: 80%" title="Trans-gram">
 <figcaption>Figure 16: The Trans-gram model (Coulmance et al., 2015)</figcaption>  
 </figure>
 
@@ -806,7 +806,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 <p>where \(w_j^{l_i}\) and \(c_k^{l_i}\) are the embeddings and \(M_{jk}^{l_{i}}\) the PMI value of a word-context pair \((j,k) \) in language \(l_{i}\), while \( b_{w_j}^{l_i}\) and \(b_{c_k}^{l_i}\) and \(b^{l_i}\) are the word-specific and language-specific bias terms respectively.</p>
 
 <figure>  
-      <img src="../content/images/2016/11/crosslingual_matrix_factorisation.png" style="width: 50%; height: 50%" title="Cross-lingual matrix factorisation">
+      <img src="../content/images/2016/11/crosslingual_matrix_factorisation.png" style="width: 50%" title="Cross-lingual matrix factorisation">
 <figcaption>Figure 17: Learning cross-lingual word representations via matrix factorisation (Shi et al., 2015)</figcaption>  
 </figure>
 

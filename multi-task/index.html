@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/multi-task/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png">
     <meta property="article:published_time" content="2017-05-29T13:00:00.000Z">
-    <meta property="article:modified_time" content="2017-10-10T11:52:36.824Z">
+    <meta property="article:modified_time" content="2018-03-03T11:36:24.355Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="transfer learning">
     <meta property="article:tag" content="nlp">
@@ -68,7 +68,7 @@
     "headline": "An Overview of Multi-Task Learning for Deep Learning",
     "url": "u=http://ruder.io/multi-task/",
     "datePublished": "2017-05-29T13:00:00.000Z",
-    "dateModified": "2017-10-10T11:52:36.824Z",
+    "dateModified": "2018-03-03T11:36:24.355Z",
     "image": "u=http://ruder.io/content/images/2017/05/mtl_images-002-2.png",
     "keywords": "deep learning, transfer learning, nlp",
     "description": "This blog post gives an overview of multi-task learning in deep neural networks. It discusses existing approaches as well as recent advances."
@@ -283,7 +283,7 @@ var ga_id = 'UA-60512592-1';
 <p>Hard parameter sharing is the most commonly used approach to MTL in neural networks and goes back to [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>]. It is generally applied by sharing the hidden layers between all tasks, while keeping several task-specific output layers.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/mtl_images-001-2.png" style="width: 50%; height: 50%" title="Hard parameter sharing">
+      <img src="../content/images/2017/05/mtl_images-001-2.png" style="width: 50%" title="Hard parameter sharing">
 <figcaption>Figure 1: Hard parameter sharing for multi-task learning in deep neural networks</figcaption>  
 </figure>
 
@@ -294,7 +294,7 @@ var ga_id = 'UA-60512592-1';
 <p>In soft parameter sharing on the other hand, each task has its own model with its own parameters. The distance between the parameters of the model is then regularized in order to encourage the parameters to be similar. [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>] for instance use the \(\ell_2\) norm for regularization, while [<sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>] use the trace norm.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/mtl_images-002-1.png" style="width: 80%; height: 80%" title="Soft parameter sharing">
+      <img src="../content/images/2017/05/mtl_images-002-1.png" style="width: 80%" title="Soft parameter sharing">
 <figcaption>Figure 2: Soft parameter sharing for multi-task learning in deep neural networks</figcaption>  
 </figure>
 
@@ -399,7 +399,7 @@ var ga_id = 'UA-60512592-1';
 <p>In MTL for computer vision, approaches often share the convolutional layers, while learning task-specific fully-connected layers. [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>] improve upon these models by proposing Deep Relationship Networks. In addition to the structure of shared and task-specific layers, which can be seen in Figure 3, they place matrix priors on the fully connected layers, which allow the model to learn the relationship between tasks, similar to some of the Bayesian models we have looked at before. This approach, however, still relies on a pre-defined structure for sharing, which may be adequate for well-studied computer vision problems, but prove error-prone for novel tasks.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/relationship_networks.png" style="width: 100%; height: 100%" title="Deep Relationship Networks">
+      <img src="../content/images/2017/05/relationship_networks.png" style="width: 100%" title="Deep Relationship Networks">
 <figcaption>Figure 3: A Deep Relationship Network with shared convolutional and task-specific fully connected layers with matrix priors (Long and Wang, 2015).</figcaption>  
 </figure>
 
@@ -408,7 +408,7 @@ var ga_id = 'UA-60512592-1';
 <p>Starting at the other extreme, [<sup id="fnref:39"><a href="index.html#fn:39" rel="footnote">39</a></sup>] propose a bottom-up approach that starts with a thin network and dynamically widens it greedily during training using a criterion that promotes grouping of similar tasks. The widening procedure, which dynamically creates branches can be seen in Figure 4. However, the greedy method might not be able to discover a model that is globally optimal, while assigning each branch to exactly one task does not allow the model to learn more complex interactions between tasks.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/fully_adaptive_feature_sharing.png" style="width: 100%; height: 100%" title="Fully-Adaptive Feature Sharing">
+      <img src="../content/images/2017/05/fully_adaptive_feature_sharing.png" style="width: 100%" title="Fully-Adaptive Feature Sharing">
 <figcaption>Figure 4: The widening procedure for fully-adaptive feature sharing (Lu et al., 2016).</figcaption>  
 </figure>
 
@@ -417,7 +417,7 @@ var ga_id = 'UA-60512592-1';
 <p>[<sup id="fnref:40"><a href="index.html#fn:40" rel="footnote">40</a></sup>] start out with two separate model architectures just as in soft parameter sharing. They then use what they refer to as cross-stitch units to allow the model to determine in what way the task-specific networks leverage the knowledge of the other task by learning a linear combination of the output of the previous layers. Their architecture can be seen in Figure 5, in which they only place cross-stitch units after pooling and fully-connected layers.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/cross-stitch_networks.png" style="width: 70%; height: 70%" title="Cross-stitch networks">
+      <img src="../content/images/2017/05/cross-stitch_networks.png" style="width: 70%" title="Cross-stitch networks">
 <figcaption>Figure 5: Cross-stitch networks for two tasks (Misra et al., 2016).</figcaption>  
 </figure>
 
@@ -430,7 +430,7 @@ var ga_id = 'UA-60512592-1';
 <p>Building on this finding, [<sup id="fnref:42"><a href="index.html#fn:42" rel="footnote">42</a></sup>] pre-define a hierarchical architecture consisting of several NLP tasks, which can be seen in Figure 6, as a joint model for multi-task learning.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/joint_many_task_model.png" style="width: 60%; height: 60%" title="Joint Many-Task Model">
+      <img src="../content/images/2017/05/joint_many_task_model.png" style="width: 60%" title="Joint Many-Task Model">
 <figcaption>Figure 6: A Joint Many-Task Model (Hashimoto et al., 2016).</figcaption>  
 </figure>
 
@@ -439,7 +439,7 @@ var ga_id = 'UA-60512592-1';
 <p>Instead of learning the structure of sharing, [<sup id="fnref:43"><a href="index.html#fn:43" rel="footnote">43</a></sup>] take a orthogonal approach by considering the uncertainty of each task. They then adjust each task's relative weight in the cost function by deriving a multi-task loss function based on maximizing the Gaussian likelihood with task-dependant uncertainty. Their architecture for per-pixel depth regression, semantic and instance segmentation can be seen in Figure 7.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/weighting_using_uncertainty.png" style="width: 70%; height: 70%" title="Uncertainty-based loss function weighting">
+      <img src="../content/images/2017/05/weighting_using_uncertainty.png" style="width: 70%" title="Uncertainty-based loss function weighting">
 <figcaption>Figure 7: Uncertainty-based loss function weighting for multi-task learning (Kendall et al., 2017).</figcaption>  
 </figure>
 
@@ -452,7 +452,7 @@ var ga_id = 'UA-60512592-1';
 <p>Finally, we propose Sluice Networks [<sup id="fnref:45"><a href="index.html#fn:45" rel="footnote">45</a></sup>], a model that generalizes Deep Learning-based MTL approaches such as hard parameter sharing and cross-stitch networks, block-sparse regularization approaches, as well as recent NLP approaches that create a task hierarchy. The model, which can be seen in Figure 8, allows to learn what layers and subspaces should be shared, as well as at what layers the network has learned the best representations of the input sequences.</p>
 
 <figure>  
-      <img src="../content/images/2017/05/sluice_network-003.png" style="width: 70%; height: 70%" title="Sluice networks">
+      <img src="../content/images/2017/05/sluice_network-003.png" style="width: 70%" title="Sluice networks">
 <figcaption>Figure 8: A sluice network for two tasks (Ruder et al., 2017).</figcaption>  
 </figure>
 

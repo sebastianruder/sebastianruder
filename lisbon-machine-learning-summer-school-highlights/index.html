@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/lisbon-machine-learning-summer-school-highlights/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/08/group_picture-1.jpg">
     <meta property="article:published_time" content="2016-08-12T09:52:00.000Z">
-    <meta property="article:modified_time" content="2016-08-12T18:06:05.350Z">
+    <meta property="article:modified_time" content="2018-03-03T11:29:30.636Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="natural language processing">
     <meta property="article:tag" content="nlp">
@@ -69,7 +69,7 @@
     "headline": "Lisbon Machine Learning Summer School Highlights",
     "url": "u=http://ruder.io/lisbon-machine-learning-summer-school-highlights/",
     "datePublished": "2016-08-12T09:52:00.000Z",
-    "dateModified": "2016-08-12T18:06:05.350Z",
+    "dateModified": "2018-03-03T11:29:30.636Z",
     "image": "u=http://ruder.io/content/images/2016/08/group_picture-1.jpg",
     "keywords": "deep learning, natural language processing, nlp, machine learning",
     "description": "Table of contents: Sequence Models Machine Translation Structured Prediction CRFs vs. MEMMs HMMs vs. CRFs Structured Prediction in NLP with Imitation Learning Demo Day Syntax and Parsing From Dependencies to Constituents Deep Learning Exploding / vanishing gradients Deep LSTMs Does Depth..."
@@ -251,7 +251,7 @@ Participants had a chance to join workshops and labs, where they got hands-on ex
 To test your understanding of sequence models, try to answer -- without reading further -- the following question: What is the most basic sequence model depicted in Figure 1?</p>
 
 <figure>  
-      <img src="../content/images/2016/08/bag_of_words.png" style="width: 50%; height: 50%" title="Bag-of-words model">
+      <img src="../content/images/2016/08/bag_of_words.png" style="width: 50%" title="Bag-of-words model">
 <figcaption>Figure 1: The most basic sequence model</figcaption>  
 </figure>
 
@@ -268,7 +268,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>We can view bag-of-words and \(m^{\text{th}}\) Order Markov Models as occupying the following spectrum:</p>
 
 <figure>  
-      <img src="../content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%; height: 80%" title="From bag-of-words to history-based models">
+      <img src="../content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%" title="From bag-of-words to history-based models">
 <figcaption>Figure 2: From bag-of-words to history-based models</figcaption>  
 </figure>
 
@@ -285,7 +285,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>If we want to determine the most probable sequence of hidden states, we face a space of potential sequences that grows exponentially with the sequence length. The classic dynamic algorithm to cope with this problem is the Viterbi algorithm, which is used in HMMs, CRFs, and other sequence models to calculate the most probable sequence of hidden states: It lays out the symbol sequence and all possible states in a grid and proceeds left-to-right to compute the maximum probability to transition in every new state given the previous states. The most probable sequence can then be found by back-tracking as in Figure 3.</p>
 
 <figure>  
-      <img src="../content/images/2016/08/viterbi.png" style="width: 70%; height: 70%" title="Viterbi algorithm">
+      <img src="../content/images/2016/08/viterbi.png" style="width: 70%" title="Viterbi algorithm">
 <figcaption>Figure 3: The Viterbi algorithm</figcaption>  
 </figure>
 
@@ -351,7 +351,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <h2 id="demoday">Demo Day</h2>
 
 <figure>  
-      <img src="../content/images/2016/08/demo_day.jpg" style="width: 70%; height: 70%" title="Aylien stand at Demo Day">
+      <img src="../content/images/2016/08/demo_day.jpg" style="width: 70%" title="Aylien stand at Demo Day">
 <figcaption>Figure 4: Aylien stand at Demo Day</figcaption>  
 </figure>
 
@@ -366,7 +366,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>To tie this to what we've already discussed, Figure 5 demonstrates how the distinction between generative and discriminative models applies to parsers.</p>
 
 <figure>  
-      <img src="../content/images/2016/08/generative_discriminative.png" style="width: 80%; height: 80%" title="Generative vs. discriminative parsers">
+      <img src="../content/images/2016/08/generative_discriminative.png" style="width: 80%" title="Generative vs. discriminative parsers">
 <figcaption>Figure 5: Generative vs. discriminative parsing models</figcaption>  
 </figure>
 
@@ -391,14 +391,14 @@ To test your understanding of sequence models, try to answer -- without reading 
 <h2 id="deeplstms">Deep LSTMs</h2>
 
 <figure>  
-      <img src="../content/images/2016/08/deep_lstms.png" style="width: 80%; height: 80%" title="Deep LSTMs">
+      <img src="../content/images/2016/08/deep_lstms.png" style="width: 80%" title="Deep LSTMs">
 <figcaption>Figure 6: Deep LSTMs</figcaption>  
 </figure>
 
 <p>Deep or stacked LSTMs are by now a very common sight in the literature and state-of-the-art for many sequence modelling problems. Still, descriptions of implementations often omit details, which might be perceived as self-evident. This, however, means that it is not always clear how a model looks like exactly or how it differs from similar architectures. The same applies to Deep LSTMs. The most standard convention feeds the input not only to the first but (via skip connections) also to subsequent layers as in Figure 6. Additionally, dropout is generally applied only between layers and not on the recurrent connections as this would drop out more and more value over time.</p>
 
 <figure>  
-      <img src="../content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%; height: 80%" title="Dropout in Deep LSTMs">
+      <img src="../content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%" title="Dropout in Deep LSTMs">
 <figcaption>Figure 7: Dropout in Deep LSTMs</figcaption>  
 </figure>
 
@@ -419,7 +419,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>Character-based models have gained more popularity recently and for some tasks such as language modelling, using character-based LSTMs blows the results of word-based models out of the water, achieving a significantly lower perplexity with a lot fewer parameters particularly for morphologically rich languages.</p>
 
 <figure>  
-      <img src="../content/images/2016/08/char_language_modeling.png" style="width: 80%; height: 80%" title="CharLSTM &gt; Word Lookup">
+      <img src="../content/images/2016/08/char_language_modeling.png" style="width: 80%" title="CharLSTM &gt; Word Lookup">
 <figcaption>Figure 8: CharLSTM &gt; Word Lookup</figcaption>  
 </figure>
 

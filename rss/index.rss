@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 03 Mar 2018 11:28:51 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 03 Mar 2018 11:37:10 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Optimization for Deep Learning Highlights in 2017</title><description>An overview of the most exciting highlights and research directions in optimization for Deep Learning in 2017.</description><link>http://localhost:2368/deep-learning-optimization-2017/</link><guid isPermaLink="false">24033557-01b5-4d3a-aecf-9497f83f90a9</guid><category>deep learning</category><category>optimization</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sun, 03 Dec 2017 15:36:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2017/12/snapshot_ensembles.png" alt="Optimization for Deep Learning Highlights in 2017"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://localhost:2368/deep-learning-optimization-2017/#improvingadam"&gt;Improving Adam&lt;/a&gt;
@@ -113,7 +113,7 @@ v_t &amp;amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ &lt;br&gt;
 &lt;p&gt;where \(\eta_{min}^i\) and \(\eta_{max}^i\) are ranges for the learning rate during the \(i\)-th run, \(T_{cur}\) indicates how many epochs passed since the last restart, and \(T_i\) specifies the epoch of the next restart. The warm restart schedules for \(T_i=50\), \(T_i=100\), and \(T_i=200\) compared with regular learning rate annealing are shown in Figure 1.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/11/warm_restarts.png" style="width: 100%; height: 100%" title="Learning rate schedules with warm restarts" alt="Optimization for Deep Learning Highlights in 2017"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/11/warm_restarts.png" style="width: 100%" title="Learning rate schedules with warm restarts" alt="Optimization for Deep Learning Highlights in 2017"&gt;
 &lt;figcaption&gt;Figure 1: Learning rate schedules with warm restarts (Loshchilov and Hutter,  
  2017)&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -127,7 +127,7 @@ v_t &amp;amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ &lt;br&gt;
 &lt;p&gt;Snapshot ensembles (Huang et al., 2017) [&lt;sup id="fnref:7"&gt;&lt;a href="http://localhost:2368/deep-learning-optimization-2017/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;] are a clever, recent technique that uses warm restarts to assemble an ensemble essentially for free when training a single model. The method trains a single model until convergence with the cosine annealing schedule that we have seen above. It then saves the model parameters, performs a warm restart, and then repeats these steps \(M\) times. In the end, all saved model snapshots are ensembled. The common SGD optimization behaviour on an error surface compared to the behaviour of snapshot ensembling can be seen in Figure 2.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/11/snapshot_ensembles.png" style="width: 100%; height: 100%" title="Learning rate schedules with warm restarts" alt="Optimization for Deep Learning Highlights in 2017"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/11/snapshot_ensembles.png" style="width: 100%" title="Learning rate schedules with warm restarts" alt="Optimization for Deep Learning Highlights in 2017"&gt;
 &lt;figcaption&gt;Figure 2: SGD vs. snapshot ensemble (Huang et al., 2017)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -152,7 +152,7 @@ v_t &amp;amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\ &lt;br&gt;
 &lt;p&gt;Bello et al. (2017) [&lt;sup id="fnref:8"&gt;&lt;a href="http://localhost:2368/deep-learning-optimization-2017/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;] define a domain-specific language that consists of primitives useful for optimization such as these exponential moving averages. They then sample an update rule from the space of possible update rules, use this update rule to train a model, and update the RNN controller based on the performance of the trained model on the test set. The full procedure can be seen in Figure 3. &lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/11/neural_optimizer_search.png" style="width: 100%; height: 100%" title="Neural Optimizer Search" alt="Optimization for Deep Learning Highlights in 2017"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/11/neural_optimizer_search.png" style="width: 100%" title="Neural Optimizer Search" alt="Optimization for Deep Learning Highlights in 2017"&gt;
 &lt;figcaption&gt;Figure 3: Neural Optimizer Search (Bello et al., 2017)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1287,7 +1287,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;Hard parameter sharing is the most commonly used approach to MTL in neural networks and goes back to [&lt;sup id="fnref:6"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;]. It is generally applied by sharing the hidden layers between all tasks, while keeping several task-specific output layers.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/mtl_images-001-2.png" style="width: 50%; height: 50%" title="Hard parameter sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/mtl_images-001-2.png" style="width: 50%" title="Hard parameter sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 1: Hard parameter sharing for multi-task learning in deep neural networks&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1298,7 +1298,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;In soft parameter sharing on the other hand, each task has its own model with its own parameters. The distance between the parameters of the model is then regularized in order to encourage the parameters to be similar. [&lt;sup id="fnref:8"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;] for instance use the \(\ell_2\) norm for regularization, while [&lt;sup id="fnref:9"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:9" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt;] use the trace norm.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/mtl_images-002-1.png" style="width: 80%; height: 80%" title="Soft parameter sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/mtl_images-002-1.png" style="width: 80%" title="Soft parameter sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 2: Soft parameter sharing for multi-task learning in deep neural networks&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1403,7 +1403,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;In MTL for computer vision, approaches often share the convolutional layers, while learning task-specific fully-connected layers. [&lt;sup id="fnref:38"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:38" rel="footnote"&gt;38&lt;/a&gt;&lt;/sup&gt;] improve upon these models by proposing Deep Relationship Networks. In addition to the structure of shared and task-specific layers, which can be seen in Figure 3, they place matrix priors on the fully connected layers, which allow the model to learn the relationship between tasks, similar to some of the Bayesian models we have looked at before. This approach, however, still relies on a pre-defined structure for sharing, which may be adequate for well-studied computer vision problems, but prove error-prone for novel tasks.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/relationship_networks.png" style="width: 100%; height: 100%" title="Deep Relationship Networks" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/relationship_networks.png" style="width: 100%" title="Deep Relationship Networks" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 3: A Deep Relationship Network with shared convolutional and task-specific fully connected layers with matrix priors (Long and Wang, 2015).&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1412,7 +1412,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;Starting at the other extreme, [&lt;sup id="fnref:39"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:39" rel="footnote"&gt;39&lt;/a&gt;&lt;/sup&gt;] propose a bottom-up approach that starts with a thin network and dynamically widens it greedily during training using a criterion that promotes grouping of similar tasks. The widening procedure, which dynamically creates branches can be seen in Figure 4. However, the greedy method might not be able to discover a model that is globally optimal, while assigning each branch to exactly one task does not allow the model to learn more complex interactions between tasks.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/fully_adaptive_feature_sharing.png" style="width: 100%; height: 100%" title="Fully-Adaptive Feature Sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/fully_adaptive_feature_sharing.png" style="width: 100%" title="Fully-Adaptive Feature Sharing" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 4: The widening procedure for fully-adaptive feature sharing (Lu et al., 2016).&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1421,7 +1421,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;[&lt;sup id="fnref:40"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:40" rel="footnote"&gt;40&lt;/a&gt;&lt;/sup&gt;] start out with two separate model architectures just as in soft parameter sharing. They then use what they refer to as cross-stitch units to allow the model to determine in what way the task-specific networks leverage the knowledge of the other task by learning a linear combination of the output of the previous layers. Their architecture can be seen in Figure 5, in which they only place cross-stitch units after pooling and fully-connected layers.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/cross-stitch_networks.png" style="width: 70%; height: 70%" title="Cross-stitch networks" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/cross-stitch_networks.png" style="width: 70%" title="Cross-stitch networks" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 5: Cross-stitch networks for two tasks (Misra et al., 2016).&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1434,7 +1434,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;Building on this finding, [&lt;sup id="fnref:42"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:42" rel="footnote"&gt;42&lt;/a&gt;&lt;/sup&gt;] pre-define a hierarchical architecture consisting of several NLP tasks, which can be seen in Figure 6, as a joint model for multi-task learning.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/joint_many_task_model.png" style="width: 60%; height: 60%" title="Joint Many-Task Model" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/joint_many_task_model.png" style="width: 60%" title="Joint Many-Task Model" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 6: A Joint Many-Task Model (Hashimoto et al., 2016).&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1443,7 +1443,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;Instead of learning the structure of sharing, [&lt;sup id="fnref:43"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:43" rel="footnote"&gt;43&lt;/a&gt;&lt;/sup&gt;] take a orthogonal approach by considering the uncertainty of each task. They then adjust each task's relative weight in the cost function by deriving a multi-task loss function based on maximizing the Gaussian likelihood with task-dependant uncertainty. Their architecture for per-pixel depth regression, semantic and instance segmentation can be seen in Figure 7.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/weighting_using_uncertainty.png" style="width: 70%; height: 70%" title="Uncertainty-based loss function weighting" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/weighting_using_uncertainty.png" style="width: 70%" title="Uncertainty-based loss function weighting" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 7: Uncertainty-based loss function weighting for multi-task learning (Kendall et al., 2017).&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1456,7 +1456,7 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://localhost:
 &lt;p&gt;Finally, we propose Sluice Networks [&lt;sup id="fnref:45"&gt;&lt;a href="http://localhost:2368/multi-task/#fn:45" rel="footnote"&gt;45&lt;/a&gt;&lt;/sup&gt;], a model that generalizes Deep Learning-based MTL approaches such as hard parameter sharing and cross-stitch networks, block-sparse regularization approaches, as well as recent NLP approaches that create a task hierarchy. The model, which can be seen in Figure 8, allows to learn what layers and subspaces should be shared, as well as at what layers the network has learned the best representations of the input sequences.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/05/sluice_network-003.png" style="width: 70%; height: 70%" title="Sluice networks" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/05/sluice_network-003.png" style="width: 70%" title="Sluice networks" alt="An Overview of Multi-Task Learning in Deep Neural Networks"&gt;
 &lt;figcaption&gt;Figure 8: A sluice network for two tasks (Ruder et al., 2017).&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -1778,7 +1778,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;Learning from simulations has the benefit of making data gathering easy as objects can be easily bounded and analyzed, while simultaneously enabling fast training, as learning can be parallelized across multiple instances. Consequently, it is a prerequisite for large-scale machine learning projects that need to interact with the real world, such as self-driving cars (Figure 6). According to Zhaoyin Jia, Google's self-driving car tech lead, "Simulation is essential if you really want to do a self-driving car". Udacity has &lt;a href="https://techcrunch.com/2017/02/08/udacity-open-sources-its-self-driving-car-simulator-for-anyone-to-use/"&gt;open-sourced the simulator&lt;/a&gt; it uses for teaching its self-driving car engineer nanodegree, which can be seen in Figure 7 and &lt;a href="https://universe.openai.com/"&gt;OpenAI's Universe&lt;/a&gt; will potentially allows to train a self-driving car &lt;a href="https://techcrunch.com/2017/01/11/training-self-driving-cars-on-the-streets-of-los-santos-with-gta-v-just-got-easier/"&gt;using GTA 5&lt;/a&gt; or other video games.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2017/03/udacity_self_driving_car_simulator.png" style="width: 60%; height: 60%" title="Udacity self-driving car simulator" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
+      &lt;img src="http://localhost:2368/content/images/2017/03/udacity_self_driving_car_simulator.png" style="width: 60%" title="Udacity self-driving car simulator" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
 &lt;figcaption&gt;Figure 7: Udacity's self-driving car simulator (source: &lt;a href="https://techcrunch.com/2017/02/08/udacity-open-sources-its-self-driving-car-simulator-for-anyone-to-use/"&gt;TechCrunch&lt;/a&gt;)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2066,14 +2066,14 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;Machine Learning seems to become more pervasive every month. However, it is still sometimes hard to keep track of the actual extent of this development. One of the most accurate barometers for this evolution is the growth of NIPS itself. The number of attendees skyrocketed at this year’s conference growing by over 50% year-over-year.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/terry_law.jpg" style="width: 60%; height: 60%" title="Terry's Law" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/terry_law.jpg" style="width: 60%" title="Terry's Law" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 1: The growth of the number of attendees at NIPS follows (the newly coined) Terry’s Law (named after Terrence Sejnowski, the president of the NIPS foundation; faster growth than Moore's Law Law)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
 &lt;p&gt;Unsurprisingly, Deep Learning (DL) was by far the most popular research topic, with about every fourth of more than 2,500 submitted papers (and 568 accepted papers) dealing with deep neural networks.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/submissions_distribution.png" style="width: 100%; height: 100%" title="Distribution of topics across NIPS 2016 submissions" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/submissions_distribution.png" style="width: 100%" title="Distribution of topics across NIPS 2016 submissions" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 2: Distribution of topics across all submitted papers (Source: &lt;a href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/misc/nips2016/index.php"&gt;The review process for NIPS 2016&lt;/a&gt;)  
 &lt;/figcaption&gt;  
 &lt;/figure&gt;
@@ -2085,7 +2085,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;One of the hottest developments within Deep Learning was Generative Adversarial Networks (GANs). The minimax game playing networks have by now won the favor of many luminaries in the field. Yann LeCun hails them as the most exciting development in ML in recent years. The organizers and attendees of NIPS seem to side with him: NIPS featured a tutorial by Ian Goodfellow about his brainchild, which led to a packed main conference hall.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/full_conference_hall_gan_tutorial.jpg" style="width: 70%; height: 70%" title="Full conference hall at GAN tutorial" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/full_conference_hall_gan_tutorial.jpg" style="width: 70%" title="Full conference hall at GAN tutorial" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 3: A full conference hall at the GAN tutorial  
 &lt;/figcaption&gt;  
 &lt;/figure&gt;
@@ -2100,7 +2100,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;In spite of their popularity, we know alarmingly little about what makes GANs so capable of generating realistic-looking images. In addition, making them work in practice is an arduous endeavour and a lot of (undocumented) hacks are necessary to achieve the best performance. Soumith Chintala presents a collection of these hacks in his &lt;a href="https://github.com/soumith/ganhacks"&gt;"How to train your GAN" talk&lt;/a&gt; at the Adversarial Training workshop.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/soumith_chintala_nips_2016_how_to_train_your_gan_poster.png" style="width: 50%; height: 50%" title="How to train your GAN" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/soumith_chintala_nips_2016_how_to_train_your_gan_poster.png" style="width: 50%" title="How to train your GAN" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 4: How to train your GAN (Source: &lt;a href="https://twitter.com/soumithchintala/status/805111562503589889"&gt;Soumith Chintala&lt;/a&gt;)  
 &lt;/figcaption&gt;  
 &lt;/figure&gt;
@@ -2118,7 +2118,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;While this approach to training chatbots or self-driving cars is sufficient to write innovative research papers, Ng emphasized end-to-end DL is often not production-ready: A chatbot that maps from text directly to a response is not able to have a coherent conversation or fulfill a request, while mapping from an image directly to a steering command might have literally fatal side effects if the model has not encountered the corresponding part of the input space before. Rather, for a production model, we still want to have intermediate steps: For a chatbot, we prefer to have an inference engine that generates a response, while in a self-driving car, DL is used to identify obstacles, while the steering is performed by a traditional planning algorithm.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/ng_tutorial_end_to_end_dl.jpg" style="width: 100%; height: 100%" title="Andrew Ng on end-to-end Deep Learning" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/ng_tutorial_end_to_end_dl.jpg" style="width: 100%" title="Andrew Ng on end-to-end Deep Learning" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 5: Andrew Ng on end-to-end DL (right: end-to-end DL chatbot and chatbot with inference engine; left bottom: end-to-end DL self-driving car and self-driving car with intermediate steps)  
 &lt;/figcaption&gt;  
 &lt;/figure&gt;
@@ -2126,7 +2126,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;Ng also shared that the most common mistake he sees in project teams is that they track the wrong metrics: In an applied machine learning project, the only relevant metrics are the training error, the development error, and the test error. These metrics alone enable the project team to know what steps to take, as he demonstrated in the diagram below:&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/ng_tutorial_bias_variance.jpg" style="width: 100%; height: 100%" title="Andrew Ng's flowchart for applied ML projects" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/ng_tutorial_bias_variance.jpg" style="width: 100%" title="Andrew Ng's flowchart for applied ML projects" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 6: Andrew Ng’s flowchart for applied ML projects  
 &lt;/figcaption&gt;  
 &lt;/figure&gt;
@@ -2140,7 +2140,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;The conference also featured a symposium dedicated to Recurrent Neural Networks (RNNs). The symposium coincided with the 20 year anniversary of LSTM...&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/rnn_symposium.png" style="width: 70%; height: 70%" title="Jürgen Schmidhuber at the RNN symposium" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/rnn_symposium.png" style="width: 70%" title="Jürgen Schmidhuber at the RNN symposium" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 7: Jürgen Schmidhuber kicking off the RNN symposium  
 &lt;/figcaption&gt;  
 &lt;/figure&gt;
@@ -2206,28 +2206,28 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;His talk also marked the appearance of a controversial and often tongue-in-cheek copied image of a cake, which he used to demonstrate that unsupervised learning is the most challenging task where we should concentrate our efforts, while RL is only the cherry on the icing of the cake.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/lecun_nips_2016_cake_slide.png" style="width: 70%; height: 70%" title="Yann LeCun's Cake slide" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/lecun_nips_2016_cake_slide.png" style="width: 70%" title="Yann LeCun's Cake slide" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 8: The Cake slide of &lt;a href="https://drive.google.com/file/d/0BxKBnD5y2M8NREZod0tVdW5FLTQ/view"&gt;Yann LeCun's keynote&lt;/a&gt;&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
 &lt;p&gt;Drew Purves focused on the bilateral relationship between the environment and AI in what was probably the most aesthetically pleasing keynote of the conference (just look at those illustrations!).&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/drew_purves_agent_illustrations.jpg" style="width: 70%; height: 70%" title="Drew Purves keynote illustrations" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/drew_purves_agent_illustrations.jpg" style="width: 70%" title="Drew Purves keynote illustrations" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 9: Illustrations by Max Cant of Drew Purves' keynote (Source: &lt;a href="https://twitter.com/DrewPurves/status/806427029306560512"&gt;Drew Purves&lt;/a&gt;)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
 &lt;p&gt;He emphasized that while simulations of ecological tasks in naturalistic environments could be an important test bed for General AI, General AI is needed to maintain the biosphere in a state that will allow the continued existence of our civilization.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/drew_purves_nips_2016_nature_needs_ai_slide.png" style="width: 60%; height: 60%" title="Nature needs AI" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/drew_purves_nips_2016_nature_needs_ai_slide.png" style="width: 60%" title="Nature needs AI" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 10: Nature needs AI and AI needs Nature from Drew Purves' keynote&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
 &lt;p&gt;While it is frequently — and incorrectly — claimed that neural networks work so well because they emulate the brain’s behaviour, Saket Navlakha argued during his keynote that we can still learn a great deal from the engineering principles of the brain. For instance, rather than pre-allocating a large number of neurons, the brain generates 1000s of synapses per minutes until its second year. Afterwards, until adolescence, the number of synapses is pruned and decreases by ~50%.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/saket_navlakha_slide.jpg" style="width: 70%; height: 70%" title="Saket Navlakha keynote" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/saket_navlakha_slide.jpg" style="width: 70%" title="Saket Navlakha keynote" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 11: Saket Navlakha’s keynote&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2263,7 +2263,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;Boston Robotics’ Spot proved that — even though everyone is excited by learning and learning-to-learn — traditional planning algorithms are enough to win the admiration of a hall full of learning enthusiasts.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/boston_dynamics_spot.png" style="width: 70%; height: 70%" title="Boston Dynamics Spot" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/boston_dynamics_spot.png" style="width: 70%" title="Boston Dynamics Spot" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 12: Boston Robotics’ Spot amid a crowd of fascinated onlookers&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2272,7 +2272,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;Apple, one of the most secretive companies in the world, has decided to be more open, to publish, and to engage with academia. This can only be good for the community. I'm particularly looking forward to more &lt;a href="https://arxiv.org/abs/1610.08120v1"&gt;apple research papers&lt;/a&gt;.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/russ_salakhutdinov_apple_nips_2016_slide.png" style="width: 60%; height: 60%" title="Ruslan Salakhutdinov at Apple lunch event" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/russ_salakhutdinov_apple_nips_2016_slide.png" style="width: 60%" title="Ruslan Salakhutdinov at Apple lunch event" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 13: Ruslan Salakhutdinov at the Apple lunch event&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2281,7 +2281,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 &lt;p&gt;Uber announced their acquisition of Cambridge-based AI startup Geometric Intelligence and threw one of the most popular parties of NIPS.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/12/geometric_intelligence_logo.jpg" style="width: 30%; height: 30%" title="Geometric Intelligence Logo" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/12/geometric_intelligence_logo.jpg" style="width: 30%" title="Geometric Intelligence Logo" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
 &lt;figcaption&gt;Figure 14: The Geometric Intelligence logo&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2308,7 +2308,7 @@ In our globalised society, where national borders increasingly blur, where the I
 Perfect machine translation (MT) would allow this. However, we do not need to actually translate examples, as long as we are able to project examples into a common subspace such as the one in Figure 1.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/luong_et_al_2015.jpg" style="width: 100%; height: 100%" title="Bilingual embedding space" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/luong_et_al_2015.jpg" style="width: 100%" title="Bilingual embedding space" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 1: A shared embedding space between two languages (&lt;a href="http://stanford.edu/~lmthang/bivec/"&gt;Luong et al., 2015&lt;/a&gt;)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2482,7 +2482,7 @@ Cross-lingual embedding models generally use four different approaches:&lt;/p&gt
 &lt;p&gt;Mikolov et al. have popularised the notion that vector spaces can encode meaningful relations between words. In addition, they notice that the geometric relations that hold between words are similar across languages [&lt;sup id="fnref:2"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;], e.g. numbers and animals in English show a similar geometric constellation as their Spanish counterparts in Figure 2.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/mikolov_et_al_linear_relationship.png" style="width: 90%; height: 90%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/mikolov_et_al_linear_relationship.png" style="width: 90%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 2: Similar geometric relations between numbers and animals in English and Spanish (Mikolov et al., 2013)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2497,7 +2497,7 @@ Cross-lingual embedding models generally use four different approaches:&lt;/p&gt
 &lt;p&gt;Faruqui and Dyer [&lt;sup id="fnref:3"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;] propose to use another technique to learn the linear mapping. They use canonical correlation analysis (CCA) to project words from two languages into a shared embedding space. Different to linear projection, CCA learns a transformation matrix for every language, as can be seen in Figure 3, where the transformation matrix \(V\) is used to project word representations from the embedding space \(\Sigma\) to a new space \(\Sigma^\ast\), while \(W\) transforms words from \(\Omega\) to \(\Omega^\ast\). Note that \(\Sigma^\ast\) and \(\Omega^\ast\) can be seen as the same shared embedding space.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/cca_projection.png" style="width: 60%; height: 60%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/cca_projection.png" style="width: 60%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 3: Cross-lingual projection using CCA (Faruqui and Dyer, 2014)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2505,7 +2505,7 @@ Cross-lingual embedding models generally use four different approaches:&lt;/p&gt
 As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Faruqui and Dyer perform experiments using only the top \(k\) correlated projection vectors and find that using the \(80\) % projection vectors with the highest correlation generally yields the highest performance. &lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/synonym_antonym_projections.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/synonym_antonym_projections.png" style="width: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 4: Monolingual (top) and multi-lingual (bottom; marked with apostrophe) projections of the synonyms and antonyms of "beautiful" (Faruqui and Dyer, 2014)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2532,7 +2532,7 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 &lt;p&gt;They subsequently propose a method to resolve each of these inconsistencies: In order to fix the mismatch between the inner product similarity measure \(c_w^T c_{w'}\) during training and the cosine similarity measure \(\dfrac{c_w^T c_w'}{\|c_w\| \|c_{w'}\|}\) for testing, the inner product could also be used for testing. Cosine similarity, however, is used conventionally as an evaluation measure in NLP and generally performs better than the inner product. For this reason, they propose to normalise the word vectors to be unit length during training, which makes the inner product the same as cosine similarity and places all word vectors on a hypersphere as a side-effect, as can be seen in Figure 5.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/hypersphere_word_representations.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/hypersphere_word_representations.png" style="width: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 5: Word representations before (left) and after (right) normalisation (Xing et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2553,7 +2553,7 @@ As CCA sorts the correlation vectors in \(V\) and \(W\) in descending order, Far
 &lt;p&gt;They show that selecting max-margin over the least-squares loss consistently improves performance and reduces hubness. In addition, the choice of the negative examples, i.e. the target words compared to which the model should rank the correct translation higher, is important. They hypothesise that an informative negative example is an &lt;em&gt;intruder&lt;/em&gt; ("truck" in the example), i.e. it is near the current projected vector \(\hat{y_i}\) but far from the actual translation vector \(y_i\) ("cat") as depicted in Figure 6.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/intruders_in_the_vector_space.png" style="width: 20%; height: 20%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/intruders_in_the_vector_space.png" style="width: 20%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 6: The intruder "truck" is selected over "dog" as the negative example for "cat". (Lazaridou et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2649,7 +2649,7 @@ They run experiments showing that their model with the symmetry constraint outpe
 &lt;p&gt;Barone [&lt;sup id="fnref:7"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;], in contrast, seeks to get closer to the elusive goal of creating cross-lingual representations without parallel data. He proposes to use an adversarial auto-encoder to transform source embeddings into the target embedding space. The auto-encoder is then trained to reconstruct the source embeddings, while the discriminator is trained to differentiate the projected source embeddings from the actual target embeddings as in Figure 7.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/adversarial_autoencoder-1.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/adversarial_autoencoder-1.png" style="width: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 7: Cross-lingual mapping with an adversarial auto-encoder (Barone, 2016)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2714,7 +2714,7 @@ For this reason, they propose another merging strategy that assumes that the str
 &lt;p&gt;where \(a_{\text{root}}\) and \(b_{\text{root}}\) are the representations of two aligned sentences from different languages. They compose \(a_{\text{root}}\) and \(b_{\text{root}}\) simply as the sum of the embeddings of the words in the corresponding sentence. The full model is depicted in Figure 8.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/10/hermann_blunsom_2013.png" style="width: 80%; height: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/10/hermann_blunsom_2013.png" style="width: 80%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 8: The bilingual compositional sentence model (Hermann and Blunsom, 2013)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2725,7 +2725,7 @@ For this reason, they propose another merging strategy that assumes that the str
 &lt;p&gt;Instead of minimising the distance between two sentence representations in different languages, Lauly et al. [&lt;sup id="fnref:13"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:13" rel="footnote"&gt;13&lt;/a&gt;&lt;/sup&gt;] aim to reconstruct the target sentence from the original source sentence. They start with a monolingual autoencoder that encodes an input sentence as a sum of its word embeddings and tries to reconstruct the original source sentence. For efficient reconstruction, they opt for a tree-based decoder that is similar to a hierarchical softmax. They then augment this autoencoder with a second decoder that reconstructs the aligned target sentence from the representation of the source sentence as in Figure 9.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/lauly_autoencoder.png" style="width: 70%; height: 70%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/lauly_autoencoder.png" style="width: 70%" title="Similar geometric relations between two languages" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 9: A bilingual autoencoder (Lauly et al., 2013)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2748,7 +2748,7 @@ For this reason, they propose another merging strategy that assumes that the str
 &lt;p&gt;Hermann and Blunsom [&lt;sup id="fnref:16"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:16" rel="footnote"&gt;16&lt;/a&gt;&lt;/sup&gt;] extend their approach (Hermann and Blunsom, 2013) to documents, by applying their composition and objective function recursively to compose sentences into documents. First, sentence representations are computed as &lt;a href="http://localhost:2368/cross-lingual-embeddings/#bilingualcompositionalsentencemodel"&gt;before&lt;/a&gt;. These sentence representations are then fed into  a document-level compositional vector model, which integrates the sentence representations in the same way as can be seen in Figure 10.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/hermann_blunsom_2014.png" style="width: 80%; height: 80%" title="Compositional document model" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/hermann_blunsom_2014.png" style="width: 80%" title="Compositional document model" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 10: A bilingual compositional document model (Hermann and Blunsom, 2014)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2765,7 +2765,7 @@ For this reason, they propose another merging strategy that assumes that the str
 &lt;p&gt;Chandar et al. [&lt;sup id="fnref:17"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:17" rel="footnote"&gt;17&lt;/a&gt;&lt;/sup&gt;] extend the approach by Lauly et al. (2013) in two ways: Instead of using a tree-based decoder for calculating the reconstruction loss, they reconstruct a sparse binary vector of word occurrences as in Figure 11. Due to the high-dimensionality of the binary bag-of-words vector, reconstruction is slower. As they perform training using mini-batch gradient descent, where each mini-batch consists of adjacent sentences, they propose to merge the bags-of-words of the mini-batch into a single bag-of-words and to perform updates based on the merged bag-of-words. They find that this yields good performance and even outperforms the tree-based decoder.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/binary_bow_autoencoder.png" style="width: 50%; height: 50%" title="Compositional document model" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/binary_bow_autoencoder.png" style="width: 50%" title="Compositional document model" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 11: A bilingual autoencoder with binary reconstruction error (Chandar et al., 2014)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2776,7 +2776,7 @@ For this reason, they propose another merging strategy that assumes that the str
 &lt;p&gt;Similar to the previous methods, Pham et al. [&lt;sup id="fnref:18"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:18" rel="footnote"&gt;18&lt;/a&gt;&lt;/sup&gt;] learn sentence representations as a means for learning cross-lingual word embeddings. They extend paragraph vectors (Mikolov et al. [&lt;sup id="fnref:36"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:36" rel="footnote"&gt;36&lt;/a&gt;&lt;/sup&gt;]) to the multilingual setting by forcing aligned sentences of different languages to share the same vector representation as in Figure 12 where \(sent\) is the shared sentence representation. The shared sentence representation is concatenated with the sum of the previous \(N\) words in the sentence and the model is trained to predict the next word in the sentence.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/bilingual_paragraph_vector.png" style="width: 80%; height: 80%" title="Compositional document model" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/bilingual_paragraph_vector.png" style="width: 80%" title="Compositional document model" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 12: Bilingual paragraph vectors (Pham et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2838,7 +2838,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 &lt;p&gt;Luong et al. [&lt;sup id="fnref:24"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:24" rel="footnote"&gt;24&lt;/a&gt;&lt;/sup&gt;] in turn extend skip-gram to the cross-lingual setting and use the skip-gram objectives as monolingual and cross-lingual objectives. Rather than just predicting the surrounding words in the source language, they use the words in the source language to additionally predict their aligned words in the target language as in Figure 13.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/bilingual_skipgram.png" style="width: 80%; height: 80%" title="Bilingual skip-gram" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/bilingual_skipgram.png" style="width: 80%" title="Bilingual skip-gram" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 13: Bilingual skip-gram (Luong et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2849,14 +2849,14 @@ Intuitively, if a word in the source language is only aligned with one word in t
 &lt;p&gt;Gouws et al. [&lt;sup id="fnref:25"&gt;&lt;a href="http://localhost:2368/cross-lingual-embeddings/#fn:25" rel="footnote"&gt;25&lt;/a&gt;&lt;/sup&gt;] propose a Bilingual Bag-of-Words without Word Alignments (BilBOWA) that leverages additional monolingual data. They use the skip-gram objective as a monolingual objective and a novel sampled \(l_2\) loss as cross-lingual regularizer as in Figure 14.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/bilbowa.png" style="width: 80%; height: 80%" title="The BilBOWA model" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/bilbowa.png" style="width: 80%" title="The BilBOWA model" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 14: The BilBOWA model (Gouws et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
 &lt;p&gt;More precisely, instead of relying on expensive word alignments, they simply assume that each word in a source sentence is aligned with &lt;em&gt;every&lt;/em&gt; word in the target sentence under a uniform alignment model. Thus, instead of minimising the distance between words that were aligned to each other, they minimise the distance between the means of the word representations in the aligned sentences, which is shown in Figure 15, where \(s^e\) and \(s^f\) are the sentences in source and target language respectively. &lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/approxmating_alignments_bilbowa.png" style="width: 80%; height: 80%" title="Approximating word alignments" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/approxmating_alignments_bilbowa.png" style="width: 80%" title="Approximating word alignments" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 15: Approximating word alignments with uniform alignments (Gouws et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2878,7 +2878,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 &lt;p&gt;where \(s\) is the sentence in the respective language, \(C\) is the sentence-aligned corpus, \(w\) are word and \(c\) are context representations respectively, and \( - \text{log} \: \sigma(\centerdot)\) is the standard skip-gram loss function.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/transgram.png" style="width: 80%; height: 80%" title="Trans-gram" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/transgram.png" style="width: 80%" title="Trans-gram" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 16: The Trans-gram model (Coulmance et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -2893,7 +2893,7 @@ Intuitively, if a word in the source language is only aligned with one word in t
 &lt;p&gt;where \(w_j^{l_i}\) and \(c_k^{l_i}\) are the embeddings and \(M_{jk}^{l_{i}}\) the PMI value of a word-context pair \((j,k) \) in language \(l_{i}\), while \( b_{w_j}^{l_i}\) and \(b_{c_k}^{l_i}\) and \(b^{l_i}\) are the word-specific and language-specific bias terms respectively.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/11/crosslingual_matrix_factorisation.png" style="width: 50%; height: 50%" title="Cross-lingual matrix factorisation" alt="A survey of cross-lingual embedding models"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/11/crosslingual_matrix_factorisation.png" style="width: 50%" title="Cross-lingual matrix factorisation" alt="A survey of cross-lingual embedding models"&gt;
 &lt;figcaption&gt;Figure 17: Learning cross-lingual word representations via matrix factorisation (Shi et al., 2015)&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3542,7 +3542,7 @@ Participants had a chance to join workshops and labs, where they got hands-on ex
 To test your understanding of sequence models, try to answer -- without reading further -- the following question: What is the most basic sequence model depicted in Figure 1?&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/bag_of_words.png" style="width: 50%; height: 50%" title="Bag-of-words model" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/bag_of_words.png" style="width: 50%" title="Bag-of-words model" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 1: The most basic sequence model&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3559,7 +3559,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 &lt;p&gt;We can view bag-of-words and \(m^{\text{th}}\) Order Markov Models as occupying the following spectrum:&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%; height: 80%" title="From bag-of-words to history-based models" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%" title="From bag-of-words to history-based models" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 2: From bag-of-words to history-based models&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3576,7 +3576,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 &lt;p&gt;If we want to determine the most probable sequence of hidden states, we face a space of potential sequences that grows exponentially with the sequence length. The classic dynamic algorithm to cope with this problem is the Viterbi algorithm, which is used in HMMs, CRFs, and other sequence models to calculate the most probable sequence of hidden states: It lays out the symbol sequence and all possible states in a grid and proceeds left-to-right to compute the maximum probability to transition in every new state given the previous states. The most probable sequence can then be found by back-tracking as in Figure 3.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/viterbi.png" style="width: 70%; height: 70%" title="Viterbi algorithm" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/viterbi.png" style="width: 70%" title="Viterbi algorithm" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 3: The Viterbi algorithm&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3642,7 +3642,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 &lt;h2 id="demoday"&gt;Demo Day&lt;/h2&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/demo_day.jpg" style="width: 70%; height: 70%" title="Aylien stand at Demo Day" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/demo_day.jpg" style="width: 70%" title="Aylien stand at Demo Day" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 4: Aylien stand at Demo Day&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3657,7 +3657,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 &lt;p&gt;To tie this to what we've already discussed, Figure 5 demonstrates how the distinction between generative and discriminative models applies to parsers.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/generative_discriminative.png" style="width: 80%; height: 80%" title="Generative vs. discriminative parsers" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/generative_discriminative.png" style="width: 80%" title="Generative vs. discriminative parsers" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 5: Generative vs. discriminative parsing models&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3682,14 +3682,14 @@ To test your understanding of sequence models, try to answer -- without reading 
 &lt;h2 id="deeplstms"&gt;Deep LSTMs&lt;/h2&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/deep_lstms.png" style="width: 80%; height: 80%" title="Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/deep_lstms.png" style="width: 80%" title="Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 6: Deep LSTMs&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
 &lt;p&gt;Deep or stacked LSTMs are by now a very common sight in the literature and state-of-the-art for many sequence modelling problems. Still, descriptions of implementations often omit details, which might be perceived as self-evident. This, however, means that it is not always clear how a model looks like exactly or how it differs from similar architectures. The same applies to Deep LSTMs. The most standard convention feeds the input not only to the first but (via skip connections) also to subsequent layers as in Figure 6. Additionally, dropout is generally applied only between layers and not on the recurrent connections as this would drop out more and more value over time.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%; height: 80%" title="Dropout in Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%" title="Dropout in Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 7: Dropout in Deep LSTMs&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
@@ -3710,7 +3710,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 &lt;p&gt;Character-based models have gained more popularity recently and for some tasks such as language modelling, using character-based LSTMs blows the results of word-based models out of the water, achieving a significantly lower perplexity with a lot fewer parameters particularly for morphologically rich languages.&lt;/p&gt;
 
 &lt;figure&gt;  
-      &lt;img src="http://localhost:2368/content/images/2016/08/char_language_modeling.png" style="width: 80%; height: 80%" title="CharLSTM &gt; Word Lookup" alt="Lisbon Machine Learning Summer School Highlights"&gt;
+      &lt;img src="http://localhost:2368/content/images/2016/08/char_language_modeling.png" style="width: 80%" title="CharLSTM &gt; Word Lookup" alt="Lisbon Machine Learning Summer School Highlights"&gt;
 &lt;figcaption&gt;Figure 8: CharLSTM &gt; Word Lookup&lt;/figcaption&gt;  
 &lt;/figure&gt;
 
