@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 04 Mar 2018 15:09:01 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Requests for Research</title><description>&lt;p&gt;Table of contents:&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 04 Mar 2018 15:14:07 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Requests for Research</title><description>&lt;p&gt;Table of contents:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://localhost:2368/requests-for-research/#taskindependentdataaugmentationfornlp"&gt;Task-independent data augmentation for NLP&lt;/a&gt;&lt;/li&gt;
@@ -105,6 +105,10 @@
 &lt;p&gt;Novel architectures that outperform the current state-of-the-art and are tailored to specific tasks are regularly introduced, superseding the previous architecture. I have outlined &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/"&gt;best practices for different NLP tasks&lt;/a&gt; before, but without comparing such architectures on different tasks, it is often hard to gain insights from specialized architectures and tell which components would also be useful in other settings. &lt;/p&gt;
 
 &lt;p&gt;A particularly promising recent model is the Transformer (Vaswani et al., 2017) [&lt;sup id="fnref:37"&gt;&lt;a href="http://localhost:2368/requests-for-research/#fn:37" rel="footnote"&gt;37&lt;/a&gt;&lt;/sup&gt;]. While the complete model might not be appropriate for every task, components such as multi-head attention or position-based encoding could be building blocks that are generally useful for many NLP tasks.&lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt; Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope you've found this collection of research directions useful. If you have suggestions on how to tackle some of these problems or ideas for related research topics, feel free to comment below.&lt;/p&gt;
 
 &lt;h2 id="references"&gt; References&lt;/h2&gt;
 
