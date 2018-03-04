@@ -41,7 +41,7 @@
     <meta property="og:description" content="Table of contents: Task-independent data augmentation for NLP Few-shot learning for NLP Transfer learning for NLP Multi-task learning Cross-lingual learning Task-independent architecture improvements It can be hard to find compelling topics to work on and know what questions are interesting...">
     <meta property="og:url" content="u=http://ruder.io/requests-for-research/">
     <meta property="article:published_time" content="2018-03-04T15:00:00.000Z">
-    <meta property="article:modified_time" content="2018-03-04T15:14:02.330Z">
+    <meta property="article:modified_time" content="2018-03-04T18:46:38.292Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="nlp">
     <meta property="article:tag" content="transfer learning">
@@ -66,7 +66,7 @@
     "headline": "Requests for Research",
     "url": "u=http://ruder.io/requests-for-research/",
     "datePublished": "2018-03-04T15:00:00.000Z",
-    "dateModified": "2018-03-04T15:14:02.330Z",
+    "dateModified": "2018-03-04T18:46:38.292Z",
     "keywords": "deep learning, nlp, transfer learning",
     "description": "Table of contents: Task-independent data augmentation for NLP Few-shot learning for NLP Transfer learning for NLP Multi-task learning Cross-lingual learning Task-independent architecture improvements It can be hard to find compelling topics to work on and know what questions are interesting..."
 }
@@ -239,7 +239,7 @@ var ga_id = 'UA-60512592-1';
 <li>Small perturbations may change the meaning. Deleting a negation may change a sentence's sentiment, while modifying a word in a paragraph might inadvertently change the answer to a question about that paragraph. This is not the case in CV where perturbing individual pixels does not change whether an image is a cat or dog and even stark changes such as interpolation of different images can be useful (Zhang et al., 2017) [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>].</li>
 </ol>
 
-<p>Existing approaches that I am aware of are either rule-based (Li et al., 2017) [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>] or task-specific, e.g. for parsing (Wang and Eisner, 2016) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] or zero-pronoun resolution (Liu et al., 2017) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>]. Recent work focuses on creating adversarial examples either by replacing words or characters (Samanta and Mehta, 2017; Ebrahimi et al., 2017) [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>, <sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>], concatenation (Jia and Liang, 2017) [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>], or adding adversarial perturbations (Yasunaga et al., 2017) [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>]. An adversarial setup is also used by Li et al. (2017) [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>] who train a system to produce sequences that are indistinguishable from human-generated dialogue utterances.</p>
+<p>Existing approaches that I am aware of are either rule-based (Li et al., 2017) [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>] or task-specific, e.g. for parsing (Wang and Eisner, 2016) [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] or zero-pronoun resolution (Liu et al., 2017) [<sup id="fnref:7"><a href="index.html#fn:7" rel="footnote">7</a></sup>]. Xie et al. (2017) [<sup id="fnref:39"><a href="index.html#fn:39" rel="footnote">39</a></sup>] replace words with samples from different distributions for language modelling and Machine Translation. Recent work focuses on creating adversarial examples either by replacing words or characters (Samanta and Mehta, 2017; Ebrahimi et al., 2017) [<sup id="fnref:8"><a href="index.html#fn:8" rel="footnote">8</a></sup>, <sup id="fnref:9"><a href="index.html#fn:9" rel="footnote">9</a></sup>], concatenation (Jia and Liang, 2017) [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>], or adding adversarial perturbations (Yasunaga et al., 2017) [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>]. An adversarial setup is also used by Li et al. (2017) [<sup id="fnref:16"><a href="index.html#fn:16" rel="footnote">16</a></sup>] who train a system to produce sequences that are indistinguishable from human-generated dialogue utterances.</p>
 
 <p>Back-translation (Sennrich et al., 2015; Sennrich et al., 2016) [<sup id="fnref:12"><a href="index.html#fn:12" rel="footnote">12</a></sup>, <sup id="fnref:13"><a href="index.html#fn:13" rel="footnote">13</a></sup>] is a common data augmentation method in Machine Translation (MT) that allows us to incorporate monolingual training data. For instance, when training a EN\(\rightarrow\)FR system, monolingual French text is translated to English using an FR\(\rightarrow\)EN system; the synthetic parallel data can then be used for training. Back-translation can also be used for paraphrasing (Mallinson et al., 2017) [<sup id="fnref:14"><a href="index.html#fn:14" rel="footnote">14</a></sup>]. Paraphrasing has been used for data augmentation for QA (Dong et al., 2017) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>], but I am not aware of its use for other tasks.</p>
 
@@ -278,7 +278,7 @@ var ga_id = 'UA-60512592-1';
 <p>Here are some potential research directions in this context:</p>
 
 <ol>
-<li><strong>Identify useful pretraining tasks:</strong> The choice of the pretraining task is very important as even fine-tuning a model on a related task might only provide limited success (Mou et al., 2016) [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>]. Other tasks such as those explored in recent work on learning general-purpose sentence embeddings (Conneau et al., 2017; Subramanian et al., 2018) [<sup id="fnref:34"><a href="index.html#fn:34" rel="footnote">34</a></sup>, <sup id="fnref:35"><a href="index.html#fn:35" rel="footnote">35</a></sup>] might be complementary to language model pretraining or suitable for other target tasks.  </li>
+<li><strong>Identify useful pretraining tasks:</strong> The choice of the pretraining task is very important as even fine-tuning a model on a related task might only provide limited success (Mou et al., 2016) [<sup id="fnref:38"><a href="index.html#fn:38" rel="footnote">38</a></sup>]. Other tasks such as those explored in recent work on learning general-purpose sentence embeddings (Conneau et al., 2017; Subramanian et al., 2018; Nie et al., 2017) [<sup id="fnref:34"><a href="index.html#fn:34" rel="footnote">34</a></sup>, <sup id="fnref:35"><a href="index.html#fn:35" rel="footnote">35</a></sup>, <sup id="fnref:40"><a href="index.html#fn:40" rel="footnote">40</a></sup>] might be complementary to language model pretraining or suitable for other target tasks.  </li>
 <li><strong>Fine-tuning of complex architectures:</strong> Pretraining is most useful when a model can be applied to many target tasks. However, it is still unclear how to pretrain more complex architectures, such as those used for pairwise classification tasks (Augenstein et al., 2018) or reasoning tasks such as QA or reading comprehension.</li>
 </ol>
 
@@ -386,7 +386,11 @@ var ga_id = 'UA-60512592-1';
 
 <li class="footnote" id="fn:37"><p>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … Polosukhin, I. (2017). Attention Is All You Need. In Advances in Neural Information Processing Systems. <a href="index.html#fnref:37" title="return to article">↩</a></p></li>
 
-<li class="footnote" id="fn:38"><p>Mou, L., Meng, Z., Yan, R., Li, G., Xu, Y., Zhang, L., &amp; Jin, Z. (2016). How Transferable are Neural Networks in NLP Applications? Proceedings of 2016 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:38" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:38"><p>Mou, L., Meng, Z., Yan, R., Li, G., Xu, Y., Zhang, L., &amp; Jin, Z. (2016). How Transferable are Neural Networks in NLP Applications? Proceedings of 2016 Conference on Empirical Methods in Natural Language Processing. <a href="index.html#fnref:38" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:39"><p>Xie, Z., Wang, S. I., Li, J., Levy, D., Nie, A., Jurafsky, D., &amp; Ng, A. Y. (2017). Data Noising as Smoothing in Neural Network Language Models. In Proceedings of ICLR 2017. <a href="index.html#fnref:39" title="return to article">↩</a></p></li>
+
+<li class="footnote" id="fn:40"><p>Nie, A., Bennett, E. D., &amp; Goodman, N. D. (2017). DisSent: Sentence Representation Learning from Explicit Discourse Relations. arXiv Preprint arXiv:1710.04334. Retrieved from <a href="http://arxiv.org/abs/1710.04334">http://arxiv.org/abs/1710.04334</a> <a href="index.html#fnref:40" title="return to article">↩</a></p></li></ol></div>
     </div>
 
     <div class="post related">
