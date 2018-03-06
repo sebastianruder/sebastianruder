@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 05 Mar 2018 07:35:24 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Requests for Research</title><description>&lt;p&gt;Table of contents:&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 06 Mar 2018 16:20:34 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Requests for Research</title><description>&lt;p&gt;Table of contents:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://localhost:2368/requests-for-research/#taskindependentdataaugmentationfornlp"&gt;Task-independent data augmentation for NLP&lt;/a&gt;&lt;/li&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;Most of these topics are not thoroughly thought out yet; in many cases, the general description is quite vague and subjective and many directions are possible. In addition, most of these are &lt;em&gt;not&lt;/em&gt; low-hanging fruit, so serious effort is necessary to come up with a solution. I am happy to provide feedback with regard to any of these, but will not have time to provide more detailed guidance unless you have a working proof-of-concept. I will update this post periodically with new research directions and advances in already listed ones. Note that this collection does not attempt to review the extensive literature but only aims to give a glimpse of a topic; consequently, the references won't be comprehensive.&lt;/p&gt;
 
-&lt;p&gt;I hope that this collection will peak your interest and serve as inspiration for your own research agenda.&lt;/p&gt;
+&lt;p&gt;I hope that this collection will pique your interest and serve as inspiration for your own research agenda.&lt;/p&gt;
 
 &lt;h2 id="taskindependentdataaugmentationfornlp"&gt; Task-independent data augmentation for NLP&lt;/h2&gt;
 
