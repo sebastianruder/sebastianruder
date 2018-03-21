@@ -31,7 +31,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=988269e9e1">
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=da91aade85">
     <link rel="canonical" href="http://ruder.io/optimizing-gradient-descent/">
     <meta name="referrer" content="origin">
     
@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
-    <meta property="article:modified_time" content="2018-03-03T11:26:33.563Z">
+    <meta property="article:modified_time" content="2018-03-21T14:46:01.166Z">
     <meta property="article:tag" content="optimization">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="sgd">
@@ -68,7 +68,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2018-03-03T11:26:33.563Z",
+    "dateModified": "2018-03-21T14:46:01.166Z",
     "image": "u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -495,7 +495,7 @@ E[g^2]_t &amp;= 0.9 E[g^2]_{t-1} + 0.1 g^2_t \\ <br>
 
 <h2 id="adam">Adam</h2>
 
-<p>Adaptive Moment Estimation (Adam) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients \(v_t\) like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients \(m_t\), similar to momentum:</p>
+<p>Adaptive Moment Estimation (Adam) [<sup id="fnref:15"><a href="index.html#fn:15" rel="footnote">15</a></sup>] is another method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients \(v_t\) like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients \(m_t\), similar to momentum. Whereas momentum can be seen as a ball running down a slope, Adam behaves like a heavy ball with friction, which thus prefers flat minima in the error surface [<sup id="fnref:29"><a href="index.html#fn:29" rel="footnote">29</a></sup>]. We compute the decaying averages of past and past squared gradients \(m_t\) and \(v_t\) respectively as follows: </p>
 
 <p>\(
 \begin{align}
@@ -813,7 +813,8 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 <li class="footnote" id="fn:25"><p>Duchi et al. [3] give this matrix as an alternative to the <em>full</em> matrix containing the outer products of all previous gradients, as the computation of the matrix square root is infeasible even for a moderate number of parameters \(d\). <a href="index.html#fnref:25" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:26"><p>Huang, G., Liu, Z., Weinberger, K. Q., &amp; van der Maaten, L. (2017). Densely Connected Convolutional Networks. In Proceedings of CVPR 2017. <a href="index.html#fnref:26" title="return to article">↩</a></p></li>
 <li class="footnote" id="fn:27"><p>Johnson, M., Schuster, M., Le, Q. V, Krikun, M., Wu, Y., Chen, Z., … Dean, J. (2016). Google’s Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation. arXiv Preprint arXiv:1611.0455. <a href="index.html#fnref:27" title="return to article">↩</a></p></li>
-<li class="footnote" id="fn:28"><p>Reddi, Sashank J., Kale, Satyen, &amp; Kumar, Sanjiv. On the Convergence of Adam and Beyond. Proceedings of ICLR 2018. <a href="index.html#fnref:28" title="return to article">↩</a></p></li></ol></div>
+<li class="footnote" id="fn:28"><p>Reddi, Sashank J., Kale, Satyen, &amp; Kumar, Sanjiv. On the Convergence of Adam and Beyond. Proceedings of ICLR 2018. <a href="index.html#fnref:28" title="return to article">↩</a></p></li>
+<li class="footnote" id="fn:29"><p>Heusel, M., Ramsauer, H., Unterthiner, T., Nessler, B., &amp; Hochreiter, S. (2017). GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium. In Advances in Neural Information Processing Systems 30 (NIPS 2017). <a href="index.html#fnref:29" title="return to article">↩</a></p></li></ol></div>
 
 <p>Image credit for cover photo: <a href="http://lossfunctions.tumblr.com/">Karpathy's beautiful loss functions tumblr</a></p>
     </div>
@@ -850,7 +851,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=988269e9e1" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=da91aade85" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
