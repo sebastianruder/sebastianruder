@@ -1,0 +1,569 @@
+
+  <head>
+    <title>Text Classification with TensorFlow Estimators</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png?v=wAAv6Wqe6l">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180x180.png?v=wAAv6Wqe6l">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png?v=wAAv6Wqe6l" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/img/favicon-194x194.png?v=wAAv6Wqe6l" sizes="194x194">
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png?v=wAAv6Wqe6l" sizes="96x96">
+<link rel="icon" type="image/png" href="../assets/img/android-chrome-192x192.png?v=wAAv6Wqe6l" sizes="192x192">
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png?v=wAAv6Wqe6l" sizes="16x16">
+<link rel="manifest" href="../assets/img/manifest.json?v=wAAv6Wqe6l">
+<link rel="shortcut icon" href="../assets/img/favicon.ico?v=wAAv6Wqe6l">
+<meta name="msapplication-TileColor" content="#e74c3c">
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
+<meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
+<meta name="theme-color" content="#e74c3c">
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=a184beb1d1">
+    <link rel="canonical" href="http://ruder.io/text-classification-tensorflow-estimators/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Sebastian Ruder">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Text Classification with TensorFlow Estimators">
+    <meta property="og:description" content="This post is a tutorial on how to use Estimators in TensorFlow to classify text.">
+    <meta property="og:url" content="u=http://ruder.io/text-classification-tensorflow-estimators/">
+    <meta property="article:published_time" content="2018-04-16T13:24:29.579Z">
+    <meta property="article:modified_time" content="2018-04-16T16:16:22.054Z">
+    <meta property="article:tag" content="nlp">
+    <meta property="article:tag" content="tensorflow">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Text Classification with TensorFlow Estimators">
+    <meta name="twitter:description" content="This post is a tutorial on how to use Estimators in TensorFlow to classify text.">
+    <meta name="twitter:url" content="u=http://ruder.io/text-classification-tensorflow-estimators/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Sebastian Ruder",
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "url": "u=http://ruder.io/author/sebastian",
+        "sameAs": null,
+        "description": null
+    },
+    "headline": "Text Classification with TensorFlow Estimators",
+    "url": "u=http://ruder.io/text-classification-tensorflow-estimators/",
+    "datePublished": "2018-04-16T13:24:29.579Z",
+    "dateModified": "2018-04-16T16:16:22.054Z",
+    "keywords": "nlp, tensorflow",
+    "description": "This post is a tutorial on how to use Estimators in TensorFlow to classify text."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
+    <script>
+var open_button = '.nav-blog > a'
+</script>
+<script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+  </head>
+  <body class="post-template tag-nlp tag-tensorflow">
+    <header id="menu-button" class="expanded">
+      <a><i class="icon icon-list"></i></a>
+    </header>
+    <aside class="cover" style="background: url(../content/images/2017/05/imageedit_8_8459453433.jpg) center/cover no-repeat fixed">
+  <div class="cover container">
+    <div class="profile">
+      <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
+        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out">
+        <h1 id="profile-title">Sebastian Ruder</h1>
+        <h3 id="profile-resume"></h3>
+      </a>
+
+      <hr class="divider long">
+      <p>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
+      <hr class="divider short">
+      <div class="navigation">
+        <div class="profile contact">
+          <nav class="navigation left">
+  <ul class="links">
+      <li class="nav-blog ">
+        <a href="http://ruder.io/">Blog</a>
+      </li>
+      <li class="nav-about ">
+        <a href="http://ruder.io/about/">About</a>
+      </li>
+      <li class="nav-papers ">
+        <a href="http://ruder.io/publications/">Papers</a>
+      </li>
+      <li class="nav-news ">
+        <a href="http://ruder.io/news">News</a>
+      </li>
+      <li class="nav-newsletter ">
+        <a href="http://newsletter.ruder.io">Newsletter</a>
+      </li>
+      <li class="nav-faq ">
+        <a href="http://ruder.io/faq">FAQ</a>
+      </li>
+  </ul>
+</nav>
+
+          
+<nav class="navigation right">
+  <ul class="social expanded">
+
+  <!-- Twitter -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
+      <i class="icon icon-social-twitter"></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  <!-- Linkedin -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
+      <i class="icon icon-social-linkedin"></i>
+      <span class="label">Linkedin</span>
+    </a>
+  </li>
+
+  <!-- Github -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
+      <i class="icon icon-social-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+  <!-- E-mail -->
+  <li class="social item hvr-grow-rotate">
+    <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
+      <i class="icon icon-mail"></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+
+  <!-- RSS -->
+  <li class="social item hvr-grow-rotate">
+    <a href="../rss/index.rss" title="Subscribe to RSS">
+      <i class="icon icon-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+          <section class="icon icon-search" id="search-container">
+  <hr class="divider short">
+  <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
+    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field">
+  </form>
+</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+    <main>
+      <section id="search-results"></section>
+      <section class="content">
+        
+
+  <article class="post tag-nlp tag-tensorflow">
+    <header>
+      <div class="post meta">
+        <time datetime="16 Apr 2018">16 Apr 2018</time>
+        <span class="post tags">in <a href="../tag/nlp/">nlp</a> <a href="../tag/tensorflow/">tensorflow</a></span>
+
+
+        <span class="post reading-time"> ~ <span></span> read.</span>
+      </div>
+      <a alt="Tweet 'Text Classification with TensorFlow Estimators'" href="https://twitter.com/intent/tweet?text=Text%20Classification%20with%20TensorFlow%20Estimators%20%C2%BB&amp;hashtags=nlp,tensorflow&amp;url=http://ruder.io/text-classification-tensorflow-estimators/">
+        
+        <h1 class="icon-reverse icon-social-twitter-post" id="post-title">Text Classification with TensorFlow Estimators</h1>
+      </a>
+    </header>
+
+    <div id="post-content" class="post tag-nlp tag-tensorflow">
+      <p></p> <br>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nlp<em>estimators</em>blog.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css">
+
+
+<p><em>Note: This post was written together with the awesome <a href="https://twitter.com/eisenjulian">Julian Eisenschlos</a> and was originally published on the <a href="https://medium.com/tensorflow/classifying-text-with-tensorflow-estimators-a99603033fbe">TensorFlow blog</a>.</em></p>
+
+<p>Hello there! Throughout this post we will show you how to classify text using Estimators in TensorFlow. Here’s the outline of what we’ll cover:</p>
+
+<ul>  
+<li>Loading data using Datasets.</li>  
+<li>Building baselines using pre-canned estimators.</li>  
+<li>Using word embeddings.</li>  
+<li>Building custom estimators with convolution and LSTM layers.</li>  
+<li>Loading pre-trained word vectors.</li>  
+<li>Evaluating and comparing models using TensorBoard.</li>  
+</ul>  
+
+<hr>  
+
+<p>Welcome to Part 4 of a blog series that introduces TensorFlow Datasets and Estimators. You don’t need to read all of the previous material, but take a look if you want to refresh any of the following concepts. <a href="https://developers.googleblog.com/2017/09/introducing-tensorflow-datasets.html">Part 1</a> focused on pre-made Estimators, <a href="https://developers.googleblog.com/2017/11/introducing-tensorflow-feature-columns.html">Part 2</a> discussed feature columns, and <a href="https://developers.googleblog.com/2017/12/creating-custom-estimators-in-tensorflow.html">Part 3</a> how to create custom Estimators.</p>  
+
+<p>Here in Part 4, we will build on top of all the above to tackle a different family of problems in Natural Language Processing (NLP). In particular, this article demonstrates how to solve a text classification task using custom TensorFlow estimators, embeddings, and the <a href="https://www.tensorflow.org/api_docs/python/tf/layers">tf.layers</a> module. Along the way, we’ll learn about word2vec and transfer learning as a technique to bootstrap model performance when labeled data is a scarce resource.</p>  
+
+<p>We will show you relevant code snippets. <a href="https://github.com">Here</a>’s the complete Jupyter Notebook  that you can run locally or on <a href="https://colab.research.google.com">Google Colaboratory</a>. The plain <code>.py</code>  source file is also available <a href="https://github.com">here</a>. Note that the code was written to demonstrate how Estimators work functionally and was not optimized for maximum performance.</p>  
+
+<h3 id="the-task">The task</h3>  
+
+<p>The dataset we will be using is the IMDB <a href="http://ai.stanford.edu/~amaas/data/sentiment/">Large Movie Review Dataset</a>, which consists of <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>5</mn><mo separator="true">,</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">25,000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.83888em; vertical-align: -0.19444em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> highly polar movie reviews for training, and <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>5</mn><mo separator="true">,</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">25,000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.83888em; vertical-align: -0.19444em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> for testing. We will use this dataset to train a binary classification model, able to predict whether a review is positive or negative.</p>  
+
+<p>For illustration, here’s a piece of a negative review (with <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span></span></span></span></span> stars) in the dataset:</p>  
+
+<blockquote>  
+<p>Now, I LOVE Italian horror films. The cheesier they are, the better. However, this is not cheesy Italian. This is week-old spaghetti sauce with rotting meatballs. It is amateur hour on every level. There is no suspense, no horror, with just a few drops of blood scattered around to remind you that you are in fact watching a horror film.</p>  
+</blockquote>  
+
+<p><em>Keras</em> provides a convenient handler for importing the dataset which is also available as a serialized numpy array <code>.npz</code> file to download <a href="https://s3.amazonaws.com/text-datasets/imdb.npz">here</a>. For text classification, it is standard to limit the size of the vocabulary to prevent the dataset from becoming too sparse and high dimensional, causing potential overfitting. For this reason, each review consists of a series of word indexes that go from <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">4</span></span></span></span></span> (the most frequent word in the dataset <strong>the</strong>) to <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mn>9</mn><mn>9</mn><mn>9</mn></mrow><annotation encoding="application/x-tex">4999</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">4</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span></span></span></span></span>, which corresponds to <strong>orange</strong>. Index <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">1</span></span></span></span></span> represents the beginning of the sentence and the index <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span></span></span></span></span> is assigned to all unknown (also known as <em>out-of-vocabulary</em> or <em>OOV</em>) tokens. These indexes have been obtained by pre-processing the text data in a pipeline that cleans, normalizes and tokenizes each sentence first and then builds a dictionary indexing each of the tokens by frequency.</p>  
+
+<p>After we’ve loaded the data in memory we pad each of the sentences with <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">0</span></span></span></span></span> to a fixed size (here: <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span>) so that we have two <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span></span></span></span></span>-dimensional <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn><mo>×</mo><mn>2</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">25000\times200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.72777em; vertical-align: -0.08333em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mbin">×</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> arrays for training and testing respectively.</p>  
+
+<pre class=" language-python"><code class="prism  language-python">vocab_size <span class="token operator">=</span> <span class="token number">5000</span>  
+sentence_size <span class="token operator">=</span> <span class="token number">200</span>  
+<span class="token punctuation">(</span>x_train_variable<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x_test_variable<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span> <span class="token operator">=</span> imdb<span class="token punctuation">.</span>load_data<span class="token punctuation">(</span>num_words<span class="token operator">=</span>vocab_size<span class="token punctuation">)</span>  
+x_train <span class="token operator">=</span> sequence<span class="token punctuation">.</span>pad_sequences<span class="token punctuation">(</span>  
+    x_train_variable<span class="token punctuation">,</span> 
+    maxlen<span class="token operator">=</span>sentence_size<span class="token punctuation">,</span> 
+    padding<span class="token operator">=</span><span class="token string">'post'</span><span class="token punctuation">,</span> 
+    value<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+x_test <span class="token operator">=</span> sequence<span class="token punctuation">.</span>pad_sequences<span class="token punctuation">(</span>  
+    x_test_variable<span class="token punctuation">,</span>
+    maxlen<span class="token operator">=</span>sentence_size<span class="token punctuation">,</span> 
+    padding<span class="token operator">=</span><span class="token string">'post'</span><span class="token punctuation">,</span> 
+    value<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>  
+
+<h3 id="input-functions">Input Functions</h3>  
+
+<p>The Estimator framework uses <em>input functions</em> to split the data pipeline from the model itself. Several helper methods are available to create them, whether your data is in a <code>.csv</code> file, or in a <code>pandas.DataFrame</code>, whether it fits in memory or not. In our case, we can use <code>Dataset.from_tensor_slices</code> for both the train and test sets.</p>  
+
+<pre class=" language-python"><code class="prism  language-python">x_len_train <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> sentence_size<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> x_train_variable<span class="token punctuation">]</span><span class="token punctuation">)</span>  
+x\_len\_test <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> sentence_size<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> x_test_variable<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">parser</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> length<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    features <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"x"</span><span class="token punctuation">:</span> x<span class="token punctuation">,</span> <span class="token string">"len"</span><span class="token punctuation">:</span> length<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> features<span class="token punctuation">,</span> y
+
+<span class="token keyword">def</span> <span class="token function">train_input_fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    dataset <span class="token operator">=</span> tf<span class="token punctuation">.</span>data<span class="token punctuation">.</span>Dataset<span class="token punctuation">.</span>from_tensor_slices<span class="token punctuation">(</span><span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> x_len_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>buffer_size<span class="token operator">=</span><span class="token builtin">len</span><span class="token punctuation">(</span>x_train_variable<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>batch<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>parser<span class="token punctuation">)</span>
+    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>repeat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    iterator <span class="token operator">=</span> dataset<span class="token punctuation">.</span>make_one_shot_iterator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> iterator<span class="token punctuation">.</span>get_next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">eval_input_fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    dataset <span class="token operator">=</span> tf<span class="token punctuation">.</span>data<span class="token punctuation">.</span>Dataset<span class="token punctuation">.</span>from_tensor_slices<span class="token punctuation">(</span><span class="token punctuation">(</span>x_test<span class="token punctuation">,</span> x_len_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>batch<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>parser<span class="token punctuation">)</span>
+    iterator <span class="token operator">=</span> dataset<span class="token punctuation">.</span>make_one_shot_iterator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> iterator<span class="token punctuation">.</span>get_next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>  
+
+<p>We shuffle the training data and do not predefine the number of epochs we want to train, while we only need one epoch of the test data for evaluation. We also add an additional <code>"len"</code> key that captures the length of the original, unpadded sequence, which we will use later.</p>  
+
+<h3 id="building-a-baseline">Building a baseline</h3>  
+
+<p>It’s good practice to start any machine learning project trying basic baselines. The simpler the better as having a simple and robust baseline is key to understanding exactly how much we are gaining in terms of performance by adding extra complexity. It may very well be the case that a simple solution is good enough for our requirements.</p>  
+
+<p>With that in mind, let us start by trying out one of the simplest models for text classification. That would be a sparse linear model that gives a weight to each token and adds up all of the results, regardless of the order. As this model does not care about the order of words in a sentence, we normally refer to it as a <em>Bag-of-Words</em> approach. Let’s see how we can implement this model using an <code>Estimator</code>.</p>  
+
+<p>We start out by defining the feature column that is used as input to our classifier. As we have seen in <a href="https://developers.googleblog.com/2017/11/introducing-tensorflow-feature-columns.html">Part 2</a>, <code>categorical_column_with_identity</code> is the right choice for this pre-processed text input. If we were feeding raw text tokens other <code>feature_columns</code> could do a lot of the pre-processing for us. We can now use the pre-made <code>LinearClassifier</code>.</p>  
+
+<pre class=" language-python"><code class="prism  language-python">column <span class="token operator">=</span> tf<span class="token punctuation">.</span>feature_column<span class="token punctuation">.</span>categorical_column_with_identity<span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span> vocab_size<span class="token punctuation">)</span>  
+classifier <span class="token operator">=</span> tf<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>LinearClassifier<span class="token punctuation">(</span>  
+    feature_columns<span class="token operator">=</span><span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    model_dir<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>model_dir<span class="token punctuation">,</span> <span class="token string">'bow_sparse'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>  
+
+<p>Finally, we create a simple function that trains the classifier and additionally creates a precision-recall curve. As we do not aim to maximize performance in this blog post, we only train our models for <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>5</mn><mo separator="true">,</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">25,000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.83888em; vertical-align: -0.19444em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> steps.</p>  
+
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">def</span> <span class="token function">train_and_evaluate</span><span class="token punctuation">(</span>classifier<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    classifier<span class="token punctuation">.</span>train<span class="token punctuation">(</span>input_fn<span class="token operator">=</span>train_input_fn<span class="token punctuation">,</span> steps<span class="token operator">=</span><span class="token number">25000</span><span class="token punctuation">)</span>
+    eval_results <span class="token operator">=</span> classifier<span class="token punctuation">.</span>evaluate<span class="token punctuation">(</span>input_fn<span class="token operator">=</span>eval_input_fn<span class="token punctuation">)</span>
+    predictions <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>p<span class="token punctuation">[</span><span class="token string">'logistic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> classifier<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>input_fn<span class="token operator">=</span>eval_input_fn<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    tf<span class="token punctuation">.</span>reset_default_graph<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+    <span class="token comment"># Add a PR summary in addition to the summaries that the classifier writes</span>
+    pr <span class="token operator">=</span> summary_lib<span class="token punctuation">.</span>pr_curve<span class="token punctuation">(</span><span class="token string">'precision_recall'</span><span class="token punctuation">,</span> predictions<span class="token operator">=</span>predictions<span class="token punctuation">,</span> labels<span class="token operator">=</span>y_test<span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token punctuation">,</span> num_thresholds<span class="token operator">=</span><span class="token number">21</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> tf<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
+        writer <span class="token operator">=</span> tf<span class="token punctuation">.</span>summary<span class="token punctuation">.</span>FileWriter<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>classifier<span class="token punctuation">.</span>model_dir<span class="token punctuation">,</span> <span class="token string">'eval'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sess<span class="token punctuation">.</span>graph<span class="token punctuation">)</span>
+        writer<span class="token punctuation">.</span>add_summary<span class="token punctuation">(</span>sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>pr<span class="token punctuation">)</span><span class="token punctuation">,</span> global_step<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+        writer<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+train\_and\_evaluate<span class="token punctuation">(</span>classifier<span class="token punctuation">)</span>  
+</code></pre>  
+
+<p>One of the benefits of choosing a simple model is that it is much more interpretable. The more complex a model, the harder it is to inspect and the more it tends to work like a black box. In this example, we can load the weights from our model’s last checkpoint and take a look at what tokens correspond to the  biggest weights in absolute value. The results look like what we would expect.</p>  
+
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># Load the tensor with the model weights</span>  
+weights <span class="token operator">=</span> classifier<span class="token punctuation">.</span>get_variable_value<span class="token punctuation">(</span><span class="token string">'linear/linear_model/x/weights'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>flatten<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token comment"># Find biggest weights in absolute value</span>  
+extremes <span class="token operator">=</span> np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">(</span>sorted_indexes<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sorted_indexes<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token comment"># word_inverted_index is a dictionary that maps from indexes back to tokens</span>  
+extreme_weights <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>  
+    <span class="token punctuation">[</span><span class="token punctuation">(</span>weights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> word_inverted_index<span class="token punctuation">[</span>i <span class="token operator">-</span> index_offset<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> extremes<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># Create plot</span>  
+y_pos <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>extreme_weights<span class="token punctuation">)</span><span class="token punctuation">)</span>  
+plt<span class="token punctuation">.</span>bar<span class="token punctuation">(</span>y_pos<span class="token punctuation">,</span> <span class="token punctuation">[</span>pair<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> pair <span class="token keyword">in</span> extreme_weights<span class="token punctuation">]</span><span class="token punctuation">,</span> align<span class="token operator">=</span><span class="token string">'center'</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>  
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>y_pos<span class="token punctuation">,</span> <span class="token punctuation">[</span>pair<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> pair <span class="token keyword">in</span> extreme_weights<span class="token punctuation">]</span><span class="token punctuation">,</span> rotation<span class="token operator">=</span><span class="token number">45</span><span class="token punctuation">,</span> ha<span class="token operator">=</span><span class="token string">'right'</span><span class="token punctuation">)</span>  
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Weight'</span><span class="token punctuation">)</span>  
+plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Most significant tokens'</span><span class="token punctuation">)</span>  
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+</code></pre>  
+
+<p><img src="https://raw.githubusercontent.com/eisenjulian/nlp_estimator_tutorial/master/token_weights.png" alt="Model weights" style="width: 60%"></p>  
+
+<p>As we can see, tokens with the most positive weight such as ‘refreshing’ are clearly associated with positive sentiment, while tokens that have a large negative weight unarguably evoke negative emotions. A simple but powerful modification that one can do to improve this model is weighting the tokens by their <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> scores.</p>  
+
+<h3 id="embeddings">Embeddings</h3>  
+
+<p>The next step of complexity we can add are word embeddings. Embeddings are a dense low-dimensional representation of sparse high-dimensional data. This allows our model to learn a more meaningful representation of each token, rather than just an index. While an individual dimension is not meaningful, the low-dimensional space—when learned from a large enough corpus—has been shown to capture relations such as tense, plural, gender, thematic relatedness, and many more. We can add word embeddings by converting our existing feature column into an <code>embedding_column</code>. The representation seen by the model is the mean of the embeddings for each token (see the <code>combiner</code> argument in the <a href="https://www.tensorflow.org/api_docs/python/tf/feature_column/embedding_column">docs</a>). We can plug in the embedded features into a pre-canned <code>DNNClassifier</code>.</p>  
+
+<p>A note for the keen observer: an <code>embedding_column</code> is just an efficient way of applying a fully connected layer to the sparse binary feature vector of tokens, which is multiplied by a constant depending of the chosen combiner. A direct consequence of this is that it wouldn’t make sense to use an <code>embedding_column</code> directly in a <code>LinearClassifier</code> because two consecutive linear layers without non-linearities in between add no prediction power to the model, unless of course the embeddings are pre-trained.</p>  
+
+<pre class=" language-python"><code class="prism  language-python">embedding_size <span class="token operator">=</span> <span class="token number">50</span>  
+word\_embedding\_column <span class="token operator">=</span> tf<span class="token punctuation">.</span>feature_column<span class="token punctuation">.</span>embedding_column<span class="token punctuation">(</span>  
+    column<span class="token punctuation">,</span> dimension<span class="token operator">=</span>embedding_size<span class="token punctuation">)</span>
+classifier <span class="token operator">=</span> tf<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>DNNClassifier<span class="token punctuation">(</span>  
+    hidden_units<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    feature_columns<span class="token operator">=</span><span class="token punctuation">[</span>word_embedding_column<span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    model_dir<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>model_dir<span class="token punctuation">,</span> <span class="token string">'bow_embeddings'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+train\_and\_evaluate<span class="token punctuation">(</span>classifier<span class="token punctuation">)</span>  
+</code></pre>  
+
+<p>We can use TensorBoard to visualize our <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">5</span><span class="mord mathrm">0</span></span></span></span></span>-dimensional word vectors projected into <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi mathvariant="double-struck">R</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.814108em;"></span><span class="strut bottom" style="height: 0.814108em; vertical-align: 0em;"></span><span class="base"><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span></span></span></span></span></span></span></span></span> using <a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a>. We expect similar words to be close to each other. This can be a useful way to inspect our model weights and find unexpected behaviours.</p>  
+
+<p><img src="https://raw.githubusercontent.com/eisenjulian/nlp_estimator_tutorial/master/embeddings.gif" alt="embeddings"></p>  
+
+<h3 id="convolutions">Convolutions</h3>  
+
+<p>At this point one possible approach would be to go deeper, further adding more fully connected layers and playing around with layer sizes and training functions. However, by doing that we would add extra complexity and ignore important structure in our sentences. Words do not live in a vacuum and meaning is compositional, formed by words and its neighbors.</p>  
+
+<p>Convolutions are one way to take advantage of this structure, similar to how we can model salient clusters of pixels for <a href="https://www.tensorflow.org/tutorials/layers">image classification</a>. The intuition is that certain sequences of words, or <em>n-grams</em>, usually have the same meaning regardless of their overall position in the sentence. Introducing a structural prior via the convolution operation allows us to model the interaction between neighboring words and consequently gives us a better way to represent such meaning.</p>  
+
+<p>The following image shows how a filter matrix <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>d</mi><mo>×</mo><mi>m</mi></mrow></msup></mrow><annotation encoding="application/x-tex">F \in \mathbb{R}^{d\times m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.849108em;"></span><span class="strut bottom" style="height: 0.888208em; vertical-align: -0.0391em;"></span><span class="base"><span class="mord mathit" style="margin-right: 0.13889em;">F</span><span class="mrel">∈</span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.849108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">d</span><span class="mbin mtight">×</span><span class="mord mathit mtight">m</span></span></span></span></span></span></span></span></span></span></span></span></span> slides across each <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">3</span></span></span></span></span>-gram window of tokens to build a new feature map. Afterwards a <em>pooling</em> layer is usually applied to combine adjacent results.</p>  
+
+<p><img src="https://raw.githubusercontent.com/eisenjulian/nlp_estimator_tutorial/master/conv.png" alt="text convolution" style="width: 80%"><br>  
+<small></small></p><p align="center"><br>  
+Source: <a href="https://www.semanticscholar.org/paper/Learning-to-Rank-Short-Text-Pairs-with-Convolution-Severyn-Moschitti/452f7411af7d471dd3ba84c2b06b2aaffc38cdb9">Learning to Rank Short Text Pairs with Convolutional Deep Neural Networks</a> by <strong>Severyn</strong> et al. [2015]</p>
+
+<p>Let us look at the full model architecture. The use of dropout layers is a regularization technique that makes the model less likely to overfit.</p>  
+
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-qmCUPkCnZ5TFF69q" height="100%" viewbox="0 0 1415.640625 112.5" style="max-width:1415.640625px;"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M191.4375,46.25L216.4375,46.25L241.4375,46.25" marker-end="url(#arrowhead84)" style="fill:none"></path><defs><marker id="arrowhead84" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M335.515625,46.25L360.515625,46.25L385.515625,46.25" marker-end="url(#arrowhead85)" style="fill:none"></path><defs><marker id="arrowhead85" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M539.84375,46.25L564.84375,46.25L589.84375,46.25" marker-end="url(#arrowhead86)" style="fill:none"></path><defs><marker id="arrowhead86" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M796.28125,46.25L821.28125,46.25L846.28125,46.25" marker-end="url(#arrowhead87)" style="fill:none"></path><defs><marker id="arrowhead87" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1044.65625,46.25L1069.65625,46.25L1094.65625,46.25" marker-end="url(#arrowhead88)" style="fill:none"></path><defs><marker id="arrowhead88" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1188.734375,46.25L1213.734375,46.25L1238.734375,46.25" marker-end="url(#arrowhead89)" style="fill:none"></path><defs><marker id="arrowhead89" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g></g><g class="nodes"><g class="node" style="opacity: 1;" id="id1" transform="translate(105.71875,46.25)"><rect rx="5" ry="5" x="-85.71875" y="-26.25" width="171.4375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.71875,-16.25)"><foreignobject width="151.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Embedding Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id2" transform="translate(288.4765625,46.25)"><rect rx="5" ry="5" x="-47.0390625" y="-26.25" width="94.078125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-37.0390625,-16.25)"><foreignobject width="74.08203125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Dropout</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id3" transform="translate(462.6796875,46.25)"><rect rx="5" ry="5" x="-77.1640625" y="-26.25" width="154.328125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-67.1640625,-16.25)"><foreignobject width="134.3359375" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Convolution1D</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id4" transform="translate(693.0625,46.25)"><rect rx="5" ry="5" x="-103.21875" y="-26.25" width="206.4375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-93.21875,-16.25)"><foreignobject width="186.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">GlobalMaxPooling1D</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id5" transform="translate(945.46875,46.25)"><rect rx="5" ry="5" x="-99.1875" y="-26.25" width="198.375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-89.1875,-16.25)"><foreignobject width="178.37890625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Hidden Dense Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id6" transform="translate(1141.6953125,46.25)"><rect rx="5" ry="5" x="-47.0390625" y="-26.25" width="94.078125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-37.0390625,-16.25)"><foreignobject width="74.08203125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Dropout</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id7" transform="translate(1307.1875,46.25)"><rect rx="5" ry="5" x="-68.453125" y="-26.25" width="136.90625" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-58.453125,-16.25)"><foreignobject width="116.9140625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Output Layer</div></foreignobject></g></g></g></g></g></g></svg></div>  
+<h3 id="creating-a-custom-estimator">Creating a custom estimator</h3>  
+<p>As seen in previous blog posts, the <code>tf.estimator</code> framework provides a high-level API for training machine learning models, defining <code>train()</code>, <code>evaluate()</code> and <code>predict()</code> operations, handling checkpointing, loading, initializing, serving, building the graph and the session out of the box. There is a small family of pre-made estimators, like the ones we used earlier, but it’s most likely that you will need to <a href="https://www.tensorflow.org/extend/estimators">build your own</a>.</p>  
+<p>Writing a custom estimator means writing a <code>model_fn(features, labels, mode, params)</code> that returns an <code>EstimatorSpec</code>. The first step will be mapping the features into our embedding layer:</p>  
+<pre class=" language-python"><code class="prism  language-python">input_layer <span class="token operator">=</span> tf<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>embed_sequence<span class="token punctuation">(</span>  
+    features<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    vocab_size<span class="token punctuation">,</span> 
+    embedding_size<span class="token punctuation">,</span>
+    initializer<span class="token operator">=</span>params<span class="token punctuation">[</span><span class="token string">'embedding_initializer'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>  
+<p>Then we use <code>tf.layers</code> to process each output sequentially.</p>  
+<pre class=" language-python"><code class="prism  language-python">training <span class="token operator">=</span> <span class="token punctuation">(</span>mode <span class="token operator">==</span> tf<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>ModeKeys<span class="token punctuation">.</span>TRAIN<span class="token punctuation">)</span>  
+dropout_emb <span class="token operator">=</span> tf<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>inputs<span class="token operator">=</span>input_layer<span class="token punctuation">,</span>  
+                                rate<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">,</span> 
+                                training<span class="token operator">=</span>training<span class="token punctuation">)</span>
+conv <span class="token operator">=</span> tf<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>conv1d<span class="token punctuation">(</span>  
+    inputs<span class="token operator">=</span>dropout_emb<span class="token punctuation">,</span>
+    filters<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">,</span>
+    kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+    padding<span class="token operator">=</span><span class="token string">"same"</span><span class="token punctuation">,</span>
+    activation<span class="token operator">=</span>tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>relu<span class="token punctuation">)</span>
+pool <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_max<span class="token punctuation">(</span>input_tensor<span class="token operator">=</span>conv<span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>  
+hidden <span class="token operator">=</span> tf<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>dense<span class="token punctuation">(</span>inputs<span class="token operator">=</span>pool<span class="token punctuation">,</span> units<span class="token operator">=</span><span class="token number">250</span><span class="token punctuation">,</span> activation<span class="token operator">=</span>tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>relu<span class="token punctuation">)</span>  
+dropout <span class="token operator">=</span> tf<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>inputs<span class="token operator">=</span>hidden<span class="token punctuation">,</span> rate<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">,</span> training<span class="token operator">=</span>training<span class="token punctuation">)</span>  
+logits <span class="token operator">=</span> tf<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>dense<span class="token punctuation">(</span>inputs<span class="token operator">=</span>dropout_hidden<span class="token punctuation">,</span> units<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>  
+</code></pre>  
+<p>Finally, we will use a <code>Head</code> to simplify the writing of our last part of the <code>model_fn</code>. The head already knows how to compute predictions, loss, train_op, metrics and export outputs, and can be reused across models. This is also used in the pre-made estimators and provides us with the benefit of a uniform evaluation function across all of our models. We will use <code>binary_classification_head</code>, which is a head for single label binary classification that uses <code>sigmoid_cross_entropy_with_logits</code> as the loss function under the hood.</p>  
+<pre class=" language-python"><code class="prism  language-python">head <span class="token operator">=</span> tf<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>binary_classification_head<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+optimizer <span class="token operator">=</span> tf<span class="token punctuation">.</span>train<span class="token punctuation">.</span>AdamOptimizer<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token keyword">def</span> <span class="token function">_train_op_fn</span><span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    tf<span class="token punctuation">.</span>summary<span class="token punctuation">.</span>scalar<span class="token punctuation">(</span><span class="token string">'loss'</span><span class="token punctuation">,</span> loss<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> optimizer<span class="token punctuation">.</span>minimize<span class="token punctuation">(</span>
+        loss<span class="token operator">=</span>loss<span class="token punctuation">,</span>
+        global_step<span class="token operator">=</span>tf<span class="token punctuation">.</span>train<span class="token punctuation">.</span>get_global_step<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">return</span> head<span class="token punctuation">.</span>create_estimator_spec<span class="token punctuation">(</span>  
+    features<span class="token operator">=</span>features<span class="token punctuation">,</span>
+    labels<span class="token operator">=</span>labels<span class="token punctuation">,</span>
+    mode<span class="token operator">=</span>mode<span class="token punctuation">,</span>
+    logits<span class="token operator">=</span>logits<span class="token punctuation">,</span>
+    train_op_fn<span class="token operator">=</span>_train_op_fn<span class="token punctuation">)</span>
+</code></pre>  
+<p>Running this model is just as easy as before:</p>  
+<pre class=" language-python"><code class="prism  language-python">initializer <span class="token operator">=</span> tf<span class="token punctuation">.</span>random_uniform<span class="token punctuation">(</span><span class="token punctuation">[</span>vocab_size<span class="token punctuation">,</span> embedding_size<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'embedding_initializer'</span><span class="token punctuation">:</span> initializer<span class="token punctuation">}</span>  
+cnn_classifier <span class="token operator">=</span> tf<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>Estimator<span class="token punctuation">(</span>model_fn<span class="token operator">=</span>model_fn<span class="token punctuation">,</span>  
+                                        model_dir<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>model_dir<span class="token punctuation">,</span> <span class="token string">'cnn'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                        params<span class="token operator">=</span>params<span class="token punctuation">)</span>
+train\_and\_evaluate<span class="token punctuation">(</span>cnn_classifier<span class="token punctuation">)</span>  
+</code></pre>  
+<h3 id="lstm-networks">LSTM Networks</h3>  
+<p>Using the <code>Estimator</code> API and the same model <code>head</code>, we can also create a classifier that uses a <em>Long Short-Term Memory</em> (<em>LSTM</em>) cell instead of convolutions. Recurrent models such as this are some of the most successful building blocks for NLP applications. An LSTM processes the entire document sequentially, recursing over the sequence with its cell while storing the current state of the sequence in its memory.</p>  
+<p>One of the drawbacks of recurrent models compared to CNNs is that, because of the nature of recursion, models turn out deeper and more complex, which usually produces slower training time and worse convergence. LSTMs (and RNNs in general) can suffer convergence issues like vanishing or exploding gradients, that said, with sufficient tuning they can obtain state-of-the-art results for many problems. As a rule of thumb CNNs are good at feature extraction, while RNNs excel at tasks that depend on the meaning of the whole sentence, like question answering or machine translation.</p>  
+<p>Each cell processes one token embedding at a time updating its internal state based on a differentiable computation that depends on both the embedding vector <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">x_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.43056em;"></span><span class="strut bottom" style="height: 0.58056em; vertical-align: -0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.280556em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"></span></span></span></span></span></span></span></span></span> and the previous state <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">h_{t-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.69444em;"></span><span class="strut bottom" style="height: 0.902771em; vertical-align: -0.208331em;"></span><span class="base"><span class="mord"><span class="mord mathit">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.301108em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="mbin mtight">−</span><span class="mord mathrm mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.208331em;"></span></span></span></span></span></span></span></span></span>. In order to get a better understanding of how LSTMs work, you can refer to Chris Olah’s <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">blog post</a>.</p>  
+<p><img src="https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png" alt="LSTM Architecture"><br>  
+<small></small></p><p align="center"><br>  
+Source: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a> by <strong>Chris Olah</strong></p>
+
+<p>The complete LSTM model can be expressed by the following simple flowchart:</p>  
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-LwaRGVWE7XOXWZj1" height="100%" viewbox="0 0 578.125 206.9140625" style="max-width:578.125px;"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M191.4375,46.25L216.4375,46.25L241.4375,46.25" marker-end="url(#arrowhead102)" style="fill:none"></path><defs><marker id="arrowhead102" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M272.4790948275862,72.5L241.4375,106.66666666666666L241.4375,115.20833333333334L296.328125,123.75L351.21875,115.20833333333334L351.21875,106.66666666666666L320.1771551724138,72.5" marker-end="url(#arrowhead103)" style="fill:none"></path><defs><marker id="arrowhead103" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M351.21875,46.25L376.21875,46.25L401.21875,46.25" marker-end="url(#arrowhead104)" style="fill:none"></path><defs><marker id="arrowhead104" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(296.328125,123.75)"><g transform="translate(-43.1640625,-16.25)" class="label"><foreignobject width="86.328125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">Recursion</span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g></g><g class="nodes"><g class="node" style="opacity: 1;" id="id1" transform="translate(105.71875,46.25)"><rect rx="5" ry="5" x="-85.71875" y="-26.25" width="171.4375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.71875,-16.25)"><foreignobject width="151.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Embedding Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id2" transform="translate(296.328125,46.25)"><rect rx="5" ry="5" x="-54.890625" y="-26.25" width="109.78125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-44.890625,-16.25)"><foreignobject width="89.78515625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">LSTM Cell</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id3" transform="translate(469.671875,46.25)"><rect rx="5" ry="5" x="-68.453125" y="-26.25" width="136.90625" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-58.453125,-16.25)"><foreignobject width="116.9140625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Output Layer</div></foreignobject></g></g></g></g></g></g></svg></div>  
+<p>In the beginning of this post, we padded all documents up to <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> tokens, which is necessary to build a proper tensor. However, when a document contains fewer than <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> words, we don’t want the LSTM to continue processing padding tokens as it does not add information and degrades performance. For this reason, we additionally want to provide our network with the length of the original sequence before it was padded. Internally, the model then copies the last state through to the sequence’s end. We can do this by using the <code>"len"</code> feature in our input functions. We can now use the same logic as above and simply replace the convolutional, pooling, and flatten layers with our LSTM cell.</p>  
+<pre class=" language-python"><code class="prism  language-python">lstm_cell <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>rnn_cell<span class="token punctuation">.</span>BasicLSTMCell<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>  
+_<span class="token punctuation">,</span> final_states <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>dynamic_rnn<span class="token punctuation">(</span>  
+        lstm_cell<span class="token punctuation">,</span> inputs<span class="token punctuation">,</span> sequence_length<span class="token operator">=</span>features<span class="token punctuation">[</span><span class="token string">'len'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+logits <span class="token operator">=</span> tf<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>dense<span class="token punctuation">(</span>inputs<span class="token operator">=</span>final_states<span class="token punctuation">.</span>h<span class="token punctuation">,</span> units<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>  
+</code></pre>  
+<h3 id="pre-trained-vectors">Pre-trained vectors</h3>  
+<p>Most of the models that we have shown before rely on word embeddings as a first layer. So far, we have initialized this embedding layer randomly. However, <a href="https://arxiv.org/abs/1607.01759">much</a> <a href="https://arxiv.org/abs/1301.3781">previous</a> <a href="https://arxiv.org/abs/1103.0398">work</a> has shown that using embeddings pre-trained on a large unlabeled corpus as initialization is beneficial, particularly when training on only a small number of labeled examples. The most popular pre-trained embedding is <a href="https://www.tensorflow.org/tutorials/word2vec">word2vec</a>. Leveraging knowledge from unlabeled data via pre-trained embeddings is an instance of <em><a href="http://ruder.io/transfer-learning/">transfer learning</a></em>.</p>  
+<p>To this end, we will show you how to use them in an <code>Estimator</code>. We will use the pre-trained vectors from another popular model, <a href="https://nlp.stanford.edu/projects/glove/">GloVe</a>.</p>  
+<pre class=" language-python"><code class="prism  language-python">embeddings <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>  
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'glove.6B.50d.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> f<span class="token punctuation">:</span>
+        values <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        w <span class="token operator">=</span> values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        vectors <span class="token operator">=</span> np<span class="token punctuation">.</span>asarray<span class="token punctuation">(</span>values<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span><span class="token string">'float32'</span><span class="token punctuation">)</span>
+        embeddings<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> vectors
+</code></pre>  
+<p>After loading the vectors into memory from a file we store them as a <code>numpy.array</code> using the same indexes as our vocabulary. The created array is of shape <code>(5000, 50)</code>. At every row index, it contains the <code>50</code>-dimensional vector representing the word at the same index in our vocabulary.</p>  
+<pre class=" language-python"><code class="prism  language-python">embedding_matrix <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token punctuation">(</span>vocab_size<span class="token punctuation">,</span> embedding_size<span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token keyword">for</span> w<span class="token punctuation">,</span> i <span class="token keyword">in</span> word_index<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    v <span class="token operator">=</span> embeddings<span class="token punctuation">.</span>get<span class="token punctuation">(</span>w<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> v <span class="token keyword">is</span> <span class="token operator">not</span> <span class="token boolean">None</span> <span class="token operator">and</span> i <span class="token operator">&lt;</span> vocab_size<span class="token punctuation">:</span>
+        embedding_matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> v
+</code></pre>  
+<p>Finally, we can use a custom initializer function and pass it in the <code>params</code> object to our <code>cnn_model_fn</code> , without any modifications.</p>  
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">def</span> <span class="token function">my_initializer</span><span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">,</span> partition_info<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token keyword">assert</span> dtype <span class="token keyword">is</span> tf<span class="token punctuation">.</span>float32
+    <span class="token keyword">return</span> embedding_matrix
+params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'embedding_initializer'</span><span class="token punctuation">:</span> my_initializer<span class="token punctuation">}</span>  
+cnn\_pretrained\_classifier <span class="token operator">=</span> tf<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>Estimator<span class="token punctuation">(</span>  
+    model_fn<span class="token operator">=</span>cnn_model_fn<span class="token punctuation">,</span>
+    model_dir<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>model_dir<span class="token punctuation">,</span> <span class="token string">'cnn_pretrained'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    params<span class="token operator">=</span>params<span class="token punctuation">)</span>
+train\_and\_evaluate<span class="token punctuation">(</span>cnn_pretrained_classifier<span class="token punctuation">)</span>  
+</code></pre>  
+<h3 id="running-tensorboard">Running TensorBoard</h3>  
+<p>Now we can launch TensorBoard and see how the different models we’ve trained compare against each other in terms of training time and performance.</p>  
+<p>In a terminal, we run</p>  
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&gt;</span> tensorboard --logdir<span class="token operator">=</span><span class="token punctuation">{</span>model_dir<span class="token punctuation">}</span>  
+</code></pre>  
+<p>We can visualize many metrics collected while training and testing, including the loss function values of each model at each training step, and the precision-recall curves. This is of course most useful to select which model works best for our use-case as well as how to choose classification thresholds.</p>  
+<p><img src="https://raw.githubusercontent.com/eisenjulian/nlp_estimator_tutorial/master/pr_curves.png" alt="PR curve"></p>  
+<p><img src="https://raw.githubusercontent.com/eisenjulian/nlp_estimator_tutorial/master/loss.png" alt="loss"></p>  
+<h3 id="getting-predictions">Getting Predictions</h3>  
+<p>To obtain predictions on new sentences we can use the <code>predict</code> method in the <code>Estimator</code> instances, which will load the latest checkpoint for each model and evaluate on the unseen examples. But before passing the data into the model we have to clean up, tokenize and map each token to the corresponding index as we see below.</p>  
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">def</span> <span class="token function">text_to_index</span><span class="token punctuation">(</span>sentence<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token comment"># Remove punctuation characters except for the apostrophe</span>
+    translator <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">.</span>maketrans<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> string<span class="token punctuation">.</span>punctuation<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"'"</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    tokens <span class="token operator">=</span> sentence<span class="token punctuation">.</span>translate<span class="token punctuation">(</span>translator<span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span>word_index<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> index_offset <span class="token keyword">if</span> t <span class="token keyword">in</span> word_index <span class="token keyword">else</span> <span class="token number">2</span> <span class="token keyword">for</span> t <span class="token keyword">in</span> tokens<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">print_predictions</span><span class="token punctuation">(</span>sentences<span class="token punctuation">,</span> classifier<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    indexes <span class="token operator">=</span> <span class="token punctuation">[</span>text_to_index<span class="token punctuation">(</span>sentence<span class="token punctuation">)</span> <span class="token keyword">for</span> sentence <span class="token keyword">in</span> sentences<span class="token punctuation">]</span>
+    x <span class="token operator">=</span> sequence<span class="token punctuation">.</span>pad_sequences<span class="token punctuation">(</span>indexes<span class="token punctuation">,</span>
+                               maxlen<span class="token operator">=</span>sentence_size<span class="token punctuation">,</span> 
+                               padding<span class="token operator">=</span><span class="token string">'post'</span><span class="token punctuation">,</span> 
+                               value<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    length <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> sentence_size<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> indexes<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    predict_input_fn <span class="token operator">=</span> tf<span class="token punctuation">.</span>estimator<span class="token punctuation">.</span>inputs<span class="token punctuation">.</span>numpy_input_fn<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"x"</span><span class="token punctuation">:</span> x<span class="token punctuation">,</span> <span class="token string">"len"</span><span class="token punctuation">:</span> length<span class="token punctuation">}</span><span class="token punctuation">,</span> shuffle<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    predictions <span class="token operator">=</span> <span class="token punctuation">[</span>p<span class="token punctuation">[</span><span class="token string">'logistic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> classifier<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>input_fn<span class="token operator">=</span>predict_input_fn<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>predictions<span class="token punctuation">)</span>
+</code></pre>  
+<p>It is worth noting that the checkpoint itself is not sufficient to make predictions; the actual code used to build the estimator is necessary as well in order to map the saved weights to the corresponding tensors. It’s a good practice to associate saved checkpoints with the branch of code with which they were created.</p>  
+<p>If you are interested in exporting the models to disk in a fully recoverable way, you might want to look into the <a href="https://www.tensorflow.org/programmers_guide/saved_model#using_savedmodel_with_estimators">SavedModel</a> class, which is especially useful for serving your model through an API using <a href="https://github.com/tensorflow/serving">TensorFlow Serving</a>.</p>  
+<h3 id="summary">Summary</h3>  
+<p>In this blog post, we explored how to use estimators for text classification, in particular for the IMDB Reviews Dataset. We trained and visualized our own embeddings, as well as loaded pre-trained ones. We started from a simple baseline and made our way to convolutional neural networks and LSTMs.</p>  
+<p>For more details, be sure to check out:</p>  
+<ul>  
+<li>A <a href="https://github.com/eisenjulian/nlp_estimator_tutorial/blob/master/nlp_estimators.ipynb">Jupyter notebook</a> that can run locally, or on Colaboratory.</li>  
+<li>The complete <a href="https://github.com/eisenjulian/nlp_estimator_tutorial/blob/master/nlp_estimators.py">source code</a> for this blog post.</li>  
+<li>The TensorFlow <a href="https://www.tensorflow.org/programmers_guide/embedding">Embedding</a> guide.</li>  
+<li>The TensorFlow <a href="https://www.tensorflow.org/tutorials/word2vec">Vector Representation of Words</a> tutorial.</li>  
+<li>The <em>NLTK</em> <a href="http://www.nltk.org/book/ch03.html">Processing Raw Text</a> chapter on how to design language pipelines.</li>  
+</ul>
+
+<p><em>Thanks for reading!</em></p>  
+</div>
+    
+
+    <div class="post related">
+        <a rel="prev" id="prev-btn" class="btn small square" href="../requests-for-research/">← Requests for Research</a>
+
+    </div>
+
+    <footer class="post comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</footer>
+
+  </article>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+
+        <footer>
+  <span class="copyright">
+    © 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
+  </span>
+</footer>
+      </section>
+    </main>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+    <script src="../assets/js/uno-zen.js?v=a184beb1d1" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+  if (window.ga_id) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', window.ga_id, 'auto');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+  }
+</script>
+  </body>
