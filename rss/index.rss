@@ -1,4 +1,208 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 20 Apr 2018 20:28:06 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Text Classification with TensorFlow Estimators</title><description>This post is a tutorial on how to use Estimators in TensorFlow to classify text.</description><link>http://ruder.io/text-classification-tensorflow-estimators/</link><guid isPermaLink="false">4dd8b7a6-a266-4ddb-b6b2-b3444bcc48b3</guid><category>nlp</category><category>tensorflow</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 16 Apr 2018 13:24:29 GMT</pubDate><content:encoded>&lt;p&gt;&lt;head&gt; &lt;br&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 26 Apr 2018 09:02:30 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>An overview of proxy-label approaches for semi-supervised learning</title><description>&lt;p&gt;Note: Parts of this post are based on my ACL 2018 paper &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with &lt;a href="http://www.let.rug.nl/bplank/"&gt;Barbara Plank&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Table of contents:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#selftraining"&gt;Self-training&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#multiviewtraining"&gt;Multi-view training&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;Co-training&lt;/li&gt;
+&lt;li&gt;Democratic Co-learning&lt;/li&gt;
+&lt;li&gt;Tri-training&lt;/li&gt;
+&lt;li&gt;Tri-training with disagreement&lt;/li&gt;
+&lt;li&gt;Asymmetric tri-training&lt;/li&gt;
+&lt;li&gt;Multi-task tri-training&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#selfensembling"&gt;Self-ensembling&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;Ladder networks&lt;/li&gt;
+&lt;li&gt;Virtual Adversarial Training&lt;/li&gt;
+&lt;li&gt;\(\Pi\) model&lt;/li&gt;
+&lt;li&gt;Temporal&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://ruder.io/semi-supervised/</link><guid isPermaLink="false">da237af8-8674-4d25-af3f-7290029c6247</guid><category>deep learning</category><category>semi-supervised learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Thu, 26 Apr 2018 07:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Note: Parts of this post are based on my ACL 2018 paper &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with &lt;a href="http://www.let.rug.nl/bplank/"&gt;Barbara Plank&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Table of contents:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#selftraining"&gt;Self-training&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#multiviewtraining"&gt;Multi-view training&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;Co-training&lt;/li&gt;
+&lt;li&gt;Democratic Co-learning&lt;/li&gt;
+&lt;li&gt;Tri-training&lt;/li&gt;
+&lt;li&gt;Tri-training with disagreement&lt;/li&gt;
+&lt;li&gt;Asymmetric tri-training&lt;/li&gt;
+&lt;li&gt;Multi-task tri-training&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#selfensembling"&gt;Self-ensembling&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;Ladder networks&lt;/li&gt;
+&lt;li&gt;Virtual Adversarial Training&lt;/li&gt;
+&lt;li&gt;\(\Pi\) model&lt;/li&gt;
+&lt;li&gt;Temporal Ensembling&lt;/li&gt;
+&lt;li&gt;Mean Teacher&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/semi-supervised/#relatedmethodsandareas"&gt;Related methods and areas&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt;Distillation&lt;/li&gt;
+&lt;li&gt;Learning from weak supervision&lt;/li&gt;
+&lt;li&gt;Learning with noisy labels&lt;/li&gt;
+&lt;li&gt;Data augmentation&lt;/li&gt;
+&lt;li&gt;Ensembling a single model&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unsupervised learning constitutes one of the main challenges for current machine learning models and one of the key elements that is missing for &lt;a href="http://ruder.io/highlights-nips-2016/#generalartificialintelligence"&gt;general artificial intelligence&lt;/a&gt;. While unsupervised learning on its own is still elusive, researchers have a made a lot of progress in &lt;em&gt;combining&lt;/em&gt; unsupervised learning with supervised learning. This branch of machine learning research is called semi-supervised learning.&lt;/p&gt;
+
+&lt;p&gt;Semi-supervised learning has a long history. For a (slightly outdated) overview, refer to Zhu (2005) [&lt;sup id="fnref:1"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] and Chapelle et al. (2006) [&lt;sup id="fnref:2"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;]. Particularly recently, semi-supervised learning has seen some success, considerably reducing the error rate on important benchmarks. Semi-supervised learning also makes an appearance in &lt;a href="https://www.sec.gov/Archives/edgar/data/1018724/000119312518121161/d456916dex991.htm"&gt;Amazon's annual letter to shareholders&lt;/a&gt; where it is credited with reducing the amount of labelled data needed to achieve the same accuracy improvement by \(40\times\).&lt;/p&gt;
+
+&lt;p&gt;In this blog post, I will focus on a particular class of semi-supervised learning algorithms that produce &lt;em&gt;proxy labels&lt;/em&gt; on unlabelled data, which are used as targets together with the labelled data. These proxy labels are produced by the model itself or variants of it without any additional supervision; they thus do not reflect the ground truth but might still provide some signal for learning. In a sense, these labels can be considered &lt;em&gt;noisy&lt;/em&gt; or &lt;em&gt;weak&lt;/em&gt;. I will highlight the connection to learning from noisy labels, weak supervision as well as other related topics in the end of this post.&lt;/p&gt;
+
+&lt;p&gt;This class of models is of particular interest in my opinion, as a) deep neural networks have been shown to be good at dealing with noisy labels and b) these models have achieved state-of-the-art in semi-supervised learning for computer vision. Note that many of these ideas are not new and many related methods have been developed in the past. In one half of this post, I will thus cover classic methods and discuss their relevance for current approaches; in the other half, I will discuss techniques that have recently achieved state-of-the-art performance. Some of the following approaches have been referred to as &lt;em&gt;self-teaching&lt;/em&gt; or &lt;em&gt;bootstrapping&lt;/em&gt; algorithms; I am not aware of a term that captures all of them, so I will simply refer to them as &lt;em&gt;proxy-label&lt;/em&gt; methods.&lt;/p&gt;
+
+&lt;p&gt;I will divide these methods in three groups, which I will discuss in the following: 1) self-training, which uses a model's own predictions as proxy labels; 2) multi-view learning, which uses the predictions of models trained with different &lt;em&gt;views&lt;/em&gt; of the data; and 3) self-ensembling, which ensembles variations of a model's own predictions and uses these as feedback for learning. I will show pseudo-code for the most important algorithms. You can find the LaTeX source &lt;a href="https://github.com/sebastianruder/semi-supervised"&gt;here&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;There are many interesting and equally important directions for semi-supervised learning that I will not cover in this post, e.g. graph-convolutional neural networks [&lt;sup id="fnref:3"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;h2 id="selftraining"&gt;Self-training&lt;/h2&gt;
+
+&lt;p&gt;Self-training (Yarowsky, 1995; McClosky et al., 2006) [&lt;sup id="fnref:4"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:5"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:5" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;] is one of the earliest and simplest approaches to semi-supervised learning and the most straightforward example of how a model's own predictions can be incorporated into training. As the name implies, self-training leverages a model's own predictions on unlabelled data in order to obtain additional information that can be used during training. Typically the most confident predictions are taken at face value, as detailed next.&lt;/p&gt;
+
+&lt;p&gt;Formally, self-training trains a model \(m\) on a labeled training set \(L\) and an unlabeled data set \(U\). At each iteration, the model provides predictions \(m(x)\) in the form of a probability distribution over the \(C\) classes for all unlabeled examples \(x\) in \(U\). If the probability assigned to the most likely class is higher than a predetermined threshold \(\tau\), \(x\) is added to the labeled examples with \(\DeclareMathOperator*{\argmax}{argmax} p(x) = \argmax m(x)\) as pseudo-label. This process is generally repeated for a fixed number of iterations or until no more predictions on unlabelled examples are confident. This instantiation is the most widely used and shown in Algorithm 1. &lt;br&gt;
+&lt;img src="http://ruder.io/content/images/2018/03/self-training.png" alt=""&gt;
+Classic self-training has shown mixed success. In parsing it proved successful with small datasets (Reichart, and Rappoport, 2007; Huang and Harper, 2009) [&lt;sup id="fnref:6"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:13"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:13" rel="footnote"&gt;13&lt;/a&gt;&lt;/sup&gt;] or when a generative component is used together with a reranker when more data is available (McClosky et al., 2006; Suzuki and Isozaki , 2008) [&lt;sup id="fnref:7"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;]. Some success was achieved with careful task-specific data selection (Petrov and McDonald, 2012) [&lt;sup id="fnref:8"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;], while others report limited success on a variety of NLP tasks (He and Zhou, 2011; Plank, 2011; Van Asch and Daelemans, 2016; van der Goot et al., 2017) [&lt;sup id="fnref:9"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:9" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:10"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:10" rel="footnote"&gt;10&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:11"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:11" rel="footnote"&gt;11&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:12"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:12" rel="footnote"&gt;12&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;p&gt;The main downside of self-training is that the model is unable to correct its own mistakes. If the model's predictions on unlabelled data are confident but wrong, the erroneous data is nevertheless incorporated into training and the model's errors are amplified. This effect is exacerbated if the domain of the unlabelled data is different from that of the labelled data; in this case, the model's confidence will be a poor predictor of its performance.&lt;/p&gt;
+
+&lt;h2 id="multiviewtraining"&gt; Multi-view training&lt;/h2&gt;
+
+&lt;p&gt;Multi-view training aims to train different models with different &lt;em&gt;views&lt;/em&gt; of the data. Ideally, these views complement each other and the models can collaborate in improving each other's performance. These views can differ in different ways such as in the features they use, in the architectures of the models, or in the data on which the models are trained.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Co-training&lt;/strong&gt; &amp;nbsp; Co-training (Blum and Mitchell, 1998) [&lt;sup id="fnref:17"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:17" rel="footnote"&gt;17&lt;/a&gt;&lt;/sup&gt;] is a classic multi-view training method, which makes comparatively strong assumptions. It requires that the data \(L\) can be represented using two conditionally independent feature sets \(L^1\) and \(L^2\) and that each feature set is sufficient to train a good model. After the initial models \(m_1\) and \(m_2\) are trained on their respective feature sets, at each iteration, only inputs that are confident (i.e. have a probability higher than a threshold \(\tau\)) according to &lt;em&gt;exactly one&lt;/em&gt; of the two models are moved to the training set of &lt;em&gt;the other&lt;/em&gt; model. One model thus provides the labels to the inputs on which the &lt;em&gt;other&lt;/em&gt; model is uncertain. Co-training can be seen in Algorithm 2.
+&lt;img src="http://ruder.io/content/images/2018/04/co-training.png" alt=""&gt;
+In the original co-training paper (Blum and Mitchell, 1998), co-training is used to classify web pages using the text on the page as one view and the anchor text of hyperlinks on other pages pointing to the page as the other view. As two conditionally independent views are not always available, Chen et al. (2011) [&lt;sup id="fnref:19"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:19" rel="footnote"&gt;19&lt;/a&gt;&lt;/sup&gt;] propose pseudo-multiview regularization (Chen et al., 2011) in order to split the features into two mutually exclusive views so that co-training is effective. To this end, pseudo-multiview regularization constrains the models so that at least one of them has a zero weight for each feature. This is similar to the orthogonality constraint recently used in domain adaptation to encourage shared and private spaces (Bousmalis et al., 2016) [&lt;sup id="fnref:20"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:20" rel="footnote"&gt;20&lt;/a&gt;&lt;/sup&gt;]. A second constraint requires the models to be confident on different subsets of \(U\). Chen et al. (2011) [&lt;sup id="fnref:18"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:18" rel="footnote"&gt;18&lt;/a&gt;&lt;/sup&gt;] use pseudo-multiview regularization to adapt co-training to domain adaptation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Democratic Co-learning&lt;/strong&gt; Rather than treating different feature sets as views, democratic co-learning (Zhou and Goldman, 2004) [&lt;sup id="fnref:21"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:21" rel="footnote"&gt;21&lt;/a&gt;&lt;/sup&gt;] employs models with &lt;em&gt;different inductive biases&lt;/em&gt;. These can be different network architectures in the case of neural networks or completely different learning algorithms. Democratic co-learning first trains each model separately on the complete labelled data \(L\). The models then make predictions on the unlabelled data \(U\). If a majority of models confidently agree on the label of an example, the example is added to the labelled dataset. Confidence is measured in the original formulation by measuring if the sum of the mean confidence intervals \(w\) of the models, which agreed on the label is larger than the sum of the models that disagreed. This process is repeated until no more examples are added. The final prediction is made with a majority vote weighted with the confidence intervals of the models. The full algorithm can be seen below. \(M\) is the set of all models that predict the same label \(j\) for an example \(x\). 
+&lt;img src="http://ruder.io/content/images/2018/04/democratic_co-learning-2.png" alt=""&gt;
+&lt;strong&gt;Tri-training&lt;/strong&gt; &amp;nbsp; Tri-training (Zhou and Li, 2005) [&lt;sup id="fnref:14"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:14" rel="footnote"&gt;14&lt;/a&gt;&lt;/sup&gt;] is one of the best known multi-view training   methods. It can be seen as an instantiation of democratic co-learning, which leverages the agreement of three independently trained models to reduce the bias of predictions on unlabeled data. The main requirement for tri-training is that the initial models are diverse. This can be achieved using different model architectures as in democratic co-learning. The most common way to obtain diversity for tri-training, however, is to obtain different variations \(S_i\) of the original training data \(L\) using bootstrap sampling. The three models \(m_1\), \(m_2\), and \(m_3\) are then trained on these bootstrap samples, as depicted in Algorithm 4. An unlabeled data point is added to the training set of a model \(m_i\) if the other two models \(m_j\) and \(m_k\) agree on its label. Training stops when the classifiers do not change anymore.
+&lt;img src="http://ruder.io/content/images/2018/04/tri-training.png" alt=""&gt;
+Despite having been proposed more than 10 years ago, before the advent of Deep Learning, we found in a &lt;a href="https://arxiv.org/abs/1804.09530"&gt;recent paper&lt;/a&gt; (Ruder and Plank, 2018) [&lt;sup id="fnref:22"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:22" rel="footnote"&gt;22&lt;/a&gt;&lt;/sup&gt;] that classic tri-training is a strong baseline for neural semi-supervised with and without domain shift for NLP and that it outperforms even recent state-of-the-art methods.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tri-training with disagreement&lt;/strong&gt; &amp;nbsp; Tri-training &lt;em&gt;with disagreement&lt;/em&gt; (Søgaard, 2010) [&lt;sup id="fnref:15"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:15" rel="footnote"&gt;15&lt;/a&gt;&lt;/sup&gt;] is based on the intuition that a model should only be strengthened in its weak points and that the labeled data should not be skewed by easy data points. In order to achieve this, it adds a simple modification to the original algorithm (altering line 8 in Algorithm 2), requiring that for an unlabeled data point on which \(m_j\) and \(m_k\) &lt;em&gt;agree&lt;/em&gt;, the other model \(m_i\) &lt;em&gt;disagrees&lt;/em&gt; on the prediction. Tri-training with disagreement is more data-efficient than tri-training and has achieved competitive results on part-of-speech tagging (Søgaard, 2010).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Asymmetric tri-training&lt;/strong&gt; &amp;nbsp; Asymmetic tri-training (Saito et al., 2017) [&lt;sup id="fnref:16"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:16" rel="footnote"&gt;16&lt;/a&gt;&lt;/sup&gt;] is a recently proposed extension of tri-training that achieved state-of-the-art results for unsupervised domain adaptation in computer vision. For unsupervised domain adaptation, the test data and unlabeled data are from a different domain than the labelled examples. To adapt tri-training to this shift, asymmetric tri-training learns one of the models &lt;em&gt;only&lt;/em&gt; on proxy labels and not on labelled examples (a change to line 10 in Algorithm 4) and uses only this model to classify target domain examples at test time. In addition, all three models share the same feature extractor.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Multi-task tri-training&lt;/strong&gt; &amp;nbsp; Tri-training typically relies on training separate models on bootstrap samples of a potentially large amount of training data, which is expensive. Multi-task tri-training (MT-Tri) (Ruder and Plank, 2018) aims to reduce both the time and space complexity of tri-training by leveraging insights from multi-task learning (MTL) (Caruana, 1993) [&lt;sup id="fnref:23"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:23" rel="footnote"&gt;23&lt;/a&gt;&lt;/sup&gt;] to share knowledge across models and accelerate training. Rather than storing and training each model separately, MT-Tri shares the parameters of the models and trains them jointly using MTL. Note that the model does only &lt;em&gt;pseudo&lt;/em&gt; MTL as all three models effectively perform the same task.&lt;/p&gt;
+
+&lt;p&gt;The output softmax layers are model-specific and are only updated for the input of the respective model. As the models leverage a joint representation, diversity is even more crucial. We need to ensure that the features used for prediction in the softmax layers of the different models are as diverse as possible, so that the models can still learn from each other's predictions. In contrast, if the parameters in all output softmax layers were the same, the method would degenerate to self-training. Similar to pseudo-view regularization, we thus use an orthogonality constraint (Bousmalis et al., 2016) on two of the three softmax output layers as an additional loss term. &lt;/p&gt;
+
+&lt;p&gt;The pseudo-code can be seen below. In contrast to classic tri-training, we can train the multi-task model with its three model-specific outputs jointly and &lt;em&gt;without&lt;/em&gt; bootstrap sampling on the labeled source domain data until convergence, as the orthogonality constraint enforces different representations between models \(m_1\) and \(m_2\). From this point, we can leverage the pair-wise agreement of two output layers to add pseudo-labeled examples as training data to the third model. We train the third output layer \(m_3\) only on pseudo-labeled target instances in order to make tri-training more robust to a domain shift. For the final prediction, we use majority voting of all three output layers. For more information about multi-task tri-training, self-training, other tri-training variants, you can refer to our recent &lt;a href="https://arxiv.org/abs/1804.09530"&gt;ACL 2018 paper&lt;/a&gt;. &lt;br&gt;
+&lt;img src="http://ruder.io/content/images/2018/04/multi-task_tri-training-1.png" alt=""&gt;&lt;/p&gt;
+
+&lt;h2 id="selfensembling"&gt; Self-ensembling&lt;/h2&gt;
+
+&lt;p&gt;Self-ensembling methods are very similar to multi-view learning approaches in that they combine different variants of a model. Multi-task tri-training, for instance, can also be seen as a self-ensembling method where different variations of a model are used to create a stronger ensemble prediction. In contrast to multi-view learning, diversity is not a key concern. Self-ensembling approaches mostly use a single model under different configurations in order to make the model's predictions more robust. Most of the following methods are very recent and several have achieved state-of-the-art results in computer vision.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ladder networks&lt;/strong&gt; &amp;nbsp; The \(\Gamma\) (gamma) version of Ladder Networks (Rasmus et al., 2015) [&lt;sup id="fnref:24"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:24" rel="footnote"&gt;24&lt;/a&gt;&lt;/sup&gt;] aims to make a model more robust to noise. For each unlabelled example, it uses the model's prediction on the clean example as a proxy label for prediction on a perturbed version of the example. This way, the model learns to develop features that are invariant to noise and predictive of the labels on the labelled training data. Ladder networks have been mostly used in computer vision where many forms of perturbation and data augmentation are available.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Virtual Adversarial Training&lt;/strong&gt; &amp;nbsp; If perturbing the original sample is not possible or desired, we can instead perturb the example in feature space. Rather than randomly perturbing it by e.g. adding dropout, we can apply the &lt;em&gt;worst possible&lt;/em&gt; perturbation for the model, which transforms the input into an adversarial sample. While adversarial training requires access to the labels to perform these perturbations, &lt;em&gt;virtual&lt;/em&gt; adversarial training (Miyato et al., 2017) [&lt;sup id="fnref:25"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:25" rel="footnote"&gt;25&lt;/a&gt;&lt;/sup&gt;] requires no labels and is thus suitable for semi-supervised learning. Virtual adversarial training effectively seeks to make the model robust to perturbations in directions to which it is most sensitive and has achieved good results on text classification datasets.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;\(\Pi\) model&lt;/strong&gt; &amp;nbsp; Rather than treating clean predictions as proxy labels, the \(\Pi\) (pi) model (Laine and Aila, 2017) [&lt;sup id="fnref:27"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:27" rel="footnote"&gt;27&lt;/a&gt;&lt;/sup&gt;] ensembles the predictions of the model under two different perturbations of the input data and two different dropout conditions \(z\) and \(\tilde{z}\). The full pseudo-code can be seen in Algorithm 6 below. \(g(x)\) is the stochastic input augmentation function. The first loss term encourages the predictions under the two different noise settings to be consistent, with \(\lambda\) determining the contribution, while the second loss term is the standard cross-entropy loss \(H\) with respect to the label \(y\). In contrast to the models we encountered before, we apply the unsupervised loss component to both unlabelled and labelled examples.
+&lt;img src="http://ruder.io/content/images/2018/04/pi-model-3.png" alt=""&gt;
+&lt;strong&gt;Temporal Ensembling&lt;/strong&gt; &amp;nbsp; Instead of ensembling over the same model under different noise configurations, we can ensemble over different models. As training separate models is expensive, we can instead ensemble the predictions of a model &lt;em&gt;at different timesteps&lt;/em&gt;. We can save the ensembled proxy labels \(Z\) as an exponential moving average of the model's past predictions on all examples as depicted below in order to save space. As we initialize the proxy labels as a zero vector, they are biased towards \(0\). We can correct this bias similar to Adam (Kingma and Ba, 2015) [&lt;sup id="fnref:28"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:28" rel="footnote"&gt;28&lt;/a&gt;&lt;/sup&gt;] based on the current epoch \(t\) to obtain bias-corrected target vectors \(\tilde{z}\). We then update the model similar to the \(\Pi\) model. 
+&lt;img src="http://ruder.io/content/images/2018/04/temporal_ensembling-3.png" alt=""&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mean Teacher&lt;/strong&gt; &amp;nbsp; Finally, instead of averaging the &lt;em&gt;predictions&lt;/em&gt; of our model over training time, we can average the model weights. Mean teacher (Tarvainen and Valpola, 2017) [&lt;sup id="fnref:29"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:29" rel="footnote"&gt;29&lt;/a&gt;&lt;/sup&gt;] stores an exponential moving average of the model parameters. For every example, this mean teacher model is then used to obtain proxy labels \(\tilde{z}\). The consistency loss and supervised loss are computed as in temporal ensembling.&lt;/p&gt;
+
+&lt;p&gt;Mean teacher has achieved state-of-the-art results for semi-supervised learning for computer vision. For reference, on ImageNet with 10% of the labels, it achieves an error rate of \(9.11\), compared to an error rate of \(3.79\) using &lt;em&gt;all&lt;/em&gt; labels with the state-of-the-art. For more information about self-ensembling methods, have a look at &lt;a href="https://thecuriousaicompany.com/mean-teacher/"&gt;this intuitive blog post&lt;/a&gt; by the Curious AI company. We have run experiments with temporal ensembling for NLP tasks, but did not manage to obtain consistent results. My assumption is that the unsupervised consistency loss is more suitable for continuous inputs. Mean teacher might work better, as averaging weights aka Polyak averaging (Polyak and Juditsky, 1992) [&lt;sup id="fnref:33"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:33" rel="footnote"&gt;33&lt;/a&gt;&lt;/sup&gt;] is a tried method for accelerating optimization.&lt;/p&gt;
+
+&lt;p&gt;Very recently, Oliver et al. (2018) [&lt;sup id="fnref:39"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:39" rel="footnote"&gt;39&lt;/a&gt;&lt;/sup&gt;] raise some questions regarding the true applicability of these methods: They find that the performance difference to a properly tuned supervised baseline is smaller than typically reported, that transfer learning from a labelled dataset (e.g. ImageNet) outperforms the presented methods, and that performance degrades severely under a domain shift. In order to deal with the latter, algorithms such as asymmetric or multi-task tri-training learn different representations for the target distribution. It remains to be seen if these insights translate to other domains; a combination of transfer learning and semi-supervised adaptation to the target domain seems particularly promising.&lt;/p&gt;
+
+&lt;h2 id="relatedmethodsandareas"&gt; Related methods and areas&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Distillation&lt;/strong&gt; &amp;nbsp; Proxy-label approaches can be seen as different forms of distillation (Hinton et al., 2015) [&lt;sup id="fnref:30"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:30" rel="footnote"&gt;30&lt;/a&gt;&lt;/sup&gt;]. Distillation was originally conceived as a method to compress the information of a large model or an ensemble in a smaller model. In the standard setup, a typically large and fully trained &lt;em&gt;teacher&lt;/em&gt; model provides proxy targets for a &lt;em&gt;student&lt;/em&gt; model, which is generally smaller and faster. Self-learning is akin to distillation without a teacher, where the student is left to learn by themselves and with no-one to correct its mistakes. For multi-view learning, different models work together to teach each other, alternately acting as both teachers and students. Self-ensembling, finally, has one model assuming the dual role of teacher and student: As a teacher, it generates new targets, which are then incorporated by itself as a student for learning.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Learning from weak supervision&lt;/strong&gt; &amp;nbsp; Learning from weak supervision, as the name implies, can be seen as a weaker form of supervised learning or alternatively as a stronger form of semi-supervised learning: While supervised learning provides us with labels that we know to be correct and semi-supervised learning only provides us with a small set of labelled examples, weak supervision allows us to obtain labels that we know to be noisy for the unlabelled data as a further signal for learning. Typically, the weak annotator is an unsupervised method that is very different from the model we use for learning the task. For sentiment analysis, this could be a simple lexicon-based method [&lt;sup id="fnref:35"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:35" rel="footnote"&gt;35&lt;/a&gt;&lt;/sup&gt;]. Many of the presented methods could be extended to the weak supervision setting by incorporating the weak labels as feedback. Self-ensembling methods, for instance, might employ another teacher model that gauges the quality of weakly annotated examples similar to Deghani et al. (2018) [&lt;sup id="fnref:34"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:34" rel="footnote"&gt;34&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Learning with noisy labels&lt;/strong&gt; &amp;nbsp; Learning with noisy labels is similar to learning from weak supervision. In both cases, labels are available that cannot be completely trusted. For learning with noisy labels, labels are typically assumed to be permuted with a fixed random permutation. While proxy-label approaches supply the noisy labels themselves, when learning with noisy labels, the labels are part of the data. Similar to learning from weak supervision, we can try to model the noise to assess the quality of the labels (Sukhbaatar et al., 2015) [&lt;sup id="fnref:37"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:37" rel="footnote"&gt;37&lt;/a&gt;&lt;/sup&gt;]. Similar to self-ensembling methods, we can enforce consistency between the model's preditions and the proxy labels (Reed et al., 2015) [&lt;sup id="fnref:36"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:36" rel="footnote"&gt;36&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data augmentation&lt;/strong&gt; &amp;nbsp; Several self-ensembling methods employ data augmentation to enforce consistency between model predictions under different noise settings. Data augmentation is mostly used in computer vision, but  noise in the form of different dropout masks can also be applied to the model parameters as in the \(\Pi\) model and has also been used in LSTMs (Zolna et al., 2018) [&lt;sup id="fnref:28"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:28" rel="footnote"&gt;28&lt;/a&gt;&lt;/sup&gt;]. While regularization in the form of dropout, batch normalization, etc. can be used when labels are available in order to make predictions more robust, a consistency loss is required in the case without labels. For supervised learning, adversarial training can be employed to obtain adversarial examples and has been used successfully e.g. for part-of-speech tagging (Yasunaga et al., 2018) [&lt;sup id="fnref:26"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:26" rel="footnote"&gt;26&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ensembling a single model&lt;/strong&gt; &amp;nbsp; The discussed self-ensembling methods all employ ensemble predictions not just to make predictions more robust, but as feedback to improve the model itself during training in a self-reinforcing loop. In the supervised setting, this feedback might not be necessary; ensembling a single model is still useful, however, to save time compared to training multiple models. Two methods that have been proposed to ensemble a model from a single training run are checkpoint ensembles and snapshot ensembles. Checkpoint ensembles (Sennrich et al., 2016) [&lt;sup id="fnref:31"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:31" rel="footnote"&gt;31&lt;/a&gt;&lt;/sup&gt;] ensemble the last \(n\) checkpoints of a single training run and have been used to achieve state-of-the-art in machine translation. Snapshot ensembles (Huang et al., 2017) [&lt;sup id="fnref:32"&gt;&lt;a href="http://ruder.io/semi-supervised/#fn:32" rel="footnote"&gt;32&lt;/a&gt;&lt;/sup&gt;] ensemble models converged to different minima during a training run and have been used to achieve state-of-the-art in object recognition. &lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt; Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope this post was able to give you an insight into a part of the semi-supervised learning landscape that seems to be particularly useful to improve the performance of current models. While learning completely without labelled data is unrealistic at this point, semi-supervised learning enables us to augment our small labelled datasets with large amounts of available unlabelled data. Most of the discussed methods are promising in that they treat the model as a black box and can thus be used with any existing supervised learning model. As always, if you have any questions or noticed any mistakes, feel free to write a comment in the comments section below.&lt;/p&gt;
+
+&lt;h2 id="references"&gt; References&lt;/h2&gt;
+
+&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li class="footnote" id="fn:1"&gt;&lt;p&gt;Zhu, X. (2005). Semi-Supervised Learning Literature Survey. &lt;a href="http://ruder.io/semi-supervised/#fnref:1" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:2"&gt;&lt;p&gt;Chapelle, O., Schölkopf, B., &amp;amp; Zien, A. (2006). Semi-Supervised Learning. Interdisciplinary sciences computational life sciences (Vol. 1). &lt;a href="http://doi.org/10.1007/s12539-009-0016-2"&gt;http://doi.org/10.1007/s12539-009-0016-2&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:2" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:3"&gt;&lt;p&gt;Kipf, T. N., &amp;amp; Welling, M. (2017). Semi-Supervised Classification with Graph Convolutional Networks. Proceedings of ICLR 2017. &lt;a href="http://ruder.io/semi-supervised/#fnref:3" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:4"&gt;&lt;p&gt;Yarowsky, D. (1995). Unsupervised word sense disambiguation rivaling supervised methods. In Proceedings of the 33rd annual meeting on Association for Computational Linguistics (pp. 189-196). Association for Computational Linguistics. &lt;a href="http://ruder.io/semi-supervised/#fnref:4" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:5"&gt;&lt;p&gt;McClosky, D., Charniak, E., &amp;amp; Johnson, M. (2006). Effective self-training for parsing. Proceedings of the Main Conference on Human Language Technology Conference of the North American Chapter of the Association of Computational Linguistics, 152–159. &lt;a href="http://ruder.io/semi-supervised/#fnref:5" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;Reichart, R., &amp;amp; Rappoport, A. (2007). Self-training for enhancement and domain adaptation of statistical parsers trained on small datasets. In Proceedings of the 45th Annual Meeting of the Association of Computational Linguistics (pp. 616-623) &lt;a href="http://ruder.io/semi-supervised/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:7"&gt;&lt;p&gt;Suzuki, J., &amp;amp; Isozaki, H. (2008). Semi-supervised sequential labeling and segmentation using giga-word scale unlabeled data. Proceedings of ACL-08: HLT, 665-673. &lt;a href="http://ruder.io/semi-supervised/#fnref:7" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:8"&gt;&lt;p&gt;Petrov, S., &amp;amp; McDonald, R. (2012). Overview of the 2012 shared task on parsing the web. In Notes of the first workshop on syntactic analysis of non-canonical language (sancl) (Vol. 59). &lt;a href="http://ruder.io/semi-supervised/#fnref:8" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:9"&gt;&lt;p&gt;He, Y., &amp;amp; Zhou, D. (2011). Self-training from labeled features for sentiment analysis. Information Processing &amp;amp; Management, 47(4), 606-616. &lt;a href="http://ruder.io/semi-supervised/#fnref:9" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:10"&gt;&lt;p&gt;Plank, B. (2011). Domain adaptation for parsing. University Library Groniongen][Host]. &lt;a href="http://ruder.io/semi-supervised/#fnref:10" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:11"&gt;&lt;p&gt;Van Asch, V., &amp;amp; Daelemans, W. (2016). Predicting the Effectiveness of Self-Training: Application to Sentiment Classification. arXiv preprint arXiv:1601.03288. &lt;a href="http://ruder.io/semi-supervised/#fnref:11" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:12"&gt;&lt;p&gt;van der Goot, R., Plank, B., &amp;amp; Nissim, M. (2017). To normalize, or not to normalize: The impact of normalization on part-of-speech tagging. arXiv preprint arXiv:1707.05116. &lt;a href="http://ruder.io/semi-supervised/#fnref:12" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:13"&gt;&lt;p&gt;Huang, Z., &amp;amp; Harper, M. (2009). Self-training PCFG grammars with latent annotations across languages. In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing: Volume 2-Volume 2 (pp. 832-841). Association for Computational Linguistics. &lt;a href="http://ruder.io/semi-supervised/#fnref:13" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:14"&gt;&lt;p&gt;Zhou, Z.-H., &amp;amp; Li, M. (2005). Tri-Training: Exploiting Unlabled Data Using Three Classifiers. IEEE Trans.Data Eng., 17(11), 1529–1541. &lt;a href="http://doi.org/10.1109/TKDE.2005.186"&gt;http://doi.org/10.1109/TKDE.2005.186&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:14" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:15"&gt;&lt;p&gt;Søgaard, A. (2010). Simple semi-supervised training of part-of-speech taggers. Proceedings of the ACL 2010 Conference Short Papers. &lt;a href="http://ruder.io/semi-supervised/#fnref:15" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:16"&gt;&lt;p&gt;Saito, K., Ushiku, Y., &amp;amp; Harada, T. (2017). Asymmetric Tri-training for Unsupervised Domain Adaptation. In ICML 2017. Retrieved from &lt;a href="http://arxiv.org/abs/1702.08400"&gt;http://arxiv.org/abs/1702.08400&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:16" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:17"&gt;&lt;p&gt;Blum, A., &amp;amp; Mitchell, T. (1998). Combining labeled and unlabeled data with co-training. In Proceedings of the eleventh annual conference on Computational learning theory (pp. 92-100). ACM. &lt;a href="http://ruder.io/semi-supervised/#fnref:17" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:18"&gt;&lt;p&gt;Chen, M., Weinberger, K. Q., &amp;amp; Blitzer, J. C. (2011). Co-Training for Domain Adaptation. In Advances in Neural Information Processing Systems. &lt;a href="http://ruder.io/semi-supervised/#fnref:18" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:19"&gt;&lt;p&gt;Chen, M., Weinberger, K. Q., &amp;amp; Chen, Y. (2011). Automatic Feature Decomposition for Single View Co-training. Proceedings of the 28th International Conference on Machine Learning (ICML-11), 953–960. &lt;a href="http://ruder.io/semi-supervised/#fnref:19" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:20"&gt;&lt;p&gt;Bousmalis, K., Trigeorgis, G., Silberman, N., Krishnan, D., &amp;amp; Erhan, D. (2016). Domain Separation Networks. In Advances in Neural Information Processing Systems. &lt;a href="http://ruder.io/semi-supervised/#fnref:20" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:21"&gt;&lt;p&gt;Zhou, Y., &amp;amp; Goldman, S. (2004). Democratic Co-Learning. In 16th IEEE International Conference on Tools with Artificial Intelligence, ICTAI 2004. &lt;a href="http://ruder.io/semi-supervised/#fnref:21" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:22"&gt;&lt;p&gt;Ruder, S., &amp;amp; Plank, B. (2018). Strong Baselines for Neural Semi-supervised Learning under Domain Shift. In Proceedings of ACL 2018. &lt;a href="http://ruder.io/semi-supervised/#fnref:22" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:23"&gt;&lt;p&gt;Caruana, R. (1993). Multitask learning: A knowledge-based source of inductive bias. In Proceedings of the Tenth International Conference on Machine Learning. &lt;a href="http://ruder.io/semi-supervised/#fnref:23" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:24"&gt;&lt;p&gt;Rasmus, A., Valpola, H., Honkala, M., Berglund, M., &amp;amp; Raiko, T. (2015). Semi-Supervised Learning with Ladder Network. arXiv Preprint arXiv:1507.02672. Retrieved from &lt;a href="http://arxiv.org/abs/1507.02672"&gt;http://arxiv.org/abs/1507.02672&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:24" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:25"&gt;&lt;p&gt;Miyato, T., Dai, A. M., &amp;amp; Goodfellow, I. (2017). Adversarial Training Methods for Semi-supervised Text Classification. In Proceedings of ICLR 2017. &lt;a href="http://ruder.io/semi-supervised/#fnref:25" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:26"&gt;&lt;p&gt;Yasunaga, M., Kasai, J., &amp;amp; Radev, D. (2018). Robust Multilingual Part-of-Speech Tagging via Adversarial Training. In Proceedings of NAACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1711.04903"&gt;http://arxiv.org/abs/1711.04903&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:26" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:27"&gt;&lt;p&gt;Laine, S., &amp;amp; Aila, T. (2017). Temporal Ensembling for Semi-Supervised Learning. In Proceedings of ICLR 2017. &lt;a href="http://ruder.io/semi-supervised/#fnref:27" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:28"&gt;&lt;p&gt;Kingma, D. P., &amp;amp; Ba, J. L. (2015). Adam: a Method for Stochastic Optimization. International Conference on Learning Representations. &lt;a href="http://ruder.io/semi-supervised/#fnref:28" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:29"&gt;&lt;p&gt;Tarvainen, A., &amp;amp; Valpola, H. (2017). Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. In Advances in Neural Information Processing Systems. Retrieved from &lt;a href="http://arxiv.org/abs/1703.01780"&gt;http://arxiv.org/abs/1703.01780&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:29" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:30"&gt;&lt;p&gt;Hinton, G., Vinyals, O., &amp;amp; Dean, J. (2015). Distilling the Knowledge in a Neural Network. arXiv Preprint arXiv:1503.02531. &lt;a href="https://doi.org/10.1063/1.4931082"&gt;https://doi.org/10.1063/1.4931082&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:30" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:31"&gt;&lt;p&gt;Sennrich, R., Haddow, B., &amp;amp; Birch, A. (2016). Edinburgh neural machine translation systems for WMT 16. arXiv preprint arXiv:1606.02891. &lt;a href="http://ruder.io/semi-supervised/#fnref:31" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:32"&gt;&lt;p&gt;Huang, G., Li, Y., Pleiss, G., Liu, Z., Hopcroft, J. E., &amp;amp; Weinberger, K. Q. (2017). Snapshot Ensembles: Train 1, get M for free. In Proceedings of ICLR 2017. &lt;a href="http://ruder.io/semi-supervised/#fnref:32" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:33"&gt;&lt;p&gt;Polyak, B. T., &amp;amp; Juditsky, A. B. (1992). Acceleration of stochastic approximation by averaging. SIAM Journal on Control and Optimization, 30(4), 838-855. &lt;a href="http://ruder.io/semi-supervised/#fnref:33" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:34"&gt;&lt;p&gt;Dehghani, M., Mehrjou, A., Gouws, S., Kamps, J., &amp;amp; Schölkopf, B. (2018). Fidelity-Weighted Learning. In Proceedings of ICLR 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1711.02799"&gt;http://arxiv.org/abs/1711.02799&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:34" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:35"&gt;&lt;p&gt;Kiritchenko, S., Zhu, X., &amp;amp; Mohammad, S. M. (2014). Sentiment analysis of short informal texts. Journal of Artificial Intelligence Research, 50, 723-762. &lt;a href="http://ruder.io/semi-supervised/#fnref:35" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:36"&gt;&lt;p&gt;Reed, S., Lee, H., Anguelov, D., Szegedy, C., Erhan, D., &amp;amp; Rabinovich, A. (2015). Training Deep Neural Networks on Noisy Labels with Bootstrapping. ICLR 2015 Workshop Track. Retrieved from &lt;a href="http://arxiv.org/abs/1412.6596"&gt;http://arxiv.org/abs/1412.6596&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:36" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:37"&gt;&lt;p&gt;Sukhbaatar, S., Bruna, J., Paluri, M., Bourdev, L., &amp;amp; Fergus, R. (2015). Training Convolutional Networks with Noisy Labels. Workshop Track - ICLR 2015. Retrieved from &lt;a href="http://arxiv.org/abs/1406.2080"&gt;http://arxiv.org/abs/1406.2080&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:37" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:38"&gt;&lt;p&gt;Zolna, K., Arpit, D., Suhubdy, D., &amp;amp; Bengio, Y. (2018). Fraternal Dropout. In Proceedings of ICLR 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1711.00066"&gt;http://arxiv.org/abs/1711.00066&lt;/a&gt; &lt;a href="http://ruder.io/semi-supervised/#fnref:38" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li class="footnote" id="fn:39"&gt;&lt;p&gt;Oliver, A., Odena, A., Raffel, C., Cubuk, E. D., &amp;amp; Goodfellow, I. J. (2018). Realistic Evaluation of Semi-Supervised Learning Algorithms. arXiv preprint arXiv:1804.09170. &lt;a href="http://ruder.io/semi-supervised/#fnref:39" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content:encoded></item><item><title>Text Classification with TensorFlow Estimators</title><description>This post is a tutorial on how to use Estimators in TensorFlow to classify text.</description><link>http://ruder.io/text-classification-tensorflow-estimators/</link><guid isPermaLink="false">4dd8b7a6-a266-4ddb-b6b2-b3444bcc48b3</guid><category>nlp</category><category>tensorflow</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 16 Apr 2018 13:24:29 GMT</pubDate><content:encoded>&lt;p&gt;&lt;head&gt; &lt;br&gt;
   &lt;meta charset="utf-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;title&gt;nlp&lt;em&gt;estimators&lt;/em&gt;blog.md&lt;/title&gt;
@@ -3987,264 +4191,4 @@ CBOW does not outperform SGNS on any task.&lt;/li&gt;
 
 &lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;Hamilton, W. L., Leskovec, J., &amp;amp; Jurafsky, D. (2016). Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change. arXiv Preprint arXiv:1605.09096. &lt;a href="http://ruder.io/secret-word2vec/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
-&lt;p&gt;Cover images are courtesy of &lt;a href="http://nlp.stanford.edu/projects/glove/"&gt;Stanford&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>Lisbon Machine Learning Summer School Highlights</title><description>&lt;p&gt;Table of contents:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#sequencemodels"&gt;Sequence Models&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#machinetranslation"&gt;Machine Translation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#structuredprediction"&gt;Structured Prediction&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#crfsvsmemms"&gt;CRFs vs. MEMMs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#hmmsvscrfs"&gt;HMMs vs. CRFs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#structuredpredictioninnlpwithimitationlearning"&gt;Structured Prediction in NLP with Imitation Learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#demoday"&gt;Demo Day&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#syntaxandparsing"&gt;Syntax and Parsing&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#fromdependenciestoconstituents"&gt;From Dependencies to Constituents&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#deeplearning"&gt;Deep Learning&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#explodingvanishinggradients"&gt;Exploding / vanishing gradients&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#deeplstms"&gt;Deep LSTMs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#doesdepthmatter"&gt;Does Depth Matter?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#minibatching"&gt;Mini-batching&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#characterbasedmodels"&gt;Character-based models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#attention"&gt;Attention&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#memorynetworksforlanguageunderstanding"&gt;Memory Networks for Language Understanding&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://ruder.io/lisbon-machine-learning-summer-school-highlights/</link><guid isPermaLink="false">9e99b979-1000-4ae9-b85d-88cd01bc95c0</guid><category>deep learning</category><category>natural language processing</category><category>nlp</category><category>machine learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 12 Aug 2016 09:52:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/08/group_picture-1.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/08/group_picture-1.jpg" alt="Lisbon Machine Learning Summer School Highlights"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#sequencemodels"&gt;Sequence Models&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#machinetranslation"&gt;Machine Translation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#structuredprediction"&gt;Structured Prediction&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#crfsvsmemms"&gt;CRFs vs. MEMMs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#hmmsvscrfs"&gt;HMMs vs. CRFs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#structuredpredictioninnlpwithimitationlearning"&gt;Structured Prediction in NLP with Imitation Learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#demoday"&gt;Demo Day&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#syntaxandparsing"&gt;Syntax and Parsing&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#fromdependenciestoconstituents"&gt;From Dependencies to Constituents&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#deeplearning"&gt;Deep Learning&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#explodingvanishinggradients"&gt;Exploding / vanishing gradients&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#deeplstms"&gt;Deep LSTMs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#doesdepthmatter"&gt;Does Depth Matter?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#minibatching"&gt;Mini-batching&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#characterbasedmodels"&gt;Character-based models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#attention"&gt;Attention&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#memorynetworksforlanguageunderstanding"&gt;Memory Networks for Language Understanding&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#slides"&gt;Slides&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;From July 20th to July 28th 2016, I had the opportunity of  attending the 6th Lisbon Machine Learning School. &lt;a href="http://lxmls.it.pt/2016/"&gt;The Lisbon Machine Learning School (LxMLS)&lt;/a&gt; is an annual event that brings together researchers and graduate students in the fields of NLP and Computational Linguistics, computer scientists with an interest in statistics and ML, and industry practitioners with a desire for a more in-depth understanding. &lt;br&gt;
-Participants had a chance to join workshops and labs, where they got hands-on experience with building and exploring state-of-the-art deep learning models, as well as to attend talks and speeches by prominent deep learning and NLP researchers from a variety of academic and industrial organisations. You can find the entire programme &lt;a href="http://lxmls.it.pt/2016/?page_id=64"&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In this blog post, I am going to share some of the highlights, key insights and takeaways of the summer school. I am going to skip the lectures of the first and second day as they introduce basic Python, Linear Algebra, and Probability Theory concepts and focus on the later lectures and talks. First, we are going to talk about sequence models. We will then turn to structured prediction, a type of supervised ML common to NLP. We will then summarize the lecture on Syntax and Parsing and finally provide insights with regard to Deep Learning. The accompanying slides can be found &lt;a href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/#slides"&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: This blog post is not meant to give a comprehensive introduction of each of the topics discussed; it should rather give you an overview of the week-long event and provide you with pointers if you want to delve deeper into any of the topics.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: This blog post also appeared at the &lt;a href="http://blog.aylien.com/"&gt;AYLIEN blog&lt;/a&gt; &lt;a href="http://blog.aylien.com/lisbon-machine-learning-summer-school-highlights/"&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="sequencemodels"&gt;Sequence Models&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href="http://homes.cs.washington.edu/~nasmith/"&gt;Noah Smith&lt;/a&gt; of the University Washington kicked off the third day of the summer school with a compelling lecture about sequence models.
-To test your understanding of sequence models, try to answer -- without reading further -- the following question: What is the most basic sequence model depicted in Figure 1?&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/bag_of_words.png" style="width: 50%" title="Bag-of-words model" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 1: The most basic sequence model&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Correct! It is the bag-of-words (notice which words have "fallen" out of the bag-of-words). The bag-of-words model makes the strongest independence assumption of all sequence models: It supposes that each word is entirely independent of its predecessors. It is obvious why models that rely on this assumption do only a poor job at modelling language: every word naturally depends on the words that have preceded it.&lt;/p&gt;
-
-&lt;p&gt;Somewhat more sophisticated models thus relax this naive assumption to reduce the entropy: A 1st Order Markov model makes each word dependent on the word that immediately preceded it. This way, it is already able to capture some context of the context that can help to disambiguate a new word. More generally, \(m^{\text{th}}\) Order Markov Models make each word depend on its previous \(m\) words.&lt;/p&gt;
-
-&lt;p&gt;In mathematical terms, in \(m^{\text{th}}\) Order Markov Models, the probability of a text sequence (we assume here that such a sequence is delimited by start and stop symbols) can be calculated using the chain rule as the product of the probabilities of the individual words:&lt;/p&gt;
-
-&lt;p&gt;\(p(\text{start}, w_1, w_2, ..., w_n, \text{stop}) = \prod\limits_{i=1}^{n+1} \gamma (w_i \: | \: w_{i-m}, ..., w_{i-1}) \)&lt;/p&gt;
-
-&lt;p&gt;where \(\gamma\) is the probability of the current word \(w_i\) given its \(m\) previous words, i.e. the probability to transition from the previous words to the current word.&lt;/p&gt;
-
-&lt;p&gt;We can view bag-of-words and \(m^{\text{th}}\) Order Markov Models as occupying the following spectrum:&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%" title="From bag-of-words to history-based models" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 2: From bag-of-words to history-based models&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;As we go right in Figure 2, we make weaker independence assumption and in exchange gain richer expressive power, while requiring more parameters -- until we eventually obtain the most expressive -- and most rigid -- model, a history-based model where each word depends on its entire history, i.e. all preceding words.&lt;/p&gt;
-
-&lt;p&gt;As a side-note, state-of-the-art sequence modelling models such as recurrent neural networks and LSTMs can be thought of as being located on the right side of this spectrum, as they don't require an explicit specification of context words but are -- theoretically -- able to take into account the entire history.&lt;/p&gt;
-
-&lt;p&gt;In many cases, we would not only like to model just the observed sequence of symbols, but take some additional information into account. Hidden Markov Models (HMMs) allow us to associate with each symbol \(w_i\) some missing information, its "state" \(s_i\). The probability of a word sequence in an HMM then not only depends on the transition probability \(\gamma\) but also on the so-called emission probability \(\eta\):&lt;/p&gt;
-
-&lt;p&gt;\(p(\text{start}, w_1, w_2, ..., w_n, \text{stop}) = \prod\limits_{i=1}^{n+1} \eta (w_i \: | \: s_i) \: \gamma (s_i \: | \: s_{i-1}) \)&lt;/p&gt;
-
-&lt;p&gt;Consequently, the HMM is a joint model over observable symbols and hidden/latent/unknown classes. HMMs have traditionally been used in part-of-speech tagging or named entity recognition where the hidden states are POS and NER tags respectively.&lt;/p&gt;
-
-&lt;p&gt;If we want to determine the most probable sequence of hidden states, we face a space of potential sequences that grows exponentially with the sequence length. The classic dynamic algorithm to cope with this problem is the Viterbi algorithm, which is used in HMMs, CRFs, and other sequence models to calculate the most probable sequence of hidden states: It lays out the symbol sequence and all possible states in a grid and proceeds left-to-right to compute the maximum probability to transition in every new state given the previous states. The most probable sequence can then be found by back-tracking as in Figure 3.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/viterbi.png" style="width: 70%" title="Viterbi algorithm" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 3: The Viterbi algorithm&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;A close relative is the forward-backward algorithm, which is used to calculate the probability of a word sequence and the probabilities of each word's states, e.g. for language modelling. Indeed, the only difference between Viterbi and the forward-backward algorithm is that Viterbi takes the maximum of the probabilities of the previous state, while forward-backward takes the sum. In this sense, they correspond to the same abstract algorithm, which is instantiated in two different semirings where a semiring informally is a set of values and some operations that obey certain properties.&lt;/p&gt;
-
-&lt;p&gt;Finally, if we want to learn HMMs in an unsupervised way, we use the well-known Expectation Maximisation (EM) algorithm, which consists of two steps: During the E step, we calculate the probability of each possible transition and emission at every position with forward-backward (or Viterbi for "hard" EM); for the M step, we re-estimate the parameters with MLE.&lt;/p&gt;
-
-&lt;h2 id="machinetranslation"&gt;Machine Translation&lt;/h2&gt;
-
-&lt;p&gt;On the evening of the third day, Philipp Koehn, one of the pioneers of MT and inventor of phrase-based machine translation gave a talk on Machine Translation as Sequence Modelling, including a detailed review of different MT and alignment approaches. If you are interested in a comprehensive history of MT that takes you from IBM Model 1 all the way to phrase-based, syntax-based and eventually neural MT, while delving into the details of alignment, translation, and decoding, definitely check out the slides &lt;a href="http://lxmls.it.pt/2016/talk.pdf"&gt;here&lt;/a&gt;. &lt;/p&gt;
-
-&lt;h1 id="structuredprediction"&gt; Structured Prediction&lt;/h1&gt;
-
-&lt;p&gt;HMMs can model sequences, but as their weights are tied to the generative process, strong independence assumptions need to be made to make their computation tractable. We will now turn to a category of models that are more expressive and can be used to predict more complex structures: Structured prediction -- which was introduced by Xavier Carreras of Xerox Research on the morning of the fourth day -- is used to refer to ML algorithms that don’t just predict scalar or real values, but more complex structures. As complex structures are common in language, so is structured prediction; example tasks of structured prediction in NLP include POS tagging, named entity recognition, machine translation, parsing, and many others.&lt;/p&gt;
-
-&lt;p&gt;A successful category of structured prediction models are log-linear models, which are so-called because they model log-probabilities using a linear predictor. Such models try to estimate the parameters \(w\) by calculating the following probability:&lt;/p&gt;
-
-&lt;p&gt;\(\text{log} \: \text{Pr}(\mathbf{y} \: | \: \mathbf{x}; \mathbf{w}) = \text{log} \: \dfrac{\text{exp}\{\mathbf{w} \cdot \mathbf{f}(\mathbf{x},\mathbf{y})\}}{Z(\mathbf{x};\mathbf{w})}\)&lt;/p&gt;
-
-&lt;p&gt;where \(\mathbf{x} = x_1, x_2, ..., x_n \in \mathcal{X}\) is the sequence of symbols, \(\mathbf{y} = y_1, y_2, ..., y_n \in \mathcal{Y}\) is the corresponding sequence of labels, \(\mathbf{f}(\mathbf{x},\mathbf{y})\) is a feature representation of \(\mathbf{x}\) and \(\mathbf{y}\), and \(Z(\mathbf{x};\mathbf{w}) = \sum\limits_{\mathbf{y}' \in \mathcal{Y}} \text{exp}(\mathbf{w} \cdot \mathbf{f}(\mathbf{x},\mathbf{y}')) \) is also referred to as the partition function.&lt;/p&gt;
-
-&lt;p&gt;Two approaches that can be used to estimate the model parameters \(w\) are:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Maximum Entropy Markov Models (MEMMs), which assume that \(\text{Pr}(\mathbf{y} \: | \: \mathbf{x}; \mathbf{w})\) decomposes, i.e. that we can express it as a product of the individual label probabilities that only depend on the previous label (similar to HMMs).  &lt;/li&gt;
-&lt;li&gt;Conditional Random Fields (CRFs), which make a weaker assumption by only assuming that \(\mathbf{f}(\mathbf{x},\mathbf{y})\) decomposes.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In MEMMs, we assume -- similarly to Markov Models -- that the label \(y_i\) at does not depend on &lt;em&gt;all&lt;/em&gt; past labels, but only on the previous label \(y_{i-1}\). In contrast to Markov Models, MEMMs allow us to condition the label \(y_i\) on the entire symbol sequence \(x_{1:n}\). Both assumptions combined lead to the following probability of label \(y_i\) in MEMMs:&lt;/p&gt;
-
-&lt;p&gt;\(\text{Pr}(y_i \: | \: x_{1:n}, y_{1:i-1}) = \text{Pr}(y_i \: | \: x_{1:n}, y_{i-1})\)&lt;/p&gt;
-
-&lt;p&gt;By this formulation, the objective of MEMMs reduces sequence modelling to multi-class logistic regression.&lt;/p&gt;
-
-&lt;p&gt;In CRFs, we factorize on label bigrams. Instead of greedily predicting the most probable label \(y_i\) at every position \(i\), we instead aim to find the sequence of labels with the maximum probability:&lt;/p&gt;
-
-&lt;p&gt;\(\underset{y \in \mathcal{Y}}{\text{argmax}} \sum_i \mathbf{w} \cdot \mathbf{f}(\mathbf{x}, i, y_{i-1}, y_i)\)&lt;/p&gt;
-
-&lt;p&gt;We then estimate the parameters \(w\) of our model using gradient-based methods where we can use forward-backward to compute the gradient.&lt;/p&gt;
-
-&lt;h2 id="crfsvsmemms"&gt;CRFs vs. MEMMs&lt;/h2&gt;
-
-&lt;p&gt;By choosing between MEMMs and CRFs, we make the choice between local and global normalisation. While MEMMs aim to predict the most probable label at every position, CRFs aim to find the most probable label sequence. This, however, leads to the so-called "Label Bias Problem" in MEMMs: As MEMMs choose the label with the highest probability, the model is biased towards more frequent labels, often irrespective of the local context.&lt;/p&gt;
-
-&lt;p&gt;As MEMMs reduce to multi-class classification, they are cheaper to train. On the other hand, CRFs are more flexible and thus easier to extend to more complex structures.&lt;/p&gt;
-
-&lt;p&gt;This distinction between local and global normalisation has been a recurring topic in sequence modelling and a key criterion when choosing an algorithm. For text generation tasks, global normalisation is still too expensive, however. Many state-of-the-art approaches thus employ beam search as a compromise between local and global normalisation. In most sequence modelling tasks, local normalisation is very popular due to its ease of use, but might fall out of favour as more advanced models and implementations for global normalisation become available. To this effect, a recent outstanding paper at ACL &lt;a href="https://arxiv.org/abs/1603.06042"&gt;(Andor et al., 2016)&lt;/a&gt; shows that globally normalised models are strictly more expressive than locally normalised ones.&lt;/p&gt;
-
-&lt;h2 id="hmmsvscrfs"&gt; HMMs vs. CRFs&lt;/h2&gt;
-
-&lt;p&gt;Another distinction that is worth investigating is the difference between generative and discriminative models: HMMs are generative models, while CRFs are discriminative. HMMs only take into account the previous word as its features are tied to the generative process. In contrast, CRF features are very flexible. They can look at the whole input \(x\) paired with a label bigram \((y_i , y_{i+1})\). In practice, for prediction tasks, such “good” discriminative features can improve accuracy a lot.&lt;/p&gt;
-
-&lt;p&gt;Regarding the parameter estimation, the distinction between generative and discriminative becomes apparent: HMMs focus on explaining the data, both \(x\) and \(y\), while CRFs focus on the mapping from \(x\) to \(y\). Which model is more appropriate depends on the task: CRFs are commonly used in tasks such as POS tagging and NER, while HMMs have traditionally lain at the heart of speech recognition.&lt;/p&gt;
-
-&lt;h2 id="structuredpredictioninnlpwithimitationlearning"&gt;Structured Prediction in NLP with Imitation Learning&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href="http://andreasvlachos.github.io/"&gt;Andreas Vlachos&lt;/a&gt; of the University of Sheffield gave a talk on using imitation learning for structured prediction in NLP, which followed the same distinction between local normalisation (aka incremental modelling), i.e. greedily predicting one label at a time and global normalisation (aka joint modelling), i.e. scoring the complete outputs with a CRF that we discussed above. Andreas talked about how imitation learning can be used to improve incremental modelling as it allows to a) explore the search space, b) to address error-propagation, and c) to train with regard to the task-level loss function.&lt;/p&gt;
-
-&lt;p&gt;There are many popular imitation learning algorithms in the literature such as &lt;a href="http://www.umiacs.umd.edu/~hal/docs/daume09searn.pdf"&gt;SEARN (Daumé III et al., 2009)&lt;/a&gt;, &lt;a href="https://www.ri.cmu.edu/pub_files/2011/4/Ross-AISTATS11-NoRegret.pdf"&gt;Dagger (Ross et al. 2011)&lt;/a&gt;, or &lt;a href="http://www.aclweb.org/anthology/Q14-1042"&gt;V-DAgger (Vlachos and Clark, 2014)&lt;/a&gt;. Recently, &lt;a href="http://www.aclweb.org/anthology/Q14-1042"&gt;MIXER (Ranzato et al., 2016)&lt;/a&gt; has been proposed to directly optimise metrics for text generation, such as BLEU or ROUGE.&lt;/p&gt;
-
-&lt;p&gt;An interesting perspective is that imitation learning can be seen as inverse reinforcement learning: Whereas we want to learn the best policy in reinforcement learning, we know the optimal policy in imitation learning, i.e. the labels in the training data; we then infer the per-action reward function and learn a policy, i.e. a classifier that can generalise to unseen data.&lt;/p&gt;
-
-&lt;h2 id="demoday"&gt;Demo Day&lt;/h2&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/demo_day.jpg" style="width: 70%" title="Aylien stand at Demo Day" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 4: Aylien stand at Demo Day&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;In the evening of the fourth day, we presented -- along with other NLP companies and research labs -- Aylien at the LxMLS Demo Day.&lt;/p&gt;
-
-&lt;p&gt;We presented an overview of our research directions at Aylien, as well as a 1D generative adversarial network &lt;a href="http://notebooks.aylien.com/research/gan/gan_simple.html"&gt;demo and visualization&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="syntaxandparsing"&gt;Syntax and Parsing&lt;/h1&gt;
-
-&lt;p&gt;Having looked at generic models that are able to cope with sequences and more complex structures, we now briefly mention some of the techniques that are commonly used to deal with one of language’s unique characteristics: syntax. To this end, &lt;a href="http://research.google.com/pubs/author38945.html"&gt;Slav Petrov&lt;/a&gt; of Google Research gave an in-depth lecture about syntax and parsing on the fifth day of the summer school, which discussed, among others, successful parsers such as the Charniak and the Berkeley parser, context-free grammars and phrase-based parsing, projective and non-projective dependency parsing, as well as more recent transition and graph-based parsers.&lt;/p&gt;
-
-&lt;p&gt;To tie this to what we've already discussed, Figure 5 demonstrates how the distinction between generative and discriminative models applies to parsers.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/generative_discriminative.png" style="width: 80%" title="Generative vs. discriminative parsers" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 5: Generative vs. discriminative parsing models&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="fromdependenciestoconstituents"&gt; From Dependencies to Constituents&lt;/h2&gt;
-
-&lt;p&gt;In the evening of the fifth day, &lt;a href="https://www.cs.cmu.edu/~afm/Home.html"&gt;André Martins&lt;/a&gt; of Unbabel gave talk a on an &lt;a href="https://www.cs.cmu.edu/~afm/Home_files/acl2015_reduction.pdf"&gt;ACL 2015 paper&lt;/a&gt; of his, in which he shows that constituent parsing can be reduced to dependency parsing to get the best of both worlds: the informativeness of constituent parser output and the speed of dependency parsers.&lt;/p&gt;
-
-&lt;p&gt;Their approach works for any out-of-the-box dependency parser, is competitive for English and morphologically rich languages, and achieves results above the state of the art for discontinuous parsing (where edges are allowed to intersect).&lt;/p&gt;
-
-&lt;h1 id="deeplearning"&gt;Deep Learning&lt;/h1&gt;
-
-&lt;p&gt;Finally, the two last days were dedicated to Deep Learning and featured prolific researchers from academia and industry labs as speakers. On the morning of the sixth day, &lt;a href="http://www.cs.cmu.edu/~lingwang/"&gt;Wang Ling&lt;/a&gt; of Google DeepMind gave one of the most gentle, family-friendly intro to Deep Learning I've seen -- titled &lt;em&gt;Deep Neural Networks Are Our Friends&lt;/em&gt; with a theme inspired by the Muppets.&lt;/p&gt;
-
-&lt;p&gt;The evening talk by &lt;a href="http://research.google.com/pubs/OriolVinyals.html"&gt;Oriol Vinyals&lt;/a&gt; of Google DeepMind detailed some of his lessons learned when working on sequence-to-sequence models at Google and gave glimpses of interesting future challenges, among them, one-shot learning for NLP &lt;a href="http://arxiv.org/abs/1606.04080"&gt;(Vinyals et al., 2016)&lt;/a&gt; and enabling neural networks to ponder decisions &lt;a href="https://arxiv.org/abs/1603.08983"&gt;(Graves, 2016)&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For the lecture on the last day, &lt;a href="http://www.cs.cmu.edu/~cdyer/"&gt;Chris Dyer&lt;/a&gt; of CMU and Google DeepMind discussed modelling sequential data with recurrent neural networks (RNNs) and shared some insights and intuitions with regard to working with RNNs and LSTMs.&lt;/p&gt;
-
-&lt;h2 id="explodingvanishinggradients"&gt;Exploding / vanishing gradients&lt;/h2&gt;
-
-&lt;p&gt;If you've worked with RNNs before, then you're most likely familiar with the exploding/vanishing gradients problem: As the length of the sequence increases, computations of the model get amplified, which leads to either exploding or vanishing gradients and thus renders the model incapable to learn. The intuition why advanced models such as LSTMs and GRUs mitigate this problem is that they use summations instead of multiplications (which lead to exponential growth).&lt;/p&gt;
-
-&lt;h2 id="deeplstms"&gt;Deep LSTMs&lt;/h2&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/deep_lstms.png" style="width: 80%" title="Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 6: Deep LSTMs&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Deep or stacked LSTMs are by now a very common sight in the literature and state-of-the-art for many sequence modelling problems. Still, descriptions of implementations often omit details, which might be perceived as self-evident. This, however, means that it is not always clear how a model looks like exactly or how it differs from similar architectures. The same applies to Deep LSTMs. The most standard convention feeds the input not only to the first but (via skip connections) also to subsequent layers as in Figure 6. Additionally, dropout is generally applied only between layers and not on the recurrent connections as this would drop out more and more value over time.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%" title="Dropout in Deep LSTMs" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 7: Dropout in Deep LSTMs&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="doesdepthmatter"&gt; Does Depth Matter?&lt;/h2&gt;
-
-&lt;p&gt;Generally, depth helps. However, in comparison to other applications such as audio/visual processing, depth plays a less significant role in NLP. Hypotheses for this observation are: a) More transformation is required for speech processing, image recognition etc. than for common text applications; b) Less effort has been made to find good architectures (RNNs are expensive to train; have been widely used for less long); c) Backpropagation through time and depth is hard and we need better optimisers.&lt;/p&gt;
-
-&lt;p&gt;Generally, 2-8 layers are standard across text applications. Input skip connections are used often but by no means universally.&lt;/p&gt;
-
-&lt;p&gt;Only recently have also very deep architectures been proposed for NLP &lt;a href="http://arxiv.org/abs/1606.01781"&gt;(Conneau et al., 2016)&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="minibatching"&gt; Mini-batching&lt;/h2&gt;
-
-&lt;p&gt;Mini-batching is generally necessary to make use of optimised matrix-matrix multiplication. In practice, however, this usually requires bucketing training instances based on similar lengths and padding with \(0\)'s, which can be a nuisance. Because of this, this is -- according to Chris Dyer -- "the era of assembly language programming for neural networks. Make the future an easier place to program!"&lt;/p&gt;
-
-&lt;h2 id="characterbasedmodels"&gt; Character-based models&lt;/h2&gt;
-
-&lt;p&gt;Character-based models have gained more popularity recently and for some tasks such as language modelling, using character-based LSTMs blows the results of word-based models out of the water, achieving a significantly lower perplexity with a lot fewer parameters particularly for morphologically rich languages.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/08/char_language_modeling.png" style="width: 80%" title="CharLSTM &gt; Word Lookup" alt="Lisbon Machine Learning Summer School Highlights"&gt;
-&lt;figcaption&gt;Figure 8: CharLSTM &gt; Word Lookup&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="attention"&gt; Attention&lt;/h2&gt;
-
-&lt;p&gt;Finally, no overview of recurrent neural networks is complete without the mention of attention, one of the most influential, recently proposed notions with regard to LSTMs. Attention is closely related to “pooling” operations in convolutional neural networks (and other architectures) as it also allows to selectively focus on particular elements of the input. &lt;br&gt;
-The most popular attention architecture pioneered by Bahdanau et al. &lt;a href="https://arxiv.org/abs/1409.0473"&gt;(2015)&lt;/a&gt; seems to only care about “content” in that it relies on computing the dot product, i.e. the cosine similarity between vectors. It contains no obvious bias in favor of diagonals, short jumps, fertility, or other structures that might guide actual attention from a psycho-linguistic perspective. &lt;br&gt;
-Some work has begun to add other “structural” biases (&lt;a href="http://arxiv.org/abs/1508.04025"&gt;Luong et al., 2015&lt;/a&gt;; &lt;a href="https://arxiv.org/abs/1601.01085"&gt;Cohn et al., 2016&lt;/a&gt;), but there are many more opportunities for research.&lt;/p&gt;
-
-&lt;p&gt;Attention is similar to alignment, but there are important differences: a) alignment makes stochastic but hard decisions. Even if the alignment probability distribution is “flat”, the model picks one word or phrase at a time; b) &lt;br&gt;
-in contrast, attention is “soft” (all words are interpolated based on their attention weights). Finally, there is a big difference between “flat” and “peaked” attention weights.&lt;/p&gt;
-
-&lt;h2 id="memorynetworksforlanguageunderstanding"&gt;Memory Networks for Language Understanding&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href="https://research.facebook.com/antoine-bordes"&gt;Antoine Bordes&lt;/a&gt; of Facebook AI Research gave the last talk of the summer school, in which he discussed Facebook AI Research's two main research directions:&lt;/p&gt;
-
-&lt;p&gt;On the one hand, they are working on (Key-Value) Memory Networks, which can be used to jointly model symbolic and continuous systems. They can be trained end-to-end through back propagation and with SGD and provide great flexibility on how to design memories.&lt;/p&gt;
-
-&lt;p&gt;On the other hand, they are working on new tools for developing learning algorithms. They have created &lt;a href="https://research.facebook.com/research/babi/"&gt;several datasets&lt;/a&gt; of reasonable sizes, such as bAbI, CBT, and MovieQA that are designed to ease interpretation of a model's capabilities and to foster research.&lt;/p&gt;
-
-&lt;p&gt;That was the Lisbon Machine Learning Summer School 2016! I had a blast and hope to be back next year!&lt;/p&gt;
-
-&lt;h1 id="slides"&gt;Slides&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/sequencemodels.smith.7-23-16.pdf"&gt;Sequence Models (Noah Smith)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/talk.pdf"&gt;Machine Translation as Sequence Modelling (Philipp Koehn)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/strlearn.pdf"&gt;Learning Structured Predictors (Xavier Carreras)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://andreasvlachos.github.io/assets/lectures_reveal_js/LxMLS22July2016/ImitationLearningTutorial.html#/"&gt;Structured Prediction in NLP with Imitation Learning (Andreas Vlachos)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Syntax and Parsing - &lt;a href="http://lxmls.it.pt/2016/Part_1_Constituency_Parsing_2016.pdf"&gt;I&lt;/a&gt;, &lt;a href="http://lxmls.it.pt/2016/Part2_Dependency_Parsing_2016.pdf"&gt;II&lt;/a&gt; (Slav Petrov)&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/lxmls2016_slides.pdf"&gt;Turbo Parser Redux: From Dependencies to Constituents (André Martins)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/Deep-Neural-Networks-Are-Our-Friends.pdf"&gt;Deep Neural Networks Are Our Friends (Wang Ling)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/lxmls-dl2.pdf"&gt;Modeling Sequential Data with Recurrent Networks (Chris Dyer)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxmls.it.pt/2016/abordes-lxmlss.pdf"&gt;Memory Networks for Language Understanding (Antoine Bordes)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Cover images are courtesy of &lt;a href="http://nlp.stanford.edu/projects/glove/"&gt;Stanford&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>
