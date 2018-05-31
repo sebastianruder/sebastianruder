@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
-    <meta property="article:modified_time" content="2018-05-23T16:23:34.423Z">
+    <meta property="article:modified_time" content="2018-05-31T16:38:15.487Z">
     <meta property="article:tag" content="optimization">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="sgd">
@@ -68,7 +68,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2018-05-23T16:23:34.423Z",
+    "dateModified": "2018-05-31T16:38:15.487Z",
     "image": "u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
     "keywords": "optimization, deep learning, sgd",
     "description": "This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them."
@@ -401,7 +401,8 @@ v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\ <
 
 <h2 id="adagrad">Adagrad</h2>
 
-<p>Adagrad [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>] is an algorithm for gradient-based optimization that does just this: It adapts the learning rate to the parameters, performing larger updates for infrequent and smaller updates for frequent parameters. For this reason, it is well-suited for dealing with sparse data. Dean et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] have found that Adagrad greatly improved the robustness of SGD and used it for training large-scale neural nets at Google, which -- among other things -- learned to <a href="http://www.wired.com/2012/06/google-x-neural-network/">recognize cats in Youtube videos</a>. Moreover, Pennington et al. [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>] used Adagrad to train GloVe word embeddings, as infrequent words require much larger updates than frequent ones.</p>
+<p>Adagrad [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>] is an algorithm for gradient-based optimization that does just this: It adapts the learning rate to the parameters, performing smaller updates <br>
+(i.e. low learning rates) for parameters associated with frequently occurring features, and larger updates (i.e. high learning rates) for parameters associated with infrequent features. For this reason, it is well-suited for dealing with sparse data. Dean et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] have found that Adagrad greatly improved the robustness of SGD and used it for training large-scale neural nets at Google, which -- among other things -- learned to <a href="http://www.wired.com/2012/06/google-x-neural-network/">recognize cats in Youtube videos</a>. Moreover, Pennington et al. [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>] used Adagrad to train GloVe word embeddings, as infrequent words require much larger updates than frequent ones.</p>
 
 <p>Previously, we performed an update for all parameters \(\theta\) at once as every parameter \(\theta_i\) used the same learning rate \(\eta\). As Adagrad uses a different learning rate for every parameter \(\theta_i\) at every time step \(t\), we first show Adagrad's per-parameter update, which we then vectorize. For brevity, we use \(g_{t}\) to denote the gradient at time step \(t\). \(g_{t, i}\) is then the partial derivative of the objective function w.r.t. to the parameter \(\theta_i\) at time step \(t\):</p>
 
