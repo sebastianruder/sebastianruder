@@ -1,4 +1,183 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 06 Jun 2018 02:31:14 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>An overview of proxy-label approaches for semi-supervised learning</title><description>&lt;p&gt;Note: Parts of this post are based on my ACL 2018 paper &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with &lt;a href="http://www.let.rug.nl/bplank/"&gt;Barbara Plank&lt;/a&gt;.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 15 Jun 2018 11:42:55 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems</title><description>Highlights of NAACL-HLT 2018 focusing on Generalization, the Test-of-Time awards, and Dialogue Systems, including memorable quotes from the conference.</description><link>http://ruder.io/highlights-of-naacl-hlt-2018-generalization-test-of-time-and-dialogue-agents/</link><guid isPermaLink="false">3f5db7de-65f0-4dd6-869e-7bf911b8ca0f</guid><category>natural language processing</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 12 Jun 2018 13:42:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/06/IMG_20180603_183707_conference_venue.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/06/IMG_20180603_183707_conference_venue.jpg" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;&lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/highlights-of-naacl-hlt-2018-generalization-test-of-time-and-dialogue-systems/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I attended &lt;a href="http://naacl2018.org/"&gt;NAACL-HLT 2018&lt;/a&gt; in New Orleans last week. I didn’t manage to catch as many talks and posters this time around (there were just too many inspiring people to talk to!), so my highlights and the trends I observed mainly focus on invited talks and workshops.&lt;/p&gt;
+
+&lt;p&gt;Specifically, my highlights concentrate on three topics, which were prominent throughout the conference: Generalization, the Test-of-Time awards, and Dialogue Systems. For more information about other topics, you can check out the &lt;a href="http://naacl2018.org/downloads/naacl_hlt_2018_handbook.pdf"&gt;conference handbook&lt;/a&gt; and the &lt;a href="https://aclanthology.coli.uni-saarland.de/events/naacl-2018"&gt;proceedings&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First of all, there were four quotes from the conference that particularly resonated with me (some of them are paraphrased):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;People worked on MT before the BLEU score&lt;/em&gt;. - Kevin Knight. It’s natural to work on tasks where evaluation is easy. Instead, we should encourage more people to tackle hard problems that are not easy to evaluate. These are often the most rewarding to work on.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;BLEU is an understudy. It was never meant to replace human judgement and never expected to last this long&lt;/em&gt;. - Kishore Papineni, co-creator of BLEU, the most commonly used metric for machine translation. No approach is perfect. Even the authors of landmark papers were aware their methods had flaws. The best we can do is provide a fair evaluation of our technique.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;We decided to sample an equal number of positive and negative reviews---was that a good idea?&lt;/em&gt; - Bo Pang, first author of one of the first papers on sentiment analysis (7k+ citations). In addition to being aware of the flaws of our method, we should be explicit about the assumptions we make so that future work can either build upon them or discard them if they prove unhelpful or turn out to be false.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;I pose the following challenge to the community: we should evaluate on out-of-distribution data or on a new task&lt;/em&gt;. - Percy Liang.
+We never know how well our model truly generalizes if we just test it on data of the same distribution. In order to develop models that can be applied to the real world, we need to evaluate on out-of-distribution data or on a new task.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Percy Liang’s quote ties into one of the topics that received increasing attention at the conference: how can we train models that are less brittle and that generalize better?&lt;/p&gt;
+
+&lt;h2 id="generalization"&gt;Generalization&lt;/h2&gt;
+
+&lt;p&gt;Over the last years, much of the research within the NLP community focused on improving LSTM-based models on benchmark tasks. At NAACL, it seemed that increasingly people were thinking about how to get models to generalize beyond the conditions during training, reflecting a similar sentiment in the Deep Learning community in general (a &lt;a href="https://arxiv.org/abs/1611.03530"&gt;paper on generalization&lt;/a&gt; won the best paper award at ICLR 2017).&lt;/p&gt;
+
+&lt;p&gt;One aspect is generalizing from few examples, which is difficult with the current generation of neural network-based methods. Charles Yang, professor of Linguistics, Computer Science and Psychology at the University of Pennsylvania put this in a cognitive science context.&lt;/p&gt;
+
+&lt;p&gt;Machine learning and NLP researchers in the neural network era frequently like to motivate their work by referencing the remarkable generalization ability of young children. One piece of information that often is eluded, however, is that generalization in young children is also not without its errors, because it requires learning a rule and accounting for exceptions. For instance, when learning to count, young children still frequently make mistakes, as they have to balance rule-based generalization (for regular numbers such as sixteen, seventeen, eighteen, etc.) with memorizing exceptions (numbers such as fifteen, twenty, thirty, etc.).&lt;/p&gt;
+
+&lt;p&gt;However, once a child can flawlessly count to 72, it &lt;a href="https://penntoday.upenn.edu/research/penn-linguist-determines-tipping-point-for-children-learning-to-count"&gt;can generalize to any new numbers&lt;/a&gt;. This magic number, 72, is given by the so-called tolerance principle, which prescribes that in order for a generalization rule to be productive, there can be at most N/ln(N) exceptions, where N is the total number of examples as can be seen in the Figure below. For counting, 72/ln(72) ≈ 17, which is exactly the number of exceptions until 72.&lt;/p&gt;
+
+&lt;p&gt;Hitchhiker’s Guide to the Galaxy fans, however, need not be disappointed: in Chinese, the magic number is 42. Chinese only has 11 exceptions. As 42/ln(42) ≈ 11, Chinese children typically only need to learn to count up to 42 in order to generalize, which explains why Chinese children usually learn to count faster.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180602_092025_tolerance_principle.jpg" style="width: 70%" title="Tolerance principle" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 1: The Tolerance Principle&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;It is also interesting to note that even though young children can count up to a certain number, they can’t tell you, for example, which number is higher than 24. Only after they’ve learned the rule can they actually apply it productively.&lt;/p&gt;
+
+&lt;p&gt;The tolerance principle implies that if the total number of examples covered by the rule is smaller, it is easier to incorporate comparatively more exceptions. While children can productively learn language from few examples, this indicates that for few-shot learning (at least in the cognitive process of language acquisition), big data may actually be harmful. Insights from cognitive science may thus help us in developing models that generalize better.&lt;/p&gt;
+
+&lt;p&gt;The choice of the best paper of the conference, &lt;a href="https://arxiv.org/abs/1802.05365"&gt;Deep contextualized word representations&lt;/a&gt;, also demonstrates an increasing interest in generalization. Embeddings from Language Models (ELMo) showed significant improvements over the state-of-the-art on a wide range of tasks as can be seen below. This---together with &lt;a href="https://arxiv.org/abs/1801.06146"&gt;better ways to fine-tune pre-trained language models&lt;/a&gt;---reveals the potential of transfer learning for NLP.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180604_160920_elmo.jpg" style="width: 70%" title="ELMo improvements" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 2: Improvements by ELMo on six diverse NLP tasks&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;Generalization was also the topic of the &lt;a href="https://newgeneralization.github.io/"&gt;Workshop on New Forms of Generalization in Deep Learning and Natural Language Processing&lt;/a&gt;, which sought to analyze the failings of brittle models and propose new ways to evaluate and new models that would enable better generalization. Throughout the workshop, the room (seen below) was packed most of the time, which is both a testament to the prestige of the speakers and the community interest in the topic.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180605_110109_gendeep_room.jpg" style="width: 70%" title="Gen-Deep 2018" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 3: The packed venue of the Gen-Deep Workshop&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;In the &lt;a href="https://newgeneralization.github.io/slides/YejinChoi.pdf"&gt;first talk of the workshop&lt;/a&gt;, Yejin Choi argued that natural language understanding (NLU) does not generalize to natural language generation (NLG): while pre-Deep Learning NLG models often started with NLU output, post-DL NLG seems less dependent on NLU. However, current neural NLG heavily depends on language models and neural NLG can be brittle; in many cases, baselines based on templates can actually work better.&lt;/p&gt;
+
+&lt;p&gt;Despite advances in NLG, generating a coherent paragraph still does not work well and models end up generating generic, contentless, bland text full of repetitions and contradictions. But if we feed our models natural language input, why do they produce unnatural language output?&lt;/p&gt;
+
+&lt;p&gt;Yejin identified two limitations of language models in this context. Language models are passive learners: in the real world, one can’t learn to write just by reading; and similarly, she argued, even RNNs need to “practice” writing. Secondly, language models are surface learners: they need “world” models and must be sensitive to the “latent process” behind language. In reality, people don’t write to maximize the probability of the next token, but rather seek to fulfill certain communicative goals.&lt;/p&gt;
+
+&lt;p&gt;To address this, Yejin and collaborators proposed in an &lt;a href="https://arxiv.org/abs/1805.06087"&gt;upcoming ACL 2018 paper&lt;/a&gt; to augment the generator with multiple discriminative models that grade the output along different dimensions inspired by Grice’s maxims.&lt;/p&gt;
+
+&lt;p&gt;Yejin also sought to explain why there is a significant performance gaps between different NLU tasks such as machine translation and dialogue. For Type 1 or shallow NLU tasks, there is a strong alignment between input and output and models can often match surface patterns. For Type 2 or deep NLU tasks, the alignment between input and output is weaker; in order to perform well, a model needs to be able to abstract and reason, and requires certain types of knowledge, especially common sense knowledge. In particular, commonsense knowledge has somewhat fallen out of favour; past approaches, which were mostly proposed in the 80s, did not have access to a lot of computing power and were mostly done by non-NLP people. Overall, NLU traditionally focuses on understanding only “natural” language, while NLG also requires understanding machine language, which may be unnatural.&lt;/p&gt;
+
+&lt;p&gt;Devi Parikh discussed &lt;a href="https://newgeneralization.github.io/slides/DeviParikh.pptx"&gt;generalization “opportunities” in visual question answering&lt;/a&gt; (VQA) and illustrated successes and failures of VQA models. In particular, VQA models are not very good at generalizing to novel instances; the distance of a test image from the k-nearest neighbours seen during training can predict the success or failure of a model with about 67% accuracy.&lt;/p&gt;
+
+&lt;p&gt;Devi also showed that in many cases, VQA models do not even consider the entire question: in 50% of cases, only half the question is read. In particular, certain prefixes demonstrate the power of language priors: if the question begins with “Is there a clock…?”, the answer is “yes” 98% of the time; if the question begins with “Is the man wearing glasses…?”, the answer is “yes” 94% of the time. In order to counteract these biases, Devi and her collaborators introduced a &lt;a href="https://arxiv.org/abs/1612.00837"&gt;new dataset of complimentary scenes&lt;/a&gt;, which are very similar but differ in their answers. They also proposed a &lt;a href="https://arxiv.org/abs/1712.00377"&gt;new setting for VQA&lt;/a&gt; where for every question type, train and test sets have different prior distributions of answers.&lt;/p&gt;
+
+&lt;p&gt;The final discussion with senior panelists (seen below) was arguably the highlight of the workshop; a summary can be found &lt;a href="https://twitter.com/seb_ruder/status/1004110419563286529"&gt;here&lt;/a&gt;. The main takeaways are that we need to develop models with inductive biases and that we need to do a better job of educating people on how to design experiments and identify biases in datasets.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180605_161710_panel.jpg" style="width: 100%" title="Gen-Deep 2018 panel" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 4: Panel discussion at the Generalization workshop (from left to right: Chris Manning, Percy Liang, Sam Bowman, Yejin Choi, Devi Parikh)&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;h2 id="testoftimeawards"&gt;Test-of-time awards&lt;/h2&gt;
+
+&lt;p&gt;Another highlight of the conference was the test-of-time awards session, which highlighted persons and papers that had a huge impact on the field. At the beginning of the session, Aravind Yoshi (see below), NLP pioneer and professor of Computer Science at the University of Pennsylvania, who passed away on December 31, 2017 was honored in touching epitaphs by close friends and people who knew him. The commemoration was a powerful reminder that research is about more than the papers we publish, but about the people we help and the lives we touch.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180603_170850_aravind_joshi.jpg" style="width: 70%" title="Aravind Joshi" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 5: Aravind Joshi&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;Afterwards, three papers (all published in 2002) were honored with &lt;a href="https://naacl2018.wordpress.com/2018/03/22/test-of-time-award-papers/"&gt;test-of-time awards&lt;/a&gt;. For each paper, one of the original authors presented the paper and reflected on its impact. The first paper presented was &lt;a href="https://www.aclweb.org/anthology/P02-1040.pdf"&gt;BLEU: a Method for Automatic Evaluation of Machine Translation&lt;/a&gt;, which introduced the original BLEU metric, now commonplace in machine translation (MT). Kishore Papineni recounted that the name was inspired by &lt;a href="http://www.cs.cmu.edu/~aberger/mt.html"&gt;Candide&lt;/a&gt;, an experimental MT system at IBM in the early 1990s and by IBM’s nickname, Big Blue, as all authors were at IBM at that time.&lt;/p&gt;
+
+&lt;p&gt;Before BLEU, machine translation evaluation was cumbersome, expensive, and thought to be as difficult as training an MT model. Despite its huge impact, BLEU’s creators were apprehensive before its initial publication. Once published, BLEU seemed to split the community in two camps: those who loved it, and those who hated it; the authors hadn’t expected such a strong reaction.&lt;/p&gt;
+
+&lt;p&gt;BLEU is still criticized today. It was meant as a corpus-level metric; individual sentence errors should be averaged out across the entire corpus. Kishore conceded that in hindsight, they made a few mistakes: they should have included smoothing and statistical significance testing; an initial version was also case insensitive, which caused confusion.&lt;/p&gt;
+
+&lt;p&gt;In summary, BLEU has many known limitations and inspired many colorful variants. On the whole, however, it is an understudy (as the acronym BiLingual Evaluation Understudy implies): it was never meant to replace human judgement and---notably---was never expected to last this long.&lt;/p&gt;
+
+&lt;p&gt;The second honored paper was &lt;a href="http://www.aclweb.org/anthology/W02-1001"&gt;Discriminative Training Methods for Hidden Markov Models: Theory and Experiments with Perceptron Algorithms&lt;/a&gt; by Michael Collins, which introduced the Structured Perceptron, one of the foundational and easiest to understand algorithms for general structured prediction.&lt;/p&gt;
+
+&lt;p&gt;Lastly, Bo Pang looked back on her paper &lt;a href="http://www.aclweb.org/anthology/W02-1011"&gt;Thumbs up? Sentiment Classification using Machine Learning Techniques&lt;/a&gt;, which was the first paper of her PhD and one of the first papers on sentiment analysis, now an active research area in the NLP community. Prior to the paper, people had worked on classifying the subjectivity of sentences and the semantic orientation (polarity) of adjectives; sentiment classification was thus a natural progression.&lt;/p&gt;
+
+&lt;p&gt;Over the years, the paper has accumulated more than 7,000 citations. One reason why the paper was so impactful was that the authors decided to release a dataset with it. Bo was critical of the sampling choices they made that “messed” with the natural distribution of the data: they capped the number of reviews of prolific authors, which was probably a good idea. However, they sampled an equal number of positive and negative reviews, which set the standard that many approaches later followed and is still the norm for sentiment analysis today. A better idea might have been to stay true to the natural distribution of the data.&lt;/p&gt;
+
+&lt;p&gt;I found the test-of-time award session both insightful and humbling: we can derive many insights from traditional approaches and combining traditional with more or recent approaches is often a useful direction; at the same time, even the authors of landmark papers are critical of their own work and aware of its own flaws.&lt;/p&gt;
+
+&lt;h2 id="dialoguesystems"&gt;Dialogue systems&lt;/h2&gt;
+
+&lt;p&gt;Another pervasive topic at the conference was dialogue systems. On the first day, researchers from PolyAI gave an excellent &lt;a href="https://www.poly-ai.com/naacl18"&gt;tutorial on Conversational AI&lt;/a&gt;. On the second day, Mari Ostendorf, professor of Electrical Engineering at the University of Washington and faculty advisor to the Sounding Board team, which won the inaugural Alexa Prize competition, shared some of the secrets to their winning socialbot. A socialbot in this context is a bot with which you can have a conversation, in contrast to a personal assistant that is designed to accomplish user-specified goals.&lt;/p&gt;
+
+&lt;p&gt;A good socialbot should have the same qualities as someone you enjoy talking to at a cocktail party: it should have something interesting to say and show interest in the conversation partner. To illustrate this, an example conversation with the Sounding Board bot can be seen below.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180602_141024_alexa_prize_conversation.jpg" style="width: 70%" title="Sounding Board bot conversation" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 6: An example conversation with the Sounding Board bot&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;With regard to saying something interesting, the team found that users react positively to learning something new but negatively to old or unpleasant news; a challenge here is to filter what to present to people. In addition, users lose interest when they receive too much content that they do not care about.&lt;/p&gt;
+
+&lt;p&gt;Regarding expressing interest, users appreciate an acknowledgement of their reactions and requests. While some users need encouragement to express opinions, some prompts can be annoying (“The article mentioned Google. Have you heard of Google?”).&lt;/p&gt;
+
+&lt;p&gt;They furthermore found that modeling prosody is important. Prosody deals with modeling the patterns of stress and intonation in speech. Instead of sounding monotonous, a bot that incorporates prosody seems more engaging, can better articulate intent, communicate sentiment or sarcasm, express empathy or enthusiasm, or change the topic. In some cases, prosody is also essential for avoiding---often hilarious---misunderstandings: for instance, the Alexa’s default voice pattern for ‘Sounding Board’ sounds like ‘Sounding Bored’.&lt;/p&gt;
+
+&lt;p&gt;Using a knowledge graph, the bot can have deeper conversations by staying “sort of on topic without totally staying on topic”. Mari also shared four key lessons that they learned working with 10M conversations:&lt;/p&gt;
+
+&lt;h3 id="lesson1asrisimperfect"&gt;Lesson #1: ASR is imperfect&lt;/h3&gt;
+
+&lt;p&gt;While automatic speech recognition (ASR) has reached lower and lower word error rates in recent years, ASR is far from being solved. In particular, ASR in dialogue agents is tuned for short commands, not conversational speech. Whereas it can accurately identify for instance many obscure music groups, it struggles with more conversational or informal input. In addition, current development platforms provide developers with an impoverished representation of speech that does not contain segmentation or prosody and often misses certain intents and affects. Problems caused by this missing information can be seen below.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180602_142859_prosody.jpg" style="width: 70%" title="Problems caused by missing prosody information" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 7: Problems caused by missing prosody information and missing punctuation&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;In practice, the Sounding Board team found it helpful for the socialbot to behave similarly to attendees at a cocktail party: if the intent of the entire utterance is not completely clear, the bot responds to whatever part it understood, e.g. to a somewhat unintelligible “cause does that you’re gonna state that’s cool” it might respond “I’m happy you like that.” They also found that often, asking the conversation partner to repeat an utterance will not yield a much better result; instead, it is often better just to change the topic.&lt;/p&gt;
+
+&lt;h3 id="lesson2usersvary"&gt;Lesson #2: Users vary&lt;/h3&gt;
+
+&lt;p&gt;The team discovered something what might seem obvious but has wide-ranging consequences in practice: users vary a lot across different dimensions. Users have different interests, different opinions on issues, and a different sense of humor. Interaction styles, similarly, can range from terse to verbose (seen below), from polite to rude. Users can also interact with the bot in pursuit of widely different goals: they may seek information, intend to share opinions, try to get to know the bot, or seek to explore the limitations of the bot. Modeling the user involves both determining what to say as well as listening to what the user says.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180602_143521_interaction_styles.jpg" style="width: 70%" title="Interaction styles of talkative and terse users" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 8: Interaction styles of talkative and terse users&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;h3 id="lesson3itsawildworld"&gt;Lesson #3: It’s a wild world&lt;/h3&gt;
+
+&lt;p&gt;There is a lot of problematic content and many issues exist that need to be navigated. Problematic content can consist of offensive or controversial material or sensitive and depressing topics. In addition, users might act adversarially and deliberately try to get the bot to produce such content. Examples of such behaviour can be seen below. Other users (e.g. such as those suffering from a mental illness) are in turn risky to deal with. Overall, filtering content is a hard problem. As one example, Mari mentioned that early in the project, the bot made the following witty observation / joke: “You know what I realized the other day? Santa Claus is the most elaborate lie ever told”.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180602_143955_adversarial_users.jpg" style="width: 70%" title="Adversarial user examples" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 9: Adversarial user examples&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;h3 id="lesson4shallowconversations"&gt;Lesson #4: Shallow conversations&lt;/h3&gt;
+
+&lt;p&gt;As the goal of the Alexa Prize was to maintain a conversation of 20 minutes, in light of the current limited understanding and generation capabilities, the team focused on a dialog strategy of shallow conversations. Even for shallow conversations, however, switching to related topics can still be fragile due to word sense ambiguities. It is notable that among the top 3 Alexa Prize teams, &lt;a href="https://arxiv.org/abs/1712.07558"&gt;Deep Learning was only used by one team and only for reranking&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In total, a competition such as the Alexa Prize that brings academia and industry together is useful as it allows researchers to access data from real users at a large scale, which impacts the problems they choose to solve and the resulting solutions. It also teaches students about complete problems and real-world challenges and provides funding support for students. The team found it in particular beneficial someone from industry available to support the partnership, to provide advice on tools, and feedback on progress.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, privacy-preserving access to user data, such as prosody info for spoken language and speaker/author demographics for text and speech still needs work. For spoken dialog systems, richer speech interfaces are furthermore necessary. Finally, while competitions are great kickstarters, they nevertheless require a substantial engineering effort.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Finally, in her keynote address on dialogue models, Dilek Hakkani-Tür, Research Scientist at Google Research, argued that over the recent years, chitchat systems and task-oriented dialogue systems have been converging. However, current production systems are essentially a walled garden of domains and only allow directed dialogue and limited personalization. Models have to be learned from developers using a limited set of APIs and tools and are hard to scale. At the same time, conversation is a skill even for humans. It is thus important to learn from real users, not from developers.&lt;/p&gt;
+
+&lt;p&gt;In order to learn &lt;i&gt;about&lt;/i&gt; users, we can leverage personal knowledge graphs learned from user assertions, such as “show me directions to my daughter’s school”. Semantic recall, i.e. remembering entities from previous user interactions, e.g. “Do you remember the restaurant we ordered Asian food from?” is important. Personalized natural language understanding can also leverage data from user’s device (in a privacy-preserving manner) and employ user modeling for dialogue generation.&lt;/p&gt;
+
+&lt;p&gt;For learning &lt;i&gt;from&lt;/i&gt; users, actions can be learned from user demonstration and/or explanation or from experience and feedback (mostly using RL for dialogue systems). In both cases, transcription and annotation are bottlenecks. A user can’t be expected to transcribe or annotate data; on the other hand, it is easier to give feedback after the system repeats an utterance.&lt;/p&gt;
+
+&lt;p&gt;Generally, task-oriented dialogue can be treated as a game between two parties (see below): the seeker has a goal, which is fixed or flexible, while the provider has access to APIs to perform the task. The dialogue policy of the seeker decides the next seeker action. This is typically determined using “user simulators”, which are often sequence-to-sequence models. Most recently, hierarchical sequence-to-sequence models have been used with a focus on following the user goals and generating diverse responses.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180604_091136_task-oriented_dialogue_game.jpg" style="width: 70%" title="Task-oriented dialogue as a game" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 10: Task-oriented dialogue as a game&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;The dialogue policy of the provider similarly determines the next provider action, which is realized either via supervised or reinforcement learning (RL). For RL, reward estimation and policy shaping are important. Recent approaches jointly learn seeker and provider policies. End-to-end dialogue models with deep RL are critical for learning from user feedback, while component-wise training benefits from additional data for each component.&lt;/p&gt;
+
+&lt;p&gt;In practice, a combination of supervised and reinforcement learning is best and outperforms both purely supervised learning and supervised learning with policy-only RL as can be seen below.&lt;/p&gt;
+
+&lt;figure&gt;  
+      &lt;img src="http://ruder.io/content/images/2018/06/IMG_20180604_094901_supervised-rl.jpg" style="width: 70%" title="Supervised and reinforcement learning for dialogue modeling" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;
+&lt;figcaption&gt;Figure 11: Supervised and reinforcement learning for dialogue modeling&lt;/figcaption&gt;  
+&lt;/figure&gt;
+
+&lt;p&gt;Overall, the conference was a great opportunity to see fantastic research and meet great people. See you all at ACL 2018!&lt;/p&gt;</content:encoded></item><item><title>An overview of proxy-label approaches for semi-supervised learning</title><description>&lt;p&gt;Note: Parts of this post are based on my ACL 2018 paper &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with &lt;a href="http://www.let.rug.nl/bplank/"&gt;Barbara Plank&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Table of contents:&lt;/p&gt;
 
@@ -3016,7 +3195,89 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
-&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>A survey of cross-lingual embedding models</title><description>&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>News</title><description>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
+
+&lt;p&gt;16.-20.07.18: I will be attending &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt; in Melbourne and presenting 3 papers. Let me know if you're around and would like to chat.&lt;/p&gt;
+
+&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id="past"&gt;Past&lt;/h1&gt;
+
+&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;</description><link>http://ruder.io/news/</link><guid isPermaLink="false">acc3aa19-ab08-418c-842c-ddae0887b3b7</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:47:27 GMT</pubDate><content:encoded>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
+
+&lt;p&gt;16.-20.07.18: I will be attending &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt; in Melbourne and presenting 3 papers. Let me know if you're around and would like to chat.&lt;/p&gt;
+
+&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id="past"&gt;Past&lt;/h1&gt;
+
+&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;
+
+&lt;p&gt;01.-06.07.18: I attended &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presented &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; and &lt;a href="https://arxiv.org/abs/1804.00982"&gt;360° Stance Detection&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;05.06.18: I did an &lt;a href="https://soundcloud.com/nlp-highlights/57-a-survey-of-cross-lingual-word-embedding-models-with-sebastian-ruder"&gt;interview on cross-lingual word embeddings&lt;/a&gt; with Matt Gardner and Waleed Ammar from the NLP Highlights podcast.&lt;/p&gt;
+
+&lt;p&gt;21.05.18: I gave the academic keynote on &lt;a href="https://www.slideshare.net/SebastianRuder/successes-and-frontiers-of-deep-learning"&gt;Successes and Frontiers of Deep Learning&lt;/a&gt; at the &lt;a href="https://www.eventbrite.ie/e/insightdcu-deep-learning-workshop-tickets-45474212594"&gt;Insight@DCU: Deep Learning Workshop&lt;/a&gt; in Dublin.&lt;/p&gt;
+
+&lt;p&gt;20.04.18: 3 papers accepted at &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt;! &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with Barbara Plank, &lt;a href="https://arxiv.org/abs/1801.06146"&gt;Universal Language Model Fine-tuning for Text Classification&lt;/a&gt; with Jeremy Howard, and &lt;a href="https://arxiv.org/abs/1805.03620"&gt;On the Limitations of Unsupervised Bilingual Dictionary Induction&lt;/a&gt; with Anders Søgaard and Ivan Vulić.&lt;/p&gt;
+
+&lt;p&gt;01.04.18: My paper &lt;a href="https://arxiv.org/abs/1804.00982"&gt;360° Stance Detection&lt;/a&gt; with John Glover, Afshin Mehrabani, and Parsa Ghaffari was accepted as a demonstration to &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;30.03.18: My paper &lt;a href="https://arxiv.org/abs/1706.04902"&gt;A Survey Of Cross-lingual Word Embedding Models&lt;/a&gt; with Ivan Vulić and Anders Søgaard was accepted to the &lt;a href="http://www.jair.org/"&gt;Journal of Artificial Intelligence Research&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;14.02.2018: My paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; with Isabelle Augenstein and Anders Søgaard was accepted as an oral presentation at &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="2017"&gt;2017&lt;/h2&gt;
+
+&lt;p&gt;24.11.17: I gave a &lt;a href="https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning"&gt;guest lecture on Optimization for Deep Learning&lt;/a&gt; in the Advanced Topics in Computational Intelligence course at the Dublin Institute for Technology.&lt;/p&gt;
+
+&lt;p&gt;08.11.17: My startup Aylien has &lt;a href="https://aylien.com/ai-startup-aylien-announces-2m-investment-and-the-creation-of-70-jobs/"&gt;raised €2m new funding&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;13.10.17: I gave a &lt;a href="https://talks.cam.ac.uk/talk/index/80741"&gt;talk on transfer learning for NLP at Cambridge, UK&lt;/a&gt; and was invited by &lt;a href="https://alexgkendall.com/"&gt;Alex Kendall&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;12.10.17: I gave a &lt;a href="https://www.meetup.com/South-England-Natural-Language-Processing-Meetup/events/242617956/"&gt;talk on transfer learning for NLP at The Alan Turing Institute&lt;/a&gt; and was invited by &lt;a href="http://pontus.stenetorp.se/"&gt;Pontus Stenetorp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;25.-27.09.17: I attended the second Google NLP Summit in Zurich.&lt;/p&gt;
+
+&lt;p&gt;07.-11.09.17: I attended &lt;a href="http://emnlp2017.net/"&gt;EMNLP 2017&lt;/a&gt; in Copenhagen, Denmark and presented &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;a poster&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;01.07.17: My paper with Barbara Plank &lt;a href="https://arxiv.org/abs/1707.05246"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt; was accepted to EMNLP 2017.&lt;/p&gt;
+
+&lt;p&gt;31.05.17: I gave a talk on transfer learning for NLP at the &lt;a href="https://www.meetup.com/Natural-Language-Processing-Copenhagen-Meetup/events/240082070/"&gt;Natural Language Processing Copenhagen meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;April - June '17: I was visiting the &lt;a href="http://coastalcph.github.io/"&gt;NLP group&lt;/a&gt; at the Department of Computer Science, University of Copenhagen and was hosted by &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;03.03.17: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at Accenture, Dublin and was invited by &lt;a href="https://www.linkedin.com/in/dcahalane"&gt;Diarmuid Cahalane&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;01.03.17: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at LinkedIn, Dublin and was invited by &lt;a href="http://yazdani.me/"&gt;Majid Yazdani&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="2016"&gt;2016&lt;/h2&gt;
+
+&lt;p&gt;13.12.16. I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/nips-2016-highlights-sebastian-ruder"&gt;NIPS 2016 highlights&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/235149644/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;05.-10.12.16: I attended &lt;a href="https://nips.cc/"&gt;NIPS 2016&lt;/a&gt; in Barcelona, Spain. &lt;a href="http://sebastianruder.com/highlights-nips-2016/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;01.-05.11.16: I attended &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt; in Austin, Texas. &lt;a href="http://sebastianruder.com/emnlp-2016-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;02.11.16: We've announced &lt;a href="http://blog.aylien.com/funded-phd-masters-opportunities-aylien/"&gt;funded PhD and Master's opportunities&lt;/a&gt; at AYLIEN.&lt;/p&gt;
+
+&lt;p&gt;09.09.16: My paper &lt;a href="http://aclweb.org/anthology/W/W16/W16-6012.pdf"&gt;&lt;em&gt;Towards a continuous modeling of natural language domains&lt;/em&gt;&lt;/a&gt; has been accepted at the Uphill Battles in Language Processing workshop at EMNLP 2016.&lt;/p&gt;
+
+&lt;p&gt;24.08.16: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/a-hierarchical-model-of-reviews-for-aspectbased-sentiment-analysis"&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/a&gt; at the Insight SIG NLP meeting at NUIG.&lt;/p&gt;
+
+&lt;p&gt;11.-12.08.16: I attended the &lt;a href="https://sites.google.com/site/repl4nlp2016/"&gt;RepL4NLP&lt;/a&gt; and &lt;a href="https://sites.google.com/site/repevalacl16/"&gt;RepEval&lt;/a&gt; workshops at &lt;a href="http://acl2016.org/"&gt;ACL 2016&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;03.08.16: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/softmax-approximations-for-learning-word-embeddings-and-language-modeling-sebastian-ruder"&gt;Softmax Approximations for Learning Word Embeddings and Language Modeling&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/232278017/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;29.07.16: My paper &lt;a href="https://arxiv.org/pdf/1609.02745v1.pdf"&gt;&lt;em&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/em&gt;&lt;/a&gt; has been accepted to EMNLP 2016.&lt;/p&gt;
+
+&lt;p&gt;21.-28.07.16: I attended the &lt;a href="http://lxmls.it.pt/2016/"&gt;6th Lisbon Machine Learning School&lt;/a&gt;. &lt;a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;July '16: I started organizing the &lt;a href="http://www.meetup.com/NLP-Dublin/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;21.-24.03.16: I attended the &lt;a href="http://ivl-net.eu/ivl-net-training-school-2016/"&gt;2nd Summer School on Integrating Vision and Language&lt;/a&gt; with a focus on Deep Learning in Malta.&lt;/p&gt;
+
+&lt;p&gt;February '16: Two papers accepted at the SemEval-2016 tasks 4, &lt;a href="http://alt.qcri.org/semeval2016/task4/"&gt;Twitter Sentiment Analysis&lt;/a&gt; and 5, &lt;a href="http://alt.qcri.org/semeval2016/task5/"&gt;Aspect-based Sentiment Analysis&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>A survey of cross-lingual embedding models</title><description>&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In past blog posts, we discussed different &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;models&lt;/a&gt;, &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;objective functions&lt;/a&gt;, and &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;hyperparameter choices&lt;/a&gt; that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations&lt;/p&gt;</description><link>http://ruder.io/cross-lingual-embeddings/</link><guid isPermaLink="false">9337835e-1bdf-4fa1-acd1-f23a262380ac</guid><category>word embeddings</category><category>deep learning</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/10/zou_et_al_2013.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/10/zou_et_al_2013.png" alt="A survey of cross-lingual embedding models"&gt;&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
 
@@ -3918,290 +4179,4 @@ Upadhyay et al. [&lt;sup id="fnref:31"&gt;&lt;a href="http://ruder.io/cross-ling
 
 &lt;li class="footnote" id="fn:39"&gt;&lt;p&gt;Landauer, T. K. &amp;amp; Dumais, S. T. (1997). A solution to Plato’s problem: the latent semantic analysis theory of acquisition, induction and representation of knowledge, Psychological Review, 104(2), 211-240. &lt;a href="http://ruder.io/cross-lingual-embeddings/#fnref:39" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
-&lt;p&gt;Cover image courtesy of Zou et al. (2013)&lt;/p&gt;</content:encoded></item><item><title>Highlights of EMNLP 2016: Dialogue, deep learning, and more</title><description>&lt;p&gt;&lt;em&gt;This post originally appeared on the &lt;a href="http://blog.aylien.com/highlights-emnlp-2016-dialogue-deeplearning-and-more/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I spent the past week in Austin, Texas at &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt;, the Conference on Empirical Methods in Natural Language Processing.&lt;/p&gt;
-
-&lt;p&gt;There were a lot of papers at the conference (179 long papers, 87 short papers, and 9 TACL papers all in all)&lt;/p&gt;</description><link>http://ruder.io/emnlp-2016-highlights/</link><guid isPermaLink="false">f6de1480-bbe8-4681-b822-d06e812602a1</guid><category>natural language processing</category><category>deep learning</category><category>machine learning</category><category>word embeddings</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 14 Nov 2016 12:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/11/emnlp_cover_image.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/11/emnlp_cover_image.jpg" alt="Highlights of EMNLP 2016: Dialogue, deep learning, and more"&gt;&lt;p&gt;&lt;em&gt;This post originally appeared on the &lt;a href="http://blog.aylien.com/highlights-emnlp-2016-dialogue-deeplearning-and-more/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I spent the past week in Austin, Texas at &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt;, the Conference on Empirical Methods in Natural Language Processing.&lt;/p&gt;
-
-&lt;p&gt;There were a lot of papers at the conference (179 long papers, 87 short papers, and 9 TACL papers all in all) -- too many to read each single one. The entire program can be found &lt;a href="http://www.emnlp2016.net/proceedings/2016-emnlp-handbook.pdf"&gt;here&lt;/a&gt;. In the following, I will highlight some trends and papers that caught my eye:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Reinforcement learning&lt;/strong&gt;: One thing that stood out was that RL seems to be slowly finding its footing in NLP, with more and more people using it to solve complex problems:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/emnlp-2016-highlights/(https://arxiv.org/pdf/1608.05604.pdf"&gt;Hahn and Keller&lt;/a&gt; model human reading;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.07317.pdf"&gt;Miao and Blunsom&lt;/a&gt; summarise sentences;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.01541.pdf"&gt;Li et al.&lt;/a&gt; generate dialogues;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.03667.pdf"&gt;He et al.&lt;/a&gt; predict reddit threads;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.08667.pdf"&gt;Clark and Manning&lt;/a&gt; perform coreference resolution;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1603.07954.pdf"&gt;Narasimhan et al.&lt;/a&gt; query the web for additional evidence to improve information extraction in one of the two best papers.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Dialogue&lt;/strong&gt;: Dialogue was a focus of the conference with all of the three keynote speakers dealing with different aspects of dialogue: Christopher Potts talked about pragmatics and how to reason about the intentions of the conversation partner; Stefanie Tellex concentrated on how to use dialogue for human-robot collaboration; finally, Andreas Stolcke focused on the problem of addressee detection in his talk. Among the papers, a few that dealt with dialogue stood out:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1604.00562.pdf"&gt;Andreas and Klein&lt;/a&gt; model pragmatics in dialogue with neural speakers and listeners;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1603.08023.pdf"&gt;Liu et al.&lt;/a&gt; show how &lt;em&gt;not&lt;/em&gt; to evaluate your dialogue system;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.aclweb.org/anthology/D/D16/D16-1231.pdf"&gt;Ouchi and Tsuboi&lt;/a&gt; select addressees and responses in multi-party conversations;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://arxiv.org/abs/1606.03352"&gt;Wen et al.&lt;/a&gt; study diverse architectures for dialogue modelling. &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Sequence-to-sequence&lt;/strong&gt;: Seq2seq models were again front and center. It is not common for a method to have its own session two years after its introduction &lt;a href="http://arxiv.org/abs/1409.3215\nhttp://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks"&gt;(Sutskever et al., 2014)&lt;/a&gt;. While in the past years, many papers employed seq2seq e.g. for Neural Machine Translation, some papers this year focused on improving the seq2seq framework:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.02960.pdf"&gt;Wiseman and Rush&lt;/a&gt; extend seq2seq to learn global sequence scores;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.08194"&gt;Yu et al.&lt;/a&gt; perform online seq2seq learning;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.07947"&gt;Kim and Rush&lt;/a&gt; extend Knowledge Distillation (&lt;a href="https://arxiv.org/pdf/1503.02531.pdf"&gt;Hinton et al., 2015&lt;/a&gt;) to seq2seq learning;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.09552.pdf"&gt;Kikuchi et al.&lt;/a&gt; propose a method to control the output length in seq2seq models.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Semantic parsing&lt;/strong&gt;: Since seq2seq's use for dialogue modelling was popularised by &lt;a href="https://arxiv.org/pdf/1506.05869.pdf (http://arxiv.org/pdf/1506.05869.pdf)"&gt;Vinyals and Le&lt;/a&gt;, it is harder to get it to work with goal-oriented tasks that require an intermediate representation on which to act. Semantic parsing is used to convert a message into a more meaningful representation that can be used by another component of the system. As this technique is useful for sophisticated dialogue systems, it is great to see progress in this area:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1015.pdf"&gt;Yaruz et al.&lt;/a&gt; infer answer types for semantic parsing;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.07046.pdf"&gt;Krishnamurthy et al.&lt;/a&gt; parse to probabilistic programs;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.09315.pdf"&gt;Kocisky et al.&lt;/a&gt; perform semantic parsing with semi-supervised sequential auto encoders.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;X-to-text (or natural language generation)&lt;/strong&gt;: While mapping from text-to-text with the seq2seq paradigm is still prevalent, EMNLP featured some cool papers on natural language generation from other inputs:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1032.pdf"&gt;Kiddon et al.&lt;/a&gt; map from a recipe name and ingredients to a recipe by ticking of items off a checklist;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1126.pdf"&gt;Ghazvininejad et al.&lt;/a&gt; generate a poem based on a topic;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.03821.pdf"&gt;Monroe et al.&lt;/a&gt; map from a color to its name;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1610.06210.pdf"&gt;Koncel-Kedziorski et al.&lt;/a&gt; re-write the theme of an algebra problem (think: boring physics book to Star Wars);&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://arxiv.org/abs/1603.07771"&gt;Lebret et al.&lt;/a&gt; generate biographical sentences from Wikipedia fact tables.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Parsing&lt;/strong&gt;: Parsing and syntax are a mainstay of every NLP conference and the community seems to particularly appreciate innovative models that push the state-of-the-art in parsing: The ACL '16 outstanding paper by &lt;a href="https://arxiv.org/pdf/1603.06042.pdf"&gt;Andor et al.&lt;/a&gt; introduced a globally normalized model for parsing, while the best EMNLP ‘16 paper by &lt;a href="https://arxiv.org/pdf/1607.01432.pdf"&gt;Lee et al.&lt;/a&gt; combines a global parsing model with a local search over subtrees.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Word embeddings&lt;/strong&gt;: There were still papers on word embeddings, but it felt less overwhelming than at the past EMNLP or ACL, with most methods trying to fix a particular flaw rather than training embeddings for embeddings' sake. &lt;a href="https://arxiv.org/pdf/1608.01961.pdf"&gt;Pilevhar and Collier&lt;/a&gt; de-conflate senses in word embeddings, while &lt;a href="https://arxiv.org/pdf/1607.02789.pdf"&gt;Wieting et al.&lt;/a&gt; achieve state-of-the-art results for character-based embeddings.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sentiment analysis&lt;/strong&gt;: Sentiment analysis has been popular in recent years (as attested by the introductions of many recent papers on sentiment analysis). Sadly, many of the conference papers on sentiment analysis reduce to leveraging the latest deep neural network for the task to beat the previous state-of-the-art without providing additional insights. There are, however, some that break the mold: &lt;a href="http://www.aclweb.org/anthology/D/D16/D16-1169.pdf"&gt;Teng et al.&lt;/a&gt; find an effective way to incorporate sentiment lexicons into a neural network, while &lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1173.pdf"&gt;Hu et al.&lt;/a&gt; incorporate structured knowledge into their sentiment analysis model.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Deep Learning&lt;/strong&gt;: By now, it is clear to everyone: Deep Learning is here to stay. In fact, &lt;em&gt;deep learning&lt;/em&gt; and &lt;em&gt;neural networks&lt;/em&gt; claimed the two top spots of keywords that were used to describe the submitted papers. The majority of papers used at least an LSTM; using no neural network seems almost contrarian now and is something that needs to be justified. However, there are still many things that need to be improved -- which leads us to...&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Uphill Battles&lt;/strong&gt;: While making incremental progress is important to secure grants and publish papers, we should not lose track of the long-term goals. In this spirit, one of the best workshops that I've attended was the &lt;em&gt;Uphill Battles in Language Processing&lt;/em&gt; workshop, which featured 12 talks and not one, but &lt;em&gt;four&lt;/em&gt; all-star panels on text understanding, natural language generation, dialogue and speech, and grounded language. Summaries of the panel discussions should be available soon at the &lt;a href="http://www.coli.uni-saarland.de/~mroth/UphillBattles/"&gt;workshop website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This was my brief review of some of the trends of EMNLP 2016. I hope it was helpful.&lt;/p&gt;
-
-&lt;p&gt;Cover image credit: &lt;a href="https://www.flickr.com/photos/148956535@N07/"&gt;Jackie Cheung&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>On word embeddings - Part 3: The secret ingredients of word2vec</title><description>&lt;p&gt;Table of Contents:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#glove"&gt;GloVe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#wordembeddingsvsdistributionalsemanticsmodels"&gt;Word embeddings vs. distributional semantic models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#models"&gt;Models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#hyperparameters"&gt;Hyperparameters&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#results"&gt;Results&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors, i.e. the secret ingredients that account for the success&lt;/p&gt;</description><link>http://ruder.io/secret-word2vec/</link><guid isPermaLink="false">782bde93-e9c5-407a-9655-0eceaab5cd7f</guid><category>word embeddings</category><category>deep learning</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Sat, 24 Sep 2016 10:48:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg" alt="On word embeddings - Part 3: The secret ingredients of word2vec"&gt;&lt;p&gt;Table of Contents:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#glove"&gt;GloVe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#wordembeddingsvsdistributionalsemanticsmodels"&gt;Word embeddings vs. distributional semantic models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#models"&gt;Models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#hyperparameters"&gt;Hyperparameters&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#results"&gt;Results&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors, i.e. the secret ingredients that account for the success of word2vec. &lt;br&gt;
-In particular, I want to focus on the connection between word embeddings trained via neural models and those produced by traditional distributional semantics models (DSMs). By showing how these ingredients can be transferred to DSMs, I will demonstrate that distributional methods are in no way inferior to the popular word embedding methods. &lt;br&gt;
-Even though this is no new insight, I feel that traditional methods are frequently overshadowed amid the deep learning craze and their relevancy consequently deserves to be mentioned more often.&lt;/p&gt;
-
-&lt;p&gt;To this effect, the paper on which this blog post is based is &lt;em&gt;Improving Distributional Similarity with Lessons Learned from Word Embeddings&lt;/em&gt; [&lt;sup id="fnref:1"&gt;&lt;a href="http://ruder.io/secret-word2vec/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] by Levy et al. (2015). If you haven't read it, I recommend you to check it out.&lt;/p&gt;
-
-&lt;p&gt;Over the course of this blog post, I will first introduce GloVe, a popular word embedding model. I will then highlight the connection between word embedding models and distributional semantic methods. Subsequently, I will introduce the four models that will be used to measure the impact of the different factors. I will then give an overview of all additional factors that play a role in learning word representations, besides the choice of the algorithm. I will finally present the results by Levy et al., their takeaways and recommendations.&lt;/p&gt;
-
-&lt;h1 id="glove"&gt;GloVe&lt;/h1&gt;
-
-&lt;p&gt;In a &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;previous blog post&lt;/a&gt;, we have given an overview of popular word embedding models. One model that we have omitted so far is GloVe [&lt;sup id="fnref:2"&gt;&lt;a href="http://ruder.io/secret-word2vec/#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;p&gt;Briefly, GloVe seeks to make explicit what SGNS does implicitly: Encoding meaning as vector offsets in an embedding space -- seemingly only a serendipitous by-product of word2vec -- is the specified goal of GloVe. &lt;br&gt;
-Specifically, the authors of Glove show that the ratio of the co-occurrence probabilities of two words (rather than their co-occurrence probabilities themselves) is what contains information and aim to encode this information as vector differences. &lt;br&gt;
-To achieve this, they propose a weighted least squares objective \(J\) that directly aims to minimise the difference between the dot product of the vectors of two words and the logarithm of their number of co-occurrences:&lt;/p&gt;
-
-&lt;p&gt;\(J = \sum\limits_{i, j=1}^V f(X_{ij}) \: (w_i^T \tilde{w}_j + b_i + \tilde{b}_j - \text{log} \: X_{ij})^2 \)&lt;/p&gt;
-
-&lt;p&gt;where \(w_i\) and \(b_i\) are the word vector and bias respectively of word \(i\), \(\tilde{w}_j\) and \(b_j\) are the context word vector and bias respectively of word \(j\), \(X_{ij}\) is the number of times word \(i\) occurs in the context of word \(j\), and \(f\) is a weighting function that assigns relatively lower weight to rare and frequent co-occurrences.&lt;/p&gt;
-
-&lt;p&gt;As co-occurrence counts can be directly encoded in a word-context co-occurrence matrix, GloVe takes such a matrix rather than the entire corpus as input.&lt;/p&gt;
-
-&lt;p&gt;If you want to know more about GloVe, the best reference is likely &lt;a href="http://www.aclweb.org/anthology/D14-1162"&gt;the paper&lt;/a&gt; and the &lt;a href="http://nlp.stanford.edu/projects/glove/"&gt;accompanying website&lt;/a&gt;. Besides that, you can find some additional intuitions on GloVe and its difference to word2vec by the author of gensim &lt;a href="http://rare-technologies.com/making-sense-of-word2vec/"&gt;here&lt;/a&gt;, in &lt;a href="https://www.quora.com/How-is-GloVe-different-from-word2vec"&gt;this Quora thread&lt;/a&gt;, and in &lt;a href="https://cran.r-project.org/web/packages/text2vec/vignettes/glove.html"&gt;this blog post&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="wordembeddingsvsdistributionalsemanticsmodels"&gt;Word embeddings vs. distributional semantics models&lt;/h1&gt;
-
-&lt;p&gt;The reason why word embedding models, particularly word2vec and GloVe, became so popular is that they seemed to continuously and significantly outperform DSMs. Many attributed this to the neural architecture of word2vec or the fact that it predicts words, which seemed to have a natural edge over solely relying on co-occurrence counts.&lt;/p&gt;
-
-&lt;p&gt;We can view DSMs as &lt;em&gt;count&lt;/em&gt; models as they "count" co-occurrences among words by operating on co-occurrence matrices. In contrast, neural word embedding models can be seen as &lt;em&gt;predict&lt;/em&gt; models, as they try to predict surrounding words.&lt;/p&gt;
-
-&lt;p&gt;In 2014, Baroni et al. [&lt;sup id="fnref:3"&gt;&lt;a href="http://ruder.io/secret-word2vec/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;] showed that predict models consistently outperform count models in almost all tasks, thus providing a clear verification for the apparent superiority of word embedding models. Is this the end? No.&lt;/p&gt;
-
-&lt;p&gt;Already with GloVe we've seen that the differences are not as clear-cut: While GloVe is considered a predict model by Levy et al. (2015), it is clearly factorizing a word-context co-occurrence matrix, which brings it close to traditional methods such as PCA and LSA. Even more, Levy et al. [&lt;sup id="fnref:4"&gt;&lt;a href="http://ruder.io/secret-word2vec/#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt;] demonstrate that word2vec implicitly factorizes a word-context PMI matrix.&lt;/p&gt;
-
-&lt;p&gt;Consequently, while on the surface DSMs and word embedding models use different algorithms to learn word representations -- the first count, the latter predict -- fundamentally, both types of models act on the same underlying statistics of the data, i.e. the co-occurrence counts between words.&lt;/p&gt;
-
-&lt;p&gt;Thus, the question that still remains and which we will dedicate the rest of this blog post to answering is the following: &lt;br&gt;
-&lt;em&gt;Why do word embedding models still perform better than DSM with almost the same information?&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id="models"&gt;Models&lt;/h1&gt;
-
-&lt;p&gt;Following Levy et al. (2015), we will isolate and identify the factors that account for the success of neural word embedding models and show how these can be transferred to traditional methods by comparing the following four models:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Positive Pointwise Mutual Information (PPMI)&lt;/strong&gt;: PMI is a common measure for the strength of association between two words. It is defined as the log ratio between the joint probability of two words \(w\) and \(c\) and the product of their marginal probabilities: \(PMI(w,c) = \text{log} \: \dfrac{P(w,c)}{P(w)\:P(c)} \). As \( PMI(w,c) = \text{log} \: 0 = - \infty \) for pairs \( (w,c) \) that were never observed, PMI is in practice often replaced with &lt;em&gt;positive&lt;/em&gt; PMI (PPMI), which replaces negative values with \(0\), yielding \(PPMI(w,c) = \text{max}(PMI(w,c),0)\).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Singular Value Decomposition (SVD):&lt;/strong&gt; SVD is one of the most popular methods for dimensionality reduction and found its into NLP originally via latent semantic analysis (LSA). SVD factories the word-context co-occurrence matrix into the product of three matrices \(U \cdot \Sigma \times V^T \) where \(U\) and \(V\) are orthonormal matrices (i.e. square matrices whose rows and columns are orthogonal unit vectors) and \(\Sigma\) is a diagonal matrix of eigenvalues in
-decreasing order. In practice, SVD is often used to factorize the matrix produced by PPMI. Generally, only the top \(d\) elements of \(\Sigma\) are kept, yielding \(W^{SVD} = U_d \cdot \Sigma_d\) and \(C^{SVD} = V_d\), which are typically used as the word and context representations respectively.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Skip-gram with Negative Sampling (SGNS)&lt;/strong&gt; aka word2vec: To learn more about the skip-gram architecture and the negative sampling refer to my previous blog posts &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;here&lt;/a&gt; and &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;here&lt;/a&gt; respectively.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Global Vectors (GloVe)&lt;/strong&gt; as presented in the previous section.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id="hyperparameters"&gt;Hyperparameters&lt;/h1&gt;
-
-&lt;p&gt;We will look at the following hyper-parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#preprocessing"&gt;Pre-processing&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#dynamiccontextwindow"&gt;Dynamic context window&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#subsamplingfrequentwords"&gt;Subsampling frequent words&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#deletingrarewords"&gt;Deleting rare words&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#associationmetric"&gt;Association metric&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#shiftedpmi"&gt;Shifted PMI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#contextdistributionsmoothing"&gt;Context distribution smoothing&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#postprocessing"&gt;Post-processing&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#addingcontextvectors"&gt;Adding context vectors&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#eigenvalueweighting"&gt;Eigenvalue weighting&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/secret-word2vec/#vectornormalisation"&gt;Vector normalisation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="preprocessing"&gt;Pre-processing&lt;/h2&gt;
-
-&lt;p&gt;Word2vec introduces three ways of pre-processing a corpus, which can be easily applied to DSMs. &lt;/p&gt;
-
-&lt;h3 id="dynamiccontextwindow"&gt;Dynamic context window&lt;/h3&gt;
-
-&lt;p&gt;In DSMs traditionally, the context window is unweighted and of a constant size. Both SGNS and GloVe, however, use a scheme that assigns more weight to closer words, as closer words are generally considered to be more important to a word's meaning. Additionally, in SGNS, the window size is not fixed, but the actual window size is dynamic and sampled uniformly between \(1\) and the maximum window size during training.&lt;/p&gt;
-
-&lt;h3 id="subsamplingfrequentwords"&gt;Subsampling frequent words&lt;/h3&gt;
-
-&lt;p&gt;SGNS dilutes very frequent words by randomly removing words whose frequency \(f\) is higher than some threshold \(t\) with a probability \(p = 1 - \sqrt{\dfrac{t}{f}}\). As this subsampling is done &lt;em&gt;before&lt;/em&gt; actually creating the windows, the context windows used by SGNS in practice are larger than indicated by the context window size.&lt;/p&gt;
-
-&lt;h3 id="deletingrarewords"&gt; Deleting rare words&lt;/h3&gt;
-
-&lt;p&gt;In the pre-processing of SGNS, rare words are also deleted &lt;em&gt;before&lt;/em&gt; creating the context windows, which increases the actual size of the context windows further. Levy et al. (2015) find this not to have a significant performance impact, though.&lt;/p&gt;
-
-&lt;h2 id="associationmetric"&gt;Association metric&lt;/h2&gt;
-
-&lt;p&gt;PMI has been shown to be an effective metric for measuring the association between words. Since Levy and Goldberg (2014) have shown SGNS to implicitly factorize a PMI matrix, two variations stemming from this formulation can be introduced to regular PMI.&lt;/p&gt;
-
-&lt;h3 id="shiftedpmi"&gt;Shifted PMI&lt;/h3&gt;
-
-&lt;p&gt;In SGNS, the higher the number of negative samples \(k\), the more data is being used and the better should be the estimation of the parameters. \(k\) affects the shift of the PMI matrix that is implicitly factorized by word2vec, i.e. \(k\) k shifts the PMI values by log \(k\). &lt;br&gt;
-If we transfer this to regular PMI, we obtain Shifted PPMI (SPPMI): \(SPPMI(w,c) = \text{max}(PMI(w,c) - \text{log} \: k,0)\).&lt;/p&gt;
-
-&lt;h3 id="contextdistributionsmoothing"&gt;Context distribution smoothing&lt;/h3&gt;
-
-&lt;p&gt;In SGNS, the negative samples are sampled according to a &lt;em&gt;smoothed&lt;/em&gt; unigram distribution, i.e. an unigram distribution raised to the power of \(\alpha\), which is empirically set to \(\dfrac{3}{4}\). This leads to frequent words being sampled relatively less often than their frequency would indicate. &lt;br&gt;
-We can transfer this to PMI by equally raising the frequency of the context words \(f(c)\) to the power of \(\alpha\): &lt;br&gt;
-\(PMI(w, c) = \text{log} \dfrac{p(w,c)}{p(w)p_\alpha(c)}\) where \(p_\alpha(c) = \dfrac{f(c)^\alpha}{\sum_c f(c)^\alpha}\) and \(f(x)\) is the frequency of word \(x\).&lt;/p&gt;
-
-&lt;h2 id="postprocessing"&gt;Post-processing&lt;/h2&gt;
-
-&lt;p&gt;Similar as in pre-processing, three methods can be used to modify the word vectors produced by an algorithm.&lt;/p&gt;
-
-&lt;h3 id="addingcontextvectors"&gt;Adding context vectors&lt;/h3&gt;
-
-&lt;p&gt;The authors of GloVe propose to add word vectors and context vectors to create the final output vectors, e.g. \(\vec{v}_{\text{cat}} = \vec{w}_{\text{cat}} + \vec{c}_{\text{cat}}\). This adds first-order similarity terms, i.e \(w \cdot v\). However, this method cannot be applied to PMI, as the vectors produced by PMI are sparse.&lt;/p&gt;
-
-&lt;h3 id="eigenvalueweighting"&gt;Eigenvalue weighting&lt;/h3&gt;
-
-&lt;p&gt;SVD produces the following matrices: \(W^{SVD} = U_d \cdot \Sigma_d \) and \(C^{SVD} = V_d\). These matrices, however, have different properties: \(C^{SVD}\) is orthonormal, while \(W^{SVD}\) is not. &lt;br&gt;
-SGNS, in contrast, is more symmetric. We can thus weight the eigenvalue matrix \(\Sigma_d\) with an additional parameter \(p\), which can be tuned, to yield the following: &lt;br&gt;
-\(W^{SVD} = U_d \cdot \Sigma_d^p\).&lt;/p&gt;
-
-&lt;h3 id="vectornormalisation"&gt;Vector normalisation&lt;/h3&gt;
-
-&lt;p&gt;Finally, we can also normalise all vectors to unit length.&lt;/p&gt;
-
-&lt;h1 id="results"&gt;Results&lt;/h1&gt;
-
-&lt;p&gt;Levy et al. (2015) train all models on a dump of the English wikipedia and evaluate them on the commonly used word similarity and analogy datasets. You can read more about the experimental setup and training details in their paper. We summarise the most important results and takeaways below.&lt;/p&gt;
-
-&lt;h2 id="takeaways"&gt;Takeaways&lt;/h2&gt;
-
-&lt;p&gt;Levy et al. find that SVD -- and not one of the word embedding algorithms -- performs best on similarity tasks, while SGNS performs best on analogy datasets. They furthermore shed light on the importance of hyperparameters compared to other choices:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Hyperparameters vs. algorithms: &lt;br&gt;
-Hyperparameter settings are often more important than algorithm choice. &lt;br&gt;
-No single algorithm consistently outperforms the other methods.  &lt;/li&gt;
-&lt;li&gt;Hyperparameters vs. more data: &lt;br&gt;
-Training on a larger corpus helps for some tasks. &lt;br&gt;
-In 3 out of 6 cases, tuning hyperparameters is more beneficial.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id="debunkingpriorclaims"&gt;Debunking prior claims&lt;/h2&gt;
-
-&lt;p&gt;Equipped with these insights, we can now debunk some generally held claims: &lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Are embeddings superior to distributional methods? &lt;br&gt;
-With the right hyperparameters, no approach has a consistent advantage over another.  &lt;/li&gt;
-&lt;li&gt;Is GloVe superior to SGNS? &lt;br&gt;
-SGNS outperforms GloVe on all tasks.  &lt;/li&gt;
-&lt;li&gt;Is CBOW a good word2vec configuration? &lt;br&gt;
-CBOW does not outperform SGNS on any task.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id="recommendations"&gt;Recommendations&lt;/h1&gt;
-
-&lt;p&gt;Finally -- and one of the things I like most about the paper -- we can give concrete practical recommendations:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DON'T&lt;/strong&gt; use shifted PPMI with SVD.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DON'T&lt;/strong&gt; use SVD "correctly", i.e. without eigenvector weighting (performance drops 15 points compared to with eigenvalue weighting with \(p = 0.5\)).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DO&lt;/strong&gt; use PPMI and SVD with short contexts (window size of \(2\)).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DO&lt;/strong&gt; use many negative samples with SGNS.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DO&lt;/strong&gt; always use context distribution smoothing (raise unigram distribution to the power of \(\alpha = 0.75\)) for all methods.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DO&lt;/strong&gt; use SGNS as a baseline (robust, fast and cheap to train).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DO&lt;/strong&gt; try adding context vectors in SGNS and GloVe.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id="conclusions"&gt;Conclusions&lt;/h1&gt;
-
-&lt;p&gt;These results run counter to what is generally assumed, namely that word embeddings are superior to traditional methods and indicate that it generally makes &lt;em&gt;no difference whatsoever&lt;/em&gt; whether you use word embeddings or distributional methods -- what matters is that you tune your hyperparameters and employ the appropriate pre-processing and post-processing steps.&lt;/p&gt;
-
-&lt;p&gt;Recent papers from Jurafsky's group [&lt;sup id="fnref:5"&gt;&lt;a href="http://ruder.io/secret-word2vec/#fn:5" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:6"&gt;&lt;a href="http://ruder.io/secret-word2vec/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;] echo these findings and show that SVD -- not SGNS -- is often the preferred choice when you care about accurate word representations.&lt;/p&gt;
-
-&lt;p&gt;I hope this blog post was useful in highlighting cool research that sheds light on the link between traditional distributional semantic and in-vogue embedding models. As we've seen, knowledge of distributional semantics allows us to improve upon our current methods and develop entirely new variations of existing ones. For this reason, I hope that the next time you train word embeddings, you will consider adding distributional methods to your toolbox or lean on them for inspiration.&lt;/p&gt;
-
-&lt;p&gt;As always, feel free to ask questions and point out the mistakes I made in this blog post in the comments below.&lt;/p&gt;
-
-&lt;h1 id="otherblogpostsonwordembeddings"&gt;Other blog posts on word embeddings&lt;/h1&gt;
-
-&lt;p&gt;If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;On word embeddings - Part 1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;On word embeddings - Part 2: Approximating the softmax&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://sebastianruder.com/cross-lingual-embeddings/index.html"&gt;Unofficial Part 4: A survey of cross-lingual embedding models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/word-embeddings-2017/index.html"&gt;Unofficial Part 5: Word embeddings in 2017 -  Trends and future directions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id="references"&gt;References&lt;/h1&gt;
-
-&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li class="footnote" id="fn:1"&gt;&lt;p&gt;Levy, O., Goldberg, Y., &amp;amp; Dagan, I. (2015). Improving Distributional Similarity with Lessons Learned from Word Embeddings. Transactions of the Association for Computational Linguistics, 3, 211–225. Retrieved from &lt;a href="https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570"&gt;https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570&lt;/a&gt; &lt;a href="http://ruder.io/secret-word2vec/#fnref:1" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:2"&gt;&lt;p&gt;Pennington, J., Socher, R., &amp;amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. &lt;a href="http://doi.org/10.3115/v1/D14-1162"&gt;http://doi.org/10.3115/v1/D14-1162&lt;/a&gt; &lt;a href="http://ruder.io/secret-word2vec/#fnref:2" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:3"&gt;&lt;p&gt;Baroni, M., Dinu, G., &amp;amp; Kruszewski, G. (2014). Don’t count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors. ACL, 238–247. &lt;a href="http://doi.org/10.3115/v1/P14-1023"&gt;http://doi.org/10.3115/v1/P14-1023&lt;/a&gt; &lt;a href="http://ruder.io/secret-word2vec/#fnref:3" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:4"&gt;&lt;p&gt;Levy, O., &amp;amp; Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. Advances in Neural Information Processing Systems (NIPS), 2177–2185. Retrieved from &lt;a href="http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization"&gt;http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization&lt;/a&gt; &lt;a href="http://ruder.io/secret-word2vec/#fnref:4" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:5"&gt;&lt;p&gt;Hamilton, W. L., Clark, K., Leskovec, J., &amp;amp; Jurafsky, D. (2016). Inducing Domain-Specific Sentiment Lexicons from Unlabeled Corpora. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. Retrieved from &lt;a href="http://arxiv.org/abs/1606.02820"&gt;http://arxiv.org/abs/1606.02820&lt;/a&gt; &lt;a href="http://ruder.io/secret-word2vec/#fnref:5" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;Hamilton, W. L., Leskovec, J., &amp;amp; Jurafsky, D. (2016). Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change. arXiv Preprint arXiv:1605.09096. &lt;a href="http://ruder.io/secret-word2vec/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
-
-&lt;p&gt;Cover images are courtesy of &lt;a href="http://nlp.stanford.edu/projects/glove/"&gt;Stanford&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Cover image courtesy of Zou et al. (2013)&lt;/p&gt;</content:encoded></item></channel></rss>
