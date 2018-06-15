@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 15 Jun 2018 11:43:27 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems</title><description>Highlights of NAACL-HLT 2018 focusing on Generalization, the Test-of-Time awards, and Dialogue Systems, including memorable quotes from the conference.</description><link>http://ruder.io/highlights-of-naacl-hlt-2018-generalization-test-of-time-and-dialogue-agents/</link><guid isPermaLink="false">3f5db7de-65f0-4dd6-869e-7bf911b8ca0f</guid><category>natural language processing</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 12 Jun 2018 13:42:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/06/IMG_20180603_183707_conference_venue.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/06/IMG_20180603_183707_conference_venue.jpg" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;&lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/highlights-of-naacl-hlt-2018-generalization-test-of-time-and-dialogue-systems/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 15 Jun 2018 11:47:01 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems</title><description>Highlights of NAACL-HLT 2018 focusing on Generalization, the Test-of-Time awards, and Dialogue Systems, including memorable quotes from the conference.</description><link>http://ruder.io/highlights-naacl-2018/</link><guid isPermaLink="false">3f5db7de-65f0-4dd6-869e-7bf911b8ca0f</guid><category>natural language processing</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 12 Jun 2018 13:42:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/06/IMG_20180603_183707_conference_venue.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/06/IMG_20180603_183707_conference_venue.jpg" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems"&gt;&lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/highlights-of-naacl-hlt-2018-generalization-test-of-time-and-dialogue-systems/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;I attended &lt;a href="http://naacl2018.org/"&gt;NAACL-HLT 2018&lt;/a&gt; in New Orleans last week. I didn’t manage to catch as many talks and posters this time around (there were just too many inspiring people to talk to!), so my highlights and the trends I observed mainly focus on invited talks and workshops.&lt;/p&gt;
 
@@ -3195,7 +3195,89 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
-&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>A survey of cross-lingual embedding models</title><description>&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>News</title><description>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
+
+&lt;p&gt;16.-20.07.18: I will be attending &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt; in Melbourne and presenting 3 papers. Let me know if you're around and would like to chat.&lt;/p&gt;
+
+&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id="past"&gt;Past&lt;/h1&gt;
+
+&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;</description><link>http://ruder.io/news/</link><guid isPermaLink="false">acc3aa19-ab08-418c-842c-ddae0887b3b7</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:47:27 GMT</pubDate><content:encoded>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
+
+&lt;p&gt;16.-20.07.18: I will be attending &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt; in Melbourne and presenting 3 papers. Let me know if you're around and would like to chat.&lt;/p&gt;
+
+&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id="past"&gt;Past&lt;/h1&gt;
+
+&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;
+
+&lt;p&gt;01.-06.07.18: I attended &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presented &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; and &lt;a href="https://arxiv.org/abs/1804.00982"&gt;360° Stance Detection&lt;/a&gt;. &lt;a href="http://ruder.io/highlights-naacl-2018/"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;05.06.18: I did an &lt;a href="https://soundcloud.com/nlp-highlights/57-a-survey-of-cross-lingual-word-embedding-models-with-sebastian-ruder"&gt;interview on cross-lingual word embeddings&lt;/a&gt; with Matt Gardner and Waleed Ammar from the NLP Highlights podcast.&lt;/p&gt;
+
+&lt;p&gt;21.05.18: I gave the academic keynote on &lt;a href="https://www.slideshare.net/SebastianRuder/successes-and-frontiers-of-deep-learning"&gt;Successes and Frontiers of Deep Learning&lt;/a&gt; at the &lt;a href="https://www.eventbrite.ie/e/insightdcu-deep-learning-workshop-tickets-45474212594"&gt;Insight@DCU: Deep Learning Workshop&lt;/a&gt; in Dublin.&lt;/p&gt;
+
+&lt;p&gt;20.04.18: 3 papers accepted at &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt;! &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with Barbara Plank, &lt;a href="https://arxiv.org/abs/1801.06146"&gt;Universal Language Model Fine-tuning for Text Classification&lt;/a&gt; with Jeremy Howard, and &lt;a href="https://arxiv.org/abs/1805.03620"&gt;On the Limitations of Unsupervised Bilingual Dictionary Induction&lt;/a&gt; with Anders Søgaard and Ivan Vulić.&lt;/p&gt;
+
+&lt;p&gt;01.04.18: My paper &lt;a href="https://arxiv.org/abs/1804.00982"&gt;360° Stance Detection&lt;/a&gt; with John Glover, Afshin Mehrabani, and Parsa Ghaffari was accepted as a demonstration to &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;30.03.18: My paper &lt;a href="https://arxiv.org/abs/1706.04902"&gt;A Survey Of Cross-lingual Word Embedding Models&lt;/a&gt; with Ivan Vulić and Anders Søgaard was accepted to the &lt;a href="http://www.jair.org/"&gt;Journal of Artificial Intelligence Research&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;14.02.2018: My paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; with Isabelle Augenstein and Anders Søgaard was accepted as an oral presentation at &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="2017"&gt;2017&lt;/h2&gt;
+
+&lt;p&gt;24.11.17: I gave a &lt;a href="https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning"&gt;guest lecture on Optimization for Deep Learning&lt;/a&gt; in the Advanced Topics in Computational Intelligence course at the Dublin Institute for Technology.&lt;/p&gt;
+
+&lt;p&gt;08.11.17: My startup Aylien has &lt;a href="https://aylien.com/ai-startup-aylien-announces-2m-investment-and-the-creation-of-70-jobs/"&gt;raised €2m new funding&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;13.10.17: I gave a &lt;a href="https://talks.cam.ac.uk/talk/index/80741"&gt;talk on transfer learning for NLP at Cambridge, UK&lt;/a&gt; and was invited by &lt;a href="https://alexgkendall.com/"&gt;Alex Kendall&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;12.10.17: I gave a &lt;a href="https://www.meetup.com/South-England-Natural-Language-Processing-Meetup/events/242617956/"&gt;talk on transfer learning for NLP at The Alan Turing Institute&lt;/a&gt; and was invited by &lt;a href="http://pontus.stenetorp.se/"&gt;Pontus Stenetorp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;25.-27.09.17: I attended the second Google NLP Summit in Zurich.&lt;/p&gt;
+
+&lt;p&gt;07.-11.09.17: I attended &lt;a href="http://emnlp2017.net/"&gt;EMNLP 2017&lt;/a&gt; in Copenhagen, Denmark and presented &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;a poster&lt;/a&gt;. &lt;a href="http://ruder.io/highlights-emnlp-2017/"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;01.07.17: My paper with Barbara Plank &lt;a href="https://arxiv.org/abs/1707.05246"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt; was accepted to EMNLP 2017.&lt;/p&gt;
+
+&lt;p&gt;31.05.17: I gave a talk on transfer learning for NLP at the &lt;a href="https://www.meetup.com/Natural-Language-Processing-Copenhagen-Meetup/events/240082070/"&gt;Natural Language Processing Copenhagen meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;April - June '17: I was visiting the &lt;a href="http://coastalcph.github.io/"&gt;NLP group&lt;/a&gt; at the Department of Computer Science, University of Copenhagen and was hosted by &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;03.03.17: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at Accenture, Dublin and was invited by &lt;a href="https://www.linkedin.com/in/dcahalane"&gt;Diarmuid Cahalane&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;01.03.17: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at LinkedIn, Dublin and was invited by &lt;a href="http://yazdani.me/"&gt;Majid Yazdani&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="2016"&gt;2016&lt;/h2&gt;
+
+&lt;p&gt;13.12.16. I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/nips-2016-highlights-sebastian-ruder"&gt;NIPS 2016 highlights&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/235149644/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;05.-10.12.16: I attended &lt;a href="https://nips.cc/"&gt;NIPS 2016&lt;/a&gt; in Barcelona, Spain. &lt;a href="http://sebastianruder.com/highlights-nips-2016/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;01.-05.11.16: I attended &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt; in Austin, Texas. &lt;a href="http://sebastianruder.com/emnlp-2016-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;02.11.16: We've announced &lt;a href="http://blog.aylien.com/funded-phd-masters-opportunities-aylien/"&gt;funded PhD and Master's opportunities&lt;/a&gt; at AYLIEN.&lt;/p&gt;
+
+&lt;p&gt;09.09.16: My paper &lt;a href="http://aclweb.org/anthology/W/W16/W16-6012.pdf"&gt;&lt;em&gt;Towards a continuous modeling of natural language domains&lt;/em&gt;&lt;/a&gt; has been accepted at the Uphill Battles in Language Processing workshop at EMNLP 2016.&lt;/p&gt;
+
+&lt;p&gt;24.08.16: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/a-hierarchical-model-of-reviews-for-aspectbased-sentiment-analysis"&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/a&gt; at the Insight SIG NLP meeting at NUIG.&lt;/p&gt;
+
+&lt;p&gt;11.-12.08.16: I attended the &lt;a href="https://sites.google.com/site/repl4nlp2016/"&gt;RepL4NLP&lt;/a&gt; and &lt;a href="https://sites.google.com/site/repevalacl16/"&gt;RepEval&lt;/a&gt; workshops at &lt;a href="http://acl2016.org/"&gt;ACL 2016&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;03.08.16: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/softmax-approximations-for-learning-word-embeddings-and-language-modeling-sebastian-ruder"&gt;Softmax Approximations for Learning Word Embeddings and Language Modeling&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/232278017/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;29.07.16: My paper &lt;a href="https://arxiv.org/pdf/1609.02745v1.pdf"&gt;&lt;em&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/em&gt;&lt;/a&gt; has been accepted to EMNLP 2016.&lt;/p&gt;
+
+&lt;p&gt;21.-28.07.16: I attended the &lt;a href="http://lxmls.it.pt/2016/"&gt;6th Lisbon Machine Learning School&lt;/a&gt;. &lt;a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
+
+&lt;p&gt;July '16: I started organizing the &lt;a href="http://www.meetup.com/NLP-Dublin/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;21.-24.03.16: I attended the &lt;a href="http://ivl-net.eu/ivl-net-training-school-2016/"&gt;2nd Summer School on Integrating Vision and Language&lt;/a&gt; with a focus on Deep Learning in Malta.&lt;/p&gt;
+
+&lt;p&gt;February '16: Two papers accepted at the SemEval-2016 tasks 4, &lt;a href="http://alt.qcri.org/semeval2016/task4/"&gt;Twitter Sentiment Analysis&lt;/a&gt; and 5, &lt;a href="http://alt.qcri.org/semeval2016/task5/"&gt;Aspect-based Sentiment Analysis&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>A survey of cross-lingual embedding models</title><description>&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In past blog posts, we discussed different &lt;a href="http://sebastianruder.com/word-embeddings-1/index.html"&gt;models&lt;/a&gt;, &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;objective functions&lt;/a&gt;, and &lt;a href="http://sebastianruder.com/word-embeddings-softmax/index.html"&gt;hyperparameter choices&lt;/a&gt; that allow us to learn accurate word embeddings. However, these models are generally restricted to capture representations&lt;/p&gt;</description><link>http://ruder.io/cross-lingual-embeddings/</link><guid isPermaLink="false">9337835e-1bdf-4fa1-acd1-f23a262380ac</guid><category>word embeddings</category><category>deep learning</category><category>nlp</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/10/zou_et_al_2013.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/10/zou_et_al_2013.png" alt="A survey of cross-lingual embedding models"&gt;&lt;p&gt;Note: If you are looking for a survey paper, this blog post is also available as an &lt;a href="https://arxiv.org/abs/1706.04902"&gt;article on arXiv&lt;/a&gt;.&lt;/p&gt;
 
@@ -4097,73 +4179,4 @@ Upadhyay et al. [&lt;sup id="fnref:31"&gt;&lt;a href="http://ruder.io/cross-ling
 
 &lt;li class="footnote" id="fn:39"&gt;&lt;p&gt;Landauer, T. K. &amp;amp; Dumais, S. T. (1997). A solution to Plato’s problem: the latent semantic analysis theory of acquisition, induction and representation of knowledge, Psychological Review, 104(2), 211-240. &lt;a href="http://ruder.io/cross-lingual-embeddings/#fnref:39" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
-&lt;p&gt;Cover image courtesy of Zou et al. (2013)&lt;/p&gt;</content:encoded></item><item><title>Highlights of EMNLP 2016: Dialogue, deep learning, and more</title><description>&lt;p&gt;&lt;em&gt;This post originally appeared on the &lt;a href="http://blog.aylien.com/highlights-emnlp-2016-dialogue-deeplearning-and-more/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I spent the past week in Austin, Texas at &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt;, the Conference on Empirical Methods in Natural Language Processing.&lt;/p&gt;
-
-&lt;p&gt;There were a lot of papers at the conference (179 long papers, 87 short papers, and 9 TACL papers all in all)&lt;/p&gt;</description><link>http://ruder.io/emnlp-2016-highlights/</link><guid isPermaLink="false">f6de1480-bbe8-4681-b822-d06e812602a1</guid><category>natural language processing</category><category>deep learning</category><category>machine learning</category><category>word embeddings</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 14 Nov 2016 12:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/11/emnlp_cover_image.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/11/emnlp_cover_image.jpg" alt="Highlights of EMNLP 2016: Dialogue, deep learning, and more"&gt;&lt;p&gt;&lt;em&gt;This post originally appeared on the &lt;a href="http://blog.aylien.com/highlights-emnlp-2016-dialogue-deeplearning-and-more/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I spent the past week in Austin, Texas at &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt;, the Conference on Empirical Methods in Natural Language Processing.&lt;/p&gt;
-
-&lt;p&gt;There were a lot of papers at the conference (179 long papers, 87 short papers, and 9 TACL papers all in all) -- too many to read each single one. The entire program can be found &lt;a href="http://www.emnlp2016.net/proceedings/2016-emnlp-handbook.pdf"&gt;here&lt;/a&gt;. In the following, I will highlight some trends and papers that caught my eye:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Reinforcement learning&lt;/strong&gt;: One thing that stood out was that RL seems to be slowly finding its footing in NLP, with more and more people using it to solve complex problems:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/emnlp-2016-highlights/(https://arxiv.org/pdf/1608.05604.pdf"&gt;Hahn and Keller&lt;/a&gt; model human reading;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.07317.pdf"&gt;Miao and Blunsom&lt;/a&gt; summarise sentences;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.01541.pdf"&gt;Li et al.&lt;/a&gt; generate dialogues;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.03667.pdf"&gt;He et al.&lt;/a&gt; predict reddit threads;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.08667.pdf"&gt;Clark and Manning&lt;/a&gt; perform coreference resolution;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1603.07954.pdf"&gt;Narasimhan et al.&lt;/a&gt; query the web for additional evidence to improve information extraction in one of the two best papers.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Dialogue&lt;/strong&gt;: Dialogue was a focus of the conference with all of the three keynote speakers dealing with different aspects of dialogue: Christopher Potts talked about pragmatics and how to reason about the intentions of the conversation partner; Stefanie Tellex concentrated on how to use dialogue for human-robot collaboration; finally, Andreas Stolcke focused on the problem of addressee detection in his talk. Among the papers, a few that dealt with dialogue stood out:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1604.00562.pdf"&gt;Andreas and Klein&lt;/a&gt; model pragmatics in dialogue with neural speakers and listeners;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1603.08023.pdf"&gt;Liu et al.&lt;/a&gt; show how &lt;em&gt;not&lt;/em&gt; to evaluate your dialogue system;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.aclweb.org/anthology/D/D16/D16-1231.pdf"&gt;Ouchi and Tsuboi&lt;/a&gt; select addressees and responses in multi-party conversations;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://arxiv.org/abs/1606.03352"&gt;Wen et al.&lt;/a&gt; study diverse architectures for dialogue modelling. &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Sequence-to-sequence&lt;/strong&gt;: Seq2seq models were again front and center. It is not common for a method to have its own session two years after its introduction &lt;a href="http://arxiv.org/abs/1409.3215\nhttp://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks"&gt;(Sutskever et al., 2014)&lt;/a&gt;. While in the past years, many papers employed seq2seq e.g. for Neural Machine Translation, some papers this year focused on improving the seq2seq framework:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.02960.pdf"&gt;Wiseman and Rush&lt;/a&gt; extend seq2seq to learn global sequence scores;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.08194"&gt;Yu et al.&lt;/a&gt; perform online seq2seq learning;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.07947"&gt;Kim and Rush&lt;/a&gt; extend Knowledge Distillation (&lt;a href="https://arxiv.org/pdf/1503.02531.pdf"&gt;Hinton et al., 2015&lt;/a&gt;) to seq2seq learning;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.09552.pdf"&gt;Kikuchi et al.&lt;/a&gt; propose a method to control the output length in seq2seq models.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Semantic parsing&lt;/strong&gt;: Since seq2seq's use for dialogue modelling was popularised by &lt;a href="https://arxiv.org/pdf/1506.05869.pdf (http://arxiv.org/pdf/1506.05869.pdf)"&gt;Vinyals and Le&lt;/a&gt;, it is harder to get it to work with goal-oriented tasks that require an intermediate representation on which to act. Semantic parsing is used to convert a message into a more meaningful representation that can be used by another component of the system. As this technique is useful for sophisticated dialogue systems, it is great to see progress in this area:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1015.pdf"&gt;Yaruz et al.&lt;/a&gt; infer answer types for semantic parsing;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.07046.pdf"&gt;Krishnamurthy et al.&lt;/a&gt; parse to probabilistic programs;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1609.09315.pdf"&gt;Kocisky et al.&lt;/a&gt; perform semantic parsing with semi-supervised sequential auto encoders.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;X-to-text (or natural language generation)&lt;/strong&gt;: While mapping from text-to-text with the seq2seq paradigm is still prevalent, EMNLP featured some cool papers on natural language generation from other inputs:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1032.pdf"&gt;Kiddon et al.&lt;/a&gt; map from a recipe name and ingredients to a recipe by ticking of items off a checklist;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1126.pdf"&gt;Ghazvininejad et al.&lt;/a&gt; generate a poem based on a topic;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1606.03821.pdf"&gt;Monroe et al.&lt;/a&gt; map from a color to its name;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://arxiv.org/pdf/1610.06210.pdf"&gt;Koncel-Kedziorski et al.&lt;/a&gt; re-write the theme of an algebra problem (think: boring physics book to Star Wars);&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://arxiv.org/abs/1603.07771"&gt;Lebret et al.&lt;/a&gt; generate biographical sentences from Wikipedia fact tables.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Parsing&lt;/strong&gt;: Parsing and syntax are a mainstay of every NLP conference and the community seems to particularly appreciate innovative models that push the state-of-the-art in parsing: The ACL '16 outstanding paper by &lt;a href="https://arxiv.org/pdf/1603.06042.pdf"&gt;Andor et al.&lt;/a&gt; introduced a globally normalized model for parsing, while the best EMNLP ‘16 paper by &lt;a href="https://arxiv.org/pdf/1607.01432.pdf"&gt;Lee et al.&lt;/a&gt; combines a global parsing model with a local search over subtrees.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Word embeddings&lt;/strong&gt;: There were still papers on word embeddings, but it felt less overwhelming than at the past EMNLP or ACL, with most methods trying to fix a particular flaw rather than training embeddings for embeddings' sake. &lt;a href="https://arxiv.org/pdf/1608.01961.pdf"&gt;Pilevhar and Collier&lt;/a&gt; de-conflate senses in word embeddings, while &lt;a href="https://arxiv.org/pdf/1607.02789.pdf"&gt;Wieting et al.&lt;/a&gt; achieve state-of-the-art results for character-based embeddings.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sentiment analysis&lt;/strong&gt;: Sentiment analysis has been popular in recent years (as attested by the introductions of many recent papers on sentiment analysis). Sadly, many of the conference papers on sentiment analysis reduce to leveraging the latest deep neural network for the task to beat the previous state-of-the-art without providing additional insights. There are, however, some that break the mold: &lt;a href="http://www.aclweb.org/anthology/D/D16/D16-1169.pdf"&gt;Teng et al.&lt;/a&gt; find an effective way to incorporate sentiment lexicons into a neural network, while &lt;a href="https://www.aclweb.org/anthology/D/D16/D16-1173.pdf"&gt;Hu et al.&lt;/a&gt; incorporate structured knowledge into their sentiment analysis model.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Deep Learning&lt;/strong&gt;: By now, it is clear to everyone: Deep Learning is here to stay. In fact, &lt;em&gt;deep learning&lt;/em&gt; and &lt;em&gt;neural networks&lt;/em&gt; claimed the two top spots of keywords that were used to describe the submitted papers. The majority of papers used at least an LSTM; using no neural network seems almost contrarian now and is something that needs to be justified. However, there are still many things that need to be improved -- which leads us to...&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Uphill Battles&lt;/strong&gt;: While making incremental progress is important to secure grants and publish papers, we should not lose track of the long-term goals. In this spirit, one of the best workshops that I've attended was the &lt;em&gt;Uphill Battles in Language Processing&lt;/em&gt; workshop, which featured 12 talks and not one, but &lt;em&gt;four&lt;/em&gt; all-star panels on text understanding, natural language generation, dialogue and speech, and grounded language. Summaries of the panel discussions should be available soon at the &lt;a href="http://www.coli.uni-saarland.de/~mroth/UphillBattles/"&gt;workshop website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This was my brief review of some of the trends of EMNLP 2016. I hope it was helpful.&lt;/p&gt;
-
-&lt;p&gt;Cover image credit: &lt;a href="https://www.flickr.com/photos/148956535@N07/"&gt;Jackie Cheung&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Cover image courtesy of Zou et al. (2013)&lt;/p&gt;</content:encoded></item></channel></rss>
