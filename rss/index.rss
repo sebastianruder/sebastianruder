@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 22 Jun 2018 17:51:21 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Tracking the Progress in Natural Language Processing</title><description>This post presents a new resource to track the progress in NLP, including the datasets and the current state-of-the-art for the most common NLP tasks.</description><link>http://ruder.io/tracking-progress-nlp/</link><guid isPermaLink="false">b5a914f8-54d9-4a2e-afc3-6c66dff83a97</guid><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 22 Jun 2018 17:31:55 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href="https://github.com/sebastianruder/NLP-progress"&gt;Go directly to the document tracking the progress in NLP&lt;/a&gt;.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Fri, 22 Jun 2018 20:36:41 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Tracking the Progress in Natural Language Processing</title><description>This post presents a new resource to track the progress in NLP, including the datasets and the current state-of-the-art for the most common NLP tasks.</description><link>http://ruder.io/tracking-progress-nlp/</link><guid isPermaLink="false">b5a914f8-54d9-4a2e-afc3-6c66dff83a97</guid><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 22 Jun 2018 17:31:55 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href="https://github.com/sebastianruder/NLP-progress"&gt;Go directly to the document tracking the progress in NLP&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Research in Machine Learning and in Natural Language Processing (NLP) is moving so fast these days, it is hard to keep up. This is an issue for people in the field, but it is an even bigger obstacle for people wanting to get into NLP and those seeking to make the leap from tutorials to reproducing papers and conducting their own research. Without expert guidance and prior knowledge, it can be a painstaking process to identify the most common datasets and the current state-of-the-art for your task of interest.&lt;/p&gt;
 
@@ -1719,7 +1719,37 @@ Arık, S. Ö., Chrzanowski, M., Coates, A., Diamos, G., Gibiansky, A., Kang, Y.,
 &lt;li&gt;&lt;a href="http://aclweb.org/anthology/D/D17/D17-1071.pdf"&gt;Conneau et al.&lt;/a&gt; learn sentence representations from the SNLI dataset and evaluate them on 12 different tasks. &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These were my highlights. Naturally, I was not able to attend every session and see every paper. What were your highlights from the conference or which papers from the &lt;a href="http://aclweb.org/anthology/D/D17/"&gt;proceedings&lt;/a&gt; did you like most? Let me know in the comments below.&lt;/p&gt;</content:encoded></item><item><title>Learning to select data for transfer learning</title><description>This blog post discusses the motivation and findings of our EMNLP 2017 paper Learning to select data for transfer learning.</description><link>http://ruder.io/learning-select-data/</link><guid isPermaLink="false">2d2ccdff-15b1-493d-888a-bec8acb5a346</guid><category>natural language processing</category><category>nlp</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 18 Aug 2017 10:59:23 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;This post originally appeared on the &lt;a href="http://blog.aylien.com/learning-select-data-transfer-learning/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;These were my highlights. Naturally, I was not able to attend every session and see every paper. What were your highlights from the conference or which papers from the &lt;a href="http://aclweb.org/anthology/D/D17/"&gt;proceedings&lt;/a&gt; did you like most? Let me know in the comments below.&lt;/p&gt;</content:encoded></item><item><title>Frequently asked questions (FAQ)</title><description>Frequently asked questions about Deep Learning and Natural Language Processing.</description><link>http://ruder.io/faq/</link><guid isPermaLink="false">86aa940a-ab55-4728-94b3-8b8bc7fded02</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Wed, 13 Sep 2017 14:04:03 GMT</pubDate><content:encoded>&lt;p&gt;Table of contents:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/faq/#whatresourcesshouldiusetogetstartedwithdeeplearning"&gt;What resources should I use to get started with Deep Learning?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/faq/#whatresourcesshouldiusetogetstartedwithnaturallanguageprocessingnlp"&gt;What resources should I use to get started with Natural Language Processing?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/faq/#whatresearchtopicshouldiworkon"&gt;What research topic should I work on?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/faq/#whatisacommondatasetformytask"&gt;What is a common dataset for my task?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ruder.io/faq/#whatisthestateoftheartformytask"&gt;What is the state-of-the-art for my task?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I get regularly asked certain questions. Rather than reiterating the answers, I've put them up here so they are easy to find.&lt;/p&gt;
+
+&lt;h2 id="whatresourcesshouldiusetogetstartedwithdeeplearning"&gt;What resources should I use to get started with Deep Learning?&lt;/h2&gt;
+
+&lt;p&gt;Read the Deep Learning book. It is available &lt;a href="http://www.deeplearningbook.org/"&gt;as a pdf&lt;/a&gt; or &lt;a href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618"&gt;on Amazon&lt;/a&gt;. If you're new to Machine Learning, take the &lt;a href="https://www.coursera.org/learn/machine-learning"&gt;Coursera Machine Learning course by Andrew Ng&lt;/a&gt;. For a more complete overview of ML online courses, have a look at &lt;a href="https://medium.freecodecamp.org/every-single-machine-learning-course-on-the-internet-ranked-by-your-reviews-3c4a7b8026c0"&gt;this excellent Medium post&lt;/a&gt;. In terms of Deep Learning online courses, take the courses offered by &lt;a href="http://www.fast.ai/"&gt;fast.ai&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="whatresourcesshouldiusetogetstartedwithnaturallanguageprocessingnlp"&gt;What resources should I use to get started with Natural Language Processing (NLP)?&lt;/h2&gt;
+
+&lt;p&gt;If you're serious about learning NLP, I would recommend to study the fundamentals first by reading &lt;a href="https://www.amazon.com/Speech-Language-Processing-2nd-Edition/dp/0131873210/ref=sr_1_1"&gt;Speech and Language Processing, 2nd Edition by Jurafsky and Martin&lt;/a&gt;. The 3rd edition is in progress and some chapters are available as &lt;a href="https://web.stanford.edu/~jurafsky/slp3/"&gt;pdf&lt;/a&gt;. For learning about Deep Learning for NLP, take the &lt;a href="http://web.stanford.edu/class/cs224n/"&gt;Stanford online course&lt;/a&gt; and read &lt;a href="https://www.jair.org/media/4992/live-4992-9623-jair.pdf"&gt;Yoav Goldberg's primer&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="whatresearchtopicshouldiworkon"&gt; What research topic should I work on?&lt;/h2&gt;
+
+&lt;p&gt;I have collected &lt;a href="http://ruder.io/requests-for-research/"&gt;research directions around transfer learning and NLP&lt;/a&gt; that might be of interest to you.&lt;/p&gt;
+
+&lt;h2 id="whatisacommondatasetformytask"&gt; What is a common dataset for my task?&lt;/h2&gt;
+
+&lt;p&gt;Have a look at &lt;a href="https://github.com/sebastianruder/NLP-progress"&gt;this collection of datasets for many common NLP tasks&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="whatisthestateoftheartformytask"&gt;What is the state-of-the-art for my task?&lt;/h2&gt;
+
+&lt;p&gt;Have a look at &lt;a href="https://github.com/sebastianruder/NLP-progress"&gt;this collection of the state-of-the-art for many common NLP tasks&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>Learning to select data for transfer learning</title><description>This blog post discusses the motivation and findings of our EMNLP 2017 paper Learning to select data for transfer learning.</description><link>http://ruder.io/learning-select-data/</link><guid isPermaLink="false">2d2ccdff-15b1-493d-888a-bec8acb5a346</guid><category>natural language processing</category><category>nlp</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 18 Aug 2017 10:59:23 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;This post originally appeared on the &lt;a href="http://blog.aylien.com/learning-select-data-transfer-learning/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 
@@ -3210,86 +3240,4 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
-&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item><item><title>News</title><description>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
-
-&lt;p&gt;16.-20.07.18: I will be attending &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt; in Melbourne and presenting 3 papers. Let me know if you're around and would like to chat.&lt;/p&gt;
-
-&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="past"&gt;Past&lt;/h1&gt;
-
-&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;</description><link>http://ruder.io/news/</link><guid isPermaLink="false">acc3aa19-ab08-418c-842c-ddae0887b3b7</guid><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 28 Nov 2016 10:47:27 GMT</pubDate><content:encoded>&lt;h1 id="upcoming"&gt;Upcoming&lt;/h1&gt;
-
-&lt;p&gt;16.-20.07.18: I will be attending &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt; in Melbourne and presenting 3 papers. Let me know if you're around and would like to chat.&lt;/p&gt;
-
-&lt;p&gt;I am writing a book for Morgan &amp;amp; Claypool on cross-lingual learning, with &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;, &lt;a href="http://people.ds.cam.ac.uk/iv250/"&gt;Ivan Vulić&lt;/a&gt;, and &lt;a href="http://www.manaalfaruqui.com/"&gt;Manaal Faruqui&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id="past"&gt;Past&lt;/h1&gt;
-
-&lt;h2 id="2018"&gt; 2018&lt;/h2&gt;
-
-&lt;p&gt;01.-06.07.18: I attended &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt; in New Orleans and presented &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; and &lt;a href="https://arxiv.org/abs/1804.00982"&gt;360° Stance Detection&lt;/a&gt;. &lt;a href="http://ruder.io/highlights-naacl-2018/"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;05.06.18: I did an &lt;a href="https://soundcloud.com/nlp-highlights/57-a-survey-of-cross-lingual-word-embedding-models-with-sebastian-ruder"&gt;interview on cross-lingual word embeddings&lt;/a&gt; with Matt Gardner and Waleed Ammar from the NLP Highlights podcast.&lt;/p&gt;
-
-&lt;p&gt;21.05.18: I gave the academic keynote on &lt;a href="https://www.slideshare.net/SebastianRuder/successes-and-frontiers-of-deep-learning"&gt;Successes and Frontiers of Deep Learning&lt;/a&gt; at the &lt;a href="https://www.eventbrite.ie/e/insightdcu-deep-learning-workshop-tickets-45474212594"&gt;Insight@DCU: Deep Learning Workshop&lt;/a&gt; in Dublin.&lt;/p&gt;
-
-&lt;p&gt;20.04.18: 3 papers accepted at &lt;a href="http://acl2018.org/"&gt;ACL 2018&lt;/a&gt;! &lt;a href="https://arxiv.org/abs/1804.09530"&gt;Strong Baselines for Neural Semi-supervised Learning under Domain Shift&lt;/a&gt; with Barbara Plank, &lt;a href="https://arxiv.org/abs/1801.06146"&gt;Universal Language Model Fine-tuning for Text Classification&lt;/a&gt; with Jeremy Howard, and &lt;a href="https://arxiv.org/abs/1805.03620"&gt;On the Limitations of Unsupervised Bilingual Dictionary Induction&lt;/a&gt; with Anders Søgaard and Ivan Vulić.&lt;/p&gt;
-
-&lt;p&gt;01.04.18: My paper &lt;a href="https://arxiv.org/abs/1804.00982"&gt;360° Stance Detection&lt;/a&gt; with John Glover, Afshin Mehrabani, and Parsa Ghaffari was accepted as a demonstration to &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;30.03.18: My paper &lt;a href="https://arxiv.org/abs/1706.04902"&gt;A Survey Of Cross-lingual Word Embedding Models&lt;/a&gt; with Ivan Vulić and Anders Søgaard was accepted to the &lt;a href="http://www.jair.org/"&gt;Journal of Artificial Intelligence Research&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;14.02.2018: My paper &lt;a href="https://arxiv.org/abs/1802.09913"&gt;Multi-task Learning of Pairwise Sequence Classification Tasks Over Disparate Label Spaces&lt;/a&gt; with Isabelle Augenstein and Anders Søgaard was accepted as an oral presentation at &lt;a href="http://naacl2018.org/"&gt;NAACL 2018&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="2017"&gt;2017&lt;/h2&gt;
-
-&lt;p&gt;24.11.17: I gave a &lt;a href="https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning"&gt;guest lecture on Optimization for Deep Learning&lt;/a&gt; in the Advanced Topics in Computational Intelligence course at the Dublin Institute for Technology.&lt;/p&gt;
-
-&lt;p&gt;08.11.17: My startup Aylien has &lt;a href="https://aylien.com/ai-startup-aylien-announces-2m-investment-and-the-creation-of-70-jobs/"&gt;raised €2m new funding&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;13.10.17: I gave a &lt;a href="https://talks.cam.ac.uk/talk/index/80741"&gt;talk on transfer learning for NLP at Cambridge, UK&lt;/a&gt; and was invited by &lt;a href="https://alexgkendall.com/"&gt;Alex Kendall&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;12.10.17: I gave a &lt;a href="https://www.meetup.com/South-England-Natural-Language-Processing-Meetup/events/242617956/"&gt;talk on transfer learning for NLP at The Alan Turing Institute&lt;/a&gt; and was invited by &lt;a href="http://pontus.stenetorp.se/"&gt;Pontus Stenetorp&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;25.-27.09.17: I attended the second Google NLP Summit in Zurich.&lt;/p&gt;
-
-&lt;p&gt;07.-11.09.17: I attended &lt;a href="http://emnlp2017.net/"&gt;EMNLP 2017&lt;/a&gt; in Copenhagen, Denmark and presented &lt;a href="https://drive.google.com/file/d/0B3emjZ5O5vDtLVhweUsyQWg1YUU/view?usp=sharing"&gt;a poster&lt;/a&gt;. &lt;a href="http://ruder.io/highlights-emnlp-2017/"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;01.07.17: My paper with Barbara Plank &lt;a href="https://arxiv.org/abs/1707.05246"&gt;Learning to select data for transfer learning with Bayesian Optimization&lt;/a&gt; was accepted to EMNLP 2017.&lt;/p&gt;
-
-&lt;p&gt;31.05.17: I gave a talk on transfer learning for NLP at the &lt;a href="https://www.meetup.com/Natural-Language-Processing-Copenhagen-Meetup/events/240082070/"&gt;Natural Language Processing Copenhagen meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;April - June '17: I was visiting the &lt;a href="http://coastalcph.github.io/"&gt;NLP group&lt;/a&gt; at the Department of Computer Science, University of Copenhagen and was hosted by &lt;a href="http://cst.dk/anders/"&gt;Anders Søgaard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;03.03.17: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at Accenture, Dublin and was invited by &lt;a href="https://www.linkedin.com/in/dcahalane"&gt;Diarmuid Cahalane&lt;/a&gt;. &lt;/p&gt;
-
-&lt;p&gt;01.03.17: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/transfer-learning-the-next-frontier-for-machine-learning"&gt;transfer learning&lt;/a&gt; at LinkedIn, Dublin and was invited by &lt;a href="http://yazdani.me/"&gt;Majid Yazdani&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="2016"&gt;2016&lt;/h2&gt;
-
-&lt;p&gt;13.12.16. I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/nips-2016-highlights-sebastian-ruder"&gt;NIPS 2016 highlights&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/235149644/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;05.-10.12.16: I attended &lt;a href="https://nips.cc/"&gt;NIPS 2016&lt;/a&gt; in Barcelona, Spain. &lt;a href="http://sebastianruder.com/highlights-nips-2016/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;01.-05.11.16: I attended &lt;a href="http://www.emnlp2016.net/"&gt;EMNLP 2016&lt;/a&gt; in Austin, Texas. &lt;a href="http://sebastianruder.com/emnlp-2016-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;02.11.16: We've announced &lt;a href="http://blog.aylien.com/funded-phd-masters-opportunities-aylien/"&gt;funded PhD and Master's opportunities&lt;/a&gt; at AYLIEN.&lt;/p&gt;
-
-&lt;p&gt;09.09.16: My paper &lt;a href="http://aclweb.org/anthology/W/W16/W16-6012.pdf"&gt;&lt;em&gt;Towards a continuous modeling of natural language domains&lt;/em&gt;&lt;/a&gt; has been accepted at the Uphill Battles in Language Processing workshop at EMNLP 2016.&lt;/p&gt;
-
-&lt;p&gt;24.08.16: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/a-hierarchical-model-of-reviews-for-aspectbased-sentiment-analysis"&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/a&gt; at the Insight SIG NLP meeting at NUIG.&lt;/p&gt;
-
-&lt;p&gt;11.-12.08.16: I attended the &lt;a href="https://sites.google.com/site/repl4nlp2016/"&gt;RepL4NLP&lt;/a&gt; and &lt;a href="https://sites.google.com/site/repevalacl16/"&gt;RepEval&lt;/a&gt; workshops at &lt;a href="http://acl2016.org/"&gt;ACL 2016&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;03.08.16: I gave a talk on &lt;a href="https://www.slideshare.net/SebastianRuder/softmax-approximations-for-learning-word-embeddings-and-language-modeling-sebastian-ruder"&gt;Softmax Approximations for Learning Word Embeddings and Language Modeling&lt;/a&gt; at the &lt;a href="https://www.meetup.com/NLP-Dublin/events/232278017/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;29.07.16: My paper &lt;a href="https://arxiv.org/pdf/1609.02745v1.pdf"&gt;&lt;em&gt;A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis&lt;/em&gt;&lt;/a&gt; has been accepted to EMNLP 2016.&lt;/p&gt;
-
-&lt;p&gt;21.-28.07.16: I attended the &lt;a href="http://lxmls.it.pt/2016/"&gt;6th Lisbon Machine Learning School&lt;/a&gt;. &lt;a href="http://sebastianruder.com/lisbon-machine-learning-summer-school-highlights/index.html"&gt;Here&lt;/a&gt; are my highlights.&lt;/p&gt;
-
-&lt;p&gt;July '16: I started organizing the &lt;a href="http://www.meetup.com/NLP-Dublin/"&gt;NLP Dublin meetup&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;21.-24.03.16: I attended the &lt;a href="http://ivl-net.eu/ivl-net-training-school-2016/"&gt;2nd Summer School on Integrating Vision and Language&lt;/a&gt; with a focus on Deep Learning in Malta.&lt;/p&gt;
-
-&lt;p&gt;February '16: Two papers accepted at the SemEval-2016 tasks 4, &lt;a href="http://alt.qcri.org/semeval2016/task4/"&gt;Twitter Sentiment Analysis&lt;/a&gt; and 5, &lt;a href="http://alt.qcri.org/semeval2016/task5/"&gt;Aspect-based Sentiment Analysis&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item></channel></rss>
