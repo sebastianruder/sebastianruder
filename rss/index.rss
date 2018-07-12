@@ -1,4 +1,265 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 12 Jul 2018 08:40:45 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Tracking the Progress in Natural Language Processing</title><description>This post presents a new resource to track the progress in NLP, including the datasets and the current state-of-the-art for the most common NLP tasks.</description><link>http://ruder.io/tracking-progress-nlp/</link><guid isPermaLink="false">b5a914f8-54d9-4a2e-afc3-6c66dff83a97</guid><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 22 Jun 2018 17:31:55 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href="https://nlpprogress.com"&gt;Go directly to the document tracking the progress in NLP&lt;/a&gt;.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 12 Jul 2018 09:18:37 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>NLP's ImageNet moment has arrived</title><description>Big changes are underway in the world of Natural Language Processing (NLP). The long reign of word vectors has seen a new line of challengers emerge.</description><link>http://ruder.io/nlp-imagenet/</link><guid isPermaLink="false">7b621349-37e7-4ab1-9cfd-e67de9129a2d</guid><category>natural language processing</category><category>nlp</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Thu, 12 Jul 2018 08:27:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/07/lm_objective.png" medium="image"/><content:encoded>&lt;script&gt;  
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-115283063-1');
+&lt;/script&gt;  
+
+&lt;img src="http://ruder.io/content/images/2018/07/lm_objective.png" alt="NLP's ImageNet moment has arrived"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-default.min.css"&gt; &lt;br&gt;
+&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
+
+&lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"&gt;&lt;/script&gt;  
+&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"&gt;&lt;/script&gt;  
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"&gt;&lt;/script&gt;  
+&lt;script type="text/javascript"&gt;  
+    $.bigfoot({useFootnoteOnlyOnce: false});
+&lt;/script&gt;  
+
+&lt;p&gt;&lt;em&gt;This post originally appeared at &lt;a href="https://thegradient.pub/nlp-imagenet/"&gt;TheGradient&lt;/a&gt; and was edited by &lt;a href="http://www.andreykurenkov.com/"&gt;Andrey Kurenkov&lt;/a&gt;, &lt;a href="https://tweetdeck.twitter.com/"&gt;Eric Wang&lt;/a&gt;, and &lt;a href="http://acganesh.com/"&gt;Aditya Ganesh&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Big changes are underway in the world of Natural Language Processing (NLP). The long reign of word vectors as NLP’s core representation technique has seen an exciting new line of challengers emerge: &lt;a href="https://arxiv.org/abs/1802.05365"&gt;ELMo&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn1" id="fnref1"&gt;[1]&lt;/a&gt;&lt;/sup&gt;, &lt;a href="https://arxiv.org/abs/1801.06146"&gt;ULMFiT&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn2" id="fnref2"&gt;[2]&lt;/a&gt;&lt;/sup&gt;, and the &lt;a href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf"&gt;OpenAI transformer&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn3" id="fnref3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;. These works &lt;a href="https://blog.openai.com/language-unsupervised/"&gt;made&lt;/a&gt; &lt;a href="https://techcrunch.com/2018/06/15/machines-learn-language-better-by-using-a-deep-understanding-of-words/"&gt;headlines&lt;/a&gt; by demonstrating that pretrained language models can be used to achieve state-of-the-art results on a wide range of NLP tasks. Such methods herald a watershed moment: they may have the same wide-ranging impact on NLP as pretrained ImageNet models had on computer vision.  &lt;/p&gt;
+
+&lt;h2 id="fromshallowtodeeppretraining"&gt;From Shallow to Deep Pre-Training&lt;/h2&gt;  
+
+&lt;p&gt;Pretrained word vectors have brought NLP a long way.  Proposed in 2013 as an approximation to language modeling, &lt;a href="http://papers.nips.cc/paper/5021-distributed-representations-of-words-andphrases"&gt;word2vec&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn4" id="fnref4"&gt;[4]&lt;/a&gt;&lt;/sup&gt; found adoption through its efficiency and ease of use in a time when hardware was a lot slower and deep learning models were not widely supported. Since then, the standard way of conducting NLP projects has largely remained unchanged: word embeddings pretrained on large amounts of unlabeled data via algorithms such as word2vec and &lt;a href="https://nlp.stanford.edu/pubs/glove.pdf"&gt;GloVe&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn5" id="fnref5"&gt;[5]&lt;/a&gt;&lt;/sup&gt; are used to initialize the first layer of a neural network, the rest of which is then trained on data of a particular task. On most tasks with limited amounts of training data, this led to a boost of &lt;a href="http://www.aclweb.org/anthology/D14-1181"&gt;two to three percentage points&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn6" id="fnref6"&gt;[6]&lt;/a&gt;&lt;/sup&gt;. Though these pretrained word embeddings have been immensely influential, they have a major limitation: they only incorporate previous knowledge in the first layer of the model---the rest of the network still needs to be trained from scratch.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/word2vec_relations.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;Relations captured by word2vec. (Source: &lt;a href="https://www.tensorflow.org/versions/master/tutorials/word2vec"&gt;TensorFlow tutorial&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Word2vec and related methods are &lt;em&gt;shallow&lt;/em&gt; approaches that trade expressivity for efficiency. Using word embeddings is like initializing a computer vision model with pretrained representations that only encode edges: they will be helpful for many tasks, but they fail to capture higher-level information that might be even more useful. A model initialized with word embeddings needs to learn from scratch not only to disambiguate words, but also to derive meaning from a sequence of words. This is the core aspect of language understanding, and it requires modeling complex language phenomena such as compositionality, polysemy, anaphora, long-term dependencies, agreement, negation, and many more. It should thus come as no surprise that NLP models initialized with these shallow representations still require a huge number of examples to achieve good performance.&lt;/p&gt;  
+
+&lt;p&gt;At the core of the recent advances of ULMFiT, ELMo, and the OpenAI transformer is one key paradigm shift: going from just initializing the first layer of our models to pretraining the entire model with hierarchical representations. If learning word vectors is like only learning edges, these approaches are like learning the full hierarchy of features, from edges to shapes to high-level semantic concepts.&lt;/p&gt;  
+
+&lt;p&gt;Interestingly, pretraining entire models to learn both low and high level features has been practiced for years by the computer vision (CV) community. Most often, this is done by learning to classify images on the large ImageNet dataset. ULMFiT, ELMo, and the OpenAI transformer have now brought the NLP community close to having an &amp;quot;&lt;strong&gt;ImageNet for language&lt;/strong&gt;&amp;quot;---that is, a task that enables models to learn higher-level nuances of language, similarly to how ImageNet has enabled training of CV models that learn general-purpose features of images. In the rest of this piece, we’ll unpack just why these approaches seem so promising by extending and building on this analogy to ImageNet.&lt;/p&gt;  
+
+&lt;h2 id="imagenet"&gt;ImageNet&lt;/h2&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/imagenet_challenge.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;The ImageNet Large Scale Visual Recognition Challenge. (Source: &lt;a href="https://www.slideshare.net/xavigiro/image-classification-on-imagenet-d1l4-2017-upc-deep-learning-for-computer-vision/"&gt;Xavier Giro-o-Nieto&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;ImageNet’s impact on the course of machine learning research can hardly be overstated. The dataset was originally published in 2009 and quickly evolved into the ImageNet Large Scale Visual Recognition Challenge (ILSVRC). In 2012, the &lt;a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf"&gt;deep neural network&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn7" id="fnref7"&gt;[7]&lt;/a&gt;&lt;/sup&gt; submitted by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton performed 41% better than the next best competitor, demonstrating that deep learning was a viable strategy for machine learning and arguably &lt;a href="https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world/"&gt;triggering the explosion of deep learning&lt;/a&gt; in ML research.&lt;/p&gt;  
+
+&lt;p&gt;The success of ImageNet highlighted that in the era of deep learning, data was at least as important as algorithms. Not only did the ImageNet dataset enable that very important 2012 demonstration of the power of deep learning, but it also allowed a breakthrough of similar importance in transfer learning: researchers soon realized that the weights learned in state of the art models for ImageNet could be used to initialize models for completely other datasets and improve performance significantly. This &amp;quot;fine-tuning&amp;quot; approach allowed achieving good performance with as little as one positive example per category &lt;a href="https://arxiv.org/abs/1310.1531"&gt;(Donahue et al., 2014)&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn8" id="fnref8"&gt;[8]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/decaf_ilsvrc2012-sun397.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;Features trained on ILSVRC-2012 generalize to the SUN-397 dataset. (Source: &lt;a href="https://arxiv.org/abs/1310.1531"&gt;Donahue et al., 2014&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;Pretrained ImageNet models have been used to achieve state-of-the-art results in tasks such as &lt;a href="https://arxiv.org/abs/1703.06870"&gt;object detection&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn9" id="fnref9"&gt;[9]&lt;/a&gt;&lt;/sup&gt;, &lt;a href="https://arxiv.org/abs/1612.01105"&gt;semantic segmentation&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn10" id="fnref10"&gt;[10]&lt;/a&gt;&lt;/sup&gt;, &lt;a href="https://arxiv.org/abs/1701.01779"&gt;human pose estimation&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn11" id="fnref11"&gt;[11]&lt;/a&gt;&lt;/sup&gt;, and &lt;a href="https://arxiv.org/abs/1705.07750"&gt;video recognition&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn12" id="fnref12"&gt;[12]&lt;/a&gt;&lt;/sup&gt;. At the same time, they have enabled the application of CV to domains where the number of training examples is small and annotation is expensive. Transfer learning via pretraining on ImageNet is in fact so effective in CV that not using it is now considered foolhardy &lt;a href="https://arxiv.org/abs/1805.00932"&gt;(Mahajan et al., 2018)&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn13" id="fnref13"&gt;[13]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;  
+
+&lt;h2 id="whatsinanimagenet"&gt;What’s in an ImageNet?&lt;/h2&gt;  
+
+&lt;p&gt;In order to determine what an ImageNet for language might look like, we first have to identify what makes ImageNet good for transfer learning. &lt;a href="https://arxiv.org/abs/1608.08614"&gt;Previous studies&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn14" id="fnref14"&gt;[14]&lt;/a&gt;&lt;/sup&gt; have only shed partial light on this question: reducing the number of examples per class or the number of classes only results in a small performance drop, while fine-grained classes and more data are not always better.&lt;/p&gt;  
+
+&lt;p&gt;Rather than looking at the data directly, it is more prudent to probe what the models trained on the data learn. It is common knowledge that features of deep neural networks trained on ImageNet &lt;a href="https://arxiv.org/abs/1411.1792"&gt;transition from general to task-specific from the first to the last layer&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn15" id="fnref15"&gt;[15]&lt;/a&gt;&lt;/sup&gt;: lower layers learn to model low-level features such as edges, while higher layers model higher-level concepts such as &lt;a href="https://distill.pub/2017/feature-visualization/"&gt;patterns and entire parts or objects&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn16" id="fnref16"&gt;[16]&lt;/a&gt;&lt;/sup&gt; as can be seen in the figure below. Importantly, knowledge of edges, structures, and the visual composition of objects is relevant for many CV tasks, which sheds light on why these layers are transferred. A key property of an ImageNet-like dataset is thus to encourage a model to learn features that will likely generalize to new tasks in the problem domain.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/feature_visualization.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;Visualization of the information captured by features across different layers in GoogLeNet trained on ImageNet. (Source: &lt;a href="https://distill.pub/2017/feature-visualization/"&gt;Distill&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;Beyond this, it is difficult to make further generalizations about why transfer from ImageNet works quite so well. For instance, another possible advantage of the ImageNet dataset is the quality of the data. ImageNet’s creators went to great lengths to ensure reliable and consistent annotations. However, work in distant supervision serves as a counterpoint, indicating that large amounts of weakly labelled data might often be sufficient. In fact, recently researchers at Facebook showed that they could pre-train a model by &lt;a href="https://arxiv.org/abs/1805.00932"&gt;predicting hashtags on billions of social media images&lt;/a&gt; to state-of-the-art accuracy on ImageNet.&lt;/p&gt;  
+
+&lt;p&gt;Without any more concrete insights, we are left with two key desiderata:&lt;/p&gt;  
+
+&lt;ol&gt;  
+&lt;li&gt;  
+&lt;p&gt;An ImageNet-like dataset should be &lt;em&gt;sufficiently large&lt;/em&gt;, i.e. on the order of millions of training examples.&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li&gt;  
+&lt;p&gt;It should be &lt;em&gt;representative of the problem space&lt;/em&gt; of the discipline.&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;/ol&gt;  
+
+&lt;h2 id="animagenetforlanguage"&gt;An ImageNet for language&lt;/h2&gt;  
+
+&lt;p&gt;In NLP, models are typically a lot shallower than their CV counterparts. Analysis of features has thus mostly focused on the first embedding layer, and little work has investigated the properties of higher layers for transfer learning. Let us consider the datasets that are large enough, fulfilling desideratum #1. Given the current state of NLP, there are several contenders&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn17" id="fnref17"&gt;[17]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;  
+
+&lt;p&gt;&lt;strong&gt;Reading comprehension&lt;/strong&gt; is the task of answering a natural language question about a paragraph. The most popular dataset for this task is the &lt;a href="https://rajpurkar.github.io/SQuAD-explorer/"&gt;Stanford Question Answering Dataset (SQuAD)&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn18" id="fnref18"&gt;[18]&lt;/a&gt;&lt;/sup&gt;, which contains more than 100,000 question-answer pairs and asks models to answer a question by highlighting a span in the paragraph as can be seen below.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/squad_example.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;Question-answer pairs for a sample passage in the SQuAD dataset (&lt;a href="https://arxiv.org/abs/1606.05250"&gt;Rajpurkar et al., 2016&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;&lt;strong&gt;Natural language inference&lt;/strong&gt; is the task of identifying the relation (entailment, contradiction, and neutral) that holds between a piece of text and a hypothesis. The most popular dataset for this task, the &lt;a href="https://nlp.stanford.edu/projects/snli/"&gt;Stanford Natural Language Inference (SNLI) Corpus&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn19" id="fnref19"&gt;[19]&lt;/a&gt;&lt;/sup&gt;, contains 570k human-written English sentence pairs. Examples of the dataset can be seen below.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/snli_examples.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;Examples from the SNLI dataset. (&lt;a href="https://nlp.stanford.edu/pubs/snli_paper.pdf"&gt;Bowman et al., 2015&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;&lt;strong&gt;Machine translation&lt;/strong&gt;, translating text in one language to text in another language, is one of the most studies tasks in NLP, and---over the years---has accumulated vast amounts of training data for popular language pairs, e.g. 40M English-French sentence pairs in WMT 2014. See below for two example translation pairs.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/mt_examples.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;French-to-English translations from newstest2014 (&lt;a href="https://arxiv.org/abs/1710.11041"&gt;Artetxe et al., 2018&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;&lt;strong&gt;Constituency parsing&lt;/strong&gt; seeks to extract the syntactic structure of a sentence in the form of a (linearized) constituency parse tree as can be seen below. In the past, &lt;a href="https://arxiv.org/abs/1412.7449"&gt;millions of weakly labelled parses&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn20" id="fnref20"&gt;[20]&lt;/a&gt;&lt;/sup&gt; have been used for training sequence-to-sequence models for this task.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/constituency_parsing_example.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;A parse tree and its linearization. (&lt;a href="https://arxiv.org/abs/1412.7449"&gt;Vinyals et al., 2015&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;&lt;strong&gt;Language modeling (LM)&lt;/strong&gt; aims to predict the next word given its previous word. Existing benchmark datasets consist of up to &lt;a href="http://www.statmt.org/lm-benchmark/"&gt;1B words&lt;/a&gt;, but as the task is unsupervised, any number of words can be used for training. See below for examples from the popular WikiText-2 dataset consisting of Wikipedia articles.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/language_modeling_examples.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;Examples from the WikiText-2 language modeling dataset. (Source: &lt;a href="https://einstein.ai/research/the-wikitext-long-term-dependency-language-modeling-dataset"&gt;Salesforce&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;All of these tasks provide---or would allow the collection of---a sufficient number of examples for training. Indeed, &lt;a href="https://arxiv.org/abs/1705.02364"&gt;the&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn21" id="fnref21"&gt;[21]&lt;/a&gt;&lt;/sup&gt; &lt;a href="https://arxiv.org/abs/1804.00079"&gt;above&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn22" id="fnref22"&gt;[22]&lt;/a&gt;&lt;/sup&gt; &lt;a href="https://papers.nips.cc/paper/7209-learned-in-translation-contextualized-word-vectors"&gt;tasks&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn23" id="fnref23"&gt;[23]&lt;/a&gt;&lt;/sup&gt; (and many others such as &lt;a href="https://arxiv.org/abs/1708.00524"&gt;sentiment analysis&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn24" id="fnref24"&gt;[24]&lt;/a&gt;&lt;/sup&gt;, &lt;a href="https://arxiv.org/abs/1412.7449"&gt;constituency parsing&lt;/a&gt; &lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn20" id="fnref20:1"&gt;[20:1]&lt;/a&gt;&lt;/sup&gt;, &lt;a href="https://arxiv.org/abs/1506.06726"&gt;skip-thoughts&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn25" id="fnref25"&gt;[25]&lt;/a&gt;&lt;/sup&gt;, and &lt;a href="https://arxiv.org/abs/1511.01432"&gt;autoencoding&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn26" id="fnref26"&gt;[26]&lt;/a&gt;&lt;/sup&gt;) have been used to pretrain representations in recent months.&lt;/p&gt;  
+
+&lt;p&gt;While any data contains &lt;a href="https://arxiv.org/abs/1607.06520"&gt;some bias&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn27" id="fnref27"&gt;[27]&lt;/a&gt;&lt;/sup&gt;, human annotators may inadvertently introduce additional signals that a model can exploit. &lt;a href="https://www.aclweb.org/anthology/P16-1223"&gt;Recent&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn28" id="fnref28"&gt;[28]&lt;/a&gt;&lt;/sup&gt; &lt;a href="https://arxiv.org/abs/1803.02324"&gt;studies&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn29" id="fnref29"&gt;[29]&lt;/a&gt;&lt;/sup&gt; reveal that state-of-the-art models for tasks such as reading comprehension and natural language inference do not in fact exhibit deep natural language understanding but pick up on such cues to perform superficial pattern matching. For instance, &lt;a href="https://arxiv.org/abs/1803.02324"&gt;Gururangan et al. (2018)&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn29" id="fnref29:1"&gt;[29:1]&lt;/a&gt;&lt;/sup&gt; show that annotators tend to produce entailment examples simply by removing gender or number information and generate contradictions by introducing negations. A model that simply exploits these cues can correctly classify the hypothesis without looking at the premise in about 67% of the SNLI dataset.&lt;/p&gt;  
+
+&lt;p&gt;The more difficult question thus is: Which task is most representative of the space of NLP problems? In other words, which task allows us to learn most of the knowledge or relations required for understanding natural language?&lt;/p&gt;  
+
+&lt;h2 id="thecaseforlanguagemodelling"&gt;The case for language modelling&lt;/h2&gt;  
+
+&lt;p&gt;In order to predict the most probable next word in a sentence, a model is required not only to be able to express syntax (the grammatical form of the predicted word must match its modifier or verb) but also model semantics. Even more, the most accurate models must incorporate what could be considered &lt;em&gt;world knowledge&lt;/em&gt; or &lt;em&gt;common sense&lt;/em&gt;. Consider the incomplete sentence &amp;quot;The service was poor, but the food was&amp;quot;. In order to predict the succeeding word such as “yummy” or “delicious”, the model must not only memorize what attributes are used to describe food, but also be able to identify that the conjunction “but” introduces a contrast, so that the new attribute has the opposing sentiment of “poor”.&lt;/p&gt;  
+
+&lt;p&gt;Language modelling, the last approach mentioned, has been shown to capture many facets of language relevant for downstream tasks, such as &lt;a href="https://arxiv.org/abs/1611.01368"&gt;long-term dependencies&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn30" id="fnref30"&gt;[30]&lt;/a&gt;&lt;/sup&gt;, &lt;a href="https://arxiv.org/abs/1803.11138"&gt;hierarchical relations&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn31" id="fnref31"&gt;[31]&lt;/a&gt;&lt;/sup&gt;, and &lt;a href="https://arxiv.org/abs/1704.01444"&gt;sentiment&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn32" id="fnref32"&gt;[32]&lt;/a&gt;&lt;/sup&gt;. Compared to related unsupervised tasks such as skip-thoughts and autoencoding, &lt;a href="https://openreview.net/forum?id=BJeYYeaVJ7"&gt;language modelling performs better on syntactic tasks even with less training data&lt;/a&gt;.&lt;/p&gt;  
+
+&lt;p&gt;Among the biggest benefits of language modelling is that training data comes for free with any text corpus and that potentially unlimited amounts of training data are available. This is particularly significant, as NLP deals not only with the English language. More than 4,500 languages are spoken around the world by more than 1,000 speakers. Language modeling as a pretraining task opens the door to developing models for previously underserved languages. For very low-resource languages where even unlabeled data is scarce, multilingual language models may be trained on multiple related languages at once, analogous to work on &lt;a href="https://arxiv.org/abs/1706.04902"&gt;cross-lingual embeddings&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn33" id="fnref33"&gt;[33]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/ulmfit.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;The different stages of ULMFiT. (&lt;a href="https://arxiv.org/abs/1801.06146"&gt;Howard and Ruder, 2018&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;So far, our argument for language modeling as a pretraining task has been purely conceptual. Pretraining a language model was &lt;a href="https://arxiv.org/abs/1511.01432"&gt;first proposed in 2015&lt;/a&gt; &lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn26" id="fnref26:1"&gt;[26:1]&lt;/a&gt;&lt;/sup&gt;, but it remained unclear whether a single pretrained language model was useful for many tasks. In recent months, we finally obtained overwhelming empirical proof: &lt;a href="https://arxiv.org/abs/1802.05365"&gt;Embeddings from Language Models (ELMo)&lt;/a&gt;, &lt;a href="https://arxiv.org/abs/1801.06146"&gt;Universal Language Model Fine-tuning (ULMFiT)&lt;/a&gt;, and the &lt;a href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf"&gt;OpenAI Transformer&lt;/a&gt; have empirically demonstrated how language modeling can be used for pretraining, as shown by the above figure from ULMFiT. All three methods employed pretrained language models to achieve state-of-the-art on a diverse range of tasks in Natural Language Processing, including text classification, question answering, natural language inference, coreference resolution, sequence labeling, and many others.&lt;/p&gt;  
+
+&lt;p&gt;In many cases such as with ELMo in the figure below, these improvements ranged between 10-20% better than the state-of-the-art on widely studied benchmarks, all with the single core method of leveraging a pretrained language model. ELMo furthermore won the best &lt;a href="https://naacl2018.wordpress.com/2018/04/11/outstanding-papers/"&gt;paper award at NAACL-HLT 2018&lt;/a&gt;, one of the top conferences in the field. Finally, these models have been shown to be extremely sample-efficient, achieving good performance with only hundreds of examples and are even able to perform zero-shot learning.&lt;/p&gt;  
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/elmo.png" width="450" alt="NLP's ImageNet moment has arrived"&gt;  
+    &lt;figcaption&gt;The improvements ELMo achieved on a wide range of NLP tasks. (Source: Matthew Peters)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;In light of this step change, &lt;strong&gt;it is very likely that in a year’s time NLP practitioners will download pretrained language models rather than pretrained word embeddings&lt;/strong&gt; for use in their own models, similarly to how pre-trained ImageNet models are the starting point for most CV projects nowadays.&lt;/p&gt;  
+
+&lt;p&gt;However, similar to word2vec, the task of language modeling naturally has its own limitations: It is only a proxy to true language understanding, and a single monolithic model is ill-equipped to capture the required information for certain downstream tasks. For instance, in order to answer questions about or follow the trajectory of characters in a story, a model needs to learn to perform &lt;a href="https://en.wikipedia.org/wiki/Anaphora_(linguistics)"&gt;anaphora&lt;/a&gt; or &lt;a href="https://en.wikipedia.org/wiki/Coreference#Coreference_resolution"&gt;coreference resolution&lt;/a&gt;. In addition, language models can only capture what they have seen. Certain types of information, such as most common sense knowledge, are &lt;a href="https://arxiv.org/abs/1705.11168"&gt;difficult to learn from text alone&lt;/a&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn34" id="fnref34"&gt;[34]&lt;/a&gt;&lt;/sup&gt; and require incorporating external information.&lt;/p&gt;  
+
+&lt;p&gt;One outstanding question is how to transfer the information from a pre-trained language model to a downstream task. The two main paradigms for this are whether to use the pre-trained language model as a fixed feature extractor and incorporate its representation as features into a randomly initialized model as used in &lt;a href="https://arxiv.org/abs/1802.05365"&gt;ELMo&lt;/a&gt;, or whether to fine-tune the entire language model as done by &lt;a href="https://arxiv.org/abs/1801.06146"&gt;ULMFiT&lt;/a&gt;. The latter fine-tuning approach is what is typically done in CV where either the top-most or &lt;a href="https://arxiv.org/abs/1310.1531"&gt;several of the top layers are fine-tuned&lt;/a&gt;. While NLP models are typically more shallow and thus require different fine-tuning techniques than their vision counterparts, recent pretrained models are getting deeper. The next months will show the impact of each of the core components of transfer learning for NLP: an expressive language model encoder such as a deep BiLSTM or the &lt;a href="https://arxiv.org/abs/1706.03762"&gt;Transformer&lt;/a&gt;, the amount and nature of the data used for pretraining, and the method used to fine-tune the pretrained model.&lt;/p&gt;  
+
+&lt;h2 id="butwheresthetheory"&gt;But where’s the theory?&lt;/h2&gt;  
+
+&lt;p&gt;Our analysis thus far has been mostly conceptual and empirical, as it is still poorly understood why models trained on ImageNet---and consequently on language modeling---transfer so well. One way to think about the generalization behaviour of pretrained models more formally is under a model of &lt;em&gt;bias learning&lt;/em&gt; (Baxter, 2000)&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn35" id="fnref35"&gt;[35]&lt;/a&gt;&lt;/sup&gt;. Assume our problem domain covers all permutations of tasks in a particular discipline, e.g. computer vision, which forms our &lt;em&gt;environment&lt;/em&gt;. We are provided with a number of datasets that allow us to induce a &lt;em&gt;family&lt;/em&gt; of hypothesis spaces \(\mathrm{H} = {\mathcal{H}}\). Our goal in bias learning is to find a &lt;em&gt;bias&lt;/em&gt;, i.e. a hypothesis space \(\mathcal{H} \in \mathrm{H}\) that maximizes performance on the entire (potentially infinite) environment.  &lt;/p&gt;
+
+&lt;p&gt;Empirical and theoretical results in multi-task learning (Caruana, 1997; Baxter, 2000)&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn36" id="fnref36"&gt;[36]&lt;/a&gt;&lt;/sup&gt;&lt;sup class="footnote-ref"&gt;&lt;a href="http://ruder.io/nlp-imagenet/#fn35" id="fnref35:1"&gt;[35:1]&lt;/a&gt;&lt;/sup&gt; indicate that a bias that is learned on &lt;em&gt;sufficiently many&lt;/em&gt; tasks is likely to generalize to unseen tasks drawn from the same environment. Viewed through the lens of multi-task learning, a model trained on ImageNet learns a large number of binary classification tasks (one for each class). These tasks, all drawn from the space of natural, real-world images, are likely to be representative of many other CV tasks. In the same vein, a language model---by learning a large number of classification tasks, one for each word---induces representations that are likely helpful for many other tasks in the realm of natural language. Still, much more research is necessary to gain a better theoretical understanding why language modeling seems to work so well for transfer learning.&lt;/p&gt;  
+
+&lt;h2 id="theimagenetmoment"&gt;The ImageNet moment&lt;/h2&gt;  
+
+&lt;p&gt;The time is ripe for practical transfer learning to make inroads into NLP. In light of the impressive empirical results of &lt;a href="https://arxiv.org/abs/1802.05365"&gt;ELMo&lt;/a&gt;, &lt;a href="https://arxiv.org/abs/1801.06146"&gt;ULMFiT&lt;/a&gt;, and &lt;a href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf"&gt;OpenAI&lt;/a&gt; it only seems to be a question of time until pretrained word embeddings will be dethroned and replaced by pretrained language models in the toolbox of every NLP practitioner. This will likely open many new applications for NLP in settings with limited amounts of labeled data. The king is dead, long live the king!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For further reading, check out the &lt;a href="https://news.ycombinator.com/item?id=17489564"&gt;discussion on HackerNews&lt;/a&gt;.&lt;/em&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Cover image due to Matthew Peters.&lt;/em&gt;&lt;/p&gt;  
+
+&lt;ol class="footnotes-list"&gt;  
+&lt;li id="fn1" class="footnote-item"&gt;&lt;p&gt;Peters, Matthew E., et al. &amp;quot;Deep contextualized word representations.&amp;quot; Proceedings of NAACL-HLT (2018). &lt;a href="http://ruder.io/nlp-imagenet/#fnref1" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn2" class="footnote-item"&gt;&lt;p&gt;Howard, Jeremy, and Sebastian Ruder. &amp;quot;Fine-tuned Language Models for Text Classification.&amp;quot; Proceedings of ACL (2018). &lt;a href="http://ruder.io/nlp-imagenet/#fnref2" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn3" class="footnote-item"&gt;&lt;p&gt;Radford, Alec, et al. &amp;quot;Improving Language Understanding by Generative Pre-Training.&amp;quot; &lt;a href="http://ruder.io/nlp-imagenet/#fnref3" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn4" class="footnote-item"&gt;&lt;p&gt;Mikolov, Tomas, et al. &amp;quot;Distributed representations of words and phrases and their compositionality.&amp;quot; Advances in neural information processing systems. 2013. &lt;a href="http://ruder.io/nlp-imagenet/#fnref4" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn5" class="footnote-item"&gt;&lt;p&gt;Pennington, Jeffrey, Richard Socher, and Christopher Manning. &amp;quot;Glove: Global vectors for word representation.&amp;quot; Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP). 2014. &lt;a href="http://ruder.io/nlp-imagenet/#fnref5" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn6" class="footnote-item"&gt;&lt;p&gt;Kim, Yoon. &amp;quot;Convolutional neural networks for sentence classification.&amp;quot; Proceedings of EMNLP (2014). &lt;a href="http://ruder.io/nlp-imagenet/#fnref6" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn7" class="footnote-item"&gt;&lt;p&gt;Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. &amp;quot;Imagenet classification with deep convolutional neural networks.&amp;quot; Advances in neural information processing systems. 2012. &lt;a href="http://ruder.io/nlp-imagenet/#fnref7" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn8" class="footnote-item"&gt;&lt;p&gt;Donahue, Jeff, et al. &amp;quot;Decaf: A deep convolutional activation feature for generic visual recognition.&amp;quot; International conference on machine learning. 2014. &lt;a href="http://ruder.io/nlp-imagenet/#fnref8" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn9" class="footnote-item"&gt;&lt;p&gt;He, Kaiming, et al. &amp;quot;Mask r-cnn.&amp;quot; Computer Vision (ICCV), 2017 IEEE International Conference on. IEEE, 2017. &lt;a href="http://ruder.io/nlp-imagenet/#fnref9" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn10" class="footnote-item"&gt;&lt;p&gt;Zhao, Hengshuang, et al. &amp;quot;Pyramid scene parsing network.&amp;quot; IEEE Conf. on Computer Vision and Pattern Recognition (CVPR). 2017. &lt;a href="http://ruder.io/nlp-imagenet/#fnref10" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn11" class="footnote-item"&gt;&lt;p&gt;Papandreou, George, et al. &amp;quot;Towards accurate multi-person pose estimation in the wild.&amp;quot; CVPR. Vol. 3. No. 4. 2017. &lt;a href="http://ruder.io/nlp-imagenet/#fnref11" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn12" class="footnote-item"&gt;&lt;p&gt;Carreira, Joao, and Andrew Zisserman. &amp;quot;Quo vadis, action recognition? a new model and the kinetics dataset.&amp;quot; Computer Vision and Pattern Recognition (CVPR), 2017 IEEE Conference on. IEEE, 2017. &lt;a href="http://ruder.io/nlp-imagenet/#fnref12" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn13" class="footnote-item"&gt;&lt;p&gt;Mahajan, Dhruv, et al. &amp;quot;Exploring the Limits of Weakly Supervised Pretraining.&amp;quot; arXiv preprint arXiv:1805.00932 (2018). &lt;a href="http://ruder.io/nlp-imagenet/#fnref13" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn14" class="footnote-item"&gt;&lt;p&gt;Huh, Minyoung, Pulkit Agrawal, and Alexei A. Efros. &amp;quot;What makes ImageNet good for transfer learning?.&amp;quot; arXiv preprint arXiv:1608.08614 (2016). &lt;a href="http://ruder.io/nlp-imagenet/#fnref14" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn15" class="footnote-item"&gt;&lt;p&gt;Yosinski, Jason, et al. &amp;quot;How transferable are features in deep neural networks?.&amp;quot; Advances in neural information processing systems. 2014. &lt;a href="http://ruder.io/nlp-imagenet/#fnref15" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn16" class="footnote-item"&gt;&lt;p&gt;Olah, Chris, Alexander Mordvintsev, and Ludwig Schubert. &amp;quot;Feature visualization.&amp;quot; Distill 2.11 (2017): e7. &lt;a href="http://ruder.io/nlp-imagenet/#fnref16" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn17" class="footnote-item"&gt;&lt;p&gt;For a comprehensive overview of progress in NLP tasks, you can refer to this &lt;a href="https://github.com/sebastianruder/NLP-progress"&gt;GitHub repository&lt;/a&gt;. &lt;a href="http://ruder.io/nlp-imagenet/#fnref17" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn18" class="footnote-item"&gt;&lt;p&gt;Rajpurkar, Pranav, et al. &amp;quot;Squad: 100,000+ questions for machine comprehension of text.&amp;quot; Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP, 2016). &lt;a href="http://ruder.io/nlp-imagenet/#fnref18" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn19" class="footnote-item"&gt;&lt;p&gt;Bowman, Samuel R., et al. &amp;quot;A large annotated corpus for learning natural language inference.&amp;quot; Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP, 2015). &lt;a href="http://ruder.io/nlp-imagenet/#fnref19" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn20" class="footnote-item"&gt;&lt;p&gt;Vinyals, Oriol, et al. &amp;quot;Grammar as a foreign language.&amp;quot; Advances in Neural Information Processing Systems. 2015. &lt;a href="http://ruder.io/nlp-imagenet/#fnref20" class="footnote-backref"&gt;↩︎&lt;/a&gt; &lt;a href="http://ruder.io/nlp-imagenet/#fnref20:1" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn21" class="footnote-item"&gt;&lt;p&gt;Conneau, Alexis, et al. &amp;quot;Supervised learning of universal sentence representations from natural language inference data.&amp;quot; Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP, 2017). &lt;a href="http://ruder.io/nlp-imagenet/#fnref21" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn22" class="footnote-item"&gt;&lt;p&gt;Subramanian, Sandeep, et al. &amp;quot;Learning general purpose distributed sentence representations via large scale multi-task learning.&amp;quot; Proceedings of the International Conference on Learning Representations, ICLR (2018). &lt;a href="http://ruder.io/nlp-imagenet/#fnref22" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn23" class="footnote-item"&gt;&lt;p&gt;McCann, Bryan, et al. &amp;quot;Learned in translation: Contextualized word vectors.&amp;quot; Advances in Neural Information Processing Systems. 2017. &lt;a href="http://ruder.io/nlp-imagenet/#fnref23" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn24" class="footnote-item"&gt;&lt;p&gt;Felbo, Bjarke, et al. &amp;quot;Using millions of emoji occurrences to learn any-domain representations for detecting sentiment, emotion and sarcasm.&amp;quot; Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP, 2017). &lt;a href="http://ruder.io/nlp-imagenet/#fnref24" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn25" class="footnote-item"&gt;&lt;p&gt;Kiros, Ryan, et al. &amp;quot;Skip-thought vectors.&amp;quot; Advances in neural information processing systems. 2015. &lt;a href="http://ruder.io/nlp-imagenet/#fnref25" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn26" class="footnote-item"&gt;&lt;p&gt;Dai, Andrew M., and Quoc V. Le. &amp;quot;Semi-supervised sequence learning.&amp;quot; Advances in neural information processing systems. 2015. &lt;a href="http://ruder.io/nlp-imagenet/#fnref26" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn27" class="footnote-item"&gt;&lt;p&gt;Bolukbasi, Tolga, et al. &amp;quot;Man is to computer programmer as woman is to homemaker? debiasing word embeddings.&amp;quot; Advances in Neural Information Processing Systems. 2016. &lt;a href="http://ruder.io/nlp-imagenet/#fnref27" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn28" class="footnote-item"&gt;&lt;p&gt;Chen, Danqi, Jason Bolton, and Christopher D. Manning. &amp;quot;A thorough examination of the cnn/daily mail reading comprehension task.&amp;quot; Proceedings of the Meeting of the Association for Computational Linguistics (2016). &lt;a href="http://ruder.io/nlp-imagenet/#fnref28" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn29" class="footnote-item"&gt;&lt;p&gt;Gururangan, Suchin, et al. &amp;quot;Annotation artifacts in natural language inference data.&amp;quot; Proceedings of NAACL-HLT (2018). &lt;a href="http://ruder.io/nlp-imagenet/#fnref29" class="footnote-backref"&gt;↩︎&lt;/a&gt; &lt;a href="http://ruder.io/nlp-imagenet/#fnref29:1" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn30" class="footnote-item"&gt;&lt;p&gt;Linzen, T., Dupoux, E., &amp;amp; Goldberg, Y. (2016). Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies. Proceedings of TACL 2016. &lt;a href="http://ruder.io/nlp-imagenet/#fnref30" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn31" class="footnote-item"&gt;&lt;p&gt;Gulordava, K., Bojanowski, P., Grave, E., Linzen, T., &amp;amp; Baroni, M. (2018). Colorless green recurrent networks dream hierarchically. In Proceedings of NAACL-HLT 2018. &lt;a href="http://ruder.io/nlp-imagenet/#fnref31" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn32" class="footnote-item"&gt;&lt;p&gt;Radford, A., Jozefowicz, R., &amp;amp; Sutskever, I. (2017). Learning to Generate Reviews and Discovering Sentiment. arXiv preprint arXiv:1704.01444. &lt;a href="http://ruder.io/nlp-imagenet/#fnref32" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn33" class="footnote-item"&gt;&lt;p&gt;Ruder, Sebastian, Ivan Vulic, and Anders Søgaard. &amp;quot;A Survey of Cross-lingual Word Embedding Models.&amp;quot; Journal of Artificial Intelligence Research (2018). &lt;a href="http://ruder.io/nlp-imagenet/#fnref33" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn34" class="footnote-item"&gt;&lt;p&gt;Lucy, Li, and Jon Gauthier. &amp;quot;Are distributional representations ready for the real world? Evaluating word vectors for grounded perceptual meaning.&amp;quot; Proceedings of the First Workshop on Language Grounding for Robotics (2017). &lt;a href="http://ruder.io/nlp-imagenet/#fnref34" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn35" class="footnote-item"&gt;&lt;p&gt;Jonathan Baxter. 2000. A Model of Inductive Bias Learning. Journal of Artificial Intelligence Research 12:149–198. &lt;a href="http://ruder.io/nlp-imagenet/#fnref35" class="footnote-backref"&gt;↩︎&lt;/a&gt; &lt;a href="http://ruder.io/nlp-imagenet/#fnref35:1" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn36" class="footnote-item"&gt;&lt;p&gt;Rich Caruana. 1993. Multitask learning: A knowledge-based source of inductive bias. In Proceedings of the Tenth International Conference on Machine Learning. &lt;a href="http://ruder.io/nlp-imagenet/#fnref36" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;/ol&gt;</content:encoded></item><item><title>Tracking the Progress in Natural Language Processing</title><description>This post presents a new resource to track the progress in NLP, including the datasets and the current state-of-the-art for the most common NLP tasks.</description><link>http://ruder.io/tracking-progress-nlp/</link><guid isPermaLink="false">b5a914f8-54d9-4a2e-afc3-6c66dff83a97</guid><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Fri, 22 Jun 2018 17:31:55 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href="https://nlpprogress.com"&gt;Go directly to the document tracking the progress in NLP&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Research in Machine Learning and in Natural Language Processing (NLP) is moving so fast these days, it is hard to keep up. This is an issue for people in the field, but it is an even bigger obstacle for people wanting to get into NLP and those seeking to make the leap from tutorials to reproducing papers and conducting their own research. Without expert guidance and prior knowledge, it can be a painstaking process to identify the most common datasets and the current state-of-the-art for your task of interest.&lt;/p&gt;
 
@@ -2992,252 +3253,4 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 &lt;li class="footnote" id="fn:43"&gt;&lt;p&gt;Xian, Y., Schiele, B., Akata, Z., Campus, S. I., &amp;amp; Machine, A. (2017). Zero-Shot Learning - The Good, the Bad and the Ugly. In CVPR 2017. &lt;a href="http://ruder.io/transfer-learning/#fnref:43" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li class="footnote" id="fn:44"&gt;&lt;p&gt;Tzeng, E., Hoffman, J., Saenko, K., &amp;amp; Darrell, T. (2017). Adversarial Discriminative Domain Adaptation. &lt;a href="http://ruder.io/transfer-learning/#fnref:44" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content:encoded></item><item><title>Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more</title><description>&lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/highlights-nips-2016/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I attended NIPS 2016 in Barcelona from Monday, December 5 to Saturday, December 10. The full conference program is available &lt;a href="https://media.nips.cc/Conferences/2016/NIPS-2016-Conference-Book.pdf"&gt;here&lt;/a&gt;. In the following, I will share some of my highlights.&lt;/p&gt;
-
-&lt;h1 id="nips"&gt;NIPS&lt;/h1&gt;
-
-&lt;p&gt;The Conference on Neural Information Processing Systems (NIPS) is (besides&lt;/p&gt;</description><link>http://ruder.io/highlights-nips-2016/</link><guid isPermaLink="false">dca20ced-1519-4c56-bc75-5f8202fe7e16</guid><category>deep learning</category><category>natural language processing</category><category>nlp</category><category>nips</category><category>reinforcement learning</category><category>meta-learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Wed, 21 Dec 2016 19:29:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2016/12/nips_entry-2.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2016/12/nips_entry-2.jpg" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;&lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/highlights-nips-2016/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I attended NIPS 2016 in Barcelona from Monday, December 5 to Saturday, December 10. The full conference program is available &lt;a href="https://media.nips.cc/Conferences/2016/NIPS-2016-Conference-Book.pdf"&gt;here&lt;/a&gt;. In the following, I will share some of my highlights.&lt;/p&gt;
-
-&lt;h1 id="nips"&gt;NIPS&lt;/h1&gt;
-
-&lt;p&gt;The Conference on Neural Information Processing Systems (NIPS) is (besides ICML) one of the two top conferences in machine learning. It took place for the first time in 1987 and is held every December, historically in close proximity to a ski resort. This year, in slight juxtaposition, it took place in sunny Barcelona.&lt;/p&gt;
-
-&lt;p&gt;Machine Learning seems to become more pervasive every month. However, it is still sometimes hard to keep track of the actual extent of this development. One of the most accurate barometers for this evolution is the growth of NIPS itself. The number of attendees skyrocketed at this year’s conference growing by over 50% year-over-year.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/terry_law.jpg" style="width: 60%" title="Terry's Law" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 1: The growth of the number of attendees at NIPS follows (the newly coined) Terry’s Law (named after Terrence Sejnowski, the president of the NIPS foundation; faster growth than Moore's Law Law)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Unsurprisingly, Deep Learning (DL) was by far the most popular research topic, with about every fourth of more than 2,500 submitted papers (and 568 accepted papers) dealing with deep neural networks.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/submissions_distribution.png" style="width: 100%" title="Distribution of topics across NIPS 2016 submissions" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 2: Distribution of topics across all submitted papers (Source: &lt;a href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/misc/nips2016/index.php"&gt;The review process for NIPS 2016&lt;/a&gt;)  
-&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;On the other hand, the distribution of research paper topics has quite a long tail and reflects the diversity of topics at the conference that span everything from theory to applications, from robotics to neuroscience, and from healthcare to self-driving cars.&lt;/p&gt;
-
-&lt;h1 id="generativeadversarialnetworks"&gt;Generative Adversarial Networks&lt;/h1&gt;
-
-&lt;p&gt;One of the hottest developments within Deep Learning was Generative Adversarial Networks (GANs). The minimax game playing networks have by now won the favor of many luminaries in the field. Yann LeCun hails them as the most exciting development in ML in recent years. The organizers and attendees of NIPS seem to side with him: NIPS featured a tutorial by Ian Goodfellow about his brainchild, which led to a packed main conference hall.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/full_conference_hall_gan_tutorial.jpg" style="width: 70%" title="Full conference hall at GAN tutorial" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 3: A full conference hall at the GAN tutorial  
-&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Though a fairly recent development, there are many cool extensions of GANs among the conference papers:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6111-learning-what-and-where-to-draw.pdf"&gt;Reed et al.&lt;/a&gt; propose a model that allows you to specify not only what you want to draw (e.g. a bird) but also where to put it in an image.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6399-infogan-interpretable-representation-learning-by-information-maximizing-generative-adversarial-nets.pdf"&gt;Chen et al.&lt;/a&gt; disentangle factors of variation in GANs by representing them with latent codes. The resulting models allow you to adjust e.g. the type of a digit, its breadth and width, etc.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In spite of their popularity, we know alarmingly little about what makes GANs so capable of generating realistic-looking images. In addition, making them work in practice is an arduous endeavour and a lot of (undocumented) hacks are necessary to achieve the best performance. Soumith Chintala presents a collection of these hacks in his &lt;a href="https://github.com/soumith/ganhacks"&gt;"How to train your GAN" talk&lt;/a&gt; at the Adversarial Training workshop.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/soumith_chintala_nips_2016_how_to_train_your_gan_poster.png" style="width: 50%" title="How to train your GAN" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 4: How to train your GAN (Source: &lt;a href="https://twitter.com/soumithchintala/status/805111562503589889"&gt;Soumith Chintala&lt;/a&gt;)  
-&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Yann LeCun muses in his keynote that the development of GANs parallels the history of neural networks themselves: They were poorly understood and hard to get to work in the beginning and only took off once researchers figured out the right tricks and learned how to make them work. At this point, it seems unlikely that GANs will experience a winter anytime soon; the research community is still at the beginning in learning how to make the best use of them and it will be exciting to see what progress we can make in the coming years.&lt;/p&gt;
-
-&lt;p&gt;On the other hand, the success of GANs so far has been limited mostly to Computer Vision due to their difficulty in modelling discrete rather than continuous data. The Adversarial Training workshop showcased some promising work in this direction (see e.g. my colleague &lt;a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_19.pdf"&gt;John Glover’s paper&lt;/a&gt; on modeling documents, &lt;a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_20.pdf"&gt;this&lt;/a&gt; and &lt;a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_27.pdf"&gt;this&lt;/a&gt; paper on generating text, and &lt;a href="https://c4209155-a-62cb3a1a-s-sites.googlegroups.com/site/nips2016adversarial/WAT16_paper_32.pdf"&gt;this paper&lt;/a&gt; on adversarial evaluation of dialogue models). We will see if 2017 will be the year in which GANs break through in NLP.&lt;/p&gt;
-
-&lt;h1 id="thenutsandboltsofmachinelearning"&gt;The Nuts and Bolts of Machine Learning&lt;/h1&gt;
-
-&lt;p&gt;Andrew Ng gave one of the best tutorials of the conference with his take on building AI applications using Deep Learning. Drawing from his experience of managing the 1,300 people AI team at Baidu and hundreds of applied AI projects and equipped solely with two whiteboards, he shared many insights about how to build and deploy AI applications in production.&lt;/p&gt;
-
-&lt;p&gt;Besides better hardware, Ng attributes the success of Deep Learning to two factors: In contrast to traditional methods, deep NNs are able to learn more effectively from large amounts of data. Secondly, end-to-end (supervised) Deep Learning allows us to learn to map from inputs directly to outputs.&lt;/p&gt;
-
-&lt;p&gt;While this approach to training chatbots or self-driving cars is sufficient to write innovative research papers, Ng emphasized end-to-end DL is often not production-ready: A chatbot that maps from text directly to a response is not able to have a coherent conversation or fulfill a request, while mapping from an image directly to a steering command might have literally fatal side effects if the model has not encountered the corresponding part of the input space before. Rather, for a production model, we still want to have intermediate steps: For a chatbot, we prefer to have an inference engine that generates a response, while in a self-driving car, DL is used to identify obstacles, while the steering is performed by a traditional planning algorithm.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/ng_tutorial_end_to_end_dl.jpg" style="width: 100%" title="Andrew Ng on end-to-end Deep Learning" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 5: Andrew Ng on end-to-end DL (right: end-to-end DL chatbot and chatbot with inference engine; left bottom: end-to-end DL self-driving car and self-driving car with intermediate steps)  
-&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Ng also shared that the most common mistake he sees in project teams is that they track the wrong metrics: In an applied machine learning project, the only relevant metrics are the training error, the development error, and the test error. These metrics alone enable the project team to know what steps to take, as he demonstrated in the diagram below:&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/ng_tutorial_bias_variance.jpg" style="width: 100%" title="Andrew Ng's flowchart for applied ML projects" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 6: Andrew Ng’s flowchart for applied ML projects  
-&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;A key facilitator of the recent success of ML have been the advances in hardware that allowed faster computation and storage. Given that Moore's Law will reach its limits sooner or later, one might reason that also the rise of ML might plateau. Ng, however, argued that the &lt;a href="http://fortune.com/2016/11/18/intel-ai-nvidia-analysts/"&gt;commitment by leading hardware manufacturers such as NVIDIA and Intel&lt;/a&gt; and the ensuing performance improvements to ML hardware would fuel further growth.&lt;/p&gt;
-
-&lt;p&gt;Among ML research areas, supervised learning is the undisputed driver of the recent success of ML and will likely continue to drive it for the foreseeable future. In second place, Ng saw neither unsupervised learning nor reinforcement learning, but transfer learning. We at AYLIEN are bullish on transfer learning for NLP and think that it has massive potential.&lt;/p&gt;
-
-&lt;h1 id="recurrentneuralnetworks"&gt;Recurrent Neural Networks&lt;/h1&gt;
-
-&lt;p&gt;The conference also featured a symposium dedicated to Recurrent Neural Networks (RNNs). The symposium coincided with the 20 year anniversary of LSTM...&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/rnn_symposium.png" style="width: 70%" title="Jürgen Schmidhuber at the RNN symposium" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 7: Jürgen Schmidhuber kicking off the RNN symposium  
-&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;...being rejected from NIPS 1996. The fact that papers that &lt;em&gt;do not&lt;/em&gt; use LSTMs have been rare in the most recent NLP conferences (see my &lt;a href="http://sebastianruder.com/emnlp-2016-highlights/index.html"&gt;EMNLP 2016 blog post&lt;/a&gt;) is a testament to the perseverance of the authors of the original paper, Sepp Hochreiter and Jürgen Schmidhuber.&lt;/p&gt;
-
-&lt;p&gt;At NIPS, we had several papers that sought to improve RNNs in different ways:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6057-using-fast-weights-to-attend-to-the-recent-past.pdf"&gt;Ba et al.&lt;/a&gt; and &lt;a href="https://papers.nips.cc/paper/6310-phased-lstm-accelerating-recurrent-network-training-for-long-or-event-based-sequences.pdf"&gt;Neil et al.&lt;/a&gt; enable RNNs to handle different time scales using slow weights and a phased variant of the LSTM respectively.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6039-sequential-neural-models-with-stochastic-layers.pdf"&gt;Fraccaro et al.&lt;/a&gt; model uncertainty.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Other improvements apply to Deep Learning in general:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6114-weight-normalization-a-simple-reparameterization-to-accelerate-training-of-deep-neural-networks.pdf"&gt;Salimans and Kingma&lt;/a&gt; propose Weight Normalisation to accelerate training that can be applied in two lines of Python code.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6561-improved-dropout-for-shallow-and-deep-learning.pdf"&gt;Li et al.&lt;/a&gt; propose a multinomial variant of dropout that sets neurons to zero depending on the data distribution.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The &lt;a href="https://uclmr.github.io/nampi/"&gt;Neural Abstract Machines &amp;amp; Program Induction (NAMPI) workshop&lt;/a&gt; also featured several speakers talking about RNNs:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Alex Graves focused on his recent work on Adaptive Computation Time (ACT) for RNNs that allows to decouple the processing time from the sequence length. He showed that a word-level language model with ACT could reach state-of-the-art with fewer computations.&lt;/li&gt;
-&lt;li&gt;Edward Grefenstette outlined several limitations and potential future research directions in the context of RNNs in &lt;a href="https://uclmr.github.io/nampi/talk_slides/grefenstette-nampi.pdf"&gt;his talk&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id="improvingclassicalgorithms"&gt;Improving classic algorithms&lt;/h1&gt;
-
-&lt;p&gt;While Deep Learning is a fairly recent development, the conference featured also several improvements to algorithms that have been around for decades:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6048-matrix-completion-has-no-spurious-local-minimum.pdf"&gt;Ge et al.&lt;/a&gt; show in their best paper that the non-convex objective for matrix completion has no spurious local minima, i.e. every local minimum is a global minimum.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6478-fast-and-provably-good-seedings-for-k-means.pdf"&gt;Bachem et al.&lt;/a&gt; present a method that guarantees accurate and fast seedings for large-scale k-means++ clustering. The presentation was one of the most polished ones of the conference and the code is &lt;a href="https://github.com/obachem/kmc2"&gt;open-source&lt;/a&gt; and can be installed via pip.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6449-clustering-with-same-cluster-queries.pdf"&gt;Ashtiani et al.&lt;/a&gt; show that we can make NP-hard k-means clustering problems solvable by allowing the model to pose queries for a few examples to a domain expert.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id="reinforcementlearning"&gt;Reinforcement Learning&lt;/h1&gt;
-
-&lt;p&gt;Reinforcement Learning (RL) was another much-discussed topic at NIPS with an &lt;a href="http://people.eecs.berkeley.edu/~pabbeel/nips-tutorial-policy-optimization-Schulman-Abbeel.pdf"&gt;excellent tutorial&lt;/a&gt; by Pieter Abbeel and John Schulman. John Schulman also gave some &lt;a href="http://rll.berkeley.edu/deeprlcourse/docs/nuts-and-bolts.pdf"&gt;practical advice&lt;/a&gt; for getting started with RL.&lt;/p&gt;
-
-&lt;p&gt;One of the best papers of the conference introduces &lt;a href="https://papers.nips.cc/paper/6046-value-iteration-networks.pdf"&gt;Value Iteration Networks&lt;/a&gt;, which learn to plan by providing a differentiable approximation to a classic planning algorithm via a CNN. This paper was another cool example of one of the major benefits of deep neural networks: They allow us to learn increasingly complex behaviour as long as we can represent it in a differentiable way. I hope to see more approaches in the future that integrate classic algorithms to enhance the capabilities of a neural network.&lt;/p&gt;
-
-&lt;p&gt;During the week of the conference, several research environments for RL were simultaneously released, among them &lt;a href="https://openai.com/blog/universe/"&gt;OpenAI’s Universe&lt;/a&gt;, &lt;a href="https://deepmind.com/blog/open-sourcing-deepmind-lab/"&gt;Deep Mind Lab&lt;/a&gt;, and &lt;a href="https://arxiv.org/abs/1611.00625"&gt;FAIR’s Torchcraft&lt;/a&gt;. These will likely be a key driver in future RL research and should open up new research opportunities.&lt;/p&gt;
-
-&lt;h1 id="learningtolearnmetalearning"&gt;Learning-to-learn / Meta-learning&lt;/h1&gt;
-
-&lt;p&gt;Another topic that came up in several discussions over the course of the conference was Learning-to-learn or Meta-learning:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6461-learning-to-learn-by-gradient-descent-by-gradient-descent.pdf"&gt;Andrychowicz et al.&lt;/a&gt; learn an optimizer in a paper with the ingenious title "Learning to learn by gradient descent by gradient descent".&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6385-matching-networks-for-one-shot-learning.pdf"&gt;Vinyals et al.&lt;/a&gt; learn how to one shot-learn in a paper that frames one-shot learning in the sequence-to-sequence framework and has inspired new approaches for one-shot learning.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Most of the existing papers on meta-learning demonstrate that wherever you are doing something that gives you gradients, you can optimize them using another algorithm via gradient descent. Prepare for a surge of “Meta-learning for X” and “(Meta-)+learning” papers in 2017. It’s LSTMs all the way down!&lt;/p&gt;
-
-&lt;p&gt;Meta-learning was also one of the key talking points at the RNN symposium. Jürgen Schmidhuber argued that a true meta-learner would be able to learn in the space of all programs and would have the ability to modify itself and elaborated on these ideas at &lt;a href="https://uclmr.github.io/nampi/talk_slides/schmidhuber-nampi.pdf"&gt;his talk&lt;/a&gt; at the NAMPI workshop. Ilya Sutskever remarked that we currently have no good meta-learning models. However, there is hope as the plethora of new research environments should also bring progress in this area.&lt;/p&gt;
-
-&lt;h1 id="generalartificialintelligence"&gt;General Artificial Intelligence&lt;/h1&gt;
-
-&lt;p&gt;Learning how to learn also plays a role in the pursuit of the elusive goal of attaining General Artificial Intelligence, which was a topic in several keynotes. Yann LeCun argued that in order to achieve General AI, machines need to learn common sense. While common sense is often vaguely mentioned in research papers, Yann LeCun gave a succinct explanation of what common sense is: "Predicting any part of the past, present or future percepts from whatever information is available." He called this predictive learning, but notes that this is really unsupervised learning.&lt;/p&gt;
-
-&lt;p&gt;His talk also marked the appearance of a controversial and often tongue-in-cheek copied image of a cake, which he used to demonstrate that unsupervised learning is the most challenging task where we should concentrate our efforts, while RL is only the cherry on the icing of the cake.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/lecun_nips_2016_cake_slide.png" style="width: 70%" title="Yann LeCun's Cake slide" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 8: The Cake slide of &lt;a href="https://drive.google.com/file/d/0BxKBnD5y2M8NREZod0tVdW5FLTQ/view"&gt;Yann LeCun's keynote&lt;/a&gt;&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Drew Purves focused on the bilateral relationship between the environment and AI in what was probably the most aesthetically pleasing keynote of the conference (just look at those illustrations!).&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/drew_purves_agent_illustrations.jpg" style="width: 70%" title="Drew Purves keynote illustrations" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 9: Illustrations by Max Cant of Drew Purves' keynote (Source: &lt;a href="https://twitter.com/DrewPurves/status/806427029306560512"&gt;Drew Purves&lt;/a&gt;)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;He emphasized that while simulations of ecological tasks in naturalistic environments could be an important test bed for General AI, General AI is needed to maintain the biosphere in a state that will allow the continued existence of our civilization.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/drew_purves_nips_2016_nature_needs_ai_slide.png" style="width: 60%" title="Nature needs AI" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 10: Nature needs AI and AI needs Nature from Drew Purves' keynote&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;While it is frequently — and incorrectly — claimed that neural networks work so well because they emulate the brain’s behaviour, Saket Navlakha argued during his keynote that we can still learn a great deal from the engineering principles of the brain. For instance, rather than pre-allocating a large number of neurons, the brain generates 1000s of synapses per minutes until its second year. Afterwards, until adolescence, the number of synapses is pruned and decreases by ~50%.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/saket_navlakha_slide.jpg" style="width: 70%" title="Saket Navlakha keynote" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 11: Saket Navlakha’s keynote&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;It will be interesting to see how neuroscience can help us to advance our field further.&lt;/p&gt;
-
-&lt;p&gt;In the context of the &lt;a href="https://mainatnips.github.io/"&gt;Machine Intelligence workshop&lt;/a&gt;, another environment was introduced in the form of FAIR’s CommAI-env that allows to train agents through interaction with a teacher. During the panel discussion, the ability to learn hierarchical representations and to identify patterns was emphasized. However, although the field is making rapid progress on standard tasks such as object recognition, it is unclear if the focus on such specific tasks brings us indeed closer to General AI.&lt;/p&gt;
-
-&lt;h1 id="naturallanguageprocessing"&gt;Natural Language Processing&lt;/h1&gt;
-
-&lt;p&gt;While NLP is more of a niche topic at NIPS, there were a few papers with improvements relevant to NLP:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6469-dual-learning-for-machine-translation.pdf"&gt;He et al.&lt;/a&gt; propose a dual learning framework for MT that has two agents translating in opposite directions teaching each other via reinforcement learning.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6134-stochastic-structured-prediction-under-bandit-feedback.pdf"&gt;Sokolov et al.&lt;/a&gt; explore how to use structured prediction under bandit feedback.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6139-supervised-word-movers-distance.pdf"&gt;Huang et al.&lt;/a&gt; extend Word Mover’s Distance, an unsupervised document similarity metric to the supervised setting.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://papers.nips.cc/paper/6362-beyond-exchangeability-the-chinese-voting-process.pdf"&gt;Lee et al.&lt;/a&gt; model the helpfulness of reviews by taking into account position and presentation biases.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Finally, a &lt;a href="http://letsdiscussnips2016.weebly.com/"&gt;workshop on learning methods for dialogue&lt;/a&gt; explored how end-to-end DL, linguistics and ML methods can be used to create dialogue agents.&lt;/p&gt;
-
-&lt;h1 id="miscellaneous"&gt;Miscellaneous&lt;/h1&gt;
-
-&lt;h2 id="schmidhuber"&gt;Schmidhuber&lt;/h2&gt;
-
-&lt;p&gt;Jürgen Schmidhuber, the father of the LSTM was not only present on several panels, but did his best to remind everyone that whatever your idea, he had had a similar idea two decades ago and you should better cite him lest he interrupt your tutorial.&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet" data-lang="de"&gt;&lt;p lang="en" dir="ltr"&gt;NIPS2016 Day 1: Poor &lt;a href="https://twitter.com/goodfellow_ian"&gt;@Goodfellow_Ian&lt;/a&gt; gets Schmidhuber&amp;#39;ed during educational GAN Tutorial session. &lt;a href="https://t.co/IeQzKcJYiv"&gt;pic.twitter.com/IeQzKcJYiv&lt;/a&gt;&lt;/p&gt;&amp;mdash; hardmaru (@hardmaru) &lt;a href="https://twitter.com/hardmaru/status/805789874813026304"&gt;5. Dezember 2016&lt;/a&gt;&lt;/blockquote&gt;  
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;h2 id="robotics"&gt;Robotics&lt;/h2&gt;
-
-&lt;p&gt;Boston Robotics’ Spot proved that — even though everyone is excited by learning and learning-to-learn — traditional planning algorithms are enough to win the admiration of a hall full of learning enthusiasts.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/boston_dynamics_spot.png" style="width: 70%" title="Boston Dynamics Spot" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 12: Boston Robotics’ Spot amid a crowd of fascinated onlookers&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="apple"&gt;Apple&lt;/h2&gt;
-
-&lt;p&gt;Apple, one of the most secretive companies in the world, has decided to be more open, to publish, and to engage with academia. This can only be good for the community. I'm particularly looking forward to more &lt;a href="https://arxiv.org/abs/1610.08120v1"&gt;apple research papers&lt;/a&gt;.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/russ_salakhutdinov_apple_nips_2016_slide.png" style="width: 60%" title="Ruslan Salakhutdinov at Apple lunch event" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 13: Ruslan Salakhutdinov at the Apple lunch event&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="uber"&gt;Uber&lt;/h2&gt;
-
-&lt;p&gt;Uber announced their acquisition of Cambridge-based AI startup Geometric Intelligence and threw one of the most popular parties of NIPS.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2016/12/geometric_intelligence_logo.jpg" style="width: 30%" title="Geometric Intelligence Logo" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more"&gt;
-&lt;figcaption&gt;Figure 14: The Geometric Intelligence logo&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="rocketai"&gt;Rocket AI&lt;/h2&gt;
-
-&lt;p&gt;Talking about startups, the "launch" of Rocket AI and their patented Temporally Recurrent Optimal Learning had some people fooled (note the acronyms in the below tweets). Riva-Melissa Tez finally &lt;a href="https://medium.com/the-mission/rocket-ai-2016s-most-notorious-ai-launch-and-the-problem-with-ai-hype-d7908013f8c9#.9l7sozt7a"&gt;cleared up the confusion&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet" data-lang="de"&gt;&lt;p lang="en" dir="ltr"&gt;&lt;a href="https://twitter.com/hashtag/rocketai?src=hash"&gt;#rocketai&lt;/a&gt; just drove me home. the team is just mind-blowing. so excited about Temporally Recurrent Optimal Learning, the next GAN!&lt;/p&gt;&amp;mdash; Soumith Chintala (@soumithchintala) &lt;a href="https://twitter.com/soumithchintala/status/807762876245176320"&gt;11. Dezember 2016&lt;/a&gt;&lt;/blockquote&gt;  
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;blockquote class="twitter-tweet" data-lang="de"&gt;&lt;p lang="en" dir="ltr"&gt;&lt;a href="https://twitter.com/hashtag/rocketai?src=hash"&gt;#rocketai&lt;/a&gt; definitely has the most popular Jacobian-Optimized Kernel Expansion of NIPS 2016&lt;/p&gt;&amp;mdash; Ian Goodfellow (@goodfellow_ian) &lt;a href="https://twitter.com/goodfellow_ian/status/807721903976841216"&gt;10. Dezember 2016&lt;/a&gt;&lt;/blockquote&gt;  
-
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;These were my impressions from NIPS 2016. I had a blast and hope to be back in 2017!&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;li class="footnote" id="fn:44"&gt;&lt;p&gt;Tzeng, E., Hoffman, J., Saenko, K., &amp;amp; Darrell, T. (2017). Adversarial Discriminative Domain Adaptation. &lt;a href="http://ruder.io/transfer-learning/#fnref:44" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
