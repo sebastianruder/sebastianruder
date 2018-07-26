@@ -1,16 +1,295 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 22 Jul 2018 05:12:59 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>NLP's ImageNet moment has arrived</title><description>Big changes are underway in the world of Natural Language Processing (NLP). The long reign of word vectors has seen a new line of challengers emerge.</description><link>http://ruder.io/nlp-imagenet/</link><guid isPermaLink="false">7b621349-37e7-4ab1-9cfd-e67de9129a2d</guid><category>natural language processing</category><category>nlp</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Thu, 12 Jul 2018 08:27:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/07/lm_objective.png" medium="image"/><content:encoded>&lt;script&gt;  
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-115283063-1');
-&lt;/script&gt;  
-
-&lt;img src="http://ruder.io/content/images/2018/07/lm_objective.png" alt="NLP's ImageNet moment has arrived"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-default.min.css"&gt; &lt;br&gt;
-&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 26 Jul 2018 13:32:29 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings</title><description>This post reviews two themes of ACL 2018: 1) gaining a better understanding what models capture and 2) to expose them to more challenging settings.</description><link>http://ruder.io/acl-2018-highlights/</link><guid isPermaLink="false">a7f32d3f-6648-44b2-889b-79a95f590d19</guid><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Thu, 26 Jul 2018 11:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg" alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
 
 &lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"&gt;&lt;/script&gt;  
-&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"&gt;&lt;/script&gt;  
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"&gt;&lt;/script&gt;  
+&lt;script type="text/javascript"&gt;  
+    $.bigfoot({useFootnoteOnlyOnce: false});
+&lt;/script&gt;  
+
+&lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/acl-2018-highlights-understanding-representations-and-evaluation-in-more-challenging-settings/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I attended the &lt;a href="https://acl2018.org/"&gt;56th Annual Meeting of the Association for Computational Linguistics (ACL 2018)&lt;/a&gt; in Melbourne, Australia from July 15-20, 2018 and presented three papers &lt;a href="http://ruder.io/acl-2018-highlights/#fn25"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/acl-2018-highlights/#fn38"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/acl-2018-highlights/#fn26"&gt;&lt;/a&gt;. It is foolhardy to try to condense an entire conference into one topic; however, in retrospect, certain themes appear particularly pronounced. In 2015 and 2016, NLP conferences were dominated by word embeddings and some people were musing that &lt;a href="http://ruder.io/word-embeddings-1/"&gt;&lt;em&gt;Embedding Methods in Natural Language Processing&lt;/em&gt;&lt;/a&gt; was a more appropriate name for the Conference on &lt;a href="http://emnlp2018.org/"&gt;&lt;em&gt;Empirical Methods in Natural Language Processing&lt;/em&gt;&lt;/a&gt;, one of the top conferences in the field. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://nlp.stanford.edu/manning/talks/Simons-Institute-Manning-2017.pdf"&gt;According to Chris Manning&lt;/a&gt;, 2017 was the year of the BiLSTM with attention. While BiLSTMs optionally with attention are still ubiquitous, the main themes of this conference for me were to &lt;em&gt;gain a better understanding&lt;/em&gt; what the representations of such models capture and to expose them to &lt;em&gt;more challenging settings&lt;/em&gt;. In my review, I will mainly focus on contributions that touch on these themes but will also discuss other themes that I found of interest.&lt;/p&gt;
+
+&lt;h1 id="understandingrepresentations"&gt;Understanding Representations&lt;/h1&gt;
+
+&lt;h2&gt;Probing models&lt;/h2&gt;
+
+&lt;p&gt;It was very refreshing to see that rather than introducing ever shinier new models, many papers methodically investigated existing models and what they capture. This was most commonly done by automatically creating a dataset that focuses on one particular aspect of the generalization behaviour and evaluating different trained models on this dataset:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Conneau et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn11"&gt;&lt;/a&gt; for instance evaluate different sentence embedding methods on ten datasets designed to capture certain linguistic features, such as predicting the length of a sentence, recovering word content, sensitivity to bigram shift, etc. They find that different encoder architectures can result in embeddings with different characteristics and that bag-of-embeddings is surprisingly good at capturing sentence-level properties, among other results.&lt;/li&gt;  
+&lt;li&gt; Zhu et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn9"&gt;&lt;/a&gt; evaluate sentence embeddings by observing the change in similarity of generated triplets of sentences that differ in a certain semantic or syntactic aspect. They find---among other things---that SkipThought and InferSent can distinguish negation from synonymy, while InferSent is better at identifying semantic equivalence and dealing with quantifiers.&lt;/li&gt;  
+&lt;li&gt; Pezzelle et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn10"&gt;&lt;/a&gt; focus specifically on quantifiers and test different CNN and LSTM models on their ability to predict quantifiers in single-sentence and multi-sentence contexts. They find that in single-sentence context, models outperform humans, while humans are slightly better in multi-sentence contexts.&lt;/li&gt;  
+&lt;li&gt; Kuncoro et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn12"&gt;&lt;/a&gt; evaluate LSTMs on modeling subject-verb agreement. They find that with enough capacity, LSTMs can model subject-verb agreement, but that more syntax-sensitive models such as recurrent neural network grammars do even better.&lt;/li&gt;  
+&lt;li&gt; Blevins et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn24"&gt;&lt;/a&gt; evaluate models pretrained on different tasks whether they capture a hierarchical notion of syntax. Specifically, they train the models to predict POS tags as well as constituent labels at different depths of a parse tree. They find that all models indeed encode a significant amount of syntax and---in particular---that language models learn some syntax.&lt;/li&gt;  
+&lt;li&gt; Another interesting result regarding the generalization ability of language models is due to Lau et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn16"&gt;&lt;/a&gt; who find that a language model trained on a sonnet corpus captures meter implicitly at human-level performance.&lt;/li&gt;  
+&lt;li&gt; Language models, however, also have their limitations. Spithourakis and Riedel&lt;a href="http://ruder.io/acl-2018-highlights/#fn23"&gt;&lt;/a&gt; observe that language models are bad at modelling numerals and propose several strategies to improve them.&lt;/li&gt;  
+&lt;li&gt; Liu et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn37"&gt;&lt;/a&gt; show that LSTMs trained on natural language data are able to recall tokens from much longer sequence than models trained on non-language data at the Repl4NLP workshop.&lt;/li&gt;  
+&lt;/ul&gt;  
+
+&lt;p&gt;In particular, I think better understanding what information LSTMs and language models will become more important, as they seem to be a key driver of progress in NLP going forward, as evidenced by our ACL paper on language model fine-tuning&lt;a href="http://ruder.io/acl-2018-highlights/#fn38"&gt;&lt;/a&gt; and &lt;a href="http://ruder.io/nlp-imagenet/"&gt;related approaches&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="understandingstateoftheartmodels"&gt;Understanding state-of-the-art models&lt;/h2&gt;
+
+&lt;p&gt;While the above studies try to understand a specific aspect of the generalization ability of a particular model class, several papers focus on better understanding state-of-the-art models for a particular task:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Glockner et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn8"&gt;&lt;/a&gt; focused on the task of natural language inference. They created a dataset with sentences that differ by at most one word from sentences in the training data in order to probe if models can deal with simple lexical inferences. They find that current state-of-the-art models fail to capture many simple inferences.&lt;/li&gt;  
+&lt;li&gt; Mudrakarta et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn22"&gt;&lt;/a&gt; analyse state-of-the-art QA models across different modalities and find that the models often ignore key question terms. They then perturb questions to craft adversarial examples that significantly lower models' accuracy.&lt;/li&gt;  
+&lt;/ul&gt;  
+
+&lt;p&gt;I found many of the papers probing different aspects of models stimulating. I hope that the generation of such probing datasets will become a standard tool in the toolkit of every NLP researchers so that we will not only see more of such papers in the future but that such an analysis may also become part of the standard model evaluation, besides error and ablation analyses.&lt;/p&gt;
+
+&lt;h2 id="analyzingtheinductivebias"&gt;Analyzing the inductive bias&lt;/h2&gt;
+
+&lt;p&gt;Another way to gain a better understanding of a model is to analyze its inductive bias. The &lt;a href="https://sites.google.com/view/relsnnlp"&gt;Workshop on Relevance of Linguistic Structure in Neural Architectures for NLP (RELNLP)&lt;/a&gt; sought to explore how useful it is to incorporate linguistic structure into our models. One of the key points of Chris Dyer's talk during the workshop was whether RNNs have a useful inductive bias for NLP. In particular, he argued that there are several pieces of evidence indicating that RNNs prefer sequential recency, namely:  &lt;/p&gt;
+
+&lt;ol&gt;  
+&lt;li&gt; Gradients become attenuated across time. LSTMs or GRUs may help with this, but they also forget.&lt;/li&gt;  
+&lt;li&gt; People have used training regimes like reversing the input sequence for machine translation.&lt;/li&gt;  
+&lt;li&gt; People have used enhancements like attention to have direct connections back in time.&lt;/li&gt;  
+&lt;li&gt; For modeling subject-verb agreement, the error rate increases with the number of attractors&lt;a href="http://ruder.io/acl-2018-highlights/#fn29"&gt;&lt;/a&gt;.&lt;/li&gt;  
+&lt;/ol&gt;  
+
+&lt;p&gt;According to Chomsky, sequential recency is not the right bias for learning human language. RNNs thus don't seem to have the right bias for modeling language, which in practice can lead to statistical inefficiency and poor generalization behaviour. Recurrent neural network grammars&lt;a href="http://ruder.io/acl-2018-highlights/#fn30"&gt;&lt;/a&gt;, a class of models that generates both a tree and a sequence sequentially by compressing a sentence into its constituents, instead have a bias for syntactic (rather than sequential) recency. &lt;/p&gt;
+
+&lt;p&gt;However, it can often be hard to identify whether a model has a useful inductive bias. For identifying subject-verb agreement, Chris hypothesizes that LSTM language models learn a non-structural "first noun" heuristic that relies on matching the verb to the first noun in the sentence. In general, perplexity (and other aggregate metrics) are correlated with syntactic/structural competence, but are not particularly sensitive at distinguishing structurally sensitive models from models that use a simpler heuristic.&lt;/p&gt;
+
+&lt;h2&gt;Using Deep Learning to understand language&lt;/h2&gt;
+
+&lt;p&gt;In his talk at the workshop, Mark Johnson opined that while Deep Learning has revolutionized NLP, its primary benefit is economic: complex component pipelines have been replaced with end-to-end models and target accuracy can often be achieved more quickly and cheaply. Deep Learning has not changed our understanding of language. Its main contribution in this regard is to demonstrate that a neural network aka a computational model can perform certain NLP tasks, which shows that these tasks are not indicators of intelligence. While DL methods can pattern match and perform perceptual tasks really well, they struggle with tasks relying on deliberate reflection and conscious thought.&lt;/p&gt;
+
+&lt;h2&gt;Incorporating linguistic structure&lt;/h2&gt;
+
+&lt;p&gt;Jason Eisner questioned in his talk whether linguistic structures and categories actually exist or whether "scientist just like to organize data into piles" given that a linguistics-free approach works surprisingly well for MT. He finds that even "arbitrarily defined" categories such as the difference between the /b/ and /p/ phonemes can become hardened and accrue meaning. However, neural models are pretty good sponges to soak up whatever isn't modeled explicitly.&lt;/p&gt;
+
+&lt;p&gt;He outlines four common ways to introduce linguistic information into models: a) via a pipeline-based approach, where linguistic categories are used as features; b) via data augmentation, where the data is augmented with linguistic categories; c) via multi-task learning; d) via structured modeling such as using a transition-based parser, a recurrent neural network grammar, or even classes that depend on each other such as BIO notation.&lt;/p&gt;
+
+&lt;p&gt;In her talk at the workshop, Emily Bender questioned the premise of linguistics-free learning altogether: Even if you had a huge corpus in a language that you knew nothing about, without any other priors, e.g. what function words are, you would not be able to learn sentence structure or meaning. She also pointedly called out many ML papers that describe their approach as similar to how babies learn, without citing any actual developmental psychology or language acquisition literature. Babies in fact learn in situated, joint, emotional context, which carries a lot of signal and meaning.&lt;/p&gt;
+
+&lt;h2&gt;Understanding the failure modes of LSTMs&lt;/h2&gt;
+
+&lt;p&gt;Better understanding representations was also a theme at the &lt;a href="https://sites.google.com/site/repl4nlp2018/ &lt;br /&gt;
+"&gt;Representation Learning for NLP workshop&lt;/a&gt;. During his talk, Yoav Goldberg detailed some of the efforts of his group to better understand representations of RNNs. In particular, he discussed recent work on extracting a finite state automaton from an RNN in order to better understand what the model has learned&lt;a href="http://ruder.io/acl-2018-highlights/#fn35"&gt;&lt;/a&gt;. He also reminded the audience that LSTM representations, even though they have been trained on one task, are not task-specific. They are often predictive of unintended aspects such as demographics in the data. Even when a model has been trained using a domain-adversarial loss to produce representations that are invariant of a certain aspect, the representations will be still slightly predictive of said attribute. It can thus be a challenge to completely remove unwanted information from encoded language data and even seemingly perfect LSTM models may have hidden failure modes.&lt;/p&gt;
+
+&lt;p&gt;On the topic of failure modes of LSTMs, a statement that also fits well in this theme was uttered by this year's recipient of the ACL lifetime achievement award, Mark Steedman. He asked &lt;em&gt;"LSTMs work in practice, but can they work in theory?"&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1 id=""&gt;Evaluation in more challenging settings&lt;/h1&gt;
+
+&lt;h2&gt;Adversarial examples&lt;/h2&gt;
+
+&lt;p&gt;A theme that is closely interlinked with gaining a better understanding of the limitations of state-of-the-art models is to propose ways how they can be improved. In particular, similar to adversarial example paper mentioned above&lt;a href="http://ruder.io/acl-2018-highlights/#fn22"&gt;&lt;/a&gt;, several papers tried to make models more robust to adversarial examples:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Cheng et al. &lt;a href="http://ruder.io/acl-2018-highlights/#fn21"&gt;&lt;/a&gt; propose to make both the encoder and decoder in NMT models more robust against input perturbations.&lt;/li&gt;  
+&lt;li&gt; Ebrahimi et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn28"&gt;&lt;/a&gt; propose white-box adversarial examples to trick a character-level neural classifier by swapping few tokens.&lt;/li&gt;  
+&lt;li&gt; Ribeiro et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn13"&gt;&lt;/a&gt; improve upon the previous method with semantic-preserving perturbations that induce changes in the model's predictions, which they generalize to rules that induce adversaries on many instances.&lt;/li&gt;  
+&lt;li&gt; Bose et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn41"&gt;&lt;/a&gt; incorporate adversarial examples into noise contrastive estimation using an adversarially learned sampler. The sampler finds harder negative examples, which forces the model to learn better representations.&lt;/li&gt;  
+&lt;/ul&gt;
+
+&lt;h2&gt;Learning robust and fair representations&lt;/h2&gt;
+
+&lt;p&gt;Tim Baldwin discussed different ways to make models more robust to a domain shift during his talk at the &lt;a href="https://sites.google.com/site/repl4nlp2018/ &lt;br /&gt;
+"&gt;RepL4NLP workshop&lt;/a&gt;. The slides can be found &lt;a href="https://drive.google.com/file/d/1JhZKKCJjIDIqZdwRL0GEUcrWxscLS87l/view"&gt;here&lt;/a&gt;. For using a single source domain, he discussed a method to linguistically perturb training instances based on different types of syntactic and semantic noise&lt;a href="http://ruder.io/acl-2018-highlights/#fn32"&gt;&lt;/a&gt;. In the setting with multiple source domains, he proposed to train an adversarial model on the source domains&lt;a href="http://ruder.io/acl-2018-highlights/#fn33"&gt;&lt;/a&gt;. Finally, he discussed a method that allows to learn robust and privacy-preserving text representations&lt;a href="http://ruder.io/acl-2018-highlights/#fn34"&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Margaret Mitchell focused on fair and privacy-preserving representations during her talk at the workshop. In particular, she highlighted the difference between a descriptive and a normative view of the world. ML models learn representations that reflect a descriptive view of the data they're trained on. The data represents "the world as people talk about it". Research in fairness conversely seeks to create representations that reflect a normative view of the world, which captures our values and seeks to instill them in the representations.&lt;/p&gt;
+
+&lt;h2&gt;Improving evaluation methodology&lt;/h2&gt;
+
+&lt;p&gt;Besides making models more robust, several papers sought to improve the way we evaluate our models:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Finegan-Dollak et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn18"&gt;&lt;/a&gt; identify limitations and propose improvements to current evaluations of text-to-SQL systems. They show that the current train-test split and practice of anonymization of variables are flawed and release standardized and improved versions of seven datasets to mitigate these.&lt;/li&gt;  
+&lt;li&gt; Dror et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn14"&gt;&lt;/a&gt; focus on a practice that should be commonplace, but is often not done or done poorly: statistical significance testing. In particular, they survey recent empirical papers in ACL and TACL 2017 finding that statistical significance testing is often ignored or misused and propose a simple protocol for statistical significance test selection for NLP tasks.&lt;/li&gt;  
+&lt;li&gt; Chaganty et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn17"&gt;&lt;/a&gt; investigate the bias of automatic metrics such as BLEU and ROUGE and find that even an unbiased estimator only achieves a comparatively low error reduction. This highlights the need to improve both the correlation of automatic metric as well as reduce the variance of human annotation.&lt;/li&gt;  
+&lt;/ul&gt;
+
+&lt;h2&gt;Strong baselines&lt;/h2&gt;
+
+&lt;p&gt;Another way to improve model evaluation is to compare new models against stronger baselines, in order to make sure that improvements are actually significant. Some papers focused on this line of research:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Shen et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn19"&gt;&lt;/a&gt; systematically compare simple word embedding-based methods with pooling to more complex models such as LSTMs and CNNs. They find that for most datasets, word embedding-based methods exhibit competitive or even superior performance.&lt;/li&gt;  
+&lt;li&gt; Ethayarajh&lt;a href="http://ruder.io/acl-2018-highlights/#fn36"&gt;&lt;/a&gt; proposes a strong baseline for sentence embedding models at the RepL4NLP workshop.&lt;/li&gt;  
+&lt;li&gt; In a similar vein, Ruder and Plank&lt;a href="http://ruder.io/acl-2018-highlights/#fn25"&gt;&lt;/a&gt; find that classic bootstrapping algorithms such as tri-training make for strong baselines for semi-supervised learning and even outperform recent state-of-the-art methods.&lt;/li&gt;  
+&lt;/ul&gt;  
+
+&lt;p&gt;In the above paper, we also emphasize the importance of evaluating in more challenging settings, such as on out-of-distribution data and on different tasks. Our findings would have been different if we had just focused on a single task or only on in-domain data. We need to test our models under such adverse conditions to get a better sense of their robustness and how well they can actually generalize.&lt;/p&gt;
+
+&lt;h2&gt;Creating harder datasets&lt;/h2&gt;
+
+&lt;p&gt;In order to evaluate under such settings, more challenging datasets need to be created. Yejin Choi argued during the RepL4NLP panel discussion (a summary can be found &lt;a href="https://twitter.com/seb_ruder/status/1020196710050455554"&gt;here&lt;/a&gt;) that the community pays a lot of attention to easier tasks such as SQuAD or bAbI, which are close to solved. Yoav Goldberg even went so far as to say that "SQuAD is the MNIST of NLP". Instead, we should focus on solving harder tasks and develop more datasets with increasing levels of difficulty. If a dataset is too hard, people don't work on it. In particular, the community should not work on datasets for too long as datasets are getting solved very fast these days; creating novel and more challenging datasets is thus even more important. Two datasets that seek to go beyond SQuAD for reading comprehension were presented at the conference:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; &lt;a href="http://qangaroo.cs.ucl.ac.uk/"&gt;QAngaroo&lt;/a&gt;&lt;a href="http://ruder.io/acl-2018-highlights/#fn39"&gt;&lt;/a&gt; focuses on reading comprehension that requires to gather several pieces of information via multiple steps of inference.&lt;/li&gt;  
+&lt;li&gt; &lt;a href="https://github.com/deepmind/narrativeqa"&gt;NarrativeQA&lt;/a&gt;&lt;a href="http://ruder.io/acl-2018-highlights/#fn40"&gt;&lt;/a&gt; requires understand of an underlying narrative by asking the reader to answer questions about stories by reading entire books or movie scripts.&lt;/li&gt;  
+&lt;/ul&gt;  
+
+&lt;p&gt;Richard Socher also stressed the importance of training and evaluating a model across multiple tasks during &lt;a href="https://twitter.com/RichardSocher/status/1021917140801052672"&gt;his talk&lt;/a&gt; during the &lt;a href="https://mrqa2018.github.io/"&gt;Machine Reading for Question Answering workshop&lt;/a&gt;. In particular, he argues that NLP requires many types of reasoning, e.g. logical, linguistic, emotional, etc., which cannot all be satisfied by a single task. &lt;/p&gt;
+
+&lt;h2&gt;Evaluation on multiple and low-resource languages&lt;/h2&gt;
+
+&lt;p&gt;Another facet of this is to evaluate our models on multiple languages. Emily Bender surveyed 50 NAACL 2018 papers in her talk mentioned above and found that 42 papers evaluate on an unnamed mystery language (i.e. English). She emphasizes that it is important to name the language you work on as languages have different linguistic structures; not mentioning the language obfuscates this fact.&lt;/p&gt;
+
+&lt;p&gt;If our methods are designed to be cross-lingual, then we should additionally evaluate them on the more challenging setting of low-resource languages. For instance, both of the following two papers observe that current methods for unsupervised bilingual dictionary methods fail if the target language is dissimilar to language such as with Estonian or Finnish:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Søgaard et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn26"&gt;&lt;/a&gt; probe the limitations of current methods further and highlight that such methods also fail when embeddings are trained on different domains or using different algorithms. They finally propose a metric to quantify the potential of such methods.&lt;/li&gt;  
+&lt;li&gt; Artetxe et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn27"&gt;&lt;/a&gt; propose a new unsupervised self-training method that employs a better initialization to steer the optimization process and is particularly robust for dissimilar language pairs.&lt;/li&gt;  
+&lt;/ul&gt;
+
+&lt;p&gt;Several other papers also evaluate their approaches on low-resource languages:  &lt;/p&gt;
+
+&lt;ul&gt;  
+&lt;li&gt; Dror et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn15"&gt;&lt;/a&gt; propose to use orthographic features for bilingual lexicon induction. Though these mostly help for related languages, they also evaluate on the dissimilar language pair English-Finnish.&lt;/li&gt;  
+&lt;li&gt; Ren et al.&lt;a href="http://ruder.io/acl-2018-highlights/#fn20"&gt;&lt;/a&gt; finally propose to leverage another rich language for translation into a resource-poor language . They find that their model significantly improves the translation quality of rare languages.&lt;/li&gt;  
+&lt;li&gt; Currey and Heafield&lt;a href="http://ruder.io/acl-2018-highlights/#fn31"&gt;&lt;/a&gt; propose an unsupervised tree-to-sequence model for NMT by adapting the Gumbel tree-LSTM. Their model proves particularly useful for low-resource languages.&lt;/li&gt;  
+&lt;/ul&gt;  
+
+&lt;h1 id=""&gt;Progress in NLP&lt;/h1&gt;
+
+&lt;p&gt;Another theme during the conference for me was that the field is visibly making progress. Marti Hearst, president of the ACL, echoed this sentiment during her presidential address. She used to demonstrate what our models can and can't do using the example of Stanley Kubrick's HAL 9000 (seen below). In recent years, this has become a less useful exercise as our models have learned to perform tasks that seemed previously decades away such as recognizing and producing human speech or lipreading&lt;a href="http://ruder.io/acl-2018-highlights/#fn7"&gt;[1]&lt;/a&gt;. Naturally, we are still far away from tasks that require deep language understanding and reasoning such as having an argument; nevertheless, this progress is remarkable.  &lt;/p&gt;
+
+&lt;figure&gt;  
+    &lt;center&gt;
+&lt;img src="http://ruder.io/content/images/2018/07/hal9000.png" width="150" alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings"&gt;  
+    &lt;figcaption&gt;Hal 9000. (Source: &lt;a href="https://creativecommons.org/licenses/by/3.0" title="Creative Commons Attribution 3.0"&gt;CC BY 3.0&lt;/a&gt;, &lt;a href="https://commons.wikimedia.org/w/index.php?curid=11651154"&gt;Wikimedia&lt;/a&gt;)&lt;/figcaption&gt;
+    &lt;/center&gt;
+&lt;/figure&gt;  
+
+&lt;p&gt;Marti also paraphrased NLP and IR pioneer Karen Spärck Jones saying that research is not going around in circles, but climbing a spiral or---maybe more fittingly---different staircases that are not necessarily linked but go in the same direction. She also expressed a sentiment that seems to resonate with a lot of people: In the 1980s and 90s, with only a few papers to read, it was definitely easier to keep track of the state of the art. To make this easier, I've recently created a document to collect the &lt;a href="http://nlpprogress.com/"&gt;state of the art across different NLP tasks&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;With the community growing, she encouraged people to participate and volunteer and announced an ACL Distinguished Service Award for the most dedicated members. ACL 2018 also saw the launch (after EACL in 1982 and NAACL in 2000) of its third chapter, AACL, the &lt;a href="http://aaclweb.org/"&gt;Asia-Pacific Chapter of the Association for Computational Linguistics&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The business meeting during the conference focused on measures to address a particular challenge of the growing community: the escalating number of submissions and the need for more reviewers. We can expect to see new efforts to deal with the large number of submissions at the conferences next year.&lt;/p&gt;
+
+&lt;h1 id="reinforcementlearning"&gt;Reinforcement learning&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href="http://ruder.io/emnlp-2016-highlights/"&gt;Back in 2016&lt;/a&gt;, it seemed as though reinforcement learning (RL) was finding its footing in NLP and being applied to more and more tasks. These days, it seems that the dynamic nature of RL makes it most useful for tasks that intrinsically have some temporal dependency such as selecting data during training&lt;a href="http://ruder.io/acl-2018-highlights/#fn1"&gt;[1]&lt;/a&gt;&lt;a href="http://ruder.io/acl-2018-highlights/#fn2"&gt;[1]&lt;/a&gt; and modelling dialogue, while supervised learning seems to be better suited for most other tasks. Another important application of RL is to optimize the end metric such as ROUGE or BLEU directly instead of optimizing a surrogate loss such as cross-entropy. Successful applications of this are summarization&lt;a href="http://ruder.io/acl-2018-highlights/#fn3"&gt;[1]&lt;/a&gt;&lt;a href="http://ruder.io/acl-2018-highlights/#fn4"&gt;[1]&lt;/a&gt; and machine translation&lt;a href="http://ruder.io/acl-2018-highlights/#fn5"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Inverse reinforcement learning can be valuable in settings where the reward is too complex to be specified. A successful application of this is visual storytelling&lt;a href="http://ruder.io/acl-2018-highlights/#fn6"&gt;[1]&lt;/a&gt;. RL is particularly promising for sequential decision making problems in NLP such as playing text-based games, navigating webpages, and completing tasks. The &lt;a href="https://www.cs.ucsb.edu/~william/papers/ACL2018DRL4NLP.pdf"&gt;Deep Reinforcement Learning for NLP tutorial&lt;/a&gt; provided a comprehensive overview of the space.&lt;/p&gt;
+
+&lt;h1 id=""&gt;Tutorials&lt;/h1&gt;
+
+&lt;p&gt;There were other great tutorials as well. I particularly enjoyed the &lt;a href="https://github.com/philschulz/VITutorial"&gt;Variational Inference and Deep Generative Models tutorial&lt;/a&gt;. The tutorials on &lt;a href="https://github.com/allenai/acl2018-semantic-parsing-tutorial"&gt;Semantic Parsing&lt;/a&gt; and about &lt;a href="http://faculty.washington.edu/ebender/100things-sem_prag.html"&gt;"100 things you always wanted to know about semantics &amp;amp; pragmatics"&lt;/a&gt; also seemed really worthwhile. A complete list of the tutorials can be found &lt;a href="https://acl2018.org/tutorials/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Cover image: View from the conference venue.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a href="http://isabelleaugenstein.github.io/"&gt;Isabelle Augenstein&lt;/a&gt; for some paper suggestions.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ol class="footnotes-list"&gt;  
+&lt;li id="fn1" class="footnote-item"&gt;&lt;p&gt;Fang, M., Li, Y., &amp; Cohn, T. (2017). Learning how to Active Learn: A Deep Reinforcement Learning Approach. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from &lt;a href="https://arxiv.org/pdf/1708.02383v1.pdf"&gt;https://arxiv.org/pdf/1708.02383v1.pdf&lt;/a&gt;&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn2" class="footnote-item"&gt;&lt;p&gt;Wu, J., Li, L., &amp; Wang, W. Y. (2018). Reinforced Co-Training. In Proceedings of NAACL-HLT 2018.&lt;/p&gt;  
+&lt;/li&gt;  
+&lt;li id="fn3" class="footnote-item"&gt;&lt;p&gt;Paulus, R., Xiong, C., &amp; Socher, R. (2018). A deep reinforced model for abstractive summarization. In Proceedings of ICLR 2018.&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn4" class="footnote-item"&gt;&lt;p&gt;Celikyilmaz, A., Bosselut, A., He, X., &amp; Choi, Y. (2018). Deep communicating agents for abstractive summarization. In Proceedings of NAACL-HLT 2018.&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn5" class="footnote-item"&gt;&lt;p&gt;Ranzato, M. A., Chopra, S., Auli, M., &amp; Zaremba, W. (2016). Sequence level training with recurrent neural networks. In Proceedings of ICLR 2016.&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn6" class="footnote-item"&gt;&lt;p&gt;Wang, X., Chen, W., Wang, Y.-F., &amp; Wang, W. Y. (2018). No Metrics Are Perfect: Adversarial Reward Learning for Visual Storytelling. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1804.09160"&gt;http://arxiv.org/abs/1804.09160&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn7" class="footnote-item"&gt;&lt;p&gt;Chung, J. S., &amp; Zisserman, A. (2016, November). Lip reading in the wild. In Asian Conference on Computer Vision (pp. 87-103). Springer, Cham.&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn8" class="footnote-item"&gt;&lt;p&gt;Glockner, M., Shwartz, V., &amp; Goldberg, Y. (2018). Breaking NLI Systems with Sentences that Require Simple Lexical Inferences. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1805.02266"&gt;http://arxiv.org/abs/1805.02266&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn9" class="footnote-item"&gt;&lt;p&gt;Zhu, X., Li, T., &amp; De Melo, G. (2018). Exploring Semantic Properties of Sentence Embeddings. In Proceedings of ACL 2018 (pp. 1–6). Retrieved from &lt;a href="http://aclweb.org/anthology/P18-2100"&gt;http://aclweb.org/anthology/P18-2100&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn10" class="footnote-item"&gt;&lt;p&gt;Pezzelle, S., Steinert-Threlkeld, S., Bernardi, R., &amp; Szymanik, J. (2018). Some of Them Can be Guessed! Exploring the Effect of Linguistic Context in Predicting Quantifiers. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1806.00354"&gt;http://arxiv.org/abs/1806.00354&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn11" class="footnote-item"&gt;&lt;p&gt;Conneau, A., Kruszewski, G., Lample, G., Barrault, L., &amp; Baroni, M. (2018). What you can cram into a single vector: Probing sentence embeddings for linguistic properties. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1805.01070"&gt;http://arxiv.org/abs/1805.01070&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn12" class="footnote-item"&gt;&lt;p&gt;Kuncoro, A., Dyer, C., Hale, J., Yogatama, D., Clark, S., &amp; Blunsom, P. (2018). LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better. In Proceedings of ACL 2018 (pp. 1–11). Retrieved from &lt;a href="http://aclweb.org/anthology/P18-1132"&gt;http://aclweb.org/anthology/P18-1132&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn13" class="footnote-item"&gt;&lt;p&gt;  
+Ribeiro, M. T., Singh, S., &amp; Guestrin, C. (2018). Semantically Equivalent Adversarial Rules for Debugging NLP Models. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn14" class="footnote-item"&gt;&lt;p&gt;  
+Dror, R., Baumer, G., Shlomov, S., &amp; Reichart, R. (2018). The Hitchhiker’s Guide to Testing Statistical Significance in Natural Language Processing. In Proceedings of ACL 2018. Retrieved from &lt;a href="https://ie.technion.ac.il/~roiri/papers/ACL-2018-sig-cr.pdf"&gt;https://ie.technion.ac.il/~roiri/papers/ACL-2018-sig-cr.pdf&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn15" class="footnote-item"&gt;&lt;p&gt;  
+Dror, R., Baumer, G., Shlomov, S., &amp; Reichart, R. (2018). Riley, P., &amp; Gildea, D. (2018). Orthographic Features for Bilingual Lexicon Induction. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn16" class="footnote-item"&gt;&lt;p&gt;  
+Lau, J. H., Cohn, T., Baldwin, T., Brooke, J., &amp; Hammond, A. (2018). Deep-speare: A Joint Neural Model of Poetic Language, Meter and Rhyme. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1807.03491"&gt;http://arxiv.org/abs/1807.03491&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn17" class="footnote-item"&gt;&lt;p&gt;  
+Chaganty, A. T., Mussman, S., &amp; Liang, P. (2018). The price of debiasing automatic metrics in natural language evaluation. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1807.02202"&gt;http://arxiv.org/abs/1807.02202&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn18" class="footnote-item"&gt;&lt;p&gt;  
+Finegan-Dollak, C., Kummerfeld, J. K., Zhang, L., Ramanathan, K., Sadasivam, S., Zhang, R., &amp; Radev, D. (2018). Improving Text-to-SQL Evaluation Methodology. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1806.09029"&gt;http://arxiv.org/abs/1806.09029&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn19" class="footnote-item"&gt;&lt;p&gt;  
+Shen, D., Wang, G., Wang, W., Min, M. R., Su, Q., Zhang, Y., … Carin, L. (2018). Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn20" class="footnote-item"&gt;&lt;p&gt;  
+Ren, S., Chen, W., Liu, S., Li, M., Zhou, M., &amp; Ma, S. (2018). Triangular Architecture for Rare Language Translation. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1805.04813"&gt;http://arxiv.org/abs/1805.04813&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn21" class="footnote-item"&gt;&lt;p&gt;  
+Cheng, Y., Tu, Z., Meng, F., Zhai, J., &amp; Liu, Y. (2018). Towards Robust Neural Machine Translation. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn22" class="footnote-item"&gt;&lt;p&gt;  
+Mudrakarta, P. K., Taly, A., Brain, G., Sundararajan, M., &amp; Google, K. D. (2018). Did the Model Understand the Question? In Proceedings of ACL 2018. Retrieved from &lt;a href="https://arxiv.org/pdf/1805.05492.pdf"&gt;https://arxiv.org/pdf/1805.05492.pdf&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn23" class="footnote-item"&gt;&lt;p&gt;  
+Spithourakis, G. P., &amp; Riedel, S. (2018). Numeracy for Language Models: Evaluating and Improving their Ability to Predict Numbers. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn24" class="footnote-item"&gt;&lt;p&gt;  
+Blevins, T., Levy, O., &amp; Zettlemoyer, L. (2018). Deep RNNs Encode Soft Hierarchical Syntax. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1805.04218"&gt;http://arxiv.org/abs/1805.04218&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn25" class="footnote-item"&gt;&lt;p&gt;  
+Ruder, S., &amp; Plank, B. (2018). Strong Baselines for Neural Semi-supervised Learning under Domain Shift. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn26" class="footnote-item"&gt;&lt;p&gt;  
+Søgaard, A., Ruder, S., &amp; Vulić, I. (2018). On the Limitations of Unsupervised Bilingual Dictionary Induction. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn27" class="footnote-item"&gt;&lt;p&gt;  
+Artetxe, M., Labaka, G., &amp; Agirre, E. (2018). A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn28" class="footnote-item"&gt;&lt;p&gt;  
+Ebrahimi, J., Rao, A., Lowd, D., &amp; Dou, D. (2018). HotFlip: White-Box Adversarial Examples for Text Classification. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1712.06751"&gt;http://arxiv.org/abs/1712.06751&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn29" class="footnote-item"&gt;&lt;p&gt;  
+Linzen, T., Dupoux, E., &amp; Goldberg, Y. (2016). Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies. Proceedings of TACL 2016. Retrieved from &lt;a href="http://arxiv.org/abs/1611.01368"&gt;http://arxiv.org/abs/1611.01368&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn30" class="footnote-item"&gt;&lt;p&gt;  
+Dyer, C., Kuncoro, A., Ballesteros, M., &amp; Smith, N. A. (2016). Recurrent Neural Network Grammars. In NAACL. Retrieved from &lt;a href="http://arxiv.org/abs/1602.07776"&gt;http://arxiv.org/abs/1602.07776&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn31" class="footnote-item"&gt;&lt;p&gt;  
+Currey, A., &amp; Heafield, K. (2018). Unsupervised Source Hierarchies for Low-Resource Neural Machine Translation. In Proceedings of the Workshop on the Relevance of Linguistic Structure in Neural Architectures for NLP (pp. 1–7).  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn32" class="footnote-item"&gt;&lt;p&gt;  
+Li, Y., Cohn, T., &amp; Baldwin, T. (2017). Robust Training under Linguistic Adversity. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics (Vol. 2, pp. 21–27).  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn33" class="footnote-item"&gt;&lt;p&gt;  
+Li, Y., Baldwin, T., &amp; Cohn, T. (2018). Learning Domain-Robust Text Representations using Adversarial Training. In Proceedings of NAACL-HLT 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn34" class="footnote-item"&gt;&lt;p&gt;  
+Li, Y., Baldwin, T., &amp; Cohn, T. (2018). Towards Robust and Privacy-preserving Text Representations. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn35" class="footnote-item"&gt;&lt;p&gt;  
+Weiss, G., Goldberg, Y., &amp; Yahav, E. (2018). Extracting Automata from Recurrent Neural Networks Using Queries and Counterexamples. In Proceedings of ICML 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1711.09576"&gt;http://arxiv.org/abs/1711.09576&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn36" class="footnote-item"&gt;&lt;p&gt;  
+Ethayarajh, K. (2018). Unsupervised Random Walk Sentence Embeddings: A Strong but Simple Baseline. In Proceedings of the 3rd Workshop on Representation Learning for NLP. Retrieved from &lt;a href="http://www.aclweb.org/anthology/W18-3012"&gt;http://www.aclweb.org/anthology/W18-3012&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn37" class="footnote-item"&gt;&lt;p&gt;  
+Liu, N. F., Levy, O., Schwartz, R., Tan, C., &amp; Smith, N. A. (2018). LSTMs Exploit Linguistic Attributes of Data. In Proceedings of the 3rd Workshop on Representation Learning for NLP,. Retrieved from &lt;a href="http://arxiv.org/abs/1805.11653"&gt;http://arxiv.org/abs/1805.11653&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn38" class="footnote-item"&gt;&lt;p&gt;  
+Howard, J., &amp; Ruder, S. (2018). Universal Language Model Fine-tuning for Text Classification. In Proceedings of ACL 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1801.06146"&gt;http://arxiv.org/abs/1801.06146&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn39" class="footnote-item"&gt;&lt;p&gt;  
+Welbl, J., Stenetorp, P., &amp; Riedel, S. (2018). Constructing Datasets for Multi-hop Reading Comprehension Across Documents. In Transactions of the Association for Computational Linguistics. Retrieved from &lt;a href="http://arxiv.org/abs/1710.06481"&gt;http://arxiv.org/abs/1710.06481&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn40" class="footnote-item"&gt;&lt;p&gt;  
+Kočiský, T., Schwarz, J., Blunsom, P., Dyer, C., Hermann, K. M., Melis, G., &amp; Grefenstette, E. (2018). The NarrativeQA Reading Comprehension Challenge. Transactions of the Association for Computational Linguistics. Retrieved from &lt;a href="http://arxiv.org/abs/1712.07040"&gt;http://arxiv.org/abs/1712.07040&lt;/a&gt;  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;li id="fn41" class="footnote-item"&gt;&lt;p&gt;  
+Bose, A., Ling, H., &amp; Cao, Y. (2018). Adversarial Contrastive Estimation. In Proceedings of ACL 2018.  
+&lt;/p&gt;&lt;/li&gt;  
+&lt;/ol&gt;</content:encoded></item><item><title>NLP's ImageNet moment has arrived</title><description>Big changes are underway in the world of Natural Language Processing (NLP). The long reign of word vectors has seen a new line of challengers emerge.</description><link>http://ruder.io/nlp-imagenet/</link><guid isPermaLink="false">7b621349-37e7-4ab1-9cfd-e67de9129a2d</guid><category>natural language processing</category><category>nlp</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Thu, 12 Jul 2018 08:27:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/07/lm_objective.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/07/lm_objective.png" alt="NLP's ImageNet moment has arrived"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
+
+&lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"&gt;&lt;/script&gt;  
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"&gt;&lt;/script&gt;  
 &lt;script type="text/javascript"&gt;  
     $.bigfoot({useFootnoteOnlyOnce: false});
@@ -2849,410 +3128,4 @@ Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://ruder.io/d
 
 &lt;li class="footnote" id="fn:55"&gt;&lt;p&gt;Alonso, H. M., &amp;amp; Plank, B. (2017). When is multitask learning effective? Multitask learning for semantic sequence prediction under varying data conditions. In EACL. Retrieved from &lt;a href="http://arxiv.org/abs/1612.02251"&gt;http://arxiv.org/abs/1612.02251&lt;/a&gt; &lt;a href="http://ruder.io/multi-task/#fnref:55" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li class="footnote" id="fn:56"&gt;&lt;p&gt;Bingel, J., &amp;amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from &lt;a href="http://arxiv.org/abs/1702.08303"&gt;http://arxiv.org/abs/1702.08303&lt;/a&gt; &lt;a href="http://ruder.io/multi-task/#fnref:56" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content:encoded></item><item><title>Transfer Learning - Machine Learning's Next Frontier</title><description>This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods.</description><link>http://ruder.io/transfer-learning/</link><guid isPermaLink="false">97502b6e-1a86-443a-a0ce-272bc5d6fa44</guid><category>deep learning</category><category>nlp</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 21 Mar 2017 15:40:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2017/03/transfer_learning_digits.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2017/03/transfer_learning_digits.png" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;&lt;p&gt;Table of contents:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#whatistransferlearning"&gt;What is Transfer Learning?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#whytransferlearningnow"&gt;Why Transfer Learning Now?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#adefinitionoftransferlearning"&gt;A Definition of Transfer Learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#transferlearningscenarios"&gt;Transfer Learning Scenarios&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#applicationsoftransferlearning"&gt;Applications of Transfer Learning&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#learningfromsimulations"&gt;Learning from simulations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#adaptingtonewdomains"&gt;Adapting to new domains&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#transferringknowledgeacrosslanguages"&gt;Transferring knowledge across languages&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#transferlearningmethods"&gt;Transfer Learning Methods&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#usingpretrainedcnnfeatures"&gt;Using pre-trained CNN features&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#learningdomaininvariantrepresentations"&gt;Learning domain-invariant representations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#makingrepresentationsmoresimilar"&gt;Making representations more similar&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#confusingdomains"&gt;Confusing domains&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#relatedresearchareas"&gt;Related Research Areas&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#semisupervisedlearning"&gt;Semi-supervised learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#usingavailabledatamoreeffectively"&gt;Using available data more effectively&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#improvingmodelsabilitytogeneralize"&gt;Improving models' ability to generalize&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#makingmodelsmorerobust"&gt;Making models more robust&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#multitasklearning"&gt;Multi-task learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#continuouslearning"&gt;Continuous learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#zeroshotlearning"&gt;Zero-shot learning&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/transfer-learning/#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In recent years, we have become increasingly good at training deep neural networks to learn a very accurate mapping from inputs to outputs, whether they are images, sentences, label predictions, etc. from large amounts of labeled data.&lt;/p&gt;
-
-&lt;p&gt;What our models still frightfully lack is the ability to generalize to conditions that are different from the ones encountered during training. When is this necessary? Every time you apply your model not to a carefully constructed dataset but to the real world. The real world is messy and contains an infinite number of novel scenarios, many of which your model has not encountered during training and for which it is in turn ill-prepared to make predictions. The ability to transfer knowledge to new conditions is generally known as transfer learning and is what we will discuss in the rest of this post.&lt;/p&gt;
-
-&lt;p&gt;Over the course of this blog post, I will first contrast transfer learning with machine learning's most pervasive and successful paradigm, supervised learning. I will then outline reasons why transfer learning warrants our attention. Subsequently, I will give a more technical definition and detail different transfer learning scenarios. I will then provide examples of applications of transfer learning before delving into practical methods that can be used to transfer knowledge. Finally, I will give an overview of related directions and provide an outlook into the future.&lt;/p&gt;
-
-&lt;h1 id="whatistransferlearning"&gt;What is Transfer Learning?&lt;/h1&gt;
-
-&lt;p&gt;In the classic supervised learning scenario of machine learning, if we intend to train a model for some task and domain \(A\), we assume that we are provided with labeled data for the same task and domain. We can see this clearly in Figure 1, where the task and domain of the training and test data of our model \(A\) is the same. We will later define in more detail what exactly a task and a domain are). For the moment, let us assume that a task is the objective our model aims  to perform, e.g. recognize objects in images, and a domain is where our data is coming from, e.g. images taken in San Francisco coffee shops.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/traditional_ml_setup.png" style="width: 70%" title="Traditional ML setup" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 1: The traditional supervised learning setup in ML&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;We can now train a model \(A\) on this dataset and expect it to perform well on unseen data of the same task and domain. On another occasion, when given data for some other task or domain \(B\), we require again labeled data of the same task or domain that we can use to train a new model \(B\) so that we can expect it to perform well on this data.&lt;/p&gt;
-
-&lt;p&gt;The traditional supervised learning paradigm breaks down when we do not have sufficient labeled data for the task or domain we care about to train a reliable model. &lt;br&gt;
-If we want to train a model to detect pedestrians on night-time images, we could apply a model that has been trained on a similar domain, e.g. on day-time images. In practice, however, we often experience a deterioration or collapse in performance as the model has inherited the bias of its training data and does not know how to generalize to the new domain. &lt;br&gt;
-If we want to train a model to perform a new task, such as detecting bicyclists, we cannot even reuse an existing model, as the labels between the tasks differ.&lt;/p&gt;
-
-&lt;p&gt;Transfer learning allows us to deal with these scenarios by leveraging the already existing labeled data of some related task or domain. We try to store this knowledge gained in solving the source task in the source domain and apply it to our problem of interest as can be seen in Figure 2. &lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/transfer_learning_setup.png" style="width: 70%" title="Transfer learning setup" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 2: The transfer learning setup&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;In practice, we seek to transfer as much knowledge as we can from the source setting to our target task or domain. This knowledge can take on various forms depending on the data: it can pertain to how objects are composed to allow us to more easily identify novel objects; it can be with regard to the general words people use to express their opinions, etc.&lt;/p&gt;
-
-&lt;h1 id="whytransferlearningnow"&gt;Why Transfer Learning Now?&lt;/h1&gt;
-
-&lt;p&gt;Andrew Ng, chief scientist at Baidu and professor at Stanford, said during &lt;a href="http://sebastianruder.com/highlights-nips-2016/index.html#thenutsandboltsofmachinelearning"&gt;his widely popular NIPS 2016 tutorial&lt;/a&gt; that transfer learning will be -- after supervised learning -- the next driver of ML commercial success.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/andrew_ng_nips_2016_transfer_learning-1.png" style="width: 70%" title="Andrew Ng on transfer learning" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 3: Andrew Ng on transfer learning at NIPS 2016&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;In particular, he sketched out a chart on a whiteboard that I've sought to replicate as faithfully as possible in Figure 4 below (sorry about the &lt;a href="https://xkcd.com/833/"&gt;unlabelled axes&lt;/a&gt;). According to Andrew Ng, transfer learning will become a key driver of Machine Learning success in industry.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/andrew_ng_drivers_ml_success-1.png" style="width: 70%" title="Drivers of ML success in industry" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 4: Drivers of ML industrial success according to Andrew Ng&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;It is indisputable that ML use and success in industry has so far been mostly driven by supervised learning. Fuelled by advances in Deep Learning, more capable computing utilities, and large labeled datasets, supervised learning has been largely responsible for the wave of renewed interest in AI, funding rounds and acquisitions, and in particular the applications of machine learning that we have seen in recent years and that have become part of our daily lives. If we disregard naysayers and heralds of another AI winter and instead trust the prescience of Andrew Ng, this success will likely continue.&lt;/p&gt;
-
-&lt;p&gt;It is less clear, however, why transfer learning which has been around for decades and is currently little utilized in industry, will see the explosive growth predicted by Ng. Even more so as transfer learning currently receives relatively little visibility compared to other areas of machine learning such as unsupervised learning and reinforcement learning, which have come to enjoy increasing popularity: Unsupervised learning -- the &lt;a href="http://sebastianruder.com/highlights-nips-2016/index.html#generalartificialintelligence"&gt;key ingredient on the quest to General AI&lt;/a&gt; according to Yann LeCun as can be seen in Figure 5 -- has seen a resurgence of interest, driven in particular by Generative Adversarial Networks. Reinforcement learning, in turn, spear-headed by Google DeepMind has led to advances in game-playing AI exemplified by the success of &lt;a href="https://deepmind.com/research/alphago/"&gt;AlphaGo&lt;/a&gt; and has already seen success in the real world, e.g. by &lt;a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/"&gt;reducing Google's data center cooling bill by 40%&lt;/a&gt;. Both of these areas, while promising, will likely only have a comparatively small commercial impact in the foreseeable future and mostly remain within the confines of cutting-edge research papers as they still face &lt;a href="http://www.maluuba.com/blog/2017/3/14/the-next-challenges-for-reinforcement-learning"&gt;many challenges&lt;/a&gt;.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/lecun_nips_2016_cake_slide.png" style="width: 60%" title="Yann LeCun NIPS 2016 keynote cake slide" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 5: Transfer Learning is conspicuously absent as ingredient from Yann LeCun's cake&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;What makes transfer learning different? In the following, we will look at the factors that -- in our opinion -- motivate Ng's prognosis and outline the reasons why just now is the time to pay attention to transfer learning.&lt;/p&gt;
-
-&lt;p&gt;The current use of machine learning in industry is characterised by a dichotomy: &lt;br&gt;
-On the one hand, over the course of the last years, we have obtained the ability to train more and more accurate models. We are now at the stage that for many tasks, state-of-the-art models have reached a level where their performance is so good that it is no longer a hindrance for users. How good? The newest residual networks [&lt;sup id="fnref:1"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] on ImageNet achieve &lt;a href="http://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/"&gt;superhuman performance&lt;/a&gt; at recognising objects; Google's Smart Reply [&lt;sup id="fnref:2"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;] automatically handles 10% of all mobile responses; speech recognition error has consistently dropped and is more accurate than typing [&lt;sup id="fnref:3"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;]; we can automatically &lt;a href="http://news.stanford.edu/2017/01/25/artificial-intelligence-used-identify-skin-cancer/"&gt;identify skin cancer as well as dermatologists&lt;/a&gt;; Google's NMT system [&lt;sup id="fnref:4"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt;] is used in production for more than 10 language pairs; Baidu can generate realistic sounding speech &lt;a href="https://www.engadget.com/2017/03/09/baidu-deep-voice-natural-sounding-speec/"&gt;in real-time&lt;/a&gt;; the list goes on and on. This level of maturity has allowed the large-scale deployment of these models to millions of users and has enabled widespread adoption.&lt;/p&gt;
-
-&lt;p&gt;On the other hand, these successful models are immensely data-hungry and rely on huge amounts of labeled data to achieve their performance. For some tasks and domains, this data is available as it has been painstakingly gathered over many years. In a few cases, it is public, e.g. ImageNet [&lt;sup id="fnref:5"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:5" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;], but large amounts of labeled data are usually proprietary or expensive to obtain, as in the case of many speech or MT datasets, as they provide an edge over the competition.&lt;/p&gt;
-
-&lt;p&gt;At the same time, when applying a machine learning model in the wild, it is faced with a myriad of conditions which the model has never seen before and does not know how to deal with; each client and every user has their own preferences, possesses or generates data that is different than the data used for training; a model is asked to perform many tasks that are related to but not the same as the task it was trained for. In all of these situations, our current state-of-the-art models, despite exhibiting human-level or even super-human performance on the task and domain they were trained on, suffer a significant loss in performance or even break down completely. &lt;/p&gt;
-
-&lt;p&gt;Transfer learning can help us deal with these novel scenarios and is necessary for production-scale use of machine learning that goes beyond tasks and domains were labeled data is plentiful. So far, we have applied our models to the tasks and domains that -- while impactful -- are the low-hanging fruits in terms of data availability. To also serve the long tail of the distribution, we must learn to transfer the knowledge we have acquired to new tasks and domains.&lt;/p&gt;
-
-&lt;p&gt;To be able to do this, we need to understand the concepts that transfer learning involves. For this reason, we will give a more technical definition in the following section.&lt;/p&gt;
-
-&lt;h1 id="adefinitionoftransferlearning"&gt;A Definition of Transfer Learning&lt;/h1&gt;
-
-&lt;p&gt;For this definition, we will closely follow the excellent survey by Pan and Yang (2010) [&lt;sup id="fnref:6"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;] with binary document classification as a running example. &lt;br&gt;
-Transfer learning involves the concepts of a domain and a task. A domain \(\mathcal{D}\) consists of a feature space \(\mathcal{X}\) and a marginal probability distribution \(P(X)\) over the feature space, where \(X = {x_1, \cdots, x_n} \in \mathcal{X}\). For document classification with a bag-of-words representation, \(\mathcal{X}\) is the space of all document representations, \(x_i\) is the \(i\)-th term vector corresponding to some document and \(X\) is the sample of documents used for training.&lt;/p&gt;
-
-&lt;p&gt;Given a domain, \(\mathcal{D} = \{\mathcal{X},P(X)\}\), a task \(\mathcal{T}\) consists of a label space \(\mathcal{Y}\) and a conditional probability distribution \(P(Y|X)\) that is typically learned from the training data consisting of pairs \(x_i \in X\) and \(y_i \in \mathcal{Y}\). In our document classification example, \(\mathcal{Y}\) is the set of all labels, i.e. &lt;em&gt;True&lt;/em&gt;, &lt;em&gt;False&lt;/em&gt; and \(y_i\) is either &lt;em&gt;True&lt;/em&gt; or &lt;em&gt;False&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Given a source domain \(\mathcal{D}_S\), a corresponding source task \(\mathcal{T}_S\), as well as a target domain \(\mathcal{D}_T\) and a target task \(\mathcal{T}_T\), the objective of transfer learning now is to enable us to learn the target conditional probability distribution \(P(Y_T|X_T)\) in \(\mathcal{D}_T\) with the information gained from \(\mathcal{D}_S\) and \(\mathcal{T}_S\) where \(\mathcal{D}_S \neq \mathcal{D}_T\) or \(\mathcal{T}_S \neq \mathcal{T}_T\). In most cases, a limited number of labeled target examples, which is exponentially smaller than the number of labeled source examples are assumed to be available.&lt;/p&gt;
-
-&lt;p&gt;As both the domain \(\mathcal{D}\) and the task \(\mathcal{T}\) are defined as tuples, these inequalities give rise to four transfer learning scenarios, which we will discus below.&lt;/p&gt;
-
-&lt;h1 id="transferlearningscenarios"&gt;Transfer Learning Scenarios&lt;/h1&gt;
-
-&lt;p&gt;Given source and target domains \(\mathcal{D}_S\) and \(\mathcal{D}_T\) where \(\mathcal{D} = \{\mathcal{X},P(X)\}\) and source and target tasks \(\mathcal{T}_S\) and \(\mathcal{T}_T\) where \(\mathcal{T} = \{\mathcal{Y}, P(Y|X)\}\) source and target conditions can vary in four ways, which we will illustrate in the following again using our document classification example:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;\(\mathcal{X}_S \neq \mathcal{X}_T\). The feature spaces of the source and target domain are different, e.g. the documents are written in two different languages. In the context of natural language processing, this is generally referred to as cross-lingual adaptation.  &lt;/li&gt;
-&lt;li&gt;\(P(X_S) \neq P(X_T)\). The marginal probability distributions of source and target domain are different, e.g. the documents discuss different topics. This scenario is generally known as domain adaptation.  &lt;/li&gt;
-&lt;li&gt;\(\mathcal{Y}_S \neq \mathcal{Y}_T\). The label spaces between the two tasks are different, e.g. documents need to be assigned different labels in the target task. In practice, this scenario usually occurs with scenario 4, as it is extremely rare for two different tasks to have different label spaces, but exactly the same conditional probability distributions.  &lt;/li&gt;
-&lt;li&gt;\(P(Y_S|X_S) \neq P(Y_T|X_T)\). The conditional probability distributions of the source and target tasks are different, e.g. source and target documents are unbalanced with regard to their classes. This scenario is quite common in practice and approaches such as over-sampling, under-sampling, or SMOTE [&lt;sup id="fnref:7"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;] are widely used.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;After we are now aware of the concepts relevant for transfer learning and the scenarios in which it is applied, we will look to different applications of transfer learning that illustrate some of its potential.&lt;/p&gt;
-
-&lt;h1 id="applicationsoftransferlearning"&gt;Applications of Transfer Learning&lt;/h1&gt;
-
-&lt;h2 id="learningfromsimulations"&gt;Learning from simulations&lt;/h2&gt;
-
-&lt;p&gt;One particular application of transfer learning that I'm very excited about and that I assume we'll see more of in the future is learning from simulations. For many machine learning applications that rely on hardware for interaction, gathering data and training a model in the real world is either expensive, time-consuming, or simply too dangerous. It is thus advisable to gather data in some other, less risky way.&lt;/p&gt;
-
-&lt;p&gt;Simulation is the preferred tool for this and is used towards enabling many advanced ML systems in the real world. Learning from a simulation and applying the acquired knowledge to the real world is an instance of transfer learning scenario 2, as the feature spaces between source and target domain are the same (both generally rely on pixels), but the marginal probability distributions between simulation and reality are different, i.e. objects in the simulation and the source &lt;em&gt;look&lt;/em&gt; different, although this difference diminishes as simulations get more realistic. At the same time, the conditional probability distributions between simulation and real wold might be different as the simulation is not able to fully replicate all reactions in the real world, e.g. a physics engine can not completely mimic the complex interactions of real-world objects.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/self_driving_car_city.jpg" style="width: 60%" title="Google self-driving car" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 6: A Google self-driving car (source: &lt;a href="https://googleblog.blogspot.ie/2014/04/the-latest-chapter-for-self-driving-car.html"&gt;Google Research blog&lt;/a&gt;)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Learning from simulations has the benefit of making data gathering easy as objects can be easily bounded and analyzed, while simultaneously enabling fast training, as learning can be parallelized across multiple instances. Consequently, it is a prerequisite for large-scale machine learning projects that need to interact with the real world, such as self-driving cars (Figure 6). According to Zhaoyin Jia, Google's self-driving car tech lead, "Simulation is essential if you really want to do a self-driving car". Udacity has &lt;a href="https://techcrunch.com/2017/02/08/udacity-open-sources-its-self-driving-car-simulator-for-anyone-to-use/"&gt;open-sourced the simulator&lt;/a&gt; it uses for teaching its self-driving car engineer nanodegree, which can be seen in Figure 7 and &lt;a href="https://universe.openai.com/"&gt;OpenAI's Universe&lt;/a&gt; will potentially allows to train a self-driving car &lt;a href="https://techcrunch.com/2017/01/11/training-self-driving-cars-on-the-streets-of-los-santos-with-gta-v-just-got-easier/"&gt;using GTA 5&lt;/a&gt; or other video games.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/udacity_self_driving_car_simulator.png" style="width: 60%" title="Udacity self-driving car simulator" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 7: Udacity's self-driving car simulator (source: &lt;a href="https://techcrunch.com/2017/02/08/udacity-open-sources-its-self-driving-car-simulator-for-anyone-to-use/"&gt;TechCrunch&lt;/a&gt;)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Another area where learning from simulations is key is robotics: Training models on a real robot is too slow and robots are expensive to train. Learning from a simulation and transferring the knowledge to real-world robot alleviates this problem and has recently been garnering additional interest [&lt;sup id="fnref:8"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;]. An example of a data manipulation task in the real world and in a simulation can be seen in Figure 8.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/robot_and_simulation_images_hadsell.png" style="width: 100%" title="Robot and simulation images" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 8: Robot and simulation images (Rusu et al., 2016)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Finally, another direction where simulation will be an integral part is on the path towards general AI. Training an agent to achieve general artificial intelligence directly in the real world is too costly and hinders learning initially through unnecessary complexity. Rather, learning may be more successful if it is based on a simulated environment such as &lt;a href="https://github.com/facebookresearch/CommAI-env"&gt;CommAI-env&lt;/a&gt; [&lt;sup id="fnref:9"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:9" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt;] that is visible in Figure 9.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/commai-env_environment.png" style="width: 30%" title="CommAI-env" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 9: Facebook AI Research's CommAI-env (Mikolov et al., 2015)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="adaptingtonewdomains"&gt;Adapting to new domains&lt;/h2&gt;
-
-&lt;p&gt;While learning from simulations is a particular instance of domain adaptation, it is worth outlining some other examples of domain adaptation.&lt;/p&gt;
-
-&lt;p&gt;Domain adaptation is a common requirement in vision as often the data where labeled information is easily accessible and the data that we actually care about are different, whether this pertains to identifying bikes as in Figure 10 or some other objects in the wild. Even if the training and the the test data &lt;em&gt;look&lt;/em&gt; the same, the training data may still contain a bias that is imperceptible to humans but which the model will exploit to overfit on the training data [&lt;sup id="fnref:10"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:10" rel="footnote"&gt;10&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/visual_domain_adaptation_bikes.png" style="width: 60%" title="Visual domains" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 10: Different visual domains (Sun et al., 2016)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Another common domain adaptation scenario pertains to adapting to different text types: Standard NLP tools such as part-of-speech taggers or parsers are typically trained on news data such as the Wall Street Journal, which has historically been used to evaluate these models. Models trained on news data, however, have difficulty coping with more novel text forms such as social media messages and the challenges they present.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/domain_adaptation_text_types-2.png" style="width: 60%" title="Different text types" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 11: Different text types / genres&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Even within one domain such as product reviews, people employ different words and phrases to express the same opinion. A model trained on one type of review should thus be able to disentangle the general and domain-specific opinion words that people use in order not to be confused by the shift in domain. &lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/domain_adaptation_reviews.png" style="width: 60%" title="" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 12: Different topics&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Finally, while the above challenges deal with general text or image types, problems are amplified if we look at domains that pertain to individual or groups of users: Consider the case of automatic speech recognition (ASR). Speech is poised to become &lt;a href="https://backchannel.com/voice-is-the-next-big-platform-unless-you-have-an-accent-6a787f7e8500#.koqx9pc2h"&gt;the next big platform&lt;/a&gt;, with 50% of all our searches predicted to be performed by voice by 2020. Most ASR systems are evaluated traditionally on the Switchboard dataset, which comprises 500 speakers. Most people with a standard accent are thus fortunate, while immigrants, people with non-standard accents, people with a speech impediment, or children have trouble being understood. Now more than ever do we need systems that are able to adapt to individual users and minorities to ensure that everyone's voice is heard.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/domain_adaptation_accents.png" style="width: 60%" title="Different accents" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 13: Different accents&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h2 id="transferringknowledgeacrosslanguages"&gt;Transferring knowledge across languages&lt;/h2&gt;
-
-&lt;p&gt;Finally, learning from one language and applying our knowledge to another language is -- in my opinion -- another killer application of transfer learning, which I have written about before &lt;a href="http://sebastianruder.com/cross-lingual-embeddings/index.html"&gt;here&lt;/a&gt; in the context of cross-lingual embedding models. Reliable cross-lingual adaptation methods would allow us to leverage the vast amounts of labeled data we have in English and apply them to any language, particularly underserved and truly low-resource languages. Given the &lt;a href="http://sebastianruder.com/cross-lingual-embeddings/index.html#evaluation"&gt;current state-of-the-art&lt;/a&gt;, this still seems utopian, but recent advances such as zero-shot translation [&lt;sup id="fnref:11"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:11" rel="footnote"&gt;11&lt;/a&gt;&lt;/sup&gt;] promise rapid progress in this area.&lt;/p&gt;
-
-&lt;p&gt;While we have so far considered particular applications of transfer learning, we will now look at practical methods and directions in the literature that are used to solve some of the presented challenges.&lt;/p&gt;
-
-&lt;h1 id="transferlearningmethods"&gt;Transfer Learning Methods&lt;/h1&gt;
-
-&lt;p&gt;Transfer learning has a long history of research and techniques exist to tackle each of the four transfer learning scenarios described above. The advent of Deep Learning has led to a range of new transfer learning approaches, some of which we will review in the following. For a survey of earlier methods, refer to [&lt;sup id="fnref:6"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
-
-&lt;h2 id="usingpretrainedcnnfeatures"&gt;Using pre-trained CNN features&lt;/h2&gt;
-
-&lt;p&gt;In order to motivate the most common way of transfer learning is currently applied, we must understand what accounts for the outstanding success of large convolutional neural networks on ImageNet [&lt;sup id="fnref:12"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:12" rel="footnote"&gt;12&lt;/a&gt;&lt;/sup&gt;].  &lt;/p&gt;
-
-&lt;h3 id="understandingconvolutionalneuralnetworks"&gt;Understanding convolutional neural networks&lt;/h3&gt;
-
-&lt;p&gt;While many details of how these models work still remain a mystery, we are by now aware that lower convolutional layers capture low-level image features, e.g. edges (see Figure 14), while higher convolutional layers capture more and more complex details, such as body parts, faces, and other compositional features.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/example_filters.jpeg" style="width: 70%" title="Andrew Ng on transfer learning" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 14: Example filters learned by AlexNet (Krizhevsky et al., 2012). &lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;The final fully-connected layers are generally assumed to capture information that is relevant for solving the respective task, e.g. AlexNet's fully-connected layers would indicate which features are relevant to classify an image into one of 1000 object categories.&lt;/p&gt;
-
-&lt;p&gt;However, while knowing that a cat has whiskers, paws, fur, etc. is necessary for identifying an animal as a cat (for an example, see Figure 15), it does not help us with identifying new objects or to solve other common vision tasks such as scene recognition, fine grained recognition, attribute detection and image retrieval.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/cat.jpg" style="width: 70%" title="Token cat" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 15: This post's token cat&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;What can help us, however, are representations that capture general information of how an image is composed and what combinations of edges and shapes it contains. This information is contained in one of the final convolutional layers or early fully-connected layers in large convolutional neural networks trained on ImageNet as we have described above.&lt;/p&gt;
-
-&lt;p&gt;For a new task, we can thus simply use the off-the-shelf features of a state-of-the-art CNN pre-trained on ImageNet and train a new model on these extracted features. In practice, we either keep the pre-trained parameters fixed or tune them with a small learning rate in order to ensure that we do not unlearn the previously acquired knowledge. This simple approach has been shown to achieve astounding results on an array of vision tasks [&lt;sup id="fnref:13"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:13" rel="footnote"&gt;13&lt;/a&gt;&lt;/sup&gt;] as well as tasks that rely on visual input such as image captioning. A model trained on ImageNet seems to capture details about the way animals and objects are structured and composed that is generally relevant when dealing with images. As such, the ImageNet task seems to be a good proxy for general computer vision problems, as the same knowledge that is required to excel in it is also relevant for many other tasks.&lt;/p&gt;
-
-&lt;h3 id="learningtheunderlyingstructureofimages"&gt;Learning the underlying structure of images&lt;/h3&gt;
-
-&lt;p&gt;A similar assumption is used to motivate generative models: When training generative models, we assume that the ability to generate realistic images requires an understanding of the underlying structure of images, which in turn can be applied to many other tasks. This assumption itself relies on the premise that all images lie on a low-dimensional manifold, i.e. that there is some underlying structure to images that can be extracted by a model. Recent advances in generating photorealistic images with Generative Adversarial Networks [&lt;sup id="fnref:14"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:14" rel="footnote"&gt;14&lt;/a&gt;&lt;/sup&gt;] indicate that such a structure might indeed exist, as evidenced by the model's ability to show realistic transitions between points in the bedroom image space in Figure 16.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/walking_the_image_manifold.png" style="width: 80%" title="Walking the image manifold" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 16: Walking along the bedroom image manifold&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h3 id="arepretrainedfeaturesusefulbeyondvision"&gt;Are pre-trained features useful beyond vision?&lt;/h3&gt;
-
-&lt;p&gt;Off-the-shelf CNN features have seen unparalleled results in vision, but the question  remains if this success can be replicated in other disciplines using other types of data, such as languages. Currently, there are no off-the-shelf features that achieve results for natural language processing that are as astounding as their vision equivalent. Why is that? Do such features exist at all or -- if not -- why is vision more conducive to this form of transfer than language?&lt;/p&gt;
-
-&lt;p&gt;The output of lower-level tasks such as part-of-speech tagging or chunking can be likened as off-the-shelf features, but these do not capture more fine-grained rules of language use beyond syntax and are not helpful for all tasks. As we have seen, the existence of generalizable off-the-shelf features seems to be intertwined with the existence of a task that can be seen as a prototype for many tasks in the field. In vision, object recognition occupies such a role. In language, the closest analogue might be language modelling: In order to predict the next word or sentence given a sequence of words, a model needs to possess knowledge of how language is structured, needs to understand what words likely are related to and likely follow each other, needs to model long-term dependencies, etc.&lt;/p&gt;
-
-&lt;p&gt;While state-of-the-art language models increasingly approach human levels [&lt;sup id="fnref:15"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:15" rel="footnote"&gt;15&lt;/a&gt;&lt;/sup&gt;], their features are only of limited use. At the same time, advances in language modelling have led to positive results for other tasks: Pre-training a model with a language model objective improves performance [&lt;sup id="fnref:16"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:16" rel="footnote"&gt;16&lt;/a&gt;&lt;/sup&gt;]. In addition, word embeddings pre-trained on a large unlabelled corpus with an approximated language modelling objective have become pervasive [&lt;sup id="fnref:17"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:17" rel="footnote"&gt;17&lt;/a&gt;&lt;/sup&gt;]. While they are not as effective as off-the-shelf features in vision, they still provide sizeable gains [&lt;sup id="fnref:18"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:18" rel="footnote"&gt;18&lt;/a&gt;&lt;/sup&gt;] and can be seen a simple form of transfer of general domain knowledge derived from a large unlabelled corpus.&lt;/p&gt;
-
-&lt;p&gt;While a general proxy task seems currently out of reach in natural language processing, auxiliary tasks can take the form of local proxies. Whether through multi-task objectives [&lt;sup id="fnref:19"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:19" rel="footnote"&gt;19&lt;/a&gt;&lt;/sup&gt;] or synthetic task objectives [&lt;sup id="fnref:20"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:20" rel="footnote"&gt;20&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:21"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:21" rel="footnote"&gt;21&lt;/a&gt;&lt;/sup&gt;], they can be used to inject additional relevant knowledge into the model.&lt;/p&gt;
-
-&lt;p&gt;Using pre-trained features is currently the most straightforward and most commonly used way to perform transfer learning. However, it is by far not the only one.&lt;/p&gt;
-
-&lt;h2 id="learningdomaininvariantrepresentations"&gt; Learning domain-invariant representations&lt;/h2&gt;
-
-&lt;p&gt;Pre-trained features are in practice mostly used for adaptation scenario 3 where we want to adapt to a new task. For the other scenarios, another way to transfer knowledge enabled by Deep Learning is to learn representations that do not change based on our domain. This approach is conceptually very similar to the way we have been thinking about using pre-trained CNN features: Both encode general knowledge about our domain. However, creating representations that do not change based on the domain is a lot less expensive and more feasible for non-vision tasks than generating representations that are useful for all tasks. ImageNet has taken years and thousands of hours to create, while we typically only need unlabelled data of each domain for creating domain-invariant representations. These representations are generally learned using stacked denoising autoencoders and have seen success in natural language processing [&lt;sup id="fnref:22"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:22" rel="footnote"&gt;22&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:23"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:23" rel="footnote"&gt;23&lt;/a&gt;&lt;/sup&gt;] as well as in vision [&lt;sup id="fnref:24"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:24" rel="footnote"&gt;24&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
-
-&lt;h2 id="makingrepresentationsmoresimilar"&gt;Making representations more similar&lt;/h2&gt;
-
-&lt;p&gt;In order to improve the transferability of the learned representations from the source to the target domain, we would like the representations between the two domains to be as similar as possible so that the model does not take into account domain-specific characteristics that may hinder transfer but the commonalities between the domains.&lt;/p&gt;
-
-&lt;p&gt;Rather than just letting our autoencoder learn some representation, we can thus actively encourage the representations of both domains to be more similar to each other. We can apply this as a pre-processing step directly to the representations of our data [&lt;sup id="fnref:25"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:25" rel="footnote"&gt;25&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:26"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:26" rel="footnote"&gt;26&lt;/a&gt;&lt;/sup&gt;] and can then use the new representations for training. We can also encourage the representations of the domains in our model to be more similar to each other [&lt;sup id="fnref:27"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:27" rel="footnote"&gt;27&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:28"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:28" rel="footnote"&gt;28&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h2 id="confusingdomains"&gt;Confusing domains&lt;/h2&gt;
-
-&lt;p&gt;Another way to ensure similarity between the representations of both domains that has recently become more popular is to add another objective to an existing model that encourages it to confuse the two domains [&lt;sup id="fnref:29"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:29" rel="footnote"&gt;29&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:30"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:30" rel="footnote"&gt;30&lt;/a&gt;&lt;/sup&gt;]. This domain confusion loss is a regular classification loss where the model tries to predict the domain of the input example. The difference to a regular loss, however, is that gradients that flow from the loss to the rest of the network are reversed, as can be seen in Figure 17. &lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/confusing_domains_with_gradient_reversal_layer.png" style="width: 80%" title="Confusing domains with gradient reversal layer" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 17: Confusing domains with a gradient reversal layer (Ganin and Lempitsky, 2015)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;p&gt;Instead of learning to minimize the error of the domain classification loss, the gradient reversal layer causes the model to maximize the error. In practice, this means that the model learns representations that allow it to minimize its original objective, while not allowing it to differentiate between the two domains, which is beneficial for knowledge transfer. While a model trained only with the regular objective is shown in Figure 18 to be clearly able to separate domains based on its learned representation, a model whose objective has been augmented with the domain confusion term is unable to do so.&lt;/p&gt;
-
-&lt;figure&gt;  
-      &lt;img src="http://ruder.io/content/images/2017/03/domain_confusion_tzeng.png" style="width: 80%" title="Domain confusion" alt="Transfer Learning - Machine Learning's Next Frontier"&gt;
-&lt;figcaption&gt;Figure 18: Domain classifier score of a regular and a domain confusion model (Tzeng et al, 2015)&lt;/figcaption&gt;  
-&lt;/figure&gt;
-
-&lt;h1 id="relatedresearchareas"&gt;Related Research Areas&lt;/h1&gt;
-
-&lt;p&gt;While this post is about transfer learning, transfer learning is by far not the only area of machine learning that seeks to leverage limited amounts of data, use learned knowledge for new endeavours, and enable models to generalize better to new settings. In the following, we will thus introduce other directions that are related or complementary to the goals of transfer learning.&lt;/p&gt;
-
-&lt;h2 id="semisupervisedlearning"&gt;Semi-supervised learning&lt;/h2&gt;
-
-&lt;p&gt;Transfer learning seeks to leverage unlabelled data in the target task or domain to the most effect. This is also the maxim of semi-supervised learning, which follows the classical machine learning setup but assumes only a limited amount of labeled samples for training. Insofar, semi-supervised domain adaptation is essentially semi-supervised learning under domain shift. Many lessons and insights from semi-supervised learning are thus equally applicable and relevant for transfer learning. Refer to [&lt;sup id="fnref:31"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:31" rel="footnote"&gt;31&lt;/a&gt;&lt;/sup&gt;] for a great survey on semi-supervised learning.&lt;/p&gt;
-
-&lt;h2 id="usingavailabledatamoreeffectively"&gt; Using available data more effectively&lt;/h2&gt;
-
-&lt;p&gt;Another direction that is related to transfer learning and semi-supervised learning is to enable models to work better with limited amounts of data.&lt;/p&gt;
-
-&lt;p&gt;This can be done in several ways: One can leverage unsupervised or semi-supervised learning to extract information from unlabelled data thereby reducing the reliance on labelled samples; one can give the model access to other features inherent in the data while reducing its tendency to overfit via regularization; finally, one can leverage data that so far remains neglected or rests in non-obvious places.&lt;/p&gt;
-
-&lt;p&gt;Such fortuitous data [&lt;sup id="fnref:32"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:32" rel="footnote"&gt;32&lt;/a&gt;&lt;/sup&gt;] may be created as a side effect of user-generated content, such as hyperlinks that can be used to improve named entity and part-of-speech taggers; it may come as a by-product of annotation, e.g. annotator disagreement that may improve tagging or parsing; or it may be derived from user behaviour such as eye tracking or keystroke dynamics, which can inform NLP tasks. While such data has only been exploited in limited ways, such examples encourage us to look for data in unexpected places and to investigate new ways of retrieving data.&lt;/p&gt;
-
-&lt;h2 id="improvingmodelsabilitytogeneralize"&gt;Improving models' ability to generalize&lt;/h2&gt;
-
-&lt;p&gt;Related to this is also the direction of making models generalize better. In order to achieve this, we must first better understand the behaviour and intricacies of large neural networks and investigate why and how they generalize. Recent work has taken promising steps towards this end [&lt;sup id="fnref:33"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:33" rel="footnote"&gt;33&lt;/a&gt;&lt;/sup&gt;], but many questions are still left unanswered.&lt;/p&gt;
-
-&lt;h2 id="makingmodelsmorerobust"&gt;Making models more robust&lt;/h2&gt;
-
-&lt;p&gt;While improving our models' generalization ability goes a long way, we might generalize well to similar instances but still fail catastrophically on unexpected or atypical inputs. Therefore, a key complementary objective is to make our models more robust. This direction has seen increasing interest recently fuelled by advances in adversarial learning and recent approaches have investigated many ways of how models can be made more robust to worst-case or adversarial examples in different settings [&lt;sup id="fnref:34"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:34" rel="footnote"&gt;34&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:35"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:35" rel="footnote"&gt;35&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
-
-&lt;h2 id="multitasklearning"&gt;Multi-task learning&lt;/h2&gt;
-
-&lt;p&gt;In transfer learning, we mainly care about doing well on our target task or domain. In multi-task learning, in contrast, the objective is to do well on all available tasks. Alternatively, we can also use the knowledge acquired by learning from related tasks to do well on a target. Crucially, in contrast to transfer learning, some labeled data is usually assumed for each task. In addition, models are trained jointly on source and target task data, which is not the case for all transfer learning scenarios. However, even if target data is not available during training, insights about tasks that are beneficial for multi-task learning [&lt;sup id="fnref:19"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:19" rel="footnote"&gt;19&lt;/a&gt;&lt;/sup&gt;] can still inform transfer learning decisions.&lt;/p&gt;
-
-&lt;p&gt;For a more thorough overview of multi-task learning, particularly as applied to deep neural networks, have a look at my other blog post &lt;a href="http://sebastianruder.com/multi-task/index.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="continuouslearning"&gt;Continuous learning&lt;/h2&gt;
-
-&lt;p&gt;While multi-task learning allows us to retain the knowledge across many tasks without suffering a performance penalty on our source tasks, this is only possible if all tasks are present at training time. For each new task, we would generally need to retrain our model on all tasks again.&lt;/p&gt;
-
-&lt;p&gt;In the real world, however, we would like an agent to be able to deal with tasks that gradually become more complex by leveraging its past experience. To this end, we need to enable a model to learn continuously without forgetting. This area of machine learning is known as learning to learn [&lt;sup id="fnref:36"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:36" rel="footnote"&gt;36&lt;/a&gt;&lt;/sup&gt;], meta-learning, life-long learning, or continuous learning. It has seen some recent developments in the context of RL [&lt;sup id="fnref:37"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:37" rel="footnote"&gt;37&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:38"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:38" rel="footnote"&gt;38&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:39"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:39" rel="footnote"&gt;39&lt;/a&gt;&lt;/sup&gt;] most notably by &lt;a href="https://deepmind.com/blog/enabling-continual-learning-in-neural-networks/"&gt;Google DeepMind on their quest towards general learning agents&lt;/a&gt; and is also being applied to sequence-to-sequence models [&lt;sup id="fnref:40"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:40" rel="footnote"&gt;40&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
-
-&lt;h2 id="zeroshotlearning"&gt;Zero-shot learning&lt;/h2&gt;
-
-&lt;p&gt;Finally, if we take transfer learning to the extreme and aim to learn from only a few, one or even zero instances of a class, we arrive at few-shot, one-shot, and zero-shot learning respectively. Enabling models to perform one-shot and zero-shot learning is admittedly among the hardest problems in machine learning. At the same time, it is something that comes naturally to us humans: Toddlers only need to be told once what a dog is in order to be able to identify any other dog, while adults can understand the essence of an object just by reading about it in context, without ever having encountered it before.&lt;/p&gt;
-
-&lt;p&gt;Recent advances in one-shot learning have leveraged the insight that models need to be trained explicitly to perform one-shot learning in order to achieve good performance at test time [&lt;sup id="fnref:41"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:41" rel="footnote"&gt;41&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:42"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:42" rel="footnote"&gt;42&lt;/a&gt;&lt;/sup&gt;], while the more realistic generalized zero-shot learning setting where training classes are present at test time has garnered attention lately [&lt;sup id="fnref:43"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:43" rel="footnote"&gt;43&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;In summary, there are many exciting research directions that transfer learning offers and -- in particular -- many applications that are in need of models that can transfer knowledge to new tasks and adapt to new domains. I hope that I was able to provide you with an overview of transfer learning in this blog post and was able to pique your interest.&lt;/p&gt;
-
-&lt;p&gt;Some of the statements in this blog post are deliberately phrased &lt;em&gt;slightly&lt;/em&gt; controversial. Let me know your thoughts about any contentious issues and any errors that I undoubtedly made in writing this post in the comments below.&lt;/p&gt;
-
-&lt;p&gt;Note: Title image is credited to [&lt;sup id="fnref:44"&gt;&lt;a href="http://ruder.io/transfer-learning/#fn:44" rel="footnote"&gt;44&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h1 id="references"&gt;References&lt;/h1&gt;
-
-&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li class="footnote" id="fn:1"&gt;&lt;p&gt;Szegedy, C., Ioffe, S., Vanhoucke, V., &amp;amp; Alemi, A. (2016). Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning. arXiv preprint arXiv:1602.07261. &lt;a href="http://ruder.io/transfer-learning/#fnref:1" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:2"&gt;&lt;p&gt;Kannan, A., Kurach, K., Ravi, S., Kaufmann, T., Tomkins, A., Miklos, B., … Ramavajjala, V. (2016). Smart Reply: Automated Response Suggestion for Email. In KDD 2016. &lt;a href="http://doi.org/10.475/123"&gt;http://doi.org/10.475/123&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:2" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:3"&gt;&lt;p&gt;Ruan, S., Wobbrock, J. O., Liou, K., Ng, A., &amp;amp; Landay, J. (2016). Speech Is 3x Faster than Typing for English and Mandarin Text Entry on Mobile Devices. arXiv preprint arXiv:1608.07323. &lt;a href="http://ruder.io/transfer-learning/#fnref:3" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:4"&gt;&lt;p&gt;Wu, Y., Schuster, M., Chen, Z., Le, Q. V, Norouzi, M., Macherey, W., … Dean, J. (2016). Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation. arXiv preprint arXiv:1609.08144. &lt;a href="http://ruder.io/transfer-learning/#fnref:4" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:5"&gt;&lt;p&gt;Deng, J., Dong, W., Socher, R., Li, L., Li, K., &amp;amp; Fei-fei, L. (2009). ImageNet : A Large-Scale Hierarchical Image Database. In IEEE Conference on Computer Vision and Pattern Recognition. &lt;a href="http://ruder.io/transfer-learning/#fnref:5" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;Pan, S. J., &amp;amp; Yang, Q. (2010). A survey on transfer learning. IEEE Transactions on Knowledge and Data Engineering, 22(10), 1345–1359. &lt;a href="http://ruder.io/transfer-learning/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:7"&gt;&lt;p&gt;Chawla, N. V, Bowyer, K. W., Hall, L. O., &amp;amp; Kegelmeyer, W. P. (2002). SMOTE : Synthetic Minority Over-sampling Technique. Journal of Artificial Intelligence Research, 16, 321–357. &lt;a href="http://ruder.io/transfer-learning/#fnref:7" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:8"&gt;&lt;p&gt;Rusu, A. A., Vecerik, M., Rothörl, T., Heess, N., Pascanu, R., &amp;amp; Hadsell, R. (2016). Sim-to-Real Robot Learning from Pixels with Progressive Nets. arXiv Preprint arXiv:1610.04286. Retrieved from &lt;a href="http://arxiv.org/abs/1610.04286"&gt;http://arxiv.org/abs/1610.04286&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:8" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:9"&gt;&lt;p&gt;Mikolov, T., Joulin, A., &amp;amp; Baroni, M. (2015). A Roadmap towards Machine Intelligence. arXiv Preprint arXiv:1511.08130. Retrieved from &lt;a href="http://arxiv.org/abs/1511.08130"&gt;http://arxiv.org/abs/1511.08130&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:9" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:10"&gt;&lt;p&gt;Torralba, A., &amp;amp; Efros, A. A. (2011). Unbiased Look at Dataset Bias. In 2011 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). &lt;a href="http://ruder.io/transfer-learning/#fnref:10" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:11"&gt;&lt;p&gt;Johnson, M., Schuster, M., Le, Q. V, Krikun, M., Wu, Y., Chen, Z., … Dean, J. (2016). Google’s Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation. arXiv Preprint arXiv:1611.0455. &lt;a href="http://ruder.io/transfer-learning/#fnref:11" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:12"&gt;&lt;p&gt;Krizhevsky, A., Sutskever, I., &amp;amp; Hinton, G. E. (2012). ImageNet Classification with Deep Convolutional Neural Networks. Advances In Neural Information Processing Systems, 1–9. &lt;a href="http://ruder.io/transfer-learning/#fnref:12" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:13"&gt;&lt;p&gt;Razavian, A. S., Azizpour, H., Sullivan, J., &amp;amp; Carlsson, S. (2014). CNN features off-the-shelf: An astounding baseline for recognition. IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops, 512–519. &lt;a href="http://ruder.io/transfer-learning/#fnref:13" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:14"&gt;&lt;p&gt;Radford, A., Metz, L., &amp;amp; Chintala, S. (2016). Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks. ICLR. Retrieved from &lt;a href="http://arxiv.org/abs/1511.06434"&gt;http://arxiv.org/abs/1511.06434&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:14" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:15"&gt;&lt;p&gt;Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp;amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. arXiv Preprint arXiv:1602.02410. Retrieved from &lt;a href="http://arxiv.org/abs/1602.02410"&gt;http://arxiv.org/abs/1602.02410&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:15" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:16"&gt;&lt;p&gt;Ramachandran, P., Liu, P. J., &amp;amp; Le, Q. V. (2016). Unsupervised Pretrainig for Sequence to Sequence Learning. arXiv Preprint arXiv:1611.02683. &lt;a href="http://ruder.io/transfer-learning/#fnref:16" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:17"&gt;&lt;p&gt;Mikolov, T., Chen, K., Corrado, G., &amp;amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. NIPS. &lt;a href="http://ruder.io/transfer-learning/#fnref:17" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:18"&gt;&lt;p&gt;Kim, Y. (2014). Convolutional Neural Networks for Sentence Classification. Proceedings of the Conference on Empirical Methods in Natural Language Processing, 1746–1751. Retrieved from &lt;a href="http://arxiv.org/abs/1408.5882"&gt;http://arxiv.org/abs/1408.5882&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:18" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:19"&gt;&lt;p&gt;Bingel, J., &amp;amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from &lt;a href="http://arxiv.org/abs/1702.08303"&gt;http://arxiv.org/abs/1702.08303&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:19" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:20"&gt;&lt;p&gt;Plank, B., Søgaard, A., &amp;amp; Goldberg, Y. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. &lt;a href="http://ruder.io/transfer-learning/#fnref:20" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:21"&gt;&lt;p&gt;Yu, J., &amp;amp; Jiang, J. (2016). Learning Sentence Embeddings with Auxiliary Tasks for Cross-Domain Sentiment Classification. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP2016), 236–246. Retrieved from &lt;a href="http://www.aclweb.org/anthology/D/D16/D16-1023.pdf"&gt;http://www.aclweb.org/anthology/D/D16/D16-1023.pdf&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:21" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:22"&gt;&lt;p&gt;Glorot, X., Bordes, A., &amp;amp; Bengio, Y. (2011). Domain Adaptation for Large-Scale Sentiment Classification: A Deep Learning Approach. Proceedings of the 28th International Conference on Machine Learning, 513–520. Retrieved from &lt;a href="http://www.icml-2011.org/papers/342_icmlpaper.pdf"&gt;http://www.icml-2011.org/papers/342_icmlpaper.pdf&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:22" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:23"&gt;&lt;p&gt;Chen, M., Xu, Z., Weinberger, K. Q., &amp;amp; Sha, F. (2012). Marginalized Denoising Autoencoders for Domain Adaptation. Proceedings of the 29th International Conference on Machine Learning (ICML-12), 767--774. &lt;a href="http://doi.org/10.1007/s11222-007-9033-z"&gt;http://doi.org/10.1007/s11222-007-9033-z&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:23" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:24"&gt;&lt;p&gt;Zhuang, F., Cheng, X., Luo, P., Pan, S. J., &amp;amp; He, Q. (2015). Supervised Representation Learning: Transfer Learning with Deep Autoencoders. IJCAI International Joint Conference on Artificial Intelligence, 4119–4125. &lt;a href="http://ruder.io/transfer-learning/#fnref:24" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:25"&gt;&lt;p&gt;Daumé III, H. (2007). Frustratingly Easy Domain Adaptation. Association for Computational Linguistic (ACL), (June), 256–263. &lt;a href="http://doi.org/10.1.1.110.2062"&gt;http://doi.org/10.1.1.110.2062&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:25" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:26"&gt;&lt;p&gt;Sun, B., Feng, J., &amp;amp; Saenko, K. (2016). Return of Frustratingly Easy Domain Adaptation. In Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence (AAAI-16). Retrieved from &lt;a href="http://arxiv.org/abs/1511.05547"&gt;http://arxiv.org/abs/1511.05547&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:26" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:27"&gt;&lt;p&gt;Bousmalis, K., Trigeorgis, G., Silberman, N., Krishnan, D., &amp;amp; Erhan, D. (2016). Domain Separation Networks. NIPS. &lt;a href="http://ruder.io/transfer-learning/#fnref:27" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:28"&gt;&lt;p&gt;Tzeng, E., Hoffman, J., Zhang, N., Saenko, K., &amp;amp; Darrell, T. (2014). Deep Domain Confusion: Maximizing for Domain Invariance. CoRR. Retrieved from &lt;a href="https://arxiv.org/pdf/1412.3474.pdf"&gt;https://arxiv.org/pdf/1412.3474.pdf&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:28" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:29"&gt;&lt;p&gt;Ganin, Y., &amp;amp; Lempitsky, V. (2015). Unsupervised Domain Adaptation by Backpropagation. In Proceedings of the 32nd International Conference on Machine Learning. (Vol. 37). &lt;a href="http://ruder.io/transfer-learning/#fnref:29" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:30"&gt;&lt;p&gt;Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., … Lempitsky, V. (2016). Domain-Adversarial Training of Neural Networks. Journal of Machine Learning Research, 17, 1–35. &lt;a href="http://www.jmlr.org/papers/volume17/15-239/source/15-239.pdf"&gt;http://www.jmlr.org/papers/volume17/15-239/source/15-239.pdf&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:30" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:31"&gt;&lt;p&gt;Zhu, X. (2005). Semi-Supervised Learning Literature Survey. &lt;a href="http://ruder.io/transfer-learning/#fnref:31" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:32"&gt;&lt;p&gt;Plank, B. (2016). What to do about non-standard (or non-canonical) language in NLP. KONVENS 2016. Retrieved from &lt;a href="https://arxiv.org/pdf/1608.07836.pdf"&gt;https://arxiv.org/pdf/1608.07836.pdf&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:32" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:33"&gt;&lt;p&gt;Zhang, C., Bengio, S., Hardt, M., Recht, B., &amp;amp; Vinyals, O. (2017). Understanding deep learning requires rethinking generalization. ICLR 2017. &lt;a href="http://ruder.io/transfer-learning/#fnref:33" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:34"&gt;&lt;p&gt;Kurakin, A., Goodfellow, I., &amp;amp; Bengio, S. (2017). Adversarial examples in the physical world. In ICLR 2017. Retrieved from &lt;a href="http://arxiv.org/abs/1607.02533"&gt;http://arxiv.org/abs/1607.02533&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:34" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:35"&gt;&lt;p&gt;Huang, S., Papernot, N., Goodfellow, I., Duan, Y., &amp;amp; Abbeel, P. (2017). Adversarial Attacks on Neural Network Policies. In Workshop Track - ICLR 2017. &lt;a href="http://ruder.io/transfer-learning/#fnref:35" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:36"&gt;&lt;p&gt;Thrun, S., &amp;amp; Pratt, L. (1998). Learning to learn. Springer Science &amp;amp; Business Media. &lt;a href="http://ruder.io/transfer-learning/#fnref:36" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:37"&gt;&lt;p&gt;Kirkpatrick, J., Pascanu, R., Rabinowitz, N., Veness, J., Desjardins, G., Rusu, A. A., … Hadsell, R. (2017). Overcoming catastrophic forgetting in neural networks. PNAS. &lt;a href="http://ruder.io/transfer-learning/#fnref:37" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:38"&gt;&lt;p&gt;Rusu, A. A., Rabinowitz, N. C., Desjardins, G., Soyer, H., Kirkpatrick, J., Kavukcuoglu, K., ... Deepmind, G. (2016). Progressive Neural Networks. arXiv preprint arXiv:1606.04671. &lt;a href="http://ruder.io/transfer-learning/#fnref:38" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:39"&gt;&lt;p&gt;Fernando, C., Banarse, D., Blundell, C., Zwols, Y., Ha, D., Rusu, A. A., ... Wierstra, D. (2017). PathNet: Evolution Channels Gradient Descent in Super Neural Networks. In arXiv preprint arXiv:1701.08734. &lt;a href="http://ruder.io/transfer-learning/#fnref:39" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:40"&gt;&lt;p&gt;Kaiser, Ł., Nachum, O., Roy, A., &amp;amp; Bengio, S. (2017). Learning to Remember Rare Events. In ICLR 2017. &lt;a href="http://ruder.io/transfer-learning/#fnref:40" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:41"&gt;&lt;p&gt;Vinyals, O., Blundell, C., Lillicrap, T., Kavukcuoglu, K., &amp;amp; Wierstra, D. (2016). Matching Networks for One Shot Learning. NIPS 2016. Retrieved from &lt;a href="http://arxiv.org/abs/1606.04080"&gt;http://arxiv.org/abs/1606.04080&lt;/a&gt; &lt;a href="http://ruder.io/transfer-learning/#fnref:41" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:42"&gt;&lt;p&gt;Ravi, S., &amp;amp; Larochelle, H. (2017). Optimization as a Model for Few-Shot Learning. In ICLR 2017. &lt;a href="http://ruder.io/transfer-learning/#fnref:42" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:43"&gt;&lt;p&gt;Xian, Y., Schiele, B., Akata, Z., Campus, S. I., &amp;amp; Machine, A. (2017). Zero-Shot Learning - The Good, the Bad and the Ugly. In CVPR 2017. &lt;a href="http://ruder.io/transfer-learning/#fnref:43" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:44"&gt;&lt;p&gt;Tzeng, E., Hoffman, J., Saenko, K., &amp;amp; Darrell, T. (2017). Adversarial Discriminative Domain Adaptation. &lt;a href="http://ruder.io/transfer-learning/#fnref:44" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
+&lt;li class="footnote" id="fn:56"&gt;&lt;p&gt;Bingel, J., &amp;amp; Søgaard, A. (2017). Identifying beneficial task relations for multi-task learning in deep neural networks. In EACL. Retrieved from &lt;a href="http://arxiv.org/abs/1702.08303"&gt;http://arxiv.org/abs/1702.08303&lt;/a&gt; &lt;a href="http://ruder.io/multi-task/#fnref:56" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
