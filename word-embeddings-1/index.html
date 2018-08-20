@@ -31,7 +31,7 @@
 <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
 <meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
 <meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=08b737971f">
+    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=048ab6045a">
     <link rel="canonical" href="http://ruder.io/word-embeddings-1/">
     <meta name="referrer" content="origin">
     
@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-1/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/04/word_embeddings_colah.png">
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z">
-    <meta property="article:modified_time" content="2018-03-03T11:28:02.452Z">
+    <meta property="article:modified_time" content="2018-08-20T16:37:01.167Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="word embeddings">
     
@@ -67,7 +67,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "u=http://ruder.io/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2018-03-03T11:28:02.452Z",
+    "dateModified": "2018-08-20T16:37:01.167Z",
     "image": "u=http://ruder.io/content/images/2016/04/word_embeddings_colah.png",
     "keywords": "deep learning, word embeddings",
     "description": "The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research."
@@ -263,7 +263,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 
 <p>Before we get into the gritty details of word embedding models, let us briefly talk about some language modelling fundamentals.</p>
 
-<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n - 1\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the product of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
+<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n - 1\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the probability of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
 
 <p>\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) \).</p>
 
@@ -486,7 +486,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=08b737971f" type="text/javascript" charset="utf-8"></script>
+    <script src="../assets/js/uno-zen.js?v=048ab6045a" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
   if (window.ga_id) {
