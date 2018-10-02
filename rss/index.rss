@@ -1,4 +1,59 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Oct 2018 10:06:05 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>A Review of the Neural History of Natural Language Processing</title><description>This blog post discusses the eight biggest milestones in the last ~15 years of Natural Language Processing.</description><link>http://ruder.io/a-review-of-the-recent-history-of-nlp/</link><guid isPermaLink="false">e29edc89-6069-459e-8092-3371711da5c1</guid><category>natural language processing</category><category>nlp</category><category>deep learning</category><category>word embeddings</category><category>multi-task learning</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 01 Oct 2018 12:50:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/10/review_recent_history_image.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/10/review_recent_history_image.png" alt="A Review of the Neural History of Natural Language Processing"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Oct 2018 10:55:17 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>HackerNoon Interview</title><description>&lt;p&gt;&lt;em&gt;This post originally appeared at &lt;a href="https://hackernoon.com/interview-with-deep-learning-and-nlp-researcher-sebastian-ruder-91ddaf473c4b"&gt;HackerNoon&lt;/a&gt; with a different introduction&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I had the honour to be interviewed by &lt;a href="https://twitter.com/bhutanisanyam1"&gt;Sanyam Bhutani&lt;/a&gt;, a Deep Learning and Computer Vision practitioner and &lt;a href="http://www.fast.ai/2018/01/17/international-spring-2018/"&gt;fast.ai fellow&lt;/a&gt; who's been doing a &lt;a href="https://hackernoon.com/interview-with-kaggle-competitions-grandmaster-kazanova-rank-3-dr-marios-michailidis-cc515194cb67"&gt;series&lt;/a&gt; interviewing people that inspire him. To be honest, it feels surreal to be the&lt;/p&gt;</description><link>http://ruder.io/hackernoon-interview/</link><guid isPermaLink="false">5cde200f-de1a-4c46-bd62-519c6dc43664</guid><category>deep learning</category><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 02 Oct 2018 10:40:18 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;This post originally appeared at &lt;a href="https://hackernoon.com/interview-with-deep-learning-and-nlp-researcher-sebastian-ruder-91ddaf473c4b"&gt;HackerNoon&lt;/a&gt; with a different introduction&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I had the honour to be interviewed by &lt;a href="https://twitter.com/bhutanisanyam1"&gt;Sanyam Bhutani&lt;/a&gt;, a Deep Learning and Computer Vision practitioner and &lt;a href="http://www.fast.ai/2018/01/17/international-spring-2018/"&gt;fast.ai fellow&lt;/a&gt; who's been doing a &lt;a href="https://hackernoon.com/interview-with-kaggle-competitions-grandmaster-kazanova-rank-3-dr-marios-michailidis-cc515194cb67"&gt;series&lt;/a&gt; interviewing people that inspire him. To be honest, it feels surreal to be the one being interviewed. I hope my answers may nevertheless be interesting or useful to some of you.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Hello Sebastian, Thank you for taking the time to do this.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: Thanks for having me.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ You’re working as a research scientist today at AYLIEN, and you’re a Ph.D. student at Insight Research Centre for Data Analytics. Could you tell the readers about how you got started? What got you interested in NLP and Deep Learning?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: I was really into maths and languages when I was in high school and took part in competitions. For my studies, I wanted to combine the logic of maths with the creativity of language somehow but didn’t know if such a field existed. That’s when I came across Computational Linguistics, which seemed to be a perfect fit at the intersection of computer science and linguistics. I then did my Bachelor’s in Computational Linguistics at the University of Heidelberg in Germany, one of my favourite places in Europe. During my Bachelor’s, I got most excited by machine learning, so I tried to get as much as exposure to ML as possible via internships and online courses. I only heard about word2vec as I was finishing my undergrad in 2015; as I learned more about Deep Learning at the start of my Ph.D. later that year, it seemed to be most exciting direction, so I decided to focus on it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ You started your research right after graduation. What made you pick research as a career path instead of the industry?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: After graduating, I was planning to get some industry experience first by working in a startup. A PhD was always something I had dreamed of, but I hadn’t seriously considered it at that point. When I discussed working with the Dublin-based NLP startup Aylien, they told me about the Employment-based Postgraduate Programme, a PhD programme that is hosted jointly by a university and a company, which seemed like the perfect fit for me. Combining research and industry work can be challenging at times, but has been rewarding for me overall. Most importantly, there should be a fit with the company.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ You’ve been working as a researcher for 3 years now. What has been your favorite project during these years?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: In terms of learning, delving into a new area where I don’t know much, reading papers, and getting to collaborate with great people. In this vein, my project working on multi-task learning at the University of Copenhagen was a great and very stimulating experience. In terms of impact, being able to work with Jeremy, interacting with the fastai community, and seeing that people find our work on language models useful.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Natural Language Processing has arguably lagged behind Computer Vision. What are your thoughts about the current scenario? Is it a good time to get started as an NLP Practitioner?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: I think now is a great time to get started with NLP. Compared to a couple of years ago, we’re at a point of maturity where you’re not limited to just using word embeddings or off-the-shelf models, but you can compose your model from a wide array of components, such as different layers, pretrained representations, auxiliary losses, etc. There also seems to be a growing feeling in the community that many of the canonical problems (POS tagging and dependency parsing on the Penn Treebank, sentiment analysis on movie reviews, etc.) are close to being solved, so we really want to make progress on more challenging problems, such as “real” natural language understanding and creating models that truly generalize. For these problems, I think we can really benefit from people with new perspectives and ideas. In addition, as we can now train models for many useful tasks such as classification or sequence labelling with good accuracy, there are a lot of opportunities for applying and adapting these models to other languages. If you’re a speaker of another language, you can make a big difference by creating datasets others can use for evaluation and training models for that language.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ For the readers and the beginners who are interested in working on Natural Language Processing, what would be your best advice?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: Find a task you’re interested in for instance by browsing the tasks on NLP-progress. If you’re interested in doing research, try to choose a particular subproblem not everyone is working on. For instance, for sentiment analysis, don’t work on movie reviews but conversations. For summarization, summarize biomedical papers rather than news articles. Read papers related to the task and try to understand what the state-of-the-art does. Prefer tasks that have open-source implementations available that you can run. Once you have a good handle of how something works, for research, reflect if you were surprised by any choices in the paper. Try to understand what kind of errors the model makes and if you can think of any information that could be used to mitigate them. Doing error and ablation analyses or using synthetic tasks that gauge if a model captures a certain kind of information are great ways to do this.&lt;/p&gt;
+
+&lt;p&gt;If you have an idea how to make the task more challenging or realistic, try to create a dataset and apply the existing model to that task. Try to recreate the dataset in your language and see if the model performs equally well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Many job boards (For DL/ML) require the applicants to be post-grads or have research experience. For the readers who want to take up Machine Learning as a Career path, do you feel having research experience is a necessity?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: I think research experience can be a good indicator that you’re proficient with certain models and creative, innovative to come up with new solutions. You don’t need to do a Ph.D. or a research fellowship to learn these skills, though. Being proactive, learning about and working on a problem that you’re excited about, trying to improve the model, and writing about your experience is a good way to get started and demonstrate similar skills. In most applied ML settings, you won’t be required to come up with totally new ways to solve a task. Doing ML and data science competitions can thus similarly help you demonstrate that you know how to apply ML models in practice.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Given the explosive growth rates in research, How do you stay up to date with the cutting edge?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: I’ve been going through the arXiv daily update, adding relevant papers to my reading list, and reading them in batches. Jeff Dean recently said during a talk at the Deep Learning Indaba that he thinks it’s better to read ten abstracts than one paper in-depth as you can always go back and read one of the papers in-depth. I agree with him. I think you want to read widely about as many ideas as possible, which you can catalogue and use for inspiration later. Having a good paper management system is key. I’ve been using Mendeley. Lately, I’ve been relying more on Arxiv Sanity Preserver to surface relevant papers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ You also maintain a great blog, which I’m a great fan of. Could you share some tips on effectively writing technical articles?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: I’ve had the best experience writing a blog when I started out writing it for myself to understand a particular topic better. If you ever find yourself having to put in a lot of work to build intuition or do a lot of research to grasp a subject, consider writing a post about it so you can accelerate everyone else’s learning in the future. In research papers, there’s usually not enough space to properly contextualize a work, highlight motivations, and intuitions, etc. Blog posts are a great way to make technical content more accessible and approachable.&lt;/p&gt;
+
+&lt;p&gt;The great thing about a blog is that it doesn’t need to be perfect. You can use it to improve your communication skills as well as obtain feedback on your ideas and things you might have missed. In terms of writing, I think the most important thing I have learned is to be biased towards clarity. Try to be as unambiguous as possible. Remove sentences that don’t add much value. Remove vague adjectives. Write only about what the data shows and if you speculate, clearly say so. &lt;br&gt;
+Get feedback on your draft from your friends and colleagues. Don’t try to make something 100% perfect, but get it to a point where you’re happy with it. Feeling anxiety when clicking that ‘Publish’ button is totally normal and doesn’t go away. Publishing something will always be worth it in the long-term.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Do you feel Machine Learning has been overhyped?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: No.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Before we conclude, any tips for the beginners who are afraid to get started because of the idea that Deep Learning is an advanced field?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sebastian&lt;/strong&gt;: Don’t let anyone tell you that you can’t do this. Do online courses to build your understanding. Once you’re comfortable with the fundamentals, read papers for inspiration when you have time. Choose something you’re excited about, choose a library, and work on it. Don’t think you need massive compute to work on meaningful problems. Particularly in NLP, there are lot of problems with a small number of labelled examples. Write about what you’re doing and learning. Reach out to people with similar interests and focus areas. Engage with the community, e.g. the fastai community is awesome. Get on Twitter. Twitter has a great ML community and you can often get replies from top experts in the field way faster than via email. Find a mentor. If you write to someone for advice, be mindful of their time. Be respectful and try to help others. Be generous with praise and cautious with criticism.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sanyam:&lt;/strong&gt;​ Thank you so much for doing this interview.&lt;/p&gt;</content:encoded></item><item><title>A Review of the Neural History of Natural Language Processing</title><description>This blog post discusses the eight biggest milestones in the last ~15 years of Natural Language Processing.</description><link>http://ruder.io/a-review-of-the-recent-history-of-nlp/</link><guid isPermaLink="false">e29edc89-6069-459e-8092-3371711da5c1</guid><category>natural language processing</category><category>nlp</category><category>deep learning</category><category>word embeddings</category><category>multi-task learning</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 01 Oct 2018 12:50:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/10/review_recent_history_image.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/10/review_recent_history_image.png" alt="A Review of the Neural History of Natural Language Processing"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
 
 &lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"&gt;&lt;/script&gt;  
@@ -2672,382 +2727,4 @@ Arık, S. Ö., Chrzanowski, M., Coates, A., Diamos, G., Gibiansky, A., Kang, Y.,
 
 &lt;p&gt;In the paper, we demonstrate the importance of selecting relevant data for transfer learning. We show that taking into account task and domain-specific characteristics and learning an appropriate data selection measure outperforms off-the-shelf metrics. We find that diversity complements similarity in selecting appropriate training data and that learned measures can be transferred robustly across models, domains, and tasks.&lt;/p&gt;
 
-&lt;p&gt;This work will be presented at the &lt;a href="http://emnlp2017.net/"&gt;2017 Conference on Empirical Methods in Natural Language Processing&lt;/a&gt;. More details can be found in the paper &lt;a href="https://arxiv.org/abs/1707.05246"&gt;here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title>Deep Learning for NLP Best Practices</title><description>A collection of best practices for Deep Learning for a wide array of Natural Language Processing tasks. </description><link>http://ruder.io/deep-learning-nlp-best-practices/</link><guid isPermaLink="false">c28facc9-6e69-42e1-b66f-d7449f387e9c</guid><category>nlp</category><category>natural language processing</category><category>deep learning</category><category>machine learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Tue, 25 Jul 2017 19:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2017/07/attention_bahdanau-1.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2017/07/attention_bahdanau-1.png" alt="Deep Learning for NLP Best Practices"&gt;&lt;p&gt;Update July 26, 2017: For additional context, the &lt;a href="https://news.ycombinator.com/item?id=14852704"&gt;HackerNews discussion&lt;/a&gt; about this post.&lt;/p&gt;
-
-&lt;p&gt;Table of contents:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#introduction"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#bestpractices"&gt;Best practices&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#wordembeddings"&gt;Word embeddings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#depth"&gt;Depth&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#layerconnections"&gt;Layer connections&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#dropout"&gt;Dropout&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#multitasklearning"&gt;Multi-task learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#attention"&gt;Attention&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#optimization"&gt;Optimization&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#ensembling"&gt;Ensembling&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#hyperparameteroptimization"&gt;Hyperparameter optimization&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#lstmtricks"&gt;LSTM tricks&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#taskspecificbestpractices"&gt;Task-specific best practices&lt;/a&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#classification"&gt;Classification&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#sequencelabelling"&gt;Sequence labelling&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#naturallanguagegeneration"&gt;Natural language generation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#neuralmachinetranslation"&gt;Neural machine translation&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
-
-&lt;p&gt;This post is a collection of best practices for using neural networks in Natural Language Processing. It will be updated periodically as new insights become available and in order to keep track of our evolving understanding of Deep Learning for NLP.&lt;/p&gt;
-
-&lt;p&gt;There has been a &lt;a href="https://twitter.com/IAugenstein/status/710837374473920512"&gt;running joke&lt;/a&gt; in the NLP community that an LSTM with attention will yield state-of-the-art performance on any task. While this has been true over the course of the last two years, the NLP community is slowly moving away from this now standard baseline and towards more interesting models.&lt;/p&gt;
-
-&lt;p&gt;However, we as a community do not want to spend the next two years independently (re-)discovering the &lt;em&gt;next&lt;/em&gt; LSTM with attention. We do not want to reinvent tricks or methods that have already been shown to work. While many existing Deep Learning libraries already encode best practices for working with neural networks in general, such as initialization schemes, many other details, particularly task or domain-specific considerations, are left to the practitioner.&lt;/p&gt;
-
-&lt;p&gt;This post is not meant to keep track of the state-of-the-art, but rather to collect best practices that are relevant for a wide range of tasks. In other words, rather than describing one particular architecture, this post aims to collect the features that underly successful architectures. While many of these features will be most useful for pushing the state-of-the-art, I hope that wider knowledge of them will lead to stronger evaluations, more meaningful comparison to baselines, and inspiration by shaping our intuition of what works.&lt;/p&gt;
-
-&lt;p&gt;I assume you are familiar with neural networks as applied to NLP (if not, I recommend Yoav Goldberg's &lt;a href="https://www.jair.org/media/4992/live-4992-9623-jair.pdf"&gt;excellent primer&lt;/a&gt; [&lt;sup id="fnref:43"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:43" rel="footnote"&gt;43&lt;/a&gt;&lt;/sup&gt;]) and are interested in NLP in general or in a particular task. The main goal of this article is to get you up to speed with the relevant best practices so you can make meaningful contributions as soon as possible.&lt;/p&gt;
-
-&lt;p&gt;I will first give an overview of best practices that are relevant for most tasks. I will then outline practices that are relevant for the most common tasks, in particular classification, sequence labelling, natural language generation, and neural machine translation.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Disclaimer:&lt;/strong&gt; Treating something as &lt;em&gt;best practice&lt;/em&gt; is notoriously difficult: Best according to what? What if there are better alternatives? This post is based on my (necessarily incomplete) understanding and experience. In the following, I will only discuss practices that have been reported to be beneficial independently by &lt;em&gt;at least&lt;/em&gt; two different groups. I will try to give at least two references for each best practice.&lt;/p&gt;
-
-&lt;h1 id="bestpractices"&gt;Best practices&lt;/h1&gt;
-
-&lt;h2 id="wordembeddings"&gt;Word embeddings&lt;/h2&gt;
-
-&lt;p&gt;Word embeddings are arguably the most widely known best practice in the recent history of NLP. It is well-known that using pre-trained embeddings helps (Kim, 2014) [&lt;sup id="fnref:12"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:12" rel="footnote"&gt;12&lt;/a&gt;&lt;/sup&gt;]. The optimal dimensionality of word embeddings is mostly task-dependent: a smaller dimensionality works better for more syntactic tasks such as named entity recognition (Melamud et al., 2016) [&lt;sup id="fnref:44"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:44" rel="footnote"&gt;44&lt;/a&gt;&lt;/sup&gt;] or part-of-speech (POS) tagging (Plank et al., 2016) [&lt;sup id="fnref:32"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:32" rel="footnote"&gt;32&lt;/a&gt;&lt;/sup&gt;], while a larger dimensionality is more useful for more semantic tasks such as sentiment analysis (Ruder et al., 2016) [&lt;sup id="fnref:45"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:45" rel="footnote"&gt;45&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h2 id="depth"&gt; Depth&lt;/h2&gt;
-
-&lt;p&gt;While we will not reach the depths of computer vision for a while, neural networks in NLP have become progressively deeper. State-of-the-art approaches now regularly use deep Bi-LSTMs, typically consisting of 3-4 layers, e.g. for POS tagging (Plank et al., 2016) and semantic role labelling (He et al., 2017) [&lt;sup id="fnref:33"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:33" rel="footnote"&gt;33&lt;/a&gt;&lt;/sup&gt;]. Models for some tasks can be even deeper, cf. Google's NMT model with 8 encoder and 8 decoder layers (Wu et al., 2016) [&lt;sup id="fnref:20"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:20" rel="footnote"&gt;20&lt;/a&gt;&lt;/sup&gt;]. In most cases, however, performance improvements of making the model deeper than 2 layers are minimal (Reimers &amp;amp; Gurevych, 2017) [&lt;sup id="fnref:46"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:46" rel="footnote"&gt;46&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;p&gt;These observations hold for most sequence tagging and structured prediction problems. For classification, deep or very deep models perform well only with character-level input and shallow word-level models are still the state-of-the-art (Zhang et al., 2015; Conneau et al., 2016; Le et al., 2017) [&lt;sup id="fnref:28"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:28" rel="footnote"&gt;28&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:29"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:29" rel="footnote"&gt;29&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:30"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:30" rel="footnote"&gt;30&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h2 id="layerconnections"&gt;Layer connections&lt;/h2&gt;
-
-&lt;p&gt;For training deep neural networks, some tricks are essential to avoid the vanishing gradient problem. Different layers and connections have been proposed. Here, we will discuss three: i) highway layers, ii) residual connections, and iii) dense connections.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Highway layers&lt;/strong&gt; &amp;nbsp; Highway layers (Srivastava et al., 2015) [&lt;sup id="fnref:1"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;] are inspired by the gates of an LSTM. First let us assume a one-layer MLP, which applies an affine transformation followed by a non-linearity \(g\) to its input \(\mathbf{x}\): &lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{h} = g(\mathbf{W}\mathbf{x} + \mathbf{b})\)&lt;/p&gt;
-
-&lt;p&gt;A highway layer then computes the following function instead:&lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{h} = \mathbf{t} \odot g(\mathbf{W} \mathbf{x} + \mathbf{b}) + (1-\mathbf{t}) \odot \mathbf{x} \)&lt;/p&gt;
-
-&lt;p&gt;where \(\odot\) is elementwise multiplication, \(\mathbf{t} = \sigma(\mathbf{W}_T \mathbf{x} + \mathbf{b}_T)\) is called the &lt;em&gt;transform&lt;/em&gt; gate, and \((1-\mathbf{t})\) is called the &lt;em&gt;carry&lt;/em&gt; gate. As we can see, highway layers are similar to the gates of an LSTM in that they adaptively &lt;em&gt;carry&lt;/em&gt; some dimensions of the input directly to the output. &lt;/p&gt;
-
-&lt;p&gt;Highway layers have been used pre-dominantly to achieve state-of-the-art results for language modelling (Kim et al., 2016; Jozefowicz et al., 2016; Zilly et al., 2017) [&lt;sup id="fnref:2"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:3"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:4"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:4" rel="footnote"&gt;4&lt;/a&gt;&lt;/sup&gt;], but have also been used for other tasks such as speech recognition (Zhang et al., 2016) [&lt;sup id="fnref:5"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:5" rel="footnote"&gt;5&lt;/a&gt;&lt;/sup&gt;]. &lt;a href="http://people.idsia.ch/~rupesh/very_deep_learning/"&gt;Sristava's page&lt;/a&gt; contains more information and code regarding highway layers.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Residual connections&lt;/strong&gt; &amp;nbsp; Residual connections (He et al., 2016) [&lt;sup id="fnref:6"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:6" rel="footnote"&gt;6&lt;/a&gt;&lt;/sup&gt;] have been first proposed for computer vision and were the main factor for winning ImageNet 2016. Residual connections are even more straightforward than highway layers and learn the following function:&lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{h} = g(\mathbf{W}\mathbf{x} + \mathbf{b}) + \mathbf{x}\) &lt;/p&gt;
-
-&lt;p&gt;which simply adds the input of the current layer to its output via a short-cut connection. This simple modification mitigates the vanishing gradient problem, as the model can default to using the identity function if the layer is not beneficial.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dense connections&lt;/strong&gt; &amp;nbsp; Rather than just adding layers from each layer to the next, dense connections (Huang et al., 2017) [&lt;sup id="fnref:7"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:7" rel="footnote"&gt;7&lt;/a&gt;&lt;/sup&gt;] (best paper award at CVPR 2017) add direct connections from each layer to all subsequent layers. Let us augment the layer output \(h\) and layer input \(x\) with indices \(l\) indicating the current layer. Dense connections then feed the concatenated output from all previous layers as input to the current layer:&lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{h}^l = g(\mathbf{W}[\mathbf{x}^1; \ldots; \mathbf{x}^l] + \mathbf{b})\)&lt;/p&gt;
-
-&lt;p&gt;where \([\cdot; \cdot]\) represents concatenation. Dense connections have been successfully used in computer vision. They have also found to be useful for Multi-Task Learning of different NLP tasks (Ruder et al., 2017) [&lt;sup id="fnref:49"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:49" rel="footnote"&gt;49&lt;/a&gt;&lt;/sup&gt;], while a residual variant that uses summation has been shown to consistently outperform residual connections for neural machine translation (Britz et al., 2017) [&lt;sup id="fnref:27"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:27" rel="footnote"&gt;27&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h2 id="dropout"&gt;Dropout&lt;/h2&gt;
-
-&lt;p&gt;While batch normalisation in computer vision has made other regularizers obsolete in most applications, dropout (Srivasta et al., 2014) [&lt;sup id="fnref:8"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:8" rel="footnote"&gt;8&lt;/a&gt;&lt;/sup&gt;] is still the go-to regularizer for deep neural networks in NLP. A dropout rate of 0.5 has been shown to be effective in most scenarios (Kim, 2014). In recent years, variations of dropout such as adaptive (Ba &amp;amp; Frey, 2013) [&lt;sup id="fnref:9"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:9" rel="footnote"&gt;9&lt;/a&gt;&lt;/sup&gt;] and evolutional dropout (Li et al., 2016) [&lt;sup id="fnref:10"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:10" rel="footnote"&gt;10&lt;/a&gt;&lt;/sup&gt;] have been proposed, but none of these have found wide adoption in the community. The main problem hindering dropout in NLP has been that it could not be applied to recurrent connections, as the aggregating dropout masks would effectively zero out embeddings over time.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Recurrent dropout&lt;/strong&gt; &amp;nbsp; Recurrent dropout (Gal &amp;amp; Ghahramani, 2016) [&lt;sup id="fnref:11"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:11" rel="footnote"&gt;11&lt;/a&gt;&lt;/sup&gt;] addresses this issue by applying the same dropout mask across timesteps at layer \(l\). This avoids amplifying the dropout noise along the sequence and leads to effective regularization for sequence models. Recurrent dropout has been used for instance to achieve state-of-the-art results in semantic role labelling (He et al., 2017) and language modelling (Melis et al., 2017) [&lt;sup id="fnref:34"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:34" rel="footnote"&gt;34&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h2 id="multitasklearning"&gt;Multi-task learning&lt;/h2&gt;
-
-&lt;p&gt;If additional data is available, multi-task learning (MTL) can often be used to improve performance on the target task. Have a look &lt;a href="http://ruder.io/multi-task/index.html"&gt;this blog post&lt;/a&gt; for more information on MTL.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Auxiliary objectives&lt;/strong&gt; &amp;nbsp; We can often find auxiliary objectives that are useful for the task we care about (Ruder, 2017) [&lt;sup id="fnref:13"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:13" rel="footnote"&gt;13&lt;/a&gt;&lt;/sup&gt;]. While we can already predict surrounding words in order to pre-train word embeddings (Mikolov et al., 2013), we can also use this as an auxiliary objective during training (Rei, 2017) [&lt;sup id="fnref:35"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:35" rel="footnote"&gt;35&lt;/a&gt;&lt;/sup&gt;]. A similar objective has also been used by  (Ramachandran et al., 2016) [&lt;sup id="fnref:36"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:36" rel="footnote"&gt;36&lt;/a&gt;&lt;/sup&gt;] for sequence-to-sequence models.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Task-specific layers&lt;/strong&gt; &amp;nbsp; While the standard approach to MTL for NLP is hard parameter sharing, it is beneficial to allow the model to learn task-specific layers. This can be done by placing the output layer of one task at a lower level (Søgaard &amp;amp; Goldberg, 2016) [&lt;sup id="fnref:47"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:47" rel="footnote"&gt;47&lt;/a&gt;&lt;/sup&gt;]. Another way is to induce private and shared subspaces (Liu et al., 2017; Ruder et al., 2017) [&lt;sup id="fnref:48"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:48" rel="footnote"&gt;48&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:49"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:49" rel="footnote"&gt;49&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;h2 id="attention"&gt; Attention&lt;/h2&gt;
-
-&lt;p&gt;Attention is most commonly used in sequence-to-sequence models to attend to encoder states, but can also be used in any sequence model to look back at past states. Using attention, we obtain a context vector \(\mathbf{c}_i\) based on hidden states \(\mathbf{s}_1, \ldots, \mathbf{s}_m\) that can be used together with the current hidden state \(\mathbf{h}_i\) for prediction. The context vector \(\mathbf{c}_i\) at position is calculated as an average of the previous states weighted with the attention scores \(\mathbf{a}_i\):&lt;/p&gt;
-
-&lt;p&gt;\(\begin{align}\begin{split}
-\mathbf{c}_i &amp;amp;= \sum\limits_j a_{ij}\mathbf{s}_j\\
-\mathbf{a}_i &amp;amp;= \text{softmax}(f_{att}(\mathbf{h}_i, \mathbf{s}_j))
-\end{split}\end{align}\)&lt;/p&gt;
-
-&lt;p&gt;The attention function \(f_{att}(\mathbf{h}_i, \mathbf{s}_j)\) calculates an unnormalized alignment score between the current hidden state \(\mathbf{h}_i\) and the previous hidden state \(\mathbf{s}_j\). In the following, we will discuss four attention variants: i) additive attention, ii) multiplicative attention, iii) self-attention, and iv) key-value attention.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Additive attention&lt;/strong&gt; &amp;nbsp; The original attention mechanism (Bahdanau et al., 2015) [&lt;sup id="fnref:15"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:15" rel="footnote"&gt;15&lt;/a&gt;&lt;/sup&gt;] uses a one-hidden layer feed-forward network to calculate the attention alignment:&lt;/p&gt;
-
-&lt;p&gt;\(f_{att}(\mathbf{h}_i, \mathbf{s}_j) = \mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_a[\mathbf{h}_i; \mathbf{s}_j]) \)&lt;/p&gt;
-
-&lt;p&gt;where \(\mathbf{v}_a\) and \(\mathbf{W}_a\) are learned attention parameters. Analogously, we can also use matrices \(\mathbf{W}_1\) and \(\mathbf{W}_2\) to learn separate transformations for \(\mathbf{h}_i\) and \(\mathbf{s}_j\) respectively, which are then summed:&lt;/p&gt;
-
-&lt;p&gt;\(f_{att}(\mathbf{h}_i, \mathbf{s}_j) = \mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_1 \mathbf{h}_i + \mathbf{W}_2 \mathbf{s}_j) \)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Multiplicative attention&lt;/strong&gt; &amp;nbsp; Multiplicative attention (Luong et al., 2015) [&lt;sup id="fnref:16"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:16" rel="footnote"&gt;16&lt;/a&gt;&lt;/sup&gt;] simplifies the attention operation by calculating the following function:&lt;/p&gt;
-
-&lt;p&gt;\(f_{att}(h_i, s_j) = h_i^\top \mathbf{W}_a s_j \)&lt;/p&gt;
-
-&lt;p&gt;Additive and multiplicative attention are similar in complexity, although multiplicative attention is faster and more space-efficient in practice as it can be implemented more efficiently using matrix multiplication. Both variants perform similar for small dimensionality \(d_h\) of the decoder states, but additive attention performs better for larger dimensions. One way to mitigate this is to scale \(f_{att}(\mathbf{h}_i, \mathbf{s}_j)\) by \(1 / \sqrt{d_h}\) (Vaswani et al., 2017) [&lt;sup id="fnref:17"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:17" rel="footnote"&gt;17&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
-
-&lt;p&gt;Attention cannot only be used to attend to encoder or previous hidden states, but also to obtain a distribution over other features, such as the word embeddings of a text as used for reading comprehension (Kadlec et al., 2017) [&lt;sup id="fnref:37"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:37" rel="footnote"&gt;37&lt;/a&gt;&lt;/sup&gt;]. However, attention is not directly applicable to classification tasks that do not require additional information, such as sentiment analysis. In such models, the final hidden state of an LSTM or an aggregation function such as max pooling or averaging is often used to obtain a sentence representation. &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Self-attention&lt;/strong&gt; &amp;nbsp; Without any additional information, however, we can still extract relevant aspects from the sentence by allowing it to attend to itself using self-attention (Lin et al., 2017) [&lt;sup id="fnref:18"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:18" rel="footnote"&gt;18&lt;/a&gt;&lt;/sup&gt;]. Self-attention, also called intra-attention has been used successfully in a variety of tasks including reading comprehension (Cheng et al., 2016) [&lt;sup id="fnref:38"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:38" rel="footnote"&gt;38&lt;/a&gt;&lt;/sup&gt;], textual entailment (Parikh et al., 2016) [&lt;sup id="fnref:39"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:39" rel="footnote"&gt;39&lt;/a&gt;&lt;/sup&gt;], and abstractive summarization (Paulus et al., 2017) [&lt;sup id="fnref:40"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:40" rel="footnote"&gt;40&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;p&gt;We can simplify additive attention to compute the unnormalized alignment score for each hidden state \(\mathbf{h}_i\):&lt;/p&gt;
-
-&lt;p&gt;\(f_{att}(\mathbf{h}_i) = \mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_a \mathbf{h}_i) \)&lt;/p&gt;
-
-&lt;p&gt;In matrix form, for hidden states \(\mathbf{H} = \mathbf{h}_1, \ldots, \mathbf{h}_n\) we can calculate the attention vector \(\mathbf{a}\) and the final sentence representation \(\mathbf{c}\) as follows:&lt;/p&gt;
-
-&lt;p&gt;\(\begin{align}\begin{split}
-\mathbf{a} &amp;amp;= \text{softmax}(\mathbf{v}_a \text{tanh}(\mathbf{W}_a \mathbf{H}^\top))\\
-\mathbf{c} &amp;amp; = \mathbf{H} \mathbf{a}^\top
-\end{split}\end{align}\)&lt;/p&gt;
-
-&lt;p&gt;Rather than only extracting one vector, we can perform several hops of attention by using a matrix \(\mathbf{V}_a\) instead of \(\mathbf{v}_a\), which allows us to extract an attention matrix \(\mathbf{A}\): &lt;/p&gt;
-
-&lt;p&gt;\(\begin{align}\begin{split}
-\mathbf{A} &amp;amp;= \text{softmax}(\mathbf{V}_a \text{tanh}(\mathbf{W}_a \mathbf{H}^\top))\\
-\mathbf{C} &amp;amp; = \mathbf{A} \mathbf{H}
-\end{split}\end{align}\)&lt;/p&gt;
-
-&lt;p&gt;In practice, we enforce the following orthogonality constraint to penalize redundancy and encourage diversity in the attention vectors in the form of the squared Frobenius norm:&lt;/p&gt;
-
-&lt;p&gt;\(\Omega = \|(\mathbf{A}\mathbf{A}^\top - \mathbf{I} \|^2_F \)&lt;/p&gt;
-
-&lt;p&gt;A similar multi-head attention is also used by Vaswani et al. (2017).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Key-value attention&lt;/strong&gt; &amp;nbsp; Finally, key-value attention (Daniluk et al., 2017) [&lt;sup id="fnref:19"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:19" rel="footnote"&gt;19&lt;/a&gt;&lt;/sup&gt;] is a recent attention variant that separates form from function by keeping separate vectors for the attention calculation. It has also been found useful for different document modelling tasks (Liu &amp;amp; Lapata, 2017) [&lt;sup id="fnref:41"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:41" rel="footnote"&gt;41&lt;/a&gt;&lt;/sup&gt;]. Specifically, key-value attention splits each hidden vector \(\mathbf{h}_i\) into a key \(\mathbf{k}_i\) and a value \(\mathbf{v}_i\): \([\mathbf{k}_i; \mathbf{v}_i] = \mathbf{h}_i\). The keys are used for calculating the attention distribution \(\mathbf{a}_i\) using additive attention:&lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{a}_i = \text{softmax}(\mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_1 [\mathbf{k}_{i-L}; \ldots; \mathbf{k}_{i-1}] + (\mathbf{W}_2 \mathbf{k}_i)\mathbf{1}^\top)) \)&lt;/p&gt;
-
-&lt;p&gt;where \(L\) is the length of the attention window and \(\mathbf{1}\) is a vector of ones. The  values are then used to obtain the context representation \(\mathbf{c}_i\):&lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{c}_i = [\mathbf{v}_{i-L}; \ldots; \mathbf{v}_{i-1}] \mathbf{a}^\top\) &lt;/p&gt;
-
-&lt;p&gt;The context \(\mathbf{c}_i\) is used together with the current value \(\mathbf{v}_i\) for prediction.&lt;/p&gt;
-
-&lt;h2 id="optimization"&gt; Optimization&lt;/h2&gt;
-
-&lt;p&gt;The optimization algorithm and scheme is often one of the parts of the model that is used as-is and treated as a black-box. Sometimes, even slight changes to the algorithm, e.g. reducing the \(\beta_2\) value in Adam (Dozat &amp;amp; Manning, 2017) [&lt;sup id="fnref:50"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:50" rel="footnote"&gt;50&lt;/a&gt;&lt;/sup&gt;] can make a large difference to the optimization behaviour.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Optimization algorithm&lt;/strong&gt; &amp;nbsp; Adam (Kingma &amp;amp; Ba, 2015) [&lt;sup id="fnref:21"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:21" rel="footnote"&gt;21&lt;/a&gt;&lt;/sup&gt;] is one of the most popular and widely used optimization algorithms and often the go-to optimizer for NLP researchers. It is often thought that Adam clearly outperforms vanilla stochastic gradient descent (SGD). However, while it converges much faster than SGD, it has been observed that SGD with learning rate annealing slightly outperforms Adam (Wu et al., 2016). Recent work furthermore shows that SGD with properly tuned momentum outperforms Adam (Zhang et al., 2017) [&lt;sup id="fnref:42"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:42" rel="footnote"&gt;42&lt;/a&gt;&lt;/sup&gt;]. &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Optimization scheme&lt;/strong&gt; &amp;nbsp; While Adam internally tunes the learning rate for every parameter (Ruder, 2016) [&lt;sup id="fnref:22"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:22" rel="footnote"&gt;22&lt;/a&gt;&lt;/sup&gt;], we can explicitly use SGD-style annealing with Adam. In particular, we can perform learning rate annealing with restarts: We set a learning rate and train the model until convergence. We then halve the learning rate and restart by loading the previous best model. In Adam's case, this causes the optimizer to forget its per-parameter learning rates and start fresh. Denkowski &amp;amp; Neubig (2017) [&lt;sup id="fnref:23"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:23" rel="footnote"&gt;23&lt;/a&gt;&lt;/sup&gt;] show that Adam with 2 restarts and learning rate annealing is faster and performs better than SGD with annealing.&lt;/p&gt;
-
-&lt;h2 id="ensembling"&gt;Ensembling&lt;/h2&gt;
-
-&lt;p&gt;Combining multiple models into an ensemble by averaging their predictions is a proven strategy to improve model performance. While predicting with an ensemble is expensive at test time, recent advances in distillation allow us to compress an expensive ensemble into a much smaller model (Hinton et al., 2015; Kuncoro et al., 2016; Kim &amp;amp; Rush, 2016) [&lt;sup id="fnref:24"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:24" rel="footnote"&gt;24&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:25"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:25" rel="footnote"&gt;25&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:26"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:26" rel="footnote"&gt;26&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;p&gt;Ensembling is an important way to ensure that results are still reliable if the diversity of the evaluated models increases (Denkowski &amp;amp; Neubig, 2017). While ensembling different checkpoints of a model has been shown to be effective (Jean et al., 2015; Sennrich et al., 2016) [&lt;sup id="fnref:51"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:51" rel="footnote"&gt;51&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:52"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:52" rel="footnote"&gt;52&lt;/a&gt;&lt;/sup&gt;], it comes at the cost of model diversity. Cyclical learning rates can help to mitigate this effect (Huang et al., 2017) [&lt;sup id="fnref:53"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:53" rel="footnote"&gt;53&lt;/a&gt;&lt;/sup&gt;]. However, if resources are available, we prefer to ensemble multiple independently trained models to maximize model diversity.&lt;/p&gt;
-
-&lt;h2 id="hyperparameteroptimization"&gt;Hyperparameter optimization&lt;/h2&gt;
-
-&lt;p&gt;Rather than pre-defining or using off-the-shelf hyperparameters, simply tuning the hyperparameters of our model can yield significant improvements over baselines. Recent advances in Bayesian Optimization have made it an ideal tool for the black-box optimization of hyperparameters in neural networks (Snoek et al., 2012) [&lt;sup id="fnref:56"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:56" rel="footnote"&gt;56&lt;/a&gt;&lt;/sup&gt;] and far more efficient than the widely used grid search. Automatic tuning of hyperparameters of an LSTM has led to state-of-the-art results in language modeling, outperforming models that are far more complex (Melis et al., 2017).&lt;/p&gt;
-
-&lt;h2 id="lstmtricks"&gt;LSTM tricks&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Learning the initial state&lt;/strong&gt; &amp;nbsp; We generally initialize the initial LSTM states with a \(0\) vector. Instead of fixing the initial state, we can learn it like any other parameter, which can improve performance and is also &lt;a href="https://www.cs.toronto.edu/~hinton/csc2535/notes/lec10new.pdf"&gt;recommended by Hinton&lt;/a&gt;. Refer to &lt;a href="https://r2rt.com/non-zero-initial-states-for-recurrent-neural-networks.html"&gt;this blog post&lt;/a&gt; for a Tensorflow implementation.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tying input and output embeddings&lt;/strong&gt; &amp;nbsp; Input and output embeddings account for the largest number of parameters in the LSTM model. If the LSTM predicts words as in language modelling, input and output parameters can be shared (Inan et al., 2016; Press &amp;amp; Wolf, 2017) [&lt;sup id="fnref:54"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:54" rel="footnote"&gt;54&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:55"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:55" rel="footnote"&gt;55&lt;/a&gt;&lt;/sup&gt;]. This is particularly useful on small datasets that do not allow to learn a large number of parameters.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Gradient norm clipping&lt;/strong&gt; &amp;nbsp; One way to decrease the risk of exploding gradients is to clip their maximum value (Mikolov, 2012) [&lt;sup id="fnref:57"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:57" rel="footnote"&gt;57&lt;/a&gt;&lt;/sup&gt;]. This, however, does not improve performance consistently (Reimers &amp;amp; Gurevych, 2017). Rather than clipping each gradient independently, clipping the global norm of the gradient (Pascanu et al., 2013) [&lt;sup id="fnref:58"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:58" rel="footnote"&gt;58&lt;/a&gt;&lt;/sup&gt;] yields more significant improvements (a Tensorflow implementation can be found &lt;a href="https://stackoverflow.com/questions/36498127/how-to-effectively-apply-gradient-clipping-in-tensor-flow"&gt;here&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Down-projection&lt;/strong&gt; &amp;nbsp; To reduce the number of output parameters further, the hidden state of the LSTM can be projected to a smaller size. This is useful particularly for tasks with a large number of outputs, such as language modelling (Melis et al., 2017).&lt;/p&gt;
-
-&lt;h1 id="taskspecificbestpractices"&gt;Task-specific best practices&lt;/h1&gt;
-
-&lt;p&gt;In the following, we will discuss task-specific best practices. Most of these perform best for a particular type of task. Some of them might still be applied to other tasks, but should be validated before. We will discuss the following tasks: classification, sequence labelling, natural language generation (NLG), and -- as a special case of NLG -- neural machine translation.&lt;/p&gt;
-
-&lt;h2 id="classification"&gt;Classification&lt;/h2&gt;
-
-&lt;p&gt;More so than for sequence tasks, where CNNs have only recently found application due to more efficient convolutional operations, CNNs have been popular for classification tasks in NLP. The following best practices relate to CNNs and capture some of their optimal hyperparameter choices.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;CNN filters&lt;/strong&gt; &amp;nbsp; Combining filter sizes near the optimal filter size, e.g. (3,4,5) performs best (Kim, 2014; Kim et al., 2016). The optimal number of feature maps is in the range of 50-600 (Zhang &amp;amp; Wallace, 2015) [&lt;sup id="fnref:59"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:59" rel="footnote"&gt;59&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Aggregation function&lt;/strong&gt; &amp;nbsp; 1-max-pooling outperforms average-pooling and \(k\)-max pooling (Zhang &amp;amp; Wallace, 2015). &lt;/p&gt;
-
-&lt;h2 id="sequencelabelling"&gt;Sequence labelling&lt;/h2&gt;
-
-&lt;p&gt;Sequence labelling is ubiquitous in NLP. While many of the existing best practices are with regard to a particular part of the model architecture, the following guidelines discuss choices for the model's output and prediction stage.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tagging scheme&lt;/strong&gt; &amp;nbsp; For some tasks, which can assign labels to segments of texts, different tagging schemes are possible. These are: &lt;em&gt;BIO&lt;/em&gt;, which marks the first token in a segment with a &lt;em&gt;B-&lt;/em&gt; tag, all remaining tokens in the span with an &lt;em&gt;I-&lt;/em&gt;tag, and tokens outside of segments with an &lt;em&gt;O-&lt;/em&gt; tag; &lt;em&gt;IOB&lt;/em&gt;, which is similar to BIO, but only uses &lt;em&gt;B-&lt;/em&gt; if the previous token is of the same class but not part of the segment; and &lt;em&gt;IOBES&lt;/em&gt;, which in addition distinguishes between single-token entities (&lt;em&gt;S-&lt;/em&gt;) and the last token in a segment (&lt;em&gt;E-&lt;/em&gt;). Using IOBES and BIO yield similar performance (Lample et al., 2017) &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;CRF output layer&lt;/strong&gt; &amp;nbsp; If there are any dependencies between outputs, such as in named entity recognition the final softmax layer can be replaced with a linear-chain conditional random field (CRF). This has been shown to yield consistent improvements for tasks that require the modelling of constraints (Huang et al., 2015; Max &amp;amp; Hovy, 2016; Lample et al., 2016) [&lt;sup id="fnref:60"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:60" rel="footnote"&gt;60&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:61"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:61" rel="footnote"&gt;61&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:62"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:62" rel="footnote"&gt;62&lt;/a&gt;&lt;/sup&gt;].&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Constrained decoding&lt;/strong&gt; &amp;nbsp; Rather than using a CRF output layer, constrained decoding can be used as an alternative approach to reject erroneous sequences, i.e. such that do not produce valid BIO transitions (He et al., 2017). Constrained decoding has the advantage that arbitrary constraints can be enforced this way, e.g. task-specific or syntactic constraints.&lt;/p&gt;
-
-&lt;h2 id="naturallanguagegeneration"&gt;Natural language generation&lt;/h2&gt;
-
-&lt;p&gt;Most of the existing best practices can be applied to natural language generation (NLG). In fact, many of the tips presented so far stem from advances in language modelling, the most prototypical NLP task. &lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Modelling coverage&lt;/strong&gt; &amp;nbsp; Repetition is a big problem in many NLG tasks as current models do not have a good way of remembering what outputs they already produced. Modelling coverage explicitly in the model is a good way of addressing this issue. A checklist can be used if it is known in advances, which entities should be mentioned in the output, e.g. ingredients in recipes (Kiddon et al., 2016) [&lt;sup id="fnref:63"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:63" rel="footnote"&gt;63&lt;/a&gt;&lt;/sup&gt;]. If attention is used, we can keep track of a coverage vector \(\mathbf{c}_i\), which is the sum of attention distributions \(\mathbf{a}_t\) over previous time steps (Tu et al., 2016; See et al., 2017) [&lt;sup id="fnref:64"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:64" rel="footnote"&gt;64&lt;/a&gt;&lt;/sup&gt;, &lt;sup id="fnref:65"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:65" rel="footnote"&gt;65&lt;/a&gt;&lt;/sup&gt;]:&lt;/p&gt;
-
-&lt;p&gt;\(\mathbf{c}_i = \sum\limits^{i-1}_{t=1} \mathbf{a}_t \)&lt;/p&gt;
-
-&lt;p&gt;This vector captures how much attention we have paid to all words in the source. We can now condition additive attention additionally on this coverage vector in order to encourage our model not to attend to the same words repeatedly:&lt;/p&gt;
-
-&lt;p&gt;\(f_{att}(\mathbf{h}_i,\mathbf{s}_j,\mathbf{c}_i) = \mathbf{v}_a{}^\top \text{tanh}(\mathbf{W}_1 \mathbf{h}_i + \mathbf{W}_2 \mathbf{s}_j + \mathbf{W}_3 \mathbf{c}_i )\)&lt;/p&gt;
-
-&lt;p&gt;In addition, we can add an auxiliary loss that captures the task-specific attention behaviour that we would like to elicit: For NMT, we would like to have a roughly one-to-one alignment; we thus penalize the model if the final coverage vector is more or less than one at every index (Tu et al., 2016). For summarization, we only want to penalize the model if it repeatedly attends to the same location (See et al., 2017). &lt;/p&gt;
-
-&lt;h2 id="neuralmachinetranslation"&gt;Neural machine translation&lt;/h2&gt;
-
-&lt;p&gt;While neural machine translation (NMT) is an instance of NLG, NMT receives so much attention that many methods have been developed specifically for the task. Similarly, many best practices or hyperparameter choices apply exclusively to it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Embedding dimensionality&lt;/strong&gt; &amp;nbsp; 2048-dimensional embeddings yield the best performance, but only do so by a small margin. Even 128-dimensional embeddings perform surprisingly well and converge almost twice as quickly (Britz et al., 2017).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Encoder and decoder depth&lt;/strong&gt; &amp;nbsp; The encoder does not need to be deeper than \(2-4\) layers. Deeper models outperform shallower ones, but more than \(4\) layers is not necessary for the decoder (Britz et al., 2017).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Directionality&lt;/strong&gt; &amp;nbsp; Bidirectional encoders outperform unidirectional ones by a small margin. 
-Sutskever et al., (2014) [&lt;sup id="fnref:67"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:67" rel="footnote"&gt;67&lt;/a&gt;&lt;/sup&gt;] proposed to reverse the source sequence to reduce the number of long-term dependencies. Reversing the source sequence in unidirectional encoders outperforms its non-reversed counter-part (Britz et al., 2017).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Beam search strategy&lt;/strong&gt; &amp;nbsp; Medium beam sizes around \(10\) with length normalization penalty of \(1.0\) (Wu et al., 2016) yield the best performance (Britz et al., 2017).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sub-word translation&lt;/strong&gt; &amp;nbsp; Senrich et al. (2016) [&lt;sup id="fnref:66"&gt;&lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fn:66" rel="footnote"&gt;66&lt;/a&gt;&lt;/sup&gt;] proposed to split words into sub-words based on a byte-pair encoding (BPE). BPE iteratively merges frequent symbol pairs, which eventually results in frequent character n-grams being merged into a single symbol, thereby effectively eliminating out-of-vocabulary-words. While it was originally meant to handle rare words, a model with sub-word units outperforms full-word systems across the board, with 32,000 being an effective vocabulary size for sub-word units (Denkowski &amp;amp; Neubig, 2017).&lt;/p&gt;
-
-&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;I hope this post was helpful in kick-starting your learning of a new NLP task. Even if you have already been familiar with most of these, I hope that you still learnt something new or refreshed your knowledge of useful tips.&lt;/p&gt;
-
-&lt;p&gt;I am sure that I have forgotten many best practices that deserve to be on this list. Similarly, there are many tasks such as parsing, information extraction, etc., which I do not know enough about to give recommendations. If you have a best practice that should be on this list, do let me know in the comments below. Please provide at least one reference and your handle for attribution. If this gets very collaborative, I might open a GitHub repository rather than collecting feedback here (I won't be able to accept PRs submitted directly to the generated HTML source of this article).&lt;/p&gt;
-
-&lt;h1 id="references"&gt;References&lt;/h1&gt;
-
-&lt;div class="footnotes"&gt;&lt;ol&gt;&lt;li class="footnote" id="fn:1"&gt;&lt;p&gt;Srivastava, R. K., Greff, K., &amp;amp; Schmidhuber, J. (2015). Training Very Deep Networks. In Advances in Neural Information Processing Systems. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:1" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:2"&gt;&lt;p&gt;Kim, Y., Jernite, Y., Sontag, D., &amp;amp; Rush, A. M. (2016). Character-Aware Neural Language Models. AAAI. Retrieved from &lt;a href="http://arxiv.org/abs/1508.06615"&gt;http://arxiv.org/abs/1508.06615&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:2" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:3"&gt;&lt;p&gt;Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., &amp;amp; Wu, Y. (2016). Exploring the Limits of Language Modeling. arXiv Preprint arXiv:1602.02410. Retrieved from &lt;a href="http://arxiv.org/abs/1602.02410"&gt;http://arxiv.org/abs/1602.02410&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:3" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:4"&gt;&lt;p&gt;Zilly, J. G., Srivastava, R. K., Koutnik, J., &amp;amp; Schmidhuber, J. (2017). Recurrent Highway Networks. In International Conference on Machine Learning (ICML 2017). &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:4" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:5"&gt;&lt;p&gt;Zhang, Y., Chen, G., Yu, D., Yao, K., Kudanpur, S., &amp;amp; Glass, J. (2016). Highway Long Short-Term Memory RNNS for Distant Speech Recognition. In 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:5" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:6"&gt;&lt;p&gt;He, K., Zhang, X., Ren, S., &amp;amp; Sun, J. (2016). Deep Residual Learning for Image Recognition. In CVPR. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:6" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:7"&gt;&lt;p&gt;Huang, G., Weinberger, K. Q., &amp;amp; Maaten, L. Van Der. (2016). Densely Connected Convolutional Networks. CVPR 2017. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:7" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:8"&gt;&lt;p&gt;Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., &amp;amp; Salakhutdinov, R. (2014). Dropout: A Simple Way to Prevent Neural Networks from Overfitting. Journal of Machine Learning Research, 15, 1929–1958. &lt;a href="http://www.cs.cmu.edu/~rsalakhu/papers/srivastava14a.pdf"&gt;http://www.cs.cmu.edu/~rsalakhu/papers/srivastava14a.pdf&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:8" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:9"&gt;&lt;p&gt;Ba, J., &amp;amp; Frey, B. (2013). Adaptive dropout for training deep neural networks. In Advances in Neural Information Processing Systems. Retrieved from file:///Files/A5/A51D0755-5CEF-4772-942D-C5B8157FBE5E.pdf &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:9" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:10"&gt;&lt;p&gt;Li, Z., Gong, B., &amp;amp; Yang, T. (2016). Improved Dropout for Shallow and Deep Learning. In Advances in Neural Information Processing Systems 29 (NIPS 2016). Retrieved from &lt;a href="http://arxiv.org/abs/1602.02220"&gt;http://arxiv.org/abs/1602.02220&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:10" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:11"&gt;&lt;p&gt;Gal, Y., &amp;amp; Ghahramani, Z. (2016). A Theoretically Grounded Application of Dropout in Recurrent Neural Networks. In Advances in Neural Information Processing Systems. Retrieved from &lt;a href="http://arxiv.org/abs/1512.05287"&gt;http://arxiv.org/abs/1512.05287&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:11" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:12"&gt;&lt;p&gt;Kim, Y. (2014). Convolutional Neural Networks for Sentence Classification. Proceedings of the Conference on Empirical Methods in Natural Language Processing, 1746–1751. Retrieved from &lt;a href="http://arxiv.org/abs/1408.5882"&gt;http://arxiv.org/abs/1408.5882&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:12" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:13"&gt;&lt;p&gt;Ruder, S. (2017). An Overview of Multi-Task Learning in Deep Neural Networks. In arXiv preprint arXiv:1706.05098. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:13" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:14"&gt;&lt;p&gt;Semi-supervised Multitask Learning for Sequence Labeling. In Proceedings of ACL 2017. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:14" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:15"&gt;&lt;p&gt;Bahdanau, D., Cho, K., &amp;amp; Bengio, Y.. Neural Machine Translation by Jointly Learning to Align and Translate. ICLR 2015. &lt;a href="https://doi.org/10.1146/annurev.neuro.26.041002.131047"&gt;https://doi.org/10.1146/annurev.neuro.26.041002.131047&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:15" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:16"&gt;&lt;p&gt;Luong, M.-T., Pham, H., &amp;amp; Manning, C. D. (2015). Effective Approaches to Attention-based Neural Machine Translation. EMNLP 2015. Retrieved from &lt;a href="http://arxiv.org/abs/1508.04025"&gt;http://arxiv.org/abs/1508.04025&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:16" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:17"&gt;&lt;p&gt;Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … Polosukhin, I. (2017). Attention Is All You Need. arXiv Preprint arXiv:1706.03762. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:17" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:18"&gt;&lt;p&gt;Lin, Z., Feng, M., Santos, C. N. dos, Yu, M., Xiang, B., Zhou, B., &amp;amp; Bengio, Y. (2017). A Structured Self-Attentive Sentence Embedding. In ICLR 2017. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:18" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:19"&gt;&lt;p&gt;Daniluk, M., Rockt, T., Welbl, J., &amp;amp; Riedel, S. (2017). Frustratingly Short Attention Spans in Neural Language Modeling. In ICLR 2017.  &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:19" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:20"&gt;&lt;p&gt;Wu, Y., Schuster, M., Chen, Z., Le, Q. V, Norouzi, M., Macherey, W., … Dean, J. (2016). Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation. arXiv Preprint arXiv:1609.08144. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:20" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:21"&gt;&lt;p&gt;Kingma, D. P., &amp;amp; Ba, J. L. (2015). Adam: a Method for Stochastic Optimization. International Conference on Learning Representations. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:21" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:22"&gt;&lt;p&gt;Ruder, S. (2016). An overview of gradient descent optimization. arXiv Preprint arXiv:1609.04747. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:22" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:23"&gt;&lt;p&gt;Denkowski, M., &amp;amp; Neubig, G. (2017). Stronger Baselines for Trustable Results in Neural Machine Translation. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:23" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:24"&gt;&lt;p&gt;Hinton, G., Vinyals, O., &amp;amp; Dean, J. (2015). Distilling the Knowledge in a Neural Network. arXiv Preprint arXiv:1503.02531. &lt;a href="https://doi.org/10.1063/1.4931082"&gt;https://doi.org/10.1063/1.4931082&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:24" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:25"&gt;&lt;p&gt;Kuncoro, A., Ballesteros, M., Kong, L., Dyer, C., &amp;amp; Smith, N. A. (2016). Distilling an Ensemble of Greedy Dependency Parsers into One MST Parser. Empirical Methods in Natural Language Processing. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:25" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:26"&gt;&lt;p&gt;Kim, Y., &amp;amp; Rush, A. M. (2016). Sequence-Level Knowledge Distillation. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP-16). &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:26" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:27"&gt;&lt;p&gt;Britz, D., Goldie, A., Luong, T., &amp;amp; Le, Q. (2017). Massive Exploration of Neural Machine Translation Architectures. In arXiv preprint arXiv:1703.03906. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:27" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:28"&gt;&lt;p&gt;Zhang, X., Zhao, J., &amp;amp; LeCun, Y. (2015). Character-level Convolutional Networks for Text Classification. Advances in Neural Information Processing Systems, 649–657. Retrieved from &lt;a href="http://arxiv.org/abs/1509.01626"&gt;http://arxiv.org/abs/1509.01626&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:28" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:29"&gt;&lt;p&gt;Conneau, A., Schwenk, H., Barrault, L., &amp;amp; Lecun, Y. (2016). Very Deep Convolutional Networks for Natural Language Processing. arXiv Preprint arXiv:1606.01781. Retrieved from &lt;a href="http://arxiv.org/abs/1606.01781"&gt;http://arxiv.org/abs/1606.01781&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:29" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:30"&gt;&lt;p&gt;Le, H. T., Cerisara, C., &amp;amp; Denis, A. (2017). Do Convolutional Networks need to be Deep for Text Classification ? In arXiv preprint arXiv:1707.04108. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:30" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:31"&gt;&lt;p&gt;Wu, Y., Schuster, M., Chen, Z., Le, Q. V, Norouzi, M., Macherey, W., … Dean, J. (2016). Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation. arXiv Preprint arXiv:1609.08144. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:31" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:32"&gt;&lt;p&gt;Plank, B., Søgaard, A., &amp;amp; Goldberg, Y. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:32" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:33"&gt;&lt;p&gt;He, L., Lee, K., Lewis, M., &amp;amp; Zettlemoyer, L. (2017). Deep Semantic Role Labeling: What Works and What’s Next. ACL. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:33" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:34"&gt;&lt;p&gt;Melis, G., Dyer, C., &amp;amp; Blunsom, P. (2017). On the State of the Art of Evaluation in Neural Language Models. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:34" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:35"&gt;&lt;p&gt;Rei, M. (2017). Semi-supervised Multitask Learning for Sequence Labeling. In Proceedings of ACL 2017. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:35" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:36"&gt;&lt;p&gt;Ramachandran, P., Liu, P. J., &amp;amp; Le, Q. V. (2016). Unsupervised Pretrainig for Sequence to Sequence Learning. arXiv Preprint arXiv:1611.02683. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:36" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:37"&gt;&lt;p&gt;Kadlec, R., Schmid, M., Bajgar, O., &amp;amp; Kleindienst, J. (2016). Text Understanding with the Attention Sum Reader Network. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:37" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:38"&gt;&lt;p&gt;Cheng, J., Dong, L., &amp;amp; Lapata, M. (2016). Long Short-Term Memory-Networks for Machine Reading. arXiv Preprint arXiv:1601.06733. Retrieved from &lt;a href="http://arxiv.org/abs/1601.06733"&gt;http://arxiv.org/abs/1601.06733&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:38" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:39"&gt;&lt;p&gt;Parikh, A. P., Täckström, O., Das, D., &amp;amp; Uszkoreit, J. (2016). A Decomposable Attention Model for Natural Language Inference. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing. Retrieved from &lt;a href="http://arxiv.org/abs/1606.01933"&gt;http://arxiv.org/abs/1606.01933&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:39" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:40"&gt;&lt;p&gt;Paulus, R., Xiong, C., &amp;amp; Socher, R. (2017). A Deep Reinforced Model for Abstractive Summarization. In arXiv preprint arXiv:1705.04304,. Retrieved from &lt;a href="http://arxiv.org/abs/1705.04304"&gt;http://arxiv.org/abs/1705.04304&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:40" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:41"&gt;&lt;p&gt;Liu, Y., &amp;amp; Lapata, M. (2017). Learning Structured Text Representations. In arXiv preprint arXiv:1705.09207. Retrieved from &lt;a href="http://arxiv.org/abs/1705.09207"&gt;http://arxiv.org/abs/1705.09207&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:41" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:42"&gt;&lt;p&gt;Zhang, J., Mitliagkas, I., &amp;amp; Ré, C. (2017). YellowFin and the Art of Momentum Tuning. arXiv preprint arXiv:1706.03471. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:42" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:43"&gt;&lt;p&gt;Goldberg, Y. (2016). A Primer on Neural Network Models for Natural Language Processing. Journal of Artificial Intelligence Research, 57, 345–420. &lt;a href="https://doi.org/10.1613/jair.4992"&gt;https://doi.org/10.1613/jair.4992&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:43" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:44"&gt;&lt;p&gt;Melamud, O., McClosky, D., Patwardhan, S., &amp;amp; Bansal, M. (2016). The Role of Context Types and Dimensionality in Learning Word Embeddings. In Proceedings of NAACL-HLT 2016 (pp. 1030–1040). Retrieved from &lt;a href="http://arxiv.org/abs/1601.00893"&gt;http://arxiv.org/abs/1601.00893&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:44" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:45"&gt;&lt;p&gt;Ruder, S., Ghaffari, P., &amp;amp; Breslin, J. G. (2016). A Hierarchical Model of Reviews for Aspect-based Sentiment Analysis. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP-16), 999–1005. Retrieved from &lt;a href="http://arxiv.org/abs/1609.02745"&gt;http://arxiv.org/abs/1609.02745&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:45" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:46"&gt;&lt;p&gt;Reimers, N., &amp;amp; Gurevych, I. (2017). Optimal Hyperparameters for Deep LSTM-Networks for Sequence Labeling Tasks. In arXiv preprint arXiv:1707.06799: Retrieved from &lt;a href="https://arxiv.org/pdf/1707.06799.pdf"&gt;https://arxiv.org/pdf/1707.06799.pdf&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:46" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:47"&gt;&lt;p&gt;Søgaard, A., &amp;amp; Goldberg, Y. (2016). Deep multi-task learning with low level tasks supervised at lower layers. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics, 231–235. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:47" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:48"&gt;&lt;p&gt;Liu, P., Qiu, X., &amp;amp; Huang, X. (2017). Adversarial Multi-task Learning for Text Classification. In ACL 2017. Retrieved from &lt;a href="http://arxiv.org/abs/1704.05742"&gt;http://arxiv.org/abs/1704.05742&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:48" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:49"&gt;&lt;p&gt;Ruder, S., Bingel, J., Augenstein, I., &amp;amp; Søgaard, A. (2017). Sluice networks: Learning what to share between loosely related tasks. arXiv Preprint arXiv:1705.08142. Retrieved from &lt;a href="http://arxiv.org/abs/1705.08142"&gt;http://arxiv.org/abs/1705.08142&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:49" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:50"&gt;&lt;p&gt;Dozat, T., &amp;amp; Manning, C. D. (2017). Deep Biaffine Attention for Neural Dependency Parsing. In ICLR 2017. Retrieved from &lt;a href="http://arxiv.org/abs/1611.01734"&gt;http://arxiv.org/abs/1611.01734&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:50" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:51"&gt;&lt;p&gt;Jean, S., Cho, K., Memisevic, R., &amp;amp; Bengio, Y. (2015). On Using Very Large Target Vocabulary for Neural Machine Translation. Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), 1–10. Retrieved from &lt;a href="http://www.aclweb.org/anthology/P15-1001"&gt;http://www.aclweb.org/anthology/P15-1001&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:51" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:52"&gt;&lt;p&gt;Sennrich, R., Haddow, B., &amp;amp; Birch, A. (2016). Edinburgh Neural Machine Translation Systems for WMT 16. In Proceedings of the First Conference on Machine Translation (WMT 2016). Retrieved from &lt;a href="http://arxiv.org/abs/1606.02891"&gt;http://arxiv.org/abs/1606.02891&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:52" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:53"&gt;&lt;p&gt;Huang, G., Li, Y., Pleiss, G., Liu, Z., Hopcroft, J. E., &amp;amp; Weinberger, K. Q. (2017). Snapshot Ensembles: Train 1, get M for free. In ICLR 2017. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:53" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:54"&gt;&lt;p&gt;Inan, H., Khosravi, K., &amp;amp; Socher, R. (2016). Tying Word Vectors and Word Classifiers: A Loss Framework for Language Modeling. arXiv Preprint arXiv:1611.01462. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:54" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:55"&gt;&lt;p&gt;Press, O., &amp;amp; Wolf, L. (2017). Using the Output Embedding to Improve Language Models. Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume 2, Short Papers, 2, 157--163. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:55" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:56"&gt;&lt;p&gt;Snoek, J., Larochelle, H., &amp;amp; Adams, R. P. (2012). Practical Bayesian Optimization of Machine Learning Algorithms. Neural Information Processing Systems Conference (NIPS 2012). &lt;a href="https://papers.nips.cc/paper/4522-practical-bayesian-optimization-of-machine-learning-algorithms.pdf"&gt;https://papers.nips.cc/paper/4522-practical-bayesian-optimization-of-machine-learning-algorithms.pdf&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:56" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:57"&gt;&lt;p&gt;Mikolov, T. (2012). Statistical language models based on neural networks (Doctoral dissertation, PhD thesis, Brno University of Technology). &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:57" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:58"&gt;&lt;p&gt;Pascanu, R., Mikolov, T., &amp;amp; Bengio, Y. (2013). On the difficulty of training recurrent neural networks. International Conference on Machine Learning, (2), 1310–1318. &lt;a href="https://doi.org/10.1109/72.279181"&gt;https://doi.org/10.1109/72.279181&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:58" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:59"&gt;&lt;p&gt;Zhang, Y., &amp;amp; Wallace, B. (2015). A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification. arXiv Preprint arXiv:1510.03820, (1). Retrieved from &lt;a href="http://arxiv.org/abs/1510.03820"&gt;http://arxiv.org/abs/1510.03820&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:59" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:60"&gt;&lt;p&gt;Huang, Z., Xu, W., &amp;amp; Yu, K. (2015). Bidirectional LSTM-CRF Models for Sequence Tagging. arXiv preprint arXiv:1508.01991. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:60" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:61"&gt;&lt;p&gt;Ma, X., &amp;amp; Hovy, E. (2016). End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF. arXiv Preprint arXiv:1603.01354. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:61" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:62"&gt;&lt;p&gt;Lample, G., Ballesteros, M., Subramanian, S., Kawakami, K., &amp;amp; Dyer, C. (2016). Neural Architectures for Named Entity Recognition. NAACL-HLT 2016. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:62" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:63"&gt;&lt;p&gt;Kiddon, C., Zettlemoyer, L., &amp;amp; Choi, Y. (2016). Globally Coherent Text Generation with Neural Checklist Models. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP2016), 329–339. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:63" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:64"&gt;&lt;p&gt;Tu, Z., Lu, Z., Liu, Y., Liu, X., &amp;amp; Li, H. (2016). Modeling Coverage for Neural Machine Translation. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. &lt;a href="https://doi.org/10.1145/2856767.2856776"&gt;https://doi.org/10.1145/2856767.2856776&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:64" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:65"&gt;&lt;p&gt;See, A., Liu, P. J., &amp;amp; Manning, C. D. (2017). Get To The Point: Summarization with Pointer-Generator Networks. In ACL 2017. &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:65" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:66"&gt;&lt;p&gt;Sennrich, R., Haddow, B., &amp;amp; Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL 2016). Retrieved from &lt;a href="http://arxiv.org/abs/1508.07909"&gt;http://arxiv.org/abs/1508.07909&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:66" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li class="footnote" id="fn:67"&gt;&lt;p&gt;Sutskever, I., Vinyals, O., &amp;amp; Le, Q. V. (2014). Sequence to sequence learning with neural networks. Advances in Neural Information Processing Systems, 9. Retrieved from &lt;a href="http://arxiv.org/abs/1409.3215%5Cnhttp://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks"&gt;http://arxiv.org/abs/1409.3215%5Cnhttp://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks&lt;/a&gt; &lt;a href="http://ruder.io/deep-learning-nlp-best-practices/#fnref:67" title="return to article"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
-
-&lt;p&gt;Credit for the cover image goes to Bahdanau et al. (2015).&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;This work will be presented at the &lt;a href="http://emnlp2017.net/"&gt;2017 Conference on Empirical Methods in Natural Language Processing&lt;/a&gt;. More details can be found in the paper &lt;a href="https://arxiv.org/abs/1707.05246"&gt;here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>
