@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 01 Oct 2018 18:56:00 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>A Review of the Recent History of Natural Language Processing</title><description>This blog post discusses the eight biggest milestones in the last ~15 years of Natural Language Processing.</description><link>http://ruder.io/a-review-of-the-recent-history-of-nlp/</link><guid isPermaLink="false">e29edc89-6069-459e-8092-3371711da5c1</guid><category>natural language processing</category><category>nlp</category><category>deep learning</category><category>word embeddings</category><category>multi-task learning</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 01 Oct 2018 12:50:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/10/review_recent_history_image.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/10/review_recent_history_image.png" alt="A Review of the Recent History of Natural Language Processing"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Sebastian Ruder</title><description>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</description><link>http://ruder.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 02 Oct 2018 10:06:05 GMT</lastBuildDate><atom:link href="http://ruder.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>A Review of the Neural History of Natural Language Processing</title><description>This blog post discusses the eight biggest milestones in the last ~15 years of Natural Language Processing.</description><link>http://ruder.io/a-review-of-the-recent-history-of-nlp/</link><guid isPermaLink="false">e29edc89-6069-459e-8092-3371711da5c1</guid><category>natural language processing</category><category>nlp</category><category>deep learning</category><category>word embeddings</category><category>multi-task learning</category><category>transfer learning</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Mon, 01 Oct 2018 12:50:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/10/review_recent_history_image.png" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/10/review_recent_history_image.png" alt="A Review of the Neural History of Natural Language Processing"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
 
 &lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"&gt;&lt;/script&gt;  
@@ -9,7 +9,9 @@
 
 &lt;p&gt;&lt;em&gt;This post originally appeared at the &lt;a href="http://blog.aylien.com/a-review-of-the-recent-history-of-natural-language-processing/"&gt;AYLIEN blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;This is the first blog post in a two-part series. The series expands on the Frontiers of Natural Language Processing session organized by &lt;a href="http://www.kamperh.com/"&gt;Herman Kamper&lt;/a&gt; and me at the &lt;a href="http://www.deeplearningindaba.com/"&gt;Deep Learning Indaba 2018&lt;/a&gt;. Slides of the entire session can be found &lt;a href="https://www.slideshare.net/SebastianRuder/frontiers-of-natural-language-processing"&gt;here&lt;/a&gt;. This post will discuss major recent advances in NLP. The second post will discuss open problems in NLP.&lt;/p&gt;
+&lt;p&gt;This is the first blog post in a two-part series. The series expands on the Frontiers of Natural Language Processing session organized by &lt;a href="http://www.kamperh.com/"&gt;Herman Kamper&lt;/a&gt; and me at the &lt;a href="http://www.deeplearningindaba.com/"&gt;Deep Learning Indaba 2018&lt;/a&gt;. Slides of the entire session can be found &lt;a href="https://www.slideshare.net/SebastianRuder/frontiers-of-natural-language-processing"&gt;here&lt;/a&gt;. This post will discuss major recent advances in NLP focusing on neural network-based methods. The second post will discuss open problems in NLP.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt; &amp;nbsp; This post tries to condense ~15 years' worth of work into eight milestones that are the most relevant today and thus omits many relevant and important developments. In particular, it is heavily skewed towards current neural approaches, which may give the false impression that no other methods were influential during this period. More importantly, many of the neural network models presented in this post build on non-neural milestones of the same era. In the &lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#nonneuralmilestones"&gt;final section of this post&lt;/a&gt;, we highlight such influential work that laid the foundations for later methods.&lt;/p&gt;
 
 &lt;p&gt;Table of contents:&lt;/p&gt;
 
@@ -22,6 +24,7 @@
 &lt;li&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#2015memorybasednetworks"&gt;2015 - Memory-based networks&lt;/a&gt;&lt;/li&gt;  
 &lt;li&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#2018pretrainedlanguagemodels"&gt;2018 - Pretrained language models&lt;/a&gt;&lt;/li&gt;  
 &lt;li&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#othermilestones"&gt;Other milestones&lt;/a&gt;&lt;/li&gt;  
+&lt;li&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#nonneuralmilestones"&gt;Non-neural milestones&lt;/a&gt;&lt;/li&gt;  
 &lt;/ul&gt;
 
 &lt;h1 id="2001neurallanguagemodels"&gt;2001 - Neural language models&lt;/h1&gt;
@@ -31,7 +34,7 @@ The first neural language model, a feed-forward neural network was proposed in 2
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/lm_bengio_2003.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/lm_bengio_2003.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 1: A feed-forward neural network language model (Bengio et al., 2001; 2003)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;  
@@ -57,7 +60,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/collobert_icml2008.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/collobert_icml2008.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 2: Sharing of word embedding matrices (Collobert &amp; Weston, 2008; Collobert et al., 2011)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;  
@@ -74,7 +77,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/cbow_skipgram_mikolov_2013.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/cbow_skipgram_mikolov_2013.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 3: Continuous bag-of-words and skip-gram architectures (Mikolov et al., 2013a; 2013b)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;  
@@ -83,7 +86,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/word2vec_relations.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/word2vec_relations.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 4: Relations captured by word2vec (Mikolov et al., 2013a; 2013b)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;  
@@ -104,7 +107,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/lstm_colah_2015.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/lstm_colah_2015.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 5: An LSTM network (Source: &lt;a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/"&gt;Chris Olah&lt;/a&gt;)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -113,7 +116,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/kim_emnlp2014.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/kim_emnlp2014.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 6: A convolutional neural network for text (Kim, 2014)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -124,7 +127,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/socher_emnlp2013.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/socher_emnlp2013.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 7: A recursive neural network (Socher et al., 2013)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -139,7 +142,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/sutskever_nips2014.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/sutskever_nips2014.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 8: A sequence-to-sequence model (Sutskever et al., 2014)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -150,7 +153,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/vinyals_cvpr2015.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/vinyals_cvpr2015.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 9: Generating a caption based on an image (Vinyals et al., 2015)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -159,7 +162,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/vinyals_nips2015.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/vinyals_nips2015.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 10: Linearizing a constituency parse tree (Vinyals et al., 2015)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -172,7 +175,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/attention_bahdanau_iclr2015.png" width="250" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/attention_bahdanau_iclr2015.png" width="250" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 11: Attention (Bahdanau et al., 2015)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -181,7 +184,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/xu_icml2015.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/xu_icml2015.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 12: Visual attention in an image captioning model indicating what the model is attending to when generating the word "frisbee". (Xu et al., 2015)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -200,7 +203,7 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 
 &lt;figure&gt;  
     &lt;center&gt;
-&lt;img src="http://ruder.io/content/images/2018/09/elmo_peters_2018.png" width="450" alt="A Review of the Recent History of Natural Language Processing"&gt;  
+&lt;img src="http://ruder.io/content/images/2018/09/elmo_peters_2018.png" width="450" alt="A Review of the Neural History of Natural Language Processing"&gt;  
     &lt;figcaption&gt;Figure 13: Improvements with language model embeddings over the state-of-the-art (Peters et al., 2018)&lt;/figcaption&gt;
     &lt;/center&gt;
 &lt;/figure&gt;
@@ -216,6 +219,22 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 &lt;p&gt;&lt;strong&gt;Adversarial learning&lt;/strong&gt; &amp;nbsp; Adversarial methods have taken the field of ML by storm and have also been used in different forms in NLP. Adversarial examples are becoming increasingly widely used not only as a tool to probe models and understand their failure cases, but also to make them more robust (Jia &amp;amp; Liang, 2017)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn74"&gt;&lt;/a&gt;. (Virtual) adversarial training, that is, worst-case perturbations (Miyato et al., 2017; Yasunaga et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn75"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn76"&gt;&lt;/a&gt; and domain-adversarial losses (Ganin et al., 2016; Kim et al., 2017)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn77"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn78"&gt;&lt;/a&gt; are useful forms of regularization that can equally make models more robust. Generative adversarial networks (GANs) are not yet too effective for natural language generation (Semeniuta et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn79"&gt;&lt;/a&gt;, but are useful for instance when matching distributions (Conneau et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn27"&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Reinforcement learning&lt;/strong&gt; &amp;nbsp; Reinforcement learning has been shown to be useful for tasks with a temporal dependency  such as selecting data during training (Fang et al., 2017; Wu et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn80"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn81"&gt;&lt;/a&gt; and modelling dialogue (Liu et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn86"&gt;&lt;/a&gt;. RL is also effective for directly optimizing a non-differentiable end metric such as ROUGE or BLEU instead of optimizing a surrogate loss such as cross-entropy in summarization (Paulus et al, 2018; Celikyilmaz et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn82"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn83"&gt;&lt;/a&gt; and machine translation (Ranzato et al., 2016)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn84"&gt;&lt;/a&gt;. Similarly, inverse reinforcement learning can be useful in settings where the reward is too complex to be specified such as visual storytelling (Wang et al., 2018)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn85"&gt;&lt;/a&gt;. &lt;/p&gt;
+
+&lt;h1 id="nonneuralmilestones"&gt;Non-neural milestones&lt;/h1&gt;
+
+&lt;p&gt;In 1998 and over the following years, the &lt;a href="https://framenet.icsi.berkeley.edu/fndrupal/"&gt;FrameNet&lt;/a&gt; project was introduced (Baker et al., 1998)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn95"&gt;&lt;/a&gt;, which led to the task of &lt;a href="https://en.wikipedia.org/wiki/Semantic_role_labeling"&gt;semantic role labelling&lt;/a&gt;, a form of shallow semantic parsing that is still actively researched today. In the early 2000s, the shared tasks organized together with the Conference on Natural Language Learning (CoNLL) catalyzed research in core NLP tasks such as chunking (Tjong Kim Sang et al., 2000)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn96"&gt;&lt;/a&gt;, named entity recognition (Tjong Kim Sang et al., 2003)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn97"&gt;&lt;/a&gt;, and dependency parsing (Buchholz et al., 2006)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn98"&gt;&lt;/a&gt;, among others. Many of the CoNLL shared task datasets are still the standard for evaluation today.&lt;/p&gt;
+
+&lt;p&gt;In 2001, conditional random fields (CRF; Lafferty et al., 2001)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn99"&gt;&lt;/a&gt;, one of the most influential classes of sequence labelling methods were introduced, which won the &lt;a href="https://www.ml.cmu.edu/news/news-archive/2011-2015/2011/june/icml-test-time-award-2011.html"&gt;Test-of-time award at ICML 2011&lt;/a&gt;. A CRF layer is a core part of current state-of-the-art models for sequence labelling problems with label interdependencies such as named entity recognition (Lample et al., 2016)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn70"&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In 2002, the bilingual evaluation understudy (BLEU; Papineni et al., 2002)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn100"&gt;&lt;/a&gt; metric was proposed, which enabled MT systems to scale up and is still the standard metric for MT evaluation these days. In the same year, the structured preceptron (Collins, 2002)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn101"&gt;&lt;/a&gt; was introduced, which laid the foundation for work in structured perception. At the same conference, sentiment analysis, one of the most popular and widely studied NLP tasks, was introduced (Pang et al., 2002)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn102"&gt;&lt;/a&gt;. All three papers won the &lt;a href="https://naacl2018.wordpress.com/2018/03/22/test-of-time-award-papers/"&gt;Test-of-time award at NAACL 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;2003 saw the introduction of latent dirichlet allocation (LDA; Blei et al., 2003)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn103"&gt;&lt;/a&gt;, one of the most widely used techniques in machine learning, which is still the standard way to do topic modelling. In 2004, novel max-margin models were proposed that are better suited for capturing correlations in structured data than SVMs (Taskar et al., 2004a; 2004b)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn104"&gt;&lt;/a&gt;&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn105"&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In 2006, OntoNotes (Hovy et al., 2006)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn106"&gt;&lt;/a&gt;, a large multilingual corpus with multiple annotations and high interannotator agreement was introduced. OntoNotes has been used for the training and evaluation of a variety of tasks such as dependency parsing and coreference resolution. Milne and Witten (2008)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn107"&gt;&lt;/a&gt; described in 2008 how Wikipedia can be used to enrich machine learning methods. To this date, Wikipedia is one of the most useful resources for training ML methods, whether for entity linking and disambiguation, language modelling, as a knowledge base, or a variety of other tasks.&lt;/p&gt;
+
+&lt;p&gt;In 2009, the idea of distant supervision (Mintz et al., 2009)&lt;a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/#fn108"&gt;&lt;/a&gt; was proposed. Distant supervision leverages information from heuristics or existing knowledge bases to generate noisy patterns that can be used to automatically extract examples from large corpora. Distant supervision has been used extensively and is a common technique in relation extraction, information extraction, and sentiment analysis, among other tasks.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to Djamé Seddah, Daniel Khashabi, Shyam Upadhyay, Chris Dyer, and Michael Roth for providing pointers (see &lt;a href="https://twitter.com/seb_ruder/status/1046791863896887302"&gt;the Twitter thread&lt;/a&gt;).&lt;/em&gt;&lt;/p&gt;
 
 &lt;ol class="footnotes-list"&gt;  
 &lt;li id="fn1" class="footnote-item"&gt;Kneser, R., &amp; Ney, H. (1995, May). Improved backing-off for m-gram language modeling. In icassp (Vol. 1, p. 181e4).&lt;/li&gt;  
@@ -314,6 +333,20 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 &lt;li id="fn92" class="footnote-item"&gt;Artetxe, M., Labaka, G., Agirre, E., &amp; Cho, K. (2018). Unsupervised Neural Machine Translation. In Proceedings of ICLR 2018. Retrieved from &lt;a href="http://arxiv.org/abs/1710.11041"&gt;http://arxiv.org/abs/1710.11041&lt;/a&gt;&lt;/li&gt;  
 &lt;li id="fn93" class="footnote-item"&gt;Graves, A., Jaitly, N., &amp; Mohamed, A. R. (2013, December). Hybrid speech recognition with deep bidirectional LSTM. In Automatic Speech Recognition and Understanding (ASRU), 2013 IEEE Workshop on (pp. 273-278). IEEE.&lt;/li&gt;  
 &lt;li id="fn94" class="footnote-item"&gt;Ramachandran, P., Liu, P. J., &amp; Le, Q. V. (2017). Unsupervised Pretraining for Sequence to Sequence Learning. In Proceedings of EMNLP 2017.&lt;/li&gt;  
+&lt;li id="fn95" class="footnote-item"&gt;Baker, C. F., Fillmore, C. J., &amp; Lowe, J. B. (1998, August). The berkeley framenet project. In Proceedings of the 17th international conference on Computational linguistics-Volume 1 (pp. 86-90). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn96" class="footnote-item"&gt;Tjong Kim Sang, E. F., &amp; Buchholz, S. (2000, September). Introduction to the CoNLL-2000 shared task: Chunking. In Proceedings of the 2nd workshop on Learning language in logic and the 4th conference on Computational natural language learning-Volume 7 (pp. 127-132). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn97" class="footnote-item"&gt;Tjong Kim Sang, E. F., &amp; De Meulder, F. (2003, May). Introduction to the CoNLL-2003 shared task: Language-independent named entity recognition. In Proceedings of the seventh conference on Natural language learning at HLT-NAACL 2003-Volume 4 (pp. 142-147). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn98" class="footnote-item"&gt;Buchholz, S., &amp; Marsi, E. (2006, June). CoNLL-X shared task on multilingual dependency parsing. In Proceedings of the tenth conference on computational natural language learning (pp. 149-164). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn99" class="footnote-item"&gt;Lafferty, J., McCallum, A., &amp; Pereira, F. C. (2001). Conditional random fields: Probabilistic models for segmenting and labeling sequence data.&lt;/li&gt;  
+&lt;li id="fn100" class="footnote-item"&gt;Papineni, K., Roukos, S., Ward, T., &amp; Zhu, W. J. (2002, July). BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting on association for computational linguistics (pp. 311-318). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn101" class="footnote-item"&gt;Collins, M. (2002, July). Discriminative training methods for hidden markov models: Theory and experiments with perceptron algorithms. In Proceedings of the ACL-02 conference on Empirical methods in natural language processing-Volume 10 (pp. 1-8). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn102" class="footnote-item"&gt;Pang, B., Lee, L., &amp; Vaithyanathan, S. (2002, July). Thumbs up?: sentiment classification using machine learning techniques. In Proceedings of the ACL-02 conference on Empirical methods in natural language processing-Volume 10 (pp. 79-86). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn103" class="footnote-item"&gt;Blei, D. M., Ng, A. Y., &amp; Jordan, M. I. (2003). Latent dirichlet allocation. Journal of machine Learning research, 3(Jan), 993-1022.&lt;/li&gt;  
+&lt;li id="fn104" class="footnote-item"&gt;Taskar, B., Klein, D., Collins, M., Koller, D., &amp; Manning, C. (2004). Max-margin parsing. In Proceedings of the 2004 Conference on Empirical Methods in Natural Language Processing.&lt;/li&gt;  
+&lt;li id="fn105" class="footnote-item"&gt;Taskar, B., Klein, D., Collins, M., Koller, D., &amp; Manning, C. (2004). Max-margin parsing. In Proceedings of the 2004 Conference on Empirical Methods in Natural Language Processing.&lt;/li&gt;  
+&lt;li id="fn106" class="footnote-item"&gt;Hovy, E., Marcus, M., Palmer, M., Ramshaw, L., &amp; Weischedel, R. (2006, June). OntoNotes: the 90% solution. In Proceedings of the human language technology conference of the NAACL, Companion Volume: Short Papers (pp. 57-60). Association for Computational Linguistics.&lt;/li&gt;  
+&lt;li id="fn107" class="footnote-item"&gt;Milne, D., &amp; Witten, I. H. (2008, October). Learning to link with wikipedia. In Proceedings of the 17th ACM conference on Information and knowledge management (pp. 509-518). ACM.&lt;/li&gt;  
+&lt;li id="fn108" class="footnote-item"&gt;Mintz, M., Bills, S., Snow, R., &amp; Jurafsky, D. (2009, August). Distant supervision for relation extraction without labeled data. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP: Volume 2-Volume 2 (pp. 1003-1011). Association for Computational Linguistics.&lt;/li&gt;  
 &lt;/ol&gt;</content:encoded></item><item><title>ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings</title><description>This post reviews two themes of ACL 2018: 1) gaining a better understanding what models capture and 2) to expose them to more challenging settings.</description><link>http://ruder.io/acl-2018-highlights/</link><guid isPermaLink="false">a7f32d3f-6648-44b2-889b-79a95f590d19</guid><category>nlp</category><category>natural language processing</category><dc:creator>Sebastian Ruder</dc:creator><pubDate>Thu, 26 Jul 2018 11:00:00 GMT</pubDate><media:content url="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg" medium="image"/><content:encoded>&lt;img src="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg" alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings"&gt;&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css"&gt;  &lt;/p&gt;
 
 &lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"&gt;&lt;/script&gt;
