@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/transfer-learning/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2017/03/transfer_learning_digits.png">
     <meta property="article:published_time" content="2017-03-21T15:40:00.000Z">
-    <meta property="article:modified_time" content="2018-03-03T11:33:25.016Z">
+    <meta property="article:modified_time" content="2018-10-22T11:01:33.695Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="nlp">
     <meta property="article:tag" content="transfer learning">
@@ -68,7 +68,7 @@
     "headline": "Transfer Learning - Machine Learning&#x27;s Next Frontier",
     "url": "u=http://ruder.io/transfer-learning/",
     "datePublished": "2017-03-21T15:40:00.000Z",
-    "dateModified": "2018-03-03T11:33:25.016Z",
+    "dateModified": "2018-10-22T11:01:33.695Z",
     "image": "u=http://ruder.io/content/images/2017/03/transfer_learning_digits.png",
     "keywords": "deep learning, nlp, transfer learning",
     "description": "This blog post gives an overview of transfer learning, outlines why it is important, and presents applications and practical methods."
@@ -274,7 +274,7 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 
 <h1 id="whytransferlearningnow">Why Transfer Learning Now?</h1>
 
-<p>Andrew Ng, chief scientist at Baidu and professor at Stanford, said during <a href="http://sebastianruder.com/highlights-nips-2016/index.html#thenutsandboltsofmachinelearning">his widely popular NIPS 2016 tutorial</a> that transfer learning will be -- after supervised learning -- the next driver of ML commercial success.</p>
+<p>Andrew Ng, chief scientist at Baidu and professor at Stanford, said during <a href="http://ruder.io/highlights-nips-2016/index.html#thenutsandboltsofmachinelearning">his widely popular NIPS 2016 tutorial</a> that transfer learning will be -- after supervised learning -- the next driver of ML commercial success.</p>
 
 <figure>  
       <img src="../content/images/2017/03/andrew_ng_nips_2016_transfer_learning-1.png" style="width: 70%" title="Andrew Ng on transfer learning">
@@ -290,7 +290,7 @@ If we want to train a model to perform a new task, such as detecting bicyclists,
 
 <p>It is indisputable that ML use and success in industry has so far been mostly driven by supervised learning. Fuelled by advances in Deep Learning, more capable computing utilities, and large labeled datasets, supervised learning has been largely responsible for the wave of renewed interest in AI, funding rounds and acquisitions, and in particular the applications of machine learning that we have seen in recent years and that have become part of our daily lives. If we disregard naysayers and heralds of another AI winter and instead trust the prescience of Andrew Ng, this success will likely continue.</p>
 
-<p>It is less clear, however, why transfer learning which has been around for decades and is currently little utilized in industry, will see the explosive growth predicted by Ng. Even more so as transfer learning currently receives relatively little visibility compared to other areas of machine learning such as unsupervised learning and reinforcement learning, which have come to enjoy increasing popularity: Unsupervised learning -- the <a href="http://sebastianruder.com/highlights-nips-2016/index.html#generalartificialintelligence">key ingredient on the quest to General AI</a> according to Yann LeCun as can be seen in Figure 5 -- has seen a resurgence of interest, driven in particular by Generative Adversarial Networks. Reinforcement learning, in turn, spear-headed by Google DeepMind has led to advances in game-playing AI exemplified by the success of <a href="https://deepmind.com/research/alphago/">AlphaGo</a> and has already seen success in the real world, e.g. by <a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/">reducing Google's data center cooling bill by 40%</a>. Both of these areas, while promising, will likely only have a comparatively small commercial impact in the foreseeable future and mostly remain within the confines of cutting-edge research papers as they still face <a href="http://www.maluuba.com/blog/2017/3/14/the-next-challenges-for-reinforcement-learning">many challenges</a>.</p>
+<p>It is less clear, however, why transfer learning which has been around for decades and is currently little utilized in industry, will see the explosive growth predicted by Ng. Even more so as transfer learning currently receives relatively little visibility compared to other areas of machine learning such as unsupervised learning and reinforcement learning, which have come to enjoy increasing popularity: Unsupervised learning -- the <a href="http://ruder.io/highlights-nips-2016/index.html#generalartificialintelligence">key ingredient on the quest to General AI</a> according to Yann LeCun as can be seen in Figure 5 -- has seen a resurgence of interest, driven in particular by Generative Adversarial Networks. Reinforcement learning, in turn, spear-headed by Google DeepMind has led to advances in game-playing AI exemplified by the success of <a href="https://deepmind.com/research/alphago/">AlphaGo</a> and has already seen success in the real world, e.g. by <a href="https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/">reducing Google's data center cooling bill by 40%</a>. Both of these areas, while promising, will likely only have a comparatively small commercial impact in the foreseeable future and mostly remain within the confines of cutting-edge research papers as they still face <a href="http://www.maluuba.com/blog/2017/3/14/the-next-challenges-for-reinforcement-learning">many challenges</a>.</p>
 
 <figure>  
       <img src="../content/images/2017/03/lecun_nips_2016_cake_slide.png" style="width: 60%" title="Yann LeCun NIPS 2016 keynote cake slide">
@@ -402,7 +402,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <h2 id="transferringknowledgeacrosslanguages">Transferring knowledge across languages</h2>
 
-<p>Finally, learning from one language and applying our knowledge to another language is -- in my opinion -- another killer application of transfer learning, which I have written about before <a href="http://sebastianruder.com/cross-lingual-embeddings/index.html">here</a> in the context of cross-lingual embedding models. Reliable cross-lingual adaptation methods would allow us to leverage the vast amounts of labeled data we have in English and apply them to any language, particularly underserved and truly low-resource languages. Given the <a href="http://sebastianruder.com/cross-lingual-embeddings/index.html#evaluation">current state-of-the-art</a>, this still seems utopian, but recent advances such as zero-shot translation [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>] promise rapid progress in this area.</p>
+<p>Finally, learning from one language and applying our knowledge to another language is -- in my opinion -- another killer application of transfer learning, which I have written about before <a href="http://ruder.io/cross-lingual-embeddings/index.html">here</a> in the context of cross-lingual embedding models. Reliable cross-lingual adaptation methods would allow us to leverage the vast amounts of labeled data we have in English and apply them to any language, particularly underserved and truly low-resource languages. Given the <a href="http://ruder.io/cross-lingual-embeddings/index.html#evaluation">current state-of-the-art</a>, this still seems utopian, but recent advances such as zero-shot translation [<sup id="fnref:11"><a href="index.html#fn:11" rel="footnote">11</a></sup>] promise rapid progress in this area.</p>
 
 <p>While we have so far considered particular applications of transfer learning, we will now look at practical methods and directions in the literature that are used to solve some of the presented challenges.</p>
 
@@ -511,7 +511,7 @@ Transfer learning involves the concepts of a domain and a task. A domain \(\math
 
 <p>In transfer learning, we mainly care about doing well on our target task or domain. In multi-task learning, in contrast, the objective is to do well on all available tasks. Alternatively, we can also use the knowledge acquired by learning from related tasks to do well on a target. Crucially, in contrast to transfer learning, some labeled data is usually assumed for each task. In addition, models are trained jointly on source and target task data, which is not the case for all transfer learning scenarios. However, even if target data is not available during training, insights about tasks that are beneficial for multi-task learning [<sup id="fnref:19"><a href="index.html#fn:19" rel="footnote">19</a></sup>] can still inform transfer learning decisions.</p>
 
-<p>For a more thorough overview of multi-task learning, particularly as applied to deep neural networks, have a look at my other blog post <a href="http://sebastianruder.com/multi-task/index.html">here</a>.</p>
+<p>For a more thorough overview of multi-task learning, particularly as applied to deep neural networks, have a look at my other blog post <a href="http://ruder.io/multi-task/index.html">here</a>.</p>
 
 <h2 id="continuouslearning">Continuous learning</h2>
 

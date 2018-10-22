@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/word-embeddings-softmax/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/06/softmax_classifier.png">
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z">
-    <meta property="article:modified_time" content="2018-03-03T11:28:36.856Z">
+    <meta property="article:modified_time" content="2018-10-22T10:58:23.986Z">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="word embeddings">
     <meta property="article:tag" content="softmax">
@@ -68,7 +68,7 @@
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "u=http://ruder.io/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
-    "dateModified": "2018-03-03T11:28:36.856Z",
+    "dateModified": "2018-10-22T10:58:23.986Z",
     "image": "u=http://ruder.io/content/images/2016/06/softmax_classifier.png",
     "keywords": "deep learning, word embeddings, softmax",
     "description": "This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings."
@@ -235,7 +235,7 @@ var ga_id = 'UA-60512592-1';
 <li><a href="index.html#conclusion">Conclusion</a></li>
 </ul>
 
-<p>This is the second post in a series on word embeddings and representation learning. In the <a href="http://sebastianruder.com/word-embeddings-1/index.html">previous post</a>, we gave an overview of word embedding models and introduced the classic neural language model by Bengio et al. (2003), the C&amp;W model by Collobert and Weston (2008), and the word2vec model by Mikolov et al. (2013). We observed that mitigating the complexity of computing the final softmax layer has been one of the main challenges in devising better word embedding models, a commonality with machine translation (MT) (Jean et al. [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>]) and language modelling (Jozefowicz et al. [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>]).</p>
+<p>This is the second post in a series on word embeddings and representation learning. In the <a href="http://ruder.io/word-embeddings-1/index.html">previous post</a>, we gave an overview of word embedding models and introduced the classic neural language model by Bengio et al. (2003), the C&amp;W model by Collobert and Weston (2008), and the word2vec model by Mikolov et al. (2013). We observed that mitigating the complexity of computing the final softmax layer has been one of the main challenges in devising better word embedding models, a commonality with machine translation (MT) (Jean et al. [<sup id="fnref:10"><a href="index.html#fn:10" rel="footnote">10</a></sup>]) and language modelling (Jozefowicz et al. [<sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>]).</p>
 
 <p>In this post, we will thus focus on giving an overview of various approximations to the softmax layer that have been proposed over the last years, some of which have so far only been employed in the context of language modelling or MT. We will postpone the discussion of additional hyperparameters to the subsequent post.</p>
 
@@ -421,7 +421,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 
 <p>Noise Contrastive Estimation (NCE) (Gutmann and Hyvärinen) [<sup id="fnref:17"><a href="index.html#fn:17" rel="footnote">17</a></sup>] is proposed by Mnih and Teh [<sup id="fnref:18"><a href="index.html#fn:18" rel="footnote">18</a></sup>] as a more stable sampling method than Importance Sampling (IS), as we have seen that IS poses the risk of having the proposal distribution \(Q\) diverge from the distribution \(P\) that should be optimized. In contrast to the former, NCE does not try to estimate the probability of a word directly. Instead, it uses an auxiliary loss that also optimises the goal of maximizing the probability of correct words.</p>
 
-<p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the <a href="http://sebastianruder.com/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
+<p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the <a href="http://ruder.io/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
 
 <figure>  
       <img src="../content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
@@ -719,9 +719,9 @@ Differentiated Softmax generally does well for both small and large vocabularies
 <p>If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:</p>
 
 <ul>
-<li><a href="http://sebastianruder.com/word-embeddings-1/index.html">On word embeddings - Part 1</a></li>
-<li><a href="http://sebastianruder.com/secret-word2vec/index.html">On word embeddings - Part 3: The secret ingredients of word2vec</a></li>
-<li><a href="http://sebastianruder.com/cross-lingual-embeddings/index.html">Unofficial Part 4: A survey of cross-lingual embedding models</a></li>
+<li><a href="http://ruder.io/word-embeddings-1/index.html">On word embeddings - Part 1</a></li>
+<li><a href="http://ruder.io/secret-word2vec/index.html">On word embeddings - Part 3: The secret ingredients of word2vec</a></li>
+<li><a href="http://ruder.io/cross-lingual-embeddings/index.html">Unofficial Part 4: A survey of cross-lingual embedding models</a></li>
 <li><a href="http://ruder.io/word-embeddings-2017/index.html">Unofficial Part 5: Word embeddings in 2017 -  Trends and future directions</a></li>
 </ul>
 

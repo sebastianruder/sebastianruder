@@ -42,7 +42,7 @@
     <meta property="og:url" content="u=http://ruder.io/secret-word2vec/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg">
     <meta property="article:published_time" content="2016-09-24T10:48:00.000Z">
-    <meta property="article:modified_time" content="2017-10-21T13:50:32.813Z">
+    <meta property="article:modified_time" content="2018-10-22T10:59:11.071Z">
     <meta property="article:tag" content="word embeddings">
     <meta property="article:tag" content="deep learning">
     <meta property="article:tag" content="nlp">
@@ -68,7 +68,7 @@
     "headline": "On word embeddings - Part 3: The secret ingredients of word2vec",
     "url": "u=http://ruder.io/secret-word2vec/",
     "datePublished": "2016-09-24T10:48:00.000Z",
-    "dateModified": "2017-10-21T13:50:32.813Z",
+    "dateModified": "2018-10-22T10:59:11.071Z",
     "image": "u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg",
     "keywords": "word embeddings, deep learning, nlp",
     "description": "Table of Contents: GloVe Word embeddings vs. distributional semantic models Models Hyperparameters Results Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors,..."
@@ -235,7 +235,7 @@ Even though this is no new insight, I feel that traditional methods are frequent
 
 <h1 id="glove">GloVe</h1>
 
-<p>In a <a href="http://sebastianruder.com/word-embeddings-1/index.html">previous blog post</a>, we have given an overview of popular word embedding models. One model that we have omitted so far is GloVe [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>].</p>
+<p>In a <a href="http://ruder.io/word-embeddings-1/index.html">previous blog post</a>, we have given an overview of popular word embedding models. One model that we have omitted so far is GloVe [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>].</p>
 
 <p>Briefly, GloVe seeks to make explicit what SGNS does implicitly: Encoding meaning as vector offsets in an embedding space -- seemingly only a serendipitous by-product of word2vec -- is the specified goal of GloVe. <br>
 Specifically, the authors of Glove show that the ratio of the co-occurrence probabilities of two words (rather than their co-occurrence probabilities themselves) is what contains information and aim to encode this information as vector differences. <br>
@@ -272,7 +272,7 @@ To achieve this, they propose a weighted least squares objective \(J\) that dire
 <li><p><strong>Positive Pointwise Mutual Information (PPMI)</strong>: PMI is a common measure for the strength of association between two words. It is defined as the log ratio between the joint probability of two words \(w\) and \(c\) and the product of their marginal probabilities: \(PMI(w,c) = \text{log} \: \dfrac{P(w,c)}{P(w)\:P(c)} \). As \( PMI(w,c) = \text{log} \: 0 = - \infty \) for pairs \( (w,c) \) that were never observed, PMI is in practice often replaced with <em>positive</em> PMI (PPMI), which replaces negative values with \(0\), yielding \(PPMI(w,c) = \text{max}(PMI(w,c),0)\).</p></li>
 <li><p><strong>Singular Value Decomposition (SVD):</strong> SVD is one of the most popular methods for dimensionality reduction and found its into NLP originally via latent semantic analysis (LSA). SVD factories the word-context co-occurrence matrix into the product of three matrices \(U \cdot \Sigma \times V^T \) where \(U\) and \(V\) are orthonormal matrices (i.e. square matrices whose rows and columns are orthogonal unit vectors) and \(\Sigma\) is a diagonal matrix of eigenvalues in
 decreasing order. In practice, SVD is often used to factorize the matrix produced by PPMI. Generally, only the top \(d\) elements of \(\Sigma\) are kept, yielding \(W^{SVD} = U_d \cdot \Sigma_d\) and \(C^{SVD} = V_d\), which are typically used as the word and context representations respectively.</p></li>
-<li><p><strong>Skip-gram with Negative Sampling (SGNS)</strong> aka word2vec: To learn more about the skip-gram architecture and the negative sampling refer to my previous blog posts <a href="http://sebastianruder.com/word-embeddings-1/index.html">here</a> and <a href="http://sebastianruder.com/word-embeddings-softmax/index.html">here</a> respectively.</p></li>
+<li><p><strong>Skip-gram with Negative Sampling (SGNS)</strong> aka word2vec: To learn more about the skip-gram architecture and the negative sampling refer to my previous blog posts <a href="http://ruder.io/word-embeddings-1/index.html">here</a> and <a href="http://ruder.io/word-embeddings-softmax/index.html">here</a> respectively.</p></li>
 <li><strong>Global Vectors (GloVe)</strong> as presented in the previous section.</li>
 </ul>
 
@@ -402,9 +402,9 @@ CBOW does not outperform SGNS on any task.</li>
 <p>If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:</p>
 
 <ul>
-<li><a href="http://sebastianruder.com/word-embeddings-1/index.html">On word embeddings - Part 1</a></li>
-<li><a href="http://sebastianruder.com/word-embeddings-softmax/index.html">On word embeddings - Part 2: Approximating the softmax</a></li>
-<li><a href="http://sebastianruder.com/cross-lingual-embeddings/index.html">Unofficial Part 4: A survey of cross-lingual embedding models</a></li>
+<li><a href="http://ruder.io/word-embeddings-1/index.html">On word embeddings - Part 1</a></li>
+<li><a href="http://ruder.io/word-embeddings-softmax/index.html">On word embeddings - Part 2: Approximating the softmax</a></li>
+<li><a href="http://ruder.io/cross-lingual-embeddings/index.html">Unofficial Part 4: A survey of cross-lingual embedding models</a></li>
 <li><a href="http://ruder.io/word-embeddings-2017/index.html">Unofficial Part 5: Word embeddings in 2017 -  Trends and future directions</a></li>
 </ul>
 
