@@ -1,86 +1,102 @@
 
-  <head>
-    <title>On word embeddings - Part 3: The secret ingredients of word2vec</title>
+<head>
+
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <title>On word embeddings - Part 3: The secret ingredients of word2vec</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=a7e0ebfe5b">
 
-<link rel="apple-touch-icon" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png?v=wAAv6Wqe6l">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180x180.png?v=wAAv6Wqe6l">
-<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png?v=wAAv6Wqe6l" sizes="32x32">
-<link rel="icon" type="image/png" href="../assets/img/favicon-194x194.png?v=wAAv6Wqe6l" sizes="194x194">
-<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png?v=wAAv6Wqe6l" sizes="96x96">
-<link rel="icon" type="image/png" href="../assets/img/android-chrome-192x192.png?v=wAAv6Wqe6l" sizes="192x192">
-<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png?v=wAAv6Wqe6l" sizes="16x16">
-<link rel="manifest" href="../assets/img/manifest.json?v=wAAv6Wqe6l">
-<link rel="shortcut icon" href="../assets/img/favicon.ico?v=wAAv6Wqe6l">
-<meta name="msapplication-TileColor" content="#e74c3c">
-<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=wAAv6Wqe6l">
-<meta name="msapplication-config" content="/assets/img/browserconfig.xml?v=wAAv6Wqe6l">
-<meta name="theme-color" content="#e74c3c">
-    <link rel="stylesheet" type="text/css" href="../assets/css/uno-zen.css?v=21602be0e6">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://ruder.io/secret-word2vec/">
-    <meta name="referrer" content="origin">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://ruder.io/secret-word2vec/amp/">
     
     <meta property="og:site_name" content="Sebastian Ruder">
     <meta property="og:type" content="article">
     <meta property="og:title" content="On word embeddings - Part 3: The secret ingredients of word2vec">
-    <meta property="og:description" content="Table of Contents: GloVe Word embeddings vs. distributional semantic models Models Hyperparameters Results Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors,...">
+    <meta property="og:description" content="Word2vec is a pervasive tool for learning word embeddings. Its success, however, is mostly due to particular architecture choices. Transferring these choices to traditional distributional methods makes them competitive with popular word embedding methods.">
     <meta property="og:url" content="u=http://ruder.io/secret-word2vec/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg">
     <meta property="article:published_time" content="2016-09-24T10:48:00.000Z">
-    <meta property="article:modified_time" content="2018-10-22T10:59:11.071Z">
+    <meta property="article:modified_time" content="2018-10-24T13:31:15.000Z">
     <meta property="article:tag" content="word embeddings">
-    <meta property="article:tag" content="deep learning">
-    <meta property="article:tag" content="nlp">
+    <meta property="article:tag" content="natural language processing">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="On word embeddings - Part 3: The secret ingredients of word2vec">
-    <meta name="twitter:description" content="Table of Contents: GloVe Word embeddings vs. distributional semantic models Models Hyperparameters Results Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors,...">
+    <meta name="twitter:description" content="Word2vec is a pervasive tool for learning word embeddings. Its success, however, is mostly due to particular architecture choices. Transferring these choices to traditional distributional methods makes them competitive with popular word embedding methods.">
     <meta name="twitter:url" content="u=http://ruder.io/secret-word2vec/">
-    <meta name="twitter:image:src" content="u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg">
+    <meta name="twitter:image" content="u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Sebastian Ruder">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="word embeddings, natural language processing">
+    <meta name="twitter:site" content="@seb_ruder">
+    <meta name="twitter:creator" content="@seb_ruder">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="777">
     
     <script type="application/ld+json">
 {
-    "@context": "http://schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
-    "publisher": "Sebastian Ruder",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Sebastian Ruder",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "u=http://ruder.io/favicon.ico",
+            "width": 60,
+            "height": 60
+        }
+    },
     "author": {
         "@type": "Person",
         "name": "Sebastian Ruder",
-        "url": "u=http://ruder.io/author/sebastian",
-        "sameAs": null,
-        "description": null
+        "image": {
+            "@type": "ImageObject",
+            "url": "u=http://ruder.io/content/images/2018/10/aylien_profile_photo.jpg",
+            "width": 600,
+            "height": 600
+        },
+        "url": "u=http://ruder.io/author/sebastian/",
+        "sameAs": [
+            "https://twitter.com/seb_ruder"
+        ]
     },
     "headline": "On word embeddings - Part 3: The secret ingredients of word2vec",
     "url": "u=http://ruder.io/secret-word2vec/",
     "datePublished": "2016-09-24T10:48:00.000Z",
-    "dateModified": "2018-10-22T10:59:11.071Z",
-    "image": "u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg",
-    "keywords": "word embeddings, deep learning, nlp",
-    "description": "Table of Contents: GloVe Word embeddings vs. distributional semantic models Models Hyperparameters Results Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors,..."
+    "dateModified": "2018-10-24T13:31:15.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "u=http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg",
+        "width": 2000,
+        "height": 777
+    },
+    "keywords": "word embeddings, natural language processing",
+    "description": "Word2vec is a pervasive tool for learning word embeddings. Its success, however, is mostly due to particular architecture choices. Transferring these choices to traditional distributional methods makes them competitive with popular word embedding methods.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "u=http://ruder.io/"
+    }
 }
     </script>
 
-    <meta name="generator" content="Ghost 0.7">
+    <script src="../public/ghost-sdk.js?v=a7e0ebfe5b"></script>
+<script>
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "bc1baff4b81d"
+});
+</script>
+    <meta name="generator" content="Ghost 2.3">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
-var open_button = '.nav-blog > a'
-</script>
-<script>
 var profile_title = 'Sebastian Ruder';
 </script>
 <script>
@@ -92,131 +108,70 @@ var profile_resume ='NLP PhD student';
 <script>
 var ga_id = 'UA-60512592-1';
 </script>
-  </head>
-  <body class="post-template tag-word-embeddings tag-deep-learning tag-nlp">
-    <header id="menu-button" class="expanded">
-      <a><i class="icon icon-list"></i></a>
-    </header>
-    <aside class="cover" style="background: url(../content/images/2017/05/imageedit_8_8459453433.jpg) center/cover no-repeat fixed">
-  <div class="cover container">
-    <div class="profile">
-      <a id="avatar-link" title="link to homepage for Sebastian Ruder" href="http://ruder.io/#open">
-        <img src="../content/images/2015/12/Seb_LinkedIn_Profile-.png" alt="Sebastian Ruder avatar" class="profile avatar rounded hvr-buzz-out">
-        <h1 id="profile-title">Sebastian Ruder</h1>
-        <h3 id="profile-resume"></h3>
-      </a>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        processEscapes: true
+    }
+});
+</script>
 
-      <hr class="divider long">
-      <p>I'm a PhD student in Natural Language Processing and a research scientist at AYLIEN. I blog about Machine Learning, Deep Learning, NLP, and startups.</p>
-      <hr class="divider short">
-      <div class="navigation">
-        <div class="profile contact">
-          <nav class="navigation left">
-  <ul class="links">
-      <li class="nav-blog ">
-        <a href="http://ruder.io/">Blog</a>
-      </li>
-      <li class="nav-about ">
-        <a href="http://ruder.io/about/">About</a>
-      </li>
-      <li class="nav-papers ">
-        <a href="http://ruder.io/publications/">Papers</a>
-      </li>
-      <li class="nav-news ">
-        <a href="http://ruder.io/news">News</a>
-      </li>
-      <li class="nav-newsletter ">
-        <a href="http://newsletter.ruder.io">Newsletter</a>
-      </li>
-      <li class="nav-faq ">
-        <a href="http://ruder.io/faq">FAQ</a>
-      </li>
-      <li class="nav-progress ">
-        <a href="https://nlpprogress.com/">Progress</a>
-      </li>
-  </ul>
-</nav>
+</head>
+<body class="post-template tag-word-embeddings tag-natural-language-processing">
 
-          
-<nav class="navigation right">
-  <ul class="social expanded">
+    <div class="site-wrapper">
 
-  <!-- Twitter -->
-  <li class="social item hvr-grow-rotate">
-    <a rel="me" target="blank" href="http://twitter.com/seb_ruder" title="@seb_ruder on Twitter">
-      <i class="icon icon-social-twitter"></i>
-      <span class="label">Twitter</span>
-    </a>
-  </li>
-
-  <!-- Linkedin -->
-  <li class="social item hvr-grow-rotate">
-    <a rel="me" target="blank" href="https://www.linkedin.com/in/sebastianruder" title="sebastianruder on LinkedIn">
-      <i class="icon icon-social-linkedin"></i>
-      <span class="label">Linkedin</span>
-    </a>
-  </li>
-
-  <!-- Github -->
-  <li class="social item hvr-grow-rotate">
-    <a rel="me" target="blank" href="https://github.com/sebastianruder" title="sebastianruder on Github">
-      <i class="icon icon-social-github"></i>
-      <span class="label">Github</span>
-    </a>
-  </li>
-
-  <!-- E-mail -->
-  <li class="social item hvr-grow-rotate">
-    <a rel="me" target="blank" href="mailto:sebastian@ruder.io" title="send me an email">
-      <i class="icon icon-mail"></i>
-      <span class="label">Email</span>
-    </a>
-  </li>
-
-  <!-- RSS -->
-  <li class="social item hvr-grow-rotate">
-    <a href="../rss/index.rss" title="Subscribe to RSS">
-      <i class="icon icon-rss"></i>
-      <span class="label">RSS</span>
-    </a>
-  </li>
-
-  </ul>
-</nav>
-          <section class="icon icon-search" id="search-container">
-  <hr class="divider short">
-  <form id="search-form" action="https://www.google.com/#q=site:u=http://ruder.io">
-    <input type="text" name="search" placeholder="Deep Learning, NLP, ..." id="search-field">
-  </form>
-</section>
-        </div>
-      </div>
-    </div>
-  </div>
-</aside>
-    <main>
-      <section id="search-results"></section>
-      <section class="content">
         
 
-  <article class="post tag-word-embeddings tag-deep-learning tag-nlp">
-    <header>
-      <div class="post meta">
-        <time datetime="24 Sep 2016">24 Sep 2016</time>
-        <span class="post tags">in <a href="../tag/word-embeddings/">word embeddings</a> <a href="../tag/deep-learning/">deep learning</a> <a href="../tag/nlp/">nlp</a></span>
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="http://ruder.io">Sebastian Ruder</a>
+            <ul class="nav" role="menu">
+    <li class="nav-about" role="menuitem"><a href="http://ruder.io/about/">About</a></li>
+    <li class="nav-papers" role="menuitem"><a href="http://ruder.io/publications/">Papers</a></li>
+    <li class="nav-news" role="menuitem"><a href="http://ruder.io/news">News</a></li>
+    <li class="nav-newsletter" role="menuitem"><a href="http://newsletter.ruder.io">Newsletter</a></li>
+    <li class="nav-faq" role="menuitem"><a href="http://ruder.io/faq">FAQ</a></li>
+    <li class="nav-progress-in-nlp" role="menuitem"><a href="https://nlpprogress.com/">Progress in NLP</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+</a>
+        </div>
+            <a class="rss-button" href="https://feedly.com/i/subscription/feed/u=http://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</header>
 
 
-        <span class="post reading-time"> ~ <span></span> read.</span>
-      </div>
-      <a alt="Tweet 'On word embeddings - Part 3: The secret ingredients of word2vec'" href="https://twitter.com/intent/tweet?text=On%20word%20embeddings%20-%20Part%203%3A%20The%20secret%20ingredients%20of%20word2vec%20%C2%BB&amp;hashtags=word%20embeddings,deep%20learning,nlp&amp;url=http://ruder.io/secret-word2vec/">
-        <img id="post-image" src="../content/images/2016/09/merge_from_ofoct--2-.jpg" alt="On word embeddings - Part 3: The secret ingredients of word2vec">
-        <h1 class="icon-reverse icon-social-twitter-post" id="post-title">On word embeddings - Part 3: The secret ingredients of word2vec</h1>
-      </a>
-    </header>
+<main id="site-main" class="site-main outer">
+    <div class="inner">
 
-    <div id="post-content" class="post tag-word-embeddings tag-deep-learning tag-nlp">
-      <p>Table of Contents:</p>
+        <article class="post-full post tag-word-embeddings tag-natural-language-processing ">
 
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2016-09-24">24 September 2016</time>
+                        <span class="date-divider">/</span> <a href="../tag/word-embeddings/">word embeddings</a>
+                </section>
+                <h1 class="post-full-title">On word embeddings - Part 3: The secret ingredients of word2vec</h1>
+            </header>
+
+            <figure class="post-full-image" style="background-image: url(../content/images/2016/09/merge_from_ofoct--2-.jpg)">
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>This post will discuss the factors that account for the success of word2vec and its connection to more traditional models.</p>
+<p>Table of Contents:</p>
 <ul>
 <li><a href="index.html#glove">GloVe</a></li>
 <li><a href="index.html#wordembeddingsvsdistributionalsemanticsmodels">Word embeddings vs. distributional semantic models</a></li>
@@ -224,159 +179,120 @@ var ga_id = 'UA-60512592-1';
 <li><a href="index.html#hyperparameters">Hyperparameters</a></li>
 <li><a href="index.html#results">Results</a></li>
 </ul>
-
-<p>Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors, i.e. the secret ingredients that account for the success of word2vec. <br>
-In particular, I want to focus on the connection between word embeddings trained via neural models and those produced by traditional distributional semantics models (DSMs). By showing how these ingredients can be transferred to DSMs, I will demonstrate that distributional methods are in no way inferior to the popular word embedding methods. <br>
+<p>Excuse the rather clickbait-y title. This is a blog post that I meant to write for a while. In this post, I want to highlight the factors, i.e. the secret ingredients that account for the success of word2vec.<br>
+In particular, I want to focus on the connection between word embeddings trained via neural models and those produced by traditional distributional semantics models (DSMs). By showing how these ingredients can be transferred to DSMs, I will demonstrate that distributional methods are in no way inferior to the popular word embedding methods.<br>
 Even though this is no new insight, I feel that traditional methods are frequently overshadowed amid the deep learning craze and their relevancy consequently deserves to be mentioned more often.</p>
-
-<p>To this effect, the paper on which this blog post is based is <em>Improving Distributional Similarity with Lessons Learned from Word Embeddings</em> [<sup id="fnref:1"><a href="index.html#fn:1" rel="footnote">1</a></sup>] by Levy et al. (2015). If you haven't read it, I recommend you to check it out.</p>
-
+<p>To this effect, the paper on which this blog post is based is <em>Improving Distributional Similarity with Lessons Learned from Word Embeddings</em> <sup class="footnote-ref"><a href="index.html#fn1" id="fnref1">[1]</a></sup> by Levy et al. (2015). If you haven't read it, I recommend you to check it out.</p>
 <p>Over the course of this blog post, I will first introduce GloVe, a popular word embedding model. I will then highlight the connection between word embedding models and distributional semantic methods. Subsequently, I will introduce the four models that will be used to measure the impact of the different factors. I will then give an overview of all additional factors that play a role in learning word representations, besides the choice of the algorithm. I will finally present the results by Levy et al., their takeaways and recommendations.</p>
-
 <h1 id="glove">GloVe</h1>
-
-<p>In a <a href="http://ruder.io/word-embeddings-1/index.html">previous blog post</a>, we have given an overview of popular word embedding models. One model that we have omitted so far is GloVe [<sup id="fnref:2"><a href="index.html#fn:2" rel="footnote">2</a></sup>].</p>
-
-<p>Briefly, GloVe seeks to make explicit what SGNS does implicitly: Encoding meaning as vector offsets in an embedding space -- seemingly only a serendipitous by-product of word2vec -- is the specified goal of GloVe. <br>
-Specifically, the authors of Glove show that the ratio of the co-occurrence probabilities of two words (rather than their co-occurrence probabilities themselves) is what contains information and aim to encode this information as vector differences. <br>
+<p>In a <a href="http://ruder.io/word-embeddings-1/index.html">previous blog post</a>, we have given an overview of popular word embedding models. One model that we have omitted so far is GloVe <sup class="footnote-ref"><a href="index.html#fn2" id="fnref2">[2]</a></sup>.</p>
+<p>Briefly, GloVe seeks to make explicit what SGNS does implicitly: Encoding meaning as vector offsets in an embedding space -- seemingly only a serendipitous by-product of word2vec -- is the specified goal of GloVe.<br>
+Specifically, the authors of Glove show that the ratio of the co-occurrence probabilities of two words (rather than their co-occurrence probabilities themselves) is what contains information and aim to encode this information as vector differences.<br>
 To achieve this, they propose a weighted least squares objective \(J\) that directly aims to minimise the difference between the dot product of the vectors of two words and the logarithm of their number of co-occurrences:</p>
-
-<p>\(J = \sum\limits_{i, j=1}^V f(X_{ij}) \: (w_i^T \tilde{w}_j + b_i + \tilde{b}_j - \text{log} \: X_{ij})^2 \)</p>
-
+<p>\(J = \sum\limits_{i, j=1}^V f(X_{ij})   (w_i^T \tilde{w}_j + b_i + \tilde{b}_j - \text{log}   X_{ij})^2 \)</p>
 <p>where \(w_i\) and \(b_i\) are the word vector and bias respectively of word \(i\), \(\tilde{w}_j\) and \(b_j\) are the context word vector and bias respectively of word \(j\), \(X_{ij}\) is the number of times word \(i\) occurs in the context of word \(j\), and \(f\) is a weighting function that assigns relatively lower weight to rare and frequent co-occurrences.</p>
-
 <p>As co-occurrence counts can be directly encoded in a word-context co-occurrence matrix, GloVe takes such a matrix rather than the entire corpus as input.</p>
-
 <p>If you want to know more about GloVe, the best reference is likely <a href="http://www.aclweb.org/anthology/D14-1162">the paper</a> and the <a href="http://nlp.stanford.edu/projects/glove/">accompanying website</a>. Besides that, you can find some additional intuitions on GloVe and its difference to word2vec by the author of gensim <a href="http://rare-technologies.com/making-sense-of-word2vec/">here</a>, in <a href="https://www.quora.com/How-is-GloVe-different-from-word2vec">this Quora thread</a>, and in <a href="https://cran.r-project.org/web/packages/text2vec/vignettes/glove.html">this blog post</a>.</p>
-
 <h1 id="wordembeddingsvsdistributionalsemanticsmodels">Word embeddings vs. distributional semantics models</h1>
-
 <p>The reason why word embedding models, particularly word2vec and GloVe, became so popular is that they seemed to continuously and significantly outperform DSMs. Many attributed this to the neural architecture of word2vec or the fact that it predicts words, which seemed to have a natural edge over solely relying on co-occurrence counts.</p>
-
 <p>We can view DSMs as <em>count</em> models as they "count" co-occurrences among words by operating on co-occurrence matrices. In contrast, neural word embedding models can be seen as <em>predict</em> models, as they try to predict surrounding words.</p>
-
-<p>In 2014, Baroni et al. [<sup id="fnref:3"><a href="index.html#fn:3" rel="footnote">3</a></sup>] showed that predict models consistently outperform count models in almost all tasks, thus providing a clear verification for the apparent superiority of word embedding models. Is this the end? No.</p>
-
-<p>Already with GloVe we've seen that the differences are not as clear-cut: While GloVe is considered a predict model by Levy et al. (2015), it is clearly factorizing a word-context co-occurrence matrix, which brings it close to traditional methods such as PCA and LSA. Even more, Levy et al. [<sup id="fnref:4"><a href="index.html#fn:4" rel="footnote">4</a></sup>] demonstrate that word2vec implicitly factorizes a word-context PMI matrix.</p>
-
+<p>In 2014, Baroni et al. <sup class="footnote-ref"><a href="index.html#fn3" id="fnref3">[3]</a></sup> showed that predict models consistently outperform count models in almost all tasks, thus providing a clear verification for the apparent superiority of word embedding models. Is this the end? No.</p>
+<p>Already with GloVe we've seen that the differences are not as clear-cut: While GloVe is considered a predict model by Levy et al. (2015), it is clearly factorizing a word-context co-occurrence matrix, which brings it close to traditional methods such as PCA and LSA. Even more, Levy et al. <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> demonstrate that word2vec implicitly factorizes a word-context PMI matrix.</p>
 <p>Consequently, while on the surface DSMs and word embedding models use different algorithms to learn word representations -- the first count, the latter predict -- fundamentally, both types of models act on the same underlying statistics of the data, i.e. the co-occurrence counts between words.</p>
-
-<p>Thus, the question that still remains and which we will dedicate the rest of this blog post to answering is the following: <br>
+<p>Thus, the question that still remains and which we will dedicate the rest of this blog post to answering is the following:<br>
 <em>Why do word embedding models still perform better than DSM with almost the same information?</em></p>
-
 <h1 id="models">Models</h1>
-
 <p>Following Levy et al. (2015), we will isolate and identify the factors that account for the success of neural word embedding models and show how these can be transferred to traditional methods by comparing the following four models:</p>
-
 <ul>
-<li><p><strong>Positive Pointwise Mutual Information (PPMI)</strong>: PMI is a common measure for the strength of association between two words. It is defined as the log ratio between the joint probability of two words \(w\) and \(c\) and the product of their marginal probabilities: \(PMI(w,c) = \text{log} \: \dfrac{P(w,c)}{P(w)\:P(c)} \). As \( PMI(w,c) = \text{log} \: 0 = - \infty \) for pairs \( (w,c) \) that were never observed, PMI is in practice often replaced with <em>positive</em> PMI (PPMI), which replaces negative values with \(0\), yielding \(PPMI(w,c) = \text{max}(PMI(w,c),0)\).</p></li>
-<li><p><strong>Singular Value Decomposition (SVD):</strong> SVD is one of the most popular methods for dimensionality reduction and found its into NLP originally via latent semantic analysis (LSA). SVD factories the word-context co-occurrence matrix into the product of three matrices \(U \cdot \Sigma \times V^T \) where \(U\) and \(V\) are orthonormal matrices (i.e. square matrices whose rows and columns are orthogonal unit vectors) and \(\Sigma\) is a diagonal matrix of eigenvalues in
-decreasing order. In practice, SVD is often used to factorize the matrix produced by PPMI. Generally, only the top \(d\) elements of \(\Sigma\) are kept, yielding \(W^{SVD} = U_d \cdot \Sigma_d\) and \(C^{SVD} = V_d\), which are typically used as the word and context representations respectively.</p></li>
-<li><p><strong>Skip-gram with Negative Sampling (SGNS)</strong> aka word2vec: To learn more about the skip-gram architecture and the negative sampling refer to my previous blog posts <a href="http://ruder.io/word-embeddings-1/index.html">here</a> and <a href="http://ruder.io/word-embeddings-softmax/index.html">here</a> respectively.</p></li>
-<li><strong>Global Vectors (GloVe)</strong> as presented in the previous section.</li>
+<li>
+<p><strong>Positive Pointwise Mutual Information (PPMI)</strong>: PMI is a common measure for the strength of association between two words. It is defined as the log ratio between the joint probability of two words \(w\) and \(c\) and the product of their marginal probabilities: \(PMI(w,c) = \text{log}   \dfrac{P(w,c)}{P(w) P(c)} \). As \( PMI(w,c) = \text{log}   0 = - \infty \) for pairs \( (w,c) \) that were never observed, PMI is in practice often replaced with <em>positive</em> PMI (PPMI), which replaces negative values with \(0\), yielding \(PPMI(w,c) = \text{max}(PMI(w,c),0)\).</p>
+</li>
+<li>
+<p><strong>Singular Value Decomposition (SVD):</strong> SVD is one of the most popular methods for dimensionality reduction and found its into NLP originally via latent semantic analysis (LSA). SVD factories the word-context co-occurrence matrix into the product of three matrices \(U \cdot \Sigma \times V^T \) where \(U\) and \(V\) are orthonormal matrices (i.e. square matrices whose rows and columns are orthogonal unit vectors) and \(\Sigma\) is a diagonal matrix of eigenvalues in<br>
+decreasing order. In practice, SVD is often used to factorize the matrix produced by PPMI. Generally, only the top \(d\) elements of \(\Sigma\) are kept, yielding \(W^{SVD} = U_d \cdot \Sigma_d\) and \(C^{SVD} = V_d\), which are typically used as the word and context representations respectively.</p>
+</li>
+<li>
+<p><strong>Skip-gram with Negative Sampling (SGNS)</strong> aka word2vec: To learn more about the skip-gram architecture and the negative sampling refer to my previous blog posts <a href="http://ruder.io/word-embeddings-1/index.html">here</a> and <a href="http://ruder.io/word-embeddings-softmax/index.html">here</a> respectively.</p>
+</li>
+<li>
+<p><strong>Global Vectors (GloVe)</strong> as presented in the previous section.</p>
+</li>
 </ul>
-
 <h1 id="hyperparameters">Hyperparameters</h1>
-
 <p>We will look at the following hyper-parameters:</p>
-
 <ul>
 <li><a href="index.html#preprocessing">Pre-processing</a>
-<ul><li><a href="index.html#dynamiccontextwindow">Dynamic context window</a></li>
+<ul>
+<li><a href="index.html#dynamiccontextwindow">Dynamic context window</a></li>
 <li><a href="index.html#subsamplingfrequentwords">Subsampling frequent words</a></li>
-<li><a href="index.html#deletingrarewords">Deleting rare words</a></li></ul></li>
-<li><a href="index.html#associationmetric">Association metric</a>
-<ul><li><a href="index.html#shiftedpmi">Shifted PMI</a></li>
-<li><a href="index.html#contextdistributionsmoothing">Context distribution smoothing</a></li></ul></li>
-<li><a href="index.html#postprocessing">Post-processing</a>
-<ul><li><a href="index.html#addingcontextvectors">Adding context vectors</a></li>
-<li><a href="index.html#eigenvalueweighting">Eigenvalue weighting</a></li>
-<li><a href="index.html#vectornormalisation">Vector normalisation</a></li></ul></li>
+<li><a href="index.html#deletingrarewords">Deleting rare words</a></li>
 </ul>
-
+</li>
+<li><a href="index.html#associationmetric">Association metric</a>
+<ul>
+<li><a href="index.html#shiftedpmi">Shifted PMI</a></li>
+<li><a href="index.html#contextdistributionsmoothing">Context distribution smoothing</a></li>
+</ul>
+</li>
+<li><a href="index.html#postprocessing">Post-processing</a>
+<ul>
+<li><a href="index.html#addingcontextvectors">Adding context vectors</a></li>
+<li><a href="index.html#eigenvalueweighting">Eigenvalue weighting</a></li>
+<li><a href="index.html#vectornormalisation">Vector normalisation</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="preprocessing">Pre-processing</h2>
-
-<p>Word2vec introduces three ways of pre-processing a corpus, which can be easily applied to DSMs. </p>
-
+<p>Word2vec introduces three ways of pre-processing a corpus, which can be easily applied to DSMs.</p>
 <h3 id="dynamiccontextwindow">Dynamic context window</h3>
-
 <p>In DSMs traditionally, the context window is unweighted and of a constant size. Both SGNS and GloVe, however, use a scheme that assigns more weight to closer words, as closer words are generally considered to be more important to a word's meaning. Additionally, in SGNS, the window size is not fixed, but the actual window size is dynamic and sampled uniformly between \(1\) and the maximum window size during training.</p>
-
 <h3 id="subsamplingfrequentwords">Subsampling frequent words</h3>
-
 <p>SGNS dilutes very frequent words by randomly removing words whose frequency \(f\) is higher than some threshold \(t\) with a probability \(p = 1 - \sqrt{\dfrac{t}{f}}\). As this subsampling is done <em>before</em> actually creating the windows, the context windows used by SGNS in practice are larger than indicated by the context window size.</p>
-
-<h3 id="deletingrarewords"> Deleting rare words</h3>
-
+<h3 id="deletingrarewords">Deleting rare words</h3>
 <p>In the pre-processing of SGNS, rare words are also deleted <em>before</em> creating the context windows, which increases the actual size of the context windows further. Levy et al. (2015) find this not to have a significant performance impact, though.</p>
-
 <h2 id="associationmetric">Association metric</h2>
-
 <p>PMI has been shown to be an effective metric for measuring the association between words. Since Levy and Goldberg (2014) have shown SGNS to implicitly factorize a PMI matrix, two variations stemming from this formulation can be introduced to regular PMI.</p>
-
 <h3 id="shiftedpmi">Shifted PMI</h3>
-
-<p>In SGNS, the higher the number of negative samples \(k\), the more data is being used and the better should be the estimation of the parameters. \(k\) affects the shift of the PMI matrix that is implicitly factorized by word2vec, i.e. \(k\) k shifts the PMI values by log \(k\). <br>
-If we transfer this to regular PMI, we obtain Shifted PPMI (SPPMI): \(SPPMI(w,c) = \text{max}(PMI(w,c) - \text{log} \: k,0)\).</p>
-
+<p>In SGNS, the higher the number of negative samples \(k\), the more data is being used and the better should be the estimation of the parameters. \(k\) affects the shift of the PMI matrix that is implicitly factorized by word2vec, i.e. \(k\) k shifts the PMI values by log \(k\).<br>
+If we transfer this to regular PMI, we obtain Shifted PPMI (SPPMI): \(SPPMI(w,c) = \text{max}(PMI(w,c) - \text{log}   k,0)\).</p>
 <h3 id="contextdistributionsmoothing">Context distribution smoothing</h3>
-
-<p>In SGNS, the negative samples are sampled according to a <em>smoothed</em> unigram distribution, i.e. an unigram distribution raised to the power of \(\alpha\), which is empirically set to \(\dfrac{3}{4}\). This leads to frequent words being sampled relatively less often than their frequency would indicate. <br>
-We can transfer this to PMI by equally raising the frequency of the context words \(f(c)\) to the power of \(\alpha\): <br>
+<p>In SGNS, the negative samples are sampled according to a <em>smoothed</em> unigram distribution, i.e. an unigram distribution raised to the power of \(\alpha\), which is empirically set to \(\dfrac{3}{4}\). This leads to frequent words being sampled relatively less often than their frequency would indicate.<br>
+We can transfer this to PMI by equally raising the frequency of the context words \(f(c)\) to the power of \(\alpha\):<br>
 \(PMI(w, c) = \text{log} \dfrac{p(w,c)}{p(w)p_\alpha(c)}\) where \(p_\alpha(c) = \dfrac{f(c)^\alpha}{\sum_c f(c)^\alpha}\) and \(f(x)\) is the frequency of word \(x\).</p>
-
 <h2 id="postprocessing">Post-processing</h2>
-
 <p>Similar as in pre-processing, three methods can be used to modify the word vectors produced by an algorithm.</p>
-
 <h3 id="addingcontextvectors">Adding context vectors</h3>
-
 <p>The authors of GloVe propose to add word vectors and context vectors to create the final output vectors, e.g. \(\vec{v}_{\text{cat}} = \vec{w}_{\text{cat}} + \vec{c}_{\text{cat}}\). This adds first-order similarity terms, i.e \(w \cdot v\). However, this method cannot be applied to PMI, as the vectors produced by PMI are sparse.</p>
-
 <h3 id="eigenvalueweighting">Eigenvalue weighting</h3>
-
-<p>SVD produces the following matrices: \(W^{SVD} = U_d \cdot \Sigma_d \) and \(C^{SVD} = V_d\). These matrices, however, have different properties: \(C^{SVD}\) is orthonormal, while \(W^{SVD}\) is not. <br>
-SGNS, in contrast, is more symmetric. We can thus weight the eigenvalue matrix \(\Sigma_d\) with an additional parameter \(p\), which can be tuned, to yield the following: <br>
+<p>SVD produces the following matrices: \(W^{SVD} = U_d \cdot \Sigma_d \) and \(C^{SVD} = V_d\). These matrices, however, have different properties: \(C^{SVD}\) is orthonormal, while \(W^{SVD}\) is not.<br>
+SGNS, in contrast, is more symmetric. We can thus weight the eigenvalue matrix \(\Sigma_d\) with an additional parameter \(p\), which can be tuned, to yield the following:<br>
 \(W^{SVD} = U_d \cdot \Sigma_d^p\).</p>
-
 <h3 id="vectornormalisation">Vector normalisation</h3>
-
 <p>Finally, we can also normalise all vectors to unit length.</p>
-
 <h1 id="results">Results</h1>
-
 <p>Levy et al. (2015) train all models on a dump of the English wikipedia and evaluate them on the commonly used word similarity and analogy datasets. You can read more about the experimental setup and training details in their paper. We summarise the most important results and takeaways below.</p>
-
 <h2 id="takeaways">Takeaways</h2>
-
 <p>Levy et al. find that SVD -- and not one of the word embedding algorithms -- performs best on similarity tasks, while SGNS performs best on analogy datasets. They furthermore shed light on the importance of hyperparameters compared to other choices:</p>
-
 <ol>
-<li>Hyperparameters vs. algorithms: <br>
-Hyperparameter settings are often more important than algorithm choice. <br>
-No single algorithm consistently outperforms the other methods.  </li>
-<li>Hyperparameters vs. more data: <br>
-Training on a larger corpus helps for some tasks. <br>
+<li>Hyperparameters vs. algorithms:<br>
+Hyperparameter settings are often more important than algorithm choice.<br>
+No single algorithm consistently outperforms the other methods.</li>
+<li>Hyperparameters vs. more data:<br>
+Training on a larger corpus helps for some tasks.<br>
 In 3 out of 6 cases, tuning hyperparameters is more beneficial.</li>
 </ol>
-
 <h2 id="debunkingpriorclaims">Debunking prior claims</h2>
-
-<p>Equipped with these insights, we can now debunk some generally held claims: </p>
-
+<p>Equipped with these insights, we can now debunk some generally held claims:</p>
 <ol>
-<li>Are embeddings superior to distributional methods? <br>
-With the right hyperparameters, no approach has a consistent advantage over another.  </li>
-<li>Is GloVe superior to SGNS? <br>
-SGNS outperforms GloVe on all tasks.  </li>
-<li>Is CBOW a good word2vec configuration? <br>
+<li>Are embeddings superior to distributional methods?<br>
+With the right hyperparameters, no approach has a consistent advantage over another.</li>
+<li>Is GloVe superior to SGNS?<br>
+SGNS outperforms GloVe on all tasks.</li>
+<li>Is CBOW a good word2vec configuration?<br>
 CBOW does not outperform SGNS on any task.</li>
 </ol>
-
 <h1 id="recommendations">Recommendations</h1>
-
 <p>Finally -- and one of the things I like most about the paper -- we can give concrete practical recommendations:</p>
-
 <ul>
 <li><strong>DON'T</strong> use shifted PPMI with SVD.</li>
 <li><strong>DON'T</strong> use SVD "correctly", i.e. without eigenvector weighting (performance drops 15 points compared to with eigenvalue weighting with \(p = 0.5\)).</li>
@@ -386,89 +302,293 @@ CBOW does not outperform SGNS on any task.</li>
 <li><strong>DO</strong> use SGNS as a baseline (robust, fast and cheap to train).</li>
 <li><strong>DO</strong> try adding context vectors in SGNS and GloVe.</li>
 </ul>
-
 <h1 id="conclusions">Conclusions</h1>
-
 <p>These results run counter to what is generally assumed, namely that word embeddings are superior to traditional methods and indicate that it generally makes <em>no difference whatsoever</em> whether you use word embeddings or distributional methods -- what matters is that you tune your hyperparameters and employ the appropriate pre-processing and post-processing steps.</p>
-
-<p>Recent papers from Jurafsky's group [<sup id="fnref:5"><a href="index.html#fn:5" rel="footnote">5</a></sup>, <sup id="fnref:6"><a href="index.html#fn:6" rel="footnote">6</a></sup>] echo these findings and show that SVD -- not SGNS -- is often the preferred choice when you care about accurate word representations.</p>
-
+<p>Recent papers from Jurafsky's group <sup class="footnote-ref"><a href="index.html#fn5" id="fnref5">[5]</a></sup> <sup class="footnote-ref"><a href="index.html#fn6" id="fnref6">[6]</a></sup> echo these findings and show that SVD -- not SGNS -- is often the preferred choice when you care about accurate word representations.</p>
 <p>I hope this blog post was useful in highlighting cool research that sheds light on the link between traditional distributional semantic and in-vogue embedding models. As we've seen, knowledge of distributional semantics allows us to improve upon our current methods and develop entirely new variations of existing ones. For this reason, I hope that the next time you train word embeddings, you will consider adding distributional methods to your toolbox or lean on them for inspiration.</p>
-
 <p>As always, feel free to ask questions and point out the mistakes I made in this blog post in the comments below.</p>
-
 <h1 id="otherblogpostsonwordembeddings">Other blog posts on word embeddings</h1>
-
 <p>If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:</p>
-
 <ul>
 <li><a href="http://ruder.io/word-embeddings-1/index.html">On word embeddings - Part 1</a></li>
 <li><a href="http://ruder.io/word-embeddings-softmax/index.html">On word embeddings - Part 2: Approximating the softmax</a></li>
 <li><a href="http://ruder.io/cross-lingual-embeddings/index.html">Unofficial Part 4: A survey of cross-lingual embedding models</a></li>
 <li><a href="http://ruder.io/word-embeddings-2017/index.html">Unofficial Part 5: Word embeddings in 2017 -  Trends and future directions</a></li>
 </ul>
-
-<h1 id="references">References</h1>
-
-<div class="footnotes"><ol><li class="footnote" id="fn:1"><p>Levy, O., Goldberg, Y., &amp; Dagan, I. (2015). Improving Distributional Similarity with Lessons Learned from Word Embeddings. Transactions of the Association for Computational Linguistics, 3, 211–225. Retrieved from <a href="https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570">https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570</a> <a href="index.html#fnref:1" title="return to article">↩</a></p></li>
-
-<li class="footnote" id="fn:2"><p>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. <a href="http://doi.org/10.3115/v1/D14-1162">http://doi.org/10.3115/v1/D14-1162</a> <a href="index.html#fnref:2" title="return to article">↩</a></p></li>
-
-<li class="footnote" id="fn:3"><p>Baroni, M., Dinu, G., &amp; Kruszewski, G. (2014). Don’t count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors. ACL, 238–247. <a href="http://doi.org/10.3115/v1/P14-1023">http://doi.org/10.3115/v1/P14-1023</a> <a href="index.html#fnref:3" title="return to article">↩</a></p></li>
-
-<li class="footnote" id="fn:4"><p>Levy, O., &amp; Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. Advances in Neural Information Processing Systems (NIPS), 2177–2185. Retrieved from <a href="http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization">http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization</a> <a href="index.html#fnref:4" title="return to article">↩</a></p></li>
-
-<li class="footnote" id="fn:5"><p>Hamilton, W. L., Clark, K., Leskovec, J., &amp; Jurafsky, D. (2016). Inducing Domain-Specific Sentiment Lexicons from Unlabeled Corpora. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. Retrieved from <a href="http://arxiv.org/abs/1606.02820">http://arxiv.org/abs/1606.02820</a> <a href="index.html#fnref:5" title="return to article">↩</a></p></li>
-
-<li class="footnote" id="fn:6"><p>Hamilton, W. L., Leskovec, J., &amp; Jurafsky, D. (2016). Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change. arXiv Preprint arXiv:1605.09096. <a href="index.html#fnref:6" title="return to article">↩</a></p></li></ol></div>
-
 <p>Cover images are courtesy of <a href="http://nlp.stanford.edu/projects/glove/">Stanford</a>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Levy, O., Goldberg, Y., &amp; Dagan, I. (2015). Improving Distributional Similarity with Lessons Learned from Word Embeddings. Transactions of the Association for Computational Linguistics, 3, 211–225. Retrieved from <a href="https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570">https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570</a> <a href="index.html#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543. <a href="http://doi.org/10.3115/v1/D14-1162">http://doi.org/10.3115/v1/D14-1162</a> <a href="index.html#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Baroni, M., Dinu, G., &amp; Kruszewski, G. (2014). Don’t count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors. ACL, 238–247. <a href="http://doi.org/10.3115/v1/P14-1023">http://doi.org/10.3115/v1/P14-1023</a> <a href="index.html#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Levy, O., &amp; Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. Advances in Neural Information Processing Systems (NIPS), 2177–2185. Retrieved from <a href="http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization">http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization</a> <a href="index.html#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Hamilton, W. L., Clark, K., Leskovec, J., &amp; Jurafsky, D. (2016). Inducing Domain-Specific Sentiment Lexicons from Unlabeled Corpora. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics. Retrieved from <a href="http://arxiv.org/abs/1606.02820">http://arxiv.org/abs/1606.02820</a> <a href="index.html#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Hamilton, W. L., Leskovec, J., &amp; Jurafsky, D. (2016). Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change. arXiv Preprint arXiv:1605.09096. <a href="index.html#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+                </div>
+            </section>
+
+
+            <footer class="post-full-footer">
+
+
+                    
+<section class="author-card">
+        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+    <section class="author-card-content">
+        <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
+            <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
+    </section>
+</section>
+<div class="post-full-footer-right">
+    <a class="author-card-button" href="../author/sebastian/">Read More</a>
+</div>
+
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
+                        <h3 class="read-next-card-header-title"><a href="../tag/word-embeddings/">word embeddings</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="../a-review-of-the-recent-history-of-nlp/">A Review of the Neural History of Natural Language Processing</a></li>
+                            <li><a href="../word-embeddings-2017/">Word embeddings in 2017: Trends and future directions</a></li>
+                            <li><a href="../highlights-emnlp-2017/">Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="../tag/word-embeddings/">See all 7 posts →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post tag-natural-language-processing tag-word-embeddings tag-reinforcement-learning tag-events">
+        <a class="post-card-image-link" href="../emnlp-2016-highlights/">
+            <div class="post-card-image" style="background-image: url(../content/images/2016/11/emnlp_cover_image.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../emnlp-2016-highlights/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">natural language processing</span>
+                <h2 class="post-card-title">Highlights of EMNLP 2016: Dialogue, deep learning, and more</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>This post discusses highlights of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP 2016). These include work on reinforcement learning, dialogue, sequence-to-sequence models, semantic parsing, natural language generation, and many more.</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
+                </li>
+            </ul>
+
+            <span class="reading-time">4 min read</span>
+
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-natural-language-processing tag-events">
+        <a class="post-card-image-link" href="../lisbon-machine-learning-summer-school-highlights/">
+            <div class="post-card-image" style="background-image: url(../content/images/2016/08/group_picture-1.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../lisbon-machine-learning-summer-school-highlights/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">natural language processing</span>
+                <h2 class="post-card-title">LxMLS 2016 Highlights</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>The Lisbon Machine Learning School (LxMLS) is an annual event that brings together researchers and graduate students in ML, NLP, and Computational Linguistics. This post discusses highlights, key insights, and takeaways from the 6th edition of the summer school.</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
+                </li>
+            </ul>
+
+            <span class="reading-time">14 min read</span>
+
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="http://ruder.io">
+            <span>Sebastian Ruder</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">On word embeddings - Part 3: The secret ingredients of word2vec</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=On%20word%20embeddings%20-%20Part%203%3A%20The%20secret%20ingredients%20of%20word2vec&amp;url=http://ruder.io/secret-word2vec/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/secret-word2vec/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress id="reading-progress" class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> © 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="http://ruder.io">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/seb_ruder" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
     </div>
 
-    <div class="post related">
-        <a rel="prev" id="prev-btn" class="btn small square" href="../lisbon-machine-learning-summer-school-highlights/">← Lisbon Machine Learning Summer School Highlights</a>
 
-        <a rel="next" id="next-btn" class="btn small square" href="../emnlp-2016-highlights/">Highlights of EMNLP 2016: Dialogue, deep learning, and more →</a>
-    </div>
-
-    <footer class="post comments">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-  (function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//' + window.disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</footer>
-
-  </article>
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
 
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=a7e0ebfe5b"></script>
 
-        <footer>
-  <span class="copyright">
-    © 2018. All rights reserved. Built with <a href="https://ghost.org/" target="_blank">Ghost</a> and <a href="https://github.com/Kikobeats/uno-zen" target="_blank">Uno Zen</a> theme.
-  </span>
-</footer>
-      </section>
-    </main>
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('#reading-progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+
+});
+</script>
+
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 <script>jQuery = Zepto</script>
-    <script src="../assets/js/uno-zen.js?v=21602be0e6" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script>
-  if (window.ga_id) {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', window.ga_id, 'auto');
-    ga('require', 'linkid', 'linkid.js');
-    ga('send', 'pageview');
-  }
-</script>
-  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+
+</body>
