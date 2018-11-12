@@ -23,7 +23,7 @@
     <meta property="og:url" content="u=http://ruder.io/a-review-of-the-recent-history-of-nlp/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png">
     <meta property="article:published_time" content="2018-10-01T12:50:00.000Z">
-    <meta property="article:modified_time" content="2018-10-25T14:54:23.000Z">
+    <meta property="article:modified_time" content="2018-11-12T13:32:15.000Z">
     <meta property="article:tag" content="language models">
     <meta property="article:tag" content="natural language processing">
     <meta property="article:tag" content="word embeddings">
@@ -75,7 +75,7 @@
     "headline": "A Review of the Recent History of Natural Language Processing",
     "url": "u=http://ruder.io/a-review-of-the-recent-history-of-nlp/",
     "datePublished": "2018-10-01T12:50:00.000Z",
-    "dateModified": "2018-10-25T14:54:23.000Z",
+    "dateModified": "2018-11-12T13:32:15.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "u=http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png",
@@ -328,7 +328,7 @@ While these embeddings are no different conceptually than the ones learned with 
 <p>Pretrained language models have been shown enable learning with significantly less data. As language models only require unlabelled data, they are particularly beneficial for low-resource languages where labelled data is scarce. For more information about the potential of pretrained language models, refer to <a href="https://thegradient.pub/nlp-imagenet/">this article</a>.</p>
 <h1 id="othermilestones">Other milestones</h1>
 <p>Some other developments are less pervasive than the ones mentioned above, but still have wide-ranging impact.</p>
-<p><strong>Character-based representations</strong>   Using a CNN or an LSTM over characters to obtain a character-based word representation is now fairly common, particularly for morphologically rich languages and tasks where morphological information is important or that have many unknown words. As far as I am aware, character-based representations were first used for sequence labelling (Lample et al., 2016; Plank et al., 2016)<a href="index.html#fn70"></a><a href="index.html#fn71"></a>. Character-based representations alleviate the need of having to deal with a fixed vocabulary at increased computational cost and enable applications such as fully character-based NMT (Ling et al., 2016; Lee et al., 2017)<a href="index.html#fn72"></a><a href="index.html#fn73"></a>.</p>
+<p><strong>Character-based representations</strong>   Using a CNN or an LSTM over characters to obtain a character-based word representation is now fairly common, particularly for morphologically rich languages and tasks where morphological information is important or that have many unknown words. Character-based representations were first used for part-of-speech tagging and language modeling (Ling et al., 2015)<a href="index.html#fn109"></a> and dependency parsing (Ballesteros et al., 2015)<a href="index.html#fn110"></a>. They later became a core component of models for sequence labeling (Lample et al., 2016; Plank et al., 2016)<a href="index.html#fn70"></a><a href="index.html#fn71"></a> and language modeling (Kim et al., 2016)<a href="index.html#fn111"></a>. Character-based representations alleviate the need of having to deal with a fixed vocabulary at increased computational cost and enable applications such as fully character-based NMT (Ling et al., 2016; Lee et al., 2017)<a href="index.html#fn72"></a><a href="index.html#fn73"></a>.</p>
 <p><strong>Adversarial learning</strong>   Adversarial methods have taken the field of ML by storm and have also been used in different forms in NLP. Adversarial examples are becoming increasingly widely used not only as a tool to probe models and understand their failure cases, but also to make them more robust (Jia &amp; Liang, 2017)<a href="index.html#fn74"></a>. (Virtual) adversarial training, that is, worst-case perturbations (Miyato et al., 2017; Yasunaga et al., 2018)<a href="index.html#fn75"></a><a href="index.html#fn76"></a> and domain-adversarial losses (Ganin et al., 2016; Kim et al., 2017)<a href="index.html#fn77"></a><a href="index.html#fn78"></a> are useful forms of regularization that can equally make models more robust. Generative adversarial networks (GANs) are not yet too effective for natural language generation (Semeniuta et al., 2018)<a href="index.html#fn79"></a>, but are useful for instance when matching distributions (Conneau et al., 2018)<a href="index.html#fn27"></a>.</p>
 <p><strong>Reinforcement learning</strong>   Reinforcement learning has been shown to be useful for tasks with a temporal dependency  such as selecting data during training (Fang et al., 2017; Wu et al., 2018)<a href="index.html#fn80"></a><a href="index.html#fn81"></a> and modelling dialogue (Liu et al., 2018)<a href="index.html#fn86"></a>. RL is also effective for directly optimizing a non-differentiable end metric such as ROUGE or BLEU instead of optimizing a surrogate loss such as cross-entropy in summarization (Paulus et al, 2018; Celikyilmaz et al., 2018)<a href="index.html#fn82"></a><a href="index.html#fn83"></a> and machine translation (Ranzato et al., 2016)<a href="index.html#fn84"></a>. Similarly, inverse reinforcement learning can be useful in settings where the reward is too complex to be specified such as visual storytelling (Wang et al., 2018)<a href="index.html#fn85"></a>.</p>
 <h1 id="nonneuralmilestones">Non-neural milestones</h1>
@@ -450,6 +450,9 @@ While these embeddings are no different conceptually than the ones learned with 
 <li id="fn106" class="footnote-item">Hovy, E., Marcus, M., Palmer, M., Ramshaw, L., &amp; Weischedel, R. (2006, June). OntoNotes: the 90% solution. In Proceedings of the human language technology conference of the NAACL, Companion Volume: Short Papers (pp. 57-60). Association for Computational Linguistics.</li>
 <li id="fn107" class="footnote-item">Milne, D., &amp; Witten, I. H. (2008, October). Learning to link with wikipedia. In Proceedings of the 17th ACM conference on Information and knowledge management (pp. 509-518). ACM.</li>
 <li id="fn108" class="footnote-item">Mintz, M., Bills, S., Snow, R., &amp; Jurafsky, D. (2009, August). Distant supervision for relation extraction without labeled data. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP: Volume 2-Volume 2 (pp. 1003-1011). Association for Computational Linguistics.</li>
+<li id="fn109" class="footnote-item">Ling, W., Luis, T., Marujo, L., Astudillo, R. F., Amir, S., Dyer, C., … Trancoso, I. (2015). Finding Function in Form: Compositional Character Models for Open Vocabulary Word Representation. In Proceedings of EMNLP 2015 (pp. 1520–1530).</li>
+<li id="fn110" class="footnote-item">Ballesteros, M., Dyer, C., &amp; Smith, N. A. (2015). Improved Transition-Based Parsing by Modeling Characters instead of Words with LSTMs. In Proceedings of EMNLP 2015.</li>
+<li id="fn111" class="footnote-item">Kim, Y., Jernite, Y., Sontag, D., &amp; Rush, A. M. (2016). Character-Aware Neural Language Models. In Proceedings of AAAI 2016</li>
 </ol>
                 </div>
             </section>
