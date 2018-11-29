@@ -23,7 +23,7 @@
     <meta property="og:url" content="u=http://ruder.io/optimizing-gradient-descent/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png">
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z">
-    <meta property="article:modified_time" content="2018-10-24T12:16:06.000Z">
+    <meta property="article:modified_time" content="2018-11-29T10:27:24.000Z">
     <meta property="article:tag" content="optimization">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +71,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "u=http://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2018-10-24T12:16:06.000Z",
+    "dateModified": "2018-11-29T10:27:24.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "u=http://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
@@ -238,7 +238,7 @@ MathJax.Hub.Config({
   params = params - learning_rate * params_grad
 </code></pre>
 <p>For a pre-defined number of epochs,  we first compute the gradient vector <code class="language-python">params_grad</code> of the loss function for the whole dataset w.r.t. our parameter vector <code class="language-python">params</code>.  Note that state-of-the-art deep learning libraries provide automatic differentiation that efficiently computes the gradient w.r.t. some parameters. If you derive the gradients yourself, then gradient checking is a good idea. (See <a href="http://cs231n.github.io/neural-networks-3/">here</a> for some great tips on how to check gradients properly.)</p>
-<p>We then update our parameters in the direction of the gradients with the learning rate determining how big of an update we perform. Batch gradient descent is guaranteed to converge to the global minimum for convex error surfaces and to a local minimum for non-convex surfaces.</p>
+<p>We then update our parameters in the opposite direction of the gradients with the learning rate determining how big of an update we perform. Batch gradient descent is guaranteed to converge to the global minimum for convex error surfaces and to a local minimum for non-convex surfaces.</p>
 <h2 id="stochasticgradientdescent">Stochastic gradient descent</h2>
 <p>Stochastic gradient descent (SGD) in contrast performs a parameter update for <em>each</em> training example \(x^{(i)}\) and label \(y^{(i)}\):</p>
 <p>\(\theta = \theta - \eta \cdot \nabla_\theta J( \theta; x^{(i)}; y^{(i)})\).</p>
