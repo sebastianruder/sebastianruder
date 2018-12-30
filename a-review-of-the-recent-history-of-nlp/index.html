@@ -23,7 +23,7 @@
     <meta property="og:url" content="u=http://ruder.io/a-review-of-the-recent-history-of-nlp/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png">
     <meta property="article:published_time" content="2018-10-01T12:50:00.000Z">
-    <meta property="article:modified_time" content="2018-11-12T13:32:15.000Z">
+    <meta property="article:modified_time" content="2018-12-30T10:15:36.000Z">
     <meta property="article:tag" content="language models">
     <meta property="article:tag" content="natural language processing">
     <meta property="article:tag" content="word embeddings">
@@ -75,7 +75,7 @@
     "headline": "A Review of the Recent History of Natural Language Processing",
     "url": "u=http://ruder.io/a-review-of-the-recent-history-of-nlp/",
     "datePublished": "2018-10-01T12:50:00.000Z",
-    "dateModified": "2018-11-12T13:32:15.000Z",
+    "dateModified": "2018-12-30T10:15:36.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "u=http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png",
@@ -194,6 +194,7 @@ MathJax.Hub.Config({
 <li><a href="index.html#2013wordembeddings">2013 - Word embeddings</a></li>
 <li><a href="index.html#2013neuralnetworksfornlp">2013 - Neural networks for NLP</a></li>
 <li><a href="index.html#2014sequencetosequencemodels">2014 - Sequence-to-sequence models</a></li>
+<li><a href="index.html#2015attention">2015 - Attention</a></li>
 <li><a href="index.html#2015memorybasednetworks">2015 - Memory-based networks</a></li>
 <li><a href="index.html#2018pretrainedlanguagemodels">2018 - Pretrained language models</a></li>
 <li><a href="index.html#othermilestones">Other milestones</a></li>
@@ -250,7 +251,7 @@ While these embeddings are no different conceptually than the ones learned with 
 <p>One particularly exciting direction is to project word embeddings of different languages into the same space to enable (zero-shot) cross-lingual transfer. It is becoming increasingly possible to learn a good projection in a completely unsupervised way (at least for similar languages) (Conneau et al., 2018; Artetxe et al., 2018; Søgaard et al., 2018)<a href="index.html#fn27"></a><a href="index.html#fn28"></a><a href="index.html#fn29"></a>, which opens applications for low-resource languages and unsupervised machine translation (Lample et al., 2018; Artetxe et al., 2018)<a href="index.html#fn91"></a><a href="index.html#fn92"></a>. Have a look at (Ruder et al., 2018)<a href="index.html#fn30"></a> for an overview.</p>
 <h1 id="2013neuralnetworksfornlp">2013 - Neural networks for NLP</h1>
 <p>2013 and 2014 marked the time when neural network models started to get adopted in NLP. Three main types of neural networks became the most widely used: recurrent neural networks, convolutional neural networks, and recursive neural networks.</p>
-<p><strong>Recurrent neural networks</strong>   Recurrent neural networks (RNNs) are an obvious choice to deal with the dynamic input sequences ubiquitous in NLP. Vanilla RNNs (Elman, 1990)<a href="index.html#fn31"></a> were quickly replaced with the classic long-short term memory networks (Hochreiter &amp; Schmidhuber, 1997)<a href="index.html#fn32"></a>, which proved more resilient to the <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">vanishing and exploding gradient problem</a>. Before 2013, RNNs were still thought to be difficult to train; <a href="https://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf">Ilya Sutskever's PhD thesis</a> was a key example on the way to changing this reputation. A visualization of an LSTM cell can be seen in Figure 5 below. A bidirectional LSTM (Graves et al., 2013)<a href="index.html#fn93"></a> is typically used to deal with both left and right context.</p>
+<p><strong>Recurrent neural networks</strong>   Recurrent neural networks (RNNs) are an obvious choice to deal with the dynamic input sequences ubiquitous in NLP. Vanilla RNNs (Elman, 1990)<a href="index.html#fn31"></a> were quickly replaced with the classic long short-term memory networks (Hochreiter &amp; Schmidhuber, 1997)<a href="index.html#fn32"></a>, which proved more resilient to the <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">vanishing and exploding gradient problem</a>. Before 2013, RNNs were still thought to be difficult to train; <a href="https://www.cs.utoronto.ca/~ilya/pubs/ilya_sutskever_phd_thesis.pdf">Ilya Sutskever's PhD thesis</a> was a key example on the way to changing this reputation. A visualization of an LSTM cell can be seen in Figure 5 below. A bidirectional LSTM (Graves et al., 2013)<a href="index.html#fn93"></a> is typically used to deal with both left and right context.</p>
 <figure>
     <center>
 <img src="../content/images/2018/09/lstm_colah_2015.png" width="450">
