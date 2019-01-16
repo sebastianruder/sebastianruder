@@ -23,7 +23,7 @@
     <meta property="og:url" content="u=http://ruder.io/a-review-of-the-recent-history-of-nlp/">
     <meta property="og:image" content="u=http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png">
     <meta property="article:published_time" content="2018-10-01T12:50:00.000Z">
-    <meta property="article:modified_time" content="2019-01-16T14:24:43.000Z">
+    <meta property="article:modified_time" content="2019-01-16T14:28:15.000Z">
     <meta property="article:tag" content="language models">
     <meta property="article:tag" content="natural language processing">
     <meta property="article:tag" content="word embeddings">
@@ -75,7 +75,7 @@
     "headline": "A Review of the Recent History of Natural Language Processing",
     "url": "u=http://ruder.io/a-review-of-the-recent-history-of-nlp/",
     "datePublished": "2018-10-01T12:50:00.000Z",
-    "dateModified": "2019-01-16T14:24:43.000Z",
+    "dateModified": "2019-01-16T14:28:15.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "u=http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png",
@@ -245,7 +245,7 @@ While these embeddings are no different conceptually than the ones learned with 
     <figcaption>Figure 4: Relations captured by word2vec (Mikolov et al., 2013a; 2013b)</figcaption>
     </center>
 </figure>
-<p>These relations and the meaning behind them sparked initial interest in word embeddings and many studies have investigated the origin of these linear relationships (Arora et al., 2016; Mimno &amp; Thompson, 2017; Antoniak &amp; Mimno, 2018; Wendlandt et al., 2018)<a href="index.html#fn15"></a><a href="index.html#fn16"></a><a href="index.html#fn17"></a><a href="index.html#fn18"></a>. However, later studies showed that the learned relations are not without bias(Bolukbasi et al., 2016)<a href="index.html#fn112">. What cemented word embeddings as a mainstay in current NLP was that using pretrained embeddings as initialization was shown to improve performance across a wide range of downstream tasks</a><a href="index.html#fn19"></a>.</p>
+<p>These relations and the meaning behind them sparked initial interest in word embeddings and many studies have investigated the origin of these linear relationships (Arora et al., 2016; Mimno &amp; Thompson, 2017; Antoniak &amp; Mimno, 2018; Wendlandt et al., 2018)<a href="index.html#fn15"></a><a href="index.html#fn16"></a><a href="index.html#fn17"></a><a href="index.html#fn18"></a>. However, later studies showed that the learned relations are not without bias (Bolukbasi et al., 2016)<a href="index.html#fn112"></a>. What cemented word embeddings as a mainstay in current NLP was that using pretrained embeddings as initialization was shown to improve performance across a wide range of downstream tasks<a href="index.html#fn19"></a>.</p>
 <p>While the relations word2vec captured had an intuitive and almost magical quality to them, later studies showed that there is nothing inherently special about word2vec: Word embeddings can also be learned via matrix factorization (Pennington et al, 2014; Levy &amp; Goldberg, 2014)<a href="index.html#fn20"></a><a href="index.html#fn21"></a> and with proper tuning, classic matrix factorization approaches like SVD and LSA achieve similar results (Levy et al., 2015)<a href="index.html#fn22"></a>.</p>
 <p>Since then, a lot of work has gone into exploring different facets of word embeddings (as indicated by the <a href="https://scholar.google.de/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=distributed+representations+of+words+and+phrases&amp;btnG=">staggering number of citations of the original paper</a>). Have a look at <a href="http://ruder.io/word-embeddings-2017/">this post</a> for some trends and future directions. Despite many developments, word2vec is still a popular choice and widely used today. Word2vec's reach has even extended beyond the word level: skip-gram with negative sampling, a convenient objective for learning embeddings based on local context, has been applied to learn representations for sentences (Mikolov &amp; Le, 2014; Kiros et al., 2015)<a href="index.html#fn23"></a><a href="index.html#fn24"></a>---and even going beyond NLP---to networks (Grover &amp; Leskovec, 2016)<a href="index.html#fn25"></a> and biological sequences (Asgari &amp; Mofrad, 2015)<a href="index.html#fn26"></a>, among others.</p>
 <p>One particularly exciting direction is to project word embeddings of different languages into the same space to enable (zero-shot) cross-lingual transfer. It is becoming increasingly possible to learn a good projection in a completely unsupervised way (at least for similar languages) (Conneau et al., 2018; Artetxe et al., 2018; Søgaard et al., 2018)<a href="index.html#fn27"></a><a href="index.html#fn28"></a><a href="index.html#fn29"></a>, which opens applications for low-resource languages and unsupervised machine translation (Lample et al., 2018; Artetxe et al., 2018)<a href="index.html#fn91"></a><a href="index.html#fn92"></a>. Have a look at (Ruder et al., 2018)<a href="index.html#fn30"></a> for an overview.</p>
