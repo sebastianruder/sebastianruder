@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="This post is a tutorial on how to use Estimators in TensorFlow to classify text.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -88,14 +88,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -168,7 +168,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">Text Classification with TensorFlow Estimators</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2018/10/estimators_loss.png)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2018/10/estimators_loss.png 300w,
+                            u=http://ruder.io/content/images/size/w600/2018/10/estimators_loss.png 600w,
+                            u=http://ruder.io/content/images/size/w1000/2018/10/estimators_loss.png 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2018/10/estimators_loss.png 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2018/10/estimators_loss.png" alt="Text Classification with TensorFlow Estimators">
             </figure>
 
             <section class="post-full-content">
@@ -357,7 +363,7 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_classifier<span cl
 <small></small></p><p align="center"><br>
 Source: <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a> by <strong>Chris Olah</strong></p>
 <p>The complete LSTM model can be expressed by the following simple flowchart:</p>
-<p><img src="../content/images/2018/10/lstm_flow_chart.png" alt="lstm_flow_chart"></p>
+<p><img src="http://ruder.io/content/images/2018/10/lstm_flow_chart.png" alt="lstm_flow_chart"></p>
 <p>In the beginning of this post, we padded all documents up to <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> tokens, which is necessary to build a proper tensor. However, when a document contains fewer than <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> words, we don’t want the LSTM to continue processing padding tokens as it does not add information and degrades performance. For this reason, we additionally want to provide our network with the length of the original sequence before it was padded. Internally, the model then copies the last state through to the sequence’s end. We can do this by using the <code>"len"</code> feature in our input functions. We can now use the same logic as above and simply replace the convolutional, pooling, and flatten layers with our LSTM cell.</p>
 <pre class=" language-python"><code class="prism  language-python">lstm_cell <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>rnn_cell<span class="token punctuation">.</span>BasicLSTMCell<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
 _<span class="token punctuation">,</span> final_states <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>dynamic_rnn<span class="token punctuation">(</span>
@@ -433,9 +439,9 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
 <li>The <em>NLTK</em> <a href="http://www.nltk.org/book/ch03.html">Processing Raw Text</a> chapter on how to design language pipelines.</li>
 </ul>
 <p><em>Thanks for reading!</em></p>
-</div>
-                </section></article></div>
-            
+
+                </div>
+            </section>
 
 
             <footer class="post-full-footer">
@@ -443,7 +449,7 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -457,80 +463,16 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
             </footer>
 
 
-        
+        </article>
 
-    </main></div>
-
+    </div>
+</main>
 
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
 
-                <article class="post-card post tag-semi-supervised-learning tag-transfer-learning tag-domain-adaptation">
-        <a class="post-card-image-link" href="../semi-supervised/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/10/mttri.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../semi-supervised/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">semi-supervised learning</span>
-                <h2 class="post-card-title">An overview of proxy-label approaches for semi-supervised learning</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>While unsupervised learning is still elusive, researchers have made a lot of progress in semi-supervised learning. This post focuses on a particular promising category of semi-supervised learning methods that assign proxy labels to unlabelled data, which are used as targets for learning.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">19 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-transfer-learning tag-multi-task-learning tag-cross-lingual tag-meta-learning tag-domain-adaptation">
-        <a class="post-card-image-link" href="../requests-for-research/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/10/domain_randomization.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../requests-for-research/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">transfer learning</span>
-                <h2 class="post-card-title">Requests for Research</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>It can be hard to find compelling topics to work on and know what questions to ask when you are just starting as a researcher. This post aims to provide inspiration and ideas for research directions to junior researchers and those trying to get into research.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">13 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -564,29 +506,6 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/text-classification-tensorflow-estimators/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -601,7 +520,7 @@ s.setAttribute('data-timestamp', +new Date());
             </div>
         </footer>
 
-    
+    </div>
 
 
     <script>
@@ -618,7 +537,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -685,7 +604,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

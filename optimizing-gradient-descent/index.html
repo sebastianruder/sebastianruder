@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="This blog post looks at variants of gradient descent and the algorithms that are commonly used to optimize them.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -87,14 +87,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -167,7 +167,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">An overview of gradient descent optimization algorithms</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2016/09/loss_function_image_tumblr.png)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2016/09/loss_function_image_tumblr.png 300w,
+                            u=http://ruder.io/content/images/size/w600/2016/09/loss_function_image_tumblr.png 600w,
+                            u=http://ruder.io/content/images/size/w1000/2016/09/loss_function_image_tumblr.png 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2016/09/loss_function_image_tumblr.png 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2016/09/loss_function_image_tumblr.png" alt="An overview of gradient descent optimization algorithms">
             </figure>
 
             <section class="post-full-content">
@@ -245,7 +251,7 @@ MathJax.Hub.Config({
 <p>Batch gradient descent performs redundant computations for large datasets, as it recomputes gradients for similar examples before each parameter update. SGD does away with this redundancy by performing one update at a time. It is therefore usually much faster and can also be used to learn online.<br>
 SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</p>
 <figure>
-      <img src="../content/images/2016/09/sgd_fluctuation.png" style="width: 60%" title="SGD fluctuation">
+      <img src="http://ruder.io/content/images/2016/09/sgd_fluctuation.png" style="width: 60%" title="SGD fluctuation">
 <figcaption>Image 1: SGD fluctuation (Source: <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Stogra.png">Wikipedia</a>)</figcaption>
 </figure>
 <p>While batch gradient descent converges to the minimum of the basin the parameters are placed in, SGD's fluctuation, on the one hand, enables it to jump to new and potentially better local minima. On the other hand, this ultimately complicates convergence to the exact minimum, as SGD will keep overshooting. However, it has been shown that when we slowly decrease the learning rate, SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively.<br>
@@ -289,13 +295,13 @@ Its code fragment simply adds a loop over the training examples and evaluates th
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2015/12/without_momentum.gif" style="width: 90%" title="SGD without momentum">
+      <img src="http://ruder.io/content/images/2015/12/without_momentum.gif" style="width: 90%" title="SGD without momentum">
 <figcaption>Image 2: SGD without momentum</figcaption>
 </figure>
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2015/12/with_momentum.gif" style="width: 90%" title="SGD with momentum">
+      <img src="http://ruder.io/content/images/2015/12/with_momentum.gif" style="width: 90%" title="SGD with momentum">
 <figcaption>Image 3: SGD with momentum</figcaption>
 </figure>
     </td>
@@ -325,7 +331,7 @@ v_t &amp;= \gamma v_{t-1} + \eta \nabla_\theta J( \theta - \gamma v_{t-1} ) \\<b
 \)</p>
 <p>Again, we set the momentum term \(\gamma\) to a value of around 0.9. While Momentum first computes the current gradient (small blue vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big blue vector), NAG first makes a big jump in the direction of the previous accumulated gradient (brown vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (green vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks <sup class="footnote-ref"><a href="index.html#fn7" id="fnref7">[7]</a></sup>.</p>
 <figure style="text-align:center;">
-      <img src="../content/images/2016/09/nesterov_update_vector.png" style="width: 50%" title="SGD fluctuation">
+      <img src="http://ruder.io/content/images/2016/09/nesterov_update_vector.png" style="width: 50%" title="SGD fluctuation">
 <figcaption>Image 4: Nesterov update (Source: <a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf">G. Hinton's lecture 6c</a>)</figcaption>
 </figure>
 <p>Refer to <a href="http://cs231n.github.io/neural-networks-3/">here</a> for another explanation about the intuitions behind NAG, while Ilya Sutskever gives a more detailed overview in his PhD thesis <sup class="footnote-ref"><a href="index.html#fn8" id="fnref8">[8]</a></sup>.</p>
@@ -511,13 +517,13 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\<br>
   <tr>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 90%" title="SGD without momentum">
+      <img src="http://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 90%" title="SGD without momentum">
 <figcaption>Image 5: SGD optimization on loss surface contours</figcaption>
 </figure>
     </td>
     <td style="padding:1px">
       <figure>
-      <img src="../content/images/2016/09/saddle_point_evaluation_optimizers.gif" style="width: 90%" title="SGD with momentum">
+      <img src="http://ruder.io/content/images/2016/09/saddle_point_evaluation_optimizers.gif" style="width: 90%" title="SGD with momentum">
 <figcaption>Image 6: SGD optimization on saddle point</figcaption>
 </figure>
     </td>
@@ -648,7 +654,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -670,7 +676,7 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/optimization/">optimization</a></h3>
@@ -687,38 +693,6 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
                     </footer>
                 </article>
 
-                <article class="post-card post tag-word-embeddings tag-natural-language-processing tag-language-models">
-        <a class="post-card-image-link" href="../word-embeddings-1/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/04/word_embeddings_colah.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../word-embeddings-1/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">word embeddings</span>
-                <h2 class="post-card-title">On word embeddings - Part 1</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Word embeddings popularized by word2vec are pervasive in current NLP applications. The history of word embeddings, however, goes back a lot further. This post explores the history of word embeddings in the context of language modelling.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">15 min read</span>
-
-        </footer>
-    </div>
-</article>
 
 
         </div>
@@ -753,29 +727,6 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/optimizing-gradient-descent/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -807,7 +758,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -874,7 +825,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

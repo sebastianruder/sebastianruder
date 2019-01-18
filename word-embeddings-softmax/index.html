@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -89,14 +89,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -169,7 +169,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">On word embeddings - Part 2: Approximating the Softmax</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2016/06/softmax_classifier.png)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2016/06/softmax_classifier.png 300w,
+                            u=http://ruder.io/content/images/size/w600/2016/06/softmax_classifier.png 600w,
+                            u=http://ruder.io/content/images/size/w1000/2016/06/softmax_classifier.png 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2016/06/softmax_classifier.png 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2016/06/softmax_classifier.png" alt="On word embeddings - Part 2: Approximating the Softmax">
             </figure>
 
             <section class="post-full-content">
@@ -211,7 +217,7 @@ MathJax.Hub.Config({
 <p>Hierarchical softmax (H-Softmax) is an approximation inspired by binary trees that was proposed by Morin and Bengio (2005) <sup class="footnote-ref"><a href="index.html#fn3" id="fnref3">[3]</a></sup>. H-Softmax essentially replaces the flat softmax layer with a hierarchical layer that has the words as leaves, as can be seen in Figure 1.<br>
 This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least \(50 \times\) and is thus critical for low-latency tasks such as real-time communication in <a href="http://googleresearch.blogspot.ie/2016/05/chat-smarter-with-allo.html">Google's new messenger app Allo</a>.</p>
 <figure>
-      <img src="../content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%" title="Hierarchical softmax">
+      <img src="http://ruder.io/content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 1: Hierarchical softmax (<a href="https://www.quora.com/Word2vec-How-can-hierarchical-soft-max-training-method-of-CBOW-guarantee-its-self-consistence">Quora</a>)</figcaption>
 </figure>
 <p>We can think of the regular softmax as a tree of depth \(1\), with each word in \(V\) as a leaf node.  Computing the softmax probability of one word then requires normalizing over the probabilities of all \(|V|\) leaves. If we instead structure the softmax as a binary tree, with the words as leaf nodes, then we only need to follow the path to the leaf node of that word, without having to consider any of the other nodes.<br>
@@ -220,7 +226,7 @@ Since a balanced binary tree has a depth of \(\text{log}_2 (|V|)\), we only need
 <p>\( p(\text{right} | n, c) = \sigma (h^\top v'_{n})\).</p>
 <p>This is almost the same as the computations in the regular softmax; now instead of computing the dot product between \(h\) and the output word embedding \(v'_{w}\), we compute the dot product between \(h\) and the embedding \(v'_{w}\) of each node in the tree; additionally, instead of computing a probability distribution over the entire vocabulary words, we output just one probability, the probability of going right at node \(n\) in this case, with the sigmoid function. Conversely, the probability of turning left is simply \( 1 - p(  \text{right}   |    n,c)\).</p>
 <figure>
-      <img src="../content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax">
+      <img src="http://ruder.io/content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 2: Hierarchical softmax computations (<a href="https://www.youtube.com/watch?v=B95LTf2rVWM">Hugo Lachorelle's Youtube lectures</a>)</figcaption>
 </figure>
 <p>The probability of a word \(w\) given its context \(c\) is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. To illustrate this, given the context "the", "dog", "and", "the", the probability of the word "cat" in Figure 2 can be computed as the product of the probability of turning left at node 1, turning right at node 2, and turning right at node 5. Hugo Lachorelle gives a more detailed account in his excellent <a href="https://www.youtube.com/watch?v=B95LTf2rVWM">lecture video</a>. Rong (2014) <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> also does a good job of explaining these concepts and also derives the derivatives of H-Softmax.</p>
@@ -244,7 +250,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <p>Chen et al. (2015) <sup class="footnote-ref"><a href="index.html#fn8" id="fnref8">[8]</a></sup> introduce a variation on the traditional softmax layer, the Differentiated Softmax (D-Softmax). D-Softmax is based on the intuition that not all words require the same number of parameters: Many occurrences of frequent words allow us to fit many parameters to them, while extremely rare words might only allow to fit a few.</p>
 <p>In order to do this, instead of the dense matrix of the regular softmax layer of size \(d    \times    |V| \) containing the output word embeddings \( v'_w \in \mathbb{R}^d \), they use a sparse matrix. They then arrange \( v'_w\) in blocks sorted by frequency, with the embeddings in each block being of a certain dimensionality \(d_k \). The number of blocks and their embedding sizes are hyperparameters that can be tuned.</p>
 <figure>
-      <img src="../content/images/2016/05/differentiated_softmax_1.png" style="width: 30%" title="Differentiated softmax">
+      <img src="http://ruder.io/content/images/2016/05/differentiated_softmax_1.png" style="width: 30%" title="Differentiated softmax">
 <figcaption>Figure 3: Differentiated softmax (Chen et al. (2015))</figcaption>
 </figure>
 <p>In Figure 3, embeddings in partition \(A\) are of dimensionality \(d_A\) (these are embeddings of frequent words, as they are allocated more parameters), while embeddings in partitions \(B\) and \(C\) have \(d_B\) and \(d_C\) dimensions respectively. Note that all areas not part of any partition, i.e. the non-shaded areas in Figure 1, are set to \(0\).</p>
@@ -253,7 +259,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <h2 id="cnnsoftmax">CNN-Softmax</h2>
 <p>Another modification to the traditional softmax layer is inspired by recent work by Kim et al. (2016) <sup class="footnote-ref"><a href="index.html#fn9" id="fnref9">[9]</a></sup> who produce input word embeddings \(v_w\) via a character-level CNN. Jozefowicz et al. (2016) in turn suggest to do the same thing for the output word embeddings \(v'_w\) via a character-level CNN -- and refer to this as CNN-Softmax. Note that if we have a CNN at the input and at the output as in Figure 4, the CNN generating the output word embeddings \(v'_w\) is necessarily different from the CNN generating the input word embeddings \(v_w\), just as the input and output word embedding matrices would be different.</p>
 <figure>
-      <img src="../content/images/2016/05/cnn-softmax_1.png" style="width: 30%" title="CNN-Softmax">
+      <img src="http://ruder.io/content/images/2016/05/cnn-softmax_1.png" style="width: 30%" title="CNN-Softmax">
 <figcaption>Figure 4: CNN-Softmax (Jozefowicz et al. (2016))</figcaption>
 </figure>
 <p>While this still requires computing the regular softmax normalization, this approach drastically reduces the number of parameters of the model: Instead of storing an embedding matrix of \(d    \times    |V| \), we now only need to keep track of the parameters of the CNN. During testing, the output word embeddings \(v'_w\) can be pre-computed, so that there is no loss in performance.</p>
@@ -303,7 +309,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 <p>Noise Contrastive Estimation (NCE) (Gutmann and Hyvärinen, 2010) <sup class="footnote-ref"><a href="index.html#fn14" id="fnref14">[14]</a></sup> is proposed by Mnih and Teh (2012) <sup class="footnote-ref"><a href="index.html#fn15" id="fnref15">[15]</a></sup> as a more stable sampling method than Importance Sampling (IS), as we have seen that IS poses the risk of having the proposal distribution \(Q\) diverge from the distribution \(P\) that should be optimized. In contrast to the former, NCE does not try to estimate the probability of a word directly. Instead, it uses an auxiliary loss that also optimises the goal of maximizing the probability of correct words.</p>
 <p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the <a href="http://ruder.io/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
 <figure>
-      <img src="../content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
+      <img src="http://ruder.io/content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
 <figcaption>Figure 4: Noise Contrastive Estimation (<a href="http://scholar.sun.ac.za/handle/10019.1/98758">Stephan Gouws' PhD dissertation</a>) </figcaption>
 </figure>
 <p>For every word \(w_i\) given its context \(c_i \) of \(n\) previous words \(w_{t-1} , \cdots , w_{t-n+1}\) in the training set, we thus generate \(k\) noise samples \(\tilde{w}_{ik}\) from a noise distribution \(Q\). As in IS, we can sample from the unigram distribution of the training set. As we need labels to perform our binary classification task, we designate all correct words \(w_i\) given their context \(c_i\) as true (\(y=1\)) and all noise samples \(\tilde{w}_{ik}\) as false (\(y=0\)).</p>
@@ -582,7 +588,7 @@ Differentiated Softmax generally does well for both small and large vocabularies
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -604,7 +610,7 @@ Differentiated Softmax generally does well for both small and large vocabularies
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/word-embeddings/">word embeddings</a></h3>
@@ -623,71 +629,7 @@ Differentiated Softmax generally does well for both small and large vocabularies
                     </footer>
                 </article>
 
-                <article class="post-card post tag-events tag-natural-language-processing">
-        <a class="post-card-image-link" href="../lisbon-machine-learning-summer-school-highlights/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/08/group_picture-1.jpg)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../lisbon-machine-learning-summer-school-highlights/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">events</span>
-                <h2 class="post-card-title">LxMLS 2016 Highlights</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>The Lisbon Machine Learning School (LxMLS) is an annual event that brings together researchers and graduate students in ML, NLP, and Computational Linguistics. This post discusses highlights, key insights, and takeaways from the 6th edition of the summer school.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">14 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-word-embeddings tag-natural-language-processing tag-language-models">
-        <a class="post-card-image-link" href="../word-embeddings-1/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/04/word_embeddings_colah.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../word-embeddings-1/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">word embeddings</span>
-                <h2 class="post-card-title">On word embeddings - Part 1</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Word embeddings popularized by word2vec are pervasive in current NLP applications. The history of word embeddings, however, goes back a lot further. This post explores the history of word embeddings in the context of language modelling.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">15 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -721,29 +663,6 @@ Differentiated Softmax generally does well for both small and large vocabularies
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/word-embeddings-softmax/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -775,7 +694,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -842,7 +761,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

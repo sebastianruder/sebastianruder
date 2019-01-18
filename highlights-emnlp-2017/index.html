@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="This post gives an overview of highlights of the Conference on Empirical Methods in Natural Language Processing (EMNLP) 2017 in Copenhagen.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -90,14 +90,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -170,7 +170,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2017/09/emnlp_landscape.jpg)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2017/09/emnlp_landscape.jpg 300w,
+                            u=http://ruder.io/content/images/size/w600/2017/09/emnlp_landscape.jpg 600w,
+                            u=http://ruder.io/content/images/size/w1000/2017/09/emnlp_landscape.jpg 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2017/09/emnlp_landscape.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2017/09/emnlp_landscape.jpg" alt="Highlights of EMNLP 2017: Exciting datasets, return of the clusters, and more">
             </figure>
 
             <section class="post-full-content">
@@ -181,12 +187,12 @@ MathJax.Hub.Config({
 <p>I spent the past week at the Conference on Empirical Methods in Natural Language Processing (EMNLP) 2017 in Copenhagen, Denmark. The conference handbook can be found <a href="http://emnlp2017.net/downloads/handbook.pdf">here</a> and the proceedings can be found <a href="http://aclweb.org/anthology/D/D17/">here</a>. Videos of the conference talks and presentations can be found <a href="https://ku.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx#folderID=%229042b495-7b6b-4169-a5a1-d250cc0ee4ec%22">here</a>.</p>
 <p>The program consisted of two days of workshops and tutorials and three days of main conference. The conference was superbly organized, had a great venue, and a social event with fireworks.</p>
 <figure>
-      <img src="../content/images/2017/09/emnlp_fireworks-1.jpg" style="width: 60%; height: 60%" title="EMNLP 2017 fireworks">
+      <img src="http://ruder.io/content/images/2017/09/emnlp_fireworks-1.jpg" style="width: 60%; height: 60%" title="EMNLP 2017 fireworks">
 <figcaption>Figure 1: Fireworks at the social event</figcaption>
 </figure>
 <p>225 long papers, 107 papers, and 9 TACL papers had been accepted, with a clear uptick of submissions compared to last year. The number of long and short paper submissions to EMNLP this year was even higher than those at ACL for the first time within the last 13 years, as can be seen in Figure 2.</p>
 <figure>
-      <img src="../content/images/2017/09/long_short_paper_submissions_emnlp_2017.jpg" style="width: 60%; height: 60%" title="Long and short paper submissions EMNLP 2017">
+      <img src="http://ruder.io/content/images/2017/09/long_short_paper_submissions_emnlp_2017.jpg" style="width: 60%; height: 60%" title="Long and short paper submissions EMNLP 2017">
 <figcaption>Figure 2: Long and short paper submissions at ACL and EMNLP from 2004-2017</figcaption>
 </figure>
 <p>In the following, I will outline my highlights and list some research papers that caught my eye.</p>
@@ -197,7 +203,7 @@ MathJax.Hub.Config({
 <li>While he did not introduce a new dataset, Nando de Freitas made the point during <a href="http://emnlp2017.net/invited-speakers.html">his keynote</a> that the best environment for learning and evaluating language is simulation.</li>
 </ul>
 <figure>
-      <img src="../content/images/2017/09/nando_de_freitas_vision.jpg" style="width: 60%; height: 60%" title="Nando de Freitas' vision for AI research">
+      <img src="http://ruder.io/content/images/2017/09/nando_de_freitas_vision.jpg" style="width: 60%; height: 60%" title="Nando de Freitas' vision for AI research">
 <figcaption>Figure 3: Nando de Freitas’ vision for AI research</figcaption>
 </figure>
 <p><strong>Return of the clusters</strong>   Brown clusters, an agglomerative, hierarchical clustering of word types based on contexts that was introduced in 1992 seem to come in vogue again. They were found to be particularly helpful for cross-lingual applications, while clusters were key features in several approaches:</p>
@@ -208,7 +214,7 @@ MathJax.Hub.Config({
 <li>In his talk at the <a href="https://sites.google.com/view/sclem2017/home">SCLeM workshop</a>, Noah Smith cites the benefits of using Brown clusters as features for tasks such as POS tagging and sentiment analysis.</li>
 </ul>
 <figure>
-      <img src="../content/images/2017/09/noah_smith_benefits_clustering.jpg" style="width: 60%; height: 60%" title="Nando de Freitas' vision for AI research">
+      <img src="http://ruder.io/content/images/2017/09/noah_smith_benefits_clustering.jpg" style="width: 60%; height: 60%" title="Nando de Freitas' vision for AI research">
 <figcaption>Figure 4: Noah Smith on the benefits of clustering in his invited talk at the SCLeM workshop</figcaption>
 </figure>
 <p><strong>Distant supervision</strong>   Distant supervision can be leveraged to collect large amounts of noisy training data, which can be useful in many applications. Some papers used novel forms of distant supervision to create new corpora or to train a model more effectively:</p>
@@ -228,7 +234,7 @@ MathJax.Hub.Config({
 <li><a href="https://ryancotterell.github.io/">Ryan Cotterell</a> gave a great, movie-inspired tutorial on combining the best of FSTs (cowboys) and sequence-to-sequence models (aliens) for string-to-string transduction. While evaluated on morphological segmentation, the tutorial raised awareness in an entertaining way that often the best of both worlds, i.e. a combination of traditional and neural approaches performs best.</li>
 </ul>
 <figure>
-      <img src="../content/images/2017/09/ryan_cotterell_fsts_seq2seq.jpg" style="width: 60%; height: 60%" title="Combining FSTs and seq2seq models">
+      <img src="http://ruder.io/content/images/2017/09/ryan_cotterell_fsts_seq2seq.jpg" style="width: 60%; height: 60%" title="Combining FSTs and seq2seq models">
 <figcaption>Figure 5: Ryan Cotterell on combining FSTs and seq2seq models for string-to-string transduction
 </figcaption>
 </figure>
@@ -251,7 +257,7 @@ MathJax.Hub.Config({
 <li><a href="http://aclweb.org/anthology/D/D17/D17-1258.pdf">Braud et al.</a> propose a robust, cross-lingual discourse segmentation model that only relies on POS tags. They show that dependency information is less useful than expected; it is important to evaluate our models on multiple languages, so we do not overfit to features that are specific to analytic languages, such as English.</li>
 </ul>
 <figure>
-      <img src="../content/images/2017/09/anders_sogaard_crosslingual.jpg" style="width: 60%; height: 60%" title="Anders Søgaard on cross-lingual embeddings">
+      <img src="http://ruder.io/content/images/2017/09/anders_sogaard_crosslingual.jpg" style="width: 60%; height: 60%" title="Anders Søgaard on cross-lingual embeddings">
 <figcaption>Figure 6: Anders Søgaard demonstrating the similarities between different cross-lingual embedding models at the cross-lingual representations tutorial
 </figcaption>
 </figure>
@@ -274,7 +280,7 @@ MathJax.Hub.Config({
 <li><a href="https://www.aclweb.org/anthology/D17-1323">Zhao et al.</a> won the best paper award for an approach using Lagrangian relaxation to inject constraints based on corpus-level label statistics. An important finding of their work is bias amplification: While some bias is inherent in all datasets, they observed that models trained on the data amplified its bias. While a gendered dataset might only contain women in 30% of examples, the situation at prediction time might thus be even more dire.</li>
 </ul>
 <figure>
-      <img src="../content/images/2017/09/bias_amplification.jpg" style="width: 60%; height: 60%" title="Reducing bias amplification">
+      <img src="http://ruder.io/content/images/2017/09/bias_amplification.jpg" style="width: 60%; height: 60%" title="Reducing bias amplification">
 <figcaption>Figure 7: Zhao et al.’s proposed method for reducing bias amplification
 </figcaption>
 </figure>
@@ -293,7 +299,7 @@ MathJax.Hub.Config({
 <li><a href="http://aclweb.org/anthology/D/D17/D17-1321.pdf">Kottur et al.</a> show in their best short paper that language does not emerge naturally when two agents are cooperating, but that they can be coerced to develop compositional expressions.</li>
 </ul>
 <figure>
-      <img src="../content/images/2017/09/multi-agent_setup.jpg" style="width: 60%; height: 60%" title="Reducing bias amplification">
+      <img src="http://ruder.io/content/images/2017/09/multi-agent_setup.jpg" style="width: 60%; height: 60%" title="Reducing bias amplification">
 <figcaption>Figure 8: The multi-agent setup in the paper of Kottur et al.
 </figcaption>
 </figure>
@@ -319,7 +325,7 @@ MathJax.Hub.Config({
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -341,7 +347,7 @@ MathJax.Hub.Config({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/">natural language processing</a></h3>
@@ -360,71 +366,7 @@ MathJax.Hub.Config({
                     </footer>
                 </article>
 
-                <article class="post-card post tag-multi-task-learning tag-natural-language-processing">
-        <a class="post-card-image-link" href="../multi-task-learning-nlp/">
-            <div class="post-card-image" style="background-image: url(../content/images/2017/09/soft_parameter_sharing.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../multi-task-learning-nlp/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">multi-task learning</span>
-                <h2 class="post-card-title">Multi-Task Learning Objectives for Natural Language Processing</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Multi-task learning is becoming increasingly popular in NLP but it is still not understood very well which tasks are useful. As inspiration, this post gives an overview of the most common auxiliary tasks used for multi-task learning for NLP.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">16 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-domain-adaptation tag-transfer-learning tag-natural-language-processing">
-        <a class="post-card-image-link" href="../learning-select-data/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/10/bayesian_optimization_framework.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../learning-select-data/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">domain adaptation</span>
-                <h2 class="post-card-title">Learning to select data for transfer learning</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Domain adaptation methods typically seek to identify features that are shared between the domains or learn representations that are general enough to be useful for both domains. This post discusses a complementary approach to domain adaptation that selects data that is useful for training the model.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">3 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -458,29 +400,6 @@ MathJax.Hub.Config({
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/highlights-emnlp-2017/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -512,7 +431,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -579,7 +498,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

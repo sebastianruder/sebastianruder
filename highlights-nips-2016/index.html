@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://ruder.io/highlights-nips-2016/">
@@ -89,14 +89,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -169,7 +169,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2016/12/nips_entry-2.jpg)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2016/12/nips_entry-2.jpg 300w,
+                            u=http://ruder.io/content/images/size/w600/2016/12/nips_entry-2.jpg 600w,
+                            u=http://ruder.io/content/images/size/w1000/2016/12/nips_entry-2.jpg 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2016/12/nips_entry-2.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2016/12/nips_entry-2.jpg" alt="Highlights of NIPS 2016: Adversarial learning, Meta-learning, and more">
             </figure>
 
             <section class="post-full-content">
@@ -181,12 +187,12 @@ MathJax.Hub.Config({
 <p>The Conference on Neural Information Processing Systems (NIPS) is (besides ICML) one of the two top conferences in machine learning. It took place for the first time in 1987 and is held every December, historically in close proximity to a ski resort. This year, in slight juxtaposition, it took place in sunny Barcelona.</p>
 <p>Machine Learning seems to become more pervasive every month. However, it is still sometimes hard to keep track of the actual extent of this development. One of the most accurate barometers for this evolution is the growth of NIPS itself. The number of attendees skyrocketed at this year’s conference growing by over 50% year-over-year.</p>
 <figure>
-      <img src="../content/images/2016/12/terry_law.jpg" style="width: 60%" title="Terry's Law">
+      <img src="http://ruder.io/content/images/2016/12/terry_law.jpg" style="width: 60%" title="Terry's Law">
 <figcaption>Figure 1: The growth of the number of attendees at NIPS follows (the newly coined) Terry’s Law (named after Terrence Sejnowski, the president of the NIPS foundation; faster growth than Moore's Law Law)</figcaption>
 </figure>
 <p>Unsurprisingly, Deep Learning (DL) was by far the most popular research topic, with about every fourth of more than 2,500 submitted papers (and 568 accepted papers) dealing with deep neural networks.</p>
 <figure>
-      <img src="../content/images/2016/12/submissions_distribution.png" style="width: 100%" title="Distribution of topics across NIPS 2016 submissions">
+      <img src="http://ruder.io/content/images/2016/12/submissions_distribution.png" style="width: 100%" title="Distribution of topics across NIPS 2016 submissions">
 <figcaption>Figure 2: Distribution of topics across all submitted papers (Source: <a href="http://www.tml.cs.uni-tuebingen.de/team/luxburg/misc/nips2016/index.php">The review process for NIPS 2016</a>)
 </figcaption>
 </figure>
@@ -194,7 +200,7 @@ MathJax.Hub.Config({
 <h1 id="generativeadversarialnetworks">Generative Adversarial Networks</h1>
 <p>One of the hottest developments within Deep Learning was Generative Adversarial Networks (GANs). The minimax game playing networks have by now won the favor of many luminaries in the field. Yann LeCun hails them as the most exciting development in ML in recent years. The organizers and attendees of NIPS seem to side with him: NIPS featured a tutorial by Ian Goodfellow about his brainchild, which led to a packed main conference hall.</p>
 <figure>
-      <img src="../content/images/2016/12/full_conference_hall_gan_tutorial.jpg" style="width: 70%" title="Full conference hall at GAN tutorial">
+      <img src="http://ruder.io/content/images/2016/12/full_conference_hall_gan_tutorial.jpg" style="width: 70%" title="Full conference hall at GAN tutorial">
 <figcaption>Figure 3: A full conference hall at the GAN tutorial
 </figcaption>
 </figure>
@@ -205,7 +211,7 @@ MathJax.Hub.Config({
 </ul>
 <p>In spite of their popularity, we know alarmingly little about what makes GANs so capable of generating realistic-looking images. In addition, making them work in practice is an arduous endeavour and a lot of (undocumented) hacks are necessary to achieve the best performance. Soumith Chintala presents a collection of these hacks in his <a href="https://github.com/soumith/ganhacks">"How to train your GAN" talk</a> at the Adversarial Training workshop.</p>
 <figure>
-      <img src="../content/images/2016/12/soumith_chintala_nips_2016_how_to_train_your_gan_poster.png" style="width: 50%" title="How to train your GAN">
+      <img src="http://ruder.io/content/images/2016/12/soumith_chintala_nips_2016_how_to_train_your_gan_poster.png" style="width: 50%" title="How to train your GAN">
 <figcaption>Figure 4: How to train your GAN (Source: <a href="https://twitter.com/soumithchintala/status/805111562503589889">Soumith Chintala</a>)
 </figcaption>
 </figure>
@@ -216,13 +222,13 @@ MathJax.Hub.Config({
 <p>Besides better hardware, Ng attributes the success of Deep Learning to two factors: In contrast to traditional methods, deep NNs are able to learn more effectively from large amounts of data. Secondly, end-to-end (supervised) Deep Learning allows us to learn to map from inputs directly to outputs.</p>
 <p>While this approach to training chatbots or self-driving cars is sufficient to write innovative research papers, Ng emphasized end-to-end DL is often not production-ready: A chatbot that maps from text directly to a response is not able to have a coherent conversation or fulfill a request, while mapping from an image directly to a steering command might have literally fatal side effects if the model has not encountered the corresponding part of the input space before. Rather, for a production model, we still want to have intermediate steps: For a chatbot, we prefer to have an inference engine that generates a response, while in a self-driving car, DL is used to identify obstacles, while the steering is performed by a traditional planning algorithm.</p>
 <figure>
-      <img src="../content/images/2016/12/ng_tutorial_end_to_end_dl.jpg" style="width: 100%" title="Andrew Ng on end-to-end Deep Learning">
+      <img src="http://ruder.io/content/images/2016/12/ng_tutorial_end_to_end_dl.jpg" style="width: 100%" title="Andrew Ng on end-to-end Deep Learning">
 <figcaption>Figure 5: Andrew Ng on end-to-end DL (right: end-to-end DL chatbot and chatbot with inference engine; left bottom: end-to-end DL self-driving car and self-driving car with intermediate steps)
 </figcaption>
 </figure>
 <p>Ng also shared that the most common mistake he sees in project teams is that they track the wrong metrics: In an applied machine learning project, the only relevant metrics are the training error, the development error, and the test error. These metrics alone enable the project team to know what steps to take, as he demonstrated in the diagram below:</p>
 <figure>
-      <img src="../content/images/2016/12/ng_tutorial_bias_variance.jpg" style="width: 100%" title="Andrew Ng's flowchart for applied ML projects">
+      <img src="http://ruder.io/content/images/2016/12/ng_tutorial_bias_variance.jpg" style="width: 100%" title="Andrew Ng's flowchart for applied ML projects">
 <figcaption>Figure 6: Andrew Ng’s flowchart for applied ML projects
 </figcaption>
 </figure>
@@ -231,7 +237,7 @@ MathJax.Hub.Config({
 <h1 id="recurrentneuralnetworks">Recurrent Neural Networks</h1>
 <p>The conference also featured a symposium dedicated to Recurrent Neural Networks (RNNs). The symposium coincided with the 20 year anniversary of LSTM...</p>
 <figure>
-      <img src="../content/images/2016/12/rnn_symposium.png" style="width: 70%" title="Jürgen Schmidhuber at the RNN symposium">
+      <img src="http://ruder.io/content/images/2016/12/rnn_symposium.png" style="width: 70%" title="Jürgen Schmidhuber at the RNN symposium">
 <figcaption>Figure 7: Jürgen Schmidhuber kicking off the RNN symposium
 </figcaption>
 </figure>
@@ -274,22 +280,22 @@ MathJax.Hub.Config({
 <p>Learning how to learn also plays a role in the pursuit of the elusive goal of attaining General Artificial Intelligence, which was a topic in several keynotes. Yann LeCun argued that in order to achieve General AI, machines need to learn common sense. While common sense is often vaguely mentioned in research papers, Yann LeCun gave a succinct explanation of what common sense is: "Predicting any part of the past, present or future percepts from whatever information is available." He called this predictive learning, but notes that this is really unsupervised learning.</p>
 <p>His talk also marked the appearance of a controversial and often tongue-in-cheek copied image of a cake, which he used to demonstrate that unsupervised learning is the most challenging task where we should concentrate our efforts, while RL is only the cherry on the icing of the cake.</p>
 <figure>
-      <img src="../content/images/2016/12/lecun_nips_2016_cake_slide.png" style="width: 70%" title="Yann LeCun's Cake slide">
+      <img src="http://ruder.io/content/images/2016/12/lecun_nips_2016_cake_slide.png" style="width: 70%" title="Yann LeCun's Cake slide">
 <figcaption>Figure 8: The Cake slide of <a href="https://drive.google.com/file/d/0BxKBnD5y2M8NREZod0tVdW5FLTQ/view">Yann LeCun's keynote</a></figcaption>
 </figure>
 <p>Drew Purves focused on the bilateral relationship between the environment and AI in what was probably the most aesthetically pleasing keynote of the conference (just look at those illustrations!).</p>
 <figure>
-      <img src="../content/images/2016/12/drew_purves_agent_illustrations.jpg" style="width: 70%" title="Drew Purves keynote illustrations">
+      <img src="http://ruder.io/content/images/2016/12/drew_purves_agent_illustrations.jpg" style="width: 70%" title="Drew Purves keynote illustrations">
 <figcaption>Figure 9: Illustrations by Max Cant of Drew Purves' keynote (Source: <a href="https://twitter.com/DrewPurves/status/806427029306560512">Drew Purves</a>)</figcaption>
 </figure>
 <p>He emphasized that while simulations of ecological tasks in naturalistic environments could be an important test bed for General AI, General AI is needed to maintain the biosphere in a state that will allow the continued existence of our civilization.</p>
 <figure>
-      <img src="../content/images/2016/12/drew_purves_nips_2016_nature_needs_ai_slide.png" style="width: 60%" title="Nature needs AI">
+      <img src="http://ruder.io/content/images/2016/12/drew_purves_nips_2016_nature_needs_ai_slide.png" style="width: 60%" title="Nature needs AI">
 <figcaption>Figure 10: Nature needs AI and AI needs Nature from Drew Purves' keynote</figcaption>
 </figure>
 <p>While it is frequently — and incorrectly — claimed that neural networks work so well because they emulate the brain’s behaviour, Saket Navlakha argued during his keynote that we can still learn a great deal from the engineering principles of the brain. For instance, rather than pre-allocating a large number of neurons, the brain generates 1000s of synapses per minutes until its second year. Afterwards, until adolescence, the number of synapses is pruned and decreases by ~50%.</p>
 <figure>
-      <img src="../content/images/2016/12/saket_navlakha_slide.jpg" style="width: 70%" title="Saket Navlakha keynote">
+      <img src="http://ruder.io/content/images/2016/12/saket_navlakha_slide.jpg" style="width: 70%" title="Saket Navlakha keynote">
 <figcaption>Figure 11: Saket Navlakha’s keynote</figcaption>
 </figure>
 <p>It will be interesting to see how neuroscience can help us to advance our field further.</p>
@@ -311,19 +317,19 @@ MathJax.Hub.Config({
 <h2 id="robotics">Robotics</h2>
 <p>Boston Robotics’ Spot proved that — even though everyone is excited by learning and learning-to-learn — traditional planning algorithms are enough to win the admiration of a hall full of learning enthusiasts.</p>
 <figure>
-      <img src="../content/images/2016/12/boston_dynamics_spot.png" style="width: 70%" title="Boston Dynamics Spot">
+      <img src="http://ruder.io/content/images/2016/12/boston_dynamics_spot.png" style="width: 70%" title="Boston Dynamics Spot">
 <figcaption>Figure 12: Boston Robotics’ Spot amid a crowd of fascinated onlookers</figcaption>
 </figure>
 <h2 id="apple">Apple</h2>
 <p>Apple, one of the most secretive companies in the world, has decided to be more open, to publish, and to engage with academia. This can only be good for the community. I'm particularly looking forward to more <a href="https://arxiv.org/abs/1610.08120v1">apple research papers</a>.</p>
 <figure>
-      <img src="../content/images/2016/12/russ_salakhutdinov_apple_nips_2016_slide.png" style="width: 60%" title="Ruslan Salakhutdinov at Apple lunch event">
+      <img src="http://ruder.io/content/images/2016/12/russ_salakhutdinov_apple_nips_2016_slide.png" style="width: 60%" title="Ruslan Salakhutdinov at Apple lunch event">
 <figcaption>Figure 13: Ruslan Salakhutdinov at the Apple lunch event</figcaption>
 </figure>
 <h2 id="uber">Uber</h2>
 <p>Uber announced their acquisition of Cambridge-based AI startup Geometric Intelligence and threw one of the most popular parties of NIPS.</p>
 <figure>
-      <img src="../content/images/2016/12/geometric_intelligence_logo.jpg" style="width: 30%" title="Geometric Intelligence Logo">
+      <img src="http://ruder.io/content/images/2016/12/geometric_intelligence_logo.jpg" style="width: 30%" title="Geometric Intelligence Logo">
 <figcaption>Figure 14: The Geometric Intelligence logo</figcaption>
 </figure>
 <h2 id="rocketai">Rocket AI</h2>
@@ -343,7 +349,7 @@ MathJax.Hub.Config({
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -365,7 +371,7 @@ MathJax.Hub.Config({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/meta-learning/">meta-learning</a></h3>
@@ -383,71 +389,7 @@ MathJax.Hub.Config({
                     </footer>
                 </article>
 
-                <article class="post-card post tag-transfer-learning tag-domain-adaptation">
-        <a class="post-card-image-link" href="../transfer-learning/">
-            <div class="post-card-image" style="background-image: url(../content/images/2017/03/transfer_learning_digits.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../transfer-learning/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">transfer learning</span>
-                <h2 class="post-card-title">Transfer Learning - Machine Learning's Next Frontier</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Deep learning models excel at learning from a large number of labeled examples, but typically do not generalize to conditions not seen during training. This post gives an overview of transfer learning, motivates why it warrants our application, and discusses practical applications and methods.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">28 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-cross-lingual tag-word-embeddings tag-natural-language-processing">
-        <a class="post-card-image-link" href="../cross-lingual-embeddings/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/10/zou_et_al_2013.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../cross-lingual-embeddings/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">cross-lingual</span>
-                <h2 class="post-card-title">A survey of cross-lingual word embedding models</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Monolingual word embeddings are pervasive in NLP. To represent meaning and transfer knowledge across different languages, cross-lingual word embeddings can be used. Such methods learn representations of words in a joint embedding space.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">41 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -481,29 +423,6 @@ MathJax.Hub.Config({
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/highlights-nips-2016/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -535,7 +454,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -602,7 +521,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

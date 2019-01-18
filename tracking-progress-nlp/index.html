@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="This post presents a new resource to track the progress in NLP, including the datasets and the current state-of-the-art for the most common NLP tasks.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -87,14 +87,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -167,7 +167,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">Tracking the Progress in Natural Language Processing</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2018/10/squad_progress.png)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2018/10/squad_progress.png 300w,
+                            u=http://ruder.io/content/images/size/w600/2018/10/squad_progress.png 600w,
+                            u=http://ruder.io/content/images/size/w1000/2018/10/squad_progress.png 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2018/10/squad_progress.png 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2018/10/squad_progress.png" alt="Tracking the Progress in Natural Language Processing">
             </figure>
 
             <section class="post-full-content">
@@ -180,7 +186,7 @@ MathJax.Hub.Config({
 <p>The aim is to have a comprehensive and up-to-date resource where everyone can see at a glance the state-of-the-art for the tasks they care about. Datasets, which already do a great job at tracking this such as <a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD</a> or <a href="https://nlp.stanford.edu/projects/snli/">SNLI</a> using a public leaderboard will simply be referenced instead.</p>
 <p>My hope is that such a resource will give a broader sense of progress in the field than results in individual papers. It might also make it easier to identify tasks or areas where progress has been lacking. Another benefit is that such a resource may encourage serendipity: chancing upon an interesting new task or method. Finally, a positive by-product of having the state-of-the-art for each task easily accessible may be that it will be harder to justify (accidentally) comparing to weak baselines. For instance, the perplexity of the best baseline on the Penn Treebank varied dramatically across 10 language modeling papers submitted to ICLR 2018 (see below).</p>
 <figure>
-      <img src="../content/images/2018/06/ppl_language_modeling_iclr_2018.png" style="width: 70%" title="Learning rate schedules with warm restarts">
+      <img src="http://ruder.io/content/images/2018/06/ppl_language_modeling_iclr_2018.png" style="width: 70%" title="Learning rate schedules with warm restarts">
 <figcaption>Figure 1: Comparison of perplexity (PPL) of proposed model vs. PPL of best baseline across 10 language modeling papers submitted to ICLR 2018 (credit: <a href="https://twitter.com/AaronJaech/status/924678973497446400">@AaronJaech</a>)</figcaption>
 </figure>
 <p>Credit for the cover image is due to the <a href="https://www.eff.org/ai/metrics#Reading-Comprehension">Electronic Frontier Foundation</a>.</p>
@@ -194,7 +200,7 @@ MathJax.Hub.Config({
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -216,7 +222,7 @@ MathJax.Hub.Config({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/">natural language processing</a></h3>
@@ -235,71 +241,7 @@ MathJax.Hub.Config({
                     </footer>
                 </article>
 
-                <article class="post-card post tag-natural-language-processing tag-transfer-learning tag-language-models">
-        <a class="post-card-image-link" href="../nlp-imagenet/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/07/lm_objective.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../nlp-imagenet/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">natural language processing</span>
-                <h2 class="post-card-title">NLP's ImageNet moment has arrived</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Big changes are underway in the world of NLP. The long reign of word vectors as NLP's core representation technique has seen an exciting new line of challengers emerge. These approaches demonstrated that pretrained language models can achieve state-of-the-art results and herald a watershed moment.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">15 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-natural-language-processing tag-events tag-reinforcement-learning tag-transfer-learning">
-        <a class="post-card-image-link" href="../highlights-naacl-2018/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/06/IMG_20180603_183707_conference_venue.jpg)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../highlights-naacl-2018/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">natural language processing</span>
-                <h2 class="post-card-title">Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>This post discusses highlights of the 16th Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT 2018). It focuses on Generalization, the Test-of-Time awards, and Dialogue Systems.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">15 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -333,29 +275,6 @@ MathJax.Hub.Config({
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/tracking-progress-nlp/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -387,7 +306,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -454,7 +373,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -89,14 +89,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -169,7 +169,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">On word embeddings - Part 1</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2016/04/word_embeddings_colah.png)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2016/04/word_embeddings_colah.png 300w,
+                            u=http://ruder.io/content/images/size/w600/2016/04/word_embeddings_colah.png 600w,
+                            u=http://ruder.io/content/images/size/w1000/2016/04/word_embeddings_colah.png 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2016/04/word_embeddings_colah.png 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2016/04/word_embeddings_colah.png" alt="On word embeddings - Part 1">
             </figure>
 
             <section class="post-full-content">
@@ -220,7 +226,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>\(p(w_t : | : w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
 <p>The inner product \( h^\top v'_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).</p>
 <figure>
-      <img src="../content/images/2016/04/nn_language_model-1.jpg" style="width: 80%" title="SGD without momentum">
+      <img src="http://ruder.io/content/images/2016/04/nn_language_model-1.jpg" style="width: 80%" title="SGD without momentum">
 <figcaption>Figure 1: A neural language model (Bengio et al., 2006)</figcaption>
 </figure>
 <p>Note that we need to calculate the probability of every word \( w \) at the output layer of the neural network. To do this efficiently, we perform a matrix multiplication between \(h\) and a weight matrix whose rows consist of \(v'_w\) of all words \(w\) in \(V\). We then feed the resulting vector, which is often referred to as a logit, i.e. the output of a previous layer that is not a probability, with \(d = |V|\) into the softmax, while the softmax layer "squashes" the vector to a probability distribution over the words in \(V\).</p>
@@ -234,7 +240,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <h2 id="classicneurallanguagemodel">Classic neural language model</h2>
 <p>The classic neural language model proposed by  Bengio et al. <sup class="footnote-ref"><a href="index.html#fn1" id="fnref1">[1]</a></sup> in 2003 consists of a one-hidden layer feed-forward neural network that predicts the next word in a sequence as in Figure 2.</p>
 <figure>
-      <img src="../content/images/2016/04/bengio_language_model.png" style="width: 70%" title="Language model by Bengio et al.">
+      <img src="http://ruder.io/content/images/2016/04/bengio_language_model.png" style="width: 70%" title="Language model by Bengio et al.">
 <figcaption>Figure 2: Classic neural language model (Bengio et al., 2003)</figcaption>
 </figure>
 <p>Their model maximizes what we've described above as the prototypical neural language model objective (we omit the regularization term for simplicity):</p>
@@ -259,7 +265,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>\(J_\theta\ = \sum\limits_{x \in X} \sum\limits_{w \in V} \text{max} \lbrace 0, 1 - f_\theta(x) + f_\theta(x^{(w)}) \rbrace \).</p>
 <p>They sample correct windows \(x\) containing \(n\) words from the set of all possible windows \(X\) in their corpus. For each window \(x\), they then produce a corrupted, incorrect version \(x^{(w)}\) by replacing \(x\)'s centre word with another word \(w\) from \(V\). By minimizing the objective, the model will now learn to assign a score for the correct window that is higher than the score for the incorrect window by at least a margin of \(1\). Their model architecture, depicted in Figure 3 without the ranking objective, is analogous to Bengio et al.'s model.</p>
 <figure>
-      <img src="../content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%" title="C&amp;W model">
+      <img src="http://ruder.io/content/images/2016/09/nlp_almost_from_scratch_window_approach.png" style="width: 50%" title="C&amp;W model">
 <figcaption>Figure 3: The C&amp;W model without ranking objective (Collobert et al., 2011)</figcaption>
 </figure>
 <p>The resulting language model produces embeddings that already possess many of the relations word embeddings have become known for, e.g. countries are clustered close together and syntactically similar words occupy similar locations in the vector space. While their ranking objective eliminates the complexity of the softmax, they keep the intermediate fully-connected hidden layer (<strong>2.</strong>) of Bengio et al. around (the <strong>HardTanh</strong> layer in Figure 3), which constitutes another source of expensive computation. Partially due to this, their full model trains for seven weeks in total with \(|V| = 130000\).</p>
@@ -276,7 +282,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <h3 id="continuousbagofwordscbow">Continuous bag-of-words (CBOW)</h3>
 <p>While a language model is only able to look at the past words for its predictions, as it is evaluated on its ability to predict each next word in the corpus, a model that just aims to generate accurate word embeddings does not suffer from this restriction. Mikolov et al. thus use both the \(n\) words before and after the target word \( w_t \) to predict it as depicted in Figure 4. They call this continuous bag-of-words (CBOW), as it uses continuous representations whose order is of no importance.</p>
 <figure>
-      <img src="../content/images/2016/02/cbow.png" style="width: 50%" title="Continuous bag-of-words">
+      <img src="http://ruder.io/content/images/2016/02/cbow.png" style="width: 50%" title="Continuous bag-of-words">
 <figcaption>Figure 4: Continuous bag-of-words (Mikolov et al., 2013)</figcaption>
 </figure>
 <p>The objective function of CBOW in turn is only slightly different than the language model one:</p>
@@ -285,7 +291,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <h3 id="skipgram">Skip-gram</h3>
 <p>While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words as can be seen in Figure 5.</p>
 <figure>
-      <img src="../content/images/2016/02/skip-gram.png" style="width: 50%" title="Skip-gram">
+      <img src="http://ruder.io/content/images/2016/02/skip-gram.png" style="width: 50%" title="Skip-gram">
 <figcaption>Figure 5: Skip-gram (Mikolov et al., 2013)</figcaption>
 </figure>
 <p>The skip-gram objective thus sums the log probabilities of the surrounding \( n \) words  to the left and to the right of the target word \( w_t \) to produce the following objective:</p>
@@ -347,7 +353,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -369,7 +375,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/word-embeddings/">word embeddings</a></h3>
@@ -388,71 +394,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
                     </footer>
                 </article>
 
-                <article class="post-card post tag-word-embeddings tag-natural-language-processing tag-language-models">
-        <a class="post-card-image-link" href="../word-embeddings-softmax/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/06/softmax_classifier.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../word-embeddings-softmax/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">word embeddings</span>
-                <h2 class="post-card-title">On word embeddings - Part 2: Approximating the Softmax</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">33 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-optimization">
-        <a class="post-card-image-link" href="../optimizing-gradient-descent/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/09/loss_function_image_tumblr.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../optimizing-gradient-descent/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">optimization</span>
-                <h2 class="post-card-title">An overview of gradient descent optimization algorithms</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Gradient descent is the preferred way to optimize neural networks and many other machine learning algorithms but is often used as a black box. This post explores how many of the most popular gradient-based optimization algorithms such as Momentum, Adagrad, and Adam actually work.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">28 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -486,29 +428,6 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/word-embeddings-1/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -540,7 +459,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -607,7 +526,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

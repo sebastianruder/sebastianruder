@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://ruder.io/lisbon-machine-learning-summer-school-highlights/">
@@ -87,14 +87,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -167,7 +167,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">LxMLS 2016 Highlights</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2016/08/group_picture-1.jpg)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2016/08/group_picture-1.jpg 300w,
+                            u=http://ruder.io/content/images/size/w600/2016/08/group_picture-1.jpg 600w,
+                            u=http://ruder.io/content/images/size/w1000/2016/08/group_picture-1.jpg 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2016/08/group_picture-1.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2016/08/group_picture-1.jpg" alt="LxMLS 2016 Highlights">
             </figure>
 
             <section class="post-full-content">
@@ -215,7 +221,7 @@ Participants had a chance to join workshops and labs, where they got hands-on ex
 <p><a href="http://homes.cs.washington.edu/~nasmith/">Noah Smith</a> of the University Washington kicked off the third day of the summer school with a compelling lecture about sequence models.<br>
 To test your understanding of sequence models, try to answer -- without reading further -- the following question: What is the most basic sequence model depicted in Figure 1?</p>
 <figure>
-      <img src="../content/images/2016/08/bag_of_words.png" style="width: 50%" title="Bag-of-words model">
+      <img src="http://ruder.io/content/images/2016/08/bag_of_words.png" style="width: 50%" title="Bag-of-words model">
 <figcaption>Figure 1: The most basic sequence model</figcaption>
 </figure>
 <p>Correct! It is the bag-of-words (notice which words have "fallen" out of the bag-of-words). The bag-of-words model makes the strongest independence assumption of all sequence models: It supposes that each word is entirely independent of its predecessors. It is obvious why models that rely on this assumption do only a poor job at modelling language: every word naturally depends on the words that have preceded it.</p>
@@ -225,7 +231,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>where \(\gamma\) is the probability of the current word \(w_i\) given its \(m\) previous words, i.e. the probability to transition from the previous words to the current word.</p>
 <p>We can view bag-of-words and \(m^{\text{th}}\) Order Markov Models as occupying the following spectrum:</p>
 <figure>
-      <img src="../content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%" title="From bag-of-words to history-based models">
+      <img src="http://ruder.io/content/images/2016/08/mth_order_markov_spectrum.png" style="width: 80%" title="From bag-of-words to history-based models">
 <figcaption>Figure 2: From bag-of-words to history-based models</figcaption>
 </figure>
 <p>As we go right in Figure 2, we make weaker independence assumption and in exchange gain richer expressive power, while requiring more parameters -- until we eventually obtain the most expressive -- and most rigid -- model, a history-based model where each word depends on its entire history, i.e. all preceding words.</p>
@@ -235,7 +241,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>Consequently, the HMM is a joint model over observable symbols and hidden/latent/unknown classes. HMMs have traditionally been used in part-of-speech tagging or named entity recognition where the hidden states are POS and NER tags respectively.</p>
 <p>If we want to determine the most probable sequence of hidden states, we face a space of potential sequences that grows exponentially with the sequence length. The classic dynamic algorithm to cope with this problem is the Viterbi algorithm, which is used in HMMs, CRFs, and other sequence models to calculate the most probable sequence of hidden states: It lays out the symbol sequence and all possible states in a grid and proceeds left-to-right to compute the maximum probability to transition in every new state given the previous states. The most probable sequence can then be found by back-tracking as in Figure 3.</p>
 <figure>
-      <img src="../content/images/2016/08/viterbi.png" style="width: 70%" title="Viterbi algorithm">
+      <img src="http://ruder.io/content/images/2016/08/viterbi.png" style="width: 70%" title="Viterbi algorithm">
 <figcaption>Figure 3: The Viterbi algorithm</figcaption>
 </figure>
 <p>A close relative is the forward-backward algorithm, which is used to calculate the probability of a word sequence and the probabilities of each word's states, e.g. for language modelling. Indeed, the only difference between Viterbi and the forward-backward algorithm is that Viterbi takes the maximum of the probabilities of the previous state, while forward-backward takes the sum. In this sense, they correspond to the same abstract algorithm, which is instantiated in two different semirings where a semiring informally is a set of values and some operations that obey certain properties.</p>
@@ -271,7 +277,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>An interesting perspective is that imitation learning can be seen as inverse reinforcement learning: Whereas we want to learn the best policy in reinforcement learning, we know the optimal policy in imitation learning, i.e. the labels in the training data; we then infer the per-action reward function and learn a policy, i.e. a classifier that can generalise to unseen data.</p>
 <h2 id="demoday">Demo Day</h2>
 <figure>
-      <img src="../content/images/2016/08/demo_day.jpg" style="width: 70%" title="Aylien stand at Demo Day">
+      <img src="http://ruder.io/content/images/2016/08/demo_day.jpg" style="width: 70%" title="Aylien stand at Demo Day">
 <figcaption>Figure 4: Aylien stand at Demo Day</figcaption>
 </figure>
 <p>In the evening of the fourth day, we presented -- along with other NLP companies and research labs -- Aylien at the LxMLS Demo Day.</p>
@@ -280,7 +286,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>Having looked at generic models that are able to cope with sequences and more complex structures, we now briefly mention some of the techniques that are commonly used to deal with one of language’s unique characteristics: syntax. To this end, <a href="http://research.google.com/pubs/author38945.html">Slav Petrov</a> of Google Research gave an in-depth lecture about syntax and parsing on the fifth day of the summer school, which discussed, among others, successful parsers such as the Charniak and the Berkeley parser, context-free grammars and phrase-based parsing, projective and non-projective dependency parsing, as well as more recent transition and graph-based parsers.</p>
 <p>To tie this to what we've already discussed, Figure 5 demonstrates how the distinction between generative and discriminative models applies to parsers.</p>
 <figure>
-      <img src="../content/images/2016/08/generative_discriminative.png" style="width: 80%" title="Generative vs. discriminative parsers">
+      <img src="http://ruder.io/content/images/2016/08/generative_discriminative.png" style="width: 80%" title="Generative vs. discriminative parsers">
 <figcaption>Figure 5: Generative vs. discriminative parsing models</figcaption>
 </figure>
 <h2 id="fromdependenciestoconstituents">From Dependencies to Constituents</h2>
@@ -294,12 +300,12 @@ To test your understanding of sequence models, try to answer -- without reading 
 <p>If you've worked with RNNs before, then you're most likely familiar with the exploding/vanishing gradients problem: As the length of the sequence increases, computations of the model get amplified, which leads to either exploding or vanishing gradients and thus renders the model incapable to learn. The intuition why advanced models such as LSTMs and GRUs mitigate this problem is that they use summations instead of multiplications (which lead to exponential growth).</p>
 <h2 id="deeplstms">Deep LSTMs</h2>
 <figure>
-      <img src="../content/images/2016/08/deep_lstms.png" style="width: 80%" title="Deep LSTMs">
+      <img src="http://ruder.io/content/images/2016/08/deep_lstms.png" style="width: 80%" title="Deep LSTMs">
 <figcaption>Figure 6: Deep LSTMs</figcaption>
 </figure>
 <p>Deep or stacked LSTMs are by now a very common sight in the literature and state-of-the-art for many sequence modelling problems. Still, descriptions of implementations often omit details, which might be perceived as self-evident. This, however, means that it is not always clear how a model looks like exactly or how it differs from similar architectures. The same applies to Deep LSTMs. The most standard convention feeds the input not only to the first but (via skip connections) also to subsequent layers as in Figure 6. Additionally, dropout is generally applied only between layers and not on the recurrent connections as this would drop out more and more value over time.</p>
 <figure>
-      <img src="../content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%" title="Dropout in Deep LSTMs">
+      <img src="http://ruder.io/content/images/2016/08/dropout_and_deep_lstms.png" style="width: 80%" title="Dropout in Deep LSTMs">
 <figcaption>Figure 7: Dropout in Deep LSTMs</figcaption>
 </figure>
 <h2 id="doesdepthmatter">Does Depth Matter?</h2>
@@ -310,7 +316,7 @@ To test your understanding of sequence models, try to answer -- without reading 
 <h2 id="characterbasedmodels">Character-based models</h2>
 <p>Character-based models have gained more popularity recently and for some tasks such as language modelling, using character-based LSTMs blows the results of word-based models out of the water, achieving a significantly lower perplexity with a lot fewer parameters particularly for morphologically rich languages.</p>
 <figure>
-      <img src="../content/images/2016/08/char_language_modeling.png" style="width: 80%" title="CharLSTM &gt; Word Lookup">
+      <img src="http://ruder.io/content/images/2016/08/char_language_modeling.png" style="width: 80%" title="CharLSTM &gt; Word Lookup">
 <figcaption>Figure 8: CharLSTM &gt; Word Lookup</figcaption>
 </figure>
 <h2 id="attention">Attention</h2>
@@ -345,7 +351,7 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -367,7 +373,7 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/events/">events</a></h3>
@@ -386,71 +392,7 @@ in contrast, attention is “soft” (all words are interpolated based on their 
                     </footer>
                 </article>
 
-                <article class="post-card post tag-word-embeddings tag-natural-language-processing">
-        <a class="post-card-image-link" href="../secret-word2vec/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/09/merge_from_ofoct--2-.jpg)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../secret-word2vec/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">word embeddings</span>
-                <h2 class="post-card-title">On word embeddings - Part 3: The secret ingredients of word2vec</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Word2vec is a pervasive tool for learning word embeddings. Its success, however, is mostly due to particular architecture choices. Transferring these choices to traditional distributional methods makes them competitive with popular word embedding methods.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">9 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-word-embeddings tag-natural-language-processing tag-language-models">
-        <a class="post-card-image-link" href="../word-embeddings-softmax/">
-            <div class="post-card-image" style="background-image: url(../content/images/2016/06/softmax_classifier.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../word-embeddings-softmax/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">word embeddings</span>
-                <h2 class="post-card-title">On word embeddings - Part 2: Approximating the Softmax</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">33 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -484,29 +426,6 @@ in contrast, attention is “soft” (all words are interpolated based on their 
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/lisbon-machine-learning-summer-school-highlights/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -538,7 +457,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -605,7 +524,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

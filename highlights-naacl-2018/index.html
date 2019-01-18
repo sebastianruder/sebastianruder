@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <meta name="description" content="Highlights of NAACL-HLT 2018 focusing on Generalization, the Test-of-Time awards, and Dialogue Systems, including memorable quotes from the conference.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -90,14 +90,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -170,7 +170,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2018/06/IMG_20180603_183707_conference_venue.jpg)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2018/06/IMG_20180603_183707_conference_venue.jpg 300w,
+                            u=http://ruder.io/content/images/size/w600/2018/06/IMG_20180603_183707_conference_venue.jpg 600w,
+                            u=http://ruder.io/content/images/size/w1000/2018/06/IMG_20180603_183707_conference_venue.jpg 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2018/06/IMG_20180603_183707_conference_venue.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2018/06/IMG_20180603_183707_conference_venue.jpg" alt="Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems">
             </figure>
 
             <section class="post-full-content">
@@ -203,19 +209,19 @@ MathJax.Hub.Config({
 <p>However, once a child can flawlessly count to 72, it <a href="https://penntoday.upenn.edu/research/penn-linguist-determines-tipping-point-for-children-learning-to-count">can generalize to any new numbers</a>. This magic number, 72, is given by the so-called tolerance principle, which prescribes that in order for a generalization rule to be productive, there can be at most N/ln(N) exceptions, where N is the total number of examples as can be seen in the Figure below. For counting, 72/ln(72) ≈ 17, which is exactly the number of exceptions until 72.</p>
 <p>Hitchhiker’s Guide to the Galaxy fans, however, need not be disappointed: in Chinese, the magic number is 42. Chinese only has 11 exceptions. As 42/ln(42) ≈ 11, Chinese children typically only need to learn to count up to 42 in order to generalize, which explains why Chinese children usually learn to count faster.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180602_092025_tolerance_principle.jpg" style="width: 70%" title="Tolerance principle">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180602_092025_tolerance_principle.jpg" style="width: 70%" title="Tolerance principle">
 <figcaption>Figure 1: The Tolerance Principle</figcaption>
 </figure>
 <p>It is also interesting to note that even though young children can count up to a certain number, they can’t tell you, for example, which number is higher than 24. Only after they’ve learned the rule can they actually apply it productively.</p>
 <p>The tolerance principle implies that if the total number of examples covered by the rule is smaller, it is easier to incorporate comparatively more exceptions. While children can productively learn language from few examples, this indicates that for few-shot learning (at least in the cognitive process of language acquisition), big data may actually be harmful. Insights from cognitive science may thus help us in developing models that generalize better.</p>
 <p>The choice of the best paper of the conference, <a href="https://arxiv.org/abs/1802.05365">Deep contextualized word representations</a>, also demonstrates an increasing interest in generalization. Embeddings from Language Models (ELMo) showed significant improvements over the state-of-the-art on a wide range of tasks as can be seen below. This---together with <a href="https://arxiv.org/abs/1801.06146">better ways to fine-tune pre-trained language models</a>---reveals the potential of transfer learning for NLP.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180604_160920_elmo.jpg" style="width: 70%" title="ELMo improvements">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180604_160920_elmo.jpg" style="width: 70%" title="ELMo improvements">
 <figcaption>Figure 2: Improvements by ELMo on six diverse NLP tasks</figcaption>
 </figure>
 <p>Generalization was also the topic of the <a href="https://newgeneralization.github.io/">Workshop on New Forms of Generalization in Deep Learning and Natural Language Processing</a>, which sought to analyze the failings of brittle models and propose new ways to evaluate and new models that would enable better generalization. Throughout the workshop, the room (seen below) was packed most of the time, which is both a testament to the prestige of the speakers and the community interest in the topic.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180605_110109_gendeep_room.jpg" style="width: 70%" title="Gen-Deep 2018">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180605_110109_gendeep_room.jpg" style="width: 70%" title="Gen-Deep 2018">
 <figcaption>Figure 3: The packed venue of the Gen-Deep Workshop</figcaption>
 </figure>
 <p>In the <a href="https://newgeneralization.github.io/slides/YejinChoi.pdf">first talk of the workshop</a>, Yejin Choi argued that natural language understanding (NLU) does not generalize to natural language generation (NLG): while pre-Deep Learning NLG models often started with NLU output, post-DL NLG seems less dependent on NLU. However, current neural NLG heavily depends on language models and neural NLG can be brittle; in many cases, baselines based on templates can actually work better.</p>
@@ -227,13 +233,13 @@ MathJax.Hub.Config({
 <p>Devi also showed that in many cases, VQA models do not even consider the entire question: in 50% of cases, only half the question is read. In particular, certain prefixes demonstrate the power of language priors: if the question begins with “Is there a clock…?”, the answer is “yes” 98% of the time; if the question begins with “Is the man wearing glasses…?”, the answer is “yes” 94% of the time. In order to counteract these biases, Devi and her collaborators introduced a <a href="https://arxiv.org/abs/1612.00837">new dataset of complimentary scenes</a>, which are very similar but differ in their answers. They also proposed a <a href="https://arxiv.org/abs/1712.00377">new setting for VQA</a> where for every question type, train and test sets have different prior distributions of answers.</p>
 <p>The final discussion with senior panelists (seen below) was arguably the highlight of the workshop; a summary can be found <a href="https://twitter.com/seb_ruder/status/1004110419563286529">here</a>. The main takeaways are that we need to develop models with inductive biases and that we need to do a better job of educating people on how to design experiments and identify biases in datasets.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180605_161710_panel.jpg" style="width: 100%" title="Gen-Deep 2018 panel">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180605_161710_panel.jpg" style="width: 100%" title="Gen-Deep 2018 panel">
 <figcaption>Figure 4: Panel discussion at the Generalization workshop (from left to right: Chris Manning, Percy Liang, Sam Bowman, Yejin Choi, Devi Parikh)</figcaption>
 </figure>
 <h2 id="testoftimeawards">Test-of-time awards</h2>
 <p>Another highlight of the conference was the test-of-time awards session, which highlighted persons and papers that had a huge impact on the field. At the beginning of the session, Aravind Yoshi (see below), NLP pioneer and professor of Computer Science at the University of Pennsylvania, who passed away on December 31, 2017 was honored in touching epitaphs by close friends and people who knew him. The commemoration was a powerful reminder that research is about more than the papers we publish, but about the people we help and the lives we touch.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180603_170850_aravind_joshi.jpg" style="width: 70%" title="Aravind Joshi">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180603_170850_aravind_joshi.jpg" style="width: 70%" title="Aravind Joshi">
 <figcaption>Figure 5: Aravind Joshi</figcaption>
 </figure>
 <p>Afterwards, three papers (all published in 2002) were honored with <a href="https://naacl2018.wordpress.com/2018/03/22/test-of-time-award-papers/">test-of-time awards</a>. For each paper, one of the original authors presented the paper and reflected on its impact. The first paper presented was <a href="https://www.aclweb.org/anthology/P02-1040.pdf">BLEU: a Method for Automatic Evaluation of Machine Translation</a>, which introduced the original BLEU metric, now commonplace in machine translation (MT). Kishore Papineni recounted that the name was inspired by <a href="http://www.cs.cmu.edu/~aberger/mt.html">Candide</a>, an experimental MT system at IBM in the early 1990s and by IBM’s nickname, Big Blue, as all authors were at IBM at that time.</p>
@@ -248,7 +254,7 @@ MathJax.Hub.Config({
 <p>Another pervasive topic at the conference was dialogue systems. On the first day, researchers from PolyAI gave an excellent <a href="https://www.poly-ai.com/naacl18">tutorial on Conversational AI</a>. On the second day, Mari Ostendorf, professor of Electrical Engineering at the University of Washington and faculty advisor to the Sounding Board team, which won the inaugural Alexa Prize competition, shared some of the secrets to their winning socialbot. A socialbot in this context is a bot with which you can have a conversation, in contrast to a personal assistant that is designed to accomplish user-specified goals.</p>
 <p>A good socialbot should have the same qualities as someone you enjoy talking to at a cocktail party: it should have something interesting to say and show interest in the conversation partner. To illustrate this, an example conversation with the Sounding Board bot can be seen below.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180602_141024_alexa_prize_conversation.jpg" style="width: 70%" title="Sounding Board bot conversation">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180602_141024_alexa_prize_conversation.jpg" style="width: 70%" title="Sounding Board bot conversation">
 <figcaption>Figure 6: An example conversation with the Sounding Board bot</figcaption>
 </figure>
 <p>With regard to saying something interesting, the team found that users react positively to learning something new but negatively to old or unpleasant news; a challenge here is to filter what to present to people. In addition, users lose interest when they receive too much content that they do not care about.</p>
@@ -258,20 +264,20 @@ MathJax.Hub.Config({
 <h3 id="lesson1asrisimperfect">Lesson #1: ASR is imperfect</h3>
 <p>While automatic speech recognition (ASR) has reached lower and lower word error rates in recent years, ASR is far from being solved. In particular, ASR in dialogue agents is tuned for short commands, not conversational speech. Whereas it can accurately identify for instance many obscure music groups, it struggles with more conversational or informal input. In addition, current development platforms provide developers with an impoverished representation of speech that does not contain segmentation or prosody and often misses certain intents and affects. Problems caused by this missing information can be seen below.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180602_142859_prosody.jpg" style="width: 70%" title="Problems caused by missing prosody information">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180602_142859_prosody.jpg" style="width: 70%" title="Problems caused by missing prosody information">
 <figcaption>Figure 7: Problems caused by missing prosody information and missing punctuation</figcaption>
 </figure>
 <p>In practice, the Sounding Board team found it helpful for the socialbot to behave similarly to attendees at a cocktail party: if the intent of the entire utterance is not completely clear, the bot responds to whatever part it understood, e.g. to a somewhat unintelligible “cause does that you’re gonna state that’s cool” it might respond “I’m happy you like that.” They also found that often, asking the conversation partner to repeat an utterance will not yield a much better result; instead, it is often better just to change the topic.</p>
 <h3 id="lesson2usersvary">Lesson #2: Users vary</h3>
 <p>The team discovered something what might seem obvious but has wide-ranging consequences in practice: users vary a lot across different dimensions. Users have different interests, different opinions on issues, and a different sense of humor. Interaction styles, similarly, can range from terse to verbose (seen below), from polite to rude. Users can also interact with the bot in pursuit of widely different goals: they may seek information, intend to share opinions, try to get to know the bot, or seek to explore the limitations of the bot. Modeling the user involves both determining what to say as well as listening to what the user says.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180602_143521_interaction_styles.jpg" style="width: 70%" title="Interaction styles of talkative and terse users">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180602_143521_interaction_styles.jpg" style="width: 70%" title="Interaction styles of talkative and terse users">
 <figcaption>Figure 8: Interaction styles of talkative and terse users</figcaption>
 </figure>
 <h3 id="lesson3itsawildworld">Lesson #3: It’s a wild world</h3>
 <p>There is a lot of problematic content and many issues exist that need to be navigated. Problematic content can consist of offensive or controversial material or sensitive and depressing topics. In addition, users might act adversarially and deliberately try to get the bot to produce such content. Examples of such behaviour can be seen below. Other users (e.g. such as those suffering from a mental illness) are in turn risky to deal with. Overall, filtering content is a hard problem. As one example, Mari mentioned that early in the project, the bot made the following witty observation / joke: “You know what I realized the other day? Santa Claus is the most elaborate lie ever told”.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180602_143955_adversarial_users.jpg" style="width: 70%" title="Adversarial user examples">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180602_143955_adversarial_users.jpg" style="width: 70%" title="Adversarial user examples">
 <figcaption>Figure 9: Adversarial user examples</figcaption>
 </figure>
 <h3 id="lesson4shallowconversations">Lesson #4: Shallow conversations</h3>
@@ -284,13 +290,13 @@ MathJax.Hub.Config({
 <p>For learning <i>from</i> users, actions can be learned from user demonstration and/or explanation or from experience and feedback (mostly using RL for dialogue systems). In both cases, transcription and annotation are bottlenecks. A user can’t be expected to transcribe or annotate data; on the other hand, it is easier to give feedback after the system repeats an utterance.</p>
 <p>Generally, task-oriented dialogue can be treated as a game between two parties (see below): the seeker has a goal, which is fixed or flexible, while the provider has access to APIs to perform the task. The dialogue policy of the seeker decides the next seeker action. This is typically determined using “user simulators”, which are often sequence-to-sequence models. Most recently, hierarchical sequence-to-sequence models have been used with a focus on following the user goals and generating diverse responses.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180604_091136_task-oriented_dialogue_game.jpg" style="width: 70%" title="Task-oriented dialogue as a game">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180604_091136_task-oriented_dialogue_game.jpg" style="width: 70%" title="Task-oriented dialogue as a game">
 <figcaption>Figure 10: Task-oriented dialogue as a game</figcaption>
 </figure>
 <p>The dialogue policy of the provider similarly determines the next provider action, which is realized either via supervised or reinforcement learning (RL). For RL, reward estimation and policy shaping are important. Recent approaches jointly learn seeker and provider policies. End-to-end dialogue models with deep RL are critical for learning from user feedback, while component-wise training benefits from additional data for each component.</p>
 <p>In practice, a combination of supervised and reinforcement learning is best and outperforms both purely supervised learning and supervised learning with policy-only RL as can be seen below.</p>
 <figure>
-      <img src="../content/images/2018/06/IMG_20180604_094901_supervised-rl.jpg" style="width: 70%" title="Supervised and reinforcement learning for dialogue modeling">
+      <img src="http://ruder.io/content/images/2018/06/IMG_20180604_094901_supervised-rl.jpg" style="width: 70%" title="Supervised and reinforcement learning for dialogue modeling">
 <figcaption>Figure 11: Supervised and reinforcement learning for dialogue modeling</figcaption>
 </figure>
 <p>Overall, the conference was a great opportunity to see fantastic research and meet great people. See you all at ACL 2018!</p>
@@ -304,7 +310,7 @@ MathJax.Hub.Config({
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -326,7 +332,7 @@ MathJax.Hub.Config({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/">natural language processing</a></h3>
@@ -345,71 +351,7 @@ MathJax.Hub.Config({
                     </footer>
                 </article>
 
-                <article class="post-card post tag-natural-language-processing">
-        <a class="post-card-image-link" href="../tracking-progress-nlp/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/10/squad_progress.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../tracking-progress-nlp/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">natural language processing</span>
-                <h2 class="post-card-title">Tracking the Progress in Natural Language Processing</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>Research in ML and NLP is moving at a tremendous pace, which is an obstacle for people wanting to enter the field. To make working with new tasks easier, this post introduces a resource that tracks the progress and state-of-the-art across many tasks in NLP.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">2 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-semi-supervised-learning tag-transfer-learning tag-domain-adaptation">
-        <a class="post-card-image-link" href="../semi-supervised/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/10/mttri.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../semi-supervised/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">semi-supervised learning</span>
-                <h2 class="post-card-title">An overview of proxy-label approaches for semi-supervised learning</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>While unsupervised learning is still elusive, researchers have made a lot of progress in semi-supervised learning. This post focuses on a particular promising category of semi-supervised learning methods that assign proxy labels to unlabelled data, which are used as targets for learning.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">19 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -443,29 +385,6 @@ MathJax.Hub.Config({
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/highlights-naacl-2018/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -497,7 +416,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -564,7 +483,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>

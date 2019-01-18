@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=e3c4b48744">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=3f81222fa0">
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://ruder.io/semi-supervised/">
@@ -88,14 +88,14 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=e3c4b48744"></script>
+    <script src="../public/ghost-sdk.js?v=3f81222fa0"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "bc1baff4b81d"
 });
 </script>
-    <meta name="generator" content="Ghost 2.3">
+    <meta name="generator" content="Ghost 2.11">
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -168,7 +168,13 @@ MathJax.Hub.Config({
                 <h1 class="post-full-title">An overview of proxy-label approaches for semi-supervised learning</h1>
             </header>
 
-            <figure class="post-full-image" style="background-image: url(../content/images/2018/10/mttri.png)">
+            <figure class="post-full-image">
+                <img srcset="u=http://ruder.io/content/images/size/w300/2018/10/mttri.png 300w,
+                            u=http://ruder.io/content/images/size/w600/2018/10/mttri.png 600w,
+                            u=http://ruder.io/content/images/size/w1000/2018/10/mttri.png 1000w,
+                            u=http://ruder.io/content/images/size/w2000/2018/10/mttri.png 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="http://ruder.io/content/images/size/w2000/2018/10/mttri.png" alt="An overview of proxy-label approaches for semi-supervised learning">
             </figure>
 
             <section class="post-full-content">
@@ -216,33 +222,33 @@ MathJax.Hub.Config({
 <h2 id="selftraining">Self-training</h2>
 <p>Self-training (Yarowsky, 1995; McClosky et al., 2006) <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> <sup class="footnote-ref"><a href="index.html#fn5" id="fnref5">[5]</a></sup> is one of the earliest and simplest approaches to semi-supervised learning and the most straightforward example of how a model's own predictions can be incorporated into training. As the name implies, self-training leverages a model's own predictions on unlabelled data in order to obtain additional information that can be used during training. Typically the most confident predictions are taken at face value, as detailed next.</p>
 <p>Formally, self-training trains a model \(m\) on a labeled training set \(L\) and an unlabeled data set \(U\). At each iteration, the model provides predictions \(m(x)\) in the form of a probability distribution over the \(C\) classes for all unlabeled examples \(x\) in \(U\). If the probability assigned to the most likely class is higher than a predetermined threshold \(\tau\), \(x\) is added to the labeled examples with \(\DeclareMathOperator*{\argmax}{argmax} p(x) = \argmax m(x)\) as pseudo-label. This process is generally repeated for a fixed number of iterations or until no more predictions on unlabelled examples are confident. This instantiation is the most widely used and shown in Algorithm 1.<br>
-<img src="../content/images/2018/03/self-training.png" alt=""><br>
+<img src="http://ruder.io/content/images/2018/03/self-training.png" alt=""><br>
 Classic self-training has shown mixed success. In parsing it proved successful with small datasets (Reichart, and Rappoport, 2007; Huang and Harper, 2009) <sup class="footnote-ref"><a href="index.html#fn6" id="fnref6">[6]</a></sup> <sup class="footnote-ref"><a href="index.html#fn7" id="fnref7">[7]</a></sup> or when a generative component is used together with a reranker when more data is available (McClosky et al., 2006; Suzuki and Isozaki , 2008) <sup class="footnote-ref"><a href="index.html#fn8" id="fnref8">[8]</a></sup>. Some success was achieved with careful task-specific data selection (Petrov and McDonald, 2012) <sup class="footnote-ref"><a href="index.html#fn9" id="fnref9">[9]</a></sup>, while others report limited success on a variety of NLP tasks (He and Zhou, 2011; Plank, 2011; Van Asch and Daelemans, 2016; van der Goot et al., 2017) <sup class="footnote-ref"><a href="index.html#fn10" id="fnref10">[10]</a></sup> <sup class="footnote-ref"><a href="index.html#fn11" id="fnref11">[11]</a></sup> <sup class="footnote-ref"><a href="index.html#fn12" id="fnref12">[12]</a></sup> <sup class="footnote-ref"><a href="index.html#fn13" id="fnref13">[13]</a></sup>.</p>
 <p>The main downside of self-training is that the model is unable to correct its own mistakes. If the model's predictions on unlabelled data are confident but wrong, the erroneous data is nevertheless incorporated into training and the model's errors are amplified. This effect is exacerbated if the domain of the unlabelled data is different from that of the labelled data; in this case, the model's confidence will be a poor predictor of its performance.</p>
 <h2 id="multiviewtraining">Multi-view training</h2>
 <p>Multi-view training aims to train different models with different <em>views</em> of the data. Ideally, these views complement each other and the models can collaborate in improving each other's performance. These views can differ in different ways such as in the features they use, in the architectures of the models, or in the data on which the models are trained.</p>
 <p><strong>Co-training</strong>   Co-training (Blum and Mitchell, 1998) <sup class="footnote-ref"><a href="index.html#fn14" id="fnref14">[14]</a></sup> is a classic multi-view training method, which makes comparatively strong assumptions. It requires that the data \(L\) can be represented using two conditionally independent feature sets \(L^1\) and \(L^2\) and that each feature set is sufficient to train a good model. After the initial models \(m_1\) and \(m_2\) are trained on their respective feature sets, at each iteration, only inputs that are confident (i.e. have a probability higher than a threshold \(\tau\)) according to <em>exactly one</em> of the two models are moved to the training set of <em>the other</em> model. One model thus provides the labels to the inputs on which the <em>other</em> model is uncertain. Co-training can be seen in Algorithm 2.<br>
-<img src="../content/images/2018/04/co-training.png" alt=""><br>
+<img src="http://ruder.io/content/images/2018/04/co-training.png" alt=""><br>
 In the original co-training paper (Blum and Mitchell, 1998), co-training is used to classify web pages using the text on the page as one view and the anchor text of hyperlinks on other pages pointing to the page as the other view. As two conditionally independent views are not always available, Chen et al. (2011) <sup class="footnote-ref"><a href="index.html#fn15" id="fnref15">[15]</a></sup> propose pseudo-multiview regularization (Chen et al., 2011) in order to split the features into two mutually exclusive views so that co-training is effective. To this end, pseudo-multiview regularization constrains the models so that at least one of them has a zero weight for each feature. This is similar to the orthogonality constraint recently used in domain adaptation to encourage shared and private spaces (Bousmalis et al., 2016) <sup class="footnote-ref"><a href="index.html#fn16" id="fnref16">[16]</a></sup>. A second constraint requires the models to be confident on different subsets of \(U\). Chen et al. (2011) <sup class="footnote-ref"><a href="index.html#fn17" id="fnref17">[17]</a></sup> use pseudo-multiview regularization to adapt co-training to domain adaptation.</p>
 <p><strong>Democratic Co-learning</strong> Rather than treating different feature sets as views, democratic co-learning (Zhou and Goldman, 2004) <sup class="footnote-ref"><a href="index.html#fn18" id="fnref18">[18]</a></sup> employs models with <em>different inductive biases</em>. These can be different network architectures in the case of neural networks or completely different learning algorithms. Democratic co-learning first trains each model separately on the complete labelled data \(L\). The models then make predictions on the unlabelled data \(U\). If a majority of models confidently agree on the label of an example, the example is added to the labelled dataset. Confidence is measured in the original formulation by measuring if the sum of the mean confidence intervals \(w\) of the models, which agreed on the label is larger than the sum of the models that disagreed. This process is repeated until no more examples are added. The final prediction is made with a majority vote weighted with the confidence intervals of the models. The full algorithm can be seen below. \(M\) is the set of all models that predict the same label \(j\) for an example \(x\).<br>
-<img src="../content/images/2018/04/democratic_co-learning-2.png" alt=""><br>
+<img src="http://ruder.io/content/images/2018/04/democratic_co-learning-2.png" alt=""><br>
 <strong>Tri-training</strong>   Tri-training (Zhou and Li, 2005) <sup class="footnote-ref"><a href="index.html#fn19" id="fnref19">[19]</a></sup> is one of the best known multi-view training   methods. It can be seen as an instantiation of democratic co-learning, which leverages the agreement of three independently trained models to reduce the bias of predictions on unlabeled data. The main requirement for tri-training is that the initial models are diverse. This can be achieved using different model architectures as in democratic co-learning. The most common way to obtain diversity for tri-training, however, is to obtain different variations \(S_i\) of the original training data \(L\) using bootstrap sampling. The three models \(m_1\), \(m_2\), and \(m_3\) are then trained on these bootstrap samples, as depicted in Algorithm 4. An unlabeled data point is added to the training set of a model \(m_i\) if the other two models \(m_j\) and \(m_k\) agree on its label. Training stops when the classifiers do not change anymore.<br>
-<img src="../content/images/2018/04/tri-training.png" alt=""><br>
+<img src="http://ruder.io/content/images/2018/04/tri-training.png" alt=""><br>
 Despite having been proposed more than 10 years ago, before the advent of Deep Learning, we found in a <a href="https://arxiv.org/abs/1804.09530">recent paper</a> (Ruder and Plank, 2018) <sup class="footnote-ref"><a href="index.html#fn20" id="fnref20">[20]</a></sup> that classic tri-training is a strong baseline for neural semi-supervised with and without domain shift for NLP and that it outperforms even recent state-of-the-art methods.</p>
 <p><strong>Tri-training with disagreement</strong>   Tri-training <em>with disagreement</em> (Søgaard, 2010) <sup class="footnote-ref"><a href="index.html#fn21" id="fnref21">[21]</a></sup> is based on the intuition that a model should only be strengthened in its weak points and that the labeled data should not be skewed by easy data points. In order to achieve this, it adds a simple modification to the original algorithm (altering line 8 in Algorithm 2), requiring that for an unlabeled data point on which \(m_j\) and \(m_k\) <em>agree</em>, the other model \(m_i\) <em>disagrees</em> on the prediction. Tri-training with disagreement is more data-efficient than tri-training and has achieved competitive results on part-of-speech tagging (Søgaard, 2010).</p>
 <p><strong>Asymmetric tri-training</strong>   Asymmetic tri-training (Saito et al., 2017) <sup class="footnote-ref"><a href="index.html#fn22" id="fnref22">[22]</a></sup> is a recently proposed extension of tri-training that achieved state-of-the-art results for unsupervised domain adaptation in computer vision. For unsupervised domain adaptation, the test data and unlabeled data are from a different domain than the labelled examples. To adapt tri-training to this shift, asymmetric tri-training learns one of the models <em>only</em> on proxy labels and not on labelled examples (a change to line 10 in Algorithm 4) and uses only this model to classify target domain examples at test time. In addition, all three models share the same feature extractor.</p>
 <p><strong>Multi-task tri-training</strong>   Tri-training typically relies on training separate models on bootstrap samples of a potentially large amount of training data, which is expensive. Multi-task tri-training (MT-Tri) (Ruder and Plank, 2018) aims to reduce both the time and space complexity of tri-training by leveraging insights from multi-task learning (MTL) (Caruana, 1993) <sup class="footnote-ref"><a href="index.html#fn23" id="fnref23">[23]</a></sup> to share knowledge across models and accelerate training. Rather than storing and training each model separately, MT-Tri shares the parameters of the models and trains them jointly using MTL. Note that the model does only <em>pseudo</em> MTL as all three models effectively perform the same task.</p>
 <p>The output softmax layers are model-specific and are only updated for the input of the respective model. As the models leverage a joint representation, diversity is even more crucial. We need to ensure that the features used for prediction in the softmax layers of the different models are as diverse as possible, so that the models can still learn from each other's predictions. In contrast, if the parameters in all output softmax layers were the same, the method would degenerate to self-training. Similar to pseudo-view regularization, we thus use an orthogonality constraint (Bousmalis et al., 2016) on two of the three softmax output layers as an additional loss term.</p>
 <p>The pseudo-code can be seen below. In contrast to classic tri-training, we can train the multi-task model with its three model-specific outputs jointly and <em>without</em> bootstrap sampling on the labeled source domain data until convergence, as the orthogonality constraint enforces different representations between models \(m_1\) and \(m_2\). From this point, we can leverage the pair-wise agreement of two output layers to add pseudo-labeled examples as training data to the third model. We train the third output layer \(m_3\) only on pseudo-labeled target instances in order to make tri-training more robust to a domain shift. For the final prediction, we use majority voting of all three output layers. For more information about multi-task tri-training, self-training, other tri-training variants, you can refer to our recent <a href="https://arxiv.org/abs/1804.09530">ACL 2018 paper</a>.<br>
-<img src="../content/images/2018/04/multi-task_tri-training-1.png" alt=""></p>
+<img src="http://ruder.io/content/images/2018/04/multi-task_tri-training-1.png" alt=""></p>
 <h2 id="selfensembling">Self-ensembling</h2>
 <p>Self-ensembling methods are very similar to multi-view learning approaches in that they combine different variants of a model. Multi-task tri-training, for instance, can also be seen as a self-ensembling method where different variations of a model are used to create a stronger ensemble prediction. In contrast to multi-view learning, diversity is not a key concern. Self-ensembling approaches mostly use a single model under different configurations in order to make the model's predictions more robust. Most of the following methods are very recent and several have achieved state-of-the-art results in computer vision.</p>
 <p><strong>Ladder networks</strong>   The \(\Gamma\) (gamma) version of Ladder Networks (Rasmus et al., 2015) <sup class="footnote-ref"><a href="index.html#fn24" id="fnref24">[24]</a></sup> aims to make a model more robust to noise. For each unlabelled example, it uses the model's prediction on the clean example as a proxy label for prediction on a perturbed version of the example. This way, the model learns to develop features that are invariant to noise and predictive of the labels on the labelled training data. Ladder networks have been mostly used in computer vision where many forms of perturbation and data augmentation are available.</p>
 <p><strong>Virtual Adversarial Training</strong>   If perturbing the original sample is not possible or desired, we can instead perturb the example in feature space. Rather than randomly perturbing it by e.g. adding dropout, we can apply the <em>worst possible</em> perturbation for the model, which transforms the input into an adversarial sample. While adversarial training requires access to the labels to perform these perturbations, <em>virtual</em> adversarial training (Miyato et al., 2017) <sup class="footnote-ref"><a href="index.html#fn25" id="fnref25">[25]</a></sup> requires no labels and is thus suitable for semi-supervised learning. Virtual adversarial training effectively seeks to make the model robust to perturbations in directions to which it is most sensitive and has achieved good results on text classification datasets.</p>
 <p><strong>\(\Pi\) model</strong>   Rather than treating clean predictions as proxy labels, the \(\Pi\) (pi) model (Laine and Aila, 2017) <sup class="footnote-ref"><a href="index.html#fn26" id="fnref26">[26]</a></sup> ensembles the predictions of the model under two different perturbations of the input data and two different dropout conditions \(z\) and \(\tilde{z}\). The full pseudo-code can be seen in Algorithm 6 below. \(g(x)\) is the stochastic input augmentation function. The first loss term encourages the predictions under the two different noise settings to be consistent, with \(\lambda\) determining the contribution, while the second loss term is the standard cross-entropy loss \(H\) with respect to the label \(y\). In contrast to the models we encountered before, we apply the unsupervised loss component to both unlabelled and labelled examples.<br>
-<img src="../content/images/2018/04/pi-model-3.png" alt=""><br>
+<img src="http://ruder.io/content/images/2018/04/pi-model-3.png" alt=""><br>
 <strong>Temporal Ensembling</strong>   Instead of ensembling over the same model under different noise configurations, we can ensemble over different models. As training separate models is expensive, we can instead ensemble the predictions of a model <em>at different timesteps</em>. We can save the ensembled proxy labels \(Z\) as an exponential moving average of the model's past predictions on all examples as depicted below in order to save space. As we initialize the proxy labels as a zero vector, they are biased towards \(0\). We can correct this bias similar to Adam (Kingma and Ba, 2015) <sup class="footnote-ref"><a href="index.html#fn27" id="fnref27">[27]</a></sup> based on the current epoch \(t\) to obtain bias-corrected target vectors \(\tilde{z}\). We then update the model similar to the \(\Pi\) model.<br>
-<img src="../content/images/2018/04/temporal_ensembling-3.png" alt=""></p>
+<img src="http://ruder.io/content/images/2018/04/temporal_ensembling-3.png" alt=""></p>
 <p><strong>Mean Teacher</strong>   Finally, instead of averaging the <em>predictions</em> of our model over training time, we can average the model weights. Mean teacher (Tarvainen and Valpola, 2017) <sup class="footnote-ref"><a href="index.html#fn28" id="fnref28">[28]</a></sup> stores an exponential moving average of the model parameters. For every example, this mean teacher model is then used to obtain proxy labels \(\tilde{z}\). The consistency loss and supervised loss are computed as in temporal ensembling.</p>
 <p>Mean teacher has achieved state-of-the-art results for semi-supervised learning for computer vision. For reference, on ImageNet with 10% of the labels, it achieves an error rate of \(9.11\), compared to an error rate of \(3.79\) using <em>all</em> labels with the state-of-the-art. For more information about self-ensembling methods, have a look at <a href="https://thecuriousaicompany.com/mean-teacher/">this intuitive blog post</a> by the Curious AI company. We have run experiments with temporal ensembling for NLP tasks, but did not manage to obtain consistent results. My assumption is that the unsupervised consistency loss is more suitable for continuous inputs. Mean teacher might work better, as averaging weights aka Polyak averaging (Polyak and Juditsky, 1992) <sup class="footnote-ref"><a href="index.html#fn29" id="fnref29">[29]</a></sup> is a tried method for accelerating optimization.</p>
 <p>Very recently, Oliver et al. (2018) <sup class="footnote-ref"><a href="index.html#fn30" id="fnref30">[30]</a></sup> raise some questions regarding the true applicability of these methods: They find that the performance difference to a properly tuned supervised baseline is smaller than typically reported, that transfer learning from a labelled dataset (e.g. ImageNet) outperforms the presented methods, and that performance degrades severely under a domain shift. In order to deal with the latter, algorithms such as asymmetric or multi-task tri-training learn different representations for the target distribution. It remains to be seen if these insights translate to other domains; a combination of transfer learning and semi-supervised adaptation to the target domain seems particularly promising.</p>
@@ -347,7 +353,7 @@ Despite having been proposed more than 10 years ago, before the advent of Deep L
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder">
     <section class="author-card-content">
         <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
             <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
@@ -369,7 +375,7 @@ Despite having been proposed more than 10 years ago, before the advent of Deep L
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(../content/images/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card" style="background-image: url(../content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/semi-supervised-learning/">semi-supervised learning</a></h3>
@@ -386,71 +392,7 @@ Despite having been proposed more than 10 years ago, before the advent of Deep L
                     </footer>
                 </article>
 
-                <article class="post-card post tag-natural-language-processing tag-events tag-reinforcement-learning tag-transfer-learning">
-        <a class="post-card-image-link" href="../highlights-naacl-2018/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/06/IMG_20180603_183707_conference_venue.jpg)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../highlights-naacl-2018/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">natural language processing</span>
-                <h2 class="post-card-title">Highlights of NAACL-HLT 2018: Generalization, Test-of-time, and Dialogue Systems</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>This post discusses highlights of the 16th Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT 2018). It focuses on Generalization, the Test-of-Time awards, and Dialogue Systems.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
 
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">15 min read</span>
-
-        </footer>
-    </div>
-</article>
-
-                <article class="post-card post tag-tensorflow tag-natural-language-processing">
-        <a class="post-card-image-link" href="../text-classification-tensorflow-estimators/">
-            <div class="post-card-image" style="background-image: url(../content/images/2018/10/estimators_loss.png)"></div>
-        </a>
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../text-classification-tensorflow-estimators/">
-            <header class="post-card-header">
-                    <span class="post-card-tags">tensorflow</span>
-                <h2 class="post-card-title">Text Classification with TensorFlow Estimators</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>This post is a tutorial that shows how to use Tensorflow Estimators for text classification. It covers loading data using Datasets, using pre-canned estimators as baselines, word embeddings, and building custom estimators, among others.</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-
-            <ul class="author-list">
-                <li class="author-list-item">
-
-                    <div class="author-name-tooltip">
-                        Sebastian Ruder
-                    </div>
-
-                        <a href="../author/sebastian/" class="static-avatar"><img class="author-profile-image" src="../content/images/2018/10/aylien_profile_photo.jpg" alt="Sebastian Ruder"></a>
-                </li>
-            </ul>
-
-            <span class="reading-time">13 min read</span>
-
-        </footer>
-    </div>
-</article>
 
         </div>
     </div>
@@ -484,29 +426,6 @@ Despite having been proposed more than 10 years ago, before the advent of Deep L
 </div>
 
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/semi-supervised/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
 
 
         <footer class="site-footer outer">
@@ -538,7 +457,7 @@ s.setAttribute('data-timestamp', +new Date());
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=e3c4b48744"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=3f81222fa0"></script>
 
 
     <script>
@@ -605,7 +524,6 @@ $(document).ready(function () {
 
 });
 </script>
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
