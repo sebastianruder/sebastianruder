@@ -1,45 +1,45 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Text Classification with TensorFlow Estimators</title>
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=598e4ecdd9">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=2e1b663da4" />
 
-    <meta name="description" content="This post is a tutorial on how to use Estimators in TensorFlow to classify text.">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="http://ruder.io/text-classification-tensorflow-estimators/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://ruder.io/text-classification-tensorflow-estimators/amp/">
+    <meta name="description" content="This post is a tutorial on how to use Estimators in TensorFlow to classify text." />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://ruder.io/text-classification-tensorflow-estimators/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://ruder.io/text-classification-tensorflow-estimators/amp/" />
     
-    <meta property="og:site_name" content="Sebastian Ruder">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Text Classification with TensorFlow Estimators">
-    <meta property="og:description" content="This post is a tutorial that shows how to use Tensorflow Estimators for text classification. It covers loading data using Datasets, using pre-canned estimators as baselines, word embeddings, and building custom estimators, among others.">
-    <meta property="og:url" content="http://ruder.io/text-classification-tensorflow-estimators/">
-    <meta property="og:image" content="http://ruder.io/content/images/2018/10/estimators_loss.png">
-    <meta property="article:published_time" content="2018-04-16T13:24:29.000Z">
-    <meta property="article:modified_time" content="2018-10-24T12:45:43.000Z">
-    <meta property="article:tag" content="tensorflow">
-    <meta property="article:tag" content="natural language processing">
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Text Classification with TensorFlow Estimators" />
+    <meta property="og:description" content="This post is a tutorial that shows how to use Tensorflow Estimators for text classification. It covers loading data using Datasets, using pre-canned estimators as baselines, word embeddings, and building custom estimators, among others." />
+    <meta property="og:url" content="http://ruder.io/text-classification-tensorflow-estimators/" />
+    <meta property="og:image" content="http://ruder.io/content/images/2018/10/estimators_loss.png" />
+    <meta property="article:published_time" content="2018-04-16T13:24:29.000Z" />
+    <meta property="article:modified_time" content="2018-10-24T12:45:43.000Z" />
+    <meta property="article:tag" content="tensorflow" />
+    <meta property="article:tag" content="natural language processing" />
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Text Classification with TensorFlow Estimators">
-    <meta name="twitter:description" content="This post is a tutorial that shows how to use Tensorflow Estimators for text classification. It covers loading data using Datasets, using pre-canned estimators as baselines, word embeddings, and building custom estimators, among others.">
-    <meta name="twitter:url" content="http://ruder.io/text-classification-tensorflow-estimators/">
-    <meta name="twitter:image" content="http://ruder.io/content/images/2018/10/estimators_loss.png">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Sebastian Ruder">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="tensorflow, natural language processing">
-    <meta name="twitter:site" content="@seb_ruder">
-    <meta name="twitter:creator" content="@seb_ruder">
-    <meta property="og:image:width" content="1403">
-    <meta property="og:image:height" content="552">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Text Classification with TensorFlow Estimators" />
+    <meta name="twitter:description" content="This post is a tutorial that shows how to use Tensorflow Estimators for text classification. It covers loading data using Datasets, using pre-canned estimators as baselines, word embeddings, and building custom estimators, among others." />
+    <meta name="twitter:url" content="http://ruder.io/text-classification-tensorflow-estimators/" />
+    <meta name="twitter:image" content="http://ruder.io/content/images/2018/10/estimators_loss.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sebastian Ruder" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="tensorflow, natural language processing" />
+    <meta name="twitter:site" content="@seb_ruder" />
+    <meta property="og:image:width" content="1403" />
+    <meta property="og:image:height" content="552" />
     
     <script type="application/ld+json">
 {
@@ -60,14 +60,12 @@
         "name": "Sebastian Ruder",
         "image": {
             "@type": "ImageObject",
-            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square.jpg",
+            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
             "width": 2000,
             "height": 2000
         },
         "url": "http://ruder.io/author/sebastian/",
-        "sameAs": [
-            "https://twitter.com/seb_ruder"
-        ]
+        "sameAs": []
     },
     "headline": "Text Classification with TensorFlow Estimators",
     "url": "http://ruder.io/text-classification-tensorflow-estimators/",
@@ -88,15 +86,15 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=598e4ecdd9"></script>
+    <script src="../public/ghost-sdk.js?v=2e1b663da4"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "bc1baff4b81d"
+	clientSecret: "1cc08969b060"
 });
 </script>
-    <meta name="generator" content="Ghost 2.11">
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
+    <meta name="generator" content="Ghost 2.16" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
 </script>
@@ -144,10 +142,10 @@ MathJax.Hub.Config({
     </div>
     <div class="site-nav-right">
         <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
         </div>
-            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
     </div>
 </nav>
@@ -163,23 +161,28 @@ MathJax.Hub.Config({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2018-04-16">16 April 2018</time>
-                        <span class="date-divider">/</span> <a href="../tag/tensorflow/">tensorflow</a>
+                        <span class="date-divider">/</span> <a href="../tag/tensorflow/index.html">tensorflow</a>
                 </section>
                 <h1 class="post-full-title">Text Classification with TensorFlow Estimators</h1>
             </header>
 
             <figure class="post-full-image">
-                <img srcset="http://ruder.io/content/images/size/w300/2018/10/estimators_loss.png 300w,
+                <img
+                    srcset="http://ruder.io/content/images/size/w300/2018/10/estimators_loss.png 300w,
                             http://ruder.io/content/images/size/w600/2018/10/estimators_loss.png 600w,
                             http://ruder.io/content/images/size/w1000/2018/10/estimators_loss.png 1000w,
-                            http://ruder.io/content/images/size/w2000/2018/10/estimators_loss.png 2000w" sizes="(max-width: 800px) 400px,
+                            http://ruder.io/content/images/size/w2000/2018/10/estimators_loss.png 2000w"
+                    sizes="(max-width: 800px) 400px,
                             (max-width: 1170px) 700px,
-                            1400px" src="http://ruder.io/content/images/size/w2000/2018/10/estimators_loss.png" alt="Text Classification with TensorFlow Estimators">
+                            1400px"
+                    src="http://ruder.io/content/images/size/w2000/2018/10/estimators_loss.png"
+                    alt="Text Classification with TensorFlow Estimators"
+                />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>This post is a tutorial on how to use TensorFlow Estimators for text classification.</p>
+                    <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><p>This post is a tutorial on how to use TensorFlow Estimators for text classification.</p>
 <p><em>Note: This post was written together with the awesome <a href="https://twitter.com/eisenjulian">Julian Eisenschlos</a> and was originally published on the <a href="https://medium.com/tensorflow/classifying-text-with-tensorflow-estimators-a99603033fbe">TensorFlow blog</a>.</em></p>
 <p>Hello there! Throughout this post we will show you how to classify text using Estimators in TensorFlow. Here’s the outline of what we’ll cover:</p>
 <ul>
@@ -193,7 +196,7 @@ MathJax.Hub.Config({
 <hr>
 <p>Welcome to Part 4 of a blog series that introduces TensorFlow Datasets and Estimators. You don’t need to read all of the previous material, but take a look if you want to refresh any of the following concepts. <a href="https://developers.googleblog.com/2017/09/introducing-tensorflow-datasets.html">Part 1</a> focused on pre-made Estimators, <a href="https://developers.googleblog.com/2017/11/introducing-tensorflow-feature-columns.html">Part 2</a> discussed feature columns, and <a href="https://developers.googleblog.com/2017/12/creating-custom-estimators-in-tensorflow.html">Part 3</a> how to create custom Estimators.</p>
 <p>Here in Part 4, we will build on top of all the above to tackle a different family of problems in Natural Language Processing (NLP). In particular, this article demonstrates how to solve a text classification task using custom TensorFlow estimators, embeddings, and the <a href="https://www.tensorflow.org/api_docs/python/tf/layers">tf.layers</a> module. Along the way, we’ll learn about word2vec and transfer learning as a technique to bootstrap model performance when labeled data is a scarce resource.</p>
-<p>We will show you relevant code snippets. <a href="https://github.com/eisenjulian/nlp_estimator_tutorial/blob/master/nlp_estimators.ipynb">Here</a>’s the complete Jupyter Notebook  that you can run locally or on <a href="https://colab.research.google.com/drive/1oXjNYSJ3VsRvAsXN4ClmtsVEgPW_CX_c?hl=en#forceEdit=true&amp;offline=true&amp;sandboxMode=true">Google Colaboratory</a>. The plain <code>.py</code>  source file is also available <a href="https://github.com/eisenjulian/nlp_estimator_tutorial/blob/master/nlp_estimators.py">here</a>. Note that the code was written to demonstrate how Estimators work functionally and was not optimized for maximum performance.</p>
+<p>We will show you relevant code snippets. <a href="https://github.com/eisenjulian/nlp_estimator_tutorial/blob/master/nlp_estimators.ipynb">Here</a>’s the complete Jupyter Notebook  that you can run locally or on <a href="https://colab.research.google.com/drive/1oXjNYSJ3VsRvAsXN4ClmtsVEgPW_CX_c?hl=en#forceEdit=true&offline=true&sandboxMode=true">Google Colaboratory</a>. The plain <code>.py</code>  source file is also available <a href="https://github.com/eisenjulian/nlp_estimator_tutorial/blob/master/nlp_estimators.py">here</a>. Note that the code was written to demonstrate how Estimators work functionally and was not optimized for maximum performance.</p>
 <h3 id="the-task">The task</h3>
 <p>The dataset we will be using is the IMDB <a href="http://ai.stanford.edu/~amaas/data/sentiment/">Large Movie Review Dataset</a>, which consists of <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>5</mn><mo separator="true">,</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">25,000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.83888em; vertical-align: -0.19444em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> highly polar movie reviews for training, and <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mn>5</mn><mo separator="true">,</mo><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">25,000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.83888em; vertical-align: -0.19444em;"></span><span class="base"><span class="mord mathrm">2</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span></span> for testing. We will use this dataset to train a binary classification model, able to predict whether a review is positive or negative.</p>
 <p>For illustration, here’s a piece of a negative review (with <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.64444em; vertical-align: 0em;"></span><span class="base"><span class="mord mathrm">2</span></span></span></span></span> stars) in the dataset:</p>
@@ -305,7 +308,7 @@ train_and_evaluate<span class="token punctuation">(</span>classifier<span class=
 <small></small></p><p align="center"><br>
 Source: <a href="https://www.semanticscholar.org/paper/Learning-to-Rank-Short-Text-Pairs-with-Convolution-Severyn-Moschitti/452f7411af7d471dd3ba84c2b06b2aaffc38cdb9">Learning to Rank Short Text Pairs with Convolutional Deep Neural Networks</a> by <strong>Severyn</strong> et al. [2015]</p>
 <p>Let us look at the full model architecture. The use of dropout layers is a regularization technique that makes the model less likely to overfit.</p>
-<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-qmCUPkCnZ5TFF69q" height="100%" viewbox="0 0 1415.640625 112.5" style="max-width:1415.640625px;"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M191.4375,46.25L216.4375,46.25L241.4375,46.25" marker-end="url(#arrowhead84)" style="fill:none"></path><defs><marker id="arrowhead84" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M335.515625,46.25L360.515625,46.25L385.515625,46.25" marker-end="url(#arrowhead85)" style="fill:none"></path><defs><marker id="arrowhead85" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M539.84375,46.25L564.84375,46.25L589.84375,46.25" marker-end="url(#arrowhead86)" style="fill:none"></path><defs><marker id="arrowhead86" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M796.28125,46.25L821.28125,46.25L846.28125,46.25" marker-end="url(#arrowhead87)" style="fill:none"></path><defs><marker id="arrowhead87" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1044.65625,46.25L1069.65625,46.25L1094.65625,46.25" marker-end="url(#arrowhead88)" style="fill:none"></path><defs><marker id="arrowhead88" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1188.734375,46.25L1213.734375,46.25L1238.734375,46.25" marker-end="url(#arrowhead89)" style="fill:none"></path><defs><marker id="arrowhead89" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignobject></g></g></g><g class="nodes"><g class="node" style="opacity: 1;" id="id1" transform="translate(105.71875,46.25)"><rect rx="5" ry="5" x="-85.71875" y="-26.25" width="171.4375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.71875,-16.25)"><foreignobject width="151.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Embedding Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id2" transform="translate(288.4765625,46.25)"><rect rx="5" ry="5" x="-47.0390625" y="-26.25" width="94.078125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-37.0390625,-16.25)"><foreignobject width="74.08203125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Dropout</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id3" transform="translate(462.6796875,46.25)"><rect rx="5" ry="5" x="-77.1640625" y="-26.25" width="154.328125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-67.1640625,-16.25)"><foreignobject width="134.3359375" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Convolution1D</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id4" transform="translate(693.0625,46.25)"><rect rx="5" ry="5" x="-103.21875" y="-26.25" width="206.4375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-93.21875,-16.25)"><foreignobject width="186.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">GlobalMaxPooling1D</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id5" transform="translate(945.46875,46.25)"><rect rx="5" ry="5" x="-99.1875" y="-26.25" width="198.375" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-89.1875,-16.25)"><foreignobject width="178.37890625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Hidden Dense Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id6" transform="translate(1141.6953125,46.25)"><rect rx="5" ry="5" x="-47.0390625" y="-26.25" width="94.078125" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-37.0390625,-16.25)"><foreignobject width="74.08203125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Dropout</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id7" transform="translate(1307.1875,46.25)"><rect rx="5" ry="5" x="-68.453125" y="-26.25" width="136.90625" height="52.5"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-58.453125,-16.25)"><foreignobject width="116.9140625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Output Layer</div></foreignobject></g></g></g></g></g></g></svg></div>
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-qmCUPkCnZ5TFF69q" height="100%" viewbox="0 0 1415.640625 112.5" style="max-width:1415.640625px;"><g><g class="output"><g class="clusters"/><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M191.4375,46.25L216.4375,46.25L241.4375,46.25" marker-end="url(#arrowhead84)" style="fill:none"/><defs><marker id="arrowhead84" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M335.515625,46.25L360.515625,46.25L385.515625,46.25" marker-end="url(#arrowhead85)" style="fill:none"/><defs><marker id="arrowhead85" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M539.84375,46.25L564.84375,46.25L589.84375,46.25" marker-end="url(#arrowhead86)" style="fill:none"/><defs><marker id="arrowhead86" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M796.28125,46.25L821.28125,46.25L846.28125,46.25" marker-end="url(#arrowhead87)" style="fill:none"/><defs><marker id="arrowhead87" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1044.65625,46.25L1069.65625,46.25L1094.65625,46.25" marker-end="url(#arrowhead88)" style="fill:none"/><defs><marker id="arrowhead88" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1188.734375,46.25L1213.734375,46.25L1238.734375,46.25" marker-end="url(#arrowhead89)" style="fill:none"/><defs><marker id="arrowhead89" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"/></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"/></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"/></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"/></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"/></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"/></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform=""><g transform="translate(0,0)" class="label"><foreignobject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"/></div></foreignobject></g></g></g><g class="nodes"><g class="node" style="opacity: 1;" id="id1" transform="translate(105.71875,46.25)"><rect rx="5" ry="5" x="-85.71875" y="-26.25" width="171.4375" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-75.71875,-16.25)"><foreignobject width="151.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Embedding Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id2" transform="translate(288.4765625,46.25)"><rect rx="5" ry="5" x="-47.0390625" y="-26.25" width="94.078125" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-37.0390625,-16.25)"><foreignobject width="74.08203125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Dropout</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id3" transform="translate(462.6796875,46.25)"><rect rx="5" ry="5" x="-77.1640625" y="-26.25" width="154.328125" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-67.1640625,-16.25)"><foreignobject width="134.3359375" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Convolution1D</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id4" transform="translate(693.0625,46.25)"><rect rx="5" ry="5" x="-103.21875" y="-26.25" width="206.4375" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-93.21875,-16.25)"><foreignobject width="186.4453125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">GlobalMaxPooling1D</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id5" transform="translate(945.46875,46.25)"><rect rx="5" ry="5" x="-99.1875" y="-26.25" width="198.375" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-89.1875,-16.25)"><foreignobject width="178.37890625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Hidden Dense Layer</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id6" transform="translate(1141.6953125,46.25)"><rect rx="5" ry="5" x="-47.0390625" y="-26.25" width="94.078125" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-37.0390625,-16.25)"><foreignobject width="74.08203125" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Dropout</div></foreignobject></g></g></g><g class="node" style="opacity: 1;" id="id7" transform="translate(1307.1875,46.25)"><rect rx="5" ry="5" x="-68.453125" y="-26.25" width="136.90625" height="52.5"/><g class="label" transform="translate(0,0)"><g transform="translate(-58.453125,-16.25)"><foreignobject width="116.9140625" height="32.5"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Output Layer</div></foreignobject></g></g></g></g></g></g></svg></div>
 <h3 id="creating-a-custom-estimator">Creating a custom estimator</h3>
 <p>As seen in previous blog posts, the <code>tf.estimator</code> framework provides a high-level API for training machine learning models, defining <code>train()</code>, <code>evaluate()</code> and <code>predict()</code> operations, handling checkpointing, loading, initializing, serving, building the graph and the session out of the box. There is a small family of pre-made estimators, like the ones we used earlier, but it’s most likely that you will need to <a href="https://www.tensorflow.org/extend/estimators">build your own</a>.</p>
 <p>Writing a custom estimator means writing a <code>model_fn(features, labels, mode, params)</code> that returns an <code>EstimatorSpec</code>. The first step will be mapping the features into our embedding layer:</p>
@@ -439,7 +442,7 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
 <li>The <em>NLTK</em> <a href="http://www.nltk.org/book/ch03.html">Processing Raw Text</a> chapter on how to design language pipelines.</li>
 </ul>
 <p><em>Thanks for reading!</em></p>
-
+<!--kg-card-end: markdown--><!--kg-card-end: markdown-->
                 </div>
             </section>
 
@@ -449,14 +452,14 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/">Read More</a>
+    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
 </div>
 
 
@@ -472,7 +475,109 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
     <div class="inner">
         <div class="read-next-feed">
 
+                <article class="post-card post tag-semi-supervised-learning tag-transfer-learning tag-domain-adaptation ">
 
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2018/10/mttri.png 300w,
+                    http://ruder.io/content/images/size/w600/2018/10/mttri.png 600w,
+                    http://ruder.io/content/images/size/w1000/2018/10/mttri.png 1000w,
+                    http://ruder.io/content/images/size/w2000/2018/10/mttri.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2018/10/mttri.png"
+            alt="An overview of proxy-label approaches for semi-supervised learning"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">semi-supervised learning</span>
+                <h2 class="post-card-title">An overview of proxy-label approaches for semi-supervised learning</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>While unsupervised learning is still elusive, researchers have made a lot of progress in semi-supervised learning. This post focuses on a particular promising category of semi-supervised learning methods that assign proxy labels to unlabelled data, which are used as targets for learning.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-transfer-learning tag-multi-task-learning tag-cross-lingual tag-meta-learning tag-domain-adaptation ">
+
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2018/10/domain_randomization.png 300w,
+                    http://ruder.io/content/images/size/w600/2018/10/domain_randomization.png 600w,
+                    http://ruder.io/content/images/size/w1000/2018/10/domain_randomization.png 1000w,
+                    http://ruder.io/content/images/size/w2000/2018/10/domain_randomization.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2018/10/domain_randomization.png"
+            alt="Requests for Research"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">transfer learning</span>
+                <h2 class="post-card-title">Requests for Research</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>It can be hard to find compelling topics to work on and know what questions to ask when you are just starting as a researcher. This post aims to provide inspiration and ideas for research directions to junior researchers and those trying to get into research.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
 
         </div>
     </div>
@@ -484,18 +589,20 @@ train_and_evaluate<span class="token punctuation">(</span>cnn_pretrained_classif
             <span>Sebastian Ruder</span>
         </a>
     </div>
-    <span class="floating-header-divider">—</span>
+    <span class="floating-header-divider">&mdash;</span>
     <div class="floating-header-title">Text Classification with TensorFlow Estimators</div>
     <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Text%20Classification%20with%20TensorFlow%20Estimators&amp;url=http://ruder.io/text-classification-tensorflow-estimators/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Text%20Classification%20with%20TensorFlow%20Estimators&amp;url=http://ruder.io/text-classification-tensorflow-estimators/"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/text-classification-tensorflow-estimators/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/text-classification-tensorflow-estimators/"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
         </a>
     </div>
     <progress id="reading-progress" class="progress" value="0">
@@ -531,7 +638,7 @@ s.setAttribute('data-timestamp', +new Date());
 
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> © 2019</section>
+                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> &copy; 2019</section>
                 <nav class="site-footer-nav">
                     <a href="http://ruder.io">Latest Posts</a>
                     
@@ -556,9 +663,12 @@ s.setAttribute('data-timestamp', +new Date());
     </script>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=598e4ecdd9"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=2e1b663da4"></script>
 
 
     <script>
@@ -631,9 +741,9 @@ $(document).ready(function () {
 <script>jQuery = Zepto</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
@@ -646,3 +756,4 @@ $(document).ready(function () {
 </script>
 
 </body>
+</html>

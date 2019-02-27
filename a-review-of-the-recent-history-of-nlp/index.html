@@ -1,48 +1,48 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>A Review of the Recent History of Natural Language Processing</title>
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=598e4ecdd9">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=2e1b663da4" />
 
-    <meta name="description" content="This blog post discusses the eight biggest milestones in the last ~15 years of Natural Language Processing.">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="http://ruder.io/a-review-of-the-recent-history-of-nlp/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://ruder.io/a-review-of-the-recent-history-of-nlp/amp/">
+    <meta name="description" content="This blog post discusses the eight biggest milestones in the last ~15 years of Natural Language Processing." />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://ruder.io/a-review-of-the-recent-history-of-nlp/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://ruder.io/a-review-of-the-recent-history-of-nlp/amp/" />
     
-    <meta property="og:site_name" content="Sebastian Ruder">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="A Review of the Recent History of Natural Language Processing">
-    <meta property="og:description" content="This post expands on the Frontiers of Natural Language Processing session organized at the Deep Learning Indaba 2018. It discusses major recent advances in NLP focusing on neural network-based methods.">
-    <meta property="og:url" content="http://ruder.io/a-review-of-the-recent-history-of-nlp/">
-    <meta property="og:image" content="http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png">
-    <meta property="article:published_time" content="2018-10-01T12:50:00.000Z">
-    <meta property="article:modified_time" content="2019-01-16T14:28:15.000Z">
-    <meta property="article:tag" content="language models">
-    <meta property="article:tag" content="natural language processing">
-    <meta property="article:tag" content="word embeddings">
-    <meta property="article:tag" content="multi-task learning">
-    <meta property="article:tag" content="transfer learning">
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="A Review of the Recent History of Natural Language Processing" />
+    <meta property="og:description" content="This post expands on the Frontiers of Natural Language Processing session organized at the Deep Learning Indaba 2018. It discusses major recent advances in NLP focusing on neural network-based methods." />
+    <meta property="og:url" content="http://ruder.io/a-review-of-the-recent-history-of-nlp/" />
+    <meta property="og:image" content="http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png" />
+    <meta property="article:published_time" content="2018-10-01T12:50:00.000Z" />
+    <meta property="article:modified_time" content="2019-01-16T14:28:15.000Z" />
+    <meta property="article:tag" content="language models" />
+    <meta property="article:tag" content="natural language processing" />
+    <meta property="article:tag" content="word embeddings" />
+    <meta property="article:tag" content="multi-task learning" />
+    <meta property="article:tag" content="transfer learning" />
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="A Review of the Recent History of Natural Language Processing">
-    <meta name="twitter:description" content="This post expands on the Frontiers of Natural Language Processing session organized at the Deep Learning Indaba 2018. It discusses major recent advances in NLP focusing on neural network-based methods.">
-    <meta name="twitter:url" content="http://ruder.io/a-review-of-the-recent-history-of-nlp/">
-    <meta name="twitter:image" content="http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Sebastian Ruder">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="language models, natural language processing, word embeddings, multi-task learning, transfer learning">
-    <meta name="twitter:site" content="@seb_ruder">
-    <meta name="twitter:creator" content="@seb_ruder">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="512">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="A Review of the Recent History of Natural Language Processing" />
+    <meta name="twitter:description" content="This post expands on the Frontiers of Natural Language Processing session organized at the Deep Learning Indaba 2018. It discusses major recent advances in NLP focusing on neural network-based methods." />
+    <meta name="twitter:url" content="http://ruder.io/a-review-of-the-recent-history-of-nlp/" />
+    <meta name="twitter:image" content="http://ruder.io/content/images/2018/10/neural_history_of_nlp_image.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sebastian Ruder" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="language models, natural language processing, word embeddings, multi-task learning, transfer learning" />
+    <meta name="twitter:site" content="@seb_ruder" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="512" />
     
     <script type="application/ld+json">
 {
@@ -63,14 +63,12 @@
         "name": "Sebastian Ruder",
         "image": {
             "@type": "ImageObject",
-            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square.jpg",
+            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
             "width": 2000,
             "height": 2000
         },
         "url": "http://ruder.io/author/sebastian/",
-        "sameAs": [
-            "https://twitter.com/seb_ruder"
-        ]
+        "sameAs": []
     },
     "headline": "A Review of the Recent History of Natural Language Processing",
     "url": "http://ruder.io/a-review-of-the-recent-history-of-nlp/",
@@ -91,15 +89,15 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=598e4ecdd9"></script>
+    <script src="../public/ghost-sdk.js?v=2e1b663da4"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "bc1baff4b81d"
+	clientSecret: "1cc08969b060"
 });
 </script>
-    <meta name="generator" content="Ghost 2.11">
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
+    <meta name="generator" content="Ghost 2.16" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
 </script>
@@ -121,7 +119,10 @@ MathJax.Hub.Config({
 });
 </script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css">
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -154,10 +155,10 @@ MathJax.Hub.Config({
     </div>
     <div class="site-nav-right">
         <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
         </div>
-            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
     </div>
 </nav>
@@ -173,25 +174,30 @@ MathJax.Hub.Config({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2018-10-01">1 October 2018</time>
-                        <span class="date-divider">/</span> <a href="../tag/language-models/">language models</a>
+                        <span class="date-divider">/</span> <a href="../tag/language-models/index.html">language models</a>
                 </section>
                 <h1 class="post-full-title">A Review of the Neural History of Natural Language Processing</h1>
             </header>
 
             <figure class="post-full-image">
-                <img srcset="http://ruder.io/content/images/size/w300/2018/10/neural_history_of_nlp_image.png 300w,
+                <img
+                    srcset="http://ruder.io/content/images/size/w300/2018/10/neural_history_of_nlp_image.png 300w,
                             http://ruder.io/content/images/size/w600/2018/10/neural_history_of_nlp_image.png 600w,
                             http://ruder.io/content/images/size/w1000/2018/10/neural_history_of_nlp_image.png 1000w,
-                            http://ruder.io/content/images/size/w2000/2018/10/neural_history_of_nlp_image.png 2000w" sizes="(max-width: 800px) 400px,
+                            http://ruder.io/content/images/size/w2000/2018/10/neural_history_of_nlp_image.png 2000w"
+                    sizes="(max-width: 800px) 400px,
                             (max-width: 1170px) 700px,
-                            1400px" src="http://ruder.io/content/images/size/w2000/2018/10/neural_history_of_nlp_image.png" alt="A Review of the Neural History of Natural Language Processing">
+                            1400px"
+                    src="http://ruder.io/content/images/size/w2000/2018/10/neural_history_of_nlp_image.png"
+                    alt="A Review of the Neural History of Natural Language Processing"
+                />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>This post discusses major recent advances in NLP focusing on neural network-based methods.</p>
+                    <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><p>This post discusses major recent advances in NLP focusing on neural network-based methods.</p>
 <p><em>This post originally appeared at the <a href="http://blog.aylien.com/a-review-of-the-recent-history-of-natural-language-processing/">AYLIEN blog</a>.</em></p>
-<p>This is the first blog post in a two-part series. The series expands on the Frontiers of Natural Language Processing session organized by <a href="http://www.kamperh.com/">Herman Kamper</a> and me at the <a href="http://www.deeplearningindaba.com/">Deep Learning Indaba 2018</a>. Slides of the entire session can be found <a href="https://www.slideshare.net/SebastianRuder/frontiers-of-natural-language-processing">here</a>. This post discusses major recent advances in NLP focusing on neural network-based methods. <a href="http://ruder.io/4-biggest-open-problems-in-nlp/">The second post</a> discusses open problems in NLP. You can find a recording of the talk this post is based on <a href="https://youtu.be/sGVi4gb90zk?list=PLICxY_yQeGYlcjO6ANCXworXHGC6hHXjA&amp;t=177">here</a>.</p>
+<p>This is the first blog post in a two-part series. The series expands on the Frontiers of Natural Language Processing session organized by <a href="http://www.kamperh.com/">Herman Kamper</a> and me at the <a href="http://www.deeplearningindaba.com/">Deep Learning Indaba 2018</a>. Slides of the entire session can be found <a href="https://www.slideshare.net/SebastianRuder/frontiers-of-natural-language-processing">here</a>. This post discusses major recent advances in NLP focusing on neural network-based methods. <a href="http://ruder.io/4-biggest-open-problems-in-nlp/">The second post</a> discusses open problems in NLP. You can find a recording of the talk this post is based on <a href="https://youtu.be/sGVi4gb90zk?list=PLICxY_yQeGYlcjO6ANCXworXHGC6hHXjA&t=177">here</a>.</p>
 <p><strong>Disclaimer</strong>   This post tries to condense ~15 years' worth of work into eight milestones that are the most relevant today and thus omits many relevant and important developments. In particular, it is heavily skewed towards current neural approaches, which may give the false impression that no other methods were influential during this period. More importantly, many of the neural network models presented in this post build on non-neural milestones of the same era. In the <a href="index.html#nonneuralmilestones">final section of this post</a>, we highlight such influential work that laid the foundations for later methods.</p>
 <p>Table of contents:</p>
 <ul>
@@ -223,18 +229,18 @@ More recently, feed-forward neural networks have been replaced with recurrent ne
 <li>Sequence-to-sequence models: Such models generate an output sequence by predicting one word at a time.</li>
 <li>Pretrained language models: These methods use representations from language models for transfer learning.</li>
 </ul>
-<p>This conversely means that many of the most important recent advances in NLP reduce to a form of language modelling. In order to do "real" natural language understanding, just learning from the raw form of text likely will not be enough and we will need new methods and models.</p>
+<p>This conversely means that many of the most important recent advances in NLP reduce to a form of language modelling. In order to do &quot;real&quot; natural language understanding, just learning from the raw form of text likely will not be enough and we will need new methods and models.</p>
 <h1 id="2008multitasklearning">2008 - Multi-task learning</h1>
 <p>Multi-task learning is a general method for sharing parameters between models that are trained on multiple tasks. In neural networks, this can be done easily by tying the weights of different layers. The idea of multi-task learning was first proposed in 1993 by Rich Caruana<a href="index.html#fn8"></a> and was applied to road-following and pneumonia prediction (Caruana, 1998)<a href="index.html#fn10"></a>. Intuitively, multi-task learning encourages the models to learn representations that are useful for many tasks. This is particularly useful for learning general, low-level representations, to focus a model's attention or in settings with limited amounts of training data. For a more comprehensive overview of multi-task learning, have a look at <a href="http://ruder.io/multi-task/">this post</a>.</p>
 <p>Multi-task learning was first applied to neural networks for NLP in 2008 by Collobert and Weston<a href="index.html#fn9"></a><a href="index.html#fn11"></a>. In their model, the look-up tables (or word embedding matrices) are shared between two models trained on different tasks, as depicted in Figure 2 below.</p>
 <figure>
     <center>
 <img src="http://ruder.io/content/images/2018/09/collobert_icml2008.png" width="450">
-    <figcaption>Figure 2: Sharing of word embedding matrices (Collobert &amp; Weston, 2008; Collobert et al., 2011)</figcaption>
+    <figcaption>Figure 2: Sharing of word embedding matrices (Collobert & Weston, 2008; Collobert et al., 2011)</figcaption>
     </center>
 </figure>
 <p>Sharing the word embeddings enables the models to collaborate and share general low-level information in the word embedding matrix, which typically makes up the largest number of parameters in a model. The 2008 paper by Collobert and Weston proved influential beyond its use of multi-task learning. It spearheaded ideas such as pretraining word embeddings and using convolutional neural networks (CNNs) for text that have only been widely adopted in the last years. It won the <a href="https://research.fb.com/facebook-researchers-win-test-of-time-award-at-icml-2018/">test-of-time award at ICML 2018</a> (see the test-of-time award talk contextualizing the paper <a href="https://www.facebook.com/722677142/posts/10155393881507143/">here</a>).</p>
-<p>Multi-task learning is now used across a wide range of NLP tasks and leveraging existing or "artificial" tasks has become a useful tool in the NLP repertoire. For an overview of different auxiliary tasks, have a look at <a href="http://ruder.io/multi-task-learning-nlp/">this post</a>. While the sharing of parameters is typically predefined, different sharing patterns can also be learned during the optimization process (Ruder et al., 2017)<a href="index.html#fn12"></a>. As models are being increasingly evaluated on multiple tasks to gauge their generalization ability, multi-task learning is gaining in importance and dedicated benchmarks for multi-task learning have been proposed recently (Wang et al., 2018; McCann et al., 2018)<a href="index.html#fn89"></a><a href="index.html#fn90"></a>.</p>
+<p>Multi-task learning is now used across a wide range of NLP tasks and leveraging existing or &quot;artificial&quot; tasks has become a useful tool in the NLP repertoire. For an overview of different auxiliary tasks, have a look at <a href="http://ruder.io/multi-task-learning-nlp/">this post</a>. While the sharing of parameters is typically predefined, different sharing patterns can also be learned during the optimization process (Ruder et al., 2017)<a href="index.html#fn12"></a>. As models are being increasingly evaluated on multiple tasks to gauge their generalization ability, multi-task learning is gaining in importance and dedicated benchmarks for multi-task learning have been proposed recently (Wang et al., 2018; McCann et al., 2018)<a href="index.html#fn89"></a><a href="index.html#fn90"></a>.</p>
 <h1 id="2013wordembeddings">2013 - Word embeddings</h1>
 <p>Sparse vector representations of text, the so-called <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">bag-of-words model</a> have a long history in NLP. Dense vector representations of words or word embeddings have been used as early as 2001 as we have seen above. The main innovation that was proposed in 2013 by Mikolov et al.<a href="index.html#fn14"></a><a href="index.html#fn13"></a> was to make the training of these word embeddings more efficient by removing the hidden layer and approximating the objective. While these changes were simple in nature, they enabled---together with the efficient word2vec implementation---large-scale training of word embeddings.</p>
 <p>Word2vec comes in two flavours that can be seen in Figure 3 below: continuous bag-of-words (CBOW) and skip-gram. They differ in their objective: one predicts the centre word based based on the surrounding words, while the other does the opposite.</p>
@@ -253,7 +259,7 @@ While these embeddings are no different conceptually than the ones learned with 
 </figure>
 <p>These relations and the meaning behind them sparked initial interest in word embeddings and many studies have investigated the origin of these linear relationships (Arora et al., 2016; Mimno &amp; Thompson, 2017; Antoniak &amp; Mimno, 2018; Wendlandt et al., 2018)<a href="index.html#fn15"></a><a href="index.html#fn16"></a><a href="index.html#fn17"></a><a href="index.html#fn18"></a>. However, later studies showed that the learned relations are not without bias (Bolukbasi et al., 2016)<a href="index.html#fn112"></a>. What cemented word embeddings as a mainstay in current NLP was that using pretrained embeddings as initialization was shown to improve performance across a wide range of downstream tasks<a href="index.html#fn19"></a>.</p>
 <p>While the relations word2vec captured had an intuitive and almost magical quality to them, later studies showed that there is nothing inherently special about word2vec: Word embeddings can also be learned via matrix factorization (Pennington et al, 2014; Levy &amp; Goldberg, 2014)<a href="index.html#fn20"></a><a href="index.html#fn21"></a> and with proper tuning, classic matrix factorization approaches like SVD and LSA achieve similar results (Levy et al., 2015)<a href="index.html#fn22"></a>.</p>
-<p>Since then, a lot of work has gone into exploring different facets of word embeddings (as indicated by the <a href="https://scholar.google.de/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=distributed+representations+of+words+and+phrases&amp;btnG=">staggering number of citations of the original paper</a>). Have a look at <a href="http://ruder.io/word-embeddings-2017/">this post</a> for some trends and future directions. Despite many developments, word2vec is still a popular choice and widely used today. Word2vec's reach has even extended beyond the word level: skip-gram with negative sampling, a convenient objective for learning embeddings based on local context, has been applied to learn representations for sentences (Mikolov &amp; Le, 2014; Kiros et al., 2015)<a href="index.html#fn23"></a><a href="index.html#fn24"></a>---and even going beyond NLP---to networks (Grover &amp; Leskovec, 2016)<a href="index.html#fn25"></a> and biological sequences (Asgari &amp; Mofrad, 2015)<a href="index.html#fn26"></a>, among others.</p>
+<p>Since then, a lot of work has gone into exploring different facets of word embeddings (as indicated by the <a href="https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=distributed+representations+of+words+and+phrases&btnG=">staggering number of citations of the original paper</a>). Have a look at <a href="http://ruder.io/word-embeddings-2017/">this post</a> for some trends and future directions. Despite many developments, word2vec is still a popular choice and widely used today. Word2vec's reach has even extended beyond the word level: skip-gram with negative sampling, a convenient objective for learning embeddings based on local context, has been applied to learn representations for sentences (Mikolov &amp; Le, 2014; Kiros et al., 2015)<a href="index.html#fn23"></a><a href="index.html#fn24"></a>---and even going beyond NLP---to networks (Grover &amp; Leskovec, 2016)<a href="index.html#fn25"></a> and biological sequences (Asgari &amp; Mofrad, 2015)<a href="index.html#fn26"></a>, among others.</p>
 <p>One particularly exciting direction is to project word embeddings of different languages into the same space to enable (zero-shot) cross-lingual transfer. It is becoming increasingly possible to learn a good projection in a completely unsupervised way (at least for similar languages) (Conneau et al., 2018; Artetxe et al., 2018; Søgaard et al., 2018)<a href="index.html#fn27"></a><a href="index.html#fn28"></a><a href="index.html#fn29"></a>, which opens applications for low-resource languages and unsupervised machine translation (Lample et al., 2018; Artetxe et al., 2018)<a href="index.html#fn91"></a><a href="index.html#fn92"></a>. Have a look at (Ruder et al., 2018)<a href="index.html#fn30"></a> for an overview.</p>
 <h1 id="2013neuralnetworksfornlp">2013 - Neural networks for NLP</h1>
 <p>2013 and 2014 marked the time when neural network models started to get adopted in NLP. Three main types of neural networks became the most widely used: recurrent neural networks, convolutional neural networks, and recursive neural networks.</p>
@@ -350,125 +356,125 @@ While these embeddings are no different conceptually than the ones learned with 
 <ul>
     <li><a href="https://iaml.it/blog/panoramica-storia-recente-nlp">Italian (by Luca Palmieri)</a></li>
 </ul>
-</h2><p><em>Thanks to Djamé Seddah, Daniel Khashabi, Shyam Upadhyay, Chris Dyer, and Michael Roth for providing pointers (see <a href="https://twitter.com/seb_ruder/status/1046791863896887302">the Twitter thread</a>).</em></p>
+<p><em>Thanks to Djamé Seddah, Daniel Khashabi, Shyam Upadhyay, Chris Dyer, and Michael Roth for providing pointers (see <a href="https://twitter.com/seb_ruder/status/1046791863896887302">the Twitter thread</a>).</em></p>
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item">Kneser, R., &amp; Ney, H. (1995, May). Improved backing-off for m-gram language modeling. In icassp (Vol. 1, p. 181e4).</li>
-<li id="fn2" class="footnote-item">Kannan, A., Kurach, K., Ravi, S., Kaufmann, T., Tomkins, A., Miklos, B., ... &amp; Ramavajjala, V. (2016, August). Smart reply: Automated response suggestion for email. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 955-964). ACM.</li>
-<li id="fn3" class="footnote-item">Bengio, Y., Ducharme, R., &amp; Vincent, P. (2001). Proceedings of NIPS.</li>
-<li id="fn4" class="footnote-item">Mikolov, T., Karafiát, M., Burget, L., Černocký, J., &amp; Khudanpur, S. (2010). Recurrent neural network based language model. In Eleventh Annual Conference of the International Speech Communication Association.</li>
+<li id="fn1" class="footnote-item">Kneser, R., & Ney, H. (1995, May). Improved backing-off for m-gram language modeling. In icassp (Vol. 1, p. 181e4).</li>
+<li id="fn2" class="footnote-item">Kannan, A., Kurach, K., Ravi, S., Kaufmann, T., Tomkins, A., Miklos, B., ... & Ramavajjala, V. (2016, August). Smart reply: Automated response suggestion for email. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 955-964). ACM.</li>
+<li id="fn3" class="footnote-item">Bengio, Y., Ducharme, R., & Vincent, P. (2001). Proceedings of NIPS.</li>
+<li id="fn4" class="footnote-item">Mikolov, T., Karafiát, M., Burget, L., Černocký, J., & Khudanpur, S. (2010). Recurrent neural network based language model. In Eleventh Annual Conference of the International Speech Communication Association.</li>
 <li id="fn5" class="footnote-item">Graves, A. (2013). Generating sequences with recurrent neural networks. arXiv preprint arXiv:1308.0850.</li>
-<li id="fn6" class="footnote-item">Melis, G., Dyer, C., &amp; Blunsom, P. (2018). On the State of the Art of Evaluation in Neural Language Models. In Proceedings of ICLR 2018.</li>
-<li id="fn7" class="footnote-item">Daniluk, M., Rocktäschel, T., Weibl, J., &amp; Riedel, S. (2017). Frustratingly Short Attention Spans in Neural Language Modeling. In Proceedings of ICLR 2017.</li>
+<li id="fn6" class="footnote-item">Melis, G., Dyer, C., & Blunsom, P. (2018). On the State of the Art of Evaluation in Neural Language Models. In Proceedings of ICLR 2018.</li>
+<li id="fn7" class="footnote-item">Daniluk, M., Rocktäschel, T., Weibl, J., & Riedel, S. (2017). Frustratingly Short Attention Spans in Neural Language Modeling. In Proceedings of ICLR 2017.</li>
 <li id="fn8" class="footnote-item">Caruana, R. (1993). Multitask learning: A knowledge-based source of inductive bias. In Proceedings of the Tenth International Conference on Machine Learning.</li>
-<li id="fn9" class="footnote-item">Collobert, R., &amp; Weston, J. (2008). A unified architecture for natural language processing. In Proceedings of the 25th International Conference on Machine Learning (pp. 160–167).</li>
+<li id="fn9" class="footnote-item">Collobert, R., & Weston, J. (2008). A unified architecture for natural language processing. In Proceedings of the 25th International Conference on Machine Learning (pp. 160–167).</li>
 <li id="fn10" class="footnote-item">Caruana, R. (1998). Multitask Learning. Autonomous Agents and Multi-Agent Systems, 27(1), 95–133.</li>
-<li id="fn11" class="footnote-item">Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., &amp; Kuksa, P. (2011). Natural Language Processing (almost) from Scratch. Journal of Machine Learning Research, 12(Aug), 2493–2537. Retrieved from http://arxiv.org/abs/1103.0398.</li>
-<li id="fn12" class="footnote-item">Ruder, S., Bingel, J., Augenstein, I., &amp; Søgaard, A. (2017). Learning what to share between loosely related tasks. ArXiv Preprint ArXiv:1705.08142. Retrieved from http://arxiv.org/abs/1705.08142</li>
-<li id="fn13" class="footnote-item">Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. In Advances in Neural Information Processing Systems.</li>
-<li id="fn14" class="footnote-item">Mikolov, T., Corrado, G., Chen, K., &amp; Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR 2013).</li>
-<li id="fn15" class="footnote-item">Arora, S., Li, Y., Liang, Y., Ma, T., &amp; Risteski, A. (2016). A Latent Variable Model Approach to PMI-based Word Embeddings. TACL, 4, 385–399.</li>
-<li id="fn16" class="footnote-item">Mimno, D., &amp; Thompson, L. (2017). The strange geometry of skip-gram with negative sampling. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 2863–2868).</li>
-<li id="fn17" class="footnote-item">Antoniak, M., &amp; Mimno, D. (2018). Evaluating the Stability of Embedding-based Word Similarities. Transactions of the Association for Computational Linguistics, 6, 107–119.</li>
-<li id="fn18" class="footnote-item">Wendlandt, L., Kummerfeld, J. K., &amp; Mihalcea, R. (2018). Factors Influencing the Surprising Instability of Word Embeddings. In Proceedings of NAACL-HLT 2018.</li>
+<li id="fn11" class="footnote-item">Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., & Kuksa, P. (2011). Natural Language Processing (almost) from Scratch. Journal of Machine Learning Research, 12(Aug), 2493–2537. Retrieved from http://arxiv.org/abs/1103.0398.</li>
+<li id="fn12" class="footnote-item">Ruder, S., Bingel, J., Augenstein, I., & Søgaard, A. (2017). Learning what to share between loosely related tasks. ArXiv Preprint ArXiv:1705.08142. Retrieved from http://arxiv.org/abs/1705.08142</li>
+<li id="fn13" class="footnote-item">Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). Distributed Representations of Words and Phrases and their Compositionality. In Advances in Neural Information Processing Systems.</li>
+<li id="fn14" class="footnote-item">Mikolov, T., Corrado, G., Chen, K., & Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR 2013).</li>
+<li id="fn15" class="footnote-item">Arora, S., Li, Y., Liang, Y., Ma, T., & Risteski, A. (2016). A Latent Variable Model Approach to PMI-based Word Embeddings. TACL, 4, 385–399.</li>
+<li id="fn16" class="footnote-item">Mimno, D., & Thompson, L. (2017). The strange geometry of skip-gram with negative sampling. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 2863–2868).</li>
+<li id="fn17" class="footnote-item">Antoniak, M., & Mimno, D. (2018). Evaluating the Stability of Embedding-based Word Similarities. Transactions of the Association for Computational Linguistics, 6, 107–119.</li>
+<li id="fn18" class="footnote-item">Wendlandt, L., Kummerfeld, J. K., & Mihalcea, R. (2018). Factors Influencing the Surprising Instability of Word Embeddings. In Proceedings of NAACL-HLT 2018.</li>
 <li id="fn19" class="footnote-item">Kim, Y. (2014). Convolutional Neural Networks for Sentence Classification. Proceedings of the Conference on Empirical Methods in Natural Language Processing, 1746–1751. Retrieved from http://arxiv.org/abs/1408.5882</li>
-<li id="fn20" class="footnote-item">Pennington, J., Socher, R., &amp; Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543.</li>
-<li id="fn21" class="footnote-item">Levy, O., &amp; Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. Advances in Neural Information Processing Systems (NIPS), 2177–2185. Retrieved from http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization</li>
-<li id="fn22" class="footnote-item">Levy, O., Goldberg, Y., &amp; Dagan, I. (2015). Improving Distributional Similarity with Lessons Learned from Word Embeddings. Transactions of the Association for Computational Linguistics, 3, 211–225. Retrieved from https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570</li>
-<li id="fn23" class="footnote-item">Le, Q. V., &amp; Mikolov, T. (2014). Distributed Representations of Sentences and Documents. International Conference on Machine Learning - ICML 2014, 32, 1188–1196. Retrieved from http://arxiv.org/abs/1405.4053</li>
-<li id="fn24" class="footnote-item">Kiros, R., Zhu, Y., Salakhutdinov, R., Zemel, R. S., Torralba, A., Urtasun, R., &amp; Fidler, S. (2015). Skip-Thought Vectors. In Proceedings of NIPS 2015. Retrieved from http://arxiv.org/abs/1506.06726</li>
-<li id="fn25" class="footnote-item">Grover, A., &amp; Leskovec, J. (2016, August). node2vec: Scalable feature learning for networks. In Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 855-864). ACM.</li>
-<li id="fn26" class="footnote-item">Asgari, E., &amp; Mofrad, M. R. (2015). Continuous distributed representation of biological sequences for deep proteomics and genomics. PloS one, 10(11), e0141287.</li>
-<li id="fn27" class="footnote-item">Conneau, A., Lample, G., Ranzato, M., Denoyer, L., &amp; Jégou, H. (2018). Word Translation Without Parallel Data. In Proceedings of ICLR 2018. Retrieved from http://arxiv.org/abs/1710.04087</li>
-<li id="fn28" class="footnote-item">Artetxe, M., Labaka, G., &amp; Agirre, E. (2018). A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of ACL 2018.</li>
-<li id="fn29" class="footnote-item">Søgaard, A., Ruder, S., &amp; Vulić, I. (2018). On the Limitations of Unsupervised Bilingual Dictionary Induction. In Proceedings of ACL 2018.</li>
-<li id="fn30" class="footnote-item">Ruder, S., Vulić, I., &amp; Søgaard, A. (2018). A Survey of Cross-lingual Word Embedding Models. To be published in Journal of Artificial Intelligence Research. Retrieved from http://arxiv.org/abs/1706.04902</li>
+<li id="fn20" class="footnote-item">Pennington, J., Socher, R., & Manning, C. D. (2014). Glove: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing, 1532–1543.</li>
+<li id="fn21" class="footnote-item">Levy, O., & Goldberg, Y. (2014). Neural Word Embedding as Implicit Matrix Factorization. Advances in Neural Information Processing Systems (NIPS), 2177–2185. Retrieved from http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization</li>
+<li id="fn22" class="footnote-item">Levy, O., Goldberg, Y., & Dagan, I. (2015). Improving Distributional Similarity with Lessons Learned from Word Embeddings. Transactions of the Association for Computational Linguistics, 3, 211–225. Retrieved from https://tacl2013.cs.columbia.edu/ojs/index.php/tacl/article/view/570</li>
+<li id="fn23" class="footnote-item">Le, Q. V., & Mikolov, T. (2014). Distributed Representations of Sentences and Documents. International Conference on Machine Learning - ICML 2014, 32, 1188–1196. Retrieved from http://arxiv.org/abs/1405.4053</li>
+<li id="fn24" class="footnote-item">Kiros, R., Zhu, Y., Salakhutdinov, R., Zemel, R. S., Torralba, A., Urtasun, R., & Fidler, S. (2015). Skip-Thought Vectors. In Proceedings of NIPS 2015. Retrieved from http://arxiv.org/abs/1506.06726</li>
+<li id="fn25" class="footnote-item">Grover, A., & Leskovec, J. (2016, August). node2vec: Scalable feature learning for networks. In Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 855-864). ACM.</li>
+<li id="fn26" class="footnote-item">Asgari, E., & Mofrad, M. R. (2015). Continuous distributed representation of biological sequences for deep proteomics and genomics. PloS one, 10(11), e0141287.</li>
+<li id="fn27" class="footnote-item">Conneau, A., Lample, G., Ranzato, M., Denoyer, L., & Jégou, H. (2018). Word Translation Without Parallel Data. In Proceedings of ICLR 2018. Retrieved from http://arxiv.org/abs/1710.04087</li>
+<li id="fn28" class="footnote-item">Artetxe, M., Labaka, G., & Agirre, E. (2018). A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of ACL 2018.</li>
+<li id="fn29" class="footnote-item">Søgaard, A., Ruder, S., & Vulić, I. (2018). On the Limitations of Unsupervised Bilingual Dictionary Induction. In Proceedings of ACL 2018.</li>
+<li id="fn30" class="footnote-item">Ruder, S., Vulić, I., & Søgaard, A. (2018). A Survey of Cross-lingual Word Embedding Models. To be published in Journal of Artificial Intelligence Research. Retrieved from http://arxiv.org/abs/1706.04902</li>
 <li id="fn31" class="footnote-item">Elman, J. L. (1990). Finding structure in time. Cognitive science, 14(2), 179-211.</li>
-<li id="fn32" class="footnote-item">Hochreiter, S., &amp; Schmidhuber, J. (1997). Long short-term memory. Neural computation, 9(8), 1735-1780.</li>
-<li id="fn33" class="footnote-item">Kalchbrenner, N., Grefenstette, E., &amp; Blunsom, P. (2014). A Convolutional Neural Network for Modelling Sentences. In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (pp. 655–665). Retrieved from http://arxiv.org/abs/1404.2188</li>
+<li id="fn32" class="footnote-item">Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural computation, 9(8), 1735-1780.</li>
+<li id="fn33" class="footnote-item">Kalchbrenner, N., Grefenstette, E., & Blunsom, P. (2014). A Convolutional Neural Network for Modelling Sentences. In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (pp. 655–665). Retrieved from http://arxiv.org/abs/1404.2188</li>
 <li id="fn34" class="footnote-item">Kim, Y. (2014). Convolutional Neural Networks for Sentence Classification. Proceedings of the Conference on Empirical Methods in Natural Language Processing, 1746–1751. Retrieved from http://arxiv.org/abs/1408.5882</li>
-<li id="fn35" class="footnote-item">Kalchbrenner, N., Espeholt, L., Simonyan, K., Oord, A. van den, Graves, A., &amp; Kavukcuoglu, K. (2016). Neural Machine Translation in Linear Time. ArXiv Preprint ArXiv: Retrieved from http://arxiv.org/abs/1610.10099</li>
-<li id="fn36" class="footnote-item">Wang, J., Yu, L., Lai, K. R., &amp; Zhang, X. (2016). Dimensional Sentiment Analysis Using a Regional CNN-LSTM Model. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL 2016), 225–230.</li>
-<li id="fn37" class="footnote-item">Bradbury, J., Merity, S., Xiong, C., &amp; Socher, R. (2017). Quasi-Recurrent Neural Networks. In ICLR 2017. Retrieved from http://arxiv.org/abs/1611.01576</li>
-<li id="fn38" class="footnote-item">Socher, R., Perelygin, A., &amp; Wu, J. (2013). Recursive deep models for semantic compositionality over a sentiment treebank. Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing, 1631–1642.</li>
-<li id="fn39" class="footnote-item">Tai, K. S., Socher, R., &amp; Manning, C. D. (2015). Improved Semantic Representations From Tree-Structured Long Short-Term Memory Networks. Acl-2015, 1556–1566.</li>
-<li id="fn40" class="footnote-item">Levy, O., &amp; Goldberg, Y. (2014). Dependency-Based Word Embeddings. In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Short Papers) (pp. 302–308). https://doi.org/10.3115/v1/P14-2050</li>
-<li id="fn41" class="footnote-item">Dyer, C., Kuncoro, A., Ballesteros, M., &amp; Smith, N. A. (2016). Recurrent Neural Network Grammars. In NAACL. Retrieved from http://arxiv.org/abs/1602.07776</li>
-<li id="fn42" class="footnote-item">Bastings, J., Titov, I., Aziz, W., Marcheggiani, D., &amp; Sima’an, K. (2017). Graph Convolutional Encoders for Syntax-aware Neural Machine Translation. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing.</li>
-<li id="fn43" class="footnote-item">Vinyals, O., Toshev, A., Bengio, S., &amp; Erhan, D. (2015). Show and tell: A neural image caption generator. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3156-3164).</li>
-<li id="fn44" class="footnote-item">Lebret, R., Grangier, D., &amp; Auli, M. (2016). Generating Text from Structured Data with Application to the Biography Domain. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing. Retrieved from http://arxiv.org/abs/1603.07771</li>
-<li id="fn45" class="footnote-item">Loyola, P., Marrese-Taylor, E., &amp; Matsuo, Y. (2017). A Neural Architecture for Generating Natural Language Descriptions from Source Code Changes. In ACL 2017. Retrieved from http://arxiv.org/abs/1704.04856</li>
-<li id="fn46" class="footnote-item">Vinyals, O., Kaiser, L., Koo, T., Petrov, S., Sutskever, I., &amp; Hinton, G. (2015). Grammar as a Foreign Language. Advances in Neural Information Processing Systems.</li>
-<li id="fn47" class="footnote-item">Gillick, D., Brunk, C., Vinyals, O., &amp; Subramanya, A. (2016). Multilingual Language Processing From Bytes. In NAACL (pp. 1296–1306). Retrieved from http://arxiv.org/abs/1512.00103</li>
+<li id="fn35" class="footnote-item">Kalchbrenner, N., Espeholt, L., Simonyan, K., Oord, A. van den, Graves, A., & Kavukcuoglu, K. (2016). Neural Machine Translation in Linear Time. ArXiv Preprint ArXiv: Retrieved from http://arxiv.org/abs/1610.10099</li>
+<li id="fn36" class="footnote-item">Wang, J., Yu, L., Lai, K. R., & Zhang, X. (2016). Dimensional Sentiment Analysis Using a Regional CNN-LSTM Model. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL 2016), 225–230.</li>
+<li id="fn37" class="footnote-item">Bradbury, J., Merity, S., Xiong, C., & Socher, R. (2017). Quasi-Recurrent Neural Networks. In ICLR 2017. Retrieved from http://arxiv.org/abs/1611.01576</li>
+<li id="fn38" class="footnote-item">Socher, R., Perelygin, A., & Wu, J. (2013). Recursive deep models for semantic compositionality over a sentiment treebank. Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing, 1631–1642.</li>
+<li id="fn39" class="footnote-item">Tai, K. S., Socher, R., & Manning, C. D. (2015). Improved Semantic Representations From Tree-Structured Long Short-Term Memory Networks. Acl-2015, 1556–1566.</li>
+<li id="fn40" class="footnote-item">Levy, O., & Goldberg, Y. (2014). Dependency-Based Word Embeddings. In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Short Papers) (pp. 302–308). https://doi.org/10.3115/v1/P14-2050</li>
+<li id="fn41" class="footnote-item">Dyer, C., Kuncoro, A., Ballesteros, M., & Smith, N. A. (2016). Recurrent Neural Network Grammars. In NAACL. Retrieved from http://arxiv.org/abs/1602.07776</li>
+<li id="fn42" class="footnote-item">Bastings, J., Titov, I., Aziz, W., Marcheggiani, D., & Sima’an, K. (2017). Graph Convolutional Encoders for Syntax-aware Neural Machine Translation. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing.</li>
+<li id="fn43" class="footnote-item">Vinyals, O., Toshev, A., Bengio, S., & Erhan, D. (2015). Show and tell: A neural image caption generator. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3156-3164).</li>
+<li id="fn44" class="footnote-item">Lebret, R., Grangier, D., & Auli, M. (2016). Generating Text from Structured Data with Application to the Biography Domain. Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing. Retrieved from http://arxiv.org/abs/1603.07771</li>
+<li id="fn45" class="footnote-item">Loyola, P., Marrese-Taylor, E., & Matsuo, Y. (2017). A Neural Architecture for Generating Natural Language Descriptions from Source Code Changes. In ACL 2017. Retrieved from http://arxiv.org/abs/1704.04856</li>
+<li id="fn46" class="footnote-item">Vinyals, O., Kaiser, L., Koo, T., Petrov, S., Sutskever, I., & Hinton, G. (2015). Grammar as a Foreign Language. Advances in Neural Information Processing Systems.</li>
+<li id="fn47" class="footnote-item">Gillick, D., Brunk, C., Vinyals, O., & Subramanya, A. (2016). Multilingual Language Processing From Bytes. In NAACL (pp. 1296–1306). Retrieved from http://arxiv.org/abs/1512.00103</li>
 <li id="fn48" class="footnote-item">Wu, Y., Schuster, M., Chen, Z., Le, Q. V, Norouzi, M., Macherey, W., … Dean, J. (2016). Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation. ArXiv Preprint ArXiv:1609.08144.</li>
-<li id="fn49" class="footnote-item">Gehring, J., Auli, M., Grangier, D., Yarats, D., &amp; Dauphin, Y. N. (2017). Convolutional Sequence to Sequence Learning. ArXiv Preprint ArXiv:1705.03122. Retrieved from http://arxiv.org/abs/1705.03122</li>
+<li id="fn49" class="footnote-item">Gehring, J., Auli, M., Grangier, D., Yarats, D., & Dauphin, Y. N. (2017). Convolutional Sequence to Sequence Learning. ArXiv Preprint ArXiv:1705.03122. Retrieved from http://arxiv.org/abs/1705.03122</li>
 <li id="fn50" class="footnote-item">Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … Polosukhin, I. (2017). Attention Is All You Need. In Advances in Neural Information Processing Systems.</li>
-<li id="fn51" class="footnote-item">Chen, M. X., Foster, G., &amp; Parmar, N. (2018). The Best of Both Worlds: Combining Recent Advances in Neural Machine Translation. In Proceedings of ACL 2018.</li>
-<li id="fn52" class="footnote-item">Bahdanau, D., Cho, K., &amp; Bengio, Y. (2015). Neural Machine Translation by Jointly Learning to Align and Translate. In ICLR 2015.</li>
-<li id="fn53" class="footnote-item">Luong, M.-T., Pham, H., &amp; Manning, C. D. (2015). Effective Approaches to Attention-based Neural Machine Translation. In Proceedings of EMNLP 2015. Retrieved from http://arxiv.org/abs/1508.04025</li>
-<li id="fn54" class="footnote-item">Hermann, K. M., Kočiský, T., Grefenstette, E., Espeholt, L., Kay, W., Suleyman, M., &amp; Blunsom, P. (2015). Teaching Machines to Read and Comprehend. Advances in Neural Information Processing Systems. Retrieved from http://arxiv.org/abs/1506.03340v1</li>
-<li id="fn55" class="footnote-item">Xu, K., Courville, A., Zemel, R. S., &amp; Bengio, Y. (2015). Show, Attend and Tell: Neural Image Caption Generation with Visual Attention. In Proceedings of ICML 2015.</li>
-<li id="fn56" class="footnote-item">Vinyals, O., Blundell, C., Lillicrap, T., Kavukcuoglu, K., &amp; Wierstra, D. (2016). Matching Networks for One Shot Learning. In Advances in Neural Information Processing Systems 29 (NIPS 2016). Retrieved from http://arxiv.org/abs/1606.04080</li>
-<li id="fn57" class="footnote-item">Graves, A., Wayne, G., &amp; Danihelka, I. (2014). Neural turing machines. arXiv preprint arXiv:1410.5401.</li>
-<li id="fn58" class="footnote-item">Weston, J., Chopra, S., &amp; Bordes, A. (2015). Memory Networks. In Proceedings of ICLR 2015.</li>
-<li id="fn59" class="footnote-item">Sukhbaatar, S., Szlam, A., Weston, J., &amp; Fergus, R. (2015). End-To-End Memory Networks. In Proceedings of NIPS 2015. Retrieved from http://arxiv.org/abs/1503.08895</li>
-<li id="fn60" class="footnote-item">Kumar, A., Irsoy, O., Ondruska, P., Iyyer, M., Bradbury, J., Gulrajani, I., ... &amp; Socher, R. (2016, June). Ask me anything: Dynamic memory networks for natural language processing. In International Conference on Machine Learning (pp. 1378-1387).</li>
+<li id="fn51" class="footnote-item">Chen, M. X., Foster, G., & Parmar, N. (2018). The Best of Both Worlds: Combining Recent Advances in Neural Machine Translation. In Proceedings of ACL 2018.</li>
+<li id="fn52" class="footnote-item">Bahdanau, D., Cho, K., & Bengio, Y. (2015). Neural Machine Translation by Jointly Learning to Align and Translate. In ICLR 2015.</li>
+<li id="fn53" class="footnote-item">Luong, M.-T., Pham, H., & Manning, C. D. (2015). Effective Approaches to Attention-based Neural Machine Translation. In Proceedings of EMNLP 2015. Retrieved from http://arxiv.org/abs/1508.04025</li>
+<li id="fn54" class="footnote-item">Hermann, K. M., Kočiský, T., Grefenstette, E., Espeholt, L., Kay, W., Suleyman, M., & Blunsom, P. (2015). Teaching Machines to Read and Comprehend. Advances in Neural Information Processing Systems. Retrieved from http://arxiv.org/abs/1506.03340v1</li>
+<li id="fn55" class="footnote-item">Xu, K., Courville, A., Zemel, R. S., & Bengio, Y. (2015). Show, Attend and Tell: Neural Image Caption Generation with Visual Attention. In Proceedings of ICML 2015.</li>
+<li id="fn56" class="footnote-item">Vinyals, O., Blundell, C., Lillicrap, T., Kavukcuoglu, K., & Wierstra, D. (2016). Matching Networks for One Shot Learning. In Advances in Neural Information Processing Systems 29 (NIPS 2016). Retrieved from http://arxiv.org/abs/1606.04080</li>
+<li id="fn57" class="footnote-item">Graves, A., Wayne, G., & Danihelka, I. (2014). Neural turing machines. arXiv preprint arXiv:1410.5401.</li>
+<li id="fn58" class="footnote-item">Weston, J., Chopra, S., & Bordes, A. (2015). Memory Networks. In Proceedings of ICLR 2015.</li>
+<li id="fn59" class="footnote-item">Sukhbaatar, S., Szlam, A., Weston, J., & Fergus, R. (2015). End-To-End Memory Networks. In Proceedings of NIPS 2015. Retrieved from http://arxiv.org/abs/1503.08895</li>
+<li id="fn60" class="footnote-item">Kumar, A., Irsoy, O., Ondruska, P., Iyyer, M., Bradbury, J., Gulrajani, I., ... & Socher, R. (2016, June). Ask me anything: Dynamic memory networks for natural language processing. In International Conference on Machine Learning (pp. 1378-1387).</li>
 <li id="fn61" class="footnote-item">Graves, A., Wayne, G., Reynolds, M., Harley, T., Danihelka, I., Grabska-Barwińska, A., … Hassabis, D. (2016). Hybrid computing using a neural network with dynamic external memory. Nature.</li>
-<li id="fn62" class="footnote-item">Henaff, M., Weston, J., Szlam, A., Bordes, A., &amp; LeCun, Y. (2017). Tracking the World State with Recurrent Entity Networks. In Proceedings of ICLR 2017.</li>
-<li id="fn63" class="footnote-item">Sutskever, I., Vinyals, O., &amp; Le, Q. V. (2014). Sequence to sequence learning with neural networks. In Advances in Neural Information Processing Systems.</li>
-<li id="fn64" class="footnote-item">McCann, B., Bradbury, J., Xiong, C., &amp; Socher, R. (2017). Learned in Translation: Contextualized Word Vectors. In Advances in Neural Information Processing Systems.</li>
-<li id="fn65" class="footnote-item">Conneau, A., Kiela, D., Schwenk, H., Barrault, L., &amp; Bordes, A. (2017). Supervised Learning of Universal Sentence Representations from Natural Language Inference Data. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing.</li>
-<li id="fn66" class="footnote-item">Subramanian, S., Trischler, A., Bengio, Y., &amp; Pal, C. J. (2018). Learning General Purpose Distributed Sentence Representations via Large Scale Multi-task Learning. In Proceedings of ICLR 2018.</li>
-<li id="fn67" class="footnote-item">Dai, A. M., &amp; Le, Q. V. (2015). Semi-supervised Sequence Learning. Advances in Neural Information Processing Systems (NIPS ’15). Retrieved from http://arxiv.org/abs/1511.01432</li>
-<li id="fn68" class="footnote-item">Peters, M. E., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., &amp; Zettlemoyer, L. (2018). Deep contextualized word representations. In Proceedings of NAACL-HLT 2018.</li>
-<li id="fn69" class="footnote-item">Howard, J., &amp; Ruder, S. (2018). Universal Language Model Fine-tuning for Text Classification. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1801.06146</li>
-<li id="fn70" class="footnote-item">Lample, G., Ballesteros, M., Subramanian, S., Kawakami, K., &amp; Dyer, C. (2016). Neural Architectures for Named Entity Recognition. In NAACL-HLT 2016.</li>
-<li id="fn71" class="footnote-item">Plank, B., Søgaard, A., &amp; Goldberg, Y. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics.</li>
-<li id="fn72" class="footnote-item">Ling, W., Trancoso, I., Dyer, C., &amp; Black, A. (2016). Character-based Neural Machine Translation. In ICLR. Retrieved from http://arxiv.org/abs/1511.04586</li>
-<li id="fn73" class="footnote-item">Lee, J., Cho, K., &amp; Bengio, Y. (2017). Fully Character-Level Neural Machine Translation without Explicit Segmentation. In Transactions of the Association for Computational Linguistics.</li>
-<li id="fn74" class="footnote-item">Jia, R., &amp; Liang, P. (2017). Adversarial Examples for Evaluating Reading Comprehension Systems. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing.</li>
-<li id="fn75" class="footnote-item">Miyato, T., Dai, A. M., &amp; Goodfellow, I. (2017). Adversarial Training Methods for Semi-supervised Text Classification. In Proceedings of ICLR 2017.</li>
-<li id="fn76" class="footnote-item">Yasunaga, M., Kasai, J., &amp; Radev, D. (2018). Robust Multilingual Part-of-Speech Tagging via Adversarial Training. In Proceedings of NAACL 2018. Retrieved from http://arxiv.org/abs/1711.04903</li>
+<li id="fn62" class="footnote-item">Henaff, M., Weston, J., Szlam, A., Bordes, A., & LeCun, Y. (2017). Tracking the World State with Recurrent Entity Networks. In Proceedings of ICLR 2017.</li>
+<li id="fn63" class="footnote-item">Sutskever, I., Vinyals, O., & Le, Q. V. (2014). Sequence to sequence learning with neural networks. In Advances in Neural Information Processing Systems.</li>
+<li id="fn64" class="footnote-item">McCann, B., Bradbury, J., Xiong, C., & Socher, R. (2017). Learned in Translation: Contextualized Word Vectors. In Advances in Neural Information Processing Systems.</li>
+<li id="fn65" class="footnote-item">Conneau, A., Kiela, D., Schwenk, H., Barrault, L., & Bordes, A. (2017). Supervised Learning of Universal Sentence Representations from Natural Language Inference Data. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing.</li>
+<li id="fn66" class="footnote-item">Subramanian, S., Trischler, A., Bengio, Y., & Pal, C. J. (2018). Learning General Purpose Distributed Sentence Representations via Large Scale Multi-task Learning. In Proceedings of ICLR 2018.</li>
+<li id="fn67" class="footnote-item">Dai, A. M., & Le, Q. V. (2015). Semi-supervised Sequence Learning. Advances in Neural Information Processing Systems (NIPS ’15). Retrieved from http://arxiv.org/abs/1511.01432</li>
+<li id="fn68" class="footnote-item">Peters, M. E., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., & Zettlemoyer, L. (2018). Deep contextualized word representations. In Proceedings of NAACL-HLT 2018.</li>
+<li id="fn69" class="footnote-item">Howard, J., & Ruder, S. (2018). Universal Language Model Fine-tuning for Text Classification. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1801.06146</li>
+<li id="fn70" class="footnote-item">Lample, G., Ballesteros, M., Subramanian, S., Kawakami, K., & Dyer, C. (2016). Neural Architectures for Named Entity Recognition. In NAACL-HLT 2016.</li>
+<li id="fn71" class="footnote-item">Plank, B., Søgaard, A., & Goldberg, Y. (2016). Multilingual Part-of-Speech Tagging with Bidirectional Long Short-Term Memory Models and Auxiliary Loss. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics.</li>
+<li id="fn72" class="footnote-item">Ling, W., Trancoso, I., Dyer, C., & Black, A. (2016). Character-based Neural Machine Translation. In ICLR. Retrieved from http://arxiv.org/abs/1511.04586</li>
+<li id="fn73" class="footnote-item">Lee, J., Cho, K., & Bengio, Y. (2017). Fully Character-Level Neural Machine Translation without Explicit Segmentation. In Transactions of the Association for Computational Linguistics.</li>
+<li id="fn74" class="footnote-item">Jia, R., & Liang, P. (2017). Adversarial Examples for Evaluating Reading Comprehension Systems. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing.</li>
+<li id="fn75" class="footnote-item">Miyato, T., Dai, A. M., & Goodfellow, I. (2017). Adversarial Training Methods for Semi-supervised Text Classification. In Proceedings of ICLR 2017.</li>
+<li id="fn76" class="footnote-item">Yasunaga, M., Kasai, J., & Radev, D. (2018). Robust Multilingual Part-of-Speech Tagging via Adversarial Training. In Proceedings of NAACL 2018. Retrieved from http://arxiv.org/abs/1711.04903</li>
 <li id="fn77" class="footnote-item">Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., … Lempitsky, V. (2016). Domain-Adversarial Training of Neural Networks. Journal of Machine Learning Research, 17.</li>
-<li id="fn78" class="footnote-item">Kim, Y., Stratos, K., &amp; Kim, D. (2017). Adversarial Adaptation of Synthetic or Stale Data. In Proceedings of ACL (pp. 1297–1307).</li>
-<li id="fn79" class="footnote-item">Semeniuta, S., Severyn, A., &amp; Gelly, S. (2018). On Accurate Evaluation of GANs for Language Generation. Retrieved from http://arxiv.org/abs/1806.04936</li>
-<li id="fn80" class="footnote-item"><p>Fang, M., Li, Y., &amp; Cohn, T. (2017). Learning how to Active Learn: A Deep Reinforcement Learning Approach. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from https://arxiv.org/pdf/1708.02383v1.pdf</p>
+<li id="fn78" class="footnote-item">Kim, Y., Stratos, K., & Kim, D. (2017). Adversarial Adaptation of Synthetic or Stale Data. In Proceedings of ACL (pp. 1297–1307).</li>
+<li id="fn79" class="footnote-item">Semeniuta, S., Severyn, A., & Gelly, S. (2018). On Accurate Evaluation of GANs for Language Generation. Retrieved from http://arxiv.org/abs/1806.04936</li>
+<li id="fn80" class="footnote-item"><p>Fang, M., Li, Y., & Cohn, T. (2017). Learning how to Active Learn: A Deep Reinforcement Learning Approach. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from https://arxiv.org/pdf/1708.02383v1.pdf</p>
 </li>
-<li id="fn81" class="footnote-item"><p>Wu, J., Li, L., &amp; Wang, W. Y. (2018). Reinforced Co-Training. In Proceedings of NAACL-HLT 2018.</p>
+<li id="fn81" class="footnote-item"><p>Wu, J., Li, L., & Wang, W. Y. (2018). Reinforced Co-Training. In Proceedings of NAACL-HLT 2018.</p>
 </li>
-<li id="fn82" class="footnote-item"><p>Paulus, R., Xiong, C., &amp; Socher, R. (2018). A deep reinforced model for abstractive summarization. In Proceedings of ICLR 2018.</p></li>
-<li id="fn83" class="footnote-item"><p>Celikyilmaz, A., Bosselut, A., He, X., &amp; Choi, Y. (2018). Deep communicating agents for abstractive summarization. In Proceedings of NAACL-HLT 2018.</p></li>
-<li id="fn84" class="footnote-item"><p>Ranzato, M. A., Chopra, S., Auli, M., &amp; Zaremba, W. (2016). Sequence level training with recurrent neural networks. In Proceedings of ICLR 2016.</p></li>
-<li id="fn85" class="footnote-item"><p>Wang, X., Chen, W., Wang, Y.-F., &amp; Wang, W. Y. (2018). No Metrics Are Perfect: Adversarial Reward Learning for Visual Storytelling. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1804.09160</p></li>
-<li id="fn86" class="footnote-item">Liu, B., Tür, G., Hakkani-Tür, D., Shah, P., &amp; Heck, L. (2018). Dialogue Learning with Human Teaching and Feedback in End-to-End Trainable Task-Oriented Dialogue Systems. In Proceedings of NAACL-HLT 2018.</li>
-<li id="fn87" class="footnote-item">Kuncoro, A., Dyer, C., Hale, J., Yogatama, D., Clark, S., &amp; Blunsom, P. (2018). LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better. In Proceedings of ACL 2018 (pp. 1–11). Retrieved from http://aclweb.org/anthology/P18-1132</li>
-<li id="fn88" class="footnote-item">Blevins, T., Levy, O., &amp; Zettlemoyer, L. (2018). Deep RNNs Encode Soft Hierarchical Syntax. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.04218</li>
-<li id="fn89" class="footnote-item">Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., &amp; Bowman, S. R. (2018). GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding.</li>
-<li id="fn90" class="footnote-item">McCann, B., Keskar, N. S., Xiong, C., &amp; Socher, R. (2018). The Natural Language Decathlon: Multitask Learning as Question Answering.</li>
-<li id="fn91" class="footnote-item">Lample, G., Denoyer, L., &amp; Ranzato, M. (2018). Unsupervised Machine Translation Using Monolingual Corpora Only. In Proceedings of ICLR 2018.</li>
-<li id="fn92" class="footnote-item">Artetxe, M., Labaka, G., Agirre, E., &amp; Cho, K. (2018). Unsupervised Neural Machine Translation. In Proceedings of ICLR 2018. Retrieved from http://arxiv.org/abs/1710.11041</li>
-<li id="fn93" class="footnote-item">Graves, A., Jaitly, N., &amp; Mohamed, A. R. (2013, December). Hybrid speech recognition with deep bidirectional LSTM. In Automatic Speech Recognition and Understanding (ASRU), 2013 IEEE Workshop on (pp. 273-278). IEEE.</li>
-<li id="fn94" class="footnote-item">Ramachandran, P., Liu, P. J., &amp; Le, Q. V. (2017). Unsupervised Pretraining for Sequence to Sequence Learning. In Proceedings of EMNLP 2017.</li>
-<li id="fn95" class="footnote-item">Baker, C. F., Fillmore, C. J., &amp; Lowe, J. B. (1998, August). The berkeley framenet project. In Proceedings of the 17th international conference on Computational linguistics-Volume 1 (pp. 86-90). Association for Computational Linguistics.</li>
-<li id="fn96" class="footnote-item">Tjong Kim Sang, E. F., &amp; Buchholz, S. (2000, September). Introduction to the CoNLL-2000 shared task: Chunking. In Proceedings of the 2nd workshop on Learning language in logic and the 4th conference on Computational natural language learning-Volume 7 (pp. 127-132). Association for Computational Linguistics.</li>
-<li id="fn97" class="footnote-item">Tjong Kim Sang, E. F., &amp; De Meulder, F. (2003, May). Introduction to the CoNLL-2003 shared task: Language-independent named entity recognition. In Proceedings of the seventh conference on Natural language learning at HLT-NAACL 2003-Volume 4 (pp. 142-147). Association for Computational Linguistics.</li>
-<li id="fn98" class="footnote-item">Buchholz, S., &amp; Marsi, E. (2006, June). CoNLL-X shared task on multilingual dependency parsing. In Proceedings of the tenth conference on computational natural language learning (pp. 149-164). Association for Computational Linguistics.</li>
-<li id="fn99" class="footnote-item">Lafferty, J., McCallum, A., &amp; Pereira, F. C. (2001). Conditional random fields: Probabilistic models for segmenting and labeling sequence data.</li>
-<li id="fn100" class="footnote-item">Papineni, K., Roukos, S., Ward, T., &amp; Zhu, W. J. (2002, July). BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting on association for computational linguistics (pp. 311-318). Association for Computational Linguistics.</li>
+<li id="fn82" class="footnote-item"><p>Paulus, R., Xiong, C., & Socher, R. (2018). A deep reinforced model for abstractive summarization. In Proceedings of ICLR 2018.</p></li>
+<li id="fn83" class="footnote-item"><p>Celikyilmaz, A., Bosselut, A., He, X., & Choi, Y. (2018). Deep communicating agents for abstractive summarization. In Proceedings of NAACL-HLT 2018.</p></li>
+<li id="fn84" class="footnote-item"><p>Ranzato, M. A., Chopra, S., Auli, M., & Zaremba, W. (2016). Sequence level training with recurrent neural networks. In Proceedings of ICLR 2016.</p></li>
+<li id="fn85" class="footnote-item"><p>Wang, X., Chen, W., Wang, Y.-F., & Wang, W. Y. (2018). No Metrics Are Perfect: Adversarial Reward Learning for Visual Storytelling. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1804.09160</p></li>
+<li id="fn86" class="footnote-item">Liu, B., Tür, G., Hakkani-Tür, D., Shah, P., & Heck, L. (2018). Dialogue Learning with Human Teaching and Feedback in End-to-End Trainable Task-Oriented Dialogue Systems. In Proceedings of NAACL-HLT 2018.</li>
+<li id="fn87" class="footnote-item">Kuncoro, A., Dyer, C., Hale, J., Yogatama, D., Clark, S., & Blunsom, P. (2018). LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better. In Proceedings of ACL 2018 (pp. 1–11). Retrieved from http://aclweb.org/anthology/P18-1132</li>
+<li id="fn88" class="footnote-item">Blevins, T., Levy, O., & Zettlemoyer, L. (2018). Deep RNNs Encode Soft Hierarchical Syntax. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.04218</li>
+<li id="fn89" class="footnote-item">Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., & Bowman, S. R. (2018). GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding.</li>
+<li id="fn90" class="footnote-item">McCann, B., Keskar, N. S., Xiong, C., & Socher, R. (2018). The Natural Language Decathlon: Multitask Learning as Question Answering.</li>
+<li id="fn91" class="footnote-item">Lample, G., Denoyer, L., & Ranzato, M. (2018). Unsupervised Machine Translation Using Monolingual Corpora Only. In Proceedings of ICLR 2018.</li>
+<li id="fn92" class="footnote-item">Artetxe, M., Labaka, G., Agirre, E., & Cho, K. (2018). Unsupervised Neural Machine Translation. In Proceedings of ICLR 2018. Retrieved from http://arxiv.org/abs/1710.11041</li>
+<li id="fn93" class="footnote-item">Graves, A., Jaitly, N., & Mohamed, A. R. (2013, December). Hybrid speech recognition with deep bidirectional LSTM. In Automatic Speech Recognition and Understanding (ASRU), 2013 IEEE Workshop on (pp. 273-278). IEEE.</li>
+<li id="fn94" class="footnote-item">Ramachandran, P., Liu, P. J., & Le, Q. V. (2017). Unsupervised Pretraining for Sequence to Sequence Learning. In Proceedings of EMNLP 2017.</li>
+<li id="fn95" class="footnote-item">Baker, C. F., Fillmore, C. J., & Lowe, J. B. (1998, August). The berkeley framenet project. In Proceedings of the 17th international conference on Computational linguistics-Volume 1 (pp. 86-90). Association for Computational Linguistics.</li>
+<li id="fn96" class="footnote-item">Tjong Kim Sang, E. F., & Buchholz, S. (2000, September). Introduction to the CoNLL-2000 shared task: Chunking. In Proceedings of the 2nd workshop on Learning language in logic and the 4th conference on Computational natural language learning-Volume 7 (pp. 127-132). Association for Computational Linguistics.</li>
+<li id="fn97" class="footnote-item">Tjong Kim Sang, E. F., & De Meulder, F. (2003, May). Introduction to the CoNLL-2003 shared task: Language-independent named entity recognition. In Proceedings of the seventh conference on Natural language learning at HLT-NAACL 2003-Volume 4 (pp. 142-147). Association for Computational Linguistics.</li>
+<li id="fn98" class="footnote-item">Buchholz, S., & Marsi, E. (2006, June). CoNLL-X shared task on multilingual dependency parsing. In Proceedings of the tenth conference on computational natural language learning (pp. 149-164). Association for Computational Linguistics.</li>
+<li id="fn99" class="footnote-item">Lafferty, J., McCallum, A., & Pereira, F. C. (2001). Conditional random fields: Probabilistic models for segmenting and labeling sequence data.</li>
+<li id="fn100" class="footnote-item">Papineni, K., Roukos, S., Ward, T., & Zhu, W. J. (2002, July). BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting on association for computational linguistics (pp. 311-318). Association for Computational Linguistics.</li>
 <li id="fn101" class="footnote-item">Collins, M. (2002, July). Discriminative training methods for hidden markov models: Theory and experiments with perceptron algorithms. In Proceedings of the ACL-02 conference on Empirical methods in natural language processing-Volume 10 (pp. 1-8). Association for Computational Linguistics.</li>
-<li id="fn102" class="footnote-item">Pang, B., Lee, L., &amp; Vaithyanathan, S. (2002, July). Thumbs up?: sentiment classification using machine learning techniques. In Proceedings of the ACL-02 conference on Empirical methods in natural language processing-Volume 10 (pp. 79-86). Association for Computational Linguistics.</li>
-<li id="fn103" class="footnote-item">Blei, D. M., Ng, A. Y., &amp; Jordan, M. I. (2003). Latent dirichlet allocation. Journal of machine Learning research, 3(Jan), 993-1022.</li>
-<li id="fn104" class="footnote-item">Taskar, B., Guestrin, C., &amp; Koller, D. (2004). Max-margin Markov networks. In Advances in neural information processing systems (pp. 25-32).</li>
-<li id="fn105" class="footnote-item">Taskar, B., Klein, D., Collins, M., Koller, D., &amp; Manning, C. (2004). Max-margin parsing. In Proceedings of the 2004 Conference on Empirical Methods in Natural Language Processing.</li>
-<li id="fn106" class="footnote-item">Hovy, E., Marcus, M., Palmer, M., Ramshaw, L., &amp; Weischedel, R. (2006, June). OntoNotes: the 90% solution. In Proceedings of the human language technology conference of the NAACL, Companion Volume: Short Papers (pp. 57-60). Association for Computational Linguistics.</li>
-<li id="fn107" class="footnote-item">Milne, D., &amp; Witten, I. H. (2008, October). Learning to link with wikipedia. In Proceedings of the 17th ACM conference on Information and knowledge management (pp. 509-518). ACM.</li>
-<li id="fn108" class="footnote-item">Mintz, M., Bills, S., Snow, R., &amp; Jurafsky, D. (2009, August). Distant supervision for relation extraction without labeled data. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP: Volume 2-Volume 2 (pp. 1003-1011). Association for Computational Linguistics.</li>
+<li id="fn102" class="footnote-item">Pang, B., Lee, L., & Vaithyanathan, S. (2002, July). Thumbs up?: sentiment classification using machine learning techniques. In Proceedings of the ACL-02 conference on Empirical methods in natural language processing-Volume 10 (pp. 79-86). Association for Computational Linguistics.</li>
+<li id="fn103" class="footnote-item">Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent dirichlet allocation. Journal of machine Learning research, 3(Jan), 993-1022.</li>
+<li id="fn104" class="footnote-item">Taskar, B., Guestrin, C., & Koller, D. (2004). Max-margin Markov networks. In Advances in neural information processing systems (pp. 25-32).</li>
+<li id="fn105" class="footnote-item">Taskar, B., Klein, D., Collins, M., Koller, D., & Manning, C. (2004). Max-margin parsing. In Proceedings of the 2004 Conference on Empirical Methods in Natural Language Processing.</li>
+<li id="fn106" class="footnote-item">Hovy, E., Marcus, M., Palmer, M., Ramshaw, L., & Weischedel, R. (2006, June). OntoNotes: the 90% solution. In Proceedings of the human language technology conference of the NAACL, Companion Volume: Short Papers (pp. 57-60). Association for Computational Linguistics.</li>
+<li id="fn107" class="footnote-item">Milne, D., & Witten, I. H. (2008, October). Learning to link with wikipedia. In Proceedings of the 17th ACM conference on Information and knowledge management (pp. 509-518). ACM.</li>
+<li id="fn108" class="footnote-item">Mintz, M., Bills, S., Snow, R., & Jurafsky, D. (2009, August). Distant supervision for relation extraction without labeled data. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP: Volume 2-Volume 2 (pp. 1003-1011). Association for Computational Linguistics.</li>
 <li id="fn109" class="footnote-item">Ling, W., Luis, T., Marujo, L., Astudillo, R. F., Amir, S., Dyer, C., … Trancoso, I. (2015). Finding Function in Form: Compositional Character Models for Open Vocabulary Word Representation. In Proceedings of EMNLP 2015 (pp. 1520–1530).</li>
-<li id="fn110" class="footnote-item">Ballesteros, M., Dyer, C., &amp; Smith, N. A. (2015). Improved Transition-Based Parsing by Modeling Characters instead of Words with LSTMs. In Proceedings of EMNLP 2015.</li>
-<li id="fn111" class="footnote-item">Kim, Y., Jernite, Y., Sontag, D., &amp; Rush, A. M. (2016). Character-Aware Neural Language Models. In Proceedings of AAAI 2016</li>
-<li id="fn112" class="footnote-item">Bolukbasi, T., Chang, K.-W., Zou, J., Saligrama, V., &amp; Kalai, A. (2016). Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings. In 30th Conference on Neural Information Processing Systems (NIPS 2016).</li>
-<li id="fn113" class="footnote-item">Kingsbury, P., &amp; Palmer, M. (2002, May). From TreeBank to PropBank. In LREC (pp. 1989-1993).</li>
-<li id="fn114" class="footnote-item">Nivre, J., De Marneffe, M. C., Ginter, F., Goldberg, Y., Hajic, J., Manning, C. D., ... &amp; Tsarfaty, R. (2016, May). Universal Dependencies v1: A Multilingual Treebank Collection. In LREC.</li>
-</ol>
+<li id="fn110" class="footnote-item">Ballesteros, M., Dyer, C., & Smith, N. A. (2015). Improved Transition-Based Parsing by Modeling Characters instead of Words with LSTMs. In Proceedings of EMNLP 2015.</li>
+<li id="fn111" class="footnote-item">Kim, Y., Jernite, Y., Sontag, D., & Rush, A. M. (2016). Character-Aware Neural Language Models. In Proceedings of AAAI 2016</li>
+<li id="fn112" class="footnote-item">Bolukbasi, T., Chang, K.-W., Zou, J., Saligrama, V., & Kalai, A. (2016). Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings. In 30th Conference on Neural Information Processing Systems (NIPS 2016).</li>
+<li id="fn113" class="footnote-item">Kingsbury, P., & Palmer, M. (2002, May). From TreeBank to PropBank. In LREC (pp. 1989-1993).</li>
+<li id="fn114" class="footnote-item">Nivre, J., De Marneffe, M. C., Ginter, F., Goldberg, Y., Hajic, J., Manning, C. D., ... & Tsarfaty, R. (2016, May). Universal Dependencies v1: A Multilingual Treebank Collection. In LREC.</li>
+</ol><!--kg-card-end: markdown--><!--kg-card-end: markdown--></h2>
                 </div>
             </section>
 
@@ -478,14 +484,14 @@ While these embeddings are no different conceptually than the ones learned with 
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/">Read More</a>
+    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
 </div>
 
 
@@ -500,26 +506,130 @@ While these embeddings are no different conceptually than the ones learned with 
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(http://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card"
+                            style="background-image: url(http://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)"
+                >
                     <header class="read-next-card-header">
-                        <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/language-models/">language models</a></h3>
+                        <small class="read-next-card-header-sitetitle">&mdash; Sebastian Ruder &mdash;</small>
+                        <h3 class="read-next-card-header-title"><a href="../tag/language-models/index.html">language models</a></h3>
                     </header>
-                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
 </div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../10-exciting-ideas-of-2018-in-nlp/">10 Exciting Ideas of 2018 in NLP</a></li>
-                            <li><a href="../emnlp-2018-highlights/">EMNLP 2018 Highlights: Inductive bias, cross-lingual learning, and more</a></li>
-                            <li><a href="../nlp-imagenet/">NLP's ImageNet moment has arrived</a></li>
+                            <li><a href="../10-exciting-ideas-of-2018-in-nlp/index.html">10 Exciting Ideas of 2018 in NLP</a></li>
+                            <li><a href="../emnlp-2018-highlights/index.html">EMNLP 2018 Highlights: Inductive bias, cross-lingual learning, and more</a></li>
+                            <li><a href="../nlp-imagenet/index.html">NLP&#x27;s ImageNet moment has arrived</a></li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/language-models/">See all 5 posts →</a>
+                        <a href="../tag/language-models/index.html">See all 5 posts →</a>
                     </footer>
                 </article>
 
+                <article class="post-card post tag-natural-language-processing ">
 
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2018/10/wordcloud_interview.png 300w,
+                    http://ruder.io/content/images/size/w600/2018/10/wordcloud_interview.png 600w,
+                    http://ruder.io/content/images/size/w1000/2018/10/wordcloud_interview.png 1000w,
+                    http://ruder.io/content/images/size/w2000/2018/10/wordcloud_interview.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2018/10/wordcloud_interview.png"
+            alt="HackerNoon Interview"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">natural language processing</span>
+                <h2 class="post-card-title">HackerNoon Interview</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>This post is an interview by fast.ai fellow Sanyam Bhutani with me. It covers my background, advice on getting started with NLP, writing technical articles, and more.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-natural-language-processing tag-events tag-transfer-learning tag-reinforcement-learning ">
+
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2018/07/view_out_of_conference_venue-2.jpg 300w,
+                    http://ruder.io/content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpg 600w,
+                    http://ruder.io/content/images/size/w1000/2018/07/view_out_of_conference_venue-2.jpg 1000w,
+                    http://ruder.io/content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpg"
+            alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">natural language processing</span>
+                <h2 class="post-card-title">ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
 
         </div>
     </div>
@@ -531,18 +641,20 @@ While these embeddings are no different conceptually than the ones learned with 
             <span>Sebastian Ruder</span>
         </a>
     </div>
-    <span class="floating-header-divider">—</span>
+    <span class="floating-header-divider">&mdash;</span>
     <div class="floating-header-title">A Review of the Neural History of Natural Language Processing</div>
     <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=A%20Review%20of%20the%20Neural%20History%20of%20Natural%20Language%20Processing&amp;url=http://ruder.io/a-review-of-the-recent-history-of-nlp/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=A%20Review%20of%20the%20Neural%20History%20of%20Natural%20Language%20Processing&amp;url=http://ruder.io/a-review-of-the-recent-history-of-nlp/"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/a-review-of-the-recent-history-of-nlp/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/a-review-of-the-recent-history-of-nlp/"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
         </a>
     </div>
     <progress id="reading-progress" class="progress" value="0">
@@ -578,7 +690,7 @@ s.setAttribute('data-timestamp', +new Date());
 
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> © 2019</section>
+                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> &copy; 2019</section>
                 <nav class="site-footer-nav">
                     <a href="http://ruder.io">Latest Posts</a>
                     
@@ -603,9 +715,12 @@ s.setAttribute('data-timestamp', +new Date());
     </script>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=598e4ecdd9"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=2e1b663da4"></script>
 
 
     <script>
@@ -678,9 +793,9 @@ $(document).ready(function () {
 <script>jQuery = Zepto</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
@@ -693,3 +808,4 @@ $(document).ready(function () {
 </script>
 
 </body>
+</html>

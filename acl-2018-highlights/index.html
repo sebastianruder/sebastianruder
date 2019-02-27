@@ -1,47 +1,47 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>ACL 2018 Highlights: Understanding Representations</title>
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=598e4ecdd9">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=2e1b663da4" />
 
-    <meta name="description" content="This post reviews two themes of ACL 2018: 1) gaining a better understanding what models capture and 2) to expose them to more challenging settings.">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="http://ruder.io/acl-2018-highlights/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://ruder.io/acl-2018-highlights/amp/">
+    <meta name="description" content="This post reviews two themes of ACL 2018: 1) gaining a better understanding what models capture and 2) to expose them to more challenging settings." />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://ruder.io/acl-2018-highlights/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://ruder.io/acl-2018-highlights/amp/" />
     
-    <meta property="og:site_name" content="Sebastian Ruder">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="ACL 2018 Highlights: Understanding Representations">
-    <meta property="og:description" content="This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios.">
-    <meta property="og:url" content="http://ruder.io/acl-2018-highlights/">
-    <meta property="og:image" content="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg">
-    <meta property="article:published_time" content="2018-07-26T11:00:00.000Z">
-    <meta property="article:modified_time" content="2018-10-24T14:07:12.000Z">
-    <meta property="article:tag" content="natural language processing">
-    <meta property="article:tag" content="events">
-    <meta property="article:tag" content="transfer learning">
-    <meta property="article:tag" content="reinforcement learning">
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ACL 2018 Highlights: Understanding Representations" />
+    <meta property="og:description" content="This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios." />
+    <meta property="og:url" content="http://ruder.io/acl-2018-highlights/" />
+    <meta property="og:image" content="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg" />
+    <meta property="article:published_time" content="2018-07-26T11:00:00.000Z" />
+    <meta property="article:modified_time" content="2018-10-24T14:07:12.000Z" />
+    <meta property="article:tag" content="natural language processing" />
+    <meta property="article:tag" content="events" />
+    <meta property="article:tag" content="transfer learning" />
+    <meta property="article:tag" content="reinforcement learning" />
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ACL 2018 Highlights: Understanding Representations">
-    <meta name="twitter:description" content="This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios.">
-    <meta name="twitter:url" content="http://ruder.io/acl-2018-highlights/">
-    <meta name="twitter:image" content="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Sebastian Ruder">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="natural language processing, events, transfer learning, reinforcement learning">
-    <meta name="twitter:site" content="@seb_ruder">
-    <meta name="twitter:creator" content="@seb_ruder">
-    <meta property="og:image:width" content="4612">
-    <meta property="og:image:height" content="1918">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ACL 2018 Highlights: Understanding Representations" />
+    <meta name="twitter:description" content="This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios." />
+    <meta name="twitter:url" content="http://ruder.io/acl-2018-highlights/" />
+    <meta name="twitter:image" content="http://ruder.io/content/images/2018/07/view_out_of_conference_venue-2.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sebastian Ruder" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="natural language processing, events, transfer learning, reinforcement learning" />
+    <meta name="twitter:site" content="@seb_ruder" />
+    <meta property="og:image:width" content="4612" />
+    <meta property="og:image:height" content="1918" />
     
     <script type="application/ld+json">
 {
@@ -62,14 +62,12 @@
         "name": "Sebastian Ruder",
         "image": {
             "@type": "ImageObject",
-            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square.jpg",
+            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
             "width": 2000,
             "height": 2000
         },
         "url": "http://ruder.io/author/sebastian/",
-        "sameAs": [
-            "https://twitter.com/seb_ruder"
-        ]
+        "sameAs": []
     },
     "headline": "ACL 2018 Highlights: Understanding Representations",
     "url": "http://ruder.io/acl-2018-highlights/",
@@ -90,15 +88,15 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=598e4ecdd9"></script>
+    <script src="../public/ghost-sdk.js?v=2e1b663da4"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "bc1baff4b81d"
+	clientSecret: "1cc08969b060"
 });
 </script>
-    <meta name="generator" content="Ghost 2.11">
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
+    <meta name="generator" content="Ghost 2.16" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
 </script>
@@ -120,7 +118,10 @@ MathJax.Hub.Config({
 });
 </script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot-number.min.css">
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bigfoot/2.1.4/bigfoot.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -153,10 +154,10 @@ MathJax.Hub.Config({
     </div>
     <div class="site-nav-right">
         <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
         </div>
-            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
     </div>
 </nav>
@@ -172,23 +173,28 @@ MathJax.Hub.Config({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2018-07-26">26 July 2018</time>
-                        <span class="date-divider">/</span> <a href="../tag/natural-language-processing/">natural language processing</a>
+                        <span class="date-divider">/</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a>
                 </section>
                 <h1 class="post-full-title">ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings</h1>
             </header>
 
             <figure class="post-full-image">
-                <img srcset="http://ruder.io/content/images/size/w300/2018/07/view_out_of_conference_venue-2.jpg 300w,
+                <img
+                    srcset="http://ruder.io/content/images/size/w300/2018/07/view_out_of_conference_venue-2.jpg 300w,
                             http://ruder.io/content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpg 600w,
                             http://ruder.io/content/images/size/w1000/2018/07/view_out_of_conference_venue-2.jpg 1000w,
-                            http://ruder.io/content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            http://ruder.io/content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpg 2000w"
+                    sizes="(max-width: 800px) 400px,
                             (max-width: 1170px) 700px,
-                            1400px" src="http://ruder.io/content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpg" alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings">
+                            1400px"
+                    src="http://ruder.io/content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpg"
+                    alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings"
+                />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018).</p>
+                    <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><p>This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018).</p>
 <p><em>This post originally appeared at the <a href="http://blog.aylien.com/acl-2018-highlights-understanding-representations-and-evaluation-in-more-challenging-settings/">AYLIEN blog</a>.</em></p>
 <p>I attended the <a href="https://acl2018.org/">56th Annual Meeting of the Association for Computational Linguistics (ACL 2018)</a> in Melbourne, Australia from July 15-20, 2018 and presented three papers <a href="index.html#fn25"></a><a href="index.html#fn38"></a><a href="index.html#fn26"></a>. It is foolhardy to try to condense an entire conference into one topic; however, in retrospect, certain themes appear particularly pronounced. In 2015 and 2016, NLP conferences were dominated by word embeddings and some people were musing that <a href="http://ruder.io/word-embeddings-1/"><em>Embedding Methods in Natural Language Processing</em></a> was a more appropriate name for the Conference on <a href="http://emnlp2018.org/"><em>Empirical Methods in Natural Language Processing</em></a>, one of the top conferences in the field.</p>
 <p><a href="https://nlp.stanford.edu/manning/talks/Simons-Institute-Manning-2017.pdf">According to Chris Manning</a>, 2017 was the year of the BiLSTM with attention. While BiLSTMs optionally with attention are still ubiquitous, the main themes of this conference for me were to <em>gain a better understanding</em> what the representations of such models capture and to expose them to <em>more challenging settings</em>. In my review, I will mainly focus on contributions that touch on these themes but will also discuss other themes that I found of interest.</p>
@@ -223,16 +229,17 @@ I found many of the papers probing different aspects of models stimulating. I ho
 <li> For modeling subject-verb agreement, the error rate increases with the number of attractors<a href="index.html#fn29"></a>.</li>
 </ol>
 <p>According to Chomsky, sequential recency is not the right bias for learning human language. RNNs thus don't seem to have the right bias for modeling language, which in practice can lead to statistical inefficiency and poor generalization behaviour. Recurrent neural network grammars<a href="index.html#fn30"></a>, a class of models that generates both a tree and a sequence sequentially by compressing a sentence into its constituents, instead have a bias for syntactic (rather than sequential) recency.</p>
-<p>However, it can often be hard to identify whether a model has a useful inductive bias. For identifying subject-verb agreement, Chris hypothesizes that LSTM language models learn a non-structural "first noun" heuristic that relies on matching the verb to the first noun in the sentence. In general, perplexity (and other aggregate metrics) are correlated with syntactic/structural competence, but are not particularly sensitive at distinguishing structurally sensitive models from models that use a simpler heuristic.</p>
+<p>However, it can often be hard to identify whether a model has a useful inductive bias. For identifying subject-verb agreement, Chris hypothesizes that LSTM language models learn a non-structural &quot;first noun&quot; heuristic that relies on matching the verb to the first noun in the sentence. In general, perplexity (and other aggregate metrics) are correlated with syntactic/structural competence, but are not particularly sensitive at distinguishing structurally sensitive models from models that use a simpler heuristic.</p>
 <h2>Using Deep Learning to understand language</h2>
 <p>In his talk at the workshop, Mark Johnson opined that while Deep Learning has revolutionized NLP, its primary benefit is economic: complex component pipelines have been replaced with end-to-end models and target accuracy can often be achieved more quickly and cheaply. Deep Learning has not changed our understanding of language. Its main contribution in this regard is to demonstrate that a neural network aka a computational model can perform certain NLP tasks, which shows that these tasks are not indicators of intelligence. While DL methods can pattern match and perform perceptual tasks really well, they struggle with tasks relying on deliberate reflection and conscious thought.</p>
 <h2>Incorporating linguistic structure</h2>
-<p>Jason Eisner questioned in his talk whether linguistic structures and categories actually exist or whether "scientist just like to organize data into piles" given that a linguistics-free approach works surprisingly well for MT. He finds that even "arbitrarily defined" categories such as the difference between the /b/ and /p/ phonemes can become hardened and accrue meaning. However, neural models are pretty good sponges to soak up whatever isn't modeled explicitly.</p>
+<p>Jason Eisner questioned in his talk whether linguistic structures and categories actually exist or whether &quot;scientist just like to organize data into piles&quot; given that a linguistics-free approach works surprisingly well for MT. He finds that even &quot;arbitrarily defined&quot; categories such as the difference between the /b/ and /p/ phonemes can become hardened and accrue meaning. However, neural models are pretty good sponges to soak up whatever isn't modeled explicitly.</p>
 <p>He outlines four common ways to introduce linguistic information into models: a) via a pipeline-based approach, where linguistic categories are used as features; b) via data augmentation, where the data is augmented with linguistic categories; c) via multi-task learning; d) via structured modeling such as using a transition-based parser, a recurrent neural network grammar, or even classes that depend on each other such as BIO notation.</p>
 <p>In her talk at the workshop, Emily Bender questioned the premise of linguistics-free learning altogether: Even if you had a huge corpus in a language that you knew nothing about, without any other priors, e.g. what function words are, you would not be able to learn sentence structure or meaning. She also pointedly called out many ML papers that describe their approach as similar to how babies learn, without citing any actual developmental psychology or language acquisition literature. Babies in fact learn in situated, joint, emotional context, which carries a lot of signal and meaning.</p>
 <h2>Understanding the failure modes of LSTMs</h2>
-<p>Better understanding representations was also a theme at the <a href="https://sites.google.com/site/repl4nlp2018/%0A">Representation Learning for NLP workshop</a>. During his talk, Yoav Goldberg detailed some of the efforts of his group to better understand representations of RNNs. In particular, he discussed recent work on extracting a finite state automaton from an RNN in order to better understand what the model has learned<a href="index.html#fn35"></a>. He also reminded the audience that LSTM representations, even though they have been trained on one task, are not task-specific. They are often predictive of unintended aspects such as demographics in the data. Even when a model has been trained using a domain-adversarial loss to produce representations that are invariant of a certain aspect, the representations will be still slightly predictive of said attribute. It can thus be a challenge to completely remove unwanted information from encoded language data and even seemingly perfect LSTM models may have hidden failure modes.</p>
-<p>On the topic of failure modes of LSTMs, a statement that also fits well in this theme was uttered by this year's recipient of the ACL lifetime achievement award, Mark Steedman. He asked <em>"LSTMs work in practice, but can they work in theory?"</em>.</p>
+<p>Better understanding representations was also a theme at the <a href="https://sites.google.com/site/repl4nlp2018/
+">Representation Learning for NLP workshop</a>. During his talk, Yoav Goldberg detailed some of the efforts of his group to better understand representations of RNNs. In particular, he discussed recent work on extracting a finite state automaton from an RNN in order to better understand what the model has learned<a href="index.html#fn35"></a>. He also reminded the audience that LSTM representations, even though they have been trained on one task, are not task-specific. They are often predictive of unintended aspects such as demographics in the data. Even when a model has been trained using a domain-adversarial loss to produce representations that are invariant of a certain aspect, the representations will be still slightly predictive of said attribute. It can thus be a challenge to completely remove unwanted information from encoded language data and even seemingly perfect LSTM models may have hidden failure modes.</p>
+<p>On the topic of failure modes of LSTMs, a statement that also fits well in this theme was uttered by this year's recipient of the ACL lifetime achievement award, Mark Steedman. He asked <em>&quot;LSTMs work in practice, but can they work in theory?&quot;</em>.</p>
 <h1 id="">Evaluation in more challenging settings</h1>
 <h2>Adversarial examples</h2>
 <p>A theme that is closely interlinked with gaining a better understanding of the limitations of state-of-the-art models is to propose ways how they can be improved. In particular, similar to adversarial example paper mentioned above<a href="index.html#fn22"></a>, several papers tried to make models more robust to adversarial examples:</p>
@@ -244,8 +251,9 @@ I found many of the papers probing different aspects of models stimulating. I ho
 <li> Bose et al.<a href="index.html#fn41"></a> incorporate adversarial examples into noise contrastive estimation using an adversarially learned sampler. The sampler finds harder negative examples, which forces the model to learn better representations.</li>
 </ul>
 <h2>Learning robust and fair representations</h2>
-<p>Tim Baldwin discussed different ways to make models more robust to a domain shift during his talk at the <a href="https://sites.google.com/site/repl4nlp2018/%0A">RepL4NLP workshop</a>. The slides can be found <a href="https://drive.google.com/file/d/1JhZKKCJjIDIqZdwRL0GEUcrWxscLS87l/view">here</a>. For using a single source domain, he discussed a method to linguistically perturb training instances based on different types of syntactic and semantic noise<a href="index.html#fn32"></a>. In the setting with multiple source domains, he proposed to train an adversarial model on the source domains<a href="index.html#fn33"></a>. Finally, he discussed a method that allows to learn robust and privacy-preserving text representations<a href="index.html#fn34"></a>.</p>
-<p>Margaret Mitchell focused on fair and privacy-preserving representations during her talk at the workshop. In particular, she highlighted the difference between a descriptive and a normative view of the world. ML models learn representations that reflect a descriptive view of the data they're trained on. The data represents "the world as people talk about it". Research in fairness conversely seeks to create representations that reflect a normative view of the world, which captures our values and seeks to instill them in the representations.</p>
+<p>Tim Baldwin discussed different ways to make models more robust to a domain shift during his talk at the <a href="https://sites.google.com/site/repl4nlp2018/
+">RepL4NLP workshop</a>. The slides can be found <a href="https://drive.google.com/file/d/1JhZKKCJjIDIqZdwRL0GEUcrWxscLS87l/view">here</a>. For using a single source domain, he discussed a method to linguistically perturb training instances based on different types of syntactic and semantic noise<a href="index.html#fn32"></a>. In the setting with multiple source domains, he proposed to train an adversarial model on the source domains<a href="index.html#fn33"></a>. Finally, he discussed a method that allows to learn robust and privacy-preserving text representations<a href="index.html#fn34"></a>.</p>
+<p>Margaret Mitchell focused on fair and privacy-preserving representations during her talk at the workshop. In particular, she highlighted the difference between a descriptive and a normative view of the world. ML models learn representations that reflect a descriptive view of the data they're trained on. The data represents &quot;the world as people talk about it&quot;. Research in fairness conversely seeks to create representations that reflect a normative view of the world, which captures our values and seeks to instill them in the representations.</p>
 <h2>Improving evaluation methodology</h2>
 <p>Besides making models more robust, several papers sought to improve the way we evaluate our models:</p>
 <ul>
@@ -262,7 +270,7 @@ I found many of the papers probing different aspects of models stimulating. I ho
 </ul>
 In the above paper, we also emphasize the importance of evaluating in more challenging settings, such as on out-of-distribution data and on different tasks. Our findings would have been different if we had just focused on a single task or only on in-domain data. We need to test our models under such adverse conditions to get a better sense of their robustness and how well they can actually generalize.
 <h2>Creating harder datasets</h2>
-<p>In order to evaluate under such settings, more challenging datasets need to be created. Yejin Choi argued during the RepL4NLP panel discussion (a summary can be found <a href="https://twitter.com/seb_ruder/status/1020196710050455554">here</a>) that the community pays a lot of attention to easier tasks such as SQuAD or bAbI, which are close to solved. Yoav Goldberg even went so far as to say that "SQuAD is the MNIST of NLP". Instead, we should focus on solving harder tasks and develop more datasets with increasing levels of difficulty. If a dataset is too hard, people don't work on it. In particular, the community should not work on datasets for too long as datasets are getting solved very fast these days; creating novel and more challenging datasets is thus even more important. Two datasets that seek to go beyond SQuAD for reading comprehension were presented at the conference:</p>
+<p>In order to evaluate under such settings, more challenging datasets need to be created. Yejin Choi argued during the RepL4NLP panel discussion (a summary can be found <a href="https://twitter.com/seb_ruder/status/1020196710050455554">here</a>) that the community pays a lot of attention to easier tasks such as SQuAD or bAbI, which are close to solved. Yoav Goldberg even went so far as to say that &quot;SQuAD is the MNIST of NLP&quot;. Instead, we should focus on solving harder tasks and develop more datasets with increasing levels of difficulty. If a dataset is too hard, people don't work on it. In particular, the community should not work on datasets for too long as datasets are getting solved very fast these days; creating novel and more challenging datasets is thus even more important. Two datasets that seek to go beyond SQuAD for reading comprehension were presented at the conference:</p>
 <ul>
 <li> <a href="http://qangaroo.cs.ucl.ac.uk/">QAngaroo</a><a href="index.html#fn39"></a> focuses on reading comprehension that requires to gather several pieces of information via multiple steps of inference.</li>
 <li> <a href="https://github.com/deepmind/narrativeqa">NarrativeQA</a><a href="index.html#fn40"></a> requires understand of an underlying narrative by asking the reader to answer questions about stories by reading entire books or movie scripts.</li>
@@ -297,117 +305,117 @@ In the above paper, we also emphasize the importance of evaluating in more chall
 <p><a href="http://ruder.io/emnlp-2016-highlights/">Back in 2016</a>, it seemed as though reinforcement learning (RL) was finding its footing in NLP and being applied to more and more tasks. These days, it seems that the dynamic nature of RL makes it most useful for tasks that intrinsically have some temporal dependency such as selecting data during training<a href="index.html#fn1">[1]</a><a href="index.html#fn2">[1]</a> and modelling dialogue, while supervised learning seems to be better suited for most other tasks. Another important application of RL is to optimize the end metric such as ROUGE or BLEU directly instead of optimizing a surrogate loss such as cross-entropy. Successful applications of this are summarization<a href="index.html#fn3">[1]</a><a href="index.html#fn4">[1]</a> and machine translation<a href="index.html#fn5">[1]</a>.</p>
 <p>Inverse reinforcement learning can be valuable in settings where the reward is too complex to be specified. A successful application of this is visual storytelling<a href="index.html#fn6">[1]</a>. RL is particularly promising for sequential decision making problems in NLP such as playing text-based games, navigating webpages, and completing tasks. The <a href="https://www.cs.ucsb.edu/~william/papers/ACL2018DRL4NLP.pdf">Deep Reinforcement Learning for NLP tutorial</a> provided a comprehensive overview of the space.</p>
 <h1 id="">Tutorials</h1>
-<p>There were other great tutorials as well. I particularly enjoyed the <a href="https://github.com/philschulz/VITutorial">Variational Inference and Deep Generative Models tutorial</a>. The tutorials on <a href="https://github.com/allenai/acl2018-semantic-parsing-tutorial">Semantic Parsing</a> and about <a href="http://faculty.washington.edu/ebender/100things-sem_prag.html">"100 things you always wanted to know about semantics &amp; pragmatics"</a> also seemed really worthwhile. A complete list of the tutorials can be found <a href="https://acl2018.org/tutorials/">here</a>.</p>
+<p>There were other great tutorials as well. I particularly enjoyed the <a href="https://github.com/philschulz/VITutorial">Variational Inference and Deep Generative Models tutorial</a>. The tutorials on <a href="https://github.com/allenai/acl2018-semantic-parsing-tutorial">Semantic Parsing</a> and about <a href="http://faculty.washington.edu/ebender/100things-sem_prag.html">&quot;100 things you always wanted to know about semantics &amp; pragmatics&quot;</a> also seemed really worthwhile. A complete list of the tutorials can be found <a href="https://acl2018.org/tutorials/">here</a>.</p>
 <p><em>Cover image: View from the conference venue.</em></p>
 <p><em>Thanks to <a href="http://isabelleaugenstein.github.io/">Isabelle Augenstein</a> for some paper suggestions.</em></p>
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>Fang, M., Li, Y., &amp; Cohn, T. (2017). Learning how to Active Learn: A Deep Reinforcement Learning Approach. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from https://arxiv.org/pdf/1708.02383v1.pdf</p>
+<li id="fn1" class="footnote-item"><p>Fang, M., Li, Y., & Cohn, T. (2017). Learning how to Active Learn: A Deep Reinforcement Learning Approach. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing. Retrieved from https://arxiv.org/pdf/1708.02383v1.pdf</p>
 </li>
-<li id="fn2" class="footnote-item"><p>Wu, J., Li, L., &amp; Wang, W. Y. (2018). Reinforced Co-Training. In Proceedings of NAACL-HLT 2018.</p>
+<li id="fn2" class="footnote-item"><p>Wu, J., Li, L., & Wang, W. Y. (2018). Reinforced Co-Training. In Proceedings of NAACL-HLT 2018.</p>
 </li>
-<li id="fn3" class="footnote-item"><p>Paulus, R., Xiong, C., &amp; Socher, R. (2018). A deep reinforced model for abstractive summarization. In Proceedings of ICLR 2018.</p></li>
-<li id="fn4" class="footnote-item"><p>Celikyilmaz, A., Bosselut, A., He, X., &amp; Choi, Y. (2018). Deep communicating agents for abstractive summarization. In Proceedings of NAACL-HLT 2018.</p></li>
-<li id="fn5" class="footnote-item"><p>Ranzato, M. A., Chopra, S., Auli, M., &amp; Zaremba, W. (2016). Sequence level training with recurrent neural networks. In Proceedings of ICLR 2016.</p></li>
-<li id="fn6" class="footnote-item"><p>Wang, X., Chen, W., Wang, Y.-F., &amp; Wang, W. Y. (2018). No Metrics Are Perfect: Adversarial Reward Learning for Visual Storytelling. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1804.09160</p></li>
-<li id="fn7" class="footnote-item"><p>Chung, J. S., &amp; Zisserman, A. (2016, November). Lip reading in the wild. In Asian Conference on Computer Vision (pp. 87-103). Springer, Cham.</p></li>
-<li id="fn8" class="footnote-item"><p>Glockner, M., Shwartz, V., &amp; Goldberg, Y. (2018). Breaking NLI Systems with Sentences that Require Simple Lexical Inferences. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.02266.</p></li>
-<li id="fn9" class="footnote-item"><p>Zhu, X., Li, T., &amp; De Melo, G. (2018). Exploring Semantic Properties of Sentence Embeddings. In Proceedings of ACL 2018 (pp. 1–6). Retrieved from http://aclweb.org/anthology/P18-2100
+<li id="fn3" class="footnote-item"><p>Paulus, R., Xiong, C., & Socher, R. (2018). A deep reinforced model for abstractive summarization. In Proceedings of ICLR 2018.</p></li>
+<li id="fn4" class="footnote-item"><p>Celikyilmaz, A., Bosselut, A., He, X., & Choi, Y. (2018). Deep communicating agents for abstractive summarization. In Proceedings of NAACL-HLT 2018.</p></li>
+<li id="fn5" class="footnote-item"><p>Ranzato, M. A., Chopra, S., Auli, M., & Zaremba, W. (2016). Sequence level training with recurrent neural networks. In Proceedings of ICLR 2016.</p></li>
+<li id="fn6" class="footnote-item"><p>Wang, X., Chen, W., Wang, Y.-F., & Wang, W. Y. (2018). No Metrics Are Perfect: Adversarial Reward Learning for Visual Storytelling. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1804.09160</p></li>
+<li id="fn7" class="footnote-item"><p>Chung, J. S., & Zisserman, A. (2016, November). Lip reading in the wild. In Asian Conference on Computer Vision (pp. 87-103). Springer, Cham.</p></li>
+<li id="fn8" class="footnote-item"><p>Glockner, M., Shwartz, V., & Goldberg, Y. (2018). Breaking NLI Systems with Sentences that Require Simple Lexical Inferences. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.02266.</p></li>
+<li id="fn9" class="footnote-item"><p>Zhu, X., Li, T., & De Melo, G. (2018). Exploring Semantic Properties of Sentence Embeddings. In Proceedings of ACL 2018 (pp. 1–6). Retrieved from http://aclweb.org/anthology/P18-2100
 </p></li>
-<li id="fn10" class="footnote-item"><p>Pezzelle, S., Steinert-Threlkeld, S., Bernardi, R., &amp; Szymanik, J. (2018). Some of Them Can be Guessed! Exploring the Effect of Linguistic Context in Predicting Quantifiers. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1806.00354
+<li id="fn10" class="footnote-item"><p>Pezzelle, S., Steinert-Threlkeld, S., Bernardi, R., & Szymanik, J. (2018). Some of Them Can be Guessed! Exploring the Effect of Linguistic Context in Predicting Quantifiers. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1806.00354
 </p></li>
-<li id="fn11" class="footnote-item"><p>Conneau, A., Kruszewski, G., Lample, G., Barrault, L., &amp; Baroni, M. (2018). What you can cram into a single vector: Probing sentence embeddings for linguistic properties. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.01070
+<li id="fn11" class="footnote-item"><p>Conneau, A., Kruszewski, G., Lample, G., Barrault, L., & Baroni, M. (2018). What you can cram into a single vector: Probing sentence embeddings for linguistic properties. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.01070
 </p></li>
-<li id="fn12" class="footnote-item"><p>Kuncoro, A., Dyer, C., Hale, J., Yogatama, D., Clark, S., &amp; Blunsom, P. (2018). LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better. In Proceedings of ACL 2018 (pp. 1–11). Retrieved from http://aclweb.org/anthology/P18-1132
+<li id="fn12" class="footnote-item"><p>Kuncoro, A., Dyer, C., Hale, J., Yogatama, D., Clark, S., & Blunsom, P. (2018). LSTMs Can Learn Syntax-Sensitive Dependencies Well, But Modeling Structure Makes Them Better. In Proceedings of ACL 2018 (pp. 1–11). Retrieved from http://aclweb.org/anthology/P18-1132
 </p></li>
 <li id="fn13" class="footnote-item"><p>
-Ribeiro, M. T., Singh, S., &amp; Guestrin, C. (2018). Semantically Equivalent Adversarial Rules for Debugging NLP Models. In Proceedings of ACL 2018.
+Ribeiro, M. T., Singh, S., & Guestrin, C. (2018). Semantically Equivalent Adversarial Rules for Debugging NLP Models. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn14" class="footnote-item"><p>
-Dror, R., Baumer, G., Shlomov, S., &amp; Reichart, R. (2018). The Hitchhiker’s Guide to Testing Statistical Significance in Natural Language Processing. In Proceedings of ACL 2018. Retrieved from https://ie.technion.ac.il/~roiri/papers/ACL-2018-sig-cr.pdf
+Dror, R., Baumer, G., Shlomov, S., & Reichart, R. (2018). The Hitchhiker’s Guide to Testing Statistical Significance in Natural Language Processing. In Proceedings of ACL 2018. Retrieved from https://ie.technion.ac.il/~roiri/papers/ACL-2018-sig-cr.pdf
 </p></li>
 <li id="fn15" class="footnote-item"><p>
-Dror, R., Baumer, G., Shlomov, S., &amp; Reichart, R. (2018). Riley, P., &amp; Gildea, D. (2018). Orthographic Features for Bilingual Lexicon Induction. In Proceedings of ACL 2018.
+Dror, R., Baumer, G., Shlomov, S., & Reichart, R. (2018). Riley, P., & Gildea, D. (2018). Orthographic Features for Bilingual Lexicon Induction. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn16" class="footnote-item"><p>
-Lau, J. H., Cohn, T., Baldwin, T., Brooke, J., &amp; Hammond, A. (2018). Deep-speare: A Joint Neural Model of Poetic Language, Meter and Rhyme. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1807.03491
+Lau, J. H., Cohn, T., Baldwin, T., Brooke, J., & Hammond, A. (2018). Deep-speare: A Joint Neural Model of Poetic Language, Meter and Rhyme. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1807.03491
 </p></li>
 <li id="fn17" class="footnote-item"><p>
-Chaganty, A. T., Mussman, S., &amp; Liang, P. (2018). The price of debiasing automatic metrics in natural language evaluation. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1807.02202
+Chaganty, A. T., Mussman, S., & Liang, P. (2018). The price of debiasing automatic metrics in natural language evaluation. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1807.02202
 </p></li>
 <li id="fn18" class="footnote-item"><p>
-Finegan-Dollak, C., Kummerfeld, J. K., Zhang, L., Ramanathan, K., Sadasivam, S., Zhang, R., &amp; Radev, D. (2018). Improving Text-to-SQL Evaluation Methodology. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1806.09029
+Finegan-Dollak, C., Kummerfeld, J. K., Zhang, L., Ramanathan, K., Sadasivam, S., Zhang, R., & Radev, D. (2018). Improving Text-to-SQL Evaluation Methodology. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1806.09029
 </p></li>
 <li id="fn19" class="footnote-item"><p>
 Shen, D., Wang, G., Wang, W., Min, M. R., Su, Q., Zhang, Y., … Carin, L. (2018). Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn20" class="footnote-item"><p>
-Ren, S., Chen, W., Liu, S., Li, M., Zhou, M., &amp; Ma, S. (2018). Triangular Architecture for Rare Language Translation. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.04813
+Ren, S., Chen, W., Liu, S., Li, M., Zhou, M., & Ma, S. (2018). Triangular Architecture for Rare Language Translation. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.04813
 </p></li>
 <li id="fn21" class="footnote-item"><p>
-Cheng, Y., Tu, Z., Meng, F., Zhai, J., &amp; Liu, Y. (2018). Towards Robust Neural Machine Translation. In Proceedings of ACL 2018.
+Cheng, Y., Tu, Z., Meng, F., Zhai, J., & Liu, Y. (2018). Towards Robust Neural Machine Translation. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn22" class="footnote-item"><p>
-Mudrakarta, P. K., Taly, A., Brain, G., Sundararajan, M., &amp; Google, K. D. (2018). Did the Model Understand the Question? In Proceedings of ACL 2018. Retrieved from https://arxiv.org/pdf/1805.05492.pdf
+Mudrakarta, P. K., Taly, A., Brain, G., Sundararajan, M., & Google, K. D. (2018). Did the Model Understand the Question? In Proceedings of ACL 2018. Retrieved from https://arxiv.org/pdf/1805.05492.pdf
 </p></li>
 <li id="fn23" class="footnote-item"><p>
-Spithourakis, G. P., &amp; Riedel, S. (2018). Numeracy for Language Models: Evaluating and Improving their Ability to Predict Numbers. In Proceedings of ACL 2018.
+Spithourakis, G. P., & Riedel, S. (2018). Numeracy for Language Models: Evaluating and Improving their Ability to Predict Numbers. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn24" class="footnote-item"><p>
-Blevins, T., Levy, O., &amp; Zettlemoyer, L. (2018). Deep RNNs Encode Soft Hierarchical Syntax. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.04218
+Blevins, T., Levy, O., & Zettlemoyer, L. (2018). Deep RNNs Encode Soft Hierarchical Syntax. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1805.04218
 </p></li>
 <li id="fn25" class="footnote-item"><p>
-Ruder, S., &amp; Plank, B. (2018). Strong Baselines for Neural Semi-supervised Learning under Domain Shift. In Proceedings of ACL 2018.
+Ruder, S., & Plank, B. (2018). Strong Baselines for Neural Semi-supervised Learning under Domain Shift. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn26" class="footnote-item"><p>
-Søgaard, A., Ruder, S., &amp; Vulić, I. (2018). On the Limitations of Unsupervised Bilingual Dictionary Induction. In Proceedings of ACL 2018.
+Søgaard, A., Ruder, S., & Vulić, I. (2018). On the Limitations of Unsupervised Bilingual Dictionary Induction. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn27" class="footnote-item"><p>
-Artetxe, M., Labaka, G., &amp; Agirre, E. (2018). A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of ACL 2018.
+Artetxe, M., Labaka, G., & Agirre, E. (2018). A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn28" class="footnote-item"><p>
-Ebrahimi, J., Rao, A., Lowd, D., &amp; Dou, D. (2018). HotFlip: White-Box Adversarial Examples for Text Classification. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1712.06751
+Ebrahimi, J., Rao, A., Lowd, D., & Dou, D. (2018). HotFlip: White-Box Adversarial Examples for Text Classification. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1712.06751
 </p></li>
 <li id="fn29" class="footnote-item"><p>
-Linzen, T., Dupoux, E., &amp; Goldberg, Y. (2016). Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies. Proceedings of TACL 2016. Retrieved from http://arxiv.org/abs/1611.01368
+Linzen, T., Dupoux, E., & Goldberg, Y. (2016). Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies. Proceedings of TACL 2016. Retrieved from http://arxiv.org/abs/1611.01368
 </p></li>
 <li id="fn30" class="footnote-item"><p>
-Dyer, C., Kuncoro, A., Ballesteros, M., &amp; Smith, N. A. (2016). Recurrent Neural Network Grammars. In NAACL. Retrieved from http://arxiv.org/abs/1602.07776
+Dyer, C., Kuncoro, A., Ballesteros, M., & Smith, N. A. (2016). Recurrent Neural Network Grammars. In NAACL. Retrieved from http://arxiv.org/abs/1602.07776
 </p></li>
 <li id="fn31" class="footnote-item"><p>
-Currey, A., &amp; Heafield, K. (2018). Unsupervised Source Hierarchies for Low-Resource Neural Machine Translation. In Proceedings of the Workshop on the Relevance of Linguistic Structure in Neural Architectures for NLP (pp. 1–7).
+Currey, A., & Heafield, K. (2018). Unsupervised Source Hierarchies for Low-Resource Neural Machine Translation. In Proceedings of the Workshop on the Relevance of Linguistic Structure in Neural Architectures for NLP (pp. 1–7).
 </p></li>
 <li id="fn32" class="footnote-item"><p>
-Li, Y., Cohn, T., &amp; Baldwin, T. (2017). Robust Training under Linguistic Adversity. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics (Vol. 2, pp. 21–27).
+Li, Y., Cohn, T., & Baldwin, T. (2017). Robust Training under Linguistic Adversity. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics (Vol. 2, pp. 21–27).
 </p></li>
 <li id="fn33" class="footnote-item"><p>
-Li, Y., Baldwin, T., &amp; Cohn, T. (2018). Learning Domain-Robust Text Representations using Adversarial Training. In Proceedings of NAACL-HLT 2018.
+Li, Y., Baldwin, T., & Cohn, T. (2018). Learning Domain-Robust Text Representations using Adversarial Training. In Proceedings of NAACL-HLT 2018.
 </p></li>
 <li id="fn34" class="footnote-item"><p>
-Li, Y., Baldwin, T., &amp; Cohn, T. (2018). Towards Robust and Privacy-preserving Text Representations. In Proceedings of ACL 2018.
+Li, Y., Baldwin, T., & Cohn, T. (2018). Towards Robust and Privacy-preserving Text Representations. In Proceedings of ACL 2018.
 </p></li>
 <li id="fn35" class="footnote-item"><p>
-Weiss, G., Goldberg, Y., &amp; Yahav, E. (2018). Extracting Automata from Recurrent Neural Networks Using Queries and Counterexamples. In Proceedings of ICML 2018. Retrieved from http://arxiv.org/abs/1711.09576
+Weiss, G., Goldberg, Y., & Yahav, E. (2018). Extracting Automata from Recurrent Neural Networks Using Queries and Counterexamples. In Proceedings of ICML 2018. Retrieved from http://arxiv.org/abs/1711.09576
 </p></li>
 <li id="fn36" class="footnote-item"><p>
 Ethayarajh, K. (2018). Unsupervised Random Walk Sentence Embeddings: A Strong but Simple Baseline. In Proceedings of the 3rd Workshop on Representation Learning for NLP. Retrieved from http://www.aclweb.org/anthology/W18-3012
 </p></li>
 <li id="fn37" class="footnote-item"><p>
-Liu, N. F., Levy, O., Schwartz, R., Tan, C., &amp; Smith, N. A. (2018). LSTMs Exploit Linguistic Attributes of Data. In Proceedings of the 3rd Workshop on Representation Learning for NLP,. Retrieved from http://arxiv.org/abs/1805.11653
+Liu, N. F., Levy, O., Schwartz, R., Tan, C., & Smith, N. A. (2018). LSTMs Exploit Linguistic Attributes of Data. In Proceedings of the 3rd Workshop on Representation Learning for NLP,. Retrieved from http://arxiv.org/abs/1805.11653
 </p></li>
 <li id="fn38" class="footnote-item"><p>
-Howard, J., &amp; Ruder, S. (2018). Universal Language Model Fine-tuning for Text Classification. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1801.06146
+Howard, J., & Ruder, S. (2018). Universal Language Model Fine-tuning for Text Classification. In Proceedings of ACL 2018. Retrieved from http://arxiv.org/abs/1801.06146
 </p></li>
 <li id="fn39" class="footnote-item"><p>
-Welbl, J., Stenetorp, P., &amp; Riedel, S. (2018). Constructing Datasets for Multi-hop Reading Comprehension Across Documents. In Transactions of the Association for Computational Linguistics. Retrieved from http://arxiv.org/abs/1710.06481
+Welbl, J., Stenetorp, P., & Riedel, S. (2018). Constructing Datasets for Multi-hop Reading Comprehension Across Documents. In Transactions of the Association for Computational Linguistics. Retrieved from http://arxiv.org/abs/1710.06481
 </p></li>
 <li id="fn40" class="footnote-item"><p>
-Kočiský, T., Schwarz, J., Blunsom, P., Dyer, C., Hermann, K. M., Melis, G., &amp; Grefenstette, E. (2018). The NarrativeQA Reading Comprehension Challenge. Transactions of the Association for Computational Linguistics. Retrieved from http://arxiv.org/abs/1712.07040
+Kočiský, T., Schwarz, J., Blunsom, P., Dyer, C., Hermann, K. M., Melis, G., & Grefenstette, E. (2018). The NarrativeQA Reading Comprehension Challenge. Transactions of the Association for Computational Linguistics. Retrieved from http://arxiv.org/abs/1712.07040
 </p></li>
 <li id="fn41" class="footnote-item"><p>
-Bose, A., Ling, H., &amp; Cao, Y. (2018). Adversarial Contrastive Estimation. In Proceedings of ACL 2018.
+Bose, A., Ling, H., & Cao, Y. (2018). Adversarial Contrastive Estimation. In Proceedings of ACL 2018.
 </p></li>
-<li id="fn42" class="footnote-item">Khandelwal, U., He, H., Qi, P., &amp; Jurafsky, D. (2018). Sharp Nearby, Fuzzy Far Away: How Neural Language Models Use Context. In Proceedings of ACL 2018.</li>
-</ol>
+<li id="fn42" class="footnote-item">Khandelwal, U., He, H., Qi, P., & Jurafsky, D. (2018). Sharp Nearby, Fuzzy Far Away: How Neural Language Models Use Context. In Proceedings of ACL 2018.</li>
+</ol><!--kg-card-end: markdown--><!--kg-card-end: markdown-->
                 </div>
             </section>
 
@@ -417,14 +425,14 @@ Bose, A., Ling, H., &amp; Cao, Y. (2018). Adversarial Contrastive Estimation. In
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/">Read More</a>
+    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
 </div>
 
 
@@ -439,26 +447,130 @@ Bose, A., Ling, H., &amp; Cao, Y. (2018). Adversarial Contrastive Estimation. In
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(http://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card"
+                            style="background-image: url(http://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)"
+                >
                     <header class="read-next-card-header">
-                        <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/">natural language processing</a></h3>
+                        <small class="read-next-card-header-sitetitle">&mdash; Sebastian Ruder &mdash;</small>
+                        <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
                     </header>
-                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
 </div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../aaai-2019-highlights/">AAAI 2019 Highlights: Dialogue, reproducibility, and more</a></li>
-                            <li><a href="../4-biggest-open-problems-in-nlp/">The 4 Biggest Open Problems in NLP</a></li>
-                            <li><a href="../10-exciting-ideas-of-2018-in-nlp/">10 Exciting Ideas of 2018 in NLP</a></li>
+                            <li><a href="../aaai-2019-highlights/index.html">AAAI 2019 Highlights: Dialogue, reproducibility, and more</a></li>
+                            <li><a href="../4-biggest-open-problems-in-nlp/index.html">The 4 Biggest Open Problems in NLP</a></li>
+                            <li><a href="../10-exciting-ideas-of-2018-in-nlp/index.html">10 Exciting Ideas of 2018 in NLP</a></li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/natural-language-processing/">See all 22 posts →</a>
+                        <a href="../tag/natural-language-processing/index.html">See all 22 posts →</a>
                     </footer>
                 </article>
 
+                <article class="post-card post tag-language-models tag-natural-language-processing tag-word-embeddings tag-multi-task-learning tag-transfer-learning ">
 
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2018/10/neural_history_of_nlp_image.png 300w,
+                    http://ruder.io/content/images/size/w600/2018/10/neural_history_of_nlp_image.png 600w,
+                    http://ruder.io/content/images/size/w1000/2018/10/neural_history_of_nlp_image.png 1000w,
+                    http://ruder.io/content/images/size/w2000/2018/10/neural_history_of_nlp_image.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2018/10/neural_history_of_nlp_image.png"
+            alt="A Review of the Neural History of Natural Language Processing"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">language models</span>
+                <h2 class="post-card-title">A Review of the Neural History of Natural Language Processing</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>This post expands on the Frontiers of Natural Language Processing session organized at the Deep Learning Indaba 2018. It discusses major recent advances in NLP focusing on neural network-based methods.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-natural-language-processing tag-transfer-learning tag-language-models ">
+
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2018/07/lm_objective.png 300w,
+                    http://ruder.io/content/images/size/w600/2018/07/lm_objective.png 600w,
+                    http://ruder.io/content/images/size/w1000/2018/07/lm_objective.png 1000w,
+                    http://ruder.io/content/images/size/w2000/2018/07/lm_objective.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2018/07/lm_objective.png"
+            alt="NLP&#x27;s ImageNet moment has arrived"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">natural language processing</span>
+                <h2 class="post-card-title">NLP&#x27;s ImageNet moment has arrived</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Big changes are underway in the world of NLP. The long reign of word vectors as NLP's core representation technique has seen an exciting new line of challengers emerge. These approaches demonstrated that pretrained language models can achieve state-of-the-art results and herald a watershed moment.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
 
         </div>
     </div>
@@ -470,18 +582,20 @@ Bose, A., Ling, H., &amp; Cao, Y. (2018). Adversarial Contrastive Estimation. In
             <span>Sebastian Ruder</span>
         </a>
     </div>
-    <span class="floating-header-divider">—</span>
+    <span class="floating-header-divider">&mdash;</span>
     <div class="floating-header-title">ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings</div>
     <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=ACL%202018%20Highlights%3A%20Understanding%20Representations%20and%20Evaluation%20in%20More%20Challenging%20Settings&amp;url=http://ruder.io/acl-2018-highlights/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=ACL%202018%20Highlights%3A%20Understanding%20Representations%20and%20Evaluation%20in%20More%20Challenging%20Settings&amp;url=http://ruder.io/acl-2018-highlights/"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/acl-2018-highlights/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/acl-2018-highlights/"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
         </a>
     </div>
     <progress id="reading-progress" class="progress" value="0">
@@ -517,7 +631,7 @@ s.setAttribute('data-timestamp', +new Date());
 
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> © 2019</section>
+                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> &copy; 2019</section>
                 <nav class="site-footer-nav">
                     <a href="http://ruder.io">Latest Posts</a>
                     
@@ -542,9 +656,12 @@ s.setAttribute('data-timestamp', +new Date());
     </script>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=598e4ecdd9"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=2e1b663da4"></script>
 
 
     <script>
@@ -617,9 +734,9 @@ $(document).ready(function () {
 <script>jQuery = Zepto</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
@@ -632,3 +749,4 @@ $(document).ready(function () {
 </script>
 
 </body>
+</html>

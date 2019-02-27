@@ -1,46 +1,46 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Approximating the Softmax for Learning Word Embeddings</title>
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=598e4ecdd9">
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=2e1b663da4" />
 
-    <meta name="description" content="This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings.">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="http://ruder.io/word-embeddings-softmax/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://ruder.io/word-embeddings-softmax/amp/">
+    <meta name="description" content="This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings." />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://ruder.io/word-embeddings-softmax/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://ruder.io/word-embeddings-softmax/amp/" />
     
-    <meta property="og:site_name" content="Sebastian Ruder">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Approximating the Softmax for Learning Word Embeddings">
-    <meta property="og:description" content="The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient.">
-    <meta property="og:url" content="http://ruder.io/word-embeddings-softmax/">
-    <meta property="og:image" content="http://ruder.io/content/images/2016/06/softmax_classifier.png">
-    <meta property="article:published_time" content="2016-06-13T10:00:00.000Z">
-    <meta property="article:modified_time" content="2018-10-24T13:30:00.000Z">
-    <meta property="article:tag" content="word embeddings">
-    <meta property="article:tag" content="natural language processing">
-    <meta property="article:tag" content="language models">
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Approximating the Softmax for Learning Word Embeddings" />
+    <meta property="og:description" content="The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient." />
+    <meta property="og:url" content="http://ruder.io/word-embeddings-softmax/" />
+    <meta property="og:image" content="http://ruder.io/content/images/2016/06/softmax_classifier.png" />
+    <meta property="article:published_time" content="2016-06-13T10:00:00.000Z" />
+    <meta property="article:modified_time" content="2018-10-24T13:30:00.000Z" />
+    <meta property="article:tag" content="word embeddings" />
+    <meta property="article:tag" content="natural language processing" />
+    <meta property="article:tag" content="language models" />
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Approximating the Softmax for Learning Word Embeddings">
-    <meta name="twitter:description" content="The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient.">
-    <meta name="twitter:url" content="http://ruder.io/word-embeddings-softmax/">
-    <meta name="twitter:image" content="http://ruder.io/content/images/2016/06/softmax_classifier.png">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Sebastian Ruder">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="word embeddings, natural language processing, language models">
-    <meta name="twitter:site" content="@seb_ruder">
-    <meta name="twitter:creator" content="@seb_ruder">
-    <meta property="og:image:width" content="875">
-    <meta property="og:image:height" content="643">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Approximating the Softmax for Learning Word Embeddings" />
+    <meta name="twitter:description" content="The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient." />
+    <meta name="twitter:url" content="http://ruder.io/word-embeddings-softmax/" />
+    <meta name="twitter:image" content="http://ruder.io/content/images/2016/06/softmax_classifier.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sebastian Ruder" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="word embeddings, natural language processing, language models" />
+    <meta name="twitter:site" content="@seb_ruder" />
+    <meta property="og:image:width" content="875" />
+    <meta property="og:image:height" content="643" />
     
     <script type="application/ld+json">
 {
@@ -61,14 +61,12 @@
         "name": "Sebastian Ruder",
         "image": {
             "@type": "ImageObject",
-            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square.jpg",
+            "url": "http://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
             "width": 2000,
             "height": 2000
         },
         "url": "http://ruder.io/author/sebastian/",
-        "sameAs": [
-            "https://twitter.com/seb_ruder"
-        ]
+        "sameAs": []
     },
     "headline": "Approximating the Softmax for Learning Word Embeddings",
     "url": "http://ruder.io/word-embeddings-softmax/",
@@ -89,15 +87,15 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=598e4ecdd9"></script>
+    <script src="../public/ghost-sdk.js?v=2e1b663da4"></script>
 <script>
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "bc1baff4b81d"
+	clientSecret: "1cc08969b060"
 });
 </script>
-    <meta name="generator" content="Ghost 2.11">
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/">
+    <meta name="generator" content="Ghost 2.16" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
 </script>
@@ -145,10 +143,10 @@ MathJax.Hub.Config({
     </div>
     <div class="site-nav-right">
         <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
         </div>
-            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+            <a class="rss-button" href="http://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
     </div>
 </nav>
@@ -164,23 +162,28 @@ MathJax.Hub.Config({
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="2016-06-13">13 June 2016</time>
-                        <span class="date-divider">/</span> <a href="../tag/word-embeddings/">word embeddings</a>
+                        <span class="date-divider">/</span> <a href="../tag/word-embeddings/index.html">word embeddings</a>
                 </section>
                 <h1 class="post-full-title">On word embeddings - Part 2: Approximating the Softmax</h1>
             </header>
 
             <figure class="post-full-image">
-                <img srcset="http://ruder.io/content/images/size/w300/2016/06/softmax_classifier.png 300w,
+                <img
+                    srcset="http://ruder.io/content/images/size/w300/2016/06/softmax_classifier.png 300w,
                             http://ruder.io/content/images/size/w600/2016/06/softmax_classifier.png 600w,
                             http://ruder.io/content/images/size/w1000/2016/06/softmax_classifier.png 1000w,
-                            http://ruder.io/content/images/size/w2000/2016/06/softmax_classifier.png 2000w" sizes="(max-width: 800px) 400px,
+                            http://ruder.io/content/images/size/w2000/2016/06/softmax_classifier.png 2000w"
+                    sizes="(max-width: 800px) 400px,
                             (max-width: 1170px) 700px,
-                            1400px" src="http://ruder.io/content/images/size/w2000/2016/06/softmax_classifier.png" alt="On word embeddings - Part 2: Approximating the Softmax">
+                            1400px"
+                    src="http://ruder.io/content/images/size/w2000/2016/06/softmax_classifier.png"
+                    alt="On word embeddings - Part 2: Approximating the Softmax"
+                />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>This post gives an overview of approximations that can be used to make the expensive softmax layer more efficient.</p>
+                    <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><p>This post gives an overview of approximations that can be used to make the expensive softmax layer more efficient.</p>
 <p>Table of contents:</p>
 <ul>
 <li><a href="index.html#softmaxarchitecturemodifications">Softmax-based Approaches</a>
@@ -229,10 +232,10 @@ Since a balanced binary tree has a depth of \(\text{log}_2 (|V|)\), we only need
       <img src="http://ruder.io/content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 2: Hierarchical softmax computations (<a href="https://www.youtube.com/watch?v=B95LTf2rVWM">Hugo Lachorelle's Youtube lectures</a>)</figcaption>
 </figure>
-<p>The probability of a word \(w\) given its context \(c\) is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. To illustrate this, given the context "the", "dog", "and", "the", the probability of the word "cat" in Figure 2 can be computed as the product of the probability of turning left at node 1, turning right at node 2, and turning right at node 5. Hugo Lachorelle gives a more detailed account in his excellent <a href="https://www.youtube.com/watch?v=B95LTf2rVWM">lecture video</a>. Rong (2014) <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> also does a good job of explaining these concepts and also derives the derivatives of H-Softmax.</p>
+<p>The probability of a word \(w\) given its context \(c\) is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. To illustrate this, given the context &quot;the&quot;, &quot;dog&quot;, &quot;and&quot;, &quot;the&quot;, the probability of the word &quot;cat&quot; in Figure 2 can be computed as the product of the probability of turning left at node 1, turning right at node 2, and turning right at node 5. Hugo Lachorelle gives a more detailed account in his excellent <a href="https://www.youtube.com/watch?v=B95LTf2rVWM">lecture video</a>. Rong (2014) <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> also does a good job of explaining these concepts and also derives the derivatives of H-Softmax.</p>
 <p>Obviously, the structure of the tree is of significance. Intuitively, we should be able to achieve better performance, if we make it easier for the model to learn the binary predictors at every node, e.g. by enabling it to assign similar probabilities to similar paths. Based on this idea, Morin and Bengio use the synsets in WordNet as clusters for the tree. However, they still report inferior performance to the regular softmax. Mnih and Hinton (2008) <sup class="footnote-ref"><a href="index.html#fn5" id="fnref5">[5]</a></sup> learn the tree structure with a clustering algorithm that recursively partitions the words in two clusters and allows them to achieve the same performance as the regular softmax at a fraction of the computation.</p>
 <p>Notably, we are only able to obtain this speed-up during training, when we know the word we want to predict (and consequently its path) in advance. During testing, when we need to find the most likely prediction, we still need to calculate the probability of all words, although narrowing down the choices in advance helps here.</p>
-<p>In practice, instead of using "right" and "left" in order to designate nodes, we can index every node with a bit vector that corresponds to the path it takes to reach that node. In Figure 2, if we assume a <code class="language-python">0</code> bit for turning left and a <code class="language-python">1</code> bit for turning right, we can thus represent the path to "cat" as <code class="language-python">011</code>.<br>
+<p>In practice, instead of using &quot;right&quot; and &quot;left&quot; in order to designate nodes, we can index every node with a bit vector that corresponds to the path it takes to reach that node. In Figure 2, if we assume a <code class="language-python">0</code> bit for turning left and a <code class="language-python">1</code> bit for turning right, we can thus represent the path to &quot;cat&quot; as <code class="language-python">011</code>.<br>
 Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). If we set \(|V| = 10000\), this amounts to an average path length of about \( 13.3 \). Analogously, we can represent every word by the bit vector of its path that is on average \(13.3\) bits long. In information theory, this is referred to as an  information content of \(13.3\) bits per word.</p>
 <h3 id="anoteontheinformationcontentofwords">A note on the information content of words</h3>
 <p>Recall that the information content \(I(w)\) of a word \(w\) is the negative logarithm of its probability \(p(w)\):</p>
@@ -242,7 +245,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <p>We can also conceive of the entropy of a data source as the average number of bits needed to encode it. For a fair coin flip, we need \(1\) bit per flip, whereas we need \(0\) bits for a data source that always emits the same symbol. For a balanced binary tree, where we treat every word equally, the word entropy \(H\) equals the information content \(I(w)\) of every word \(w\), as each word has the same probability. The average word entropy \(H\) in a balanced binary tree with \(|V| = 10000\) thus coincides with its average path length:</p>
 <p>\( H = - \sum_{i\in V} \dfrac{1}{10000} \log_2  \dfrac{1}{10000} = 13.3\).</p>
 <p>We saw before that the structure of the tree is important. Notably, we can leverage the tree structure not only to gain better performance, but also to speed up computation: If we manage to encode more information into the tree, we can get away with taking shorter paths for less informative words. Morin and Bengio point out that leveraging word probabilities should work even better; as some words are more likely to occur than others, they can be encoded using less information. They note that the word entropy of their corpus (with \(|V| = 10,000\)) is about \( 9.16 \).</p>
-<p>Thus, by taking into account frequencies, we can reduce the average number of bits per word in the corpus from \( 13.3 \) to \( 9.16 \) in this case, which amounts to a speed-up of 31%. A <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman tree</a>, which is used by Mikolov et al. (2013) <sup class="footnote-ref"><a href="index.html#fn6" id="fnref6">[6]</a></sup> for their hierarchical softmax, generates such a coding by assigning fewer bits to more common symbols. For instance, "the", the most common word in the English language, would be assigned the shortest bit code in the tree, the second most frequent word would be assigned the second-shortest bit code, and so on. While we still need the same number of codes to designate all words, when we predict the words in a corpus, short codes appear now a lot more often, and we consequently need fewer bits to represent each word on average.</p>
+<p>Thus, by taking into account frequencies, we can reduce the average number of bits per word in the corpus from \( 13.3 \) to \( 9.16 \) in this case, which amounts to a speed-up of 31%. A <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman tree</a>, which is used by Mikolov et al. (2013) <sup class="footnote-ref"><a href="index.html#fn6" id="fnref6">[6]</a></sup> for their hierarchical softmax, generates such a coding by assigning fewer bits to more common symbols. For instance, &quot;the&quot;, the most common word in the English language, would be assigned the shortest bit code in the tree, the second most frequent word would be assigned the second-shortest bit code, and so on. While we still need the same number of codes to designate all words, when we predict the words in a corpus, short codes appear now a lot more often, and we consequently need fewer bits to represent each word on average.</p>
 <p>A coding such as Huffman coding is also known as entropy encoding, as the length of each codeword is approximately proportional to the entropy of each symbol as we have observed. Shannon (1951) <sup class="footnote-ref"><a href="index.html#fn7" id="fnref7">[7]</a></sup> establishes in his experiments that the lower bound on the information rate in English is between \(0.6\) to \(1.3\) bits per character; given an average word length of \(4.5\), this amounts to \(2.7\) - \(5.85\) bits per word.</p>
 <p>To tie this back to language modelling (which we already talked about in the previous post): perplexity, the evaluation measure of language modelling, is \(2^{H}\) where \(H\) is the entropy. A unigram entropy of \( 9.16 \) thus entails a still very high perplexity of \( 2^{9.16} = 572.0\). We can render this value more tangible by observing that a model with a perplexity of \(572\) is as confused by the data as if it had to choose among \(572\) possibilities for each word uniformly and independently.</p>
 <p>To put this into context: The state-of-the-art language model by Jozefowicz et al. (2016) achieves a perplexity of \(24.2\) per word on the 1B Word Benchmark. Such a model would thus require an average of around \(4.60\) bits to encode each word, as \( 2^{4.60} = 24.2 \), which is incredibly close to the experimental lower bounds documented by Shannon. If and how we could use such a model to construct a better hierarchical softmax layer is still left to be explored.</p>
@@ -307,7 +310,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 <p>This essentially means that a separate proposal distribution \(Q_i \) can be used for every partition \(i\) of the training set, which assigns equal probability to all words included in the vocabulary subset \(V'_i\) and zero probability to all other words.</p>
 <h2 id="noisecontrastiveestimation">Noise Contrastive Estimation</h2>
 <p>Noise Contrastive Estimation (NCE) (Gutmann and Hyvärinen, 2010) <sup class="footnote-ref"><a href="index.html#fn14" id="fnref14">[14]</a></sup> is proposed by Mnih and Teh (2012) <sup class="footnote-ref"><a href="index.html#fn15" id="fnref15">[15]</a></sup> as a more stable sampling method than Importance Sampling (IS), as we have seen that IS poses the risk of having the proposal distribution \(Q\) diverge from the distribution \(P\) that should be optimized. In contrast to the former, NCE does not try to estimate the probability of a word directly. Instead, it uses an auxiliary loss that also optimises the goal of maximizing the probability of correct words.</p>
-<p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than "corrupted" windows, which we discussed in the <a href="http://ruder.io/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
+<p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than &quot;corrupted&quot; windows, which we discussed in the <a href="http://ruder.io/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
 <figure>
       <img src="http://ruder.io/content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
 <figcaption>Figure 4: Noise Contrastive Estimation (<a href="http://scholar.sun.ac.za/handle/10019.1/98758">Stephan Gouws' PhD dissertation</a>) </figcaption>
@@ -578,7 +581,7 @@ Differentiated Softmax generally does well for both small and large vocabularies
 </li>
 </ol>
 </section>
-
+<!--kg-card-end: markdown--><!--kg-card-end: markdown-->
                 </div>
             </section>
 
@@ -588,14 +591,14 @@ Differentiated Softmax generally does well for both small and large vocabularies
 
                     
 <section class="author-card">
-        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square.jpg" alt="Sebastian Ruder">
+        <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
     <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
+        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
     </section>
 </section>
 <div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/">Read More</a>
+    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
 </div>
 
 
@@ -610,26 +613,130 @@ Differentiated Softmax generally does well for both small and large vocabularies
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(http://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)">
+                <article class="read-next-card"
+                            style="background-image: url(http://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)"
+                >
                     <header class="read-next-card-header">
-                        <small class="read-next-card-header-sitetitle">— Sebastian Ruder —</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/word-embeddings/">word embeddings</a></h3>
+                        <small class="read-next-card-header-sitetitle">&mdash; Sebastian Ruder &mdash;</small>
+                        <h3 class="read-next-card-header-title"><a href="../tag/word-embeddings/index.html">word embeddings</a></h3>
                     </header>
-                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
 </div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../aaai-2019-highlights/">AAAI 2019 Highlights: Dialogue, reproducibility, and more</a></li>
-                            <li><a href="../emnlp-2018-highlights/">EMNLP 2018 Highlights: Inductive bias, cross-lingual learning, and more</a></li>
-                            <li><a href="../a-review-of-the-recent-history-of-nlp/">A Review of the Neural History of Natural Language Processing</a></li>
+                            <li><a href="../aaai-2019-highlights/index.html">AAAI 2019 Highlights: Dialogue, reproducibility, and more</a></li>
+                            <li><a href="../emnlp-2018-highlights/index.html">EMNLP 2018 Highlights: Inductive bias, cross-lingual learning, and more</a></li>
+                            <li><a href="../a-review-of-the-recent-history-of-nlp/index.html">A Review of the Neural History of Natural Language Processing</a></li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/word-embeddings/">See all 9 posts →</a>
+                        <a href="../tag/word-embeddings/index.html">See all 9 posts →</a>
                     </footer>
                 </article>
 
+                <article class="post-card post tag-events tag-natural-language-processing ">
 
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2016/08/group_picture-1.jpg 300w,
+                    http://ruder.io/content/images/size/w600/2016/08/group_picture-1.jpg 600w,
+                    http://ruder.io/content/images/size/w1000/2016/08/group_picture-1.jpg 1000w,
+                    http://ruder.io/content/images/size/w2000/2016/08/group_picture-1.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2016/08/group_picture-1.jpg"
+            alt="LxMLS 2016 Highlights"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">events</span>
+                <h2 class="post-card-title">LxMLS 2016 Highlights</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>The Lisbon Machine Learning School (LxMLS) is an annual event that brings together researchers and graduate students in ML, NLP, and Computational Linguistics. This post discusses highlights, key insights, and takeaways from the 6th edition of the summer school.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-word-embeddings tag-natural-language-processing tag-language-models ">
+
+    <a class="post-card-image-link" href="../index.html">
+        <img class="post-card-image"
+            srcset="http://ruder.io/content/images/size/w300/2016/04/word_embeddings_colah.png 300w,
+                    http://ruder.io/content/images/size/w600/2016/04/word_embeddings_colah.png 600w,
+                    http://ruder.io/content/images/size/w1000/2016/04/word_embeddings_colah.png 1000w,
+                    http://ruder.io/content/images/size/w2000/2016/04/word_embeddings_colah.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="http://ruder.io/content/images/size/w600/2016/04/word_embeddings_colah.png"
+            alt="On word embeddings - Part 1"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../index.html">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">word embeddings</span>
+                <h2 class="post-card-title">On word embeddings - Part 1</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>Word embeddings popularized by word2vec are pervasive in current NLP applications. The history of word embeddings, however, goes back a lot further. This post explores the history of word embeddings in the context of language modelling.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+
+                        <a href="../author/sebastian/index.html" class="static-avatar">
+                            <img class="author-profile-image" src="http://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                        </a>
+                </li>
+            </ul>
+
+            <span class="reading-time"></span>
+
+        </footer>
+
+    </div>
+
+</article>
 
         </div>
     </div>
@@ -641,18 +748,20 @@ Differentiated Softmax generally does well for both small and large vocabularies
             <span>Sebastian Ruder</span>
         </a>
     </div>
-    <span class="floating-header-divider">—</span>
+    <span class="floating-header-divider">&mdash;</span>
     <div class="floating-header-title">On word embeddings - Part 2: Approximating the Softmax</div>
     <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=On%20word%20embeddings%20-%20Part%202%3A%20Approximating%20the%20Softmax&amp;url=http://ruder.io/word-embeddings-softmax/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=On%20word%20embeddings%20-%20Part%202%3A%20Approximating%20the%20Softmax&amp;url=http://ruder.io/word-embeddings-softmax/"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/word-embeddings-softmax/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://ruder.io/word-embeddings-softmax/"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
         </a>
     </div>
     <progress id="reading-progress" class="progress" value="0">
@@ -688,7 +797,7 @@ s.setAttribute('data-timestamp', +new Date());
 
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> © 2019</section>
+                <section class="copyright"><a href="http://ruder.io">Sebastian Ruder</a> &copy; 2019</section>
                 <nav class="site-footer-nav">
                     <a href="http://ruder.io">Latest Posts</a>
                     
@@ -713,9 +822,12 @@ s.setAttribute('data-timestamp', +new Date());
     </script>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=598e4ecdd9"></script>
+    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=2e1b663da4"></script>
 
 
     <script>
@@ -788,9 +900,9 @@ $(document).ready(function () {
 <script>jQuery = Zepto</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
@@ -803,3 +915,4 @@ $(document).ready(function () {
 </script>
 
 </body>
+</html>
