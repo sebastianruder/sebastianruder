@@ -23,7 +23,7 @@
     <meta property="og:url" content="http://ruder.io/secret-word2vec/" />
     <meta property="og:image" content="http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg" />
     <meta property="article:published_time" content="2016-09-24T10:48:00.000Z" />
-    <meta property="article:modified_time" content="2018-10-24T13:31:15.000Z" />
+    <meta property="article:modified_time" content="2019-03-10T15:32:14.000Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     
@@ -69,7 +69,7 @@
     "headline": "On word embeddings - Part 3: The secret ingredients of word2vec",
     "url": "http://ruder.io/secret-word2vec/",
     "datePublished": "2016-09-24T10:48:00.000Z",
-    "dateModified": "2018-10-24T13:31:15.000Z",
+    "dateModified": "2019-03-10T15:32:14.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "http://ruder.io/content/images/2016/09/merge_from_ofoct--2-.jpg",
@@ -256,7 +256,7 @@ decreasing order. In practice, SVD is often used to factorize the matrix produce
 <h2 id="preprocessing">Pre-processing</h2>
 <p>Word2vec introduces three ways of pre-processing a corpus, which can be easily applied to DSMs.</p>
 <h3 id="dynamiccontextwindow">Dynamic context window</h3>
-<p>In DSMs traditionally, the context window is unweighted and of a constant size. Both SGNS and GloVe, however, use a scheme that assigns more weight to closer words, as closer words are generally considered to be more important to a word's meaning. Additionally, in SGNS, the window size is not fixed, but the actual window size is dynamic and sampled uniformly between \(1\) and the maximum window size during training.</p>
+<p>In DSMs traditionally, the context window is unweighted and of a constant size. Both SGNS and GloVe, however, use a scheme that assigns more weight to closer words, as closer words are generally considered to be more important to a word's meaning. In SGNS, this weighting is implemented by having a dynamic window size that is sampled uniformly between \(1\) and the maximum window size during training.</p>
 <h3 id="subsamplingfrequentwords">Subsampling frequent words</h3>
 <p>SGNS dilutes very frequent words by randomly removing words whose frequency \(f\) is higher than some threshold \(t\) with a probability \(p = 1 - \sqrt{\dfrac{t}{f}}\). As this subsampling is done <em>before</em> actually creating the windows, the context windows used by SGNS in practice are larger than indicated by the context window size.</p>
 <h3 id="deletingrarewords">Deleting rare words</h3>
