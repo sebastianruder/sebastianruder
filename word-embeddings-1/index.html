@@ -24,7 +24,7 @@
     <meta property="og:url" content="http://ruder.io/word-embeddings-1/" />
     <meta property="og:image" content="http://ruder.io/content/images/2016/04/word_embeddings_colah.png" />
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z" />
-    <meta property="article:modified_time" content="2018-10-24T13:29:29.000Z" />
+    <meta property="article:modified_time" content="2019-07-07T12:04:34.000Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="language models" />
@@ -71,7 +71,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "http://ruder.io/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2018-10-24T13:29:29.000Z",
+    "dateModified": "2019-07-07T12:04:34.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "http://ruder.io/content/images/2016/04/word_embeddings_colah.png",
@@ -221,13 +221,13 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <h2 id="anoteonlanguagemodelling">A note on language modelling</h2>
 <p>Word embedding models are quite closely intertwined with language models. The quality of language models is measured based on their ability to learn a probability distribution over words in \( V \). In fact, many state-of-the-art word embedding models try to predict the next word in a sequence to some extent. Additionally, word embedding models are often evaluated using <a href="https://en.wikipedia.org/wiki/Perplexity">perplexity</a>, a cross-entropy based measure borrowed from language modelling.</p>
 <p>Before we get into the gritty details of word embedding models, let us briefly talk about some language modelling fundamentals.</p>
-<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n - 1\) previous words, i.e. \(p(w_t : | : w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the probability of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
-<p>\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i : | : w_{i-1} , \cdots , w_{i-n+1}) \).</p>
+<p>Language models generally try to compute the probability of a word \(w_t\) given its \(n - 1\) previous words, i.e. \(p(w_t \: | \: w_{t-1} , \cdots w_{t-n+1})\). By applying the chain rule together with the Markov assumption, we can approximate the probability of a whole sentence or document by the product of the probabilities of each word given its \(n\) previous words:</p>
+<p>\(p(w_1 , \cdots , w_T) = \prod\limits_i p(w_i \: | \: w_{i-1} , \cdots , w_{i-n+1}) \).</p>
 <p>In n-gram based language models, we can calculate a word's probability based on the frequencies of its constituent n-grams:<br>
-\( p(w_t : | : w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{count(w_{t-n+1}, \cdots , w_{t-1},w_t)}{count({w_{t-n+1}, \cdots , w_{t-1}})}\).</p>
+\( p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{count(w_{t-n+1}, \cdots , w_{t-1},w_t)}{count({w_{t-n+1}, \cdots , w_{t-1}})}\).</p>
 <p>Setting \(n = 2\) yields bigram probabilities, while \(n = 5\) together with Kneser-Ney smoothing leads to smoothed 5-gram models that have been found to be a strong baseline for language modelling. For more details, you can refer to <a href="https://web.stanford.edu/class/cs124/lec/languagemodeling.pdf">these slides</a> from Stanford.</p>
 <p>In neural networks, we achieve the same objective using the well-known softmax layer:</p>
-<p>\(p(w_t : | : w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
+<p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
 <p>The inner product \( h^\top v'_{w_t} \) computes the (unnormalized) log-probability of word \( w_t \), which we normalize by the sum of the log-probabilities of all words in \( V \). \(h\) is the output vector of the penultimate network layer (the hidden layer in the feed-forward network in Figure 1), while \(v'_w\) is the output embedding of word \(w \), i.e. its representation in the weight matrix of the softmax layer. Note that even though \(v'_w\) represents the word \(w\), it is learned separately from the input word embedding \(v_w\), as the multiplications both vectors are involved in differ (\(v_w\) is multiplied with an index vector, \(v'_w\) with \(h\)).</p>
 <figure>
       <img src="http://ruder.io/content/images/2016/04/nn_language_model-1.jpg" style="width: 80%" title="SGD without momentum">
@@ -239,8 +239,8 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 <p>Using this softmax layer, the model tries to maximize the probability of predicting the correct word at every timestep \( t \). The whole model thus tries to maximize the averaged log probability of the whole corpus:</p>
 <p>\(J_\theta = \frac{1}{T} \text{log} \space p(w_1 , \cdots , w_T)\).</p>
 <p>Analogously, through application of the chain rule, it is usually trained to maximize the average of the log probabilities of all words in the corpus given their previous \( n \) words:</p>
-<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t : | : w_{t-1} , \cdots , w_{t-n+1})\).</p>
-<p>To sample words from the language model at test time, we can either greedily choose the word with the highest probability \(p(w_t : | : w_{t-1} \cdots w_{t-n+1})\) at every time step \( t \) or use beam search. We can do this for instance to generate arbitrary text sequences as in <a href="https://github.com/karpathy/char-rnn">Karpathy's Char-RNN</a> or as part of a sequence prediction task, where an LSTM is used as the decoder.</p>
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1})\).</p>
+<p>To sample words from the language model at test time, we can either greedily choose the word with the highest probability \(p(w_t \: | \: w_{t-1} \cdots w_{t-n+1})\) at every time step \( t \) or use beam search. We can do this for instance to generate arbitrary text sequences as in <a href="https://github.com/karpathy/char-rnn">Karpathy's Char-RNN</a> or as part of a sequence prediction task, where an LSTM is used as the decoder.</p>
 <h2 id="classicneurallanguagemodel">Classic neural language model</h2>
 <p>The classic neural language model proposed by  Bengio et al. <sup class="footnote-ref"><a href="index.html#fn1" id="fnref1">[1]</a></sup> in 2003 consists of a one-hidden layer feed-forward neural network that predicts the next word in a sequence as in Figure 2.</p>
 <figure>
@@ -249,7 +249,7 @@ As a side-note, word2vec and Glove might be said to be to NLP what <a href="http
 </figure>
 <p>Their model maximizes what we've described above as the prototypical neural language model objective (we omit the regularization term for simplicity):</p>
 <p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space f(w_t , w_{t-1} , \cdots , w_{t-n+1})\).</p>
-<p>\( f(w_t , w_{t-1} , \cdots , w_{t-n+1}) \) is the output of the model, i.e. the probability \( p(w_t : | : w_{t-1} , \cdots , w_{t-n+1}) \) as computed by the softmax, where \(n \) is the number of previous words fed into the model.</p>
+<p>\( f(w_t , w_{t-1} , \cdots , w_{t-n+1}) \) is the output of the model, i.e. the probability \( p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) \) as computed by the softmax, where \(n \) is the number of previous words fed into the model.</p>
 <p>Bengio et al. are one of the first to introduce what we now refer to as a word embedding, a real-valued word feature vector in \(\mathbb{R}\). Their architecture forms very much the prototype upon which current approaches have gradually improved. The general building blocks of their model, however, are still found in all current neural language and word embedding models. These are:</p>
 <ol>
 <li><strong>Embedding Layer</strong>: a layer that generates word embeddings by multiplying an index vector with a word embedding matrix;</li>
@@ -290,7 +290,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <figcaption>Figure 4: Continuous bag-of-words (Mikolov et al., 2013)</figcaption>
 </figure>
 <p>The objective function of CBOW in turn is only slightly different than the language model one:</p>
-<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t : | : w_{t-n} , \cdots , w_{t-1}, w_{t+1}, \cdots , w_{t+n})\).</p>
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \text{log} \space p(w_t \: | \: w_{t-n} , \cdots , w_{t-1}, w_{t+1}, \cdots , w_{t+n})\).</p>
 <p>Instead of feeding \( n \) previous words into the model, the model receives a window of \( n \) words around the target word \( w_t \) at each time step \( t \).</p>
 <h3 id="skipgram">Skip-gram</h3>
 <p>While CBOW can be seen as a precognitive language model, skip-gram turns the language model objective on its head: Instead of using the surrounding words to predict the centre word as with CBOW, skip-gram uses the centre word to predict the surrounding words as can be seen in Figure 5.</p>
@@ -299,13 +299,13 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <figcaption>Figure 5: Skip-gram (Mikolov et al., 2013)</figcaption>
 </figure>
 <p>The skip-gram objective thus sums the log probabilities of the surrounding \( n \) words  to the left and to the right of the target word \( w_t \) to produce the following objective:</p>
-<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \sum\limits_{-n \leq j \leq n , \neq 0} \text{log} \space p(w_{t+j} : | : w_t)\).</p>
-<p>To gain a better intuition of how the skip-gram model computes \( p(w_{t+j} : | : w_t) \), let's recall the definition of our softmax:</p>
-<p>\(p(w_t : | : w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
+<p>\(J_\theta = \frac{1}{T}\sum\limits_{t=1}^T\ \sum\limits_{-n \leq j \leq n , \neq 0} \text{log} \space p(w_{t+j} \: | \: w_t)\).</p>
+<p>To gain a better intuition of how the skip-gram model computes \( p(w_{t+j} \: | \: w_t) \), let's recall the definition of our softmax:</p>
+<p>\(p(w_t \: | \: w_{t-1} , \cdots , w_{t-n+1}) = \dfrac{\text{exp}({h^\top v'_{w_t}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
 <p>Instead of computing the probability of the target word \( w_t \) given its previous words, we calculate the probability of the surrounding word \( w_{t+j} \) given \( w_t \). We can thus simply replace these variables in the equation:</p>
-<p>\(p(w_{t+j} : | : w_t ) = \dfrac{\text{exp}({h^\top v'_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
+<p>\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({h^\top v'_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({h^\top v'_{w_i}})} \).</p>
 <p>As the skip-gram architecture does not contain a hidden layer that produces an intermediate state vector \(h\), \(h\) is simply the word embedding \(v_{w_t}\) of the input word \(w_t\). This also makes it clearer why we want to have different representations for input embeddings \(v_w\) and output embeddings \(v'_w\), as we would otherwise multiply the word embedding by itself. Replacing \(h \) with \(v_{w_t}\) yields:</p>
-<p>\(p(w_{t+j} : | : w_t ) = \dfrac{\text{exp}({v^\top_{w_t} v'_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({v^\top_{w_t} v'_{w_i}})} \).</p>
+<p>\(p(w_{t+j} \: | \: w_t ) = \dfrac{\text{exp}({v^\top_{w_t} v'_{w_{t+j}}})}{\sum_{w_i \in V} \text{exp}({v^\top_{w_t} v'_{w_i}})} \).</p>
 <p>Note that the notation in Mikolov's paper differs slightly from ours, as they denote the centre word with \( w_I \) and the surrounding words with \( w_O \). If we replace \( w_t \) with \( w_I \), \( w_{t+j} \) with \( w_O \), and swap the vectors in the inner product due to its commutativity, we arrive at the softmax notation in their paper:</p>
 <p>\(p(w_O|w_I) = \dfrac{\text{exp}(v'^\top_{w_O} v_{w_I})}{\sum^V_{w=1}\text{exp}(v'^\top_{w} v_{w_I})}\).</p>
 <p>In the next post, we will discuss different ways to approximate the expensive softmax as well as key training decisions that account for much of skip-gram's success. We will also introduce GloVe <sup class="footnote-ref"><a href="index.html#fn9" id="fnref9">[9]</a></sup>, a word embedding model based on matrix factorisation and discuss the link between word embeddings and methods from distributional semantics.</p>
