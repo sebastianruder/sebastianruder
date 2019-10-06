@@ -24,7 +24,7 @@
     <meta property="og:url" content="http://ruder.io/word-embeddings-1/" />
     <meta property="og:image" content="http://ruder.io/content/images/2016/04/word_embeddings_colah.png" />
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z" />
-    <meta property="article:modified_time" content="2019-07-07T12:04:34.000Z" />
+    <meta property="article:modified_time" content="2019-10-06T10:14:18.000Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="language models" />
@@ -71,7 +71,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "http://ruder.io/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2019-07-07T12:04:34.000Z",
+    "dateModified": "2019-10-06T10:14:18.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "http://ruder.io/content/images/2016/04/word_embeddings_colah.png",
@@ -210,7 +210,7 @@ This first post lays the foundations by presenting current word embeddings based
 <p>A brief note on nomenclature: In the following we will use the currently prevalent term <em>word embeddings</em> to refer to dense representations of words in a low-dimensional vector space. Interchangeable terms are <em>word vectors</em> and <em>distributed representations</em>. We will particularly focus on <em>neural word embeddings</em>, i.e. word embeddings learned by a neural network.</p>
 <h1 id="abriefhistoryofwordembeddings">A brief history of word embeddings</h1>
 <p>Since the 1990s, vector space models have been used in distributional semantics. During this time, many models for estimating continuous representations of words have been developed, including Latent Semantic Analysis (LSA) and Latent Dirichlet Allocation (LDA). Have a look at <a href="https://www.gavagai.se/blog/2015/09/30/a-brief-history-of-word-embeddings/">this blog post</a> for a more detailed overview of distributional semantics history in the context of word embeddings.</p>
-<p>Bengio et al. coin the term word embeddings in 2003 and train them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2008. Their landmark paper <em>A unified architecture for natural language processing</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who created word2vec, a toolkit that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. released GloVe, a competitive set of pre-trained word embeddings, signalling that word embeddings had reached the main stream.</p>
+<p>Bengio et al. refer to word embeddings as <em>distributed representations of words</em> in 2003 and train them in a neural language model jointly with the model's parameters. First to show the utility of pre-trained word embeddings were arguably Collobert and Weston in 2008. Their landmark paper <em>A unified architecture for natural language processing</em> not only establishes word embeddings as a useful tool for downstream tasks, but also introduces a neural network architecture that forms the foundation for many current approaches. However, the eventual popularization of word embeddings can be attributed to Mikolov et al. in 2013 who created word2vec, a toolkit that allows the seamless training and use of pre-trained embeddings. In 2014, Pennington et al. released GloVe, a competitive set of pre-trained word embeddings, signalling that word embeddings had reached the main stream.</p>
 <p>Word embeddings are one of the few currently successful applications of unsupervised learning. Their main benefit arguably is that they don't require expensive annotation, but can be derived from large unannotated corpora that are readily available. Pre-trained embeddings can then be used in downstream tasks that use small amounts of labeled data.</p>
 <h1 id="wordembeddingmodels">Word embedding models</h1>
 <p>Naturally, every feed-forward neural network that takes words from a vocabulary as input and embeds them as vectors into a lower dimensional space, which it then fine-tunes through back-propagation, necessarily yields word embeddings as the weights of the first layer, which is usually referred to as <em>Embedding Layer</em>.</p>
