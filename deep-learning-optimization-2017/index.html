@@ -24,7 +24,7 @@
     <meta property="og:url" content="https://ruder.io/deep-learning-optimization-2017/" />
     <meta property="og:image" content="https://ruder.io/content/images/2017/12/snapshot_ensembles.png" />
     <meta property="article:published_time" content="2017-12-03T15:36:00.000Z" />
-    <meta property="article:modified_time" content="2018-10-24T11:56:07.000Z" />
+    <meta property="article:modified_time" content="2019-10-27T14:55:14.000Z" />
     <meta property="article:tag" content="optimization" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -69,7 +69,7 @@
     "headline": "Optimization for Deep Learning Highlights in 2017",
     "url": "https://ruder.io/deep-learning-optimization-2017/",
     "datePublished": "2017-12-03T15:36:00.000Z",
-    "dateModified": "2018-10-24T11:56:07.000Z",
+    "dateModified": "2019-10-27T14:55:14.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://ruder.io/content/images/2017/12/snapshot_ensembles.png",
@@ -203,7 +203,7 @@ MathJax.Hub.Config({
 <p>Despite the apparent supremacy of adaptive learning rate methods such as Adam, state-of-the-art results for many tasks in computer vision and NLP such as object recognition (Huang et al., 2017) <sup class="footnote-ref"><a href="index.html#fn3" id="fnref3">[3]</a></sup> or machine translation (Wu et al., 2016) <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> have still been achieved by plain old SGD with momentum. Recent theory (Wilson et al., 2017) <sup class="footnote-ref"><a href="index.html#fn5" id="fnref5">[5]</a></sup> provides some justification for this, suggesting that adaptive learning rate methods converge to different (and less optimal) minima than SGD with momentum. It is empirically shown that the minima found by adaptive learning rate methods perform generally worse compared to those found by SGD with momentum on object recognition, character-level language modeling, and constituency parsing. This seems counter-intuitive given that Adam comes with nice convergence guarantees and that its adaptive learning rate should give it an edge over the regular SGD. However, Adam and other adaptive learning rate methods are not without their own flaws.</p>
 <h3 id="decouplingweightdecay">Decoupling weight decay</h3>
 <p>One factor that partially accounts for Adam's poor generalization ability compared with SGD with momentum on some datasets is weight decay. Weight decay is most commonly used in image classification problems and decays the weights \(\theta_t\) after every parameter update by multiplying them by a decay rate \(w_t\) that is slightly less than \(1\):</p>
-<p>\(\theta_{t+1} = w_t : \theta_t \)</p>
+<p>\(\theta_{t+1} = w_t \: \theta_t \)</p>
 <p>This prevents the weights from growing too large. As such, weight decay can also be understood as an \(\ell_2\) regularization term that depends on the weight decay rate \(w_t\) added to the loss:</p>
 <p>\(\mathcal{L}_\text{reg} = \dfrac{w_t}{2} |\theta_t |^2_2 \)</p>
 <p>Weight decay is commonly implemented in many neural network libraries either as the above regularization term or directly to modify the gradient. As the gradient is modified in both the momentum and Adam update equations (via multiplication with other decay terms), weight decay no longer equals \(\ell_2\) regularization. Loshchilov and Hutter (2017) <sup class="footnote-ref"><a href="index.html#fn6" id="fnref6">[6]</a></sup> thus propose to decouple weight decay from the gradient update by adding it after the parameter update as in the original definition.<br>
@@ -275,7 +275,7 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\<br>
 <p>The success of ensembling in general relies on the diversity of the individual models in the ensemble. Snapshot ensembling thus relies on the cosine annealing schedule's ability to enable the model to converge to a different local optimum after every restart. The authors demonstrate that this holds in practice, achieving state-of-the-art results on CIFAR-10, CIFAR-100, and SVHN.</p>
 <h3 id="adamwithrestarts">Adam with restarts</h3>
 <p>Warm restarts did not work originally with Adam due to its dysfunctional weight decay, which we have seen before. After fixing weight decay, Loshchilov and Hutter (2017) similarly extend Adam to work with warm restarts. They set \(\eta_{min}^i=0\) and \(\eta_{max}^i=1\), which yields:</p>
-<p>\(\eta_t = 0.5 + 0.5 : \text{cos}(\dfrac{T_{cur}}{T_i}\pi))\)</p>
+<p>\(\eta_t = 0.5 + 0.5 \: \text{cos}(\dfrac{T_{cur}}{T_i}\pi))\)</p>
 <p>They recommend to start with an initially small \(T_i\) (between \(1%\) and \(10%\) of the total number of epochs) and multiply it by a factor of \(T_{mult}\) (e.g. \(T_{mult}=2\)) at every restart.</p>
 <h2 id="learningtooptimize">Learning to optimize</h2>
 <p>One of the most interesting papers of last year (and <a href="https://www.reddit.com/r/MachineLearning/comments/5n53k7/d_results_from_the_best_paper_awards/">reddit's &quot;Best paper name of 2016&quot; winner</a>) was a paper by Andrychowicz et al. (2016) <sup class="footnote-ref"><a href="index.html#fn18" id="fnref18">[18]</a></sup> where they train an LSTM optimizer to provide the updates to the main model during training. Unfortunately, learning a separate LSTM optimizer or even using a pre-trained LSTM optimizer for optimization greatly increases the complexity of model training.</p>
