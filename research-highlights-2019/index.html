@@ -9,7 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=1e88f4f6c7" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=68b7a20a26" />
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="canonical" href="https://ruder.io/research-highlights-2019/" />
@@ -48,11 +48,15 @@
     "publisher": {
         "@type": "Organization",
         "name": "Sebastian Ruder",
+        "url": "https://ruder.io/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://ruder.io/favicon.ico",
-            "width": 60,
-            "height": 60
+            "url": {
+                "@type": "ImageObject",
+                "url": "https://ruder.io/favicon.ico",
+                "width": 48,
+                "height": 48
+            }
         }
     },
     "author": {
@@ -86,14 +90,7 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=1e88f4f6c7"></script>
-<script>
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "1cc08969b060"
-});
-</script>
-    <meta name="generator" content="Ghost 2.16" />
+    <meta name="generator" content="Ghost 3.11" />
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -123,12 +120,15 @@ MathJax.Hub.Config({
 
         
 
-<header class="site-header outer">
+<header class="site-header">
+    <div class="outer site-nav-main">
     <div class="inner">
         <nav class="site-nav">
-    <div class="site-nav-left">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
                 <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
-            <ul class="nav" role="menu">
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
     <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
     <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
     <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
@@ -140,18 +140,22 @@ MathJax.Hub.Config({
     <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
 </ul>
 
+                    <span class="nav-post-title dash">10 ML &amp; NLP Research Highlights of 2019</span>
+            </div>
+        </div>
     </div>
     <div class="site-nav-right">
-        <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+            <div class="social-links">
+                    <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
-        </div>
-            <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
+
     </div>
 </nav>
     </div>
-</header>
+</div></header>
 
 
 <main id="site-main" class="site-main outer">
@@ -160,51 +164,71 @@ MathJax.Hub.Config({
         <article class="post-full post tag-natural-language-processing tag-cross-lingual tag-transfer-learning ">
 
             <header class="post-full-header">
-                <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="2020-01-06">6 January 2020</time>
-                        <span class="date-divider">/</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a>
+
+                <section class="post-full-tags">
+                    <a href="../tag/natural-language-processing/index.html">natural language processing</a>
                 </section>
+
                 <h1 class="post-full-title">10 ML &amp; NLP Research Highlights of 2019</h1>
+
+                <p class="post-full-custom-excerpt">This post gathers ten ML and NLP research directions that I found exciting and impactful in 2019.</p>
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                    <div class="author-info">
+                                        <h2>Sebastian Ruder</h2>
+                                        <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/sebastian/index.html" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2020-01-06">6 Jan 2020</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 12 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
             </header>
 
             <figure class="post-full-image">
                 <img
-                    srcset="https://ruder.io/content/images/size/w300/2020/01/videobert-1.png 300w,
-                            https://ruder.io/content/images/size/w600/2020/01/videobert-1.png 600w,
-                            https://ruder.io/content/images/size/w1000/2020/01/videobert-1.png 1000w,
-                            https://ruder.io/content/images/size/w2000/2020/01/videobert-1.png 2000w"
+                    srcset="../content/images/size/w300/2020/01/videobert-1.png 300w,
+                           ../content/images/size/w600/2020/01/videobert-1.pngg 600w,
+                          ../content/images/size/w1000/2020/01/videobert-1.pngng 1000w,
+                         ../content/images/size/w2000/2020/01/videobert-1.pngpng 2000w"
                     sizes="(max-width: 800px) 400px,
-                            (max-width: 1170px) 700px,
-                            1400px"
-                    src="https://ruder.io/content/images/size/w2000/2020/01/videobert-1.png"
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="../content/images/size/w2000/2020/01/videobert-1.png"
                     alt="10 ML &amp; NLP Research Highlights of 2019"
                 />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>This post gathers ten ML and NLP research directions that I found exciting and impactful in 2019.</p><p>For each highlight, I summarise the main advances that took place this year, briefly state why I think it is important, and provide a short outlook to the future.</p><p>The full list of highlights is here:</p><ol><li><a href="index.html#1-universal-unsupervised-pretraining">Universal unsupervised pretraining</a></li><li><a href="index.html#2-lottery-tickets">Lottery tickets</a></li><li><a href="index.html#3-the-neural-tangent-kernel">The Neural Tangent Kernel</a></li><li><a href="index.html#4-unsupervised-multilingual-learning">Unsupervised multilingual learning</a></li><li><a href="index.html#5-more-robust-benchmarks">More robust benchmarks</a></li><li><a href="index.html#6-ml-and-nlp-for-science">ML and NLP for science</a></li><li><a href="index.html#7-fixing-decoding-errors-in-nlg">Fixing decoding errors in NLG</a></li><li><a href="index.html#8-augmenting-pretrained-models">Augmenting pretrained models</a></li><li><a href="index.html#9-efficient-and-long-range-transformers">Efficient and long-range Transformers</a></li><li><a href="index.html#10-more-reliable-analysis-methods">More reliable analysis methods</a></li></ol><h1 id="1-universal-unsupervised-pretraining">1) Universal unsupervised pretraining</h1><p><strong>What happened?</strong>  Unsupervised pretraining was prevalent in NLP this year, mainly driven by BERT (<a href="https://www.aclweb.org/anthology/N19-1423/">Devlin et al., 2019</a>) and other variants. <a href="https://twitter.com/xwang_lk/status/1166187855456002049">A whole range of BERT variants</a> have been applied to multimodal settings, mostly involving images and videos together with text (for an example see the figure below). Unsupervised pretraining has also made inroads into domains where supervision had previously reigned supreme. In biology, Transformer language models have been pretrained on protein sequences (<a href="https://www.biorxiv.org/content/10.1101/622803v1.full">Rives et al., 2019</a>). In computer vision, approaches leveraged self-supervision including CPC (<a href="https://arxiv.org/abs/1905.09272">Hénaff et al., 2019</a>), MoCo (<a href="https://arxiv.org/abs/1911.05722">He et al., 2019</a>), and PIRL (<a href="http://127.0.0.1:2368/research-highlights-2019/arxiv.org/abs/1912.01991">Misra &amp; van der Maaten, 2019</a>) as well as strong generators such as BigBiGAN (<a href="https://arxiv.org/abs/1907.02544">Donahue &amp; Simonyan, 2019</a>) to improve sample efficiency on ImageNet and image generation. In speech, representations learned with a multi-layer CNN (<a href="https://arxiv.org/abs/1904.05862">Schneider et al., 2019</a>) or bidirectional CPC (<a href="https://openreview.net/forum?id=HJe-blSYvH">Kawakami et al., 2019</a>) outperform state-of-the-art models with much less training data.</p><p><strong>Why is it important?</strong>  Unsupervised pretraining enables training models with much fewer labelled examples. This opens up new applications in many different domains where data requirements were previously prohibitive.</p><p><strong>What's next?</strong>  Unsupervised pretraining is here to stay. While the biggest advances have been achieved so far in individual domains, it will be interesting to see a focus towards tighter integration of multiple modalities.</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/videobert.png" class="kg-image"><figcaption>VideoBERT (<a href="https://arxiv.org/abs/1904.01766">Sun et al., 2019</a>), a recent multimodal variant of BERT that generates video "tokens" given a recipe (above) and predicts future tokens at different time scales given a video token (below).</figcaption></figure><!--kg-card-end: image--><h1 id="2-lottery-tickets">2) Lottery tickets</h1><p><strong>What happened?  </strong><a href="https://openreview.net/forum?id=rJl-b3RcF7">Frankle and Carbin</a> (2019) identified <em>winning tickets</em>, subnetworks in dense, randomly-initialised, feed-forward networks that are so well initialised that training them in isolation achieves similar accuracy to training the full network, as can be seen below. While the initial pruning procedure only worked on small vision tasks, later work (<a href="https://arxiv.org/abs/1903.01611">Frankle et al., 2019</a>) applied the pruning early in training instead of at initialisation, which makes it possible to find small subnetworks of deeper models. <a href="https://arxiv.org/abs/1906.02768">Yu et al. (2019)</a> find winning ticket initialisations also for LSTMs and Transformers in NLP and RL models. While winning tickets are still expensive to find, it is promising that they seem to be transferable across datasets and optimisers (<a href="https://papers.nips.cc/paper/8739-one-ticket-to-win-them-all-generalizing-lottery-ticket-initializations-across-datasets-and-optimizers.pdf">Morcos et al., 2019</a>) and domains (<a href="https://www.aclweb.org/anthology/D19-6117/">Desai et al., 2019</a>).</p><p><strong>Why is it important?</strong>  State-of-the-art neural networks are getting larger and more expensive to train and to use for prediction. Being able to consistently identify small subnetworks that achieve comparable performance enables training and inference with much fewer resources. This can speed up model iteration and opens up new applications in on-device and edge computing.</p><p><strong>What's next?</strong>  Identifying winning tickets is currently still too expensive to provide real benefits in low-resource settings. More robust one-shot pruning methods that are less susceptible to noise in the pruning process should mitigate this. Investigating what makes winning tickets special should also help us gain a better understanding of the initialisation and learning dynamics of neural networks. </p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/winning_tickets.png" class="kg-image"><figcaption>Test accuracy of winning tickets (solid lines) vs. randomly sampled subnetworks (dashed lines) at different pruning ratios (<a href="https://openreview.net/forum?id=rJl-b3RcF7">Frankle &amp; Carbin, 2019</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="3-the-neural-tangent-kernel">3) The Neural Tangent Kernel</h1><p><strong>What happened?  </strong>Somewhat counter-intuitively, very wide (more concretely, <em>infinitely</em> wide) neural networks are easier to study theoretically than narrow ones. It has been shown that in the infinite-width limit, neural networks can be approximated as linear models with a kernel, the Neural Tangent Kernel (NTK; <a href="https://papers.nips.cc/paper/8076-neural-tangent-kernel-convergence-and-generalization-in-neural-networks.pdf">Jacot et al., 2018</a>). Refer to <a href="https://rajatvd.github.io/NTK/">this post </a>for an intuitive explanation of NTK including an illustration of its training dynamics (see the figure below). In practice, such models, have underperformed their finite-depth counterparts (<a href="https://openreview.net/pdf?id=B1g30j0qF7">Novak et al., 2019</a>; <a href="https://papers.nips.cc/paper/8847-learning-and-generalization-in-overparameterized-neural-networks-going-beyond-two-layers">Allen-Zhu et al., 2019</a>; <a href="http://papers.nips.cc/paper/9449-on-the-inductive-bias-of-neural-tangent-kernels">Bietti &amp; Mairal, 2019</a>), which limits applying the findings to standard methods. Recent work (<a href="https://arxiv.org/abs/1911.00809">Li et al., 2019</a>; <a href="https://papers.nips.cc/paper/9025-on-exact-computation-with-an-infinitely-wide-neural-net.pdf">Arora et al., 2019</a>), however, has significantly reduced the performance gap to standard methods (see <a href="https://huyenchip.com/2019/12/18/key-trends-neurips-2019.html">Chip Huyen's post</a> for other related NeurIPS 2019 papers).</p><p><strong>Why is it important?</strong>  The NTK is perhaps the most powerful tool at our disposal to analyse the theoretical behaviour of neural networks. While it has its limitations, i.e. practical neural networks still perform better than their NTK counterparts, and insights so far have not translated into empirical gains, it may help us open the black box of deep learning.</p><p><strong>What's next?</strong>  The gap to standard methods seems to be mainly due to benefits of the finite width of such methods, which future work may seek to characterise. This will hopefully also help translating insights from the infinite-width limit to practical settings. Ultimately, the NTK may help us shed light on the training dynamics and generalisation behaviour of neural networks. </p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/ntk_dynamics.gif" class="kg-image"><figcaption>Learning dynamics of linear models with an NTK with different α factors. NTKs are visualised as ellipses (credit: <a href="https://rajatvd.github.io/NTK/">Rajat's Blog</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="4-unsupervised-multilingual-learning">4) Unsupervised multilingual learning</h1><p><strong>What happened?  </strong>Cross-lingual representations had mostly focused on the word level for many years (<a href="https://www.jair.org/index.php/jair/article/view/11640">see this survey</a>). Building on advances in unsupervised pretraining, this year saw the development of deep cross-lingual models such as <a href="https://github.com/google-research/bert/blob/master/multilingual.md">multilingual BERT</a>, XLM (<a href="https://papers.nips.cc/paper/8928-cross-lingual-language-model-pretraining.pdf">Conneau &amp; Lample, 2019</a>), and XLM-R (<a href="https://arxiv.org/abs/1911.02116">Conneau et al., 2019</a>). Even though these models do not use any explicit cross-lingual signal, they generalise surprisingly well across languages—even without a shared vocabulary or joint training (<a href="https://arxiv.org/abs/1910.11856">Artetxe et al., 2019</a>; <a href="https://openreview.net/forum?id=HJeT3yrtDr">Karthikeyan et al., 2019</a>; <a href="https://arxiv.org/abs/1911.01464">Wu et al., 2019</a>). For an overview, have a look at <a href="https://ruder.io/unsupervised-cross-lingual-learning/#unsupervised-deep-models">this post</a>. Such deep models also brought improvements in unsupervised MT (<a href="https://arxiv.org/abs/1905.02450">Song et al., 2019</a>; <a href="https://papers.nips.cc/paper/8928-cross-lingual-language-model-pretraining.pdf">Conneau &amp; Lample, 2019</a>), which hit its stride last year (see <a href="https://ruder.io/10-exciting-ideas-of-2018-in-nlp/#1-unsupervised-mt">highlights of 2018</a>) and saw improvements from a more principled combination of statistical and neural approaches (<a href="https://www.aclweb.org/anthology/P19-1019/">Artetxe et al., 2019</a>). Another exciting development is the bootstrapping of deep multilingual models from readily available pretrained representations in English (<a href="https://arxiv.org/abs/1910.11856">Artetxe et al., 2019</a>; <a href="https://openreview.net/forum?id=Bkle6T4YvB">Tran, 2020</a>), which can be seen below.</p><p><strong>Why is it important?</strong>  Ready-to-use cross-lingual representations enable training of models with fewer examples for languages other than English. Furthermore, if labelled data in English is available, these methods enable essentially free zero-shot transfer. They may finally help us gain a better understanding of the relationships between different languages.</p><p><strong>What's next?</strong>  It is still unclear why these methods work so well without any cross-lingual supervision. Gaining a better understanding of how these methods work will likely enable us to design more powerful methods and may also reveal insights about the structure of different languages. In addition, we should not only focus on zero-shot transfer but also consider learning from few labelled examples in the target language (see <a href="http://nlp.fast.ai/classification/2019/09/10/multifit.html">this post</a>).</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/monolingual_transfer.png" class="kg-image"><figcaption>The four steps of the monolingual transfer approach of <a href="https://arxiv.org/abs/1910.11856">Artetxe et al. (2019)</a></figcaption></figure><!--kg-card-end: image--><h1 id="5-more-robust-benchmarks">5) More robust benchmarks</h1><blockquote>There is something rotten in the state of the art.<br>—<a href="https://arxiv.org/abs/1910.14599">Nie et al. (2019)</a> paraphrasing <a href="http://www.shakespeare-online.com/quickquotes/quickquotehamletdenmark.html">Shakespeare</a></blockquote><p><strong>What happened?  </strong>Recent NLP datasets such as HellaSWAG (<a href="https://www.aclweb.org/anthology/P19-1472/">Zellers et al., 2019</a>) are created to be difficult for state-of-the-art models to solve. Examples are filtered by humans to explicitly retain only those where state-of-the-art models fail (see below for an example). This process of human-in-the-loop adversarial curation can be repeated multiple times such as in the recent Adversarial NLI (<a href="https://arxiv.org/abs/1910.14599">Nie et al., 2019</a>) benchmark to enable the creation of datasets that are much more challenging for current methods.</p><p><strong>Why is it important?</strong>  Many researchers have observed that current NLP models do not learn what they are supposed to but instead adopt shallow heuristics and exploit superficial cues in the data (described as <a href="https://thegradient.pub/nlps-clever-hans-moment-has-arrived/">the Clever Hans moment</a>). As datasets become more robust, we would hope that models will be forced to eventually learn the true underlying relations in the data.</p><p><strong>What's next?</strong>  As models become better, most datasets will need to be continuously improved or will quickly become outdated. Dedicated infrastructure and tools will be necessary to facilitate this process. In addition, appropriate baselines should be run including simple methods and models using different variants of the data (such as with incomplete input) so that initial versions of datasets are as robust as possible.</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/hellaswag.png" class="kg-image"><figcaption>A multiple-choice sentence completion example from HellaSWAG that is difficult to answer for state-of-the-art models. Most hard examples lie in a "Goldilocks zone" of complexity, consisting roughly of three sentences of context and two generated sentences (<a href="https://www.aclweb.org/anthology/P19-1472/">Zellers et al., 2019</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="6-ml-and-nlp-for-science">6) ML and NLP for science</h1><p><strong>What happened?  </strong>There have been some major advances of ML being applied to fundamental science problems. My highlights were the application of deep neural networks to <a href="https://www.nature.com/articles/d41586-019-01357-6">protein folding</a> and to the Many-Electron Schrödinger Equation (<a href="https://arxiv.org/abs/1909.02487">Pfau et al., 2019</a>). On the NLP side, it is exciting to see what impact even standard methods can have when combined with domain expertise. One study used word embeddings to analyse latent knowledge in the materials science literature (<a href="https://www.nature.com/articles/s41586-019-1335-8">Tshitoyan et al., 2019</a>), which can be used to predict which materials will have certain properties (see the figure below). In biology, a lot of data such as genes and proteins is sequential in nature. It is thus a natural fit for NLP methods such as LSTMs and Transformers, which have been applied to protein classification (<a href="https://www.biorxiv.org/content/10.1101/704874v2">Strodthoff et al., 2019</a>; <a href="https://www.biorxiv.org/content/10.1101/622803v2">Rives et al., 2019</a>).</p><p><strong>Why is it important?  </strong>Science is arguably one of the most impactful application domains for ML. Solutions can have a large impact on many other domains and can help solve real-world problems.</p><p><strong>What's next?</strong>  From modelling energy in physics problems (<a href="http://papers.nips.cc/paper/9672-hamiltonian-neural-networks.pdf">Greydanus et al., 2019</a>) to solving differential equations (<a href="https://openreview.net/forum?id=S1eZYeHFDS">Lample &amp; Charton, 2020</a>), ML methods are constantly being applied to new applications in science. It will be interesting to see what the most impactful of these will be in 2020.</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/historical_validations_functional_material_predictions.png" class="kg-image"><figcaption>Using word embeddings trained on abstracts from different time periods to predict which materials will be studied as ferroelectric (a), photovoltaics (b), and topological insulator (c) in future abstracts. Top 50 predictions are much more likely to be studied compared to all candidate materials (<a href="https://www.nature.com/articles/s41586-019-1335-8">Tshitoyan et al., 2019</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="7-fixing-decoding-errors-in-nlg">7) Fixing decoding errors in NLG</h1><p><strong>What happened?</strong>  Despite ever more powerful models, natural language generation (NLG) models still frequently produce repetitions or gibberish as can be seen below. This was shown to be mainly a result of the maximum likelihood training. I was excited to see improvements that aim to ameliorate this and are orthogonal to advances in modelling. Such improvements came in the form of new sampling methods, such as nucleus sampling (<a href="https://openreview.net/forum?id=rygGQyrFvH">Holtzman et al., 2019</a>) and new loss functions (<a href="https://openreview.net/forum?id=SJeYe0NtvH">Welleck et al., 2019</a>). Another surprising finding was that better search does not lead to better generations: Current models rely to some extent on an imperfect search and beam search errors. In contrast, an exact search most often returns an empty translation in the case of machine translation (<a href="https://www.aclweb.org/anthology/D19-1331.pdf">Stahlberg &amp; Byrne, 2019</a>). This shows that advances in search and modelling must often go hand in hand.</p><p><strong>Why is it important? </strong> Natural language generation is one of the most general tasks in NLP. In NLP and ML research, most papers focus on improving the model, while other parts of the pipeline are typically neglected. For NLG, it is important to remind ourselves that our models still have flaws and that it may be possible to improve the output by fixing the search or the training process.</p><p><strong>What's next?</strong>  Despite more powerful models and successful applications of transfer learning to NLG (<a href="https://arxiv.org/abs/1905.02450">Song et al., 2019</a>; <a href="https://arxiv.org/abs/1901.08149">Wolf et al., 2019</a>), model predictions still contain many artefacts. Identifying and understanding the causes of such artefacts is an important research direction.</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/text_degeneration.png" class="kg-image"><figcaption>Repetitions (blue) and gibberish (red) produced by GPT-2 using beam search and pure (greedy) sampling (<a href="https://openreview.net/forum?id=rygGQyrFvH">Holtzman et al., 2019</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="8-augmenting-pretrained-models">8) Augmenting pretrained models</h1><p><strong>What happened?  </strong>I was excited to see approaches that equip pretrained models with new capabilities. Some methods augment a pretrained model with a knowledge base in order to improve modelling of entity names (<a href="https://www.aclweb.org/anthology/N19-1117/">Liu et al., 2019</a>) and the recall of facts (<a href="https://www.aclweb.org/anthology/P19-1598/">Logan et al., 2019</a>). Others enable it to perform simple arithmetic reasoning (<a href="https://www.aclweb.org/anthology/D19-1609/">Andor et al., 2019</a>) by giving it access to a number of predefined executable programs. As most models have a weak inductive bias and learn most of their knowledge from data, another way to extend a pretrained model is by augmenting the training data itself, e.g. to capture common sense (<a href="https://www.aclweb.org/anthology/P19-1470/">Bosselut et al., 2019</a>) as can be seen below.</p><p><strong>Why is it important?  </strong>Models are becoming more powerful but <a href="https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc/edit#slide=id.g5888218f39_11_238">there are many things</a> that a model cannot learn from text alone. Particularly when dealing with more complex tasks, the available data may be too limited to learn explicit reasoning using facts or common sense and a stronger inductive bias may often be necessary.</p><p><strong>What's next?</strong>  As models are being applied to more challenging problems, it will increasingly become necessary for modifications to be compositional. In the future, we might combine powerful pretrained models with learnable compositional programs (<a href="https://papers.nips.cc/paper/9608-learning-compositional-neural-programs-with-recursive-tree-search-and-planning">Pierrot et al., 2019</a>).</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/comet.png" class="kg-image"><figcaption>A standard Transformer with multi-head attention. The model is trained to predict the object of a knowledge base triple given its subject and relation (<a href="https://www.aclweb.org/anthology/P19-1470/">Bosselut et al., 2019</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="9-efficient-and-long-range-transformers">9) Efficient and long-range Transformers</h1><p><strong>What happened?  </strong>This year saw several improvements to the Transformer (<a href="https://papers.nips.cc/paper/7181-attention-is-all-you-need">Vaswani et al., 2017</a>) architecture. The Transformer-XL (<a href="https://www.aclweb.org/anthology/P19-1285/">Dai et al., 2019</a>) and the Compressive Transformer (<a href="https://openreview.net/forum?id=SylKikSYDH">Rae et al., 2020</a>), which can be seen below enable it to better capture long-range dependencies. Many approaches sought to make the Transformer more efficient mostly using different—often sparse—attention mechanisms, such as adaptively sparse attention (<a href="https://www.aclweb.org/anthology/D19-1223/">Correia et al., 2019</a>), adaptive attention spans (<a href="https://www.aclweb.org/anthology/P19-1032/">Sukhbaatar et al., 2019</a>), product-key attention (<a href="https://papers.nips.cc/paper/9061-large-memory-layers-with-product-keys">Lample et al., 2019)</a>, and locality-sensitive hashing (<a href="https://openreview.net/forum?id=rkgNKkHtvB">Kitaev et al., 2020</a>). On the Transformer-based pretraining front, there have been more efficient variants such as ALBERT (<a href="https://openreview.net/forum?id=H1eA7AEtvS">Lan et al., 2020</a>), which employs parameter sharing and ELECTRA (<a href="https://openreview.net/forum?id=r1xMH1BtvB">Clark et al., 2020</a>), which uses a more efficient pretraining task. There were also more efficient pretrained models that did not utilise a Transformer, such as the unigram document model VAMPIRE (<a href="https://www.aclweb.org/anthology/P19-1590/">Gururangan et al., 2019</a>) and the QRNN-based MultiFiT (<a href="https://www.aclweb.org/anthology/D19-1572/">Eisenschlos et al., 2019</a>). Another trend was the distillation of large BERT models into smaller ones (<a href="https://arxiv.org/abs/1903.12136">Tang et al., 2019</a>; <a href="https://www.aclweb.org/anthology/D19-1374/">Tsai et al., 2019</a>; <a href="https://arxiv.org/abs/1910.01108">Sanh et al., 2019</a>).</p><p><strong>Why is it important?</strong>  The Transformer architecture has been influential since its inception. It is a part of most state-of-the-art models in NLP and has been successfully applied to many other domains (see Sections <a href="index.html#1-universal-unsupervised-pretraining">1</a> and <a href="index.html#6-ml-and-nlp-for-science">6</a>). Any improvement to the Transformer architecture may thus have strong ripple effects.</p><p><strong>What's next?</strong>  It will take some time for these improvements to trickle down to the practitioner but given the prevalence and ease of use of pretrained models, more efficient alternatives will likely be adopted quickly. Overall, we will hopefully see a continuing focus on model architectures that emphasise efficiency, with sparsity being one of the key trends. </p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/compressive_transformer.png" class="kg-image"><figcaption>The Compressive Transformer compresses (a fine-grained memory of) past activations into a coarser compressed memory (<a href="https://openreview.net/forum?id=SylKikSYDH">Rae et al., 2020</a>).</figcaption></figure><!--kg-card-end: image--><h1 id="10-more-reliable-analysis-methods">10) More reliable analysis methods</h1><p><strong>What happened?</strong>  A key trend for me this year was the increasing number of papers analysing models. In fact, several of my favourite papers this year were such analysis papers. An early highlight was the excellent survey of analysis methods by <a href="https://www.mitpressjournals.org/doi/full/10.1162/tacl_a_00254">Belinkov &amp; Glass (2019)</a>. This year was also the first one (in my memory) where many papers were dedicated to analysing a single model, BERT (such papers are known as <a href="http://newsletter.ruder.io/issues/bert-gpt-2-xlnet-naacl-icml-arxiv-eurnlp-180092">BERTology</a>). In this context, probes (see the figure below), which aim to understand whether a model captures morphology, syntax, etc. by predicting certain properties have become a common tool. I particularly appreciated papers that make probes more reliable (<a href="https://www.aclweb.org/anthology/N19-1225/">Liu et al., 2019</a>; <a href="https://www.aclweb.org/anthology/D19-1275/">Hewitt &amp; Liang, 2019</a>). Reliability is also a theme in the ongoing conversation on whether attention provides meaningful explanations (<a href="https://www.aclweb.org/anthology/N19-1357/">Jain &amp; Wallace, 2019</a>; <a href="https://www.aclweb.org/anthology/D19-1002/">Wiegreffe &amp; Pinter, 2019</a>; <a href="https://medium.com/@byron.wallace/thoughts-on-attention-is-not-not-explanation-b7799c4c3b24">Wallace, 2019</a>). The continuing interest in analysis methods is perhaps best exemplified by the new ACL 2020 track on <a href="https://acl2020.org/calls/papers/">Interpretability and Analysis of Models in NLP</a>.</p><p><strong>Why is it important?  </strong>State-of-the-art methods are used as black boxes. In order to develop better models and to use them in the real world, we need to understand why models make certain decisions. However, our current methods to explain models' predictions are still limited. </p><p><strong>What's next?  </strong>We need more work on explaining predictions that goes beyond visualisation, which is often unreliable. An important trend in this direction are human-written explanations that are being provided by more datasets (<a href="https://papers.nips.cc/paper/8163-e-snli-natural-language-inference-with-natural-language-explanations">Camburu et al., 2018</a>; <a href="https://www.aclweb.org/anthology/P19-1487/">Rajani et al., 2019</a>; <a href="https://arxiv.org/abs/1910.14599">Nie et al., 2019</a>).</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/probing_landscape.png" class="kg-image"><figcaption>The probing setup used to study linguistic knowledge in representations (<a href="https://www.aclweb.org/anthology/N19-1225/">Liu et al., 2019</a>).</figcaption></figure><!--kg-card-end: image-->
+                    <p>This post gathers ten ML and NLP research directions that I found exciting and impactful in 2019.</p><p>For each highlight, I summarise the main advances that took place this year, briefly state why I think it is important, and provide a short outlook to the future.</p><p>The full list of highlights is here:</p><ol><li><a href="index.html#1-universal-unsupervised-pretraining">Universal unsupervised pretraining</a></li><li><a href="index.html#2-lottery-tickets">Lottery tickets</a></li><li><a href="index.html#3-the-neural-tangent-kernel">The Neural Tangent Kernel</a></li><li><a href="index.html#4-unsupervised-multilingual-learning">Unsupervised multilingual learning</a></li><li><a href="index.html#5-more-robust-benchmarks">More robust benchmarks</a></li><li><a href="index.html#6-ml-and-nlp-for-science">ML and NLP for science</a></li><li><a href="index.html#7-fixing-decoding-errors-in-nlg">Fixing decoding errors in NLG</a></li><li><a href="index.html#8-augmenting-pretrained-models">Augmenting pretrained models</a></li><li><a href="index.html#9-efficient-and-long-range-transformers">Efficient and long-range Transformers</a></li><li><a href="index.html#10-more-reliable-analysis-methods">More reliable analysis methods</a></li></ol><h1 id="1-universal-unsupervised-pretraining">1) Universal unsupervised pretraining</h1><p><strong>What happened?</strong>  Unsupervised pretraining was prevalent in NLP this year, mainly driven by BERT (<a href="https://www.aclweb.org/anthology/N19-1423/">Devlin et al., 2019</a>) and other variants. <a href="https://twitter.com/xwang_lk/status/1166187855456002049">A whole range of BERT variants</a> have been applied to multimodal settings, mostly involving images and videos together with text (for an example see the figure below). Unsupervised pretraining has also made inroads into domains where supervision had previously reigned supreme. In biology, Transformer language models have been pretrained on protein sequences (<a href="https://www.biorxiv.org/content/10.1101/622803v1.full">Rives et al., 2019</a>). In computer vision, approaches leveraged self-supervision including CPC (<a href="https://arxiv.org/abs/1905.09272">Hénaff et al., 2019</a>), MoCo (<a href="https://arxiv.org/abs/1911.05722">He et al., 2019</a>), and PIRL (<a href="https://ruder.io/research-highlights-2019/arxiv.org/abs/1912.01991">Misra &amp; van der Maaten, 2019</a>) as well as strong generators such as BigBiGAN (<a href="https://arxiv.org/abs/1907.02544">Donahue &amp; Simonyan, 2019</a>) to improve sample efficiency on ImageNet and image generation. In speech, representations learned with a multi-layer CNN (<a href="https://arxiv.org/abs/1904.05862">Schneider et al., 2019</a>) or bidirectional CPC (<a href="https://openreview.net/forum?id=HJe-blSYvH">Kawakami et al., 2019</a>) outperform state-of-the-art models with much less training data.</p><p><strong>Why is it important?</strong>  Unsupervised pretraining enables training models with much fewer labelled examples. This opens up new applications in many different domains where data requirements were previously prohibitive.</p><p><strong>What's next?</strong>  Unsupervised pretraining is here to stay. While the biggest advances have been achieved so far in individual domains, it will be interesting to see a focus towards tighter integration of multiple modalities.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/videobert.png" class="kg-image"><figcaption>VideoBERT (<a href="https://arxiv.org/abs/1904.01766">Sun et al., 2019</a>), a recent multimodal variant of BERT that generates video "tokens" given a recipe (above) and predicts future tokens at different time scales given a video token (below).</figcaption></figure><h1 id="2-lottery-tickets">2) Lottery tickets</h1><p><strong>What happened?  </strong><a href="https://openreview.net/forum?id=rJl-b3RcF7">Frankle and Carbin</a> (2019) identified <em>winning tickets</em>, subnetworks in dense, randomly-initialised, feed-forward networks that are so well initialised that training them in isolation achieves similar accuracy to training the full network, as can be seen below. While the initial pruning procedure only worked on small vision tasks, later work (<a href="https://arxiv.org/abs/1903.01611">Frankle et al., 2019</a>) applied the pruning early in training instead of at initialisation, which makes it possible to find small subnetworks of deeper models. <a href="https://arxiv.org/abs/1906.02768">Yu et al. (2019)</a> find winning ticket initialisations also for LSTMs and Transformers in NLP and RL models. While winning tickets are still expensive to find, it is promising that they seem to be transferable across datasets and optimisers (<a href="https://papers.nips.cc/paper/8739-one-ticket-to-win-them-all-generalizing-lottery-ticket-initializations-across-datasets-and-optimizers.pdf">Morcos et al., 2019</a>) and domains (<a href="https://www.aclweb.org/anthology/D19-6117/">Desai et al., 2019</a>).</p><p><strong>Why is it important?</strong>  State-of-the-art neural networks are getting larger and more expensive to train and to use for prediction. Being able to consistently identify small subnetworks that achieve comparable performance enables training and inference with much fewer resources. This can speed up model iteration and opens up new applications in on-device and edge computing.</p><p><strong>What's next?</strong>  Identifying winning tickets is currently still too expensive to provide real benefits in low-resource settings. More robust one-shot pruning methods that are less susceptible to noise in the pruning process should mitigate this. Investigating what makes winning tickets special should also help us gain a better understanding of the initialisation and learning dynamics of neural networks. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/winning_tickets.png" class="kg-image"><figcaption>Test accuracy of winning tickets (solid lines) vs. randomly sampled subnetworks (dashed lines) at different pruning ratios (<a href="https://openreview.net/forum?id=rJl-b3RcF7">Frankle &amp; Carbin, 2019</a>).</figcaption></figure><h1 id="3-the-neural-tangent-kernel">3) The Neural Tangent Kernel</h1><p><strong>What happened?  </strong>Somewhat counter-intuitively, very wide (more concretely, <em>infinitely</em> wide) neural networks are easier to study theoretically than narrow ones. It has been shown that in the infinite-width limit, neural networks can be approximated as linear models with a kernel, the Neural Tangent Kernel (NTK; <a href="https://papers.nips.cc/paper/8076-neural-tangent-kernel-convergence-and-generalization-in-neural-networks.pdf">Jacot et al., 2018</a>). Refer to <a href="https://rajatvd.github.io/NTK/">this post </a>for an intuitive explanation of NTK including an illustration of its training dynamics (see the figure below). In practice, such models, have underperformed their finite-depth counterparts (<a href="https://openreview.net/pdf?id=B1g30j0qF7">Novak et al., 2019</a>; <a href="https://papers.nips.cc/paper/8847-learning-and-generalization-in-overparameterized-neural-networks-going-beyond-two-layers">Allen-Zhu et al., 2019</a>; <a href="http://papers.nips.cc/paper/9449-on-the-inductive-bias-of-neural-tangent-kernels">Bietti &amp; Mairal, 2019</a>), which limits applying the findings to standard methods. Recent work (<a href="https://arxiv.org/abs/1911.00809">Li et al., 2019</a>; <a href="https://papers.nips.cc/paper/9025-on-exact-computation-with-an-infinitely-wide-neural-net.pdf">Arora et al., 2019</a>), however, has significantly reduced the performance gap to standard methods (see <a href="https://huyenchip.com/2019/12/18/key-trends-neurips-2019.html">Chip Huyen's post</a> for other related NeurIPS 2019 papers).</p><p><strong>Why is it important?</strong>  The NTK is perhaps the most powerful tool at our disposal to analyse the theoretical behaviour of neural networks. While it has its limitations, i.e. practical neural networks still perform better than their NTK counterparts, and insights so far have not translated into empirical gains, it may help us open the black box of deep learning.</p><p><strong>What's next?</strong>  The gap to standard methods seems to be mainly due to benefits of the finite width of such methods, which future work may seek to characterise. This will hopefully also help translating insights from the infinite-width limit to practical settings. Ultimately, the NTK may help us shed light on the training dynamics and generalisation behaviour of neural networks. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/ntk_dynamics.gif" class="kg-image"><figcaption>Learning dynamics of linear models with an NTK with different α factors. NTKs are visualised as ellipses (credit: <a href="https://rajatvd.github.io/NTK/">Rajat's Blog</a>).</figcaption></figure><h1 id="4-unsupervised-multilingual-learning">4) Unsupervised multilingual learning</h1><p><strong>What happened?  </strong>Cross-lingual representations had mostly focused on the word level for many years (<a href="https://www.jair.org/index.php/jair/article/view/11640">see this survey</a>). Building on advances in unsupervised pretraining, this year saw the development of deep cross-lingual models such as <a href="https://github.com/google-research/bert/blob/master/multilingual.md">multilingual BERT</a>, XLM (<a href="https://papers.nips.cc/paper/8928-cross-lingual-language-model-pretraining.pdf">Conneau &amp; Lample, 2019</a>), and XLM-R (<a href="https://arxiv.org/abs/1911.02116">Conneau et al., 2019</a>). Even though these models do not use any explicit cross-lingual signal, they generalise surprisingly well across languages—even without a shared vocabulary or joint training (<a href="https://arxiv.org/abs/1910.11856">Artetxe et al., 2019</a>; <a href="https://openreview.net/forum?id=HJeT3yrtDr">Karthikeyan et al., 2019</a>; <a href="https://arxiv.org/abs/1911.01464">Wu et al., 2019</a>). For an overview, have a look at <a href="https://ruder.io/unsupervised-cross-lingual-learning/#unsupervised-deep-models">this post</a>. Such deep models also brought improvements in unsupervised MT (<a href="https://arxiv.org/abs/1905.02450">Song et al., 2019</a>; <a href="https://papers.nips.cc/paper/8928-cross-lingual-language-model-pretraining.pdf">Conneau &amp; Lample, 2019</a>), which hit its stride last year (see <a href="https://ruder.io/10-exciting-ideas-of-2018-in-nlp/#1-unsupervised-mt">highlights of 2018</a>) and saw improvements from a more principled combination of statistical and neural approaches (<a href="https://www.aclweb.org/anthology/P19-1019/">Artetxe et al., 2019</a>). Another exciting development is the bootstrapping of deep multilingual models from readily available pretrained representations in English (<a href="https://arxiv.org/abs/1910.11856">Artetxe et al., 2019</a>; <a href="https://openreview.net/forum?id=Bkle6T4YvB">Tran, 2020</a>), which can be seen below.</p><p><strong>Why is it important?</strong>  Ready-to-use cross-lingual representations enable training of models with fewer examples for languages other than English. Furthermore, if labelled data in English is available, these methods enable essentially free zero-shot transfer. They may finally help us gain a better understanding of the relationships between different languages.</p><p><strong>What's next?</strong>  It is still unclear why these methods work so well without any cross-lingual supervision. Gaining a better understanding of how these methods work will likely enable us to design more powerful methods and may also reveal insights about the structure of different languages. In addition, we should not only focus on zero-shot transfer but also consider learning from few labelled examples in the target language (see <a href="http://nlp.fast.ai/classification/2019/09/10/multifit.html">this post</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/monolingual_transfer.png" class="kg-image"><figcaption>The four steps of the monolingual transfer approach of <a href="https://arxiv.org/abs/1910.11856">Artetxe et al. (2019)</a></figcaption></figure><h1 id="5-more-robust-benchmarks">5) More robust benchmarks</h1><blockquote>There is something rotten in the state of the art.<br>—<a href="https://arxiv.org/abs/1910.14599">Nie et al. (2019)</a> paraphrasing <a href="http://www.shakespeare-online.com/quickquotes/quickquotehamletdenmark.html">Shakespeare</a></blockquote><p><strong>What happened?  </strong>Recent NLP datasets such as HellaSWAG (<a href="https://www.aclweb.org/anthology/P19-1472/">Zellers et al., 2019</a>) are created to be difficult for state-of-the-art models to solve. Examples are filtered by humans to explicitly retain only those where state-of-the-art models fail (see below for an example). This process of human-in-the-loop adversarial curation can be repeated multiple times such as in the recent Adversarial NLI (<a href="https://arxiv.org/abs/1910.14599">Nie et al., 2019</a>) benchmark to enable the creation of datasets that are much more challenging for current methods.</p><p><strong>Why is it important?</strong>  Many researchers have observed that current NLP models do not learn what they are supposed to but instead adopt shallow heuristics and exploit superficial cues in the data (described as <a href="https://thegradient.pub/nlps-clever-hans-moment-has-arrived/">the Clever Hans moment</a>). As datasets become more robust, we would hope that models will be forced to eventually learn the true underlying relations in the data.</p><p><strong>What's next?</strong>  As models become better, most datasets will need to be continuously improved or will quickly become outdated. Dedicated infrastructure and tools will be necessary to facilitate this process. In addition, appropriate baselines should be run including simple methods and models using different variants of the data (such as with incomplete input) so that initial versions of datasets are as robust as possible.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/hellaswag.png" class="kg-image"><figcaption>A multiple-choice sentence completion example from HellaSWAG that is difficult to answer for state-of-the-art models. Most hard examples lie in a "Goldilocks zone" of complexity, consisting roughly of three sentences of context and two generated sentences (<a href="https://www.aclweb.org/anthology/P19-1472/">Zellers et al., 2019</a>).</figcaption></figure><h1 id="6-ml-and-nlp-for-science">6) ML and NLP for science</h1><p><strong>What happened?  </strong>There have been some major advances of ML being applied to fundamental science problems. My highlights were the application of deep neural networks to <a href="https://www.nature.com/articles/d41586-019-01357-6">protein folding</a> and to the Many-Electron Schrödinger Equation (<a href="https://arxiv.org/abs/1909.02487">Pfau et al., 2019</a>). On the NLP side, it is exciting to see what impact even standard methods can have when combined with domain expertise. One study used word embeddings to analyse latent knowledge in the materials science literature (<a href="https://www.nature.com/articles/s41586-019-1335-8">Tshitoyan et al., 2019</a>), which can be used to predict which materials will have certain properties (see the figure below). In biology, a lot of data such as genes and proteins is sequential in nature. It is thus a natural fit for NLP methods such as LSTMs and Transformers, which have been applied to protein classification (<a href="https://www.biorxiv.org/content/10.1101/704874v2">Strodthoff et al., 2019</a>; <a href="https://www.biorxiv.org/content/10.1101/622803v2">Rives et al., 2019</a>).</p><p><strong>Why is it important?  </strong>Science is arguably one of the most impactful application domains for ML. Solutions can have a large impact on many other domains and can help solve real-world problems.</p><p><strong>What's next?</strong>  From modelling energy in physics problems (<a href="http://papers.nips.cc/paper/9672-hamiltonian-neural-networks.pdf">Greydanus et al., 2019</a>) to solving differential equations (<a href="https://openreview.net/forum?id=S1eZYeHFDS">Lample &amp; Charton, 2020</a>), ML methods are constantly being applied to new applications in science. It will be interesting to see what the most impactful of these will be in 2020.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/historical_validations_functional_material_predictions.png" class="kg-image"><figcaption>Using word embeddings trained on abstracts from different time periods to predict which materials will be studied as ferroelectric (a), photovoltaics (b), and topological insulator (c) in future abstracts. Top 50 predictions are much more likely to be studied compared to all candidate materials (<a href="https://www.nature.com/articles/s41586-019-1335-8">Tshitoyan et al., 2019</a>).</figcaption></figure><h1 id="7-fixing-decoding-errors-in-nlg">7) Fixing decoding errors in NLG</h1><p><strong>What happened?</strong>  Despite ever more powerful models, natural language generation (NLG) models still frequently produce repetitions or gibberish as can be seen below. This was shown to be mainly a result of the maximum likelihood training. I was excited to see improvements that aim to ameliorate this and are orthogonal to advances in modelling. Such improvements came in the form of new sampling methods, such as nucleus sampling (<a href="https://openreview.net/forum?id=rygGQyrFvH">Holtzman et al., 2019</a>) and new loss functions (<a href="https://openreview.net/forum?id=SJeYe0NtvH">Welleck et al., 2019</a>). Another surprising finding was that better search does not lead to better generations: Current models rely to some extent on an imperfect search and beam search errors. In contrast, an exact search most often returns an empty translation in the case of machine translation (<a href="https://www.aclweb.org/anthology/D19-1331.pdf">Stahlberg &amp; Byrne, 2019</a>). This shows that advances in search and modelling must often go hand in hand.</p><p><strong>Why is it important? </strong> Natural language generation is one of the most general tasks in NLP. In NLP and ML research, most papers focus on improving the model, while other parts of the pipeline are typically neglected. For NLG, it is important to remind ourselves that our models still have flaws and that it may be possible to improve the output by fixing the search or the training process.</p><p><strong>What's next?</strong>  Despite more powerful models and successful applications of transfer learning to NLG (<a href="https://arxiv.org/abs/1905.02450">Song et al., 2019</a>; <a href="https://arxiv.org/abs/1901.08149">Wolf et al., 2019</a>), model predictions still contain many artefacts. Identifying and understanding the causes of such artefacts is an important research direction.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/text_degeneration.png" class="kg-image"><figcaption>Repetitions (blue) and gibberish (red) produced by GPT-2 using beam search and pure (greedy) sampling (<a href="https://openreview.net/forum?id=rygGQyrFvH">Holtzman et al., 2019</a>).</figcaption></figure><h1 id="8-augmenting-pretrained-models">8) Augmenting pretrained models</h1><p><strong>What happened?  </strong>I was excited to see approaches that equip pretrained models with new capabilities. Some methods augment a pretrained model with a knowledge base in order to improve modelling of entity names (<a href="https://www.aclweb.org/anthology/N19-1117/">Liu et al., 2019</a>) and the recall of facts (<a href="https://www.aclweb.org/anthology/P19-1598/">Logan et al., 2019</a>). Others enable it to perform simple arithmetic reasoning (<a href="https://www.aclweb.org/anthology/D19-1609/">Andor et al., 2019</a>) by giving it access to a number of predefined executable programs. As most models have a weak inductive bias and learn most of their knowledge from data, another way to extend a pretrained model is by augmenting the training data itself, e.g. to capture common sense (<a href="https://www.aclweb.org/anthology/P19-1470/">Bosselut et al., 2019</a>) as can be seen below.</p><p><strong>Why is it important?  </strong>Models are becoming more powerful but <a href="https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc/edit#slide=id.g5888218f39_11_238">there are many things</a> that a model cannot learn from text alone. Particularly when dealing with more complex tasks, the available data may be too limited to learn explicit reasoning using facts or common sense and a stronger inductive bias may often be necessary.</p><p><strong>What's next?</strong>  As models are being applied to more challenging problems, it will increasingly become necessary for modifications to be compositional. In the future, we might combine powerful pretrained models with learnable compositional programs (<a href="https://papers.nips.cc/paper/9608-learning-compositional-neural-programs-with-recursive-tree-search-and-planning">Pierrot et al., 2019</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/comet.png" class="kg-image"><figcaption>A standard Transformer with multi-head attention. The model is trained to predict the object of a knowledge base triple given its subject and relation (<a href="https://www.aclweb.org/anthology/P19-1470/">Bosselut et al., 2019</a>).</figcaption></figure><h1 id="9-efficient-and-long-range-transformers">9) Efficient and long-range Transformers</h1><p><strong>What happened?  </strong>This year saw several improvements to the Transformer (<a href="https://papers.nips.cc/paper/7181-attention-is-all-you-need">Vaswani et al., 2017</a>) architecture. The Transformer-XL (<a href="https://www.aclweb.org/anthology/P19-1285/">Dai et al., 2019</a>) and the Compressive Transformer (<a href="https://openreview.net/forum?id=SylKikSYDH">Rae et al., 2020</a>), which can be seen below enable it to better capture long-range dependencies. Many approaches sought to make the Transformer more efficient mostly using different—often sparse—attention mechanisms, such as adaptively sparse attention (<a href="https://www.aclweb.org/anthology/D19-1223/">Correia et al., 2019</a>), adaptive attention spans (<a href="https://www.aclweb.org/anthology/P19-1032/">Sukhbaatar et al., 2019</a>), product-key attention (<a href="https://papers.nips.cc/paper/9061-large-memory-layers-with-product-keys">Lample et al., 2019)</a>, and locality-sensitive hashing (<a href="https://openreview.net/forum?id=rkgNKkHtvB">Kitaev et al., 2020</a>). On the Transformer-based pretraining front, there have been more efficient variants such as ALBERT (<a href="https://openreview.net/forum?id=H1eA7AEtvS">Lan et al., 2020</a>), which employs parameter sharing and ELECTRA (<a href="https://openreview.net/forum?id=r1xMH1BtvB">Clark et al., 2020</a>), which uses a more efficient pretraining task. There were also more efficient pretrained models that did not utilise a Transformer, such as the unigram document model VAMPIRE (<a href="https://www.aclweb.org/anthology/P19-1590/">Gururangan et al., 2019</a>) and the QRNN-based MultiFiT (<a href="https://www.aclweb.org/anthology/D19-1572/">Eisenschlos et al., 2019</a>). Another trend was the distillation of large BERT models into smaller ones (<a href="https://arxiv.org/abs/1903.12136">Tang et al., 2019</a>; <a href="https://www.aclweb.org/anthology/D19-1374/">Tsai et al., 2019</a>; <a href="https://arxiv.org/abs/1910.01108">Sanh et al., 2019</a>).</p><p><strong>Why is it important?</strong>  The Transformer architecture has been influential since its inception. It is a part of most state-of-the-art models in NLP and has been successfully applied to many other domains (see Sections <a href="index.html#1-universal-unsupervised-pretraining">1</a> and <a href="index.html#6-ml-and-nlp-for-science">6</a>). Any improvement to the Transformer architecture may thus have strong ripple effects.</p><p><strong>What's next?</strong>  It will take some time for these improvements to trickle down to the practitioner but given the prevalence and ease of use of pretrained models, more efficient alternatives will likely be adopted quickly. Overall, we will hopefully see a continuing focus on model architectures that emphasise efficiency, with sparsity being one of the key trends. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/compressive_transformer.png" class="kg-image"><figcaption>The Compressive Transformer compresses (a fine-grained memory of) past activations into a coarser compressed memory (<a href="https://openreview.net/forum?id=SylKikSYDH">Rae et al., 2020</a>).</figcaption></figure><h1 id="10-more-reliable-analysis-methods">10) More reliable analysis methods</h1><p><strong>What happened?</strong>  A key trend for me this year was the increasing number of papers analysing models. In fact, several of my favourite papers this year were such analysis papers. An early highlight was the excellent survey of analysis methods by <a href="https://www.mitpressjournals.org/doi/full/10.1162/tacl_a_00254">Belinkov &amp; Glass (2019)</a>. This year was also the first one (in my memory) where many papers were dedicated to analysing a single model, BERT (such papers are known as <a href="http://newsletter.ruder.io/issues/bert-gpt-2-xlnet-naacl-icml-arxiv-eurnlp-180092">BERTology</a>). In this context, probes (see the figure below), which aim to understand whether a model captures morphology, syntax, etc. by predicting certain properties have become a common tool. I particularly appreciated papers that make probes more reliable (<a href="https://www.aclweb.org/anthology/N19-1225/">Liu et al., 2019</a>; <a href="https://www.aclweb.org/anthology/D19-1275/">Hewitt &amp; Liang, 2019</a>). Reliability is also a theme in the ongoing conversation on whether attention provides meaningful explanations (<a href="https://www.aclweb.org/anthology/N19-1357/">Jain &amp; Wallace, 2019</a>; <a href="https://www.aclweb.org/anthology/D19-1002/">Wiegreffe &amp; Pinter, 2019</a>; <a href="https://medium.com/@byron.wallace/thoughts-on-attention-is-not-not-explanation-b7799c4c3b24">Wallace, 2019</a>). The continuing interest in analysis methods is perhaps best exemplified by the new ACL 2020 track on <a href="https://acl2020.org/calls/papers/">Interpretability and Analysis of Models in NLP</a>.</p><p><strong>Why is it important?  </strong>State-of-the-art methods are used as black boxes. In order to develop better models and to use them in the real world, we need to understand why models make certain decisions. However, our current methods to explain models' predictions are still limited. </p><p><strong>What's next?  </strong>We need more work on explaining predictions that goes beyond visualisation, which is often unreliable. An important trend in this direction are human-written explanations that are being provided by more datasets (<a href="https://papers.nips.cc/paper/8163-e-snli-natural-language-inference-with-natural-language-explanations">Camburu et al., 2018</a>; <a href="https://www.aclweb.org/anthology/P19-1487/">Rajani et al., 2019</a>; <a href="https://arxiv.org/abs/1910.14599">Nie et al., 2019</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2020/01/probing_landscape.png" class="kg-image"><figcaption>The probing setup used to study linguistic knowledge in representations (<a href="https://www.aclweb.org/anthology/N19-1225/">Liu et al., 2019</a>).</figcaption></figure>
                 </div>
             </section>
 
-
-            <footer class="post-full-footer">
-
-
-                    
-<section class="author-card">
-        <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-    <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
-    </section>
-</section>
-<div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
-</div>
-
-
-            </footer>
 
 
         </article>
@@ -215,134 +239,97 @@ MathJax.Hub.Config({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card"
-                            style="background-image: url(https://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)"
-                >
+                <article class="read-next-card">
                     <header class="read-next-card-header">
-                        <small class="read-next-card-header-sitetitle">&mdash; Sebastian Ruder &mdash;</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
+                        <h3><span>More in</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
                     </header>
-                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
-</div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../unsupervised-cross-lingual-learning/index.html">Unsupervised Cross-lingual Representation Learning</a></li>
-                            <li><a href="../state-of-transfer-learning-in-nlp/index.html">The State of Transfer Learning in NLP</a></li>
-                            <li><a href="../eurnlp/index.html">EurNLP</a></li>
+                            <li>
+                                <h4><a href="../unsupervised-cross-lingual-learning/index.html">Unsupervised Cross-lingual Representation Learning</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-10-26">26 Oct 2019</time> –
+                                        20 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../state-of-transfer-learning-in-nlp/index.html">The State of Transfer Learning in NLP</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-08-18">18 Aug 2019</time> –
+                                        15 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../eurnlp/index.html">EurNLP</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-07-04">4 Jul 2019</time> –
+                                        2 min read</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/natural-language-processing/index.html">See all 27 posts →</a>
+                        <a href="../tag/natural-language-processing/index.html">See all 27 posts
+                            →</a>
                     </footer>
                 </article>
 
 
                 <article class="post-card post tag-cross-lingual tag-transfer-learning tag-natural-language-processing ">
 
-    <a class="post-card-image-link" href="../index.html">
+    <a class="post-card-image-link" href="../unsupervised-cross-lingual-learning/index.html">
         <img class="post-card-image"
-            srcset="https://ruder.io/content/images/size/w300/2019/11/unsupervised_multilingual_overview.png 300w,
-                    https://ruder.io/content/images/size/w600/2019/11/unsupervised_multilingual_overview.png 600w,
-                    https://ruder.io/content/images/size/w1000/2019/11/unsupervised_multilingual_overview.png 1000w,
-                    https://ruder.io/content/images/size/w2000/2019/11/unsupervised_multilingual_overview.png 2000w"
+            srcset="../content/images/size/w300/2019/11/unsupervised_multilingual_overview.png 300w,
+                   ../content/images/size/w600/2019/11/unsupervised_multilingual_overview.pngg 600w,
+                  ../content/images/size/w1000/2019/11/unsupervised_multilingual_overview.pngng 1000w,
+                 ../content/images/size/w2000/2019/11/unsupervised_multilingual_overview.pngpng 2000w"
             sizes="(max-width: 1000px) 400px, 700px"
-            src="https://ruder.io/content/images/size/w600/2019/11/unsupervised_multilingual_overview.png"
+            src="../content/images/size/w600/2019/11/unsupervised_multilingual_overview.png"
             alt="Unsupervised Cross-lingual Representation Learning"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../index.html">
+        <a class="post-card-content-link" href="../unsupervised-cross-lingual-learning/index.html">
 
             <header class="post-card-header">
-                    <span class="post-card-tags">cross-lingual</span>
+                    <div class="post-card-primary-tag">cross-lingual</div>
                 <h2 class="post-card-title">Unsupervised Cross-lingual Representation Learning</h2>
             </header>
 
             <section class="post-card-excerpt">
-                <p>This post expands on the ACL 2019 tutorial on Unsupervised Cross-lingual Representation Learning. It highlights key insights and takeaways and provides updates based on recent work, particularly unsupervised deep multilingual models.</p>
+                    <p>This post expands on the ACL 2019 tutorial on Unsupervised Cross-lingual Representation Learning. It highlights key insights and takeaways and provides updates based on recent work, particularly unsupervised deep multilingual models.</p>
             </section>
 
         </a>
 
         <footer class="post-card-meta">
-
             <ul class="author-list">
                 <li class="author-list-item">
-
+            
                     <div class="author-name-tooltip">
                         Sebastian Ruder
                     </div>
-
-                        <a href="../author/sebastian/index.html" class="static-avatar">
-                            <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-                        </a>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
                 </li>
             </ul>
-
-            <span class="reading-time"></span>
-
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2019-10-26">26 Oct 2019</time> <span class="bull">&bull;</span> 20 min read</span>
+            </div>
         </footer>
 
     </div>
 
 </article>
-
         </div>
     </div>
 </aside>
 
-<div class="floating-header">
-    <div class="floating-header-logo">
-        <a href="https://ruder.io">
-            <span>Sebastian Ruder</span>
-        </a>
-    </div>
-    <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">10 ML &amp; NLP Research Highlights of 2019</div>
-    <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
-</svg>
-</div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=10%20ML%20%26%20NLP%20Research%20Highlights%20of%202019&amp;url=https://ruder.io/research-highlights-2019/"
-            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
-        </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ruder.io/research-highlights-2019/"
-            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
-        </a>
-    </div>
-    <progress id="reading-progress" class="progress" value="0">
-        <div class="progress-container">
-            <span class="progress-bar"></span>
-        </div>
-    </progress>
-</div>
-
-
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/research-highlights-2019/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
@@ -361,89 +348,78 @@ s.setAttribute('data-timestamp', +new Date());
     </div>
 
 
-    <script>
-        var images = document.querySelectorAll('.kg-gallery-image img');
-        images.forEach(function (image) {
-            var container = image.closest('.kg-gallery-image');
-            var width = image.attributes.width.value;
-            var height = image.attributes.height.value;
-            var ratio = width / height;
-            container.style.flex = ratio + ' 1 0%';
-        })
-    </script>
-
-
     <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=1e88f4f6c7"></script>
-
+    <script src="../assets/built/casper.js?v=68b7a20a26"></script>
 
     <script>
-
-// NOTE: Scroll performance is poor in Safari
-// - this appears to be due to the events firing much more slowly in Safari.
-//   Dropping the scroll event and using only a raf loop results in smoother
-//   scrolling but continuous processing even when not scrolling
-$(document).ready(function () {
-    // Start fitVids
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-    // End fitVids
-
-    var progressBar = document.querySelector('#reading-progress');
-    var header = document.querySelector('.floating-header');
-    var title = document.querySelector('.post-full-title');
-
-    var lastScrollY = window.scrollY;
-    var lastWindowHeight = window.innerHeight;
-    var lastDocumentHeight = $(document).height();
-    var ticking = false;
-
-    function onScroll() {
-        lastScrollY = window.scrollY;
-        requestTick();
-    }
-
-    function onResize() {
-        lastWindowHeight = window.innerHeight;
-        lastDocumentHeight = $(document).height();
-        requestTick();
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(update);
-        }
-        ticking = true;
-    }
-
-    function update() {
-        var trigger = title.getBoundingClientRect().top + window.scrollY;
-        var triggerOffset = title.offsetHeight + 35;
-        var progressMax = lastDocumentHeight - lastWindowHeight;
-
-        // show/hide floating header
-        if (lastScrollY >= trigger + triggerOffset) {
-            header.classList.add('floating-active');
-        } else {
-            header.classList.remove('floating-active');
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        progressBar.setAttribute('max', progressMax);
-        progressBar.setAttribute('value', lastScrollY);
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
 
-        ticking = false;
-    }
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
 
-    window.addEventListener('scroll', onScroll, {passive: true});
-    window.addEventListener('resize', onResize, false);
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
 
-    update();
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
 
-});
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
 </script>
 
 

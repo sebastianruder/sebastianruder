@@ -9,7 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=1e88f4f6c7" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=68b7a20a26" />
 
     <meta name="description" content="Big changes are underway in the world of Natural Language Processing (NLP). The long reign of word vectors has seen a new line of challengers emerge." />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
@@ -49,11 +49,15 @@
     "publisher": {
         "@type": "Organization",
         "name": "Sebastian Ruder",
+        "url": "https://ruder.io/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://ruder.io/favicon.ico",
-            "width": 60,
-            "height": 60
+            "url": {
+                "@type": "ImageObject",
+                "url": "https://ruder.io/favicon.ico",
+                "width": 48,
+                "height": 48
+            }
         }
     },
     "author": {
@@ -87,14 +91,7 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=1e88f4f6c7"></script>
-<script>
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "1cc08969b060"
-});
-</script>
-    <meta name="generator" content="Ghost 2.16" />
+    <meta name="generator" content="Ghost 3.11" />
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -134,12 +131,15 @@ MathJax.Hub.Config({
 
         
 
-<header class="site-header outer">
+<header class="site-header">
+    <div class="outer site-nav-main">
     <div class="inner">
         <nav class="site-nav">
-    <div class="site-nav-left">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
                 <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
-            <ul class="nav" role="menu">
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
     <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
     <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
     <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
@@ -151,18 +151,22 @@ MathJax.Hub.Config({
     <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
 </ul>
 
+                    <span class="nav-post-title dash">NLP&#x27;s ImageNet moment has arrived</span>
+            </div>
+        </div>
     </div>
     <div class="site-nav-right">
-        <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+            <div class="social-links">
+                    <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
-        </div>
-            <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
+
     </div>
 </nav>
     </div>
-</header>
+</div></header>
 
 
 <main id="site-main" class="site-main outer">
@@ -171,30 +175,68 @@ MathJax.Hub.Config({
         <article class="post-full post tag-natural-language-processing tag-transfer-learning tag-language-models ">
 
             <header class="post-full-header">
-                <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="2018-07-12">12 July 2018</time>
-                        <span class="date-divider">/</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a>
+
+                <section class="post-full-tags">
+                    <a href="../tag/natural-language-processing/index.html">natural language processing</a>
                 </section>
+
                 <h1 class="post-full-title">NLP&#x27;s ImageNet moment has arrived</h1>
+
+                <p class="post-full-custom-excerpt">Big changes are underway in the world of NLP. The long reign of word vectors as NLP&#x27;s core representation technique has seen an exciting new line of challengers emerge. These approaches demonstrated that pretrained language models can achieve state-of-the-art results and herald a watershed moment.</p>
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                    <div class="author-info">
+                                        <h2>Sebastian Ruder</h2>
+                                        <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/sebastian/index.html" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2018-07-12">12 Jul 2018</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 15 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
             </header>
 
             <figure class="post-full-image">
                 <img
-                    srcset="https://ruder.io/content/images/size/w300/2018/07/lm_objective.png 300w,
-                            https://ruder.io/content/images/size/w600/2018/07/lm_objective.png 600w,
-                            https://ruder.io/content/images/size/w1000/2018/07/lm_objective.png 1000w,
-                            https://ruder.io/content/images/size/w2000/2018/07/lm_objective.png 2000w"
+                    srcset="../content/images/size/w300/2018/07/lm_objective.png 300w,
+                           ../content/images/size/w600/2018/07/lm_objective.pngg 600w,
+                          ../content/images/size/w1000/2018/07/lm_objective.pngng 1000w,
+                         ../content/images/size/w2000/2018/07/lm_objective.pngpng 2000w"
                     sizes="(max-width: 800px) 400px,
-                            (max-width: 1170px) 700px,
-                            1400px"
-                    src="https://ruder.io/content/images/size/w2000/2018/07/lm_objective.png"
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="../content/images/size/w2000/2018/07/lm_objective.png"
                     alt="NLP&#x27;s ImageNet moment has arrived"
                 />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><p>This post discusses pretrained language models, one of the most exciting directions in contemporary NLP.</p>
+                    <!--kg-card-begin: markdown--><p>This post discusses pretrained language models, one of the most exciting directions in contemporary NLP.</p>
 <p><em>This post originally appeared at <a href="https://thegradient.pub/nlp-imagenet/">TheGradient</a> and was edited by <a href="http://www.andreykurenkov.com/">Andrey Kurenkov</a>, <a href="https://tweetdeck.twitter.com/">Eric Wang</a>, and <a href="http://acganesh.com/">Aditya Ganesh</a>.</em></p>
 <p>Big changes are underway in the world of Natural Language Processing (NLP). The long reign of word vectors as NLP’s core representation technique has seen an exciting new line of challengers emerge: <a href="https://arxiv.org/abs/1802.05365">ELMo</a><sup class="footnote-ref"><a href="index.html#fn1" id="fnref1">[1]</a></sup>, <a href="https://arxiv.org/abs/1801.06146">ULMFiT</a><sup class="footnote-ref"><a href="index.html#fn2" id="fnref2">[2]</a></sup>, and the <a href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf">OpenAI transformer</a><sup class="footnote-ref"><a href="index.html#fn3" id="fnref3">[3]</a></sup>. These works <a href="https://blog.openai.com/language-unsupervised/">made</a> <a href="https://techcrunch.com/2018/06/15/machines-learn-language-better-by-using-a-deep-understanding-of-words/">headlines</a> by demonstrating that pretrained language models can be used to achieve state-of-the-art results on a wide range of NLP tasks. Such methods herald a watershed moment: they may have the same wide-ranging impact on NLP as pretrained ImageNet models had on computer vision.</p>
 <h2 id="fromshallowtodeeppretraining">From Shallow to Deep Pre-Training</h2>
@@ -307,7 +349,7 @@ MathJax.Hub.Config({
 <h2 id="butwheresthetheory">But where’s the theory?</h2>
 <p>
 Our analysis thus far has been mostly conceptual and empirical, as it is still poorly understood why models trained on ImageNet---and consequently on language modeling---transfer so well. One way to think about the generalization behaviour of pretrained models more formally is under a model of <em>bias learning</em> (Baxter, 2000)<a href="index.html#fn35" id="fnref35">[35]</a>. Assume our problem domain covers all permutations of tasks in a particular discipline, e.g. computer vision, which forms our <em>environment</em>. We are provided with a number of datasets that allow us to induce a <em>family</em> of hypothesis spaces $\mathrm{H} = {\mathcal{H}}$. Our goal in bias learning is to find a <em>bias</em>, i.e. a hypothesis space $\mathcal{H} \in \mathrm{H}$ that maximizes performance on the entire (potentially infinite) environment.
-</p><p>Empirical and theoretical results in multi-task learning (Caruana, 1997; Baxter, 2000)<sup class="footnote-ref"><a href="index.html#fn36" id="fnref36">[36]</a></sup><sup class="footnote-ref"><a href="index.html#fn35" id="fnref35:1">[35:1]</a></sup> indicate that a bias that is learned on <em>sufficiently many</em> tasks is likely to generalize to unseen tasks drawn from the same environment. Viewed through the lens of multi-task learning, a model trained on ImageNet learns a large number of binary classification tasks (one for each class). These tasks, all drawn from the space of natural, real-world images, are likely to be representative of many other CV tasks. In the same vein, a language model---by learning a large number of classification tasks, one for each word---induces representations that are likely helpful for many other tasks in the realm of natural language. Still, much more research is necessary to gain a better theoretical understanding why language modeling seems to work so well for transfer learning.</p>
+<p>Empirical and theoretical results in multi-task learning (Caruana, 1997; Baxter, 2000)<sup class="footnote-ref"><a href="index.html#fn36" id="fnref36">[36]</a></sup><sup class="footnote-ref"><a href="index.html#fn35" id="fnref35:1">[35:1]</a></sup> indicate that a bias that is learned on <em>sufficiently many</em> tasks is likely to generalize to unseen tasks drawn from the same environment. Viewed through the lens of multi-task learning, a model trained on ImageNet learns a large number of binary classification tasks (one for each class). These tasks, all drawn from the space of natural, real-world images, are likely to be representative of many other CV tasks. In the same vein, a language model---by learning a large number of classification tasks, one for each word---induces representations that are likely helpful for many other tasks in the realm of natural language. Still, much more research is necessary to gain a better theoretical understanding why language modeling seems to work so well for transfer learning.</p>
 <h2 id="theimagenetmoment">The ImageNet moment</h2>
 <p>The time is ripe for practical transfer learning to make inroads into NLP. In light of the impressive empirical results of <a href="https://arxiv.org/abs/1802.05365">ELMo</a>, <a href="https://arxiv.org/abs/1801.06146">ULMFiT</a>, and <a href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf">OpenAI</a> it only seems to be a question of time until pretrained word embeddings will be dethroned and replaced by pretrained language models in the toolbox of every NLP practitioner. This will likely open many new applications for NLP in settings with limited amounts of labeled data. The king is dead, long live the king!</p>
 <p><em>For further reading, check out the <a href="https://news.ycombinator.com/item?id=17489564">discussion on HackerNews</a>.</em></p>
@@ -385,28 +427,10 @@ Our analysis thus far has been mostly conceptual and empirical, as it is still p
 </li>
 <li id="fn36" class="footnote-item"><p>Rich Caruana. 1993. Multitask learning: A knowledge-based source of inductive bias. In Proceedings of the Tenth International Conference on Machine Learning. <a href="index.html#fnref36" class="footnote-backref">↩︎</a></p>
 </li>
-</ol><!--kg-card-end: markdown--><!--kg-card-end: markdown-->
+</ol><!--kg-card-end: markdown-->
                 </div>
             </section>
 
-
-            <footer class="post-full-footer">
-
-
-                    
-<section class="author-card">
-        <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-    <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
-    </section>
-</section>
-<div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
-</div>
-
-
-            </footer>
 
 
         </article>
@@ -417,73 +441,87 @@ Our analysis thus far has been mostly conceptual and empirical, as it is still p
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card"
-                            style="background-image: url(https://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)"
-                >
+                <article class="read-next-card">
                     <header class="read-next-card-header">
-                        <small class="read-next-card-header-sitetitle">&mdash; Sebastian Ruder &mdash;</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
+                        <h3><span>More in</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
                     </header>
-                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
-</div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../research-highlights-2019/index.html">10 ML &amp; NLP Research Highlights of 2019</a></li>
-                            <li><a href="../unsupervised-cross-lingual-learning/index.html">Unsupervised Cross-lingual Representation Learning</a></li>
-                            <li><a href="../state-of-transfer-learning-in-nlp/index.html">The State of Transfer Learning in NLP</a></li>
+                            <li>
+                                <h4><a href="../research-highlights-2019/index.html">10 ML &amp; NLP Research Highlights of 2019</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2020-01-06">6 Jan 2020</time> –
+                                        12 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../unsupervised-cross-lingual-learning/index.html">Unsupervised Cross-lingual Representation Learning</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-10-26">26 Oct 2019</time> –
+                                        20 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../state-of-transfer-learning-in-nlp/index.html">The State of Transfer Learning in NLP</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-08-18">18 Aug 2019</time> –
+                                        15 min read</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/natural-language-processing/index.html">See all 27 posts →</a>
+                        <a href="../tag/natural-language-processing/index.html">See all 27 posts
+                            →</a>
                     </footer>
                 </article>
 
                 <article class="post-card post tag-natural-language-processing tag-events tag-transfer-learning tag-reinforcement-learning ">
 
-    <a class="post-card-image-link" href="../index.html">
+    <a class="post-card-image-link" href="../acl-2018-highlights/index.html">
         <img class="post-card-image"
-            srcset="https://ruder.io/content/images/size/w300/2018/07/view_out_of_conference_venue-2.jpg 300w,
-                    https://ruder.io/content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpg 600w,
-                    https://ruder.io/content/images/size/w1000/2018/07/view_out_of_conference_venue-2.jpg 1000w,
-                    https://ruder.io/content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpg 2000w"
+            srcset="../content/images/size/w300/2018/07/view_out_of_conference_venue-2.jpg 300w,
+                   ../content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpgg 600w,
+                  ../content/images/size/w1000/2018/07/view_out_of_conference_venue-2.jpgpg 1000w,
+                 ../content/images/size/w2000/2018/07/view_out_of_conference_venue-2.jpgjpg 2000w"
             sizes="(max-width: 1000px) 400px, 700px"
-            src="https://ruder.io/content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpg"
+            src="../content/images/size/w600/2018/07/view_out_of_conference_venue-2.jpg"
             alt="ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../index.html">
+        <a class="post-card-content-link" href="../acl-2018-highlights/index.html">
 
             <header class="post-card-header">
-                    <span class="post-card-tags">natural language processing</span>
+                    <div class="post-card-primary-tag">natural language processing</div>
                 <h2 class="post-card-title">ACL 2018 Highlights: Understanding Representations and Evaluation in More Challenging Settings</h2>
             </header>
 
             <section class="post-card-excerpt">
-                <p>This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios.</p>
+                    <p>This post discusses highlights of the 56th Annual Meeting of the Association for Computational Linguistics (ACL 2018). It focuses on understanding representations and evaluating in more challenging scenarios.</p>
             </section>
 
         </a>
 
         <footer class="post-card-meta">
-
             <ul class="author-list">
                 <li class="author-list-item">
-
+            
                     <div class="author-name-tooltip">
                         Sebastian Ruder
                     </div>
-
-                        <a href="../author/sebastian/index.html" class="static-avatar">
-                            <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-                        </a>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
                 </li>
             </ul>
-
-            <span class="reading-time"></span>
-
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2018-07-26">26 Jul 2018</time> <span class="bull">&bull;</span> 18 min read</span>
+            </div>
         </footer>
 
     </div>
@@ -492,110 +530,59 @@ Our analysis thus far has been mostly conceptual and empirical, as it is still p
 
                 <article class="post-card post tag-natural-language-processing ">
 
-    <a class="post-card-image-link" href="../index.html">
+    <a class="post-card-image-link" href="../tracking-progress-nlp/index.html">
         <img class="post-card-image"
-            srcset="https://ruder.io/content/images/size/w300/2018/10/squad_progress.png 300w,
-                    https://ruder.io/content/images/size/w600/2018/10/squad_progress.png 600w,
-                    https://ruder.io/content/images/size/w1000/2018/10/squad_progress.png 1000w,
-                    https://ruder.io/content/images/size/w2000/2018/10/squad_progress.png 2000w"
+            srcset="../content/images/size/w300/2018/10/squad_progress.png 300w,
+                   ../content/images/size/w600/2018/10/squad_progress.pngg 600w,
+                  ../content/images/size/w1000/2018/10/squad_progress.pngng 1000w,
+                 ../content/images/size/w2000/2018/10/squad_progress.pngpng 2000w"
             sizes="(max-width: 1000px) 400px, 700px"
-            src="https://ruder.io/content/images/size/w600/2018/10/squad_progress.png"
+            src="../content/images/size/w600/2018/10/squad_progress.png"
             alt="Tracking the Progress in Natural Language Processing"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../index.html">
+        <a class="post-card-content-link" href="../tracking-progress-nlp/index.html">
 
             <header class="post-card-header">
-                    <span class="post-card-tags">natural language processing</span>
+                    <div class="post-card-primary-tag">natural language processing</div>
                 <h2 class="post-card-title">Tracking the Progress in Natural Language Processing</h2>
             </header>
 
             <section class="post-card-excerpt">
-                <p>Research in ML and NLP is moving at a tremendous pace, which is an obstacle for people wanting to enter the field. To make working with new tasks easier, this post introduces a resource that tracks the progress and state-of-the-art across many tasks in NLP.</p>
+                    <p>Research in ML and NLP is moving at a tremendous pace, which is an obstacle for people wanting to enter the field. To make working with new tasks easier, this post introduces a resource that tracks the progress and state-of-the-art across many tasks in NLP.</p>
             </section>
 
         </a>
 
         <footer class="post-card-meta">
-
             <ul class="author-list">
                 <li class="author-list-item">
-
+            
                     <div class="author-name-tooltip">
                         Sebastian Ruder
                     </div>
-
-                        <a href="../author/sebastian/index.html" class="static-avatar">
-                            <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-                        </a>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
                 </li>
             </ul>
-
-            <span class="reading-time"></span>
-
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2018-06-22">22 Jun 2018</time> <span class="bull">&bull;</span> 2 min read</span>
+            </div>
         </footer>
 
     </div>
 
 </article>
-
         </div>
     </div>
 </aside>
 
-<div class="floating-header">
-    <div class="floating-header-logo">
-        <a href="https://ruder.io">
-            <span>Sebastian Ruder</span>
-        </a>
-    </div>
-    <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">NLP&#x27;s ImageNet moment has arrived</div>
-    <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
-</svg>
-</div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=NLP's%20ImageNet%20moment%20has%20arrived&amp;url=https://ruder.io/nlp-imagenet/"
-            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
-        </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ruder.io/nlp-imagenet/"
-            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
-        </a>
-    </div>
-    <progress id="reading-progress" class="progress" value="0">
-        <div class="progress-container">
-            <span class="progress-bar"></span>
-        </div>
-    </progress>
-</div>
-
-
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/nlp-imagenet/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
@@ -614,89 +601,78 @@ s.setAttribute('data-timestamp', +new Date());
     </div>
 
 
-    <script>
-        var images = document.querySelectorAll('.kg-gallery-image img');
-        images.forEach(function (image) {
-            var container = image.closest('.kg-gallery-image');
-            var width = image.attributes.width.value;
-            var height = image.attributes.height.value;
-            var ratio = width / height;
-            container.style.flex = ratio + ' 1 0%';
-        })
-    </script>
-
-
     <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=1e88f4f6c7"></script>
-
+    <script src="../assets/built/casper.js?v=68b7a20a26"></script>
 
     <script>
-
-// NOTE: Scroll performance is poor in Safari
-// - this appears to be due to the events firing much more slowly in Safari.
-//   Dropping the scroll event and using only a raf loop results in smoother
-//   scrolling but continuous processing even when not scrolling
-$(document).ready(function () {
-    // Start fitVids
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-    // End fitVids
-
-    var progressBar = document.querySelector('#reading-progress');
-    var header = document.querySelector('.floating-header');
-    var title = document.querySelector('.post-full-title');
-
-    var lastScrollY = window.scrollY;
-    var lastWindowHeight = window.innerHeight;
-    var lastDocumentHeight = $(document).height();
-    var ticking = false;
-
-    function onScroll() {
-        lastScrollY = window.scrollY;
-        requestTick();
-    }
-
-    function onResize() {
-        lastWindowHeight = window.innerHeight;
-        lastDocumentHeight = $(document).height();
-        requestTick();
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(update);
-        }
-        ticking = true;
-    }
-
-    function update() {
-        var trigger = title.getBoundingClientRect().top + window.scrollY;
-        var triggerOffset = title.offsetHeight + 35;
-        var progressMax = lastDocumentHeight - lastWindowHeight;
-
-        // show/hide floating header
-        if (lastScrollY >= trigger + triggerOffset) {
-            header.classList.add('floating-active');
-        } else {
-            header.classList.remove('floating-active');
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        progressBar.setAttribute('max', progressMax);
-        progressBar.setAttribute('value', lastScrollY);
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
 
-        ticking = false;
-    }
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
 
-    window.addEventListener('scroll', onScroll, {passive: true});
-    window.addEventListener('resize', onResize, false);
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
 
-    update();
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
 
-});
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
 </script>
 
 

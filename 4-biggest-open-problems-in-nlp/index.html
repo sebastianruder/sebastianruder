@@ -9,7 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=1e88f4f6c7" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=68b7a20a26" />
 
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="canonical" href="https://ruder.io/4-biggest-open-problems-in-nlp/" />
@@ -48,11 +48,15 @@
     "publisher": {
         "@type": "Organization",
         "name": "Sebastian Ruder",
+        "url": "https://ruder.io/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://ruder.io/favicon.ico",
-            "width": 60,
-            "height": 60
+            "url": {
+                "@type": "ImageObject",
+                "url": "https://ruder.io/favicon.ico",
+                "width": 48,
+                "height": 48
+            }
         }
     },
     "author": {
@@ -86,14 +90,7 @@
 }
     </script>
 
-    <script src="../public/ghost-sdk.js?v=1e88f4f6c7"></script>
-<script>
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "1cc08969b060"
-});
-</script>
-    <meta name="generator" content="Ghost 2.16" />
+    <meta name="generator" content="Ghost 3.11" />
     <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
@@ -123,12 +120,15 @@ MathJax.Hub.Config({
 
         
 
-<header class="site-header outer">
+<header class="site-header">
+    <div class="outer site-nav-main">
     <div class="inner">
         <nav class="site-nav">
-    <div class="site-nav-left">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
                 <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
-            <ul class="nav" role="menu">
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
     <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
     <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
     <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
@@ -140,18 +140,22 @@ MathJax.Hub.Config({
     <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
 </ul>
 
+                    <span class="nav-post-title dash">The 4 Biggest Open Problems in NLP</span>
+            </div>
+        </div>
     </div>
     <div class="site-nav-right">
-        <div class="social-links">
-                <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+            <div class="social-links">
+                    <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
-        </div>
-            <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+            </div>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
+
     </div>
 </nav>
     </div>
-</header>
+</div></header>
 
 
 <main id="site-main" class="site-main outer">
@@ -160,51 +164,71 @@ MathJax.Hub.Config({
         <article class="post-full post tag-natural-language-processing tag-cross-lingual tag-events ">
 
             <header class="post-full-header">
-                <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="2019-01-15">15 January 2019</time>
-                        <span class="date-divider">/</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a>
+
+                <section class="post-full-tags">
+                    <a href="../tag/natural-language-processing/index.html">natural language processing</a>
                 </section>
+
                 <h1 class="post-full-title">The 4 Biggest Open Problems in NLP</h1>
+
+                <p class="post-full-custom-excerpt">This is the second post based on the Frontiers of NLP session at the Deep Learning Indaba 2018. It discusses 4 major open problems in NLP.</p>
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                    <div class="author-info">
+                                        <h2>Sebastian Ruder</h2>
+                                        <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/sebastian/index.html" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2019-01-15">15 Jan 2019</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 10 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
             </header>
 
             <figure class="post-full-image">
                 <img
-                    srcset="https://ruder.io/content/images/size/w300/2019/01/narrativeqa_ghostbuster.png 300w,
-                            https://ruder.io/content/images/size/w600/2019/01/narrativeqa_ghostbuster.png 600w,
-                            https://ruder.io/content/images/size/w1000/2019/01/narrativeqa_ghostbuster.png 1000w,
-                            https://ruder.io/content/images/size/w2000/2019/01/narrativeqa_ghostbuster.png 2000w"
+                    srcset="../content/images/size/w300/2019/01/narrativeqa_ghostbuster.png 300w,
+                           ../content/images/size/w600/2019/01/narrativeqa_ghostbuster.pngg 600w,
+                          ../content/images/size/w1000/2019/01/narrativeqa_ghostbuster.pngng 1000w,
+                         ../content/images/size/w2000/2019/01/narrativeqa_ghostbuster.pngpng 2000w"
                     sizes="(max-width: 800px) 400px,
-                            (max-width: 1170px) 700px,
-                            1400px"
-                    src="https://ruder.io/content/images/size/w2000/2019/01/narrativeqa_ghostbuster.png"
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="../content/images/size/w2000/2019/01/narrativeqa_ghostbuster.png"
                     alt="The 4 Biggest Open Problems in NLP"
                 />
             </figure>
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>This post discusses 4 major open problems in NLP based on an expert survey and a panel discussion at the Deep Learning Indaba.</p><p>This is the second blog post in a two-part series. The series expands on the Frontiers of Natural Language Processing session organized by <a href="https://www.kamperh.com/">Herman Kamper</a>, <a href="http://www.stephangouws.com/">Stephan Gouws</a>, and me at the <a href="http://www.deeplearningindaba.com/">Deep Learning Indaba 2018</a>. Slides of the entire session can be found <a href="https://drive.google.com/file/d/15ehMIJ7wY9A7RSmyJPNmrBMuC7se0PMP/view">here</a>. The <a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/">first post</a> discussed major recent advances in NLP focusing on neural network-based methods. This post discusses major open problems in NLP. You can find a recording of the panel discussion this post is based on <a href="https://youtu.be/sGVi4gb90zk?list=PLICxY_yQeGYlcjO6ANCXworXHGC6hHXjA&amp;t=3649">here</a>.</p><p>In the weeks leading up to the Indaba, we asked NLP experts a number of simple but big questions. Based on the responses, we identified the four problems that were mentioned most often:</p><ol><li><a>Natural language understanding</a></li><li><a>NLP for low-resource scenarios</a></li><li><a>Reasoning about large or multiple documents</a></li><li><a>Datasets, problems, and evaluation</a></li></ol><p>We discussed these problems during a panel discussion. This article is mostly based on the <a href="https://docs.google.com/document/d/18NoNdArdzDLJFQGBMVMsQ-iLOowP1XXDaSVRmYN0IyM/edit">responses from our experts</a> (which are well worth reading) and thoughts of my fellow panel members <a href="https://twitter.com/alienelf?lang=en">Jade Abbott</a>, <a href="http://www.stephangouws.com/">Stephan Gouws</a>, <a href="http://omojumiller.com/">Omoju Miller</a>, and <a href="https://twitter.com/bernardt_d">Bernardt Duvenhage</a>. I will aim to provide context around some of the arguments, for anyone interested in learning more.</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="https://ruder.io/content/images/2018/12/fellow_panel_members.png" class="kg-image"></figure><!--kg-card-end: image--><h1 id="natural-language-understanding">Natural language understanding</h1><blockquote>I think the biggest open problems are all related to natural language<br>understanding. [...] <strong>we should develop systems that read and<br>understand text the way a person does</strong>, by forming a representation of<br>the world of the text, with the agents, objects, settings, and the<br>relationships, goals, desires, and beliefs of the agents, and everything else<br>that humans create to understand a piece of text. Until we can do that, all of our progress is in improving our systems’ ability to do pattern matching.<br>– Kevin Gimpel</blockquote><p>Many experts in our survey argued that the problem of natural language understanding (NLU) is central as it is a prerequisite for many tasks such as natural language generation (NLG). The consensus was that none of our current models exhibit 'real' understanding of natural language.</p><p><strong>Innate biases vs. learning from scratch</strong>   A key question is what biases and structure should we build explicitly into our models to get closer to NLU. Similar ideas were discussed at the Generalization workshop at NAACL 2018, which Ana Marasovic <a href="https://thegradient.pub/frontiers-of-generalization-in-natural-language-processing/">reviewed for The Gradient</a> and I <a href="http://ruder.io/highlights-naacl-2018/#generalization">reviewed here</a>. Many responses in our survey mentioned that models should incorporate common sense. In addition, dialogue systems (and chat bots) were mentioned several times.</p><p>On the other hand, for reinforcement learning, David Silver argued that you would ultimately want the model to <a href="https://twitter.com/seb_ruder/status/1040241906066829313">learn everything by itself, including the algorithm, features, and predictions</a>. Many of our experts took the opposite view, arguing that you should actually build in some understanding in your model. What should be learned and what should be hard-wired into the model was also explored in the <a href="https://www.abigailsee.com/2018/02/21/deep-learning-structure-and-innate-priors.html">debate between Yann LeCun and Christopher Manning</a> in February 2018.</p><p><strong>Program synthesis</strong>   Omoju argued that incorporating understanding is difficult as long as we do not understand the mechanisms that actually underly NLU and how to evaluate them. She argued that we might want to take ideas from <a href="https://en.wikipedia.org/wiki/Program_synthesis">program synthesis</a> and automatically learn programs based on high-level specifications instead. Ideas like this are related to <a href="https://arxiv.org/abs/1511.02799">neural module networks</a> and <a href="https://arxiv.org/abs/1511.06279">neural programmer-interpreters</a>.<br><br>She also suggested we should look back to approaches and frameworks that were originally developed in the 80s and 90s, such as <a href="https://framenet.icsi.berkeley.edu/">FrameNet</a> and merge these with statistical approaches. This should help us infer common sense-properties of objects, such as whether a car is a vehicle, has handles, etc. Inferring such common sense knowledge has also been a focus of <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/#3-common-sense-inference-datasets">recent datasets in NLP</a>. </p><p><strong>Embodied learning</strong>   Stephan argued that we should use the information in available structured sources and knowledge bases such as <a href="https://en.wikipedia.org/wiki/Wikidata">Wikidata</a>. He noted that humans learn language through experience and interaction, by being embodied in an environment. One could argue that there exists a single learning algorithm that if used with an agent embedded in a sufficiently rich environment, with an appropriate reward structure, could learn NLU from the ground up. However, the compute for such an environment would be tremendous. For comparison, AlphaGo required a huge infrastructure to solve a well-defined board game. The creation of a general-purpose algorithm that can continue to learn is related to <a href="http://axon.cs.byu.edu/~martinez/classes/678/Presentations/Martin.pdf">lifelong learning</a> and to<a href="https://arxiv.org/abs/1802.08864"> general problem solvers</a>.</p><p>While many people think that we are headed in the direction of embodied learning, we should thus not underestimate the infrastructure and compute that would be required for a full embodied agent. In light of this, waiting for a full-fledged embodied agent to learn language seems ill-advised. However, we can take steps that will bring us closer to this extreme, such as <a href="https://arxiv.org/abs/1706.06551">grounded language learning in simulated environments</a>, <a href="https://openreview.net/forum?id=rJeXCo0cYX">incorporating interaction</a>, or <a href="http://aclweb.org/anthology/D18-1166">leveraging multimodal data</a>.</p><p><strong>Emotion</strong>   Towards the end of the session, Omoju argued that it will be very difficult to incorporate a human element relating to emotion into embodied agents. Emotion, however, is very relevant to a deeper understanding of language. On the other hand, we might not need agents that actually possess human emotions. Stephan stated that the Turing test, after all, is defined as mimicry and sociopaths—while having no emotions—can fool people into thinking they do. We should thus be able to find solutions that do not need to be embodied and do not have emotions, but understand the emotions of people and help us solve our problems. Indeed, sensor-based emotion recognition systems <a href="http://eqradio.csail.mit.edu/">have continuously improved—</a>and we have also seen improvements in <a href="https://www.aclweb.org/anthology/D17-1169">textual emotion detection systems</a>.</p><p><strong>Cognitive and neuroscience</strong>   An audience member asked how much knowledge of neuroscience and cognitive science are we leveraging and building into our models. Knowledge of neuroscience and cognitive science can be great for inspiration and used as a guideline to shape your thinking. As an example, <a href="https://papers.nips.cc/paper/6057-using-fast-weights-to-attend-to-the-recent-past.pdf">several</a> <a href="https://papers.nips.cc/paper/7120-thinking-fast-and-slow-with-deep-learning-and-tree-search.pdf">models</a> have sought to imitate humans' ability to <em>think fast and slow</em>. AI and neuroscience are complementary in many directions, as Surya Ganguli illustrates in <a href="https://neuroscience.stanford.edu/news/intertwined-quest-understanding-biological-intelligence-and-creating-artificial-intelligence">this post</a>.</p><p>Omoju recommended to take inspiration from theories of cognitive science, such as the cognitive development theories by <a href="https://www2.education.uiowa.edu/html/eportfolio/tep/07p075folder/Piaget_Vygotsky.htm">Piaget and Vygotsky</a>. She also urged everyone to pursue interdisciplinary work. This sentiment was echoed by other experts. For instance, Felix Hill recommended to go to cognitive science conferences.</p><h1 id="nlp-for-low-resource-scenarios">NLP for low-resource scenarios</h1><blockquote>Dealing with low-data settings (low-resource languages, dialects (including social media text "dialects"), domains, etc.).  This is not a completely "open" problem in that there are already a lot of promising ideas out there; <strong>but we still don't have a universal solution to this universal problem</strong>.<br>– Karen Livescu</blockquote><p>The second topic we explored was generalisation beyond the training data in low-resource scenarios. Given the setting of the Indaba, a natural focus was low-resource languages. The first question focused on whether it is necessary to develop specialised NLP tools for specific languages, or it is enough to work on general NLP.</p><p><strong>Universal language model</strong>   Bernardt argued that there are universal commonalities between languages that could be exploited by a universal language model. The challenge then is to obtain enough data and compute to train such a language model. This is closely related to recent efforts to train a <a href="https://github.com/google-research/bert/blob/master/multilingual.md">cross-lingual Transformer language model</a> and <a href="https://arxiv.org/abs/1812.10464">cross-lingual sentence embeddings</a>. </p><p><strong>Cross-lingual representations</strong>   Stephan remarked that not enough people are working on low-resource languages. There are <a href="https://en.wikipedia.org/wiki/Languages_of_Africa">1,250-2,100 languages in Africa</a> alone, most of which have received scarce attention from the NLP community. The question of specialized tools also depends on the NLP task that is being tackled. The main issue with current models is sample efficiency. <a href="https://arxiv.org/abs/1706.04902">Cross-lingual word embeddings</a> are sample-efficient as they only require word translation pairs or even only monolingual data. They align word embedding spaces sufficiently well to do coarse-grained tasks like topic classification, but don't allow for more fine-grained tasks such as machine translation. Recent efforts nevertheless show that these embeddings form an important building lock for <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/#1-unsupervised-mt">unsupervised machine translation</a>. </p><p>More complex models for higher-level tasks such as question answering on the other hand require thousands of training examples for learning. Transferring tasks that require actual natural language understanding from high-resource to low-resource languages is still very challenging. With the development of cross-lingual datasets for such tasks, such as <a href="https://arxiv.org/abs/1809.05053">XNLI</a>, the development of strong cross-lingual models for more reasoning tasks should hopefully become easier. </p><p><strong>Benefits and impact</strong>   Another question enquired—given that there is inherently only small amounts of text available for under-resourced languages—whether the benefits of NLP in such settings will also be limited. Stephan vehemently disagreed, reminding us that as ML and NLP practitioners, we typically tend to view problems in an information theoretic way, e.g. as maximizing the likelihood of our data or improving a benchmark. <strong>Taking a step back, the actual reason we work on NLP problems is to build systems that break down barriers. We want to build models that enable people to read news that was not written in their language, ask questions about their health when they don't have access to a doctor, etc.</strong></p><p>Given the potential impact, building systems for low-resource languages is in fact one of the most important areas to work on. While one low-resource language may not have a lot of data, there is a long tail of low-resource languages; most people on this planet in fact speak a language that is in the low-resource regime. We thus really need to find a way to get our systems to work in this setting.<br><br>Jade opined that it is almost ironic that as a community we have been focusing on languages with a lot of data as these are the languages that are well taught around the world. <strong>The languages we should really focus on are the low-resource languages where not much data is available.</strong> The great thing about the Indaba is that people are working and making progress on such low-resource languages. Given the scarcity of data, even simple systems such as bag-of-words will have a large real-world impact. Etienne Barnard, one of the audience members, noted that he observed a different effect in real-world speech processing: Users were often more motivated to use a system in English if it works for their dialect compared to using a system in their own language.</p><p><strong>Incentives and skills</strong>   Another audience member remarked that people are incentivized to work on highly visible benchmarks, such as English-to-German machine translation, but incentives are missing for working on low-resource languages. Stephan suggested that incentives exist in the form of unsolved problems. However, skills are not available in the right demographics to address these problems. What we should focus on is to teach skills like machine translation in order to empower people to solve these problems. Academic progress unfortunately doesn't necessarily relate to low-resource languages. However, if cross-lingual benchmarks become more pervasive, then this should also lead to more progress on low-resource languages.</p><p><strong>Data availability</strong>   Jade finally argued that a big issue is that there are no datasets available for low-resource languages, such as languages spoken in Africa. If we create datasets and make them easily available, such as hosting them on <a href="https://africaopendata.org/">openAFRICA</a>, that would incentivize people and lower the barrier to entry. It is often sufficient to make available test data in multiple languages, as this will allow us to evaluate cross-lingual models and track progress. Another data source is the <a href="https://www.sadilar.org/">South African Centre for Digital Language Resources (SADiLaR)</a>, which provides resources for many of the languages spoken in South Africa.</p><h1 id="reasoning-about-large-or-multiple-documents">Reasoning about large or multiple documents</h1><blockquote>Representing large contexts efficiently. <strong>Our current models are mostly based on recurrent neural networks, which cannot represent longer contexts well. </strong>[...] The stream of work on graph-inspired RNNs is potentially promising, though has only seen modest improvements and has not been widely adopted due to them being much less straight-forward to train than a vanilla RNN.<br>– Isabelle Augenstein</blockquote><p>Another big open problem is reasoning about large or multiple documents. The recent <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/#9-qa-and-reasoning-with-large-documents">NarrativeQA dataset</a> is a good example of a benchmark for this setting. Reasoning with large contexts is closely related to NLU and requires scaling up our current systems dramatically, until they can read entire books and movie scripts. A key question here—that we did not have time to discuss during the session—is whether we need better models or just train on more data.</p><p>Endeavours such as <a href="https://openai.com/five/">OpenAI Five</a> show that current models can do a lot if they are scaled up to work with a lot more data and a lot more compute. With sufficient amounts of data, our current models might similarly do better with larger contexts. The problem is that supervision with large documents is scarce and expensive to obtain. Similar to language modelling and <a href="https://papers.nips.cc/paper/5950-skip-thought-vectors.pdf">skip-thoughts</a>, we could imagine a document-level unsupervised task that requires predicting the next paragraph or chapter of a book or deciding which chapter comes next. However, this objective is likely too sample-inefficient to enable learning of useful representations.</p><p>A more useful direction thus seems to be to develop methods that can represent context more effectively and are better able to keep track of relevant information while reading a document. Multi-document summarization and <a href="https://arxiv.org/abs/1901.00603">multi-document question answering</a> are steps in this direction. Similarly, we can build on language models with improved <a href="https://arxiv.org/abs/1612.03969">memory</a> and <a href="https://arxiv.org/abs/1703.03129">lifelong learning</a> capabilities.</p><h1 id="datasets-problems-and-evaluation">Datasets, problems, and evaluation</h1><blockquote>Perhaps the biggest problem is to <strong>properly define the problems themselves.</strong> And by properly defining a problem, I mean building <strong>datasets and evaluation</strong> procedures that are appropriate to measure our progress towards concrete goals. Things would be easier if we could reduce everything to Kaggle style competitions!<br>– Mikel Artetxe </blockquote><p>We did not have much time to discuss problems with our current benchmarks and evaluation settings but you will find many relevant responses in <a href="https://docs.google.com/document/d/18NoNdArdzDLJFQGBMVMsQ-iLOowP1XXDaSVRmYN0IyM/edit">our survey</a>. The final question asked what the most important NLP problems are that should be tackled for societies in Africa. Jade replied that the most important issue is to solve the low-resource problem. Particularly being able to use translation in education to enable people to access whatever they want to know in their own language is tremendously important.</p><p>The session concluded with general advice from our experts on other questions that we had asked them, such as "<em>What, if anything, has led the field in the wrong direction?</em>" and "<em>What advice would you give a postgraduate student in NLP starting their project now?</em>" You can find responses to all questions in <a href="https://docs.google.com/document/d/18NoNdArdzDLJFQGBMVMsQ-iLOowP1XXDaSVRmYN0IyM/edit#">the survey</a>.</p><h2 id="deep-learning-indaba-2019">Deep Learning Indaba 2019</h2><p>If you are interested in working on low-resource languages, consider attending the <a href="http://www.deeplearningindaba.com/indaba-2019.html">Deep Learning Indaba 2019</a>, which takes place in Nairobi, Kenya from 25-31 August 2019.</p><p><em>Credit: Title image text is from the <a href="https://arxiv.org/abs/1712.07040">NarrativeQA dataset</a>. The image is from the <a href="https://drive.google.com/file/d/15ehMIJ7wY9A7RSmyJPNmrBMuC7se0PMP/view">slides of the NLP session</a>.</em></p>
+                    <p>This post discusses 4 major open problems in NLP based on an expert survey and a panel discussion at the Deep Learning Indaba.</p><p>This is the second blog post in a two-part series. The series expands on the Frontiers of Natural Language Processing session organized by <a href="https://www.kamperh.com/">Herman Kamper</a>, <a href="http://www.stephangouws.com/">Stephan Gouws</a>, and me at the <a href="http://www.deeplearningindaba.com/">Deep Learning Indaba 2018</a>. Slides of the entire session can be found <a href="https://drive.google.com/file/d/15ehMIJ7wY9A7RSmyJPNmrBMuC7se0PMP/view">here</a>. The <a href="http://ruder.io/a-review-of-the-recent-history-of-nlp/">first post</a> discussed major recent advances in NLP focusing on neural network-based methods. This post discusses major open problems in NLP. You can find a recording of the panel discussion this post is based on <a href="https://youtu.be/sGVi4gb90zk?list=PLICxY_yQeGYlcjO6ANCXworXHGC6hHXjA&amp;t=3649">here</a>.</p><p>In the weeks leading up to the Indaba, we asked NLP experts a number of simple but big questions. Based on the responses, we identified the four problems that were mentioned most often:</p><ol><li><a>Natural language understanding</a></li><li><a>NLP for low-resource scenarios</a></li><li><a>Reasoning about large or multiple documents</a></li><li><a>Datasets, problems, and evaluation</a></li></ol><p>We discussed these problems during a panel discussion. This article is mostly based on the <a href="https://docs.google.com/document/d/18NoNdArdzDLJFQGBMVMsQ-iLOowP1XXDaSVRmYN0IyM/edit">responses from our experts</a> (which are well worth reading) and thoughts of my fellow panel members <a href="https://twitter.com/alienelf?lang=en">Jade Abbott</a>, <a href="http://www.stephangouws.com/">Stephan Gouws</a>, <a href="http://omojumiller.com/">Omoju Miller</a>, and <a href="https://twitter.com/bernardt_d">Bernardt Duvenhage</a>. I will aim to provide context around some of the arguments, for anyone interested in learning more.</p><figure class="kg-card kg-image-card"><img src="https://ruder.io/content/images/2018/12/fellow_panel_members.png" class="kg-image"></figure><h1 id="natural-language-understanding">Natural language understanding</h1><blockquote>I think the biggest open problems are all related to natural language<br>understanding. [...] <strong>we should develop systems that read and<br>understand text the way a person does</strong>, by forming a representation of<br>the world of the text, with the agents, objects, settings, and the<br>relationships, goals, desires, and beliefs of the agents, and everything else<br>that humans create to understand a piece of text. Until we can do that, all of our progress is in improving our systems’ ability to do pattern matching.<br>– Kevin Gimpel</blockquote><p>Many experts in our survey argued that the problem of natural language understanding (NLU) is central as it is a prerequisite for many tasks such as natural language generation (NLG). The consensus was that none of our current models exhibit 'real' understanding of natural language.</p><p><strong>Innate biases vs. learning from scratch</strong>   A key question is what biases and structure should we build explicitly into our models to get closer to NLU. Similar ideas were discussed at the Generalization workshop at NAACL 2018, which Ana Marasovic <a href="https://thegradient.pub/frontiers-of-generalization-in-natural-language-processing/">reviewed for The Gradient</a> and I <a href="http://ruder.io/highlights-naacl-2018/#generalization">reviewed here</a>. Many responses in our survey mentioned that models should incorporate common sense. In addition, dialogue systems (and chat bots) were mentioned several times.</p><p>On the other hand, for reinforcement learning, David Silver argued that you would ultimately want the model to <a href="https://twitter.com/seb_ruder/status/1040241906066829313">learn everything by itself, including the algorithm, features, and predictions</a>. Many of our experts took the opposite view, arguing that you should actually build in some understanding in your model. What should be learned and what should be hard-wired into the model was also explored in the <a href="https://www.abigailsee.com/2018/02/21/deep-learning-structure-and-innate-priors.html">debate between Yann LeCun and Christopher Manning</a> in February 2018.</p><p><strong>Program synthesis</strong>   Omoju argued that incorporating understanding is difficult as long as we do not understand the mechanisms that actually underly NLU and how to evaluate them. She argued that we might want to take ideas from <a href="https://en.wikipedia.org/wiki/Program_synthesis">program synthesis</a> and automatically learn programs based on high-level specifications instead. Ideas like this are related to <a href="https://arxiv.org/abs/1511.02799">neural module networks</a> and <a href="https://arxiv.org/abs/1511.06279">neural programmer-interpreters</a>.<br><br>She also suggested we should look back to approaches and frameworks that were originally developed in the 80s and 90s, such as <a href="https://framenet.icsi.berkeley.edu/">FrameNet</a> and merge these with statistical approaches. This should help us infer common sense-properties of objects, such as whether a car is a vehicle, has handles, etc. Inferring such common sense knowledge has also been a focus of <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/#3-common-sense-inference-datasets">recent datasets in NLP</a>. </p><p><strong>Embodied learning</strong>   Stephan argued that we should use the information in available structured sources and knowledge bases such as <a href="https://en.wikipedia.org/wiki/Wikidata">Wikidata</a>. He noted that humans learn language through experience and interaction, by being embodied in an environment. One could argue that there exists a single learning algorithm that if used with an agent embedded in a sufficiently rich environment, with an appropriate reward structure, could learn NLU from the ground up. However, the compute for such an environment would be tremendous. For comparison, AlphaGo required a huge infrastructure to solve a well-defined board game. The creation of a general-purpose algorithm that can continue to learn is related to <a href="http://axon.cs.byu.edu/~martinez/classes/678/Presentations/Martin.pdf">lifelong learning</a> and to<a href="https://arxiv.org/abs/1802.08864"> general problem solvers</a>.</p><p>While many people think that we are headed in the direction of embodied learning, we should thus not underestimate the infrastructure and compute that would be required for a full embodied agent. In light of this, waiting for a full-fledged embodied agent to learn language seems ill-advised. However, we can take steps that will bring us closer to this extreme, such as <a href="https://arxiv.org/abs/1706.06551">grounded language learning in simulated environments</a>, <a href="https://openreview.net/forum?id=rJeXCo0cYX">incorporating interaction</a>, or <a href="http://aclweb.org/anthology/D18-1166">leveraging multimodal data</a>.</p><p><strong>Emotion</strong>   Towards the end of the session, Omoju argued that it will be very difficult to incorporate a human element relating to emotion into embodied agents. Emotion, however, is very relevant to a deeper understanding of language. On the other hand, we might not need agents that actually possess human emotions. Stephan stated that the Turing test, after all, is defined as mimicry and sociopaths—while having no emotions—can fool people into thinking they do. We should thus be able to find solutions that do not need to be embodied and do not have emotions, but understand the emotions of people and help us solve our problems. Indeed, sensor-based emotion recognition systems <a href="http://eqradio.csail.mit.edu/">have continuously improved—</a>and we have also seen improvements in <a href="https://www.aclweb.org/anthology/D17-1169">textual emotion detection systems</a>.</p><p><strong>Cognitive and neuroscience</strong>   An audience member asked how much knowledge of neuroscience and cognitive science are we leveraging and building into our models. Knowledge of neuroscience and cognitive science can be great for inspiration and used as a guideline to shape your thinking. As an example, <a href="https://papers.nips.cc/paper/6057-using-fast-weights-to-attend-to-the-recent-past.pdf">several</a> <a href="https://papers.nips.cc/paper/7120-thinking-fast-and-slow-with-deep-learning-and-tree-search.pdf">models</a> have sought to imitate humans' ability to <em>think fast and slow</em>. AI and neuroscience are complementary in many directions, as Surya Ganguli illustrates in <a href="https://neuroscience.stanford.edu/news/intertwined-quest-understanding-biological-intelligence-and-creating-artificial-intelligence">this post</a>.</p><p>Omoju recommended to take inspiration from theories of cognitive science, such as the cognitive development theories by <a href="https://www2.education.uiowa.edu/html/eportfolio/tep/07p075folder/Piaget_Vygotsky.htm">Piaget and Vygotsky</a>. She also urged everyone to pursue interdisciplinary work. This sentiment was echoed by other experts. For instance, Felix Hill recommended to go to cognitive science conferences.</p><h1 id="nlp-for-low-resource-scenarios">NLP for low-resource scenarios</h1><blockquote>Dealing with low-data settings (low-resource languages, dialects (including social media text "dialects"), domains, etc.).  This is not a completely "open" problem in that there are already a lot of promising ideas out there; <strong>but we still don't have a universal solution to this universal problem</strong>.<br>– Karen Livescu</blockquote><p>The second topic we explored was generalisation beyond the training data in low-resource scenarios. Given the setting of the Indaba, a natural focus was low-resource languages. The first question focused on whether it is necessary to develop specialised NLP tools for specific languages, or it is enough to work on general NLP.</p><p><strong>Universal language model</strong>   Bernardt argued that there are universal commonalities between languages that could be exploited by a universal language model. The challenge then is to obtain enough data and compute to train such a language model. This is closely related to recent efforts to train a <a href="https://github.com/google-research/bert/blob/master/multilingual.md">cross-lingual Transformer language model</a> and <a href="https://arxiv.org/abs/1812.10464">cross-lingual sentence embeddings</a>. </p><p><strong>Cross-lingual representations</strong>   Stephan remarked that not enough people are working on low-resource languages. There are <a href="https://en.wikipedia.org/wiki/Languages_of_Africa">1,250-2,100 languages in Africa</a> alone, most of which have received scarce attention from the NLP community. The question of specialized tools also depends on the NLP task that is being tackled. The main issue with current models is sample efficiency. <a href="https://arxiv.org/abs/1706.04902">Cross-lingual word embeddings</a> are sample-efficient as they only require word translation pairs or even only monolingual data. They align word embedding spaces sufficiently well to do coarse-grained tasks like topic classification, but don't allow for more fine-grained tasks such as machine translation. Recent efforts nevertheless show that these embeddings form an important building lock for <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/#1-unsupervised-mt">unsupervised machine translation</a>. </p><p>More complex models for higher-level tasks such as question answering on the other hand require thousands of training examples for learning. Transferring tasks that require actual natural language understanding from high-resource to low-resource languages is still very challenging. With the development of cross-lingual datasets for such tasks, such as <a href="https://arxiv.org/abs/1809.05053">XNLI</a>, the development of strong cross-lingual models for more reasoning tasks should hopefully become easier. </p><p><strong>Benefits and impact</strong>   Another question enquired—given that there is inherently only small amounts of text available for under-resourced languages—whether the benefits of NLP in such settings will also be limited. Stephan vehemently disagreed, reminding us that as ML and NLP practitioners, we typically tend to view problems in an information theoretic way, e.g. as maximizing the likelihood of our data or improving a benchmark. <strong>Taking a step back, the actual reason we work on NLP problems is to build systems that break down barriers. We want to build models that enable people to read news that was not written in their language, ask questions about their health when they don't have access to a doctor, etc.</strong></p><p>Given the potential impact, building systems for low-resource languages is in fact one of the most important areas to work on. While one low-resource language may not have a lot of data, there is a long tail of low-resource languages; most people on this planet in fact speak a language that is in the low-resource regime. We thus really need to find a way to get our systems to work in this setting.<br><br>Jade opined that it is almost ironic that as a community we have been focusing on languages with a lot of data as these are the languages that are well taught around the world. <strong>The languages we should really focus on are the low-resource languages where not much data is available.</strong> The great thing about the Indaba is that people are working and making progress on such low-resource languages. Given the scarcity of data, even simple systems such as bag-of-words will have a large real-world impact. Etienne Barnard, one of the audience members, noted that he observed a different effect in real-world speech processing: Users were often more motivated to use a system in English if it works for their dialect compared to using a system in their own language.</p><p><strong>Incentives and skills</strong>   Another audience member remarked that people are incentivized to work on highly visible benchmarks, such as English-to-German machine translation, but incentives are missing for working on low-resource languages. Stephan suggested that incentives exist in the form of unsolved problems. However, skills are not available in the right demographics to address these problems. What we should focus on is to teach skills like machine translation in order to empower people to solve these problems. Academic progress unfortunately doesn't necessarily relate to low-resource languages. However, if cross-lingual benchmarks become more pervasive, then this should also lead to more progress on low-resource languages.</p><p><strong>Data availability</strong>   Jade finally argued that a big issue is that there are no datasets available for low-resource languages, such as languages spoken in Africa. If we create datasets and make them easily available, such as hosting them on <a href="https://africaopendata.org/">openAFRICA</a>, that would incentivize people and lower the barrier to entry. It is often sufficient to make available test data in multiple languages, as this will allow us to evaluate cross-lingual models and track progress. Another data source is the <a href="https://www.sadilar.org/">South African Centre for Digital Language Resources (SADiLaR)</a>, which provides resources for many of the languages spoken in South Africa.</p><h1 id="reasoning-about-large-or-multiple-documents">Reasoning about large or multiple documents</h1><blockquote>Representing large contexts efficiently. <strong>Our current models are mostly based on recurrent neural networks, which cannot represent longer contexts well. </strong>[...] The stream of work on graph-inspired RNNs is potentially promising, though has only seen modest improvements and has not been widely adopted due to them being much less straight-forward to train than a vanilla RNN.<br>– Isabelle Augenstein</blockquote><p>Another big open problem is reasoning about large or multiple documents. The recent <a href="http://ruder.io/10-exciting-ideas-of-2018-in-nlp/#9-qa-and-reasoning-with-large-documents">NarrativeQA dataset</a> is a good example of a benchmark for this setting. Reasoning with large contexts is closely related to NLU and requires scaling up our current systems dramatically, until they can read entire books and movie scripts. A key question here—that we did not have time to discuss during the session—is whether we need better models or just train on more data.</p><p>Endeavours such as <a href="https://openai.com/five/">OpenAI Five</a> show that current models can do a lot if they are scaled up to work with a lot more data and a lot more compute. With sufficient amounts of data, our current models might similarly do better with larger contexts. The problem is that supervision with large documents is scarce and expensive to obtain. Similar to language modelling and <a href="https://papers.nips.cc/paper/5950-skip-thought-vectors.pdf">skip-thoughts</a>, we could imagine a document-level unsupervised task that requires predicting the next paragraph or chapter of a book or deciding which chapter comes next. However, this objective is likely too sample-inefficient to enable learning of useful representations.</p><p>A more useful direction thus seems to be to develop methods that can represent context more effectively and are better able to keep track of relevant information while reading a document. Multi-document summarization and <a href="https://arxiv.org/abs/1901.00603">multi-document question answering</a> are steps in this direction. Similarly, we can build on language models with improved <a href="https://arxiv.org/abs/1612.03969">memory</a> and <a href="https://arxiv.org/abs/1703.03129">lifelong learning</a> capabilities.</p><h1 id="datasets-problems-and-evaluation">Datasets, problems, and evaluation</h1><blockquote>Perhaps the biggest problem is to <strong>properly define the problems themselves.</strong> And by properly defining a problem, I mean building <strong>datasets and evaluation</strong> procedures that are appropriate to measure our progress towards concrete goals. Things would be easier if we could reduce everything to Kaggle style competitions!<br>– Mikel Artetxe </blockquote><p>We did not have much time to discuss problems with our current benchmarks and evaluation settings but you will find many relevant responses in <a href="https://docs.google.com/document/d/18NoNdArdzDLJFQGBMVMsQ-iLOowP1XXDaSVRmYN0IyM/edit">our survey</a>. The final question asked what the most important NLP problems are that should be tackled for societies in Africa. Jade replied that the most important issue is to solve the low-resource problem. Particularly being able to use translation in education to enable people to access whatever they want to know in their own language is tremendously important.</p><p>The session concluded with general advice from our experts on other questions that we had asked them, such as "<em>What, if anything, has led the field in the wrong direction?</em>" and "<em>What advice would you give a postgraduate student in NLP starting their project now?</em>" You can find responses to all questions in <a href="https://docs.google.com/document/d/18NoNdArdzDLJFQGBMVMsQ-iLOowP1XXDaSVRmYN0IyM/edit#">the survey</a>.</p><h2 id="deep-learning-indaba-2019">Deep Learning Indaba 2019</h2><p>If you are interested in working on low-resource languages, consider attending the <a href="http://www.deeplearningindaba.com/indaba-2019.html">Deep Learning Indaba 2019</a>, which takes place in Nairobi, Kenya from 25-31 August 2019.</p><p><em>Credit: Title image text is from the <a href="https://arxiv.org/abs/1712.07040">NarrativeQA dataset</a>. The image is from the <a href="https://drive.google.com/file/d/15ehMIJ7wY9A7RSmyJPNmrBMuC7se0PMP/view">slides of the NLP session</a>.</em></p>
                 </div>
             </section>
 
-
-            <footer class="post-full-footer">
-
-
-                    
-<section class="author-card">
-        <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-    <section class="author-card-content">
-        <h4 class="author-card-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
-            <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
-    </section>
-</section>
-<div class="post-full-footer-right">
-    <a class="author-card-button" href="../author/sebastian/index.html">Read More</a>
-</div>
-
-
-            </footer>
 
 
         </article>
@@ -215,73 +239,87 @@ MathJax.Hub.Config({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card"
-                            style="background-image: url(https://ruder.io/content/images/size/w600/2017/05/imageedit_8_8459453433.jpg)"
-                >
+                <article class="read-next-card">
                     <header class="read-next-card-header">
-                        <small class="read-next-card-header-sitetitle">&mdash; Sebastian Ruder &mdash;</small>
-                        <h3 class="read-next-card-header-title"><a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
+                        <h3><span>More in</span> <a href="../tag/natural-language-processing/index.html">natural language processing</a></h3>
                     </header>
-                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
-</div>
                     <div class="read-next-card-content">
                         <ul>
-                            <li><a href="../research-highlights-2019/index.html">10 ML &amp; NLP Research Highlights of 2019</a></li>
-                            <li><a href="../unsupervised-cross-lingual-learning/index.html">Unsupervised Cross-lingual Representation Learning</a></li>
-                            <li><a href="../state-of-transfer-learning-in-nlp/index.html">The State of Transfer Learning in NLP</a></li>
+                            <li>
+                                <h4><a href="../research-highlights-2019/index.html">10 ML &amp; NLP Research Highlights of 2019</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2020-01-06">6 Jan 2020</time> –
+                                        12 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../unsupervised-cross-lingual-learning/index.html">Unsupervised Cross-lingual Representation Learning</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-10-26">26 Oct 2019</time> –
+                                        20 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../state-of-transfer-learning-in-nlp/index.html">The State of Transfer Learning in NLP</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-08-18">18 Aug 2019</time> –
+                                        15 min read</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <footer class="read-next-card-footer">
-                        <a href="../tag/natural-language-processing/index.html">See all 27 posts →</a>
+                        <a href="../tag/natural-language-processing/index.html">See all 27 posts
+                            →</a>
                     </footer>
                 </article>
 
                 <article class="post-card post tag-events tag-natural-language-processing tag-transfer-learning tag-word-embeddings ">
 
-    <a class="post-card-image-link" href="../index.html">
+    <a class="post-card-image-link" href="../aaai-2019-highlights/index.html">
         <img class="post-card-image"
-            srcset="https://ruder.io/content/images/size/w300/2019/02/aaai_reception-1.jpg 300w,
-                    https://ruder.io/content/images/size/w600/2019/02/aaai_reception-1.jpg 600w,
-                    https://ruder.io/content/images/size/w1000/2019/02/aaai_reception-1.jpg 1000w,
-                    https://ruder.io/content/images/size/w2000/2019/02/aaai_reception-1.jpg 2000w"
+            srcset="../content/images/size/w300/2019/02/aaai_reception-1.jpg 300w,
+                   ../content/images/size/w600/2019/02/aaai_reception-1.jpgg 600w,
+                  ../content/images/size/w1000/2019/02/aaai_reception-1.jpgpg 1000w,
+                 ../content/images/size/w2000/2019/02/aaai_reception-1.jpgjpg 2000w"
             sizes="(max-width: 1000px) 400px, 700px"
-            src="https://ruder.io/content/images/size/w600/2019/02/aaai_reception-1.jpg"
+            src="../content/images/size/w600/2019/02/aaai_reception-1.jpg"
             alt="AAAI 2019 Highlights: Dialogue, reproducibility, and more"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../index.html">
+        <a class="post-card-content-link" href="../aaai-2019-highlights/index.html">
 
             <header class="post-card-header">
-                    <span class="post-card-tags">events</span>
+                    <div class="post-card-primary-tag">events</div>
                 <h2 class="post-card-title">AAAI 2019 Highlights: Dialogue, reproducibility, and more</h2>
             </header>
 
             <section class="post-card-excerpt">
-                <p>This post discusses highlights of AAAI 2019. It covers dialogue, reproducibility, question answering, the Oxford style debate, invited talks, and a diverse set of research papers.</p>
+                    <p>This post discusses highlights of AAAI 2019. It covers dialogue, reproducibility, question answering, the Oxford style debate, invited talks, and a diverse set of research papers.</p>
             </section>
 
         </a>
 
         <footer class="post-card-meta">
-
             <ul class="author-list">
                 <li class="author-list-item">
-
+            
                     <div class="author-name-tooltip">
                         Sebastian Ruder
                     </div>
-
-                        <a href="../author/sebastian/index.html" class="static-avatar">
-                            <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-                        </a>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
                 </li>
             </ul>
-
-            <span class="reading-time"></span>
-
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2019-02-07">7 Feb 2019</time> <span class="bull">&bull;</span> 11 min read</span>
+            </div>
         </footer>
 
     </div>
@@ -290,110 +328,59 @@ MathJax.Hub.Config({
 
                 <article class="post-card post tag-transfer-learning tag-multi-task-learning tag-meta-learning tag-natural-language-processing tag-semi-supervised-learning tag-language-models tag-cross-lingual ">
 
-    <a class="post-card-image-link" href="../index.html">
+    <a class="post-card-image-link" href="../10-exciting-ideas-of-2018-in-nlp/index.html">
         <img class="post-card-image"
-            srcset="https://ruder.io/content/images/size/w300/2018/12/syntactic_scaffold-1.png 300w,
-                    https://ruder.io/content/images/size/w600/2018/12/syntactic_scaffold-1.png 600w,
-                    https://ruder.io/content/images/size/w1000/2018/12/syntactic_scaffold-1.png 1000w,
-                    https://ruder.io/content/images/size/w2000/2018/12/syntactic_scaffold-1.png 2000w"
+            srcset="../content/images/size/w300/2018/12/syntactic_scaffold-1.png 300w,
+                   ../content/images/size/w600/2018/12/syntactic_scaffold-1.pngg 600w,
+                  ../content/images/size/w1000/2018/12/syntactic_scaffold-1.pngng 1000w,
+                 ../content/images/size/w2000/2018/12/syntactic_scaffold-1.pngpng 2000w"
             sizes="(max-width: 1000px) 400px, 700px"
-            src="https://ruder.io/content/images/size/w600/2018/12/syntactic_scaffold-1.png"
+            src="../content/images/size/w600/2018/12/syntactic_scaffold-1.png"
             alt="10 Exciting Ideas of 2018 in NLP"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../index.html">
+        <a class="post-card-content-link" href="../10-exciting-ideas-of-2018-in-nlp/index.html">
 
             <header class="post-card-header">
-                    <span class="post-card-tags">transfer learning</span>
+                    <div class="post-card-primary-tag">transfer learning</div>
                 <h2 class="post-card-title">10 Exciting Ideas of 2018 in NLP</h2>
             </header>
 
             <section class="post-card-excerpt">
-                <p>This post gathers 10 ideas that I found exciting and impactful this year—and that we'll likely see more of in the future. For each idea, it highlights 1-2 papers that execute them well.</p>
+                    <p>This post gathers 10 ideas that I found exciting and impactful this year—and that we'll likely see more of in the future. For each idea, it highlights 1-2 papers that execute them well.</p>
             </section>
 
         </a>
 
         <footer class="post-card-meta">
-
             <ul class="author-list">
                 <li class="author-list-item">
-
+            
                     <div class="author-name-tooltip">
                         Sebastian Ruder
                     </div>
-
-                        <a href="../author/sebastian/index.html" class="static-avatar">
-                            <img class="author-profile-image" src="https://ruder.io/content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
-                        </a>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
                 </li>
             </ul>
-
-            <span class="reading-time"></span>
-
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2018-12-19">19 Dec 2018</time> <span class="bull">&bull;</span> 8 min read</span>
+            </div>
         </footer>
 
     </div>
 
 </article>
-
         </div>
     </div>
 </aside>
 
-<div class="floating-header">
-    <div class="floating-header-logo">
-        <a href="https://ruder.io">
-            <span>Sebastian Ruder</span>
-        </a>
-    </div>
-    <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">The 4 Biggest Open Problems in NLP</div>
-    <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
-</svg>
-</div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=The%204%20Biggest%20Open%20Problems%20in%20NLP&amp;url=https://ruder.io/4-biggest-open-problems-in-nlp/"
-            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
-        </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://ruder.io/4-biggest-open-problems-in-nlp/"
-            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
-        </a>
-    </div>
-    <progress id="reading-progress" class="progress" value="0">
-        <div class="progress-container">
-            <span class="progress-bar"></span>
-        </div>
-    </progress>
-</div>
-
-
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = '/4-biggest-open-problems-in-nlp/';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'ghost-'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://sebastianruder.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
@@ -412,89 +399,78 @@ s.setAttribute('data-timestamp', +new Date());
     </div>
 
 
-    <script>
-        var images = document.querySelectorAll('.kg-gallery-image img');
-        images.forEach(function (image) {
-            var container = image.closest('.kg-gallery-image');
-            var width = image.attributes.width.value;
-            var height = image.attributes.height.value;
-            var ratio = width / height;
-            container.style.flex = ratio + ' 1 0%';
-        })
-    </script>
-
-
     <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="../assets/built/jquery.fitvids.js?v=1e88f4f6c7"></script>
-
+    <script src="../assets/built/casper.js?v=68b7a20a26"></script>
 
     <script>
-
-// NOTE: Scroll performance is poor in Safari
-// - this appears to be due to the events firing much more slowly in Safari.
-//   Dropping the scroll event and using only a raf loop results in smoother
-//   scrolling but continuous processing even when not scrolling
-$(document).ready(function () {
-    // Start fitVids
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-    // End fitVids
-
-    var progressBar = document.querySelector('#reading-progress');
-    var header = document.querySelector('.floating-header');
-    var title = document.querySelector('.post-full-title');
-
-    var lastScrollY = window.scrollY;
-    var lastWindowHeight = window.innerHeight;
-    var lastDocumentHeight = $(document).height();
-    var ticking = false;
-
-    function onScroll() {
-        lastScrollY = window.scrollY;
-        requestTick();
-    }
-
-    function onResize() {
-        lastWindowHeight = window.innerHeight;
-        lastDocumentHeight = $(document).height();
-        requestTick();
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(update);
-        }
-        ticking = true;
-    }
-
-    function update() {
-        var trigger = title.getBoundingClientRect().top + window.scrollY;
-        var triggerOffset = title.offsetHeight + 35;
-        var progressMax = lastDocumentHeight - lastWindowHeight;
-
-        // show/hide floating header
-        if (lastScrollY >= trigger + triggerOffset) {
-            header.classList.add('floating-active');
-        } else {
-            header.classList.remove('floating-active');
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        progressBar.setAttribute('max', progressMax);
-        progressBar.setAttribute('value', lastScrollY);
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
 
-        ticking = false;
-    }
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
 
-    window.addEventListener('scroll', onScroll, {passive: true});
-    window.addEventListener('resize', onResize, false);
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
 
-    update();
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
 
-});
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
 </script>
 
 
