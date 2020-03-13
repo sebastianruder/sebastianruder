@@ -13,16 +13,16 @@
 
     <meta name="description" content="This blog post gives an overview of softmax-based and sampling-based approaches that approximate the softmax layer for learning word embeddings." />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="canonical" href="https://ruder.io/word-embeddings-softmax/" />
+    <link rel="canonical" href="http://localhost:2368/word-embeddings-softmax/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <link rel="amphtml" href="https://ruder.io/word-embeddings-softmax/amp/" />
+    <link rel="amphtml" href="http://localhost:2368/word-embeddings-softmax/amp/" />
     
     <meta property="og:site_name" content="Sebastian Ruder" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Approximating the Softmax for Learning Word Embeddings" />
     <meta property="og:description" content="The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient." />
-    <meta property="og:url" content="https://ruder.io/word-embeddings-softmax/" />
-    <meta property="og:image" content="https://ruder.io/content/images/2016/06/softmax_classifier.png" />
+    <meta property="og:url" content="http://localhost:2368/word-embeddings-softmax/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2016/06/softmax_classifier.png" />
     <meta property="article:published_time" content="2016-06-13T10:00:00.000Z" />
     <meta property="article:modified_time" content="2018-10-24T13:30:00.000Z" />
     <meta property="article:tag" content="word embeddings" />
@@ -32,8 +32,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Approximating the Softmax for Learning Word Embeddings" />
     <meta name="twitter:description" content="The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient." />
-    <meta name="twitter:url" content="https://ruder.io/word-embeddings-softmax/" />
-    <meta name="twitter:image" content="https://ruder.io/content/images/2016/06/softmax_classifier.png" />
+    <meta name="twitter:url" content="http://localhost:2368/word-embeddings-softmax/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2016/06/softmax_classifier.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Sebastian Ruder" />
     <meta name="twitter:label2" content="Filed under" />
@@ -49,12 +49,12 @@
     "publisher": {
         "@type": "Organization",
         "name": "Sebastian Ruder",
-        "url": "https://ruder.io/",
+        "url": "http://localhost:2368/",
         "logo": {
             "@type": "ImageObject",
             "url": {
                 "@type": "ImageObject",
-                "url": "https://ruder.io/favicon.ico",
+                "url": "http://localhost:2368/favicon.ico",
                 "width": 48,
                 "height": 48
             }
@@ -65,20 +65,20 @@
         "name": "Sebastian Ruder",
         "image": {
             "@type": "ImageObject",
-            "url": "https://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
+            "url": "http://localhost:2368/content/images/2019/02/new_profile_photo_square-1.jpg",
             "width": 2000,
             "height": 2000
         },
-        "url": "https://ruder.io/author/sebastian/",
+        "url": "http://localhost:2368/author/sebastian/",
         "sameAs": []
     },
     "headline": "Approximating the Softmax for Learning Word Embeddings",
-    "url": "https://ruder.io/word-embeddings-softmax/",
+    "url": "http://localhost:2368/word-embeddings-softmax/",
     "datePublished": "2016-06-13T10:00:00.000Z",
     "dateModified": "2018-10-24T13:30:00.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "https://ruder.io/content/images/2016/06/softmax_classifier.png",
+        "url": "http://localhost:2368/content/images/2016/06/softmax_classifier.png",
         "width": 875,
         "height": 643
     },
@@ -86,13 +86,13 @@
     "description": "The softmax layer is a core part of many current neural network architectures. When the number of output classes is very large, such as in the case of language modelling, computing the softmax becomes very expensive. This post explores approximations to make the computation more efficient.",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ruder.io/"
+        "@id": "http://localhost:2368/"
     }
 }
     </script>
 
     <meta name="generator" content="Ghost 3.11" />
-    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="http://localhost:2368/rss/" />
     <script>
 var profile_title = 'Sebastian Ruder';
 </script>
@@ -127,18 +127,18 @@ MathJax.Hub.Config({
         <nav class="site-nav">
     <div class="site-nav-left-wrapper">
         <div class="site-nav-left">
-                <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
+                <a class="site-nav-logo" href="http://localhost:2368">Sebastian Ruder</a>
             <div class="site-nav-content">
                     <ul class="nav" role="menu">
-    <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
-    <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
-    <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
-    <li class="nav-talks" role="menuitem"><a href="https://ruder.io/talks/">Talks</a></li>
-    <li class="nav-news" role="menuitem"><a href="https://ruder.io/news/">News</a></li>
-    <li class="nav-faq" role="menuitem"><a href="https://ruder.io/faq/">FAQ</a></li>
-    <li class="nav-sign-up-for-nlp-news" role="menuitem"><a href="https://ruder.io/nlp-news/">Sign up for NLP News</a></li>
+    <li class="nav-about" role="menuitem"><a href="http://localhost:2368/about/">About</a></li>
+    <li class="nav-tags" role="menuitem"><a href="http://localhost:2368/tags/">Tags</a></li>
+    <li class="nav-papers" role="menuitem"><a href="http://localhost:2368/publications/">Papers</a></li>
+    <li class="nav-talks" role="menuitem"><a href="http://localhost:2368/talks/">Talks</a></li>
+    <li class="nav-news" role="menuitem"><a href="http://localhost:2368/news/">News</a></li>
+    <li class="nav-faq" role="menuitem"><a href="http://localhost:2368/faq/">FAQ</a></li>
+    <li class="nav-sign-up-for-nlp-news" role="menuitem"><a href="http://localhost:2368/nlp-news/">Sign up for NLP News</a></li>
     <li class="nav-nlp-progress" role="menuitem"><a href="https://nlpprogress.com/">NLP Progress</a></li>
-    <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
+    <li class="nav-contact" role="menuitem"><a href="http://localhost:2368/contact/">Contact</a></li>
 </ul>
 
                     <span class="nav-post-title dash">On word embeddings - Part 2: Approximating the Softmax</span>
@@ -150,7 +150,7 @@ MathJax.Hub.Config({
                     <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
             </div>
-                <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://ruder.io/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+                <a class="rss-button" href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
 </a>
 
     </div>
@@ -263,7 +263,7 @@ MathJax.Hub.Config({
 <p>Hierarchical softmax (H-Softmax) is an approximation inspired by binary trees that was proposed by Morin and Bengio (2005) <sup class="footnote-ref"><a href="index.html#fn3" id="fnref3">[3]</a></sup>. H-Softmax essentially replaces the flat softmax layer with a hierarchical layer that has the words as leaves, as can be seen in Figure 1.<br>
 This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Replacing a softmax layer with H-Softmax can yield speedups for word prediction tasks of at least \(50 \times\) and is thus critical for low-latency tasks such as real-time communication in <a href="http://googleresearch.blogspot.ie/2016/05/chat-smarter-with-allo.html">Google's new messenger app Allo</a>.</p>
 <figure>
-      <img src="https://ruder.io/content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%" title="Hierarchical softmax">
+      <img src="http://localhost:2368/content/images/2016/06/hierarchical_softmax_example.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 1: Hierarchical softmax (<a href="https://www.quora.com/Word2vec-How-can-hierarchical-soft-max-training-method-of-CBOW-guarantee-its-self-consistence">Quora</a>)</figcaption>
 </figure>
 <p>We can think of the regular softmax as a tree of depth \(1\), with each word in \(V\) as a leaf node.  Computing the softmax probability of one word then requires normalizing over the probabilities of all \(|V|\) leaves. If we instead structure the softmax as a binary tree, with the words as leaf nodes, then we only need to follow the path to the leaf node of that word, without having to consider any of the other nodes.<br>
@@ -272,7 +272,7 @@ Since a balanced binary tree has a depth of \(\text{log}_2 (|V|)\), we only need
 <p>\( p(\text{right} | n, c) = \sigma (h^\top v'_{n})\).</p>
 <p>This is almost the same as the computations in the regular softmax; now instead of computing the dot product between \(h\) and the output word embedding \(v'_{w}\), we compute the dot product between \(h\) and the embedding \(v'_{w}\) of each node in the tree; additionally, instead of computing a probability distribution over the entire vocabulary words, we output just one probability, the probability of going right at node \(n\) in this case, with the sigmoid function. Conversely, the probability of turning left is simply \( 1 - p(  \text{right}   |    n,c)\).</p>
 <figure>
-      <img src="https://ruder.io/content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax">
+      <img src="http://localhost:2368/content/images/2016/05/hierarchical_softmax.png" style="width: 70%" title="Hierarchical softmax">
 <figcaption>Figure 2: Hierarchical softmax computations (<a href="https://www.youtube.com/watch?v=B95LTf2rVWM">Hugo Lachorelle's Youtube lectures</a>)</figcaption>
 </figure>
 <p>The probability of a word \(w\) given its context \(c\) is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. To illustrate this, given the context &quot;the&quot;, &quot;dog&quot;, &quot;and&quot;, &quot;the&quot;, the probability of the word &quot;cat&quot; in Figure 2 can be computed as the product of the probability of turning left at node 1, turning right at node 2, and turning right at node 5. Hugo Lachorelle gives a more detailed account in his excellent <a href="https://www.youtube.com/watch?v=B95LTf2rVWM">lecture video</a>. Rong (2014) <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup> also does a good job of explaining these concepts and also derives the derivatives of H-Softmax.</p>
@@ -296,7 +296,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <p>Chen et al. (2015) <sup class="footnote-ref"><a href="index.html#fn8" id="fnref8">[8]</a></sup> introduce a variation on the traditional softmax layer, the Differentiated Softmax (D-Softmax). D-Softmax is based on the intuition that not all words require the same number of parameters: Many occurrences of frequent words allow us to fit many parameters to them, while extremely rare words might only allow to fit a few.</p>
 <p>In order to do this, instead of the dense matrix of the regular softmax layer of size \(d    \times    |V| \) containing the output word embeddings \( v'_w \in \mathbb{R}^d \), they use a sparse matrix. They then arrange \( v'_w\) in blocks sorted by frequency, with the embeddings in each block being of a certain dimensionality \(d_k \). The number of blocks and their embedding sizes are hyperparameters that can be tuned.</p>
 <figure>
-      <img src="https://ruder.io/content/images/2016/05/differentiated_softmax_1.png" style="width: 30%" title="Differentiated softmax">
+      <img src="http://localhost:2368/content/images/2016/05/differentiated_softmax_1.png" style="width: 30%" title="Differentiated softmax">
 <figcaption>Figure 3: Differentiated softmax (Chen et al. (2015))</figcaption>
 </figure>
 <p>In Figure 3, embeddings in partition \(A\) are of dimensionality \(d_A\) (these are embeddings of frequent words, as they are allocated more parameters), while embeddings in partitions \(B\) and \(C\) have \(d_B\) and \(d_C\) dimensions respectively. Note that all areas not part of any partition, i.e. the non-shaded areas in Figure 1, are set to \(0\).</p>
@@ -305,7 +305,7 @@ Recall that the path length in a balanced binary tree is \(\text{log}_2 |V|\). I
 <h2 id="cnnsoftmax">CNN-Softmax</h2>
 <p>Another modification to the traditional softmax layer is inspired by recent work by Kim et al. (2016) <sup class="footnote-ref"><a href="index.html#fn9" id="fnref9">[9]</a></sup> who produce input word embeddings \(v_w\) via a character-level CNN. Jozefowicz et al. (2016) in turn suggest to do the same thing for the output word embeddings \(v'_w\) via a character-level CNN -- and refer to this as CNN-Softmax. Note that if we have a CNN at the input and at the output as in Figure 4, the CNN generating the output word embeddings \(v'_w\) is necessarily different from the CNN generating the input word embeddings \(v_w\), just as the input and output word embedding matrices would be different.</p>
 <figure>
-      <img src="https://ruder.io/content/images/2016/05/cnn-softmax_1.png" style="width: 30%" title="CNN-Softmax">
+      <img src="http://localhost:2368/content/images/2016/05/cnn-softmax_1.png" style="width: 30%" title="CNN-Softmax">
 <figcaption>Figure 4: CNN-Softmax (Jozefowicz et al. (2016))</figcaption>
 </figure>
 <p>While this still requires computing the regular softmax normalization, this approach drastically reduces the number of parameters of the model: Instead of storing an embedding matrix of \(d    \times    |V| \), we now only need to keep track of the parameters of the CNN. During testing, the output word embeddings \(v'_w\) can be pre-computed, so that there is no loss in performance.</p>
@@ -355,7 +355,7 @@ Note that we use \( r \) and \( R \) instead of \( w\) and \(W\) as in Bengio an
 <p>Noise Contrastive Estimation (NCE) (Gutmann and Hyvärinen, 2010) <sup class="footnote-ref"><a href="index.html#fn14" id="fnref14">[14]</a></sup> is proposed by Mnih and Teh (2012) <sup class="footnote-ref"><a href="index.html#fn15" id="fnref15">[15]</a></sup> as a more stable sampling method than Importance Sampling (IS), as we have seen that IS poses the risk of having the proposal distribution \(Q\) diverge from the distribution \(P\) that should be optimized. In contrast to the former, NCE does not try to estimate the probability of a word directly. Instead, it uses an auxiliary loss that also optimises the goal of maximizing the probability of correct words.</p>
 <p>Recall the pairwise-ranking criterion of Collobert and Weston (2008) that ranks positive windows higher than &quot;corrupted&quot; windows, which we discussed in the <a href="http://ruder.io/word-embeddings-1/index.html">previous post</a>. NCE does a similar thing: We train a model to differentiate the target word from noise. We can thus reduce the problem of predicting the correct word to a binary classification task, where the model tries to distinguish positive, genuine data from noise samples, as can be seen in Figure 4 below.</p>
 <figure>
-      <img src="https://ruder.io/content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
+      <img src="http://localhost:2368/content/images/2016/06/negative_sampling.png" style="width: 70%" title="Noise Contrastive Estimation">
 <figcaption>Figure 4: Noise Contrastive Estimation (<a href="http://scholar.sun.ac.za/handle/10019.1/98758">Stephan Gouws' PhD dissertation</a>) </figcaption>
 </figure>
 <p>For every word \(w_i\) given its context \(c_i \) of \(n\) previous words \(w_{t-1} , \cdots , w_{t-n+1}\) in the training set, we thus generate \(k\) noise samples \(\tilde{w}_{ik}\) from a noise distribution \(Q\). As in IS, we can sample from the unigram distribution of the training set. As we need labels to perform our binary classification task, we designate all correct words \(w_i\) given their context \(c_i\) as true (\(y=1\)) and all noise samples \(\tilde{w}_{ik}\) as false (\(y=0\)).</p>
@@ -785,9 +785,9 @@ Differentiated Softmax generally does well for both small and large vocabularies
 
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://ruder.io">Sebastian Ruder</a> &copy; 2020</section>
+                <section class="copyright"><a href="http://localhost:2368">Sebastian Ruder</a> &copy; 2020</section>
                 <nav class="site-footer-nav">
-                    <a href="https://ruder.io">Latest Posts</a>
+                    <a href="http://localhost:2368">Latest Posts</a>
                     
                     <a href="https://twitter.com/seb_ruder" target="_blank" rel="noopener">Twitter</a>
                     <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
