@@ -24,7 +24,7 @@
     <meta property="og:url" content="https://ruder.io/optimizing-gradient-descent/" />
     <meta property="og:image" content="https://ruder.io/content/images/2016/09/loss_function_image_tumblr.png" />
     <meta property="article:published_time" content="2016-01-19T14:20:00.000Z" />
-    <meta property="article:modified_time" content="2019-11-10T13:53:54.000Z" />
+    <meta property="article:modified_time" content="2020-03-20T15:52:38.000Z" />
     <meta property="article:tag" content="optimization" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -73,7 +73,7 @@
     "headline": "An overview of gradient descent optimization algorithms",
     "url": "https://ruder.io/optimizing-gradient-descent/",
     "datePublished": "2016-01-19T14:20:00.000Z",
-    "dateModified": "2019-11-10T13:53:54.000Z",
+    "dateModified": "2020-03-20T15:52:38.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://ruder.io/content/images/2016/09/loss_function_image_tumblr.png",
@@ -226,6 +226,7 @@ MathJax.Hub.Config({
                 <div class="post-content">
                     <!--kg-card-begin: markdown--><p>This post explores how many of the most popular gradient-based optimization algorithms actually work.</p>
 <p>Note: If you are looking for a review paper, this blog post is also available as an <a href="http://arxiv.org/abs/1609.04747">article on arXiv</a>.</p>
+<p>Update 20.03.2020: Added a note on <a href="index.html#otherrecentoptimizers">recent optimizers</a>.</p>
 <p>Update 09.02.2018: Added <a href="index.html#amsgrad">AMSGrad</a>.</p>
 <p>Update 24.11.2017: Most of the content in this article is now also available as <a href="https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning">slides</a>.</p>
 <p>Update 15.06.2017: Added derivations of <a href="index.html#adamax">AdaMax</a> and <a href="index.html#nadam">Nadam</a>.</p>
@@ -251,6 +252,7 @@ MathJax.Hub.Config({
 <li><a href="index.html#adamax">AdaMax</a></li>
 <li><a href="index.html#nadam">Nadam</a></li>
 <li><a href="index.html#amsgrad">AMSGrad</a></li>
+<li><a href="index.html#otherrecentoptimizers">Other recent optimizers</a></li>
 <li><a href="index.html#visualizationofalgorithms">Visualization of algorithms</a></li>
 <li><a href="index.html#whichoptimizertouse">Which optimizer to use?</a></li>
 </ul>
@@ -555,6 +557,8 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\<br>
 \end{align}<br>
 \)</p>
 <p>The authors observe improved performance compared to Adam on small datasets and on CIFAR-10. <a href="https://fdlm.github.io/post/amsgrad/">Other experiments</a>, however, show similar or worse performance than Adam. It remains to be seen whether AMSGrad is able to consistently outperform Adam in practice. For more information about recent advances in Deep Learning optimization, refer to <a href="http://ruder.io/deep-learning-optimization-2017/">this blog post</a>.</p>
+<h2 id="otherrecentoptimizers">Other recent optimizers</h2>
+<p>A number of other optimizers have been proposed after AMSGrad. These include AdamW <sup class="footnote-ref"><a href="index.html#fn20" id="fnref20">[20]</a></sup>, which fixes weight decay in Adam; QHAdam <sup class="footnote-ref"><a href="index.html#fn21" id="fnref21">[21]</a></sup>, which averages a standard SGD step with a momentum SGD step; and AggMo <sup class="footnote-ref"><a href="index.html#fn22" id="fnref22">[22]</a></sup>, which combines multiple momentum terms \(\gamma\); and others. For an overview of recent gradient descent algorithms, have a look at <a href="https://johnchenresearch.github.io/demon/">this blog post</a>.</p>
 <h2 id="visualizationofalgorithms">Visualization of algorithms</h2>
 <p>The following two animations (Image credit: <a href="https://twitter.com/alecrad">Alec Radford</a>) provide some intuitions towards the optimization behaviour of most of the presented optimization methods. Also have a look <a href="http://cs231n.github.io/neural-networks-3/">here</a> for a description of the same images by Karpathy and another concise overview of the algorithms discussed.</p>
 <p>In Image 5, we see their behaviour on the contours of a loss surface (<a href="https://www.sfu.ca/~ssurjano/beale.html">the Beale function</a>) over time. Note that Adagrad, Adadelta, and RMSprop almost immediately head off in the right direction and converge similarly fast, while Momentum and NAG are led off-track, evoking the image of a ball rolling down the hill. NAG, however, is quickly able to correct its course due to its increased responsiveness by looking ahead and heads to the minimum.</p>
@@ -585,29 +589,29 @@ v_t &amp;= \beta_2 v_{t-1} + (1 - \beta_2) g_t^2\\<br>
 <p>Given the ubiquity of large-scale data solutions and the availability of low-commodity clusters, distributing SGD to speed it up further is an obvious choice.<br>
 SGD by itself is inherently sequential: Step-by-step, we progress further towards the minimum. Running it provides good convergence but can be slow particularly on large datasets. In contrast, running SGD asynchronously is faster, but suboptimal communication between workers can lead to poor convergence. Additionally, we can also parallelize SGD on one machine without the need for a large computing cluster. The following are algorithms and architectures that have been proposed to optimize parallelized and distributed SGD.</p>
 <h2 id="hogwild">Hogwild!</h2>
-<p>Niu et al. <sup class="footnote-ref"><a href="index.html#fn20" id="fnref20">[20]</a></sup> introduce an update scheme called Hogwild! that allows performing SGD updates in parallel on CPUs. Processors are allowed to access shared memory without locking the parameters. This only works if the input data is sparse, as each update will only modify a fraction of all parameters. They show that in this case, the update scheme achieves almost an optimal rate of convergence, as it is unlikely that processors will overwrite useful information.</p>
+<p>Niu et al. <sup class="footnote-ref"><a href="index.html#fn23" id="fnref23">[23]</a></sup> introduce an update scheme called Hogwild! that allows performing SGD updates in parallel on CPUs. Processors are allowed to access shared memory without locking the parameters. This only works if the input data is sparse, as each update will only modify a fraction of all parameters. They show that in this case, the update scheme achieves almost an optimal rate of convergence, as it is unlikely that processors will overwrite useful information.</p>
 <h2 id="downpoursgd">Downpour SGD</h2>
 <p>Downpour SGD is an asynchronous variant of SGD that was used by Dean et al. <sup class="footnote-ref"><a href="index.html#fn10" id="fnref10:1">[10:1]</a></sup> in their DistBelief framework (predecessor to TensorFlow) at Google. It runs multiple replicas of a model in parallel on subsets of the training data. These models send their updates to a parameter server, which is split across many machines. Each machine is responsible for storing and updating a fraction of the model's parameters. However, as replicas don't communicate with each other e.g. by sharing weights or updates, their parameters are continuously at risk of diverging, hindering convergence.</p>
 <h2 id="delaytolerantalgorithmsforsgd">Delay-tolerant Algorithms for SGD</h2>
-<p>McMahan and Streeter <sup class="footnote-ref"><a href="index.html#fn21" id="fnref21">[21]</a></sup> extend AdaGrad to the parallel setting by developing delay-tolerant algorithms that not only adapt to past gradients, but also to the update delays. This has been shown to work well in practice.</p>
+<p>McMahan and Streeter <sup class="footnote-ref"><a href="index.html#fn24" id="fnref24">[24]</a></sup> extend AdaGrad to the parallel setting by developing delay-tolerant algorithms that not only adapt to past gradients, but also to the update delays. This has been shown to work well in practice.</p>
 <h2 id="tensorflow">TensorFlow</h2>
-<p><a href="https://www.tensorflow.org/">TensorFlow</a> <sup class="footnote-ref"><a href="index.html#fn22" id="fnref22">[22]</a></sup> is Google's recently open-sourced framework for the implementation and deployment of large-scale machine learning models. It is based on their experience with DistBelief and is already used internally to perform computations on a large range of mobile devices as well as on large-scale distributed systems. For distributed execution, a computation graph is split into a subgraph for every device and communication takes place using Send/Receive node pairs. However, the open source version of TensorFlow currently does not support distributed functionality (see <a href="https://github.com/tensorflow/tensorflow/issues/23">here</a>).<br>
+<p><a href="https://www.tensorflow.org/">TensorFlow</a> <sup class="footnote-ref"><a href="index.html#fn25" id="fnref25">[25]</a></sup> is Google's recently open-sourced framework for the implementation and deployment of large-scale machine learning models. It is based on their experience with DistBelief and is already used internally to perform computations on a large range of mobile devices as well as on large-scale distributed systems. For distributed execution, a computation graph is split into a subgraph for every device and communication takes place using Send/Receive node pairs. However, the open source version of TensorFlow currently does not support distributed functionality (see <a href="https://github.com/tensorflow/tensorflow/issues/23">here</a>).<br>
 Update 13.04.16: A distributed version of TensorFlow has <a href="http://googleresearch.blogspot.ie/2016/04/announcing-tensorflow-08-now-with.html">been released</a>.</p>
 <h2 id="elasticaveragingsgd">Elastic Averaging SGD</h2>
-<p>Zhang et al. <sup class="footnote-ref"><a href="index.html#fn23" id="fnref23">[23]</a></sup> propose Elastic Averaging SGD (EASGD), which links the parameters of the workers of asynchronous SGD with an elastic force, i.e. a center variable stored by the parameter server. This allows the local variables to fluctuate further from the center variable, which in theory allows for more exploration of the parameter space. They show empirically that this increased capacity for exploration leads to improved performance by finding new local optima.</p>
+<p>Zhang et al. <sup class="footnote-ref"><a href="index.html#fn26" id="fnref26">[26]</a></sup> propose Elastic Averaging SGD (EASGD), which links the parameters of the workers of asynchronous SGD with an elastic force, i.e. a center variable stored by the parameter server. This allows the local variables to fluctuate further from the center variable, which in theory allows for more exploration of the parameter space. They show empirically that this increased capacity for exploration leads to improved performance by finding new local optima.</p>
 <h1 id="additionalstrategiesforoptimizingsgd">Additional strategies for optimizing SGD</h1>
-<p>Finally, we introduce additional strategies that can be used alongside any of the previously mentioned algorithms to further improve the performance of SGD. For a great overview of some other common tricks, refer to <sup class="footnote-ref"><a href="index.html#fn24" id="fnref24">[24]</a></sup>.</p>
+<p>Finally, we introduce additional strategies that can be used alongside any of the previously mentioned algorithms to further improve the performance of SGD. For a great overview of some other common tricks, refer to <sup class="footnote-ref"><a href="index.html#fn27" id="fnref27">[27]</a></sup>.</p>
 <h2 id="shufflingandcurriculumlearning">Shuffling and Curriculum Learning</h2>
 <p>Generally, we want to avoid providing the training examples in a meaningful order to our model as this may bias the optimization algorithm. Consequently, it is often a good idea to shuffle the training data after every epoch.</p>
-<p>On the other hand, for some cases where we aim to solve progressively harder problems, supplying the training examples in a meaningful order may actually lead to improved performance and better convergence. The method for establishing this meaningful order is called Curriculum Learning <sup class="footnote-ref"><a href="index.html#fn25" id="fnref25">[25]</a></sup>.</p>
-<p>Zaremba and Sutskever <sup class="footnote-ref"><a href="index.html#fn26" id="fnref26">[26]</a></sup> were only able to train LSTMs to evaluate simple programs using Curriculum Learning and show that a combined or mixed strategy is better than the naive one, which sorts examples by increasing difficulty.</p>
+<p>On the other hand, for some cases where we aim to solve progressively harder problems, supplying the training examples in a meaningful order may actually lead to improved performance and better convergence. The method for establishing this meaningful order is called Curriculum Learning <sup class="footnote-ref"><a href="index.html#fn28" id="fnref28">[28]</a></sup>.</p>
+<p>Zaremba and Sutskever <sup class="footnote-ref"><a href="index.html#fn29" id="fnref29">[29]</a></sup> were only able to train LSTMs to evaluate simple programs using Curriculum Learning and show that a combined or mixed strategy is better than the naive one, which sorts examples by increasing difficulty.</p>
 <h2 id="batchnormalization">Batch normalization</h2>
 <p>To facilitate learning, we typically normalize the initial values of our parameters by initializing them with zero mean and unit variance. As training progresses and we update parameters to different extents, we lose this normalization, which slows down training and amplifies changes as the network becomes deeper.</p>
-<p>Batch normalization <sup class="footnote-ref"><a href="index.html#fn27" id="fnref27">[27]</a></sup> reestablishes these normalizations for every mini-batch and changes are back-propagated through the operation as well. By making normalization part of the model architecture, we are able to use higher learning rates and pay less attention to the initialization parameters. Batch normalization additionally acts as a regularizer, reducing (and sometimes even eliminating) the need for Dropout.</p>
+<p>Batch normalization <sup class="footnote-ref"><a href="index.html#fn30" id="fnref30">[30]</a></sup> reestablishes these normalizations for every mini-batch and changes are back-propagated through the operation as well. By making normalization part of the model architecture, we are able to use higher learning rates and pay less attention to the initialization parameters. Batch normalization additionally acts as a regularizer, reducing (and sometimes even eliminating) the need for Dropout.</p>
 <h2 id="earlystopping">Early stopping</h2>
 <p>According to Geoff Hinton: &quot;<em>Early stopping (is) beautiful free lunch</em>&quot; (<a href="http://www.iro.umontreal.ca/~bengioy/talks/DL-Tutorial-NIPS2015.pdf">NIPS 2015 Tutorial slides</a>, slide 63). You should thus always monitor error on a validation set during training and stop (with some patience) if your validation error does not improve enough.</p>
 <h2 id="gradientnoise">Gradient noise</h2>
-<p>Neelakantan et al. <sup class="footnote-ref"><a href="index.html#fn28" id="fnref28">[28]</a></sup> add noise that follows a Gaussian distribution \(N(0, \sigma^2_t)\) to each gradient update:</p>
+<p>Neelakantan et al. <sup class="footnote-ref"><a href="index.html#fn31" id="fnref31">[31]</a></sup> add noise that follows a Gaussian distribution \(N(0, \sigma^2_t)\) to each gradient update:</p>
 <p>\(g_{t, i} = g_{t, i} + N(0, \sigma^2_t)\).</p>
 <p>They anneal the variance according to the following schedule:</p>
 <p>\( \sigma^2_t = \dfrac{\eta}{(1 + t)^\gamma} \).</p>
@@ -670,23 +674,29 @@ Update 13.04.16: A distributed version of TensorFlow has <a href="http://googler
 </li>
 <li id="fn19" class="footnote-item"><p>Reddi, Sashank J., Kale, Satyen, &amp; Kumar, Sanjiv. On the Convergence of Adam and Beyond. Proceedings of ICLR 2018. <a href="index.html#fnref19" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn20" class="footnote-item"><p>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22. <a href="index.html#fnref20" class="footnote-backref">↩︎</a></p>
+<li id="fn20" class="footnote-item"><p>Loshchilov, I., &amp; Hutter, F. (2019). Decoupled Weight Decay Regularization. In Proceedings of ICLR 2019. <a href="index.html#fnref20" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn21" class="footnote-item"><p>Mcmahan, H. B., &amp; Streeter, M. (2014). Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. Advances in Neural Information Processing Systems (Proceedings of NIPS), 1–9. Retrieved from <a href="http://papers.nips.cc/paper/5242-delay-tolerant-algorithms-for-asynchronous-distributed-online-learning.pdf">http://papers.nips.cc/paper/5242-delay-tolerant-algorithms-for-asynchronous-distributed-online-learning.pdf</a> <a href="index.html#fnref21" class="footnote-backref">↩︎</a></p>
+<li id="fn21" class="footnote-item"><p>Ma, J., &amp; Yarats, D. (2019). Quasi-hyperbolic momentum and Adam for deep learning. In Proceedings of ICLR 2019. <a href="index.html#fnref21" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn22" class="footnote-item"><p>Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., … Zheng, X. (2015). TensorFlow : Large-Scale Machine Learning on Heterogeneous Distributed Systems. <a href="index.html#fnref22" class="footnote-backref">↩︎</a></p>
+<li id="fn22" class="footnote-item"><p>Lucas, J., Sun, S., Zemel, R., &amp; Grosse, R. (2019). Aggregated Momentum: Stability Through Passive Damping. In Proceedings of ICLR 2019. <a href="index.html#fnref22" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn23" class="footnote-item"><p>Zhang, S., Choromanska, A., &amp; LeCun, Y. (2015). Deep learning with Elastic Averaging SGD. Neural Information Processing Systems Conference (NIPS 2015), 1–24. Retrieved from <a href="http://arxiv.org/abs/1412.6651">http://arxiv.org/abs/1412.6651</a> <a href="index.html#fnref23" class="footnote-backref">↩︎</a></p>
+<li id="fn23" class="footnote-item"><p>Niu, F., Recht, B., Christopher, R., &amp; Wright, S. J. (2011). Hogwild! : A Lock-Free Approach to Parallelizing Stochastic Gradient Descent, 1–22. <a href="index.html#fnref23" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn24" class="footnote-item"><p>LeCun, Y., Bottou, L., Orr, G. B., &amp; Müller, K. R. (1998). Efficient BackProp. Neural Networks: Tricks of the Trade, 1524, 9–50. <a href="http://doi.org/10.1007/3-540-49430-8_2">http://doi.org/10.1007/3-540-49430-8_2</a> <a href="index.html#fnref24" class="footnote-backref">↩︎</a></p>
+<li id="fn24" class="footnote-item"><p>Mcmahan, H. B., &amp; Streeter, M. (2014). Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning. Advances in Neural Information Processing Systems (Proceedings of NIPS), 1–9. Retrieved from <a href="http://papers.nips.cc/paper/5242-delay-tolerant-algorithms-for-asynchronous-distributed-online-learning.pdf">http://papers.nips.cc/paper/5242-delay-tolerant-algorithms-for-asynchronous-distributed-online-learning.pdf</a> <a href="index.html#fnref24" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn25" class="footnote-item"><p>Bengio, Y., Louradour, J., Collobert, R., &amp; Weston, J. (2009). Curriculum learning. Proceedings of the 26th Annual International Conference on Machine Learning, 41–48. <a href="http://doi.org/10.1145/1553374.1553380">http://doi.org/10.1145/1553374.1553380</a> <a href="index.html#fnref25" class="footnote-backref">↩︎</a></p>
+<li id="fn25" class="footnote-item"><p>Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z., Citro, C., … Zheng, X. (2015). TensorFlow : Large-Scale Machine Learning on Heterogeneous Distributed Systems. <a href="index.html#fnref25" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn26" class="footnote-item"><p>Zaremba, W., &amp; Sutskever, I. (2014). Learning to Execute, 1–25. Retrieved from <a href="http://arxiv.org/abs/1410.4615">http://arxiv.org/abs/1410.4615</a> <a href="index.html#fnref26" class="footnote-backref">↩︎</a></p>
+<li id="fn26" class="footnote-item"><p>Zhang, S., Choromanska, A., &amp; LeCun, Y. (2015). Deep learning with Elastic Averaging SGD. Neural Information Processing Systems Conference (NIPS 2015), 1–24. Retrieved from <a href="http://arxiv.org/abs/1412.6651">http://arxiv.org/abs/1412.6651</a> <a href="index.html#fnref26" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn27" class="footnote-item"><p>Ioffe, S., &amp; Szegedy, C. (2015). Batch Normalization : Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv Preprint arXiv:1502.03167v3. <a href="index.html#fnref27" class="footnote-backref">↩︎</a></p>
+<li id="fn27" class="footnote-item"><p>LeCun, Y., Bottou, L., Orr, G. B., &amp; Müller, K. R. (1998). Efficient BackProp. Neural Networks: Tricks of the Trade, 1524, 9–50. <a href="http://doi.org/10.1007/3-540-49430-8_2">http://doi.org/10.1007/3-540-49430-8_2</a> <a href="index.html#fnref27" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn28" class="footnote-item"><p>Neelakantan, A., Vilnis, L., Le, Q. V., Sutskever, I., Kaiser, L., Kurach, K., &amp; Martens, J. (2015). Adding Gradient Noise Improves Learning for Very Deep Networks, 1–11. Retrieved from <a href="http://arxiv.org/abs/1511.06807">http://arxiv.org/abs/1511.06807</a> <a href="index.html#fnref28" class="footnote-backref">↩︎</a></p>
+<li id="fn28" class="footnote-item"><p>Bengio, Y., Louradour, J., Collobert, R., &amp; Weston, J. (2009). Curriculum learning. Proceedings of the 26th Annual International Conference on Machine Learning, 41–48. <a href="http://doi.org/10.1145/1553374.1553380">http://doi.org/10.1145/1553374.1553380</a> <a href="index.html#fnref28" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn29" class="footnote-item"><p>Zaremba, W., &amp; Sutskever, I. (2014). Learning to Execute, 1–25. Retrieved from <a href="http://arxiv.org/abs/1410.4615">http://arxiv.org/abs/1410.4615</a> <a href="index.html#fnref29" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn30" class="footnote-item"><p>Ioffe, S., &amp; Szegedy, C. (2015). Batch Normalization : Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv Preprint arXiv:1502.03167v3. <a href="index.html#fnref30" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn31" class="footnote-item"><p>Neelakantan, A., Vilnis, L., Le, Q. V., Sutskever, I., Kaiser, L., Kurach, K., &amp; Martens, J. (2015). Adding Gradient Noise Improves Learning for Very Deep Networks, 1–11. Retrieved from <a href="http://arxiv.org/abs/1511.06807">http://arxiv.org/abs/1511.06807</a> <a href="index.html#fnref31" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
