@@ -9,7 +9,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=8587ecf4f6" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=6133c8c0f7" />
 
     <meta name="description" content="The first post in a series about word embeddings. This post presents word embedding models in the context of language modeling and past research." />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
@@ -24,7 +24,7 @@
     <meta property="og:url" content="https://ruder.io/word-embeddings-1/" />
     <meta property="og:image" content="https://ruder.io/content/images/2016/04/word_embeddings_colah.png" />
     <meta property="article:published_time" content="2016-04-11T14:00:00.000Z" />
-    <meta property="article:modified_time" content="2019-10-06T10:14:18.000Z" />
+    <meta property="article:modified_time" content="2020-06-15T11:42:22.000Z" />
     <meta property="article:tag" content="word embeddings" />
     <meta property="article:tag" content="natural language processing" />
     <meta property="article:tag" content="language models" />
@@ -75,7 +75,7 @@
     "headline": "On word embeddings - Part 1",
     "url": "https://ruder.io/word-embeddings-1/",
     "datePublished": "2016-04-11T14:00:00.000Z",
-    "dateModified": "2019-10-06T10:14:18.000Z",
+    "dateModified": "2020-06-15T11:42:22.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://ruder.io/content/images/2016/04/word_embeddings_colah.png",
@@ -138,6 +138,7 @@ MathJax.Hub.Config({
     <li class="nav-faq" role="menuitem"><a href="https://ruder.io/faq/">FAQ</a></li>
     <li class="nav-sign-up-for-nlp-news" role="menuitem"><a href="https://ruder.io/nlp-news/">Sign up for NLP News</a></li>
     <li class="nav-nlp-progress" role="menuitem"><a href="https://nlpprogress.com/">NLP Progress</a></li>
+    <li class="nav-media" role="menuitem"><a href="https://ruder.io/media/">Media</a></li>
     <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
 </ul>
 
@@ -352,6 +353,20 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
 <p>\(p(w_O|w_I) = \dfrac{\text{exp}(v'^\top_{w_O} v_{w_I})}{\sum^V_{w=1}\text{exp}(v'^\top_{w} v_{w_I})}\).</p>
 <p>In the next post, we will discuss different ways to approximate the expensive softmax as well as key training decisions that account for much of skip-gram's success. We will also introduce GloVe <sup class="footnote-ref"><a href="index.html#fn9" id="fnref9">[9]</a></sup>, a word embedding model based on matrix factorisation and discuss the link between word embeddings and methods from distributional semantics.</p>
 <p>Did I miss anything? <strong>Let me know in the comments below.</strong></p>
+<h2 id="citation">Citation</h2>
+<p>
+For attribution in academic contexts or books, please cite this work as:
+<pre><code>Sebastian Ruder, &quot;On word embeddings - Part 1&quot;. http://ruder.io/word-embeddings-1/, 2016.
+</code></pre>
+<p>BibTeX citation:</p>
+<pre><code>@misc{ruder2016wordembeddingspart1,
+author = {Ruder, Sebastian},
+title = {{On word embeddings - Part 1}},
+year = {2016},
+howpublished = {\url{http://ruder.io/word-embeddings-1/}},
+}
+</code></pre>
+</p>
 <h1 id="otherblogpostsonwordembeddings">Other blog posts on word embeddings</h1>
 <p>If you want to learn more about word embeddings, these other blog posts on word embeddings are also available:</p>
 <ul>
@@ -568,7 +583,7 @@ These architectures offer two main benefits over the C&amp;W model and Bengio's 
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
-    <script src="../assets/built/casper.js?v=8587ecf4f6"></script>
+    <script src="../assets/built/casper.js?v=6133c8c0f7"></script>
 
     <script>
         // Parse the URL parameter
