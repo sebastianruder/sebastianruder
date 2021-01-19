@@ -1,0 +1,460 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>ML and NLP Research Highlights of 2020</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=66ae98f3dd">
+
+    <meta name="description" content="This post summarizes progress in 10 exciting and impactful directions in ML and NLP in 2020.">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://ruder.io/research-trends-2020/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="https://ruder.io/research-trends-2020/amp/">
+    
+    <meta property="og:site_name" content="Sebastian Ruder">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ML and NLP Research Highlights of 2020">
+    <meta property="og:description" content="This post summarizes progress in 10 exciting and impactful directions in ML and NLP in 2020.">
+    <meta property="og:url" content="https://ruder.io/research-trends-2020/">
+    <meta property="og:image" content="https://ruder.io/content/images/2021/01/lra_analysis-2.png">
+    <meta property="article:published_time" content="2021-01-19T09:00:00.000Z">
+    <meta property="article:modified_time" content="2021-01-19T09:53:59.000Z">
+    <meta property="article:tag" content="transfer learning">
+    <meta property="article:tag" content="natural language processing">
+    <meta property="article:tag" content="language models">
+    <meta property="article:tag" content="reinforcement learning">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ML and NLP Research Highlights of 2020">
+    <meta name="twitter:description" content="This post summarizes progress in 10 exciting and impactful directions in ML and NLP in 2020.">
+    <meta name="twitter:url" content="https://ruder.io/research-trends-2020/">
+    <meta name="twitter:image" content="https://ruder.io/content/images/2021/01/lra_analysis-2.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Sebastian Ruder">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="transfer learning, natural language processing, language models, reinforcement learning">
+    <meta name="twitter:site" content="@seb_ruder">
+    <meta property="og:image:width" content="1125">
+    <meta property="og:image:height" content="487">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Sebastian Ruder",
+        "url": "https://ruder.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": {
+                "@type": "ImageObject",
+                "url": "https://ruder.io/favicon.ico",
+                "width": 48,
+                "height": 48
+            }
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
+            "width": 2000,
+            "height": 2000
+        },
+        "url": "https://ruder.io/author/sebastian/",
+        "sameAs": []
+    },
+    "headline": "ML and NLP Research Highlights of 2020",
+    "url": "https://ruder.io/research-trends-2020/",
+    "datePublished": "2021-01-19T09:00:00.000Z",
+    "dateModified": "2021-01-19T09:53:59.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ruder.io/content/images/2021/01/lra_analysis-2.png",
+        "width": 1125,
+        "height": 487
+    },
+    "keywords": "transfer learning, natural language processing, language models, reinforcement learning",
+    "description": "This post summarizes progress in 10 exciting and impactful directions in ML and NLP in 2020.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ruder.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.11">
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/">
+    <script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body class="post-template tag-transfer-learning tag-natural-language-processing tag-language-models tag-reinforcement-learning">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
+    <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
+    <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
+    <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
+    <li class="nav-talks" role="menuitem"><a href="https://ruder.io/talks/">Talks</a></li>
+    <li class="nav-news" role="menuitem"><a href="https://ruder.io/news/">News</a></li>
+    <li class="nav-faq" role="menuitem"><a href="https://ruder.io/faq/">FAQ</a></li>
+    <li class="nav-sign-up-for-nlp-news" role="menuitem"><a href="https://ruder.io/nlp-news/">Sign up for NLP News</a></li>
+    <li class="nav-nlp-progress" role="menuitem"><a href="https://nlpprogress.com/">NLP Progress</a></li>
+    <li class="nav-media" role="menuitem"><a href="https://ruder.io/media/">Media</a></li>
+    <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
+</ul>
+
+                    <span class="nav-post-title dash">ML and NLP Research Highlights of 2020</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post tag-transfer-learning tag-natural-language-processing tag-language-models tag-reinforcement-learning ">
+
+            <header class="post-full-header">
+
+                <section class="post-full-tags">
+                    <a href="../tag/transfer-learning/">transfer learning</a>
+                </section>
+
+                <h1 class="post-full-title">ML and NLP Research Highlights of 2020</h1>
+
+                <p class="post-full-custom-excerpt">This post summarizes progress in 10 exciting and impactful directions in ML and NLP in 2020.</p>
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder">
+                                    <div class="author-info">
+                                        <h2>Sebastian Ruder</h2>
+                                        <p>Read <a href="../author/sebastian/">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/sebastian/" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder">
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/sebastian/">Sebastian Ruder</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2021-01-19">19 Jan 2021</time>
+                                <span class="byline-reading-time"><span class="bull">•</span> 15 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            <figure class="post-full-image">
+                <img srcset="../content/images/size/w300/2021/01/lra_analysis-2.png 300w,
+                           ../content/images/size/w600/2021/01/lra_analysis-2.png 600w,
+                          ../content/images/size/w1000/2021/01/lra_analysis-2.png 1000w,
+                         ../content/images/size/w2000/2021/01/lra_analysis-2.png 2000w" sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px" src="../content/images/size/w2000/2021/01/lra_analysis-2.png" alt="ML and NLP Research Highlights of 2020">
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>The selection of areas and methods is heavily influenced by my own interests; the selected topics are biased towards representation and transfer learning and towards natural language processing (NLP). I tried to cover the papers that I was aware of but likely missed many relevant ones—feel free to highlight them in the comments below. In all, I cover the following highlights:</p><ol><li><a href="index.html#1-scaling-up-and-down">Scaling up—and down</a></li><li><a href="index.html#2-retrieval-augmentation">Retrieval augmentation</a></li><li><a href="index.html#3-few-shot-learning">Few-shot learning</a></li><li><a href="index.html#4-contrastive-learning">Contrastive learning</a></li><li><a href="index.html#5-evaluation-beyond-accuracy">Evaluation beyond accuracy</a></li><li><a href="index.html#6-practical-concerns-of-large-lms">Practical concerns of large LMs</a></li><li><a href="index.html#7-multilinguality">Multilinguality</a></li><li><a href="index.html#8-image-transformers">Image Transformers</a></li><li><a href="index.html#9-ml-for-science">ML for science</a></li><li><a href="index.html#10-reinforcement-learning">Reinforcement learning</a></li></ol><h1 id="1-scaling-up-and-down">1) Scaling up—and down</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/large_models.png" class="kg-image"><figcaption>Model sizes of language models from 2018–2020 (Credit: <a href="https://www.stateof.ai/">State of AI Report 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  2020 saw the development of ever larger language and dialogue models such as Meena (<a href="https://arxiv.org/abs/2001.09977">Adiwardana et al., 2020</a>), <a href="https://www.microsoft.com/en-us/research/blog/turing-nlg-a-17-billion-parameter-language-model-by-microsoft/">Turing-NLG</a>, BST (<a href="https://arxiv.org/abs/2004.13637">Roller et al., 2020</a>), and GPT-3 (<a href="https://proceedings.neurips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf">Brown et al., 2020</a>). At the same time, researchers have become more aware of how expensive and energy-hungry these models can be (<a href="https://www.aclweb.org/anthology/P19-1355/">Strubell et al., 2019</a>) and work that focuses on making them smaller has gained momentum: Recent approaches rely on pruning (<a href="https://arxiv.org/abs/2004.03844">Sajjad et al., 2020</a>; <a href="https://openreview.net/forum?id=SylO2yStDr">Fan et al., 2020a</a>; <a href="https://papers.nips.cc/paper/2020/file/eae15aabaa768ae4a5993a8a4f4fa6e4-Paper.pdf">Sanh et al., 2020</a>), quantization (<a href="https://openreview.net/forum?id=dV19Yyi1fS3">Fan et al., 2020b</a>), distillation (<a href="https://arxiv.org/abs/1910.01108">Sanh et al., 2019</a>; <a href="https://www.aclweb.org/anthology/2020.acl-main.195/">Sun et al., 2020</a>), and compression (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.633/">Xu et al., 2020</a>). Other approaches focused on making the Transformer architecture itself more efficient. Models in this line include the Performer (<a href="https://openreview.net/forum?id=Ua6zuk0WRH">Choromanski et al., 2020</a>) and Big Bird (<a href="https://papers.nips.cc/paper/2020/file/c8512d142a2d849725f31a9a7a361ab9-Paper.pdf">Zaheer et al., 2020</a>), which can be seen in the cover image above. The image is from <a href="https://openreview.net/forum?id=qVyeW-grC2k">Tay et al. (2020a)</a> and shows performance (y axis), speed (x axis) and memory footprint (circle size) of different models on the Long Range Arena benchmark.</p><p>Tools such as the experiment-impact-tracker (<a href="https://arxiv.org/abs/2002.05651">Henderson et al., 2020</a>) have made it easier to track the energy efficiency of models. They have also facilitated competitions and benchmarks that evaluate models primarily based on their efficiency such as the <a href="https://sites.google.com/view/sustainlp2020/home?utm_campaign=NLP%20News&amp;utm_medium=email&amp;utm_source=Revue%20newsletter">SustaiNLP workshop</a> at EMNLP 2020, the <a href="https://ai.google.com/research/NaturalQuestions/efficientqa?utm_campaign=NLP%20News&amp;utm_medium=email&amp;utm_source=Revue%20newsletter">Efficient QA competition</a> at NeurIPS 2020, and HULK (<a href="https://arxiv.org/abs/2002.05829">Zhou et al., 2020</a>).</p><p><strong>Why is it important?</strong>  Scaling up models allows us to keep pushing the boundaries of what current models can do. In order to deploy and use them in real-world scenarios, however, they need to be efficient. Ultimately, both directions benefit each other: Compressing large models yields efficient models with strong performance (<a href="https://arxiv.org/abs/2002.11794">Li et al., 2020</a>) while more efficient methods may lead to stronger, larger models (<a href="https://arxiv.org/abs/2003.10555">Clark et al., 2020</a>).</p><p><strong>What's next?</strong>  I am hopeful that—in light of the increasing interest in efficiency and the availability of tools—it will become more common not only to report a model's performance and number of parameters but also its energy efficiency. This should contribute to a more holistic evaluation that may help to bridge the gap to real-world ML use cases.</p><h1 id="2-retrieval-augmentation">2) Retrieval augmentation</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/retrieval_augmented_lm.png" class="kg-image"><figcaption>Unsupervised pre-training with REALM (<a href="https://arxiv.org/abs/2002.08909">Guu et al., 2020</a>); retriever and encoder are jointly pre-trained</figcaption></figure><p><strong>What happened?</strong>  Large models have been shown to have learned a surprising amount of world knowledge from their pre-training data, which allows them to reproduce facts (<a href="https://www.aclweb.org/anthology/2020.tacl-1.28.pdf">Jiang et al., 2020</a>) and answer questions even without access to external context (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.437.pdf">Roberts et al., 2020</a>). However, storing such knowledge implicitly in the parameters of a model is inefficient and requires ever larger models to retain more information. Instead, recent approaches jointly trained retrieval models and large language models, which led to strong results on knowledge-intensive NLP tasks such as open-domain question answering (<a href="https://arxiv.org/abs/2002.08909">Guu et al., 2020</a>; <a href="https://arxiv.org/abs/2005.11401">Lewis et al., 2020</a>) and language modelling (<a href="https://openreview.net/forum?id=HklBjCEKvH">Khandelwal et al., 2020</a>). The main advantage of these methods is that they integrate retrieval directly into language model pre-training, which allows language models to be much more efficient by being able to off-load the recall of facts and focus on learning the more challenging aspects of natural language understanding. Consequently, the best systems in the NeurIPS 2020 EfficientQA competition (<a href="https://arxiv.org/abs/2101.00133">Min et al., 2020</a>) all relied on retrieval.</p><p><strong>Why is it important?</strong>  Retrieval was the standard in many generative tasks, such as text summarization or dialogue and has largely been superseded by abstractive generation (<a href="https://arxiv.org/abs/1707.02268">Allahyari et al., 2017</a>). Retrieval-augmented generation enables combining the best of both worlds: the factual correctness and faithfulness of retrieved segments and the relevancy and composition of generated text.</p><p><strong>What's next?</strong>  Retrieval-augmented generation should be particularly useful for dealing with failure cases that have plagued generative neural models in the past, such as dealing with hallucinations (<a href="https://www.aclweb.org/anthology/P19-1256/">Nie et al., 2019</a>). It may also help make systems more interpretable by directly providing evidence for their prediction.</p><h1 id="3-few-shot-learning">3) Few-shot learning</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/prompt-based_fine-tuning.png" class="kg-image"><figcaption>Prompt-based fine-tuning uses templated prompts and demonstrations (<a href="https://arxiv.org/abs/2012.15723">Gao et al., 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  Over the last years, driven by advances in pre-training, the number of training examples to perform a given task has progressively gone down (<a href="https://www.aclweb.org/anthology/N18-1202/">Peters et al., 2018</a>; <a href="https://www.aclweb.org/anthology/P18-1031/">Howard et al., 2018</a>). We are now are at a stage where tens of examples can be used to demonstrate a given task (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.38/">Bansal et al., 2020</a>). A very natural paradigm for few-shot learning is to reframe a task as language modelling. The most prominent instantiation of this, the in-context learning approach of GPT-3 (<a href="https://proceedings.neurips.cc/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf">Brown et al., 2020</a>) performs a prediction based on a few demonstrations of input–output pairs in the model's context and a prompt without any gradient updates. This setting, however, has a few limitations: It requires a huge model—without any updates the model needs to rely on its existing knowledge—, the amount of knowledge that the model can use is restricted by its context window, and prompts need to be hand-engineered.</p><p>Recent work has sought to make such few-shot learning more effective by using a smaller model, integrating fine-tuning, and automatically generating natural language prompts (<a href="https://arxiv.org/abs/2009.07118">Schick and Schütze, 2020</a>; <a href="https://arxiv.org/abs/2012.15723">Gao et al., 2020</a>; <a href="https://arxiv.org/abs/2010.15980">Shin et al., 2020</a>). Such work is closely related to the broader area of controllable neural text generation, which broadly seeks to leverage the generative capabilities of powerful pre-trained models. For an excellent overview, check out <a href="https://lilianweng.github.io/lil-log/2021/01/02/controllable-neural-text-generation.html">Lilian Weng's blog post</a>.</p><p>Few-shot learning enables rapid adaptation of a model to many tasks. However, updating all model parameters for each task is wasteful. Instead, it is preferable to perform localized updates that concentrate changes in a small set of parameters. There have been a few approaches that make such efficient fine-tuning more practical including using adapters (<a href="http://proceedings.mlr.press/v97/houlsby19a/houlsby19a.pdf">Houlsby et al., 2019</a>; <a href="https://www.aclweb.org/anthology/2020.emnlp-main.617/">Pfeiffer et al., 2020a</a>,<a href="https://www.aclweb.org/anthology/2020.emnlp-demos.7/">b</a>; <a href="https://www.aclweb.org/anthology/2020.emnlp-main.180.pdf">Üstün et al., 2020</a>), adding a sparse parameter vector (<a href="https://arxiv.org/abs/2012.07463">Guo et al., 2020</a>), and only modifying bias values (<a href="https://nlp.biu.ac.il/~yogo/bitfit.pdf">Ben-Zaken et al., 2020</a>).</p><p><strong>Why is it important?</strong>  Being able to teach a model a task based on only a few examples greatly reduces the barrier to entry for applying ML and NLP models in practice. This opens up applications where data is very expensive to collect and enables adapting models swiftly to new domains.</p><p><strong>What's next?</strong>  For many real-world scenarios, it is possible to collect thousands of training examples. Models should thus be able to scale seamlessly from learning from a few to learning from thousands of examples and should not be limited by e.g. their context length. Given that models have achieved super-human performance on many popular tasks such as <a href="https://super.gluebenchmark.com/leaderboard">SuperGLUE</a> when fine-tuned on entire training datasets, enhancing their few-shot performance is a natural area for improvement.</p><h1 id="4-contrastive-learning">4) Contrastive learning</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/instance_discrimination.png" class="kg-image"><figcaption>Instance discrimination compares features from different transformations of the same images to each other (<a href="https://proceedings.neurips.cc/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf">Caron et al., 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  Contrastive learning—learning to differentiate a positive example from negative samples, often from a noise distribution—such as using negative sampling or noise contrastive estimation is a staple of representation learning and self-supervised learning and a prominent part of classic approaches such as word2vec (<a href="https://papers.nips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf">Mikolov et al., 2013</a>). More recently, contrastive learning gained popularity in self-supervised representation learning in computer vision and speech (<a href="https://arxiv.org/abs/1807.03748">van den Oord, 2018</a>; <a href="https://arxiv.org/abs/1905.09272">Hénaff et al., 2019</a>). The recent generation of increasingly powerful self-supervised approaches for visual representation learning rely on contrastive learning using an instance discrimination task: different images are treated as negative pairs and views of the same image are treated as positive pairs. Recent approaches have further refined this general framework: SimCLR (<a href="http://proceedings.mlr.press/v119/chen20j/chen20j.pdf">Chen et al., 2020</a>) defines the contrastive loss over augmented examples, Momentum Contrast (<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf">He et al., 2020</a>) seeks to ensure a large and consistent set of pairs, SwAV (<a href="https://proceedings.neurips.cc/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf">Caron et al., 2020</a>) leverages online clustering, and BYOL only employs positive pairs (<a href="https://arxiv.org/abs/2006.07733">Grill et al., 2020</a>). <a href="https://arxiv.org/abs/2011.10566">Chen and He (2020</a>) have furthermore proposed a simpler formulation that relates to the previous methods.</p><p>Recently, <a href="https://openreview.net/forum?id=tC6iW2UUbJf">Zhao et al. (2020)</a> find that data augmentation is essential for contrastive learning. This might indicate why <em>unsupervised</em> contrastive learning has not been successful with large pre-trained models in NLP where data augmentation is less common. They also hypothesize that the reason instance discrimination may work better than supervised pre-training in computer vision is that it does not try to make the features of all instances from a class similar but retains the information from each instance. This is less of a problem in NLP where unsupervised pre-training involves classification over thousands of word types. In NLP, <a href="https://openreview.net/forum?id=cu7IUiOhujH">Gunel et al. (2020)</a> recently employ contrastive learning for <em>supervised</em> fine-tuning. </p><p><strong>Why is it important?</strong>  The cross-entropy objective between one-hot labels and a model's output logits commonly used in language modelling has several limitations such as generalizing poorly to imbalanced classes (<a href="http://papers.neurips.cc/paper/8435-learning-imbalanced-datasets-with-label-distribution-aware-margin-loss.pdf">Cao et al., 2019</a>). Contrastive learning is an alternative, complementary paradigm that may help ameliorate some of these deficits.</p><p><strong>What's next?</strong>  Contrastive learning combined with masked language modelling may enable us to learn representations that are richer and more robust. It could help model outliers and rare syntactic and semantic phenomena, which are a challenge for current NLP models.</p><h1 id="5-evaluation-beyond-accuracy">5) Evaluation beyond accuracy</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/checklist_negation.png" class="kg-image"><figcaption>A CheckList template and tests probing for an understanding of negation in sentiment analysis (<a href="https://www.aclweb.org/anthology/2020.acl-main.442/">Ribeiro et al., 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  State-of-the-art models in NLP have achieved superhuman performance across many tasks. Whether or not we believe that such models can achieve true natural language understanding (<a href="https://arxiv.org/abs/1901.11373">Yogatama et al., 2019</a>; <a href="https://www.aclweb.org/anthology/2020.acl-main.463/">Bender and Koller, 2020</a>), we know that current models are not close to this elusive goal. However, the simple performance metrics of our tasks fail to capture the limitations of existing models. There are two key themes in this area: a) curating examples that are difficult for current models; and b) going beyond simple metrics such as accuracy towards more fine-grained evaluation.</p><p>Regarding the former, the common methodology is to use adversarial filtering (<a href="https://www.aclweb.org/anthology/D18-1009/">Zellers et al., 2018</a>) during dataset creation to filter out examples that are predicted correctly by current models. Recent work proposes more efficient adversarial filtering methods (<a href="https://ojs.aaai.org/index.php/AAAI/article/view/6399/6255">Sakaguchi et al., 2020</a>; <a href="http://proceedings.mlr.press/v119/bras20a/bras20a.pdf">Le Bras et al., 2020</a>) and an iterative dataset creation process (<a href="https://www.aclweb.org/anthology/2020.acl-main.441/">Nie et al., 2020</a>; <a href="https://transacl.org/ojs/index.php/tacl/article/view/2129/649">Bartolo et al., 2020</a>) where examples are filtered and models are re-trained over multiple rounds. A subset of such evolving benchmarks are available in <a href="https://dynabench.org/">Dynabench</a>.</p><p>The methods that regard the second point are similar in spirit. However, rather than creating examples that target a specific model, examples are used to probe for phenomena common to a task of interest. Commonly, minimal pairs—also known as counterfactual examples or contrast sets—(<a href="https://openreview.net/forum?id=Sklgs0NFvr">Kaushik et al., 2020</a>;  <a href="https://arxiv.org/abs/2004.02709">Gardner et al., 2020</a>; <a href="https://transacl.org/ojs/index.php/tacl/article/view/2013/527">Warstadt et al., 2020</a>) are created, which perturb examples in a minimal way and often change the gold label. <a href="https://www.aclweb.org/anthology/2020.acl-main.442/">Ribeiro et al. (2020)</a> formalized some of the underlying intuitions in their CheckList framework, which enables the semi-automatic creation of such test cases. Alternatively, examples can be characterized based on different attributes, which allow a more fine-grained analysis of a model's strengths and weaknesses (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.489/">Fu et al., 2020</a>).</p><p><strong>Why is it important?</strong>  In order to make meaningful progress towards building more capable models machine learning models, we need to understand not only if a model outperforms a previous system but what kind of errors it makes and which phenomena it fails to capture.</p><p><strong>What's next?</strong>  By providing fine-grained diagnostics of model behaviour, it will be easier to identify a model's deficiencies and propose improvements that address them. Similarly, a fine-grained evaluation would allow a more nuanced comparison of the strengths and weaknesses of different methods.</p><h1 id="6-practical-concerns-of-large-lms">6) Practical concerns of large LMs</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/real_toxicity_prompts.png" class="kg-image"><figcaption>Models generate toxic content based on seemingly innocuous prompts (<a href="https://www.aclweb.org/anthology/2020.findings-emnlp.301/">Gehman et al., 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  <a href="https://ruder.io/research-highlights-2019/#10-more-reliable-analysis-methods">Compared to 2019</a> where the analysis of language models (LMs) mainly focused on the syntactic, semantic, and world knowledge that such models capture—see <a href="https://www.mitpressjournals.org/doi/full/10.1162/tacl_a_00349">(Rogers et al., 2020)</a> for a great overview—recent analyses revealed a number of practical concerns. Pre-trained language models were found to be prone to generating toxic language (<a href="https://www.aclweb.org/anthology/2020.findings-emnlp.301/">Gehman et al., 2020</a>) and leak information (<a href="https://arxiv.org/abs/2004.00053">Song &amp; Raghunathan, 2020</a>), to be susceptible to backdoors after fine-tuning, which let an attacker manipulate the model prediction (<a href="https://www.aclweb.org/anthology/2020.acl-main.249/">Kurita et al., 2020</a>; <a href="https://arxiv.org/abs/2010.12563">Wallace et al., 2020</a>), and to be vulnerable to model and data extraction attacks (<a href="https://openreview.net/forum?id=Byl5NREFDr">Krishna et al., 2020</a>; <a href="https://arxiv.org/abs/2012.07805">Carlini et al., 2020</a>). In addition, pre-trained models are well known to capture biases with regard to protected attributes such as gender (<a href="https://arxiv.org/abs/1607.06520">Bolukbasi et al., 2016</a>; <a href="https://arxiv.org/abs/2010.06032">Webster et al., 2020</a>)—see <a href="https://www.aclweb.org/anthology/P19-1159/">(Sun et al., 2019)</a> for an excellent survey on mitigating gender bias.</p><p><strong>Why is it important?</strong>  Large pre-trained models are trained by many institutions and are actively deployed in real-world scenarios. It is thus of practical importance that we are not only aware of their biases but what behaviour may have actually harmful consequences.</p><p><strong>What's next?</strong>  As larger and more powerful models are developed, it is important that such practical concerns as well as issues around bias and fairness are part of the development process from the start.  </p><h1 id="7-multilinguality">7) Multilinguality</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/language_resource_distribution.png" class="kg-image"><figcaption>The unequal distribution of labeled and unlabeled data for languages around the world (<a href="https://www.aclweb.org/anthology/2020.acl-main.560/">Joshi et al., 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  2020 had many highlights in multilingual NLP. The <a href="https://www.masakhane.io/">Masakhane</a> organisation whose mission is to strengthen NLP for African languages gave the <a href="https://www.youtube.com/watch?v=Xbc_g_OknqA">keynote</a> at the <a href="http://www.statmt.org/wmt20/">Fifth Conference on Machine Translation (WMT20)</a>, one of the most inspiring presentations of the last year. New general-purpose benchmarks for other languages emerged including XTREME (<a href="http://proceedings.mlr.press/v119/hu20b/hu20b.pdf">Hu et al., 2020</a>), XGLUE (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.484/">Liang et al., 2020</a>), IndoNLU (<a href="https://www.aclweb.org/anthology/2020.aacl-main.85/">Wilie et al., 2020</a>), IndicGLUE (<a href="https://www.aclweb.org/anthology/2020.findings-emnlp.445/">Kakwani et al., 2020</a>). Existing datasets that were replicated in other languages—together with their non-English variants—include:</p><ul><li>SQuAD: XQuAD (<a href="https://www.aclweb.org/anthology/2020.acl-main.421/">Artetxe et al., 2020</a>), MLQA (<a href="https://www.aclweb.org/anthology/2020.acl-main.653/">Lewis et al., 2020</a>), FQuAD (<a href="https://arxiv.org/abs/2002.06071">d'Hoffschmidt et al., 2020</a>);</li><li>Natural Questions: TyDiQA (<a href="https://arxiv.org/abs/2003.05002">Clark et al., 2020</a>), MKQA (<a href="https://arxiv.org/abs/2007.15207">Longpre et al., 2020</a>);</li><li>MNLI: OCNLI (<a href="https://www.aclweb.org/anthology/2020.findings-emnlp.314/">Hu et al., 2020</a>), FarsTail (<a href="FarsTail:%20A%20Persian%20Natural%20Language%20Inference%20Dataset">Amirkhani et al., 2020</a>);</li><li>the CoNLL-09 dataset: X-SRL (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.321/">Daza and Frank, 2020</a>); and</li><li>the CNN/Daily Mail dataset: MLSUM (<a href="https://www.aclweb.org/anthology/2020.emnlp-main.647/">Scialom et al., 2020</a>).</li></ul><p>Many of these datasets and many others in different languages are easily accessible via <a href="https://huggingface.co/datasets">Hugging Face datasets</a>. Powerful multilingual models that cover around 100 languages emerged including XML-R (<a href="https://www.aclweb.org/anthology/2020.acl-main.747/">Conneau et al., 2020</a>), RemBERT (<a href="https://openreview.net/forum?id=xpFFI_NtgpW">Chung et al., 2020</a>), InfoXLM (<a href="https://arxiv.org/abs/2007.07834">Chi et al., 2020</a>), and others (see the <a href="https://sites.research.google/xtreme">XTREME leaderboard</a> for an overview). A plethora of language-specific BERT models have been trained for languages beyond English such as AraBERT (<a href="https://www.aclweb.org/anthology/2020.osact-1.2/">Antoun et al., 2020</a>) and IndoBERT (<a href="https://www.aclweb.org/anthology/2020.aacl-main.85/">Wilie et al., 2020</a>); see (<a href="https://arxiv.org/abs/2003.02912">Nozza et al., 2020</a>; <a href="https://arxiv.org/abs/2012.15613">Rust et al., 2020</a>) for an overview. With efficient multilingual frameworks such as <a href="https://adapterhub.ml/">AdapterHub</a> (<a href="https://www.aclweb.org/anthology/2020.emnlp-demos.7/">Pfeiffer et al., 2020</a>), <a href="https://stanfordnlp.github.io/stanza/">Stanza</a> (<a href="https://www.aclweb.org/anthology/2020.acl-demos.14/">Qi et al., 2020</a>) and <a href="https://github.com/nlp-uoregon/trankit">Trankit</a> (<a href="https://arxiv.org/abs/2101.03289">Nguyen et al., 2020</a>) it has become easier than ever to apply and build models for many of the world's languages.</p><p>Finally, two position papers that inspired much of my thinking in this area this year are <em>The State and Fate of Linguistic Diversity and Inclusion in the NLP World</em> <a href="https://www.aclweb.org/anthology/2020.acl-main.560/">(Joshi et al., 2020)</a> and <em>Decolonising Speech and Language Technology</em> (<a href="https://www.aclweb.org/anthology/2020.coling-main.313/">Bird, 2020</a>). While the first highlights the urgent importance of working on languages beyond English, the second one cautions against treating language communities and their data as a commodity.</p><p><strong>Why is it important?</strong>  Working on NLP beyond English <a href="https://ruder.io/nlp-beyond-english/">has numerous benefits</a>: It poses interesting challenges for ML and NLP and enables having a large impact on society, among many others.</p><p><strong>What's next?</strong>  Given the availability of data and models in different languages, the stage is set to make meaningful progress on languages beyond English. I am most excited about developing models that tackle the most challenging settings and identifying in which cases the assumptions that underlie our current models fail.</p><h1 id="8-image-transformers">8) Image Transformers</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/vision_transformer.png" class="kg-image"><figcaption>The Vision Transformer (<a href="https://openreview.net/forum?id=YicbFdNTTy">Dosovitskiy et al., 2020</a>) applies a Transformer encoder to flattened image patches</figcaption></figure><p><strong>What happened?</strong>  While Transformers have achieved large success in NLP, they were—up until recently—less successful in computer vision where convolutional neural networks (CNNs) still reigned supreme. While models early in the year such as DETR (<a href="https://arxiv.org/abs/2005.12872">Carion et al., 2020</a>) employed a CNN to compute image features, later models were completely convolution-free. Image GPT (<a href="http://proceedings.mlr.press/v119/chen20s/chen20s.pdf">Chen et al., 2020</a>) applied the GPT-2 recipe to pre-training directly from pixels and outperforms a supervised Wide ResNet. Later models all reshape an image into patches that are treated as "tokens". Vision Transformer (<a href="https://openreview.net/forum?id=YicbFdNTTy">Dosovitskiy et al., 2020</a>) is pre-trained on millions of labelled images—each consisting of such patches—outperforming state-of-the-art CNNs. The Image Processing Transformer (<a href="https://arxiv.org/abs/2012.00364">Chen et al., 2020</a>) pre-trains on corrupted ImageNet examples with a contrastive loss and achieves state-of-the-art performance on low-level image tasks. The Data-efficient image Transformer (<a href="https://arxiv.org/abs/2012.12877">Touvron et al., 2020</a>) is pre-trained on ImageNet via distillation. Interestingly, they observe that CNNs are better teachers. This is similar to findings for distilling an inductive bias into BERT (<a href="https://www.mitpressjournals.org/doi/full/10.1162/tacl_a_00345">Kuncoro et al., 2020</a>). In contrast in speech, Transformers have not been applied directly to the audio signal—to my knowledge—but typically receive the output of an encoder such as a CNN as input (<a href="https://arxiv.org/abs/2001.02674">Moritz et al., 2020</a>; <a href="https://arxiv.org/abs/2005.08100">Gulati et al., 2020</a>; <a href="https://arxiv.org/abs/2006.13979">Conneau et al., 2020</a>)</p><p><strong>Why is it important?</strong>  Transformers have less inductive bias compared to CNNs and RNNs. While being less theoretically powerful than RNNs (<a href="https://www.aclweb.org/anthology/P18-2117/">Weiss et al., 2018</a>; <a href="https://www.aclweb.org/anthology/2020.tacl-1.11/">Hahn et al., 2020</a>), given sufficient data and scale Transformers have been shown to eventually outperform their inductively biased competitors (cf. <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">The Bitter Lesson</a>).</p><p><strong>What's next?</strong>  We will likely see Transformers become more popular in computer vision. They will be applied particularly in scenarios where enough compute and data for unsupervised pre-training is available. In smaller scale settings, CNNs will likely still be the go-to approach and a strong baseline. </p><h1 id="9-ml-for-science">9) ML for science</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/alphafold.png" class="kg-image"><figcaption>The self-attention-based architecture of AlphaFold (Credit: <a href="https://deepmind.com/blog/article/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology">DeepMind blog</a>)</figcaption></figure><p><strong>What happened?</strong>  One of the highlights was <a href="https://deepmind.com/blog/article/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology">AlphaFold</a> demonstrating ground-breaking performance in the biannual CASP challenge for protein folding. Beyond that, there have been several other notable developments in applying ML to problems in the natural sciences. MetNet (<a href="https://arxiv.org/abs/2003.12140">Sønderby et al., 2020</a>) outperformed numerical weather prediction for precipitation forecasting, <a href="https://openreview.net/forum?id=S1eZYeHFDS">Lample and Charton (2020)</a> solved differential equations using neural networks better than commercial computer algebra systems, and <a href="https://www.nature.com/articles/s41586-020-2939-8">Bellemare et al. (2020)</a> used reinforcement learning to navigate balloons in the stratosphere. </p><p>In addition, ML has been used extensively to help with the ongoing COVID-19 pandemic, e.g. to forecast COVID-19 spread (<a href="https://arxiv.org/abs/2007.03113">Kapoor et al., 2020</a>), <a href="https://deepmind.com/research/open-source/computational-predictions-of-protein-structures-associated-with-COVID-19">predict structures associated with COVID-19</a>, translate relevant data into 35 different languages (<a href="https://www.aclweb.org/anthology/2020.nlpcovid19-2.5/">Anastasopoulos et al., 2020</a>), and answer questions about COVID-19 in real-time (<a href="https://www.aclweb.org/anthology/2020.nlpcovid19-2.1/">Lee et al., 2020</a>). For an overview of COVID-19 related applications of NLP, check out the <a href="https://www.aclweb.org/anthology/volumes/2020.nlpcovid19-2/">Proceedings of the 1st Workshop on NLP for COVID-19</a>.</p><p><strong>Why is it important?</strong>  The natural sciences are arguably the most impactful application area for ML. Improvements touch many aspects of life and can have a profound impact on the world.</p><p><strong>What's next?</strong>  With progress in areas as central as protein folding, the speed of application of ML to the natural sciences will only accelerate. I am looking forward to many more fundamental advances that have a positive impact in the world.</p><h1 id="10-reinforcement-learning">10) Reinforcement learning</h1><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/01/atari_performance.png" class="kg-image"><figcaption>Performance of Agent57 and MuZero on Atari compared to state-of-the-art agents in terms of the number of games where they outperform the human benchmark throughout training (<a href="https://arxiv.org/abs/2003.13350">Badia et al., 2020</a>)</figcaption></figure><p><strong>What happened?</strong>  For the first time, a single deep RL agent—Agent57 (<a href="https://arxiv.org/abs/2003.13350">Badia et al., 2020</a>)—has achieved superhuman performance on all 57 Atari games, a long-standing benchmark in the deep reinforcement learning literature. The agent's versatility comes from a neural network that allows it to switch between exploratory and exploitative policies. Another milestone was the development of MuZero (<a href="https://www.nature.com/articles/s41586-020-03051-4">Schrittwieser et al., 2020</a>), which predicts the aspects of the environment that are most important for accurate planning. Without any knowledge of the game dynamics, it achieved state-of-the-art performance on Atari as well as superhuman performance on Go, chess, and shogi. Finally, Munchausen RL agents (<a href="https://papers.nips.cc/paper/2020/file/2c6a0bae0f071cbbf0bb3d5b11d90a82-Supplemental.pdf">Vieillard et al., 2020</a>) improved on state-of-the-art agents via a simple, theoretically founded modification.</p><p><strong>Why is it important?</strong>  Reinforcement learning algorithms have a multitude of practical implications (<a href="https://www.nature.com/articles/s41586-020-2939-8">Bellemare et al., 2020</a>). Improvements over the fundamental algorithms in this area can have a large practical impact by enabling better planning, environment modelling, and action prediction.</p><p><strong>What's next?</strong>  With classic benchmarks such as Atari essentially solved, researchers may look to more challenging settings to test their algorithms such as generalizing to out-of-distribution tasks, improving sample-efficiency, multi-task learning, etc. </p><h2 id="citation">Citation</h2><p>For attribution in academic contexts, please cite this work as:</p><pre><code>@misc{ruder2021researchhighlights,
+  author = {Ruder, Sebastian},
+  title = {{ML and NLP Research Highlights of 2020}},
+  year = {2021},
+  howpublished = {\url{http://ruder.io/research-highlights-2020}},
+}</code></pre><p><em>Thanks to Sameer Singh whose <a href="https://twitter.com/sameer_/status/1347472491346763776">Twitter thread</a> reviewing NLP research in 2020 provided inspiration for this post.</em></p>
+                </div>
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = '/research-trends-2020/';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "ghost-5fcb79c34be0c26392ea1525"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://EXAMPLE.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card">
+                    <header class="read-next-card-header">
+                        <h3><span>More in</span> <a href="../tag/transfer-learning/">transfer learning</a></h3>
+                    </header>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li>
+                                <h4><a href="../research-highlights-2019/">10 ML &amp; NLP Research Highlights of 2019</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2020-01-06">6 Jan 2020</time> –
+                                        12 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../unsupervised-cross-lingual-learning/">Unsupervised Cross-lingual Representation Learning</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-10-26">26 Oct 2019</time> –
+                                        20 min read</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h4><a href="../state-of-transfer-learning-in-nlp/">The State of Transfer Learning in NLP</a></h4>
+                                <div class="read-next-card-meta">
+                                    <p><time datetime="2019-08-18">18 Aug 2019</time> –
+                                        15 min read</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="../tag/transfer-learning/">See all 17 posts
+                            →</a>
+                    </footer>
+                </article>
+
+
+                <article class="post-card post tag-cross-lingual tag-natural-language-processing ">
+
+    <a class="post-card-image-link" href="../nlp-beyond-english/">
+        <img class="post-card-image" srcset="../content/images/size/w300/2020/07/langscape-1.png 300w,
+                   ../content/images/size/w600/2020/07/langscape-1.png 600w,
+                  ../content/images/size/w1000/2020/07/langscape-1.png 1000w,
+                 ../content/images/size/w2000/2020/07/langscape-1.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="../content/images/size/w600/2020/07/langscape-1.png" alt="Why You Should Do NLP Beyond English">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../nlp-beyond-english/">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">cross-lingual</div>
+                <h2 class="post-card-title">Why You Should Do NLP Beyond English</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>7000+ languages are spoken around the world but NLP research has mostly focused on English. This post outlines why you should work on languages other than English.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+            
+                    <a href="../author/sebastian/" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-08-01">1 Aug 2020</time> <span class="bull">•</span> 7 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://ruder.io">Sebastian Ruder</a> © 2021</section>
+                <nav class="site-footer-nav">
+                    <a href="https://ruder.io">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/seb_ruder" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js?v=66ae98f3dd"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-60512592-1');
+</script>
+
+</body>
