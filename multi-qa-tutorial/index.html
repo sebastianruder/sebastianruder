@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Multi-domain Multilingual Question Answering</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=eba9ab5cd4" />
+
+    <meta name="description" content="This post expands on the EMNLP 2021 tutorial on Multi-domain Multilingual Question Answering and highlights key insights and takeaways." />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://ruder.io/multi-qa-tutorial/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://ruder.io/multi-qa-tutorial/amp/" />
+    
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Multi-domain Multilingual Question Answering" />
+    <meta property="og:description" content="This post expands on the EMNLP 2021 tutorial on Multi-domain Multilingual Question Answering and highlights key insights and takeaways." />
+    <meta property="og:url" content="https://ruder.io/multi-qa-tutorial/" />
+    <meta property="og:image" content="https://ruder.io/content/images/2021/12/rc_olympics.png" />
+    <meta property="article:published_time" content="2021-12-06T12:38:00.000Z" />
+    <meta property="article:modified_time" content="2021-12-07T22:19:39.000Z" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Multi-domain Multilingual Question Answering" />
+    <meta name="twitter:description" content="This post expands on the EMNLP 2021 tutorial on Multi-domain Multilingual Question Answering and highlights key insights and takeaways." />
+    <meta name="twitter:url" content="https://ruder.io/multi-qa-tutorial/" />
+    <meta name="twitter:image" content="https://ruder.io/content/images/2021/12/rc_olympics.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sebastian Ruder" />
+    <meta name="twitter:site" content="@seb_ruder" />
+    <meta property="og:image:width" content="2493" />
+    <meta property="og:image:height" content="1246" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Sebastian Ruder",
+        "url": "https://ruder.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": {
+                "@type": "ImageObject",
+                "url": "https://ruder.io/favicon.ico",
+                "width": 48,
+                "height": 48
+            }
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
+            "width": 2000,
+            "height": 2000
+        },
+        "url": "https://ruder.io/author/sebastian/",
+        "sameAs": []
+    },
+    "headline": "Multi-domain Multilingual Question Answering",
+    "url": "https://ruder.io/multi-qa-tutorial/",
+    "datePublished": "2021-12-06T12:38:00.000Z",
+    "dateModified": "2021-12-07T22:19:39.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ruder.io/content/images/2021/12/rc_olympics.png",
+        "width": 2493,
+        "height": 1246
+    },
+    "description": "This post expands on the EMNLP 2021 tutorial on Multi-domain Multilingual Question Answering and highlights key insights and takeaways.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ruder.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.11" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/" />
+    <script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
+    <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
+    <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
+    <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
+    <li class="nav-talks" role="menuitem"><a href="https://ruder.io/talks/">Talks</a></li>
+    <li class="nav-news" role="menuitem"><a href="https://ruder.io/news/">News</a></li>
+    <li class="nav-faq" role="menuitem"><a href="https://ruder.io/faq/">FAQ</a></li>
+    <li class="nav-newsletter" role="menuitem"><a href="https://ruder.io/nlp-news/">Newsletter</a></li>
+    <li class="nav-nlp-progress" role="menuitem"><a href="https://nlpprogress.com/">NLP Progress</a></li>
+    <li class="nav-media" role="menuitem"><a href="https://ruder.io/media/">Media</a></li>
+    <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
+</ul>
+
+                    <span class="nav-post-title dash">Multi-domain Multilingual Question Answering</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+
+
+                <h1 class="post-full-title">Multi-domain Multilingual Question Answering</h1>
+
+                <p class="post-full-custom-excerpt">This post expands on the EMNLP 2021 tutorial on Multi-domain Multilingual Question Answering and highlights key insights and takeaways.</p>
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                    <div class="author-info">
+                                        <h2>Sebastian Ruder</h2>
+                                        <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/sebastian/index.html" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2021-12-06">6 Dec 2021</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 21 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            <figure class="post-full-image">
+                <img
+                    srcset="../content/images/size/w300/2021/12/rc_olympics.png 300w,
+                           ../content/images/size/w600/2021/12/rc_olympics.png 600w,
+                          ../content/images/size/w1000/2021/12/rc_olympics.png 1000w,
+                         ../content/images/size/w2000/2021/12/rc_olympics.png 2000w"
+                    sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="../content/images/size/w2000/2021/12/rc_olympics.png"
+                    alt="Multi-domain Multilingual Question Answering"
+                />
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>This post expands on the <a href="https://tinyurl.com/multi-qa-tutorial">EMNLP 2021 tutorial on Multi-domain Multilingual Question Answering</a>.</p><p>The tutorial was organised by <a href="https://researcher.watson.ibm.com/researcher/view_person_pubs.php?person=us-avi&amp;t=1">Avi Sil</a> and me. In this post, I highlight key insights and takeaways of the tutorial. The slides are <a href="https://tinyurl.com/multi-qa-tutorial">available online</a>. You can find the table of contents below:</p><!--kg-card-begin: markdown--><ol>
+<li><a href="index.html#introduction">Introduction</a>
+<ol>
+<li><a href="index.html#open-retrieval-qa-vs-reading-comprehension">Open-Retrieval QA vs Reading Comprehension</a></li>
+<li><a href="index.html#what-is-a-domain">What is a Domain?</a></li>
+</ol>
+</li>
+<li><a href="index.html#multi-domain-qa">Multi-Domain QA</a>
+<ol>
+<li><a href="index.html#datasets-for-multi-domain-qa">Datasets for Multi-Domain QA</a></li>
+<li><a href="index.html#multi-domain-qa-models">Multi-Domain QA Models</a>
+<ul>
+<li><a href="index.html#unsupervised-domain-adaptation-for-qa">Unsupervised Domain Adaptation for QA</a></li>
+<li><a href="index.html#domain-adaptation-with-pre-trained-lms">Domain Adaptation with Pre-trained LMs</a></li>
+<li><a href="index.html#domain-generalization">Domain Generalization</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><a href="index.html#multilingual-qa">Multilingual QA</a>
+<ol>
+<li><a href="index.html#datasets-for-multilingual-qa">Datasets for Multilingual QA</a>
+<ul>
+<li><a href="index.html#issues-of-multilingual-qa-datasets">Issues of Multilingual QA Datasets</a></li>
+<li><a href="index.html#creating-qa-datasets">Creating QA Datasets</a></li>
+<li><a href="index.html#multilingual-qa-evaluation">Multilingual QA Evaluation</a></li>
+</ul>
+</li>
+<li><a href="index.html#multilingual-qa-models">Multilingual QA Models</a>
+<ul>
+<li><a href="index.html#models-for-multilingual-reading-comprehension">Models for Multilingual Reading Comprehension</a></li>
+<li><a href="index.html#models-for-multilingual-open-retrieval-qa">Models for Multilingual Open-Retrieval QA</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><a href="index.html#open-research-directions">Open Research Directions</a></li>
+</ol>
+<!--kg-card-end: markdown--><hr><h1 id="introduction">Introduction</h1><p>Question answering is one of the most impactful tasks in natural language processing (NLP). In the tutorial, we focus on two main categories of question answering studied in the literature: open-retrieval question answering (ORQA) and reading comprehension (RC). </p><h2 id="open-retrieval-qa-vs-reading-comprehension">Open-Retrieval QA vs Reading Comprehension</h2><p>Open-retrieval QA focuses on the most general setting where given a question we first need to retrieve relevant documents from a large corpus such as Wikipedia. We then process these documents to identify the relevant answer as can be seen below. We avoid using the term open-domain QA as "open-domain" may also refer to a setting covering many domains.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/orqa-1.png" class="kg-image"><figcaption>Open-Retrieval Question Answering (image based on <a href="https://aclanthology.org/P17-1171/">Chen et al., 2017</a>)</figcaption></figure><p>Reading comprehension can be seen as a sub-problem of open-retrieval QA as it assumes that we have access to the gold paragraph that contains the answer (see below). We then only need to find the corresponding answer in this paragraph. In both settings, answers are commonly represented as a minimal span.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/reading_comprehension-1.png" class="kg-image"><figcaption>Reading Comprehension assumes a gold paragraph is provided</figcaption></figure><p>Standard approaches for reading comprehension build on pre-trained models such as BERT. The model is provided with the question and candidate paragraph as input and is trained to predict whether the question is answerable (typically using the representation associated with its [CLS] token) and whether each token is the start or end of an answer span, which can be seen below. The same approach can be used for ORQA, with some modifications (<a href="https://arxiv.org/abs/1901.08634">Alberti et al., 2019</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/bert_rc.png" class="kg-image"><figcaption>Using BERT for reading comprehension involves fine-tuning it to predict a) whether a question is answerable and b) whether each token is the start and end of an answer span.</figcaption></figure><p>Information retrieval (IR) methods are used to retrieve the relevant paragraphs. Classic sparse methods such as BM25 (<a href="https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf">Robertson et al., 2009</a>) do not require any training as they weigh terms and documents based on their frequency using <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> measures. Recent dense neural approaches such as DPR (<a href="https://aclanthology.org/2020.emnlp-main.550/">Karpukhin et al., 2020</a>) train models to maximize the similarity between question and passage and then retrieve the most relevant passages via maximum inner product search.</p><h2 id="what-is-a-domain">What is a Domain?</h2><p>A domain can be seen as a manifold in a high-dimensional variety space consisting of many dimensions such as socio-demographics, language, genre, sentence type, etc (<a href="https://arxiv.org/abs/1608.07836">Plank et al., 2016</a>). Domains differ in terms of their granularity and large domains such as Twitter can consist of several more narrow domains to which we might want to adapt our models. Two major facets of this variety space are <strong>genre </strong>(we will use this term interchangeably with 'domain') and <strong>language</strong>, which will be the focus of this post.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/domain_granularity.png" class="kg-image"><figcaption>Domain granularity (Credit: <a href="https://aclanthology.org/2020.acl-main.740/">Gururangan et al., 2020</a>)</figcaption></figure><h1 id="multi-domain-qa">Multi-Domain QA</h1><p>In each of the two main sections of this post, we will first discuss common datasets and then modelling approaches.</p><h2 id="datasets-for-multi-domain-qa">Datasets for Multi-Domain QA</h2><p>Research in question answering has spanned many domains, as can be seen below. The most common domain is <strong>Encyclopedia</strong>, which covers many Wikipedia-based datasets such as SQuAD (<a href="https://aclanthology.org/D16-1264/">Rajpurkar et al., 2016</a>), Natural Questions (NQ; <a href="https://aclanthology.org/Q19-1026/">Kwiatkowski et al., 2019</a>), DROP (<a href="https://arxiv.org/abs/1903.00161">Dua et al., 2019</a>), and WikiReading (<a href="https://aclanthology.org/P16-1145/">Hewlett et al., 2016</a>), among many others. Datasets in this domain are typically referred to as "open-domain" QA.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/rc_olympics.png" class="kg-image"><figcaption>RC Olympics: The many domains of reading comprehension</figcaption></figure><p>Datasets in the <strong>Fiction</strong> domain typically require processing narratives in books such as NarrativeQA (<a href="https://aclanthology.org/Q18-1023/">Kočiský et al., 2018</a>), Children's Book Test (<a href="https://arxiv.org/abs/1511.02301">Hill et al., 2016</a>), and BookTest (<a href="https://arxiv.org/abs/1610.00956">Bajgar et al., 2016</a>) or narratives written by crowd workers such as MCTest (<a href="https://aclanthology.org/D13-1020/">Richardson et al., 2013</a>), MCScript (<a href="https://aclanthology.org/L18-1564">Modi et al., 2016</a>), and ROCStories (<a href="https://aclanthology.org/N16-1098/">Mostafazedh et al., 2016</a>).</p><p><strong>Academic tests</strong> datasets target science questions in US school tests such as ARC (<a href="https://arxiv.org/abs/1803.05457">Clark et al., 2018</a>), college-level exam resources such as ReClor (<a href="https://openreview.net/forum?id=HJgJtT4tvB">Yu et al., 2019</a>) and school-level exam resources such as RACE (<a href="https://aclanthology.org/D17-1082/">Lai et al., 2017</a>).</p><p><strong>News</strong> datasets include NewsQA (<a href="https://aclanthology.org/W17-2623/">Trischler et al., 2017</a>), CNN / Daily Mail (<a href="https://proceedings.neurips.cc/paper/2015/file/afdec7005cc9f14302cd0474fd0f3c96-Paper.pdf">Hermann et al., 2015</a>), and NLQuAD (<a href="https://aclanthology.org/2021.eacl-main.106/">Soleimani et al., 2021</a>).</p><p>In addition, there are datasets focused on <strong>Specialized Expert Materials</strong> including manuals, reports, scientific papers, etc. Such domains are most common in industry as domain-specific chatbots are increasingly used by companies to respond to users queries but associated datasets are rarely made available. Existing datasets focus on tech forums such as TechQA (<a href="https://aclanthology.org/2020.acl-main.117/">Castelli et al., 2020</a>) and AskUbuntu (<a href="https://aclanthology.org/P15-2114/">dos Santos et al., 2015</a>) as well as scientific articles including BioASQ (<a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0564-6">Tsatsaronis et al., 2015</a>) and Qasper (<a href="https://aclanthology.org/2021.naacl-main.365/">Dasigi et al., 2021</a>). In addition, the pandemic saw the creation of many datasets related to COVID-19 such as COVID-QA-2019 (<a href="https://aclanthology.org/2020.nlpcovid19-acl.18/">Möller et al., 2020</a>), COVID-QA-147 (<a href="https://arxiv.org/abs/2004.11339">Tang et al., 2020</a>), and COVID-QA-111 (<a href="https://aclanthology.org/2020.nlpcovid19-2.1/">Lee et al., 2020</a>).</p><p>Beyond these datasets focusing on individual domains, there are several datasets spanning multiple domains such as CoQA (<a href="https://aclanthology.org/Q19-1016/">Reddy et al., 2019</a>), QuAIL (<a href="https://ojs.aaai.org//index.php/AAAI/article/view/6398">Rogers et al., 2020</a>), and MultiReQA (<a href="https://aclanthology.org/2021.adaptnlp-1.10/">Guo et al., 2021</a>), among others. Lastly, the <a href="https://leaderboard.allenai.org/orb/submissions/about">ORB</a> evaluation server (<a href="https://arxiv.org/abs/1912.12598">Dua et al., 2019</a>) enables the evaluation of systems across datasets spanning multiple domains.</p><h2 id="multi-domain-qa-models">Multi-Domain QA Models</h2><p>In most cases when learning in a multi-domain setting there may be limited or no labelled data available in the target domain available. We discuss how to adapt to a target domain using only unlabelled data, the most effective way to use pre-trained language models for domain adaptation in QA, and how to generalize across domains.</p><h3 id="unsupervised-domain-adaptation-for-qa">Unsupervised Domain Adaptation for QA</h3><p>Unsupervised domain adaptation for QA assumes access to labelled data in a source domain and unlabelled target domain data. In the absence of labelled gold data in the target domain, most methods rely on generating 'silver' &lt;question, paragraph, answer&gt; data in the target domain. To this end, these methods train a question generation model based on a pre-trained LM on the source domain and then apply it to the target domain to generate synthetic questions given answer spans (<a href="https://aclanthology.org/D19-1254/">Wang et al., 2019</a>; <a href="https://aclanthology.org/2020.emnlp-main.439/">Shakeri et al., 2020</a>; <a href="https://aclanthology.org/2021.emnlp-main.754/">Yue et al., 2021</a>). The QA model is then trained jointly on the gold source domain and silver target domain data, as can be seen below. This is often combined with other domain adaptation strategies such as adversarial learning and self-training (<a href="https://ojs.aaai.org/index.php/AAAI/article/view/6245">Cao et al., 2020</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/qagen.png" class="kg-image"><figcaption>Joint training on gold source and silver target domain data that is generated using BART or T5</figcaption></figure><h3 id="domain-adaptation-with-pre-trained-lms">Domain Adaptation with Pre-trained LMs </h3><p>In many scenarios with specialized domains, a general pre-trained language model such as BERT may not be sufficient. Instead, <a href="https://ruder.io/recent-advances-lm-fine-tuning/#adaptive-fine-tuning">domain-adaptive fine-tuning</a> (<a href="https://www.aclweb.org/anthology/P18-1031/">Howard &amp; Ruder, 2018</a>; <a href="https://www.aclweb.org/anthology/2020.acl-main.740/">Gururangan et al., 2020</a>) of a pre-trained LM on target domain data typically performs better. Recent examples such as BioBERT (<a href="https://arxiv.org/abs/1901.08746">Lee et al., 2019</a>) and SciBERT (<a href="https://aclanthology.org/D19-1371/">Beltagy et al., 2019</a>) have been effective for biomedical and scientific domains respectively.</p><p>When labelled data in a source domain and in the target domain are available, a general recipe is to first fine-tune a model on labelled source domain data and then to subsequently fine-tune it on labelled data in the target domain. However, naive fine-tuning generally leads to deterioration of performance in the source domain, which may be undesirable. Instead, strategies from continual learning such as L2 regularization (<a href="https://arxiv.org/abs/1911.00202">Xu et al., 2019</a>) ensure that the parameters of the model fine-tuned on the target domain do not diverge significantly from the source domain model, thereby reducing catastrophic forgetting as can be seen below. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/l2_regularization-1.png" class="kg-image"><figcaption>Strategies such as L2 regularization result in reasonable performance on the source domain (SQuAD) after fine-tuning on the target domain (BioASQ)</figcaption></figure><p>For very low-resource domains, another strategy is to explicitly adapt the model to characteristics of the target domain. If the target domain contains specialized terms, the model's vocabulary can be augmented with these terms to learn better representations. In addition, for many domains, the structure of the unlabelled data can contain information that may be useful for the end task. This structure such as the abstract, error description, associated cause, etc can be leveraged to generate synthetic data on which the model can be fine-tuned (<a href="https://aclanthology.org/2020.emnlp-main.440/">Zhang et al., 2020</a>).</p><p>In the open-retrieval setting, dense retrieval methods (<a href="https://aclanthology.org/2020.emnlp-main.550/">Karpukhin et al., 2020</a>) trained on a source domain may not generalize in a zero-shot manner to low-resource target domains. Instead, we can leverage the same question generation methods discussed in the previous section to create silver data for training a retrieval model on the target domain (<a href="https://www.semanticscholar.org/paper/Synthetic-Target-Domain-Supervision-for-Open-QA-Reddy-Iyer/824666e5e6721bc83a1768579062077d719f7089">Reddy et al., 2021</a>). Ensembling over BM25 and the adapted DPR model yields the best results. </p><h3 id="domain-generalization">Domain Generalization</h3><p>In practice, pre-trained models fine-tuned on a single domain often generalize poorly. Training on multiple source distributions reduces the need for selecting a single source dataset (<a href="https://aclanthology.org/P19-1485/">Talmor &amp; Berant, 2019</a>). Additional fine-tuning on a related task helps even when using pre-trained models.</p><p>However, different datasets often have different formats, which makes it difficult to train a joint model for them without task-specific engineering. Recent pre-trained LMs such as T5 facilitate such cross-dataset learning as each dataset can be converted to a unified text-to-text format. Training a model jointly across multiple QA datasets with such a text-to-text format leads to better generalization to unseen domains (<a href="https://aclanthology.org/2020.findings-emnlp.171/">Khashabi et al., 2020</a>).</p><h1 id="multilingual-qa">Multilingual QA</h1><p>Language can be seen as another facet of the domain manifold. As we will see, many methods discussed in the previous section can also be successfully applied to the multilingual setting. At the same time, multilingual QA poses its own unique challenges.</p><h2 id="datasets-for-multilingual-qa">Datasets for Multilingual QA</h2><p>Many early multilingual IR and QA datasets have been collected as part of community evaluations. Many test collections used newswire articles, e.g. <a href="https://www.nist.gov/publications/clir-evaluation-trec">CLIR at TREC</a> 1994–2004, QA at CLEF 2003–2005 (<a href="https://staff.fnwi.uva.nl/m.derijke/Publications/Files/clef_qa_03_overview_proceedings.pdf">Magnini et al., 2003</a>) or Wikipedia, e.g. QA at CLEF 2006–2008 (<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.495.4731&amp;rep=rep1&amp;type=pdf">Gillard et al., 2006</a>). Such datasets focused mainly on Indo-European languages, though more recent ones also covered other languages, e.g. Hindi and Bengali at FIRE 2012 (<a href="https://www.isical.ac.in/~fire/data/working-notes_2012/adhoc/adhoc_ISM.pdf">Yadav et al., 2012</a>).</p><p>There are wide range of <strong>monolingual reading comprehension</strong> <strong>datasets</strong>, many of them variants of SQuAD (<a href="https://aclanthology.org/D16-1264/">Rajpurkar et al., 2016</a>). Most of them are available in Chinese, Russian, and French and they generally consist of naturalistic data in each language.</p><p><strong>Monolingual open-retrieval QA</strong> <strong>datasets</strong> are more diverse in nature. They differ based on the type and amount of context they provide and often focus on specialized domains, from Chinese history exams (<a href="https://aclanthology.org/C18-1038/">Zhao &amp; Zhao, 2018</a>) to Chinese maternity forums (<a href="https://aclanthology.org/2020.acl-main.330/">Xu et al., 2020</a>) and Polish 'Did you know?' questions (<a href="https://www.researchgate.net/profile/Maciej-Piasecki/publication/272685856_Open_dataset_for_development_of_Polish_Question_Answering_systems/links/560f8ff708aec422d1133caa/Open-dataset-for-development-of-Polish-Question-Answering-systems.pdf">Marcinczuk et al., 2013</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/mlqa_annotation.png" class="kg-image"><figcaption>The MLQA alignment and annotation process (<a href="https://www.aclweb.org/anthology/2020.acl-main.653/">Lewis et al., 2020</a>)</figcaption></figure><p><strong>Multilingual reading comprehension</strong> <strong>datasets</strong> have generally been created using translations. MLQA (<a href="https://www.aclweb.org/anthology/2020.acl-main.653/">Lewis et al., 2020</a>), which can be seen above has been created by automatically aligning Wikipedia paragraphs across multiple languages and annotating questions and answers on the aligned paragraphs. Such automatic alignment, however, may lead to severe quality issues for some languages (<a href="https://arxiv.org/abs/2103.12028">Caswell et al., 2021</a>) and may result in overfitting to the biases of the alignment model. Another dataset, XQuAD (<a href="https://aclanthology.org/2020.acl-main.421/">Artetxe et al., 2020</a>) was created by professionally translating a subset of SQuAD to 10 other languages. Finally, MLQA-R and XQuAD-R (<a href="https://aclanthology.org/2020.emnlp-main.477/">Roy et al., 2020</a>) are conversions of the former datasets to the answer sentence retrieval setting.</p><p><strong>Multilingual open-retrieval QA</strong> <strong>datasets</strong> typically consist of naturalistic data. XQA (<a href="https://aclanthology.org/P19-1227/">Liu et al., 2019</a>) covers 'Did you know?' Wikipedia questions converted to a <a href="https://en.wikipedia.org/wiki/Cloze_test">Cloze format</a>. For each question, the top 10 Wikipedia documents ranked by BM25 are provided as context. TyDi QA (<a href="https://aclanthology.org/2020.tacl-1.30/">Clark et al., 2020</a>) ask annotators to write "information-seeking" questions based on short Wikipedia prompts in typologically diverse languages. Such information-seeking questions lead to less lexical overlap compared to RC datasets like MLQA and XQuAD and thus result in a more challenging QA setting. However, as in-language Wikipedias are used for finding context paragraphs (via Google Search) and as the Wikipedias of many under-represented languages are very small, many questions in TyDi QA are unanswerable.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/xor_tydiqa.png" class="kg-image"><figcaption>The XOR-TyDi QA annotation process (<a href="https://aclanthology.org/2021.naacl-main.46/">Asai et al., 2021</a>)</figcaption></figure><p>XOR-TyDi QA (<a href="https://aclanthology.org/2021.naacl-main.46/">Asai et al., 2021</a>) addresses this issue via the above procedure, which translates unanswerable TyDi QA questions to English and retrieves context paragraphs from English Wikipedia. This strategy significantly decreases the fraction of unanswerable questions. While XOR-TyDi QA focuses on <em>cross-lingual</em> retrieval, Mr. TyDi (<a href="https://aclanthology.org/2021.mrl-1.12/">Zhang et al., 2021</a>) augments TyDi QA with in-language documents for evaluating <em>monolingual</em> retrieval models. As answers in TyDi QA are spans in a sentence, Gen-TyDi QA (<a href="https://arxiv.org/abs/2110.07150">Muller et al., 2021</a>) extends the dataset with human-generated answers to enable the evaluation of generative QA models. Finally, MKQA (<a href="https://arxiv.org/abs/2007.15207">Longpre et al., 2020</a>) translates 10k queries from Natural Questions (<a href="https://aclanthology.org/Q19-1026/">Kwiatkowski et al., 2019</a>) to 25 other languages. In addition, it augments the dataset with annotations that link directly against Wikidata entities, enabling evaluation beyond span extraction.</p><p>An emerging category of multilingual QA datasets is <strong>multilingual common sense reasoning</strong>. Such datasets consist of multiple-choice assertions that are translated into other languages (<a href="https://aclanthology.org/2020.emnlp-main.185/">Ponti et al., 2020</a>; <a href="https://aclanthology.org/2021.acl-long.102/">Lin et al., 2021</a>).</p><h3 id="issues-of-multilingual-qa-datasets">Issues of Multilingual QA Datasets</h3><p>Existing monolingual and multilingual QA datasets have some issues that one should be aware of.</p><p><strong>Language distribution</strong>  Existing datasets predominantly focus on "high-resource" languages where large amounts of data are available. Evaluating QA models on such datasets provides a distorted view of progress in the field. For instance, questions that can be solved by string matching are easy in English but much harder in morphologically rich languages (<a href="https://aclanthology.org/2020.tacl-1.30/">Clark et al., 2020</a>). Among current key applications of NLP, QA has the lowest linguistic global utility, i.e. performance averaged across the world's languages (<a href="https://arxiv.org/abs/2110.06733">Blasi et al., 2021</a>), which can be seen below. While QA datasets cover languages with many speakers, there is still a long way to go in terms of an equitable coverage across the world's languages.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/utility_nlp_applications.png" class="kg-image"><figcaption>Linguistic and demographic utility of different NLP applications (<a href="https://arxiv.org/abs/2110.06733">Blasi et al., 2021</a>)</figcaption></figure><p><strong>Homogeneity  </strong>In order to make collection scalable, multilingual datasets often collect data that covers the same question or similar topics across languages, thus missing out on language-specific nuances. In addition, it is often not feasible to do an in-depth error analysis for every language. The most common source of homogeneity is translation, which carries its own biases.</p><p><strong>Limitations of translation</strong>  "Translationese" differs in many aspects from natural language (<a href="http://cs.haifa.ac.il/~shuly/publications/vered.pdf">Volanksy et al., 2015</a>). Translated questions often do not have answers in a target language Wikipedia (<a href="https://arxiv.org/abs/2103.16613">Valentim et al., 2021</a>). In addition, datasets created via translation inherit artefacts such as a large train-test overlap of answers in NQ (<a href="https://aclanthology.org/2021.eacl-main.86.pdf">Lewis et al., 2020</a>) and translation also leads to new artefacts, e.g. in NLI when premise and hypothesis are translated separately (<a href="https://aclanthology.org/2020.emnlp-main.618/">Artetxe et al., 2020</a>). Finally, translated questions differ from the types of questions "naturally" asked by speakers of different languages, leading to an English and Western-centric bias.</p><p><strong>English and Western-centric bias</strong>  Examples in many QA datasets are biased towards questions asked by English speakers. Cultures differ in what types of questions are typically asked, e.g. speakers outside the US probably would not ask about famous American football or baseball players. In COPA (<a href="https://people.ict.usc.edu/~gordon/publications/AAAI-SPRING11A.PDF">Roemmele et al., 2011</a>), many referents have no language-specific terms in some languages, e.g. bowling ball, hamburger, lottery (<a href="https://aclanthology.org/2020.emnlp-main.185/">Ponti et al., 2020</a>). Common sense knowledge, social norms, taboo topics, assessments of social distance, etc are also culture-dependent (<a href="https://academic.oup.com/applij/article-abstract/4/2/91/167524?redirectedFrom=fulltext">Thomas, 1983</a>). Lastly, the common setting of training on English data leads to an overestimation of transfer performance on languages similar to English and underestimation on more distant languages.</p><p><strong>Dependence on retrieval</strong>  The standard setting of identifying a minimal span for open-domain QA in the retrieved documents benefits extractive systems. It assumes there is a single gold paragraph providing the correct answer and does not consider information from other paragraphs or pages. For unanswerable questions, answers may often be found in other pages that were not retrieved (<a href="https://aclanthology.org/2021.acl-long.118/">Asai &amp; Choi, 2021</a>).</p><p><strong>Information scarcity</strong>  Typical knowledge resources such as language-specific Wikipedias often do not contain the relevant information, particularly for under-represented languages. For such languages, datasets must necessarily be cross-lingual. In addition, some information is only available from other sources, e.g. IMDb, news articles, etc.</p><p><strong>Difficulty of multilingual comparison</strong>  Comparing a model's performance across different languages is difficult due to a range of factors such as different levels of question difficulty, different amounts and quality of monolingual data, impact of translationese, etc. Instead, it is better to perform system-level comparisons across languages.</p><p><strong>Monolingual vs multilingual QA datasets</strong>  Creating multilingual QA datasets is expensive and thus often infeasible with academic budgets. In contrast, work on monolingual QA datasets is often perceived as "niche". Such work, however, is arguably much more important and impactful than incremental modelling advances, which are commonly accepted to conferences (<a href="https://arxiv.org/abs/2107.12708">Rogers et al., 2021</a>). In order to foster inclusivity and diversity in NLP, it is key to enable and reward such work, particularly for under-represented languages. Language-specific QA datasets can go beyond a "replication" of English work by, for instance, performing analyses of language-specific phenomena and extending or improving the QA setting.</p><h3 id="creating-qa-datasets">Creating QA Datasets</h3><p><strong>Efficient multilingual QA evaluation at scale</strong>  A key challenge of multilingual QA is the lack of data for many languages. Instead of labelling large amounts of data in every language in order to cover the entire distribution, we can create targeted tests that probe for specific capabilities, for instance using CheckList (<a href="https://aclanthology.org/2020.acl-main.442/">Ribeiro et al., 2020</a>). This way, a small number of templates can cover many different model capabilities. Such template-based tests have so far been used for evaluating multilingual reading comprehension (<a href="https://aclanthology.org/2021.emnlp-main.802/">Ruder et al., 2021</a>) and closed-book QA (<a href="https://aclanthology.org/2020.emnlp-main.479.pdf">Jiang et al., 2020</a>; <a href="https://aclanthology.org/2021.eacl-main.284.pdf">Kassner et al., 2021</a>) where they enable fine-grained evaluation across languages as can be seen below. However, in order to scale such tests across languages native speaker expertise or translation are still required.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/multichecklist_evaluation.png" class="kg-image"><figcaption>Error rate of mBERT (left) and XLM-R (right) fine-tuned on English SQuAD v1.1 across different languages in MultiCheckList (<a href="https://aclanthology.org/2021.emnlp-main.802/">Ruder et al., 2021</a>)&nbsp;</figcaption></figure><p><strong>Best practices</strong>  When creating a new QA dataset, it is important to focus on the research questions you want to answer with your dataset. Try to avoid creating confounding variables (translationese, morphology, syntax, etc) that obfuscate answering these questions. Consider collecting data in a typologically diverse set of languages and think about the use case of your dataset and how systems based on the data could help humans. Chose an appropriate dataset format: If you want to help people around the world answer questions, focus on information-seeking questions and avoid cultural bias. If you want to help users ask questions about a short document, focus on reading comprehension. Finally, in order to create inclusive and diverse QA datasets, it is important to work with speaker communities and conduct participatory research (<a href="https://aclanthology.org/2020.findings-emnlp.195/">∀ et al., 2020</a>).</p><h3 id="multilingual-qa-evaluation">Multilingual QA Evaluation</h3><p>Common evaluation settings in multilingual QA range from <strong>monolingual QA</strong> where all data is in the same language to <strong>cross-lingual </strong>scenarios where the question, context, and answer can be in different languages as well as <strong>zero-shot cross-lingual</strong> <strong>transfer</strong> settings where training data is in a high-resource language and test data is in another language.</p><p><strong>Evaluation metrics</strong> are based on lexical overlap using either Exact Match (EM) or mean token F1, with optional pre-processing of predictions and answers (<a href="https://www.aclweb.org/anthology/2020.acl-main.653/">Lewis et al., 2020</a>). Such token-based metrics, however, are not appropriate for languages without whitespace separation and require a language-specific segmentation method, which introduces a dependence on the evaluation setting. Furthermore, metrics based on string matching penalize morphologically rich languages as extracted spans may contain irrelevant morphemes, favour extractive over generative systems, and are biased towards short answers.</p><p>Alternatively, evaluation can be performed on the character or byte level. As standard metrics used for natural language generation (NLG) such as BLEU or ROUGE show little correlation with human judgements for some languages (<a href="https://arxiv.org/abs/2110.07150">Muller et al., 2021</a>), learned metrics based on strong pre-trained models such as BERTScore (<a href="https://openreview.net/forum?id=SkeHuCVFDr">Zhang et al., 2020</a>) or SAS (<a href="https://aclanthology.org/2021.mrqa-1.15/">Risch et al., 2021</a>) may be preferred, particularly for evaluating generative models.</p><h2 id="multilingual-qa-models">Multilingual QA Models</h2><p>Multilingual models for QA are generally based on pre-trained multilingual Transformers such as mBERT (<a href="https://aclanthology.org/N19-1423/">Devlin et al., 2019</a>), XLM-R (<a href="https://aclanthology.org/2020.acl-main.747/">Conneau et al., 2020</a>), or mT5 (<a href="https://aclanthology.org/2021.naacl-main.41/">Xue et al., 2021</a>).</p><h3 id="models-for-multilingual-reading-comprehension">Models for Multilingual Reading Comprehension</h3><p>For reading comprehension, a multilingual model is typically fine-tuned on data in English and then applied to test data in the target language via zero-shot transfer. Recent models generally perform well on high-resource languages present in standard QA datasets while performance is slightly lower for languages with different scripts (<a href="https://aclanthology.org/2021.emnlp-main.802/">Ruder et al., 2021</a>), which can be seen below. Fine-tuning the model on data in the target language using masked language modelling (MLM) before training on task-specific data generally improves performance (<a href="https://aclanthology.org/2020.emnlp-main.617/">Pfeiffer et al., 2020</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/multilingual_rc_evaluation.png" class="kg-image"><figcaption>Zero-shot cross-lingual transfer performance (F1) of representative models on XQuAD (left) and MLQA (right) (<a href="https://aclanthology.org/2021.emnlp-main.802/">Ruder et al., 2021</a>)</figcaption></figure><p>In practice, fine-tuning on a few labelled target language examples can significantly improve transfer performance compared to zero-shot transfer (<a href="https://arxiv.org/abs/2003.11080">Hu et al., 2020</a>; <a href="https://aclanthology.org/2020.emnlp-main.363/">Lauscher et al., 2020</a>). However, the same does not hold for the more challenging open-retrieval QA (<a href="https://arxiv.org/abs/2110.04374">Kirstain et al., 2021</a>). Multi-task training on data in many languages improves performance further (<a href="https://aclanthology.org/2021.acl-short.79.pdf">Debnath et al., 2021</a>).</p><p>Most prior work on multilingual QA uses the <strong>translate-test</strong> setting, which translates all data into English—typically using an online MT system as a black box—and then applies a QA model trained on English to it (<a href="http://doras.dcu.ie/16441/1/Efficient_Question_Answering_with_Question_Decomposition_and_Multiple_Answer_Streams.pdf">Hartrumpf et al., 2008</a>; <a href="http://research.nii.ac.jp/~ntcadm/workshop/OnlineProceedings8/NTCIR/06-NTCIR8-CCLQA-LinC.pdf">Lin &amp; Kuo, 2010</a>; <a href="http://research.nii.ac.jp/ntcir/workshop/OnlineProceedings8/NTCIR/04-NTCIR8-CCLQA-ShimaH.pdf">Shima &amp; Mitamura, 2010</a>). In order to map the predicted English answer to the target language, back-translation of the answer span does not work well as it is agnostic of the paragraph context. Instead, recent methods employ the attention weights from a neural MT system to align the English answer span to a span in the original document (<a href="https://arxiv.org/abs/1809.03275">Asai et al., 2018</a>; <a href="https://www.aclweb.org/anthology/2020.acl-main.653/">Lewis et al., 2020</a>).</p><p>Alternatively, in the <strong>translate-train</strong> setting the English training data is translated to the target language and a target language QA model is trained on the data. In this case, it is crucial to ensure that answer spans can be recovered after translation by enclosing them with tags or using fuzzy search (<a href="https://aclanthology.org/D19-1607/">Hsu et al., 2019</a>; <a href="https://arxiv.org/abs/2003.11080">Hu et al., 2020</a>). We can go even further and translate the English data to <em>all</em> target languages on which we train a multilingual QA model. This <strong>translate-train-all</strong> setting generally performs best for reading comprehension (<a href="https://aclanthology.org/2020.acl-main.747/">Conneau et al., 2020</a>; <a href="https://arxiv.org/abs/2003.11080">Hu et al., 2020</a>; <a href="https://aclanthology.org/2021.emnlp-main.802/">Ruder et al., 2021</a>) and achieves performance close to English on high-resource languages but lower on others. The below flowchart shows what method achieves the best performance depending on the available data.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/multilingual_rc_flowchart.png" class="kg-image"><figcaption>Flowchart for multilingual reading comprehension</figcaption></figure><h3 id="models-for-multilingual-open-retrieval-qa">Models for Multilingual Open-Retrieval QA</h3><p><strong>Translate-test</strong> is the standard approach for open-retrieval QA as it only requires access to English resources. In addition to training a document reader model on English data, the open-retrieval setting also necessitates training an English retrieval model. During inference, we apply the models to the translated data and back-translate the answer to the target language, which can be seen below. However, low-quality MT may lead to error propagation and for some questions answers may not be available in the English Wikipedia. On the other hand, <strong>translate-train</strong> is generally infeasible in the open-retrieval setting as it requires translating all possible context (such as the entire Wikipedia) to the target language. As an alternative, only questions can be translated, which may outperform translate-test (<a href="https://arxiv.org/abs/2007.15207">Longpre et al., 2020</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/open-retrieval_translate-test.png" class="kg-image"><figcaption>Inference with translate-test in the open-retrieval QA setup (<em>note</em>: flags are used as succinct visual representations and are not meant to reflect a particular language variety)</figcaption></figure><p>Without using translations, we need to train cross-lingual retrieval and document reader models that can assess similarity between questions and context paragraphs and answer spans respectively across languages. To this end, we need to fine-tune a pre-trained multilingual model using target language questions and English contexts. However, restricting retrieval to English documents limits the viewpoints and knowledge sources at our disposal. We would thus like to extend retrieval to documents in multiple languages.</p><p>Fine-tuning a pre-trained multilingual model to retrieve passages only on English data does not generalize well to other languages (<a href="https://arxiv.org/abs/2108.08787">Zhang et al., 2021</a>), similar to the multi-domain setting. In order to train a retrieval model that better generalizes to other languages, we can fine-tune the model on multilingual data instead (<a href="https://arxiv.org/abs/2107.11976">Asai et al., 2021</a>). Alternatively, we can employ data augmentation. Similar to the multi-domain setting, we can obtain silver data in the target language by generating synthetic target language questions, in this case using a translate-train model (<a href="https://arxiv.org/abs/2109.01628">Shi et al., 2021</a>). In addition, we can obtain weakly supervised examples using language links in Wikipedia as can be seen below (<a href="https://arxiv.org/abs/2109.01628">Shi et al., 2021</a>; <a href="https://arxiv.org/abs/2107.11976">Asai et al., 2021</a>). Specifically, we retrieve the articles corresponding to the original answer and answer paragraph in other languages and use them as new training examples. Lastly, a combination of BM25 + dense retrieval also performs best in this setting (<a href="https://arxiv.org/abs/2108.08787">Zhang et al., 2021</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/cross-lingual_data_expansion.png" class="kg-image"><figcaption>Cross-lingual data expansion via Wikidata language links; based on an example by <a href="https://arxiv.org/abs/2107.11976">Asai et al. (2021)</a></figcaption></figure><p>To aggregate the retrieved passages in different languages we can train a pre-trained multilingual text-to-text model such as mT5 to generate an answer when provided with the passages as input (<a href="https://arxiv.org/abs/2110.07150">Muller et al., 2021</a>; <a href="https://arxiv.org/abs/2107.11976">Asai et al., 2021</a>). The full pipeline consisting of multilingual retrieval and answer generation models can be seen below. As the model will only learn to generate answers in languages covered by existing datasets, data augmentation is again key. Furthermore, models can be iteratively trained using newly retrieved and newly identified answers as additional training data in subsequent iterations (<a href="https://arxiv.org/abs/2107.11976">Asai et al., 2021</a>). The best models achieve strong performance in the full open-retrieval setting but there is still significant headroom left.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/mdpr_mgen.png" class="kg-image"><figcaption>Multilingual retrieval and multilingual answer generation pipeline (<a href="https://arxiv.org/abs/2107.11976">Asai et al., 2021</a>)</figcaption></figure><p>Two of the most challenging aspects of multilingual open-retrieval QA are finding the paragraph containing the answer (<strong>paragraph selection</strong>) and identifying whether a document contains the answer to a query (<strong>answerability prediction</strong>; <a href="https://aclanthology.org/2021.acl-long.118/">Asai &amp; Choi, 2021</a>). A related problem is answer sentence selection where models predict whether a sentence contains the answer (<a href="https://arxiv.org/abs/1911.04118">Garg et al., 2020</a>). Unanswerability is often due to errors in document retrieval or unanswerable questions requiring multiple paragraphs to answer. To address this headroom, <a href="https://aclanthology.org/2021.acl-long.118/">Asai and Choi (2021)</a> recommend to a) go beyond using Wikipedia for retrieval; b) to improve the quality of annotated questions in existing and future datasets; and c) to move from extracting a span to generating the answer.</p><h1 id="open-research-directions">Open Research Directions</h1><p><strong>Multi-modal question answering</strong>  For many language varieties and domains, it may be easier to obtain data in other modalities. As a recent example, SD-QA (<a href="https://aclanthology.org/2021.findings-emnlp.281/">Faisal et al., 2021</a>) augments TyDi QA with spoken utterances matching the questions in four languages and multiple dialects.</p><p><strong>Other domains: time and geography</strong>  A domain can include many facets not covered in existing work. For instance, answers often depend on extra-linguistic context such as the time and location where the questions were asked. SituatedQA (<a href="https://aclanthology.org/2021.emnlp-main.586/">Zhang &amp; Choi, 2021</a>) augments context-dependent questions in Natural Questions with time and geography-dependent contexts to study such questions.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://ruder.io/content/images/2021/11/situatedqa.png" class="kg-image"><figcaption>Temporal and geographical question contexts in SituatedQA (<a href="https://aclanthology.org/2021.emnlp-main.586/">Zhang &amp; Choi, 2021</a>)</figcaption></figure><p><strong>Code-switching</strong>   Code-switching is a common phenomenon in multilingual communities but mostly neglected in QA research. Only few resources exist in Bengali, Hindi, Telugu, and Tamil (<a href="http://www2015.thewebconf.org/documents/proceedings/companion/p853.pdf">Raghavi et al., 2015</a>; <a href="http://personales.upv.es/prosso/resources/BanerjeeEtAl_MultiLingMine16.pdf">Banerjee et al., 2016</a>; <a href="https://aclanthology.org/W18-3204/">Chandu et al., 2018</a>; <a href="https://aclanthology.org/W18-3205/">Gupta et al., 2018</a>). For a broader overview of code-switching, have a look at this survey (<a href="https://aclanthology.org/2021.acl-long.131.pdf">Doğruöz et al., 2021</a>).</p><p><strong>Multilingual multi-domain generalization </strong> Most open-retrieval QA datasets only cover Wikipedia while many domains important in real-world applications (e.g. tech questions) only have English QA datasets. Other domains without much data are particularly relevant in non-Western contexts, e.g. finance for small businesses, legal and health questions. In addition, currently unanswerable questions require retrieving information from a wider set of domains such as IMDb (<a href="https://arxiv.org/abs/2107.11976">Asai et al., 2021</a>). In order to create truly open-domain QA systems, we thus need to train open-retrieval QA systems to answer questions from many different domains.</p><p><strong>Data augmentation</strong>  Generation of synthetic multilingual QA data has been little explored beyond translation and retrieval (<a href="https://arxiv.org/abs/2109.01628">Shi et al., 2021</a>). The generation of data about non-Western entities may be particularly helpful.</p><p><strong>Generative question answering</strong>  In most existing QA datasets, the short answer is a span in the context. In order to train and evaluate models more effectively, more datasets need to include longer, more natural answers. The generation of long-form answers is particularly challenging, however (<a href="https://aclanthology.org/2021.naacl-main.393/">Krishna et al., 2021</a>).</p><p><strong>Aggregating evidence from diverse sources</strong>  We need to develop better aggregation methods that cover reasoning paths, e.g. for multi-hope reasoning (<a href="https://arxiv.org/abs/1911.10470">Asai et al., 2020</a>). Models also need to be able to generate answers that are faithful to the retrieved passages, requiring clear answer attribution. Finally, we require methods that can effectively combine evidence from different domains and even different modalities.</p><p><strong>Conversational question answering</strong>  Current open-retrieval QA datasets are generally single-turn and do not depend on any external context. In order to train generally useful QA systems, models should also be able to take into account conversational context as required by datasets such as QuAC (<a href="https://aclanthology.org/D18-1241/">Choi et al., 2018</a>). In particular, they should be able to handle coreference, ask for clarification regarding ambiguous questions, etc.</p><h2 id="further-reading">Further reading</h2><p>Here are some additional resources that may be useful to learn more about different aspects of the topic:</p><ul><li>a survey on <strong>question answering datasets</strong> with a particular focus on the required reasoning skills (<a href="https://arxiv.org/abs/2107.12708">Rogers et al., 2021</a>);</li><li>a survey on <strong>neural unsupervised domain adaptation</strong> in NLP (<a href="https://aclanthology.org/2020.coling-main.603/">Ramponi &amp; Plank, 2020</a>);</li><li>the <a href="https://github.com/danqi/acl2020-openqa-tutorial">ACL 2020 tutorial</a> on <strong>open-domain question answering</strong>;</li><li>and my <a href="https://tinyurl.com/xlingual">ACL 2019 tutorial</a> on <strong>cross-lingual representation learning</strong>.</li></ul><h2 id="credit">Credit</h2><p>Thanks to the following people for feedback on a draft of the tutorial slides: Jon Clark, Tim Möller, Sara Rosenthal, Md Arafat Sultan, and Benjamin Muller.</p><h2 id="citation">Citation</h2><p>If you found this post helpful, consider citing <a href="https://aclanthology.org/2021.emnlp-tutorials.4/">the tutorial</a> as:</p><pre><code>@inproceedings{ruder-sil-2021-multi,
+    title = "Multi-Domain Multilingual Question Answering",
+    author = "Ruder, Sebastian  and
+      Sil, Avi",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing: Tutorial Abstracts",
+    month = nov,
+    year = "2021",
+    address = "Punta Cana, Dominican Republic {\&amp;} Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-tutorials.4",
+    pages = "17--21",
+}
+</code></pre>
+                </div>
+
+<h2 id="citation">Newsletter</h2>
+
+<style>
+input {
+  color: black;
+}
+</style>
+
+If you want to receive regular updates about advances in machine learning and natural language processing, subscribe to <a href="https://newsletter.ruder.io/">my newsletter</a> below. 
+
+<div id="revue-embed">
+  <form action="https://newsletter.ruder.io/add_subscriber" method="post" id="revue-form" name="revue-form" $
+  <div class="revue-form-group">
+    <label for="member_email">Email address: </label>
+    <input class="revue-form-field" placeholder="Your email address" type="email" name="member[email]" id="$
+  </div>
+  <div class="revue-form-group">
+    <label for="member_first_name">First name <span class="optional">(Optional)</span>:</label>
+    <input class="revue-form-field" placeholder="First name " type="text" name="member[first_name]" id="memb$
+  </div>
+  <div class="revue-form-group">
+    <label for="member_last_name">Last name <span class="optional">(Optional)</span>:</label>
+    <input class="revue-form-field" placeholder="Last name" type="text" name="member[last_name]" id="member$
+  </div>
+  <div class="revue-form-actions">
+    <input type="submit" value="Subscribe" name="member[subscribe]" id="member_submit">
+  </div>
+  </form>
+</div>
+
+            </section>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = '/multi-qa-tutorial/';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "ghost-619bf3696d05ee2bd16c34c0"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://EXAMPLE.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+
+                <article class="post-card post tag-natural-language-processing tag-transfer-learning ">
+
+    <a class="post-card-image-link" href="../nlp-benchmarking/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/2021/08/squad_2_progress.png 300w,
+                   ../content/images/size/w600/2021/08/squad_2_progress.png 600w,
+                  ../content/images/size/w1000/2021/08/squad_2_progress.png 1000w,
+                 ../content/images/size/w2000/2021/08/squad_2_progress.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="../content/images/size/w600/2021/08/squad_2_progress.png"
+            alt="Challenges and Opportunities in NLP Benchmarking"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../nlp-benchmarking/index.html">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">natural language processing</div>
+                <h2 class="post-card-title">Challenges and Opportunities in NLP Benchmarking</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>Over the last years, models in NLP have become much more powerful, driven by advances in transfer learning. A consequence of this drastic increase in performance is that existing benchmarks</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-08-23">23 Aug 2021</time> <span class="bull">&bull;</span> 16 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://ruder.io">Sebastian Ruder</a> &copy; 2021</section>
+                <nav class="site-footer-nav">
+                    <a href="https://ruder.io">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/seb_ruder" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js?v=eba9ab5cd4"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-60512592-1');
+</script>
+
+</body>
+</html>
