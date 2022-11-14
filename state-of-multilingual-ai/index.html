@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>The State of Multilingual AI</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css?v=96152eef5a" />
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="https://ruder.io/state-of-multilingual-ai/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://ruder.io/state-of-multilingual-ai/amp/" />
+    
+    <meta property="og:site_name" content="Sebastian Ruder" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="The State of Multilingual AI" />
+    <meta property="og:description" content="This post takes a closer look at the state of multilingual AI. How multilingual are current models in NLP, computer vision, and speech? What are the main recent contributions in this area? What challenges remain and how we can we address them?" />
+    <meta property="og:url" content="https://ruder.io/state-of-multilingual-ai/" />
+    <meta property="og:image" content="https://ruder.io/content/images/2022/11/language_models_non-english.png" />
+    <meta property="article:published_time" content="2022-09-24T10:47:44.000Z" />
+    <meta property="article:modified_time" content="2022-11-14T20:19:55.000Z" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The State of Multilingual AI" />
+    <meta name="twitter:description" content="This post takes a closer look at the state of multilingual AI. How multilingual are current models in NLP, computer vision, and speech? What are the main recent contributions in this area? What challenges remain and how we can we address them?" />
+    <meta name="twitter:url" content="https://ruder.io/state-of-multilingual-ai/" />
+    <meta name="twitter:image" content="https://ruder.io/content/images/2022/11/language_models_non-english.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sebastian Ruder" />
+    <meta name="twitter:site" content="@seb_ruder" />
+    <meta property="og:image:width" content="1267" />
+    <meta property="og:image:height" content="746" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Sebastian Ruder",
+        "url": "https://ruder.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": {
+                "@type": "ImageObject",
+                "url": "https://ruder.io/favicon.ico",
+                "width": 48,
+                "height": 48
+            }
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://ruder.io/content/images/2019/02/new_profile_photo_square-1.jpg",
+            "width": 2000,
+            "height": 2000
+        },
+        "url": "https://ruder.io/author/sebastian/",
+        "sameAs": []
+    },
+    "headline": "The State of Multilingual AI",
+    "url": "https://ruder.io/state-of-multilingual-ai/",
+    "datePublished": "2022-09-24T10:47:44.000Z",
+    "dateModified": "2022-11-14T20:19:55.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://ruder.io/content/images/2022/11/language_models_non-english.png",
+        "width": 1267,
+        "height": 746
+    },
+    "description": "This post takes a closer look at the state of multilingual AI. How multilingual are current models in NLP, computer vision, and speech? What are the main recent contributions in this area? What challenges remain and how we can we address them?",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ruder.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 3.11" />
+    <link rel="alternate" type="application/rss+xml" title="Sebastian Ruder" href="https://ruder.io/rss/" />
+    <script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header">
+    <div class="outer site-nav-main">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left-wrapper">
+        <div class="site-nav-left">
+                <a class="site-nav-logo" href="https://ruder.io">Sebastian Ruder</a>
+            <div class="site-nav-content">
+                    <ul class="nav" role="menu">
+    <li class="nav-about" role="menuitem"><a href="https://ruder.io/about/">About</a></li>
+    <li class="nav-tags" role="menuitem"><a href="https://ruder.io/tags/">Tags</a></li>
+    <li class="nav-papers" role="menuitem"><a href="https://ruder.io/publications/">Papers</a></li>
+    <li class="nav-talks" role="menuitem"><a href="https://ruder.io/talks/">Talks</a></li>
+    <li class="nav-news" role="menuitem"><a href="https://ruder.io/news/">News</a></li>
+    <li class="nav-faq" role="menuitem"><a href="https://ruder.io/faq/">FAQ</a></li>
+    <li class="nav-newsletter" role="menuitem"><a href="https://ruder.io/nlp-news/">Newsletter</a></li>
+    <li class="nav-nlp-progress" role="menuitem"><a href="https://nlpprogress.com/">NLP Progress</a></li>
+    <li class="nav-media" role="menuitem"><a href="https://ruder.io/media/">Media</a></li>
+    <li class="nav-contact" role="menuitem"><a href="https://ruder.io/contact/">Contact</a></li>
+</ul>
+
+                    <span class="nav-post-title dash">The State of Multilingual AI</span>
+            </div>
+        </div>
+    </div>
+    <div class="site-nav-right">
+            <div class="social-links">
+                    <a class="social-link social-link-tw" href="https://twitter.com/seb_ruder" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+            </div>
+                <a class="rss-button" href="https://ruder.io/rss/index.rss" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+</a>
+
+    </div>
+</nav>
+    </div>
+</div></header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post ">
+
+            <header class="post-full-header">
+
+
+                <h1 class="post-full-title">The State of Multilingual AI</h1>
+
+                <p class="post-full-custom-excerpt">This post takes a closer look at the state of multilingual AI. How multilingual are current models in NLP, computer vision, and speech? What are the main recent contributions in this area? What challenges remain and how we can we address them?</p>
+
+                <div class="post-full-byline">
+
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+                            <li class="author-list-item">
+
+                                <div class="author-card">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                    <div class="author-info">
+                                        <h2>Sebastian Ruder</h2>
+                                        <p>Read <a href="../author/sebastian/index.html">more posts</a> by this author.</p>
+                                    </div>
+                                </div>
+
+                                <a href="../author/sebastian/index.html" class="author-avatar">
+                                    <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                                </a>
+
+                            </li>
+                        </ul>
+
+                        <section class="post-full-byline-meta">
+                            <h4 class="author-name"><a href="../author/sebastian/index.html">Sebastian Ruder</a></h4>
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2022-09-24">24 Sep 2022</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 36 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            <figure class="post-full-image">
+                <img
+                    srcset="../content/images/size/w300/2022/11/language_models_non-english.png 300w,
+                           ../content/images/size/w600/2022/11/language_models_non-english.png 600w,
+                          ../content/images/size/w1000/2022/11/language_models_non-english.png 1000w,
+                         ../content/images/size/w2000/2022/11/language_models_non-english.png 2000w"
+                    sizes="(max-width: 800px) 400px,
+                        (max-width: 1170px) 1170px,
+                            2000px"
+                    src="../content/images/size/w2000/2022/11/language_models_non-english.png"
+                    alt="The State of Multilingual AI"
+                />
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <!--kg-card-begin: markdown--><p>Models that allow interaction via natural language have become ubiquitious. Research models such as BERT and T5 have become much more accessible while the latest generation of language and multi-modal models are demonstrating increasingly powerful capabilities. At the same time, a <a href="https://www.forbes.com/sites/robtoews/2022/03/27/a-wave-of-billion-dollar-language-ai-startups-is-coming/?sh=3517fd212b14">wave of</a> <a href="https://techcrunch.com/2022/07/28/a-gold-rush-of-nlp-startups-is-about-to-arrive-heres-why">NLP startups</a> has started to put this technology to practical use.</p>
+<p>While such language technology may be hugely impactful, recent models have mostly focused on English and a handful of other languages with large amounts of resources. Developing models that work for more languages is important in order to offset the existing <a href="https://labs.theguardian.com/digital-language-divide/">language divide</a> and to ensure that speakers of non-English languages are not left behind, among <a href="https://ruder.io/nlp-beyond-english/">many other reasons</a>.</p>
+<p>This post takes a closer look at how the AI community is faring in this endeavour. I will be focusing on topics related to natural language processing (NLP) and African languages as these are the domains I am most familiar with. I've tried to cover as many contributions as possible but undoubtedly missed relevant work. Feel free to leave a comment or reach out with a pointer to anything I missed.</p>
+<p>This post is partially based on a <a href="https://drive.google.com/file/d/1T8aGnKxO7vRclhjfeDKEiARmsor5Cvsa/view?usp=sharing">keynote</a> I gave at the <a href="https://deeplearningindaba.com/2022/">Deep Learning Indaba 2022</a>. It covers the following high-level topics:</p>
+<ul>
+<li><a href="index.html#statusquo">Status Quo</a></li>
+<li><a href="index.html#recentprogress">Recent Progress</a></li>
+<li><a href="index.html#challengesandopportunities">Challenges and Opportunities</a></li>
+</ul>
+<h2 id="statusquo">Status Quo</h2>
+<p>There are around 7,000 languages spoken around the world. Around 400 languages have more than 1M speakers and around 1,200 languages have more than 100k <sup class="footnote-ref"><a href="index.html#fn1" id="fnref1">[1]</a></sup>. Bender <sup class="footnote-ref"><a href="index.html#fn2" id="fnref2">[2]</a></sup> highlighted the need for language independence in 2011. Reviewing papers published at ACL 2008, she found that 63% of all papers focused on English. For a recent study <sup class="footnote-ref"><a href="index.html#fn3" id="fnref3">[3]</a></sup>, we similarly reviewed papers from ACL 2021 and found that almost 70% of papers only evaluate on English. 10 years on, little thus seems to have changed.</p>
+<p>Many languages in Africa, Asia, and the Americas that are spoken by tens of millions of people have received little research attention <sup class="footnote-ref"><a href="index.html#fn1" id="fnref1:1">[1:1]</a></sup><sup class="footnote-ref"><a href="index.html#fn4" id="fnref4">[4]</a></sup>. Continents such as Africa with around 2,000 languages or individual countries such as Indonesia with around 700 languages are incredibly linguistically diverse and at the same time dramatically underserved by current research and technology.</p>
+<p>Beyond individual languages, researchers with affiliations in countries where such languages are spoken are similarly under-represented in both ML and NLP communities. For instance, while we can observe a slight upward trend in the number of authors affiliated with African universities publishing at top machine learning (ML) and NLP venues, this increase pales compared to the <a href="https://aiindex.stanford.edu/wp-content/uploads/2021/03/2021-AI-Index-Report-_Chapter-1.pdf">thousands of authors</a> from other regions publishing in such venues every year.</p>
+<figure>
+      <img src="https://ruder.io/content/images/2022/10/representation_of_african_researchers.png" style="width: 100%" title="Representation of African NLP Researchers in top ML and NLP venues">
+<figcaption>Representation of African NLP Researchers in top ML and NLP venues. *: does not consider African authors working abroad. Data is based on: <a href="https://github.com/marekrei/ml_nlp_paper_data">ml_nlp_paper_data</a> by Marek Rei. NLP venues: ACL, CL, COLING, CoNLL, EACL, EMNLP, NAACL, TACL; ML venues: AAAI, ICLR, ICML, NeurIPS.</figcaption>
+</figure>
+<p>Current state-of-the-art models in many ML domains are mainly based on two ingredients: 1) large, scalable architectures (often based on the Transformer <sup class="footnote-ref"><a href="index.html#fn5" id="fnref5">[5]</a></sup>) and 2) <a href="https://tinyurl.com/NAACLTransfer">transfer learning</a><sup class="footnote-ref"><a href="index.html#fn6" id="fnref6">[6]</a></sup>. Given the general nature of these models, they can be applied to various types of data including images <sup class="footnote-ref"><a href="index.html#fn7" id="fnref7">[7]</a></sup>, video <sup class="footnote-ref"><a href="index.html#fn8" id="fnref8">[8]</a></sup>, and audio <sup class="footnote-ref"><a href="index.html#fn9" id="fnref9">[9]</a></sup>. Some of the most successful models in recent NLP are BERT <sup class="footnote-ref"><a href="index.html#fn10" id="fnref10">[10]</a></sup>, RoBERTa <sup class="footnote-ref"><a href="index.html#fn11" id="fnref11">[11]</a></sup>, BART <sup class="footnote-ref"><a href="index.html#fn12" id="fnref12">[12]</a></sup>, T5 <sup class="footnote-ref"><a href="index.html#fn13" id="fnref13">[13]</a></sup>, and DeBERTa <sup class="footnote-ref"><a href="index.html#fn14" id="fnref14">[14]</a></sup>, which have been trained on billions of tokens of online text using variants of masked language modeling in English. In speech, wav2vec 2.0 <sup class="footnote-ref"><a href="index.html#fn15" id="fnref15">[15]</a></sup> has been pre-trained on large amounts of unlabeled speech.</p>
+<p><strong>Multilingual models</strong>   These models have multilingual analogues—in NLP, models such as <a href="https://github.com/google-research/bert/blob/master/multilingual.md">mBERT</a>, RemBERT <sup class="footnote-ref"><a href="index.html#fn16" id="fnref16">[16]</a></sup>, XLM-RoBERTa <sup class="footnote-ref"><a href="index.html#fn17" id="fnref17">[17]</a></sup>, mBART <sup class="footnote-ref"><a href="index.html#fn18" id="fnref18">[18]</a></sup>, mT5 <sup class="footnote-ref"><a href="index.html#fn19" id="fnref19">[19]</a></sup>, and mDeBERTa <sup class="footnote-ref"><a href="index.html#fn14" id="fnref14:1">[14:1]</a></sup>—that were trained in a similar fashion, predicting randomly masked tokens on data of around 100 languages. Compared to their monolingual counterparts, these multilingual models require a much larger vocabulary to represent tokens in many languages.</p>
+<p>A number of factors has been found to be important for learning robust multilingual representations, including shared tokens <sup class="footnote-ref"><a href="index.html#fn20" id="fnref20">[20]</a></sup>, subword fertility <sup class="footnote-ref"><a href="index.html#fn21" id="fnref21">[21]</a></sup>, and word embedding alignment <sup class="footnote-ref"><a href="index.html#fn22" id="fnref22">[22]</a></sup>. In speech, models such as XSLR <sup class="footnote-ref"><a href="index.html#fn23" id="fnref23">[23]</a></sup> and UniSpeech <sup class="footnote-ref"><a href="index.html#fn24" id="fnref24">[24]</a></sup> are pre-trained on large amounts of unlabeled data in 53 and 60 languages respectively.</p>
+<p><strong>The curse of multilinguality</strong>   Why do these models only cover up to 100 languages? One reason is the 'curse of multilinguality' <sup class="footnote-ref"><a href="index.html#fn17" id="fnref17:1">[17:1]</a></sup>. Similar to models that are trained on many tasks, the more languages a model is pre-trained on, the less model capacity is available to learn representations for each language. Increasing the size of a model ameliorates this to some extent, enabling the model to dedicate more capacity to each language <sup class="footnote-ref"><a href="index.html#fn25" id="fnref25">[25]</a></sup>.</p>
+<p><strong>Lack of pre-training data</strong>   Another limiting factor is the availability of text data on the web, which is skewed towards languages spoken in Western countries and with a large online footprint. The languages with the most online resources available for pre-training are typically prioritized, leading to an under-representation of languages with few resources due to this top-heavy selection. This is concerning as prior studies have shown that the amount of pre-training data in a language correlates with downstream performance for some tasks <sup class="footnote-ref"><a href="index.html#fn26" id="fnref26">[26]</a></sup><sup class="footnote-ref"><a href="index.html#fn27" id="fnref27">[27]</a></sup><sup class="footnote-ref"><a href="index.html#fn28" id="fnref28">[28]</a></sup>. In particular, languages and scripts that were never seen during pre-training often lead to poor performance <sup class="footnote-ref"><a href="index.html#fn29" id="fnref29">[29]</a></sup><sup class="footnote-ref"><a href="index.html#fn30" id="fnref30">[30]</a></sup>.</p>
+<figure>
+      <img src="https://ruder.io/content/images/2022/10/language_coverage_wikipedia_commoncrawl.png" style="width: 100%" title="Representation of African NLP Researchers in top ML and NLP venues">
+<figcaption>Amount of data in GiB (log-scale) for the 88 languages that appear in both Wikipedia and CommonCrawl (<a href="https://aclanthology.org/2020.acl-main.747/">Conneau et al., 2020</a>).</figcaption>
+</figure>
+<p><strong>Quality issues in existing multilingual resources</strong>   Even for languages where data is available, past work has shown that some commonly used multilingual resources have severe quality issues. Entity names in Wikidata are not in the native script for many under-represented languages while entity spans in WikiAnn <sup class="footnote-ref"><a href="index.html#fn31" id="fnref31">[31]</a></sup>, a weakly supervised multilingual named entity recognition dataset based on Wikipedia, are often erroneous <sup class="footnote-ref"><a href="index.html#fn32" id="fnref32">[32]</a></sup>.</p>
+<p>Similarly, several automatically mined resources and automatically aligned corpora used for machine translation are problematic <sup class="footnote-ref"><a href="index.html#fn33" id="fnref33">[33]</a></sup>. For instance, 44/65 audited languages in WikiMatrix <sup class="footnote-ref"><a href="index.html#fn34" id="fnref34">[34]</a></sup> and 19/20 audited langages in CCAligned <sup class="footnote-ref"><a href="index.html#fn35" id="fnref35">[35]</a></sup> contain less than 50% correct sentences. Overall, however, performance seems to be mostly constrained by the quantity rather than quality of data in under-represented languages <sup class="footnote-ref"><a href="index.html#fn36" id="fnref36">[36]</a></sup>.</p>
+<p><strong>Multilingual evaluation results</strong>   We can get a better picture of the state of the art by looking at the performance of recent models on a representative multilingual benchmark such as XTREME <sup class="footnote-ref"><a href="index.html#fn26" id="fnref26:1">[26:1]</a></sup>—a multilingual counterpart to GLUE <sup class="footnote-ref"><a href="index.html#fn37" id="fnref37">[37]</a></sup> and SuperGLUE <sup class="footnote-ref"><a href="index.html#fn38" id="fnref38">[38]</a></sup>—which aggregates performance across 9 tasks and 40 languages. Starting with the first multilingual pre-trained models two and a half years ago, performance has improved steadily and is slowly approaching human-level performance on the benchmark.</p>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/progress_xtreme_nov.png" style="width: 100%" title="Representation of African NLP Researchers in top ML and NLP venues">
+<figcaption>Performance of models on the XTREME leaderboard on 9 tasks and 40 languages.</figcaption>
+</figure>
+<p>However, looking at the average performance on such a benchmark obscures which languages a model was actually evaluated on. Beyond a few datasets with a large language coverage—Universal Dependencies <sup class="footnote-ref"><a href="index.html#fn39" id="fnref39">[39]</a></sup>, WikiAnn <sup class="footnote-ref"><a href="index.html#fn31" id="fnref31:1">[31:1]</a></sup>, and Tatoeba <sup class="footnote-ref"><a href="index.html#fn40" id="fnref40">[40]</a></sup>—other tasks only cover few languages, and are again skewed towards languages with more resources. Most current benchmarks thus only provide a distorted view of the overall progress towards multilingual AI for the world's languages.</p>
+<p>For a more accurate impression, we can look at the normalized state-of-the-art performance on different language technology tasks averaged across the world's languages either based on their speaker population (demographic utility) or equally (linguistic utility) <sup class="footnote-ref"><a href="index.html#fn41" id="fnref41">[41]</a></sup>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/linguistic_demographic_utility.png" style="width: 100%" title="Linguistic and demographic utility">
+<figcaption>Linguistic and demographic global utility metrics for a number of language technology tasks. The red curve corresponds to the sequence where first the language with the largest number of users is set to utility 1, then the second, and so on <a href="https://aclanthology.org/2022.acl-long.376/">(Blasi et al., 2022)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<p>Most NLP tasks fare better when we average based on speaker population. Overall, however, we observe very low linguistic utility numbers, showing an unequal performance distribution across the world's languages. This conclusion, however, may be somewhat overly pessimistic as it only considers languages for which evaluation data is currently available. Cross-lingual performance prediction <sup class="footnote-ref"><a href="index.html#fn42" id="fnref42">[42]</a></sup> could be used to estimate performance for a broader set of languages.</p>
+<p><strong>Multilingual vs English-centric models</strong>   Let us now take a step back and look at recent large language models in NLP in general. We can plot recent models based on the fraction of non-English data they are pre-trained on. Based on this characterization, we can observe two distinct streams of research: 1) Multilingual models that are trained on multingual data in many languages and 2) English-centric models that are trained on mostly English data.</p>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/language_models_over_time_opt_bloom.png" style="width: 100%" title="Representation of African NLP Researchers in top ML and NLP venues">
+<figcaption>The largest recent models are not becoming significantly more multilingual. Figure adapted from Noah Constant.</figcaption>
+</figure>
+<p>The latter form the foundation for the mainstream of NLP research and while these models have been getting larger, they have not been getting much more multilingual. An exception is BLOOM <sup class="footnote-ref"><a href="index.html#fn43" id="fnref43">[43]</a></sup>, the largest multilingual open-source model to date. Some of these large models have demonstrated surprising multilingual capabilities. For instance, GPT-3 <sup class="footnote-ref"><a href="index.html#fn44" id="fnref44">[44]</a></sup> and PaLM <sup class="footnote-ref"><a href="index.html#fn45" id="fnref45">[45]</a></sup> can translate text between languages with large amounts of data. While they have been shown to be able to perform multilingual few-shot learning <sup class="footnote-ref"><a href="index.html#fn46" id="fnref46">[46]</a></sup><sup class="footnote-ref"><a href="index.html#fn47" id="fnref47">[47]</a></sup><sup class="footnote-ref"><a href="index.html#fn48" id="fnref48">[48]</a></sup>, models perform best when prompts or input data are translated to English. They also perform poorly when translating between non-English language pairs or into languages with limited data. While PaLM is able to summarize non-English text into English, it struggles when generating text in other languages.</p>
+<p>Similarly, recent speech models such as HuBERT <sup class="footnote-ref"><a href="index.html#fn49" id="fnref49">[49]</a></sup> and WavLM <sup class="footnote-ref"><a href="index.html#fn50" id="fnref50">[50]</a></sup> and recent large vision models that generate text based on an image such as Flamingo <sup class="footnote-ref"><a href="index.html#fn51" id="fnref51">[51]</a></sup> or an image based on text such as DALL-E 2 <sup class="footnote-ref"><a href="index.html#fn52" id="fnref52">[52]</a></sup>, Imagen <sup class="footnote-ref"><a href="index.html#fn53" id="fnref53">[53]</a></sup>, and Parti <sup class="footnote-ref"><a href="index.html#fn54" id="fnref54">[54]</a></sup> are English-centric. Exceptions are Whisper <sup class="footnote-ref"><a href="index.html#fn55" id="fnref55">[55]</a></sup> and PaLI <sup class="footnote-ref"><a href="index.html#fn56" id="fnref56">[56]</a></sup>, which are pre-trained on large amounts of weakly supervised data from the web for ASR and image captioning in 96 and 109 languages respectively. However, overall, for the latest generation of large models, multilinguality remains a side-effect rather than a key design criterion.</p>
+<p><strong>User-facing technologies</strong>   With regard to user-facing technologies, keyboards and spell checkers such as <a href="https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin&amp;hl=en&amp;gl=US">Gboard</a> support more than 900+ languages but many languages still lack support or speakers may be unaware that a keyboard for their language is available <sup class="footnote-ref"><a href="index.html#fn57" id="fnref57">[57]</a></sup>. Other user-facing technologies with broad language coverage are machine translation and automatic speech recognition (ASR). <a href="https://translate.google.com/">Google Translate</a> and <a href="https://cloud.google.com/speech-to-text">speech-to-text</a>, for instance, support 133 and more than 125 languages respectively as of the publishing of this post.</p>
+<h2 id="recentprogress">Recent Progress</h2>
+<p>Recent progress in this area can be categorized into two categories: 1) new groups, communities, support structures, and initiatives that have enabled broader work; and 2) high-level research contributions such as new datasets and models that allow others to build on them.</p>
+<p><strong>Research communities</strong>   There are many languages with active existing research communities dedicated to them. These include languages with large speaker populations such as Japanese, Mandarin, Turkish, and Hindi as well as languages with fewer speakers such as Gaelic or Basque <sup class="footnote-ref"><a href="index.html#fn1" id="fnref1:2">[1:2]</a></sup>. There have also been concerted efforts in the past to collect data for specific under-represented languages such as Inuktitut <sup class="footnote-ref"><a href="index.html#fn58" id="fnref58">[58]</a></sup><sup class="footnote-ref"><a href="index.html#fn59" id="fnref59">[59]</a></sup>.</p>
+<p>In the last few years, various new communities have emerged specializing in under-represented languages or language families. These include groups focusing on linguistic regions such as <a href="https://www.masakhane.io/">Masakhane</a> for African languages, <a href="http://turing.iimas.unam.mx/americasnlp/">AmericasNLP</a> for native American languages, <a href="https://indonlp.github.io/">IndoNLP</a> for Indonesian languages, <a href="https://ghananlp.org/">GhanaNLP</a> and <a href="https://www.hausanlp.org/">HausaNLP</a>, among others. Events such as the <a href="https://deeplearningindaba.com/2022/">Deep Learning Indaba</a>, <a href="https://deeplearningindaba.com/2022/indabax/">IndabaX</a>, <a href="https://khipu.ai/">Khipu</a>, <a href="https://www.eeml.eu/home">EEML</a>, <a href="https://www.seamls.ai/">SEAMLS</a>, and <a href="https://lig-alps.imag.fr/">ALPS</a>, among many others and workshops such as <a href="https://africanlp.masakhane.io/">AfricaNLP</a> have enabled these communities to come together and complement longer-running events such as the <a href="https://sites.google.com/view/wanlp2022/">Arabic NLP</a>, <a href="https://computel-workshop.org/">ComputEL</a>, and <a href="https://sigtyp.github.io/">SIGTYP workshops</a>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/deep_learning_indaba_tunisia.jpeg" style="width: 80%" title="Deep Learning Indaba">
+<figcaption>The Deep Learning Indaba 2022 in Tunesia.</figcaption>
+</figure>
+</center>
+</div>
+<p>At the same time, there are communities with broader focus areas such as <a href="https://mlcollective.org/">ML Collective</a> that have contributed to this space. One of the largest community-driven efforts in multilingual AI is <a href="https://bigscience.huggingface.co/">BigScience</a>, which has released BLOOM <sup class="footnote-ref"><a href="index.html#fn43" id="fnref43:1">[43:1]</a></sup>. In many cases, projects in these communities have been participatory and highly collaborative <sup class="footnote-ref"><a href="index.html#fn60" id="fnref60">[60]</a></sup><sup class="footnote-ref"><a href="index.html#fn61" id="fnref61">[61]</a></sup>, lowering the barrier to doing research and involving members of the community at every stage of the process.</p>
+<p>Other communities such as <a href="https://zindi.africa/">Zindi</a> or <a href="https://www.datasciencenigeria.org/">Data Science Nigeria</a> have focused on hosting competitions and providing training courses while new programs such as the <a href="https://aimsammi.org/">African Master's in Machine Intelligence</a> seek to educate the next generation of AI researchers.</p>
+<p><strong>Initiatives</strong>   The Association for Computational Linguistics (ACL) has emphasized the importance of language diversity, with a <a href="https://www.2022.aclweb.org/post/acl-2022-theme-track-language-diversity-from-low-resource-to-endangered-languages">special theme track at the main ACL 2022 conference</a> on this topic. The ACL has also launched the <a href="https://www.2022.aclweb.org/dispecialinitiative">60-60 initiative</a>, which aims to make scientific content more accessible by creating a) translations of the entire <a href="https://aclanthology.org/">ACL anthology</a> into 60 languages; b) cross-lingual subtitling and dubbing for all plenary talks in 10 languages; and c) a comprehensive standardized scientific and NLP terminology list in 60 languages. The latter resource and <a href="https://www.masakhane.io/ongoing-projects/masakhane-mt-decolonise-science">glossaries for African languages</a> could help to facilitate the discussion of language technology in local languages.</p>
+<p><strong>Datasets</strong>   On the research side, there has been a flurry of new datasets covering a host of applications, from unlabeled speech and text corpora <sup class="footnote-ref"><a href="index.html#fn62" id="fnref62">[62]</a></sup>, to language identification <sup class="footnote-ref"><a href="index.html#fn63" id="fnref63">[63]</a></sup>, text classification <sup class="footnote-ref"><a href="index.html#fn64" id="fnref64">[64]</a></sup>, sentiment analysis <sup class="footnote-ref"><a href="index.html#fn65" id="fnref65">[65]</a></sup>, <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/YHXJSU">ASR</a>, named entity recognition <sup class="footnote-ref"><a href="index.html#fn61" id="fnref61:1">[61:1]</a></sup>, question answering <sup class="footnote-ref"><a href="index.html#fn66" id="fnref66">[66]</a></sup>, and summarization <sup class="footnote-ref"><a href="index.html#fn67" id="fnref67">[67]</a></sup> in a range of under-represented languages. New benchmarks seek to assess models on a broad set of tasks in Romanian <sup class="footnote-ref"><a href="index.html#fn68" id="fnref68">[68]</a></sup>, Korean <sup class="footnote-ref"><a href="index.html#fn69" id="fnref69">[69]</a></sup>, and Turkish <sup class="footnote-ref"><a href="index.html#fn70" id="fnref70">[70]</a></sup>, in geographically related languages such as Indonesian <sup class="footnote-ref"><a href="index.html#fn71" id="fnref71">[71]</a></sup><sup class="footnote-ref"><a href="index.html#fn72" id="fnref72">[72]</a></sup> or Indian languages <sup class="footnote-ref"><a href="index.html#fn73" id="fnref73">[73]</a></sup>, and in different modalities such as speech <sup class="footnote-ref"><a href="index.html#fn74" id="fnref74">[74]</a></sup> and image-grounded text <sup class="footnote-ref"><a href="index.html#fn75" id="fnref75">[75]</a></sup>. The development of these datasets has been enabled by new funding structures and initiatives such as the <a href="https://lacunafund.org/">Lacuna Fund</a> and <a href="https://www.bmz-digital.global/en/overview-of-initiatives/fair-forward/">FAIR Forward</a> that have incentivized work in this area.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/masakhaner_data.png" style="width: 100%" title="MasakhaNER data">
+<figcaption>Named entity annotations in African languages in MasakhaNER. PER, LOC, and DATE entities are in purple, orange, and green respectively <a href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00416/107614/MasakhaNER-Named-Entity-Recognition-for-African">(Adelani et al., 2021)</a></figcaption>
+</figure>
+</center>
+</div>
+<p>Other existing corpora have grown in their language coverage with community involvement: The <a href="https://commonvoice.mozilla.org/en/datasets">Common Voice speech corpus</a> <sup class="footnote-ref"><a href="index.html#fn76" id="fnref76">[76]</a></sup> now covers 100 languages while the latest release of <a href="https://universaldependencies.org/">Universal Dependencies</a> <sup class="footnote-ref"><a href="index.html#fn39" id="fnref39:1">[39:1]</a></sup> includes 130 languages. Given the number of new datasets, there have been efforts to catalogue available datasets in <a href="https://lanfrica.com/">African</a> and <a href="https://indonlp.github.io/nusa-catalogue/">Indonesian languages</a>, <a href="https://arbml.github.io/masader/">Arabic</a>, and a diverse set of languages <sup class="footnote-ref"><a href="index.html#fn77" id="fnref77">[77]</a></sup>.</p>
+<p><strong>Models</strong>   New models developed in this area focus specifically on under-represented languages. There are text-based language models that focus on African languages such as AfriBERTa <sup class="footnote-ref"><a href="index.html#fn78" id="fnref78">[78]</a></sup>, AfroXLM-R <sup class="footnote-ref"><a href="index.html#fn79" id="fnref79">[79]</a></sup>, and KinyaBERT <sup class="footnote-ref"><a href="index.html#fn80" id="fnref80">[80]</a></sup> and models for Indonesian languages such as IndoBERT <sup class="footnote-ref"><a href="index.html#fn71" id="fnref71:1">[71:1]</a></sup> and IndoGPT <sup class="footnote-ref"><a href="index.html#fn72" id="fnref72:1">[72:1]</a></sup>. For Indian languages, there are text-based models such as IndicBERT <sup class="footnote-ref"><a href="index.html#fn73" id="fnref73:1">[73:1]</a></sup> and MuRIL <sup class="footnote-ref"><a href="index.html#fn81" id="fnref81">[81]</a></sup> and speech models such as CLSRIL <sup class="footnote-ref"><a href="index.html#fn82" id="fnref82">[82]</a></sup> and IndicWav2Vec <sup class="footnote-ref"><a href="index.html#fn83" id="fnref83">[83]</a></sup>. Many of these approaches train a model on several related languages and are thus able to leverage positive transfer and to be much more efficient than larger multilingual models. See <sup class="footnote-ref"><a href="index.html#fn84" id="fnref84">[84]</a></sup> and <sup class="footnote-ref"><a href="index.html#fn85" id="fnref85">[85]</a></sup> for recent surveys of recent multilingual models in NLP and speech.</p>
+<p><strong>Industry</strong>   In industry, startups have been developing new technology to serve local languages such as <a href="https://www.instadeep.com/">InstaDeep</a> developing a model for Tunisian Arabic <sup class="footnote-ref"><a href="index.html#fn86" id="fnref86">[86]</a></sup>, <a href="https://nokwary.com/">Nokwary</a> enabling financial inclusion in Ghanaian languages, <a href="https://barefootlaw.org/">BarefootLaw</a> employing NLP technology to provide legal help in Uganda, and <a href="https://www.neuralspace.ai/">NeuralSpace</a> building speech and text APIs for a geographically diverse set of languages, among many others.</p>
+<p>Similarly, large tech companies have expanded their ASR and <a href="https://blog.google/products/translate/24-new-languages/">machine translation offerings</a>. Both Google <sup class="footnote-ref"><a href="index.html#fn87" id="fnref87">[87]</a></sup> and Meta <sup class="footnote-ref"><a href="index.html#fn88" id="fnref88">[88]</a></sup> have described efforts on how to scale machine translation technology to the next thousand languages. At the heart of these efforts are a) mining high-quality monolingual data from the web based on improved language identification and filtering; b) training massively multilingual models on monolingual and parallel data; and c) extensive evaluation on newly collected datasets. These components are similarly important for building better ASR systems for under-represented languages <sup class="footnote-ref"><a href="index.html#fn89" id="fnref89">[89]</a></sup>.</p>
+<h2 id="challengesandopportunities">Challenges and Opportunities</h2>
+<p>Given this recent progress, what are the remaining challenges and opportunities in this area?</p>
+<h3 id="challenge1limiteddata">Challenge #1: Limited Data</h3>
+<p>Arguably the biggest challenge in multilingual research is the limited amount of data available for most of the world's languages. Joshi et al. <sup class="footnote-ref"><a href="index.html#fn90" id="fnref90">[90]</a></sup> categorized the languages of the world into six different categories based on the amount of labeled and unlabeled data available in them.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/language_resource_distribution_joshi.png" style="width: 80%" title="Language resource distribution">
+<figcaption>The distribution of resources in the world's languages. Labeled data is based on the <a href="https://catalog.ldc.upenn.edu/">LDC Catalog</a> and <a href="http://catalog.elra.info/en-us/">ELRA Map</a>. Unlabeled data is based on Wikipedia. The size of the gradient circle represents the number of languages in the class. The color spectrum represents the total speaker population size from low to high (<a href="https://aclanthology.org/2020.acl-main.560/">Joshi et al., 2020</a>).</figcaption>
+</figure>
+</center>
+</div>
+<p>88% of the world's languages are in resource group 0 with virtually no text data available to them while 5% of languages are in resource group 1 where there is very limited text data available.</p>
+<h3 id="opportunity1realworlddata">Opportunity #1: Real-world Data</h3>
+<p>How can we overcome this enormous discrepancy in the resource distribution across the world's languages? The creation of new data, particularly in languages with few annotators, is expensive. For this reason, many existing multilingual datasets such as XNLI <sup class="footnote-ref"><a href="index.html#fn91" id="fnref91">[91]</a></sup>, XQuAD <sup class="footnote-ref"><a href="index.html#fn92" id="fnref92">[92]</a></sup>, and XCOPA <sup class="footnote-ref"><a href="index.html#fn93" id="fnref93">[93]</a></sup> are based on translations of established English datasets.</p>
+<p>Such translation-based data, however, are problematic. Translated text in a language can be considered a dialect of that language, known as 'translationese', which differs from natural language <sup class="footnote-ref"><a href="index.html#fn94" id="fnref94">[94]</a></sup>. Translation-based test sets may thus over-estimate the performance of models trained on similar data, which have learned to exploit translation artifacts <sup class="footnote-ref"><a href="index.html#fn95" id="fnref95">[95]</a></sup>.</p>
+<p><strong>Over-representation of Western concepts</strong>   Beyond these issues, translating an existing dataset inherits the biases of the original data. In particular, translated data differs from data that is naturally created by speakers of different languages. As existing datasets were mostly created by crowdworkers or researchers based in Western countries, they mostly reflect Western-centric concepts. For example, ImageNet <sup class="footnote-ref"><a href="index.html#fn96" id="fnref96">[96]</a></sup>, one of the most influential datasets in ML, is based on English WordNet. As a result, it captures concepts that are overly English-specific and unknown in other cultures <sup class="footnote-ref"><a href="index.html#fn97" id="fnref97">[97]</a></sup>. Similarly, Flickr30k <sup class="footnote-ref"><a href="index.html#fn98" id="fnref98">[98]</a></sup> contains depictions of concepts that are mainly familiar to people from certain Western regions such as <a href="https://en.wikipedia.org/wiki/Tailgate_party">tailgating</a> in the US <sup class="footnote-ref"><a href="index.html#fn99" id="fnref99">[99]</a></sup>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/tailgating_multi30k.png" style="width: 60%" title="Tailgating in Flickr30k">
+    <figcaption>An image in Flickr30k <a href="https://aclanthology.org/Q14-1006/">(Young et al., 2014)</a>. Two American annotators but neither Dutch nor German workers identified the Denver Broncos jersey. Three out of five
+American annotators described the activity in the image as <a href="https://en.wikipedia.org/wiki/Tailgate_party">tailgating</a>, a North-American pastime where people gather to enjoy an informal (often barbecue) meal on the parking lot outside a sports stadium <a href="https://aclanthology.org/W17-3503/">(van Miltenburg et al., 2017)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<p>The commonsense reasoning dataset COPA <sup class="footnote-ref"><a href="index.html#fn100" id="fnref100">[100]</a></sup> contains many referents that have no language-specific terms in some languages, e.g., bowling ball, hamburger, and lottery <sup class="footnote-ref"><a href="index.html#fn93" id="fnref93:1">[93:1]</a></sup>. Most questions in current QA datasets ask about US or UK nationals <sup class="footnote-ref"><a href="index.html#fn101" id="fnref101">[101]</a></sup> while many other datasets, particularly those based on Wikipedia, contain mainly entities from Europe, the US, and the Middle East <sup class="footnote-ref"><a href="index.html#fn102" id="fnref102">[102]</a></sup>.</p>
+<p><strong>Practical data</strong>   For new datasets, it is thus ever more important to create data that is informed by real-world usage. On the one hand, data should reflect the background of the speakers speaking the language. For example, MaRVL <sup class="footnote-ref"><a href="index.html#fn103" id="fnref103">[103]</a></sup> is a multi-modal reasoning dataset that covers concepts representative of different cultures and languages.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/marvl_swahili.png" style="width: 100%" title="MaRVL Swahili example">
+    <figcaption>A Swahili example in MaRVL depicting the concept <i>leso</i> ("handkerchief"). Caption: <i>Picha moja ina watu kadhaa waliovaa leso na picha nyingine ina leso bila watu.</i> ("One picture contains several people wearing handkerchiefs and another picture has a handkerchief without people."). Label: FALSE <a href="https://aclanthology.org/2021.emnlp-main.818">(Liu et al., 2021)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<p>Given the increasing maturity of language technology, it is important to collect data that is relevant for real-world applications and that may have a positive impact on speakers of under-represented languages. Such applications include the development of assistive language technology for humanitarian crises, health, education, legal, and finance. Languages that may benefit from such technology are standardised languages and contact languages, including creoles and regional language varieties <sup class="footnote-ref"><a href="index.html#fn104" id="fnref104">[104]</a></sup>.</p>
+<p>Creating real-world datasets has the potential to ground research and enables it to have a larger impact. It also reduces the distribution shift between research and practical scenarios and makes it more likely that models developed on academic datasets will be useful in production.</p>
+<p>Beyond the creation of the training or evaluation data, the development of a language model requires the involvement of a large number of stakeholders, many of whom are often not explicitly acknowledged. Many of the components in this process are under-performing and often not available in many languages.</p>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/language_model_development_cycle.png" style="width: 100%" title="Language model development cycle">
+<figcaption>The development cycle of a language model. Model creation relies on data created by multiple stakeholders. (Credit: Clara Rivera; adapted from <a href="https://aclanthology.org/2020.findings-emnlp.195/">∀ et al., 2020</a>).</figcaption>
+</figure>
+<p>This starts at the beginning of data creation where online platforms and keyboards may not support certain languages <sup class="footnote-ref"><a href="index.html#fn57" id="fnref57:1">[57:1]</a></sup>, dictionaries do not cover certain languages and language ID does not perform well in those languages <sup class="footnote-ref"><a href="index.html#fn105" id="fnref105">[105]</a></sup>. In many languages, the connections between different stakeholders are also missing and it is difficult to find original content or to identify qualified annotators. The fact that text on the web is difficult to find for some languages does not mean, however, that these languages are resource-poor or that data for these languages does not exist.</p>
+<p><strong>Multi-modal data</strong>   Many languages around the world are more commonly spoken than written. We can overcome the reliance (and lack of) text data by focusing on information from multi-modal data sources such as radio broadcasts and online videos as well as combining information from multiple modalities. Recent speech-and-text models <sup class="footnote-ref"><a href="index.html#fn106" id="fnref106">[106]</a></sup><sup class="footnote-ref"><a href="index.html#fn107" id="fnref107">[107]</a></sup> achieve strong improvements on speech tasks such as ASR, speech translation, and text-to-speech. They still perform more poorly, however, on text-only tasks due to a lack of capacity <sup class="footnote-ref"><a href="index.html#fn108" id="fnref108">[108]</a></sup>. There is a lot of potential to leverage multi-modal data as well as to investigate the linguistic characteristics of different languages and their interplay in text and speech <sup class="footnote-ref"><a href="index.html#fn109" id="fnref109">[109]</a></sup>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/mslam.png" style="width: 100%" title="Multi-modal pre-training in mSLAM">
+    <figcaption>Multilingual speech-text pre-training in mSLAM. A model is jointly pre-trained on unlabeled and labeled text and speech datasets using a set of different modality-specific losses <a href="https://arxiv.org/abs/2202.01374">(Bapna et al., 2022)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<p>Beyond multi-modal information, data may also be available in formats that are locked to current models such as in handwritten documents and non-digitized books, among others. Technologies such as optical character recognition (OCR) <sup class="footnote-ref"><a href="index.html#fn110" id="fnref110">[110]</a></sup> and new datasets such as the Bloom Library <sup class="footnote-ref"><a href="index.html#fn111" id="fnref111">[111]</a></sup> will help us make such untapped data sources more accessible. There are also resources that have so far been used relatively little despite their large language coverage such as the Bible, which covers around 1,600 languages <sup class="footnote-ref"><a href="index.html#fn112" id="fnref112">[112]</a></sup> and lexicons, which cover around 5,700 languages <sup class="footnote-ref"><a href="index.html#fn113" id="fnref113">[113]</a></sup>. Other data sources may be readily available but have so far gone unused or unnoticed. Recent examples of such 'fortuitous data' <sup class="footnote-ref"><a href="index.html#fn114" id="fnref114">[114]</a></sup> include HTML and web page structure <sup class="footnote-ref"><a href="index.html#fn115" id="fnref115">[115]</a></sup><sup class="footnote-ref"><a href="index.html#fn116" id="fnref116">[116]</a></sup>, among others.</p>
+<p>Given the generalization ability of pre-trained language models, benchmarks have been increasingly moving towards evaluation in low-resource settings. When creating new datasets, large test sets with sufficient statistical power <sup class="footnote-ref"><a href="index.html#fn117" id="fnref117">[117]</a></sup> should thus be prioritized. In addition, languages for annotation can be prioritized based on the expected gain in utility <sup class="footnote-ref"><a href="index.html#fn41" id="fnref41:1">[41:1]</a></sup> and reduction in inequality <sup class="footnote-ref"><a href="index.html#fn118" id="fnref118">[118]</a></sup>.</p>
+<p>Finally, there are challenges for responsible AI when collecting data and developing technology for under-represented languages, including data governance, safety, privacy, and participation. Addressing these challenges requires answering questions such as: How are appropriate usage and ownership of the data and technology guaranteed <sup class="footnote-ref"><a href="index.html#fn119" id="fnref119">[119]</a></sup>? Are there methods in place to detect and filter sensitive and biased data and detect bias in models? How is privacy preserved during data collection and usage? How can the data and technology development be made participatory <sup class="footnote-ref"><a href="index.html#fn120" id="fnref120">[120]</a></sup>?</p>
+<h3 id="challenge2limitedcompute">Challenge #2: Limited Compute</h3>
+<p>Under-represented language applications face constraints that go beyond the lack of data. Mobile data, compute, and other computational resources may often be expensive or unavailable. GPU servers, for instance, are scarce even in top universities in many countries <sup class="footnote-ref"><a href="index.html#fn4" id="fnref4:1">[4:1]</a></sup> while the cost of mobile data is higher in countries where under-represented languages are spoken <sup class="footnote-ref"><a href="index.html#fn121" id="fnref121">[121]</a></sup>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/cost_mobile_data.png" style="width: 60%" title="Cost of mobile data">
+<figcaption>Cost of mobile data by country for the resource groups by <a href="https://aclanthology.org/2020.acl-main.560/">Joshi et al. (2020)</a> <a href="https://aclanthology.org/2021.findings-emnlp.282/">(Ahia et al., 2021)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<h3 id="opportunity2efficiency">Opportunity #2: Efficiency</h3>
+<p>In order to make better use of limited compute, we must develop methods that are more efficient. For an overview of efficient Transformer architectures and efficient NLP methods in general refer to <sup class="footnote-ref"><a href="index.html#fn122" id="fnref122">[122]</a></sup> and <sup class="footnote-ref"><a href="index.html#fn123" id="fnref123">[123]</a></sup>. As pre-trained models are widely available, a promising direction is the adaptation of such models via parameter-efficient methods, which have been shown to be more effective than in-context learning <sup class="footnote-ref"><a href="index.html#fn124" id="fnref124">[124]</a></sup>.</p>
+<p>A common method are adapters <sup class="footnote-ref"><a href="index.html#fn125" id="fnref125">[125]</a></sup><sup class="footnote-ref"><a href="index.html#fn126" id="fnref126">[126]</a></sup>, small bottleneck layers that are inserted between a pre-trained model's weights. These parameter-efficient methods can be used to overcome the curse of multilinguality by enabling the allocation of additional language-specific capacity. They also enable the adaptation of a pre-trained multilingual model to languages that it has not been exposed to during pre-training <sup class="footnote-ref"><a href="index.html#fn127" id="fnref127">[127]</a></sup><sup class="footnote-ref"><a href="index.html#fn128" id="fnref128">[128]</a></sup>. As such adapter layers are separate from the remaining parameters of the model, they allow learning modular interactions between tasks and languages <sup class="footnote-ref"><a href="index.html#fn129" id="fnref129">[129]</a></sup>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/language_adapter_layers.png" style="width: 80%" title="Multi-modal pre-training in mSLAM">
+    <figcaption>Language-specific adapter layers learned via masked language modeling (MLM) on data of each language while the remaining parameters of the model are frozen <a href="https://aclanthology.org/2020.emnlp-main.617/">(Pfeiffer et al., 2020)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<p>Adapters have been shown to improve robustness <sup class="footnote-ref"><a href="index.html#fn130" id="fnref130">[130]</a></sup><sup class="footnote-ref"><a href="index.html#fn131" id="fnref131">[131]</a></sup>, lead to increased sample efficiency compared to fine-tuning <sup class="footnote-ref"><a href="index.html#fn132" id="fnref132">[132]</a></sup>, and outperform alternative parameter-efficient methods <sup class="footnote-ref"><a href="index.html#fn133" id="fnref133">[133]</a></sup><sup class="footnote-ref"><a href="index.html#fn134" id="fnref134">[134]</a></sup>. They allow for extensions such as incorporating hierarchical structure <sup class="footnote-ref"><a href="index.html#fn135" id="fnref135">[135]</a></sup> or conditioning via hyper-networks <sup class="footnote-ref"><a href="index.html#fn136" id="fnref136">[136]</a></sup><sup class="footnote-ref"><a href="index.html#fn137" id="fnref137">[137]</a></sup>.</p>
+<p>Cross-lingual parameter-efficient transfer learning is not restricted to adapters but can take other forms <sup class="footnote-ref"><a href="index.html#fn138" id="fnref138">[138]</a></sup> such as sparse sub-networks <sup class="footnote-ref"><a href="index.html#fn139" id="fnref139">[139]</a></sup>. Such methods have been applied to a diverse set of applications and domains, from machine translation <sup class="footnote-ref"><a href="index.html#fn140" id="fnref140">[140]</a></sup><sup class="footnote-ref"><a href="index.html#fn141" id="fnref141">[141]</a></sup> to ASR <sup class="footnote-ref"><a href="index.html#fn142" id="fnref142">[142]</a></sup> and speech translation <sup class="footnote-ref"><a href="index.html#fn143" id="fnref143">[143]</a></sup>.</p>
+<h3 id="challenge3languagetypology">Challenge #3: Language Typology</h3>
+<p>If we plot the typological features of the world's languages based on the <a href="https://wals.info/">World Atlas of Language Structures (WALS)</a> and project them into two dimensions using PCA, we get a density plot such as the one below. Marking the languages that are present in Universal Dependencies <sup class="footnote-ref"><a href="index.html#fn39" id="fnref39:2">[39:2]</a></sup>, one of the most multilingual resources with red stars, we can observe that the languages for which data is available lie mostly in low-density regions of this plot. The distribution of languages in existing datasets is thus heavily skewed compared to the real-world distribution of languages and languages with available data are unrepresentative of most of the world's languages.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/wals_density.png" style="width: 80%" title="Density of WALS typological features for the world's languages">
+<figcaption>Density of WALS typological features of the world's languages. Red stars are languages in Universal Dependencies <a href="https://aclanthology.org/2021.findings-acl.106/">(Ponti et al. (2021)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<p>Under-represented languages have many linguistic features that are not present in Western languages. A common linguistic feature is tone, which is present in around 80% of African languages <sup class="footnote-ref"><a href="index.html#fn109" id="fnref109:1">[109:1]</a></sup> and can be lexical or gramatical. In Yorùbá, lexical tone distinguishes meaning, for instance, in the following words: <em>igbá</em> (&quot;calabash&quot;, &quot;basket&quot;), <em>igba</em> (&quot;200&quot;), <em>ìgbà</em> (&quot;time&quot;), <em>ìgbá</em> (&quot;garden egg&quot;), and <em>igbà</em> (&quot;rope&quot;). In Akan, grammatical tone distinguishes habitual and stative verbs such as for <em>Ama dá ha</em> (&quot;Ama sleeps here&quot;) and <em>Ama dà ha</em> (&quot;Ama is sleeping here&quot;). Tone is relatively unexplored in speech and NLP applications.</p>
+<p>While the typological features of languages around the world are diverse, languages within a region often share linguistic features. For instance, African languages mainly belong to a few major language families.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/map_african_languages.png" style="width: 60%" title="Map of African language families">
+<figcaption>Map of African language families (Credit: <a href="https://en.wikipedia.org/wiki/Languages_of_Africa#/media/File:Map_of_African_language_families.svg">Wikipedia</a>).</figcaption>
+</figure>
+</center>
+</div>
+<h3 id="opportunity3specialization">Opportunity #3: Specialization</h3>
+<p>Rich Sutton highlights a <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">bitter lesson</a> for the field of AI research:</p>
+<blockquote>
+<p>&quot;The great power of general purpose methods [...] that continue to scale with increased computation [...]. The two methods that seem to scale arbitrarily: search and learning.&quot;</p>
+</blockquote>
+<p>For most under-represented languages, computation and data, however, <em>are</em> limited. It is thus reasonable to incorporate (some amount of) knowledge into our language models to make them more useful for such languages.</p>
+<p>This can take the form of biasing the tokenization process, which often produces poor segmentations for languages with a rich morphology or limited data. We can modify the algorithm to prefer tokens that are shared across many languages <sup class="footnote-ref"><a href="index.html#fn144" id="fnref144">[144]</a></sup>, preserve tokens’ morphological structure <sup class="footnote-ref"><a href="index.html#fn145" id="fnref145">[145]</a></sup>, or make the tokenization algorithm more robust to deal with erroneous segmentations <sup class="footnote-ref"><a href="index.html#fn146" id="fnref146">[146]</a></sup>.</p>
+<p>We can also exploit the fact that many under-represented languages belong to groups of similar languages. Models focusing on such groups can thus more easily share information across languages. While recent models focus mainly on related languages <sup class="footnote-ref"><a href="index.html#fn73" id="fnref73:2">[73:2]</a></sup><sup class="footnote-ref"><a href="index.html#fn81" id="fnref81:1">[81:1]</a></sup><sup class="footnote-ref"><a href="index.html#fn82" id="fnref82:1">[82:1]</a></sup>, future models may also include language variants and dialects, which can benefit from positive transfer from related languages.</p>
+<p>While principled variants of masking such as whole word masking <sup class="footnote-ref"><a href="index.html#fn147" id="fnref147">[147]</a></sup> and PMI-masking <sup class="footnote-ref"><a href="index.html#fn148" id="fnref148">[148]</a></sup> have been found useful in the past, new pre-training objectives that take linguistic characteristics such as rich morphology or tone into account may lead to more sample-efficient learning. Finally, the architeture of models can be adapted to incorporate information about morphology such as in the KinyaBERT model for Kinyarwanda <sup class="footnote-ref"><a href="index.html#fn80" id="fnref80:1">[80:1]</a></sup>.</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/kinyabert_new.png" style="width: 100%" title="KinyaBERT">
+<figcaption>The KinyaBERT model for Kinyarwanda. The morphological analyzer produces morphemes for every word. The model uses different embeddings for POS tags, stems, and affixes <a href="https://aclanthology.org/2022.acl-long.367/">(Nzeyimana & Rubungo, 2022)</a>.</figcaption>
+</figure>
+</center>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>While there has been a tremendous amount of progress in recent multilingual AI, there is still a lot more to do. Most importantly, we should focus on creating data that reflects the real-world circumstances of language speakers and to develop language technology that serves the needs of speakers around the world. While there is momentum and increasing awareness that such work is important, it takes a village to develop equitable language technology for the world's languages. <em>Masakhane</em> (&quot;let us build together&quot; in isiZulu)!</p>
+<div>
+<center>
+<figure>
+      <img src="https://ruder.io/content/images/2022/11/masakhane_logo.jpeg" style="width: 80%" title="Masakhane logo">
+    <figcaption>The <a href"https://www.masakhane.io/">Masakhane</a> logo.</figcaption>
+</figure>
+</center>
+</div>
+<h2 id="citation">Citation</h2>
+<p>For attribution in academic contexts or books, please cite this work as:</p>
+<pre><code>Sebastian Ruder, &quot;The State of Multilingual AI&quot;. http://ruder.io/state-of-multilingual-ai/, 2022.
+</code></pre>
+<p>BibTeX citation:</p>
+<pre><code>@misc{ruder2022statemultilingualai,
+author = {Ruder, Sebastian},
+title = {{The State of Multilingual AI}},
+year = {2022},
+howpublished = {\url{http://ruder.io/state-of-multilingual-ai/}},
+}
+</code></pre>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>van Esch, D., Lucassen, T., Ruder, S., Caswell, I., &amp; Rivera, C. (2022). <a href="http://www.lrec-conf.org/proceedings/lrec2022/pdf/2022.lrec-1.538.pdf">Writing System and Speaker Metadata for 2,800+ Language Varieties. Proceedings of LREC 2022</a>, (June), 5035–5046. <a href="index.html#fnref1" class="footnote-backref">↩︎</a> <a href="index.html#fnref1:1" class="footnote-backref">↩︎</a> <a href="index.html#fnref1:2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Bender, E. M. (2011). <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.360.2281&amp;rep=rep1&amp;type=pdf">On Achieving and Evaluating Language-Independence in NLP</a>. Linguistic Issues in Language Technology, 6(3), 1–26. <a href="index.html#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Ruder, S., Vulić, I., &amp; Søgaard, A. (2022). <a href="https://aclanthology.org/2022.findings-acl.184">Square One Bias in NLP: Towards a Multi-Dimensional Exploration of the Research Manifold</a>. In Findings of the Association for Computational Linguistics: ACL 2022 (pp. 2340–2354). <a href="index.html#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Aji, A. F., Winata, G. I., Koto, F., Cahyawijaya, S., Romadhony, A., Mahendra, R., … Ruder, S. (2022). <a href="https://doi.org/10.18653/v1/2022.acl-long.500">One Country, 700+ Languages: NLP Challenges for Underrepresented Languages and Dialects in Indonesia</a>. In Proceedings of ACL 2022 (pp. 7226–7249). <a href="index.html#fnref4" class="footnote-backref">↩︎</a> <a href="index.html#fnref4:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … Polosukhin, I. (2017). <a href="https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Attention Is All You Need</a>. In Proceedings of NIPS 2017. <a href="index.html#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Ruder, S., Peters, M., Swayamdipta, S., &amp; Wolf, T. (2019). <a href="https://aclanthology.org/N19-5004/">Transfer learning in natural language processing</a>. Proceedings of NAACL 2019, Tutorial Abstracts. <a href="index.html#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., … Houlsby, N. (2021). <a href="https://openreview.net/forum?id=YicbFdNTTy">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale</a>. In Proceedings of ICLR 2021. <a href="index.html#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>Neimark, D., Bar, O., Zohar, M., &amp; Asselmann, D. (2021). Video Transformer Network. In Proceedings of the IEEE International Conference on Computer Vision (Vol. 2021-Octob, pp. 3156–3165). <a href="https://doi.org/10.1109/ICCVW54120.2021.00355">https://doi.org/10.1109/ICCVW54120.2021.00355</a> <a href="index.html#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>Baevski, A., Zhou, H., Mohamed, A., &amp; Auli, M. (2020). wav2vec 2.0: A framework for self-supervised learning of speech representations. In Advances in Neural Information Processing Systems. <a href="index.html#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In Proceedings of NAACL 2019. <a href="http://arxiv.org/abs/1810.04805">http://arxiv.org/abs/1810.04805</a> <a href="index.html#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., … Stoyanov, V. (2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach. ArXiv Preprint ArXiv:1907.11692. <a href="http://arxiv.org/abs/1907.11692">http://arxiv.org/abs/1907.11692</a> <a href="index.html#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>Lewis, M., Liu, Y., Goyal, N., Ghazvininejad, M., Mohamed, A., Levy, O., … Zettlemoyer, L. (2019). <a href="https://aclanthology.org/2020.acl-main.703/">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a>. In Proceedings of ACL 2019. <a href="index.html#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., … Liu, P. J. (2020). Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer. Journal of Machine Learning Research, 21. <a href="http://arxiv.org/abs/1910.10683">http://arxiv.org/abs/1910.10683</a> <a href="index.html#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>He, P., Gao, J., &amp; Chen, W. (2021). <a href="https://arxiv.org/abs/2111.09543">DeBERTaV3: Improving DeBERTa using electra-style pre-training with gradient-disentangled embedding sharing</a>. arXiv preprint arXiv:2111.09543. <a href="index.html#fnref14" class="footnote-backref">↩︎</a> <a href="index.html#fnref14:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>Baevski, A., Zhou, Y., Mohamed, A., &amp; Auli, M. (2020). <a href="https://proceedings.neurips.cc/paper/2020/file/92d1e1eb1cd6f9fba3227870bb6d7f07-Paper.pdf">wav2vec 2.0: A framework for self-supervised learning of speech representations</a>. Advances in Neural Information Processing Systems, 33, 12449-12460. <a href="index.html#fnref15" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>Chung, H. W., Févry, T., Tsai, H., Johnson, M., &amp; Ruder, S. (2021). Rethinking Embedding Coupling in Pre-trained Language Models. In Proceedings of ICLR 2021. <a href="index.html#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p>Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzmán, F., … Stoyanov, V. (2020). Unsupervised Cross-lingual Representation Learning at Scale. In Proceedings of ACL 2020. <a href="http://arxiv.org/abs/1911.02116">http://arxiv.org/abs/1911.02116</a> <a href="index.html#fnref17" class="footnote-backref">↩︎</a> <a href="index.html#fnref17:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn18" class="footnote-item"><p>Liu, Y., Gu, J., Goyal, N., Li, X., Edunov, S., Ghazvininejad, M., ... &amp; Zettlemoyer, L. (2020). <a href="https://aclanthology.org/2020.tacl-1.47/">Multilingual denoising pre-training for neural machine translation</a>. Transactions of the Association for Computational Linguistics, 8, 726-742. <a href="index.html#fnref18" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn19" class="footnote-item"><p>Xue, L., Constant, N., Roberts, A., Kale, M., Al-Rfou, R., Siddhant, A., … Raffel, C. (2021). mT5: A massively multilingual pre-trained text-to-text transformer. In Proceedings of NAACL 2021. <a href="http://arxiv.org/abs/2010.11934">http://arxiv.org/abs/2010.11934</a> <a href="index.html#fnref19" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn20" class="footnote-item"><p>Dufter, P., &amp; Schütze, H. (2020). <a href="https://aclanthology.org/2020.emnlp-main.358/">Identifying Elements Essential for BERT’s Multilinguality</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref20" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn21" class="footnote-item"><p>Deshpande, A., Talukdar, P., &amp; Narasimhan, K. (2022). <a href="https://aclanthology.org/2022.naacl-main.264/">When is BERT Multilingual? Isolating Crucial Ingredients for Cross-lingual Transfer</a>. In Proceedings of NAACL 2022. <a href="index.html#fnref21" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn22" class="footnote-item"><p>Rust, P., Pfeiffer, J., Vulić, I., Ruder, S., &amp; Gurevych, I. (2021). <a href="https://aclanthology.org/2021.acl-long.243/">How Good is Your Tokenizer? On the Monolingual Performance of Multilingual Language Models</a>. In Proceedings of ACL 2021. <a href="index.html#fnref22" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn23" class="footnote-item"><p>Conneau, A., Baevski, A., Collobert, R., Mohamed, A., &amp; Auli, M. (2021). <a href="https://www.isca-speech.org/archive/pdfs/interspeech_2021/conneau21_interspeech.pdf">Unsupervised Cross-lingual Representation Learning for Speech Recognition</a>. In Proceedings of Interspeech 2021. <a href="index.html#fnref23" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn24" class="footnote-item"><p>Wang, C., Wu, Y., Qian, Y., Kumatani, K., Liu, S., Wei, F., ... &amp; Huang, X. (2021, July). <a href="https://proceedings.mlr.press/v139/wang21y.html">Unispeech: Unified speech representation learning with labeled and unlabeled data</a>. In International Conference on Machine Learning (pp. 10937-10947). PMLR. <a href="index.html#fnref24" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn25" class="footnote-item"><p>Goyal, N., Du, J., Ott, M., Anantharaman, G., &amp; Conneau, A. (2021). <a href="https://aclanthology.org/2021.repl4nlp-1.4/">Larger-Scale Transformers for Multilingual Masked Language Modeling</a>. In Proceedings of the 6th Workshop on Representation Learning for NLP (RepL4NLP-2021). <a href="index.html#fnref25" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn26" class="footnote-item"><p>Hu, J., Ruder, S., Siddhant, A., Neubig, G., Firat, O., &amp; Johnson, M. (2020). XTREME: A Massively Multilingual Multi-task Benchmark for Evaluating Cross-lingual Generalization. In Proceedings of ICML 2020. <a href="index.html#fnref26" class="footnote-backref">↩︎</a> <a href="index.html#fnref26:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn27" class="footnote-item"><p>Lauscher, A., Ravishankar, V., Vulić, I., &amp; Glavaš, G. (2020). <a href="https://aclanthology.org/2020.emnlp-main.363/">From Zero to Hero: On the Limitations of Zero-Shot Cross-Lingual Transfer with Multilingual Transformers</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref27" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn28" class="footnote-item"><p>Ahuja, K., Kumar, S., Dandapat, S., &amp; Choudhury, M. (2022). <a href="https://aclanthology.org/2022.acl-long.374/">Multi Task Learning For Zero Shot Performance Prediction of Multilingual Models</a>. In Proceedings of ACL 2022 (pp. 5454–5467). <a href="index.html#fnref28" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn29" class="footnote-item"><p>Muller, B., Anastasopoulos, A., Sagot, B., &amp; Seddah, D. (2021). <a href="https://aclanthology.org/2021.naacl-main.38/">When Being Unseen from mBERT is just the Beginning: Handling New Languages With Multilingual Language Models</a>. In Proceedings of NAACL 2021. <a href="index.html#fnref29" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn30" class="footnote-item"><p>Pfeiffer, J., Vulić, I., Gurevych, I., &amp; Ruder, S. (2021). <a href="https://aclanthology.org/2021.emnlp-main.800/">UNKs Everywhere: Adapting Multilingual Language Models to New Scripts</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref30" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn31" class="footnote-item"><p>Pan, X., Zhang, B., May, J., Nothman, J., Knight, K., &amp; Ji, H. (2017). Cross-lingual name tagging and linking for 282 languages. In Proceedings of ACL 2017 (pp. 1946–1958). <a href="https://doi.org/10.18653/v1/P17-1178">https://doi.org/10.18653/v1/P17-1178</a> <a href="index.html#fnref31" class="footnote-backref">↩︎</a> <a href="index.html#fnref31:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn32" class="footnote-item"><p>Lignos, C., Holley, N., Palen-Michel, C., &amp; Sälevä, J. (2022). <a href="https://aclanthology.org/2022.findings-acl.44/">Toward More Meaningful Resources for Lower-resourced Languages</a>. In Findings of ACL 2022 (pp. 523–532). <a href="index.html#fnref32" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn33" class="footnote-item"><p>Kreutzer, J., Caswell, I., Wang, L., Wahab, A., Van Esch, D., Ulzii-Orshikh, N., … Adeyemi, M. (2022). <a href="https://aclanthology.org/2022.tacl-1.4/">Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets</a>. In Proceedings of ACL 2022 (Vol. 10, pp. 50–72). <a href="index.html#fnref33" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn34" class="footnote-item"><p>Schwenk, H., Chaudhary, V., Sun, S., Gong, H., &amp; Guzmán, F. (2019). <a href="https://arxiv.org/abs/1907.05791">WikiMatrix: Mining 135M Parallel Sentences</a>. arXiv preprint arXiv:1907.05791. <a href="index.html#fnref34" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn35" class="footnote-item"><p>El-Kishky, A., Chaudhary, V., Guzmán, F., &amp; Koehn, P. (2020). <a href="http://aclanthology.lst.uni-saarland.de/2020.emnlp-main.480/">CCAligned: A massive collection of cross-lingual web-document Pairs</a>. In Proceedings of EMNLP 2020, 5960–5969. <a href="index.html#fnref35" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn36" class="footnote-item"><p>Artetxe, M., Aldabe, I., Agerri, R., Perez-de-Viñaspre, O., &amp; Soroa, A. (2022). <a href="http://arxiv.org/abs/2203.08111">Does Corpus Quality Really Matter for Low-Resource Languages?</a> arXiv preprint arXiv:2203.08111. <a href="index.html#fnref36" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn37" class="footnote-item"><p>Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., &amp; Bowman, S. R. (2019). GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding. In Proceedings of ICLR 2019. <a href="index.html#fnref37" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn38" class="footnote-item"><p>Wang, A., Michael, J., Hill, F., Levy, O., &amp; Bowman, S. R. (2019). SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding Systems. In Proceedings of NeurIPS 2019. <a href="index.html#fnref38" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn39" class="footnote-item"><p>De Marneffe, M. C., Manning, C. D., Nivre, J., &amp; Zeman, D. (2021). Universal dependencies. Computational linguistics, 47(2), 255-308. <a href="index.html#fnref39" class="footnote-backref">↩︎</a> <a href="index.html#fnref39:1" class="footnote-backref">↩︎</a> <a href="index.html#fnref39:2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn40" class="footnote-item"><p>Artetxe, M., &amp; Schwenk, H. (2019). Massively Multilingual Sentence Embeddings for Zero-Shot Cross-Lingual Transfer and Beyond. Transactions of the ACL 2019. <a href="http://arxiv.org/abs/1812.10464">http://arxiv.org/abs/1812.10464</a> <a href="index.html#fnref40" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn41" class="footnote-item"><p>Blasi, D., Anastasopoulos, A., &amp; Neubig, G. (2022). <a href="https://aclanthology.org/2022.acl-long.376/">Systematic Inequalities in Language Technology Performance across the World’s Languages</a>. In Proceedings of ACL 2022. <a href="index.html#fnref41" class="footnote-backref">↩︎</a> <a href="index.html#fnref41:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn42" class="footnote-item"><p>Ahuja, K., Kumar, S., Dandapat, S., &amp; Choudhury, M. (2022). <a href="https://aclanthology.org/2022.acl-long.374/">Multi Task Learning For Zero Shot Performance Prediction of Multilingual Models</a>. In Proceedings of ACL 2022. <a href="index.html#fnref42" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn43" class="footnote-item"><p>Scao, T. L., Fan, A., Akiki, C., Pavlick, E., Ilić, S., Hesslow, D., ... &amp; Manica, M. (2022). <a href="https://arxiv.org/abs/2211.05100">BLOOM: A 176B-Parameter Open-Access Multilingual Language Model</a>. arXiv preprint arXiv:2211.05100. <a href="index.html#fnref43" class="footnote-backref">↩︎</a> <a href="index.html#fnref43:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn44" class="footnote-item"><p>Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., … Amodei, D. (2020). Language models are few-shot learners. In Proceedings of NeurIPS 2020. <a href="index.html#fnref44" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn45" class="footnote-item"><p>Chowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra, G., Roberts, A., … Fiedel, N. (2022). <a href="http://arxiv.org/abs/2204.02311">PaLM: Scaling Language Modeling with Pathways</a>. <a href="index.html#fnref45" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn46" class="footnote-item"><p>Winata, G. I., Madotto, A., Lin, Z., Liu, R., Yosinski, J., &amp; Fung, P. (2021). <a href="https://aclanthology.org/2021.mrl-1.1/">Language Models are Few-shot Multilingual Learners</a>. In Proceedings ofthe 1st Workshop on Multilingual Representation Learning. <a href="index.html#fnref46" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn47" class="footnote-item"><p>Lin, X. V., Mihaylov, T., Artetxe, M., Wang, T., Chen, S., Simig, D., … Li, X. (2022). <a href="http://arxiv.org/abs/2112.10668">Few-shot Learning with Multilingual Language Models</a>. In Proceedings of EMNLP 2022. <a href="index.html#fnref47" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn48" class="footnote-item"><p>Shi, F., Suzgun, M., Freitag, M., Wang, X., Srivats, S., Vosoughi, S., ... &amp; Wei, J. (2022). <a href="https://arxiv.org/abs/2210.03057">Language models are multilingual chain-of-thought reasoners</a>. arXiv preprint arXiv:2210.03057. <a href="index.html#fnref48" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn49" class="footnote-item"><p>Hsu, W. N., Bolte, B., Tsai, Y. H. H., Lakhotia, K., Salakhutdinov, R., &amp; Mohamed, A. (2021). <a href="https://arxiv.org/abs/2106.07447">HuBERT: Self-supervised speech representation learning by masked prediction of hidden units</a>. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 29, 3451-3460. <a href="index.html#fnref49" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn50" class="footnote-item"><p>Chen, S., Wang, C., Chen, Z., Wu, Y., Liu, S., Chen, Z., ... &amp; Wei, F. (2022). <a href="https://arxiv.org/abs/2110.13900">WavLM: Large-scale self-supervised pre-training for full stack speech processing</a>. IEEE Journal of Selected Topics in Signal Processing, 16(6), 1505-1518. <a href="index.html#fnref50" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn51" class="footnote-item"><p>Alayrac, J. B., Donahue, J., Luc, P., Miech, A., Barr, I., Hasson, Y., ... &amp; Simonyan, K. (2022). <a href="https://openreview.net/forum?id=EbMuimAbPbs">Flamingo: a visual language model for few-shot learning</a>. In Proceedings of NeurIPS 2022. <a href="index.html#fnref51" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn52" class="footnote-item"><p>Ramesh, A., Dhariwal, P., Nichol, A., Chu, C., &amp; Chen, M. (2022). <a href="https://arxiv.org/abs/2204.06125">Hierarchical text-conditional image generation with CLIP latents</a>. arXiv preprint arXiv:2204.06125. <a href="index.html#fnref52" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn53" class="footnote-item"><p>Saharia, C., Chan, W., Saxena, S., Li, L., Whang, J., Denton, E., ... &amp; Norouzi, M. (2022). <a href="https://arxiv.org/abs/2205.11487">Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding</a>. arXiv preprint arXiv:2205.11487. <a href="index.html#fnref53" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn54" class="footnote-item"><p>Yu, J., Xu, Y., Koh, J. Y., Luong, T., Baid, G., Wang, Z., ... &amp; Wu, Y. (2022). <a href="https://arxiv.org/abs/2206.10789">Scaling autoregressive models for content-rich text-to-image generation</a>. arXiv preprint arXiv:2206.10789. <a href="index.html#fnref54" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn55" class="footnote-item"><p>Radford, A., Kim, J. W., Xu, T., Brockman, G., McLeavey, C., &amp; Sutskever, I. (2022). <a href="https://cdn.openai.com/papers/whisper.pdf">Robust speech recognition via large-scale weak supervision</a>. Tech. Rep., Technical report, OpenAI. <a href="index.html#fnref55" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn56" class="footnote-item"><p>Chen, X., Wang, X., Changpinyo, S., Piergiovanni, A. J., Padlewski, P., Salz, D., ... &amp; Soricut, R. (2022). <a href="https://arxiv.org/abs/2209.06794">PaLI: A jointly-scaled multilingual language-image model</a>. arXiv preprint arXiv:2209.06794. <a href="index.html#fnref56" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn57" class="footnote-item"><p>van Esch, D., Sarbar, E., Lucassen, T., Brien, J. O., Breiner, T., Prasad, M., … Beaufays, F. (2019). <a href="https://arxiv.org/abs/1912.01218">Writing Across the World’s Languages: Deep Internationalization for Gboard, the Google Keyboard.</a> <a href="index.html#fnref57" class="footnote-backref">↩︎</a> <a href="index.html#fnref57:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn58" class="footnote-item"><p>Joanis, E., Knowles, R., Kuhn, R., Larkin, S., Littell, P., Lo, C. K., … Micher, J. (2020). <a href="https://aclanthology.org/2020.lrec-1.312/">The Nunavut Hansard Inuktitut-English Parallel Corpus 3.0 with Preliminary Machine Translation Results</a>. In LREC 2020 - 12th International Conference on Language Resources and Evaluation, Conference Proceedings (pp. 2562–2572). <a href="index.html#fnref58" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn59" class="footnote-item"><p>Barrault, L., Biesialska, M., Costa-jussà, M. R., Federmann, C., Huck, M., Joanis, E., … Post, M. (2020). <a href="https://www.aclweb.org/anthology/2020.wmt-1.1">Findings of the 2020 Conference on Machine Translation (WMT20)</a>. In Proceedings ofthe 5th Conference on Machine Translation (WMT). <a href="index.html#fnref59" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn60" class="footnote-item"><p>Nekoto, W., Marivate, V., Matsila, T., Fasubaa, T., Kolawole, T., Fagbohungbe, T., … Bashir, A. (2020). <a href="https://aclanthology.org/2020.findings-emnlp.195/">Participatory Research for Low-resourced Machine Translation: A Case Study in African Languages</a>. In Findings of EMNLP 2020. <a href="index.html#fnref60" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn61" class="footnote-item"><p>Adelani, D. I., Abbott, J., Neubig, G., Daniel, D., Kreutzer, J., Lignos, C., … Ogueji, K. (2021). <a href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00416/107614/MasakhaNER-Named-Entity-Recognition-for-African">MasakhaNER: Named Entity Recognition for African Languages</a>. Transactions of the ACL 2021. <a href="index.html#fnref61" class="footnote-backref">↩︎</a> <a href="index.html#fnref61:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn62" class="footnote-item"><p>Wanjawa, B., Wanzare, L., Indede, F., McOnyango, O., Ombui, E., &amp; Muchemi, L. (2022). <a href="https://arxiv.org/abs/2208.12081">Kencorpus: A Kenyan Language Corpus of Swahili, Dholuo and Luhya for Natural Language Processing Tasks</a>. arXiv preprint arXiv:2208.12081. <a href="index.html#fnref62" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn63" class="footnote-item"><p>Adebara, I., Elmadany, A., Abdul-Mageed, M., &amp; Inciarte, A. A. (2022). <a href="https://arxiv.org/abs/2210.11744">AfroLID: A Neural Language Identification Tool for African Languages</a>. In Proceedings of EMNLP 2022. <a href="index.html#fnref63" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn64" class="footnote-item"><p>Niyongabo, R. A., Qu, H., Kreutzer, J., &amp; Huang, L. (2020). <a href="https://aclanthology.org/2020.coling-main.480.pdf">KinNews and KirNews: Benchmarking Cross-Lingual Text Classification for Kinyarwanda and Kirundi</a>. In Proceedings of COLING 2020 (pp. 5507–5521). <a href="index.html#fnref64" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn65" class="footnote-item"><p>Muhammad, S. H., Adelani, D. I., Ruder, S., Ahmad, I. S., Abdulmumin, I., Bello, B. S., … Brazdil, P. (2022). <a href="https://aclanthology.org/2022.lrec-1.63.pdf">NaijaSenti: A Nigerian Twitter Sentiment Corpus for Multilingual Sentiment Analysis</a>. In Proceedings of LREC 2022 (pp. 590–602). <a href="index.html#fnref65" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn66" class="footnote-item"><p>Wanjawa, B., Wanzare, L., Indede, F., McOnyango, O., Muchemi, L., &amp; Ombui, E. (2022). <a href="https://arxiv.org/abs/2205.02364">KenSwQuAD--A Question Answering Dataset for Swahili Low Resource Language</a>. arXiv preprint arXiv:2205.02364. <a href="index.html#fnref66" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn67" class="footnote-item"><p>MBONU, C. E., Chukwuneke, C. I., Paul, R. U., Ezeani, I., &amp; Onyenwe, I. (2022, March). <a href="https://openreview.net/forum?id=rMUccG4LZq">IgboSum1500-Introducing the Igbo Text Summarization Dataset</a>. In 3rd Workshop on African Natural Language Processing. <a href="index.html#fnref67" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn68" class="footnote-item"><p>Dumitrescu, S. D., Rebeja, P., Lorincz, B., Gaman, M., Avram, A., Ilie, M., ... &amp; Patraucean, V. (2021, June). <a href="https://openreview.net/forum?id=JH61CD7afTv">Liro: Benchmark and leaderboard for Romanian language tasks</a>. In Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 1). <a href="index.html#fnref68" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn69" class="footnote-item"><p>Park, S., Moon, J., Kim, S., Cho, W. I., Han, J., Park, J., ... &amp; Cho, K. (2021). <a href="https://arxiv.org/abs/2105.09680">KLUE: Korean language understanding evaluation</a>. arXiv preprint arXiv:2105.09680. <a href="index.html#fnref69" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn70" class="footnote-item"><p>Safaya, A., Kurtuluş, E., Goktogan, A., &amp; Yuret, D. (2022). <a href="https://aclanthology.org/2022.findings-acl.69/">Mukayese: Turkish NLP Strikes Back</a>. In Findings of ACL 2022 (pp. 846–863). <a href="index.html#fnref70" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn71" class="footnote-item"><p>Koto, F., Rahimi, A., Lau, J. H., &amp; Baldwin, T. (2020). <a href="https://aclanthology.org/2020.coling-main.66/">IndoLEM and IndoBERT: A Benchmark Dataset and Pre-trained Language Model for Indonesian NLP</a>. In Proceedings of COLING 2020 (pp. 757–770). <a href="index.html#fnref71" class="footnote-backref">↩︎</a> <a href="index.html#fnref71:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn72" class="footnote-item"><p>Cahyawijaya, S., Winata, G. I., Wilie, B., Vincentio, K., Li, X., Kuncoro, A., … Fung, P. (2021). <a href="https://aclanthology.org/2021.emnlp-main.699/">IndoNLG: Benchmark and Resources for Evaluating Indonesian Natural Language Generation</a>. In Proceedings of EMNLP 2021 (pp. 8875–8898). <a href="index.html#fnref72" class="footnote-backref">↩︎</a> <a href="index.html#fnref72:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn73" class="footnote-item"><p>Kakwani, D., Kunchukuttan, A., Golla, S., Gokul, N. C., Bhattacharyya, A., Khapra, M. M., &amp; Kumar, P. (2020). <a href="https://aclanthology.org/2020.findings-emnlp.445/">IndicNLPSuite: Monolingual corpora, evaluation benchmarks and pre-trained multilingual language models for Indian languages</a>. In Findings of the Association for Computational Linguistics: EMNLP 2020 (pp. 4948-4961). <a href="index.html#fnref73" class="footnote-backref">↩︎</a> <a href="index.html#fnref73:1" class="footnote-backref">↩︎</a> <a href="index.html#fnref73:2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn74" class="footnote-item"><p>Conneau, A., Bapna, A., Zhang, Y., Ma, M., von Platen, P., Lozhkov, A., … Johnson, M. (2022). <a href="https://www.isca-speech.org/archive/pdfs/interspeech_2022/conneau22_interspeech.pdf">XTREME-S: Evaluating Cross-lingual Speech Representations</a>. In Proceedings of Interspeech 2022. <a href="index.html#fnref74" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn75" class="footnote-item"><p>Bugliarello, E., Liu, F., Pfeiffer, J., Reddy, S., Elliott, D., Ponti, E. M., &amp; Vulić, I. (2022). <a href="https://proceedings.mlr.press/v162/bugliarello22a/bugliarello22a.pdf">IGLUE: A Benchmark for Transfer Learning across Modalities, Tasks, and Languages</a>. In Proceedings of ICML 2022. <a href="index.html#fnref75" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn76" class="footnote-item"><p>Ardila, R., Branson, M., Davis, K., Henretty, M., Kohler, M., Meyer, J., … Weber, G. (2020). <a href="http://aclanthology.lst.uni-saarland.de/2020.lrec-1.520/">Common Voice: A massively-multilingual speech corpus</a>. In LREC 2020 - 12th International Conference on Language Resources and Evaluation, Conference Proceedings (pp. 4218–4222). <a href="index.html#fnref76" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn77" class="footnote-item"><p>McMillan-Major, A., Alyafeai, Z., Biderman, S., Chen, K., De Toni, F., Dupont, G., ... &amp; Jernite, Y. (2022). <a href="https://arxiv.org/abs/2201.10066">Documenting geographically and contextually diverse data sources: The BigScience catalogue of language data and resources</a>. arXiv preprint arXiv:2201.10066. <a href="index.html#fnref77" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn78" class="footnote-item"><p>Ogueji, K., Zhu, Y., &amp; Lin, J. (2021). <a href="https://aclanthology.org/2021.mrl-1.11/">Small Data? No Problem! Exploring the Viability of Pretrained Multilingual Language Models for Low-Resource Languages</a>. In Proceedings of Multilingual Representation Learning Workshop 2021. <a href="index.html#fnref78" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn79" class="footnote-item"><p>Alabi, J. O., Adelani, D. I., Mosbach, M., &amp; Klakow, D. (2022). Multilingual Language Model Adaptive Fine-Tuning: A Study on African Languages. In Proceedings of COLING 2022. <a href="http://arxiv.org/abs/2204.06487">http://arxiv.org/abs/2204.06487</a> <a href="index.html#fnref79" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn80" class="footnote-item"><p>Nzeyimana, A., &amp; Rubungo, A. N. (2022). <a href="https://aclanthology.org/2022.acl-long.367/">KinyaBERT: a Morphology-aware Kinyarwanda Language Model</a>. In Proceedings of ACL 2022. <a href="index.html#fnref80" class="footnote-backref">↩︎</a> <a href="index.html#fnref80:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn81" class="footnote-item"><p>Khanuja, S., Bansal, D., Mehtani, S., Khosla, S., Dey, A., Gopalan, B., ... &amp; Talukdar, P. (2021). <a href="https://arxiv.org/abs/2103.10730">MuRIL: Multilingual representations for indian languages</a>. arXiv preprint arXiv:2103.10730. <a href="index.html#fnref81" class="footnote-backref">↩︎</a> <a href="index.html#fnref81:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn82" class="footnote-item"><p>Gupta, A., Chadha, H. S., Shah, P., Chhimwal, N., Dhuriya, A., Gaur, R., &amp; Raghavan, V. (2021). <a href="https://arxiv.org/abs/2107.07402">CLSRIL-23: Cross lingual speech representations for indic languages</a>. arXiv preprint arXiv:2107.07402. <a href="index.html#fnref82" class="footnote-backref">↩︎</a> <a href="index.html#fnref82:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn83" class="footnote-item"><p>Javed, T., Doddapaneni, S., Raman, A., Bhogale, K. S., Ramesh, G., Kunchukuttan, A., ... &amp; Khapra, M. M. (2022, June). <a href="https://arxiv.org/abs/2111.03945">Towards building ASR systems for the next billion users</a>. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 36, No. 10, pp. 10813-10821). <a href="index.html#fnref83" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn84" class="footnote-item"><p>Doddapaneni, S., Ramesh, G., Kunchukuttan, A., Kumar, P., &amp; Khapra, M. M. (2021). <a href="https://arxiv.org/abs/2107.00676">A primer on pretrained multilingual language models</a>. arXiv preprint arXiv:2107.00676. <a href="index.html#fnref84" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn85" class="footnote-item"><p>Yadav, H., &amp; Sitaram, S. (2022). <a href="https://aclanthology.org/2022.lrec-1.542/">A Survey of Multilingual Models for Automatic Speech Recognition</a>. In Proceedings of LREC 2022. <a href="index.html#fnref85" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn86" class="footnote-item"><p>Messaoudi, A., Cheikhrouhou, A., Haddad, H., Ferchichi, N., BenHajhmida, M., Korched, A., ... &amp; Kerkeni, A. (2022). <a href="https://arxiv.org/abs/2111.13138">Tunbert: Pretrained contextualized text representation for tunisian dialect</a>. In International Conference on Intelligent Systems and Pattern Recognition (pp. 278-290). <a href="index.html#fnref86" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn87" class="footnote-item"><p>Bapna, A., Caswell, I., Kreutzer, J., Firat, O., van Esch, D., Siddhant, A., … Hughes, M. (2022). <a href="http://arxiv.org/abs/2205.03983">Building Machine Translation Systems for the Next Thousand Languages</a>. <a href="index.html#fnref87" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn88" class="footnote-item"><p>Team, N., Costa-jussà, M. R., Cross, J., Çelebi, O., Elbayad, M., Heafield, K., … Wang, J. (2022). No Language Left Behind: Scaling Human-Centered Machine Translation. <a href="https://github.com/facebookresearch/fairseq/tree/nllb">https://github.com/facebookresearch/fairseq/tree/nllb</a> <a href="index.html#fnref88" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn89" class="footnote-item"><p>Ritchie, S., Cheng, Y. C., Chen, M., Mathews, R., van Esch, D., Li, B., &amp; Sim, K. C. (2022). <a href="https://arxiv.org/abs/2208.03067">Large vocabulary speech recognition for languages of Africa: multilingual modeling and self-supervised learning</a>. arXiv preprint arXiv:2208.03067. <a href="index.html#fnref89" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn90" class="footnote-item"><p>Joshi, P., Santy, S., Budhiraja, A., Bali, K., &amp; Choudhury, M. (2020). <a href="https://aclanthology.org/2020.acl-main.560/">The State and Fate of Linguistic Diversity and Inclusion in the NLP World</a>. In Proceedings of ACL 2020. <a href="index.html#fnref90" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn91" class="footnote-item"><p>Conneau, A., Lample, G., Rinott, R., Williams, A., Bowman, S. R., Schwenk, H., &amp; Stoyanov, V. (2018). <a href="http://aclanthology.lst.uni-saarland.de/D18-1269/">XNLI: Evaluating Cross-lingual Sentence Representations</a>. In Proceedings of EMNLP 2018. <a href="index.html#fnref91" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn92" class="footnote-item"><p>Artetxe, M., Ruder, S., &amp; Yogatama, D. (2020). <a href="https://aclanthology.org/2020.acl-main.421/">On the Cross-lingual Transferability of Monolingual Representations</a>. In Proceedings of ACL 2020. <a href="index.html#fnref92" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn93" class="footnote-item"><p>Ponti, E. M., Glavaš, G., Majewska, O., Liu, Q., Vulić, I., &amp; Korhonen, A. (2020). <a href="https://aclanthology.org/2020.emnlp-main.185/">XCOPA: A Multilingual Dataset for Causal Commonsense Reasoning</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref93" class="footnote-backref">↩︎</a> <a href="index.html#fnref93:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn94" class="footnote-item"><p>Volansky, V., Ordan, N., &amp; Wintner, S. (2015). <a href="http://cs.haifa.ac.il/~shuly/publications/vered.pdf">On the features of translationese</a>. Digital Scholarship in the Humanities, 30(1), 98-118. <a href="index.html#fnref94" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn95" class="footnote-item"><p>Artetxe, M., Labaka, G., &amp; Agirre, E. (2020). <a href="https://aclanthology.org/2020.emnlp-main.618/">Translation Artifacts in Cross-lingual Transfer Learning</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref95" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn96" class="footnote-item"><p>Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., … &amp; Fei-Fei, L. (2015). <a href="https://arxiv.org/abs/1409.0575">Imagenet large scale visual recognition challenge</a>. International journal of computer vision, 115(3), 211-252. <a href="index.html#fnref96" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn97" class="footnote-item"><p>Liu, F., Bugliarello, E., Ponti, E. M., Reddy, S., Collier, N., &amp; Elliott, D. (2021). <a href="https://aclanthology.org/2021.emnlp-main.818/">Visually Grounded Reasoning across Languages and Cultures</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref97" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn98" class="footnote-item"><p>Young, P., Lai, A., Hodosh, M., &amp; Hockenmaier, J. (2014). <a href="https://aclanthology.org/Q14-1006/">From image descriptions to visual denotations: New similarity metrics for semantic inference over event descriptions</a>. Transactions of the Association for Computational Linguistics, 2, 67-78. <a href="index.html#fnref98" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn99" class="footnote-item"><p>Van Miltenburg, E., Elliott, D., &amp; Vossen, P. (2017). <a href="https://doi.org/10.18653/v1/w17-3503">Cross-linguistic differences and similarities in image descriptions</a>. In INLG 2017 - 10th International Natural Language Generation Conference, Proceedings of the Conference (pp. 21–30). <a href="index.html#fnref99" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn100" class="footnote-item"><p>Roemmele, M., Bejan, C. A., &amp; Gordon, A. S. (2011). <a href="https://people.ict.usc.edu/~gordon/publications/AAAI-SPRING11A.PDF">Choice of Plausible Alternatives: An Evaluation of Commonsense Causal Reasoning</a>. In AAAI spring symposium: logical formalizations of commonsense reasoning. <a href="index.html#fnref100" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn101" class="footnote-item"><p>Gor, M., &amp; Webster, K. (2021). <a href="https://aclanthology.org/2021.emnlp-main.444/">Toward Deconfounding the Influence of Entity Demographics for Question Answering Accuracy</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref101" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn102" class="footnote-item"><p>Faisal, F., Wang, Y., &amp; Anastasopoulos, A. (2022). <a href="https://aclanthology.org/2022.acl-long.239/">Dataset Geography: Mapping Language Data to Language Users</a>. In Proceedings of ACL 2022. <a href="index.html#fnref102" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn103" class="footnote-item"><p>Liu, F., Bugliarello, E., Ponti, E. M., Reddy, S., Collier, N., &amp; Elliott, D. (2021). <a href="https://aclanthology.org/2021.emnlp-main.818/">Visually Grounded Reasoning across Languages and Cultures</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref103" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn104" class="footnote-item"><p>Bird, S. (2022). <a href="https://aclanthology.org/2022.acl-long.539/">Local Languages, Third Spaces, and other High-Resource Scenarios</a>. In Proceedings of ACL 2022. <a href="index.html#fnref104" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn105" class="footnote-item"><p>Caswell, I., Breiner, T., van Esch, D., &amp; Bapna, A. (2020). <a href="https://aclanthology.org/2020.coling-main.579/">Language ID in the Wild: Unexpected Challenges on the Path to a Thousand-Language Web Text Corpus</a>. In Proceedings of COLING 2020 (pp. 6588–6608). <a href="index.html#fnref105" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn106" class="footnote-item"><p>Chen, Z., Zhang, Y., Rosenberg, A., Ramabhadran, B., Moreno, P. J., Bapna, A., &amp; Zen, H. (2022). <a href="https://www.isca-speech.org/archive/pdfs/interspeech_2022/chen22r_interspeech.pdf">MAESTRO: Matched Speech Text Representations through Modality Matching</a>. In Proceedings of Interspeech 2022. <a href="index.html#fnref106" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn107" class="footnote-item"><p>Saeki, T., Zen, H., Chen, Z., Morioka, N., Wang, G., Zhang, Y., … Ramabhadran, B. (2022). <a href="https://arxiv.org/abs/2210.15447">Virtuoso: Massive Multilingual Speech-Text Joint Semi-Supervised Learning for Text-To-Speech</a>. arXiv preprint arXiv:2210.15447. <a href="index.html#fnref107" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn108" class="footnote-item"><p>Bapna, A., Cherry, C., Zhang, Y., Jia, Y., Johnson, M., Cheng, Y., ... &amp; Conneau, A. (2022). <a href="https://arxiv.org/abs/2202.01374">mSLAM: Massively multilingual joint pre-training for speech and text</a>. arXiv preprint arXiv:2202.01374. <a href="index.html#fnref108" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn109" class="footnote-item"><p>Adebara, I., &amp; Abdul-Mageed, M. (2022). <a href="https://aclanthology.org/2022.acl-long.265/">Towards Afrocentric NLP for African Languages: Where We Are and Where We Can Go</a>. In Proceedings of ACL 2022. <a href="index.html#fnref109" class="footnote-backref">↩︎</a> <a href="index.html#fnref109:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn110" class="footnote-item"><p>Rijhwani, S., Anastasopoulos, A., &amp; Neubig, G. (2020). <a href="https://aclanthology.org/2020.emnlp-main.478/">OCR Post Correction for Endangered Language Texts</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref110" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn111" class="footnote-item"><p>Leong, C., Nemecek, J., Mansdorfer, J., Filighera, A., Owodunni, A., &amp; Whitenack, D. (2022). <a href="http://arxiv.org/abs/2210.14712">Bloom Library: Multimodal Datasets in 300+ Languages for a Variety of Downstream Tasks</a>. In Proceedings of EMNLP 2022. <a href="index.html#fnref111" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn112" class="footnote-item"><p>Ebrahimi, A., &amp; Kann, K. (2021). <a href="https://aclanthology.org/2021.acl-long.351/">How to Adapt Your Pretrained Multilingual Model to 1600 Languages</a>. In Proceedings of ACL 2021. <a href="index.html#fnref112" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn113" class="footnote-item"><p>Wang, X., Ruder, S., &amp; Neubig, G. (2022). <a href="https://aclanthology.org/2022.acl-long.61/">Expanding Pretrained Models to Thousands More Languages via Lexicon-based Adaptation</a>. In Proceedings of ACL 2022. <a href="index.html#fnref113" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn114" class="footnote-item"><p>Plank, B. <a href="https://aclanthology.org/W16-3901/">Processing non-canonical or noisy text: fortuitous data to the rescue</a>. In Proceedings of the 2nd Workshop on Noisy User-generated Text (WNUT). <a href="index.html#fnref114" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn115" class="footnote-item"><p>Aghajanyan, A., Okhonko, D., Lewis, M., Joshi, M., Xu, H., Ghosh, G., &amp; Zettlemoyer, L. (2021). <a href="https://arxiv.org/abs/2107.06955">HTLM: Hyper-text pre-training and prompting of language models</a>. arXiv preprint arXiv:2107.06955. <a href="index.html#fnref115" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn116" class="footnote-item"><p>Varab, D., &amp; Schluter, N.. <a href="https://aclanthology.org/2021.emnlp-main.797/">MassiveSumm: a very large-scale, very multilingual, news summarisation dataset</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref116" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn117" class="footnote-item"><p>Card, D., Henderson, P., Khandelwal, U., Jia, R., Mahowald, K., &amp; Jurafsky, D. (2020). <a href="http://aclanthology.lst.uni-saarland.de/2020.emnlp-main.745/">With Little Power Comes Great Responsibility</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref117" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn118" class="footnote-item"><p>Khanuja, S., Ruder, S., &amp; Talukdar, P. (2022). Evaluating <a href="https://arxiv.org/abs/2205.12676">Inclusivity, Equity, and Accessibility of NLP Technology: A Case Study for Indian Languages</a>. arXiv preprint arXiv:2205.12676. <a href="index.html#fnref118" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn119" class="footnote-item"><p>Abebe, R., Aruleba, K., Birhane, A., Kingsley, S., Obaido, G., Remy, S. L., &amp; Sadagopan, S. (2021). <a href="https://arxiv.org/abs/2103.01168">Narratives and Counternarratives on Data Sharing in Africa</a>. In Conference on Fairness, Accountability, and Transparency (FAccT ’21). Association for Computing Machinery. <a href="index.html#fnref119" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn120" class="footnote-item"><p>Birhane, A., Isaac, W., Prabhakaran, V., Díaz, M., Elish, M. C., Gabriel, I., &amp; Mohamed, S. (2022). <a href="https://arxiv.org/abs/2209.07572">Power to the People? Opportunities and Challenges for Participatory AI</a>. Equity and Access in Algorithms, Mechanisms, and Optimization. <a href="index.html#fnref120" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn121" class="footnote-item"><p>Ahia, O., Kreutzer, J., &amp; Hooker, S. (2021). <a href="https://aclanthology.org/2021.findings-emnlp.282/">The Low-Resource Double Bind: An Empirical Study of Pruning for Low-Resource Machine Translation</a>. In Findings of EMNLP 2021. <a href="index.html#fnref121" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn122" class="footnote-item"><p>Tay, Y., Dehghani, M., Bahri, D., &amp; Metzler, D. (2020). Efficient transformers: A survey. ACM Computing Surveys (CSUR). <a href="index.html#fnref122" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn123" class="footnote-item"><p>Treviso, M., Ji, T., Lee, J. U., van Aken, B., Cao, Q., Ciosici, M. R., ... &amp; Schwartz, R. (2022). <a href="https://arxiv.org/abs/2209.00099">Efficient Methods for Natural Language Processing: A Survey</a>. arXiv preprint arXiv:2209.00099. <a href="index.html#fnref123" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn124" class="footnote-item"><p>Liu, H., Tam, D., Muqeeth, M., Mohta, J., Huang, T., Bansal, M., &amp; Raffel, C. (2022). <a href="https://arxiv.org/abs/2205.05638">Few-shot parameter-efficient fine-tuning is better and cheaper than in-context learning</a>. arXiv preprint arXiv:2205.05638. <a href="index.html#fnref124" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn125" class="footnote-item"><p>Rebuffi, S. A., Bilen, H., &amp; Vedaldi, A. (2017). <a href="https://proceedings.neurips.cc/paper/2017/file/e7b24b112a44fdd9ee93bdf998c6ca0e-Paper.pdf">Learning multiple visual domains with residual adapters</a>. Advances in Neural Information Processing Systems, 30. <a href="index.html#fnref125" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn126" class="footnote-item"><p>Houlsby, N., Giurgiu, A., Jastrzebski, S., Morrone, B., De Laroussilhe, Q., Gesmundo, A., ... &amp; Gelly, S. (2019, May). <a href="http://proceedings.mlr.press/v97/houlsby19a/houlsby19a.pdf">Parameter-efficient transfer learning for NLP</a>. In International Conference on Machine Learning (pp. 2790-2799). PMLR. <a href="index.html#fnref126" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn127" class="footnote-item"><p>Pfeiffer, J., Vulić, I., Gurevych, I., &amp; Ruder, S. (2021). <a href="https://aclanthology.org/2021.emnlp-main.800/">UNKs Everywhere: Adapting Multilingual Language Models to New Scripts</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref127" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn128" class="footnote-item"><p>Pfeiffer, J., Goyal, N., Lin, X. V., Li, X., Cross, J., Riedel, S., &amp; Artetxe, M. (2022). <a href="https://aclanthology.org/2022.naacl-main.255/">Lifting the Curse of Multilinguality with Modular Transformers</a>. In Proceedings of NAACL 2022. <a href="index.html#fnref128" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn129" class="footnote-item"><p>Pfeiffer, J., Vulić, I., Gurevych, I., &amp; Ruder, S. (2020). <a href="https://aclanthology.org/2020.emnlp-main.617/">MAD-X: An Adapter-based Framework for Multi-task Cross-lingual Transfer</a>. In Proceedings of EMNLP 2020. <a href="index.html#fnref129" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn130" class="footnote-item"><p>He, R., Liu, L., Ye, H., Tan, Q., Ding, B., Cheng, L., … Si, L. (2021). <a href="https://aclanthology.org/2021.acl-long.172/">On the Effectiveness of Adapter-based Tuning for Pretrained Language Model Adaptation</a>. In Proceedings of ACL 2021. <a href="index.html#fnref130" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn131" class="footnote-item"><p>Han, W., Pang, B., &amp; Wu, Y. (2021). <a href="https://aclanthology.org/2021.acl-short.108/">Robust Transfer Learning with Pretrained Language Models through Adapters</a>. In Proceedings of ACL 2021. <a href="index.html#fnref131" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn132" class="footnote-item"><p>Mahabadi, R. K., Ruder, S., Dehghani, M., &amp; Henderson, J. (2021). <a href="https://aclanthology.org/2021.acl-long.47/">Parameter-efficient Multi-task Fine-tuning for Transformers via Shared Hypernetworks</a>. In Proceedings of ACL 2021. <a href="index.html#fnref132" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn133" class="footnote-item"><p>Mahabadi, R. K., Henderson, J., &amp; Ruder, S. (2021). <a href="https://arxiv.org/abs/2106.04647">Compacter: Efficient Low-Rank Hypercomplex Adapter Layers</a>. In Proceedings of NeurIPS 2021. <a href="index.html#fnref133" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn134" class="footnote-item"><p>Mahabadi, R. K., Zettlemoyer, L., Henderson, J., Saeidi, M., Mathias, L., Stoyanov, V., &amp; Yazdani, M. (2022). <a href="https://aclanthology.org/2022.acl-long.254/">PERFECT: Prompt-free and Efficient Few-shot Learning with Language Models</a>. In Proceedings of ACL 2022. <a href="index.html#fnref134" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn135" class="footnote-item"><p>Chronopoulou, A., Peters, M. E., &amp; Dodge, J. (2022). <a href="https://aclanthology.org/2022.naacl-main.96/">Efficient Hierarchical Domain Adaptation for Pretrained Language Models</a>. In Proceedings of NAACL 2022. <a href="index.html#fnref135" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn136" class="footnote-item"><p>Ansell, A., Ponti, E. M., Pfeiffer, J., Ruder, S., Glavaš, G., Vulić, I., &amp; Korhonen, A. (2021). <a href="https://aclanthology.org/2021.findings-emnlp.410/">MAD-G: Multilingual Adapter Generation for Efficient Cross-Lingual Transfer</a>. In Findings of EMNLP 2021. <a href="index.html#fnref136" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn137" class="footnote-item"><p>Üstün, A., Bisazza, A., Bouma, G., van Noord, G., &amp; Ruder, S. (2022). <a href="https://arxiv.org/abs/2205.12148">Hyper-X: A Unified Hypernetwork for Multi-Task Multilingual Transfer</a>. In Proceedings of EMNLP 2022. <a href="index.html#fnref137" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn138" class="footnote-item"><p>He, J., Zhou, C., Ma, X., Berg-Kirkpatrick, T., &amp; Neubig, G. (2022). <a href="https://openreview.net/pdf?id=0RDcd5Axok">Towards a Unified View of Parameter-Efficient Transfer Learning</a>. Proceedings of ICLR 2022. <a href="index.html#fnref138" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn139" class="footnote-item"><p>Ansell, A., Ponti, E. M., Korhonen, A., &amp; Vulić, I. (2022). <a href="https://aclanthology.org/2022.acl-long.125/">Composable Sparse Fine-Tuning for Cross-Lingual Transfer</a>. In Proceedings of ACL 2022. <a href="index.html#fnref139" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn140" class="footnote-item"><p>Bapna, A., &amp; Firat, O. (2019). <a href="https://aclanthology.org/D19-1165/">Simple, Scalable Adaptation for Neural Machine Translation</a>. In Proceedings of EMNLP 2019. <a href="index.html#fnref140" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn141" class="footnote-item"><p>Üstün, A., Bérard, A., Besacier, L., &amp; Gallé, M. (2021). <a href="https://aclanthology.org/2021.emnlp-main.533/">Multilingual Unsupervised Neural Machine Translation with Denoising Adapters</a>. In Proceedings of EMNLP 2021. <a href="index.html#fnref141" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn142" class="footnote-item"><p>Lu, Y., Huang, M., Qu, X., Wei, P., &amp; Ma, Z. (2022, May). <a href="https://arxiv.org/abs/2203.04583">Language adaptive cross-lingual speech representation learning with sparse sharing sub-networks</a>. In ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). <a href="index.html#fnref142" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn143" class="footnote-item"><p>Le, H., Pino, J., Wang, C., Gu, J., Schwab, D., &amp; Besacier, L. (2021). <a href="https://aclanthology.org/2021.acl-short.103/">Lightweight Adapter Tuning for Multilingual Speech Translation</a>. In Proceedings of ACL 2021. <a href="index.html#fnref143" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn144" class="footnote-item"><p>Patil, V., Talukdar, P., &amp; Sarawagi, S. (2022). <a href="https://aclanthology.org/2022.acl-long.18/">Overlap-based Vocabulary Generation Improves Cross-lingual Transfer Among Related Languages</a>. In Proceedings of ACL 2022. <a href="index.html#fnref144" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn145" class="footnote-item"><p>Hofmann, V., Schütze, H., &amp; Pierrehumbert, J. B. (2022). <a href="https://aclanthology.org/2022.acl-short.43/">An Embarrassingly Simple Method to Mitigate Undesirable Properties of Pretrained Language Model Tokenizers</a>. In Proceedings of ACL 2022. <a href="index.html#fnref145" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn146" class="footnote-item"><p>Wang, X., Ruder, S., &amp; Neubig, G. (2021). <a href="https://aclanthology.org/2021.naacl-main.40/">Multi-view Subword Regularization</a>. In Proceedings of NAACL 2021. <a href="index.html#fnref146" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn147" class="footnote-item"><p>Cui, Y., Che, W., Liu, T., Qin, B., &amp; Yang, Z. (2021). <a href="https://arxiv.org/abs/1906.08101">Pre-training with whole word masking for chinese bert</a>. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 29, 3504-3514. <a href="index.html#fnref147" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn148" class="footnote-item"><p>Levine, Y., Leyton-brown, K., Labs, A. I., &amp; Aviv, T. (2021). <a href="https://openreview.net/pdf?id=3Aoft6NWFej">PMI-Masking: Principled Masking of Correlated Spans</a>. In Proceedings of ICLR 2021. <a href="index.html#fnref148" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<!--kg-card-end: markdown--><p><br></p>
+                </div>
+
+            </section>
+            
+           <p align="center">
+             <iframe src="https://nlpnewsletter.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+           </p>
+
+
+
+        </article>
+
+    </div>
+</main>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = '/state-of-multilingual-ai/';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "ghost-632ec478b681766fe285d3c0"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://EXAMPLE.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+
+                <article class="post-card post tag-events tag-natural-language-processing ">
+
+    <a class="post-card-image-link" href="../acl2022/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w300/2022/06/acl_dublin_logo.png 300w,
+                   ../content/images/size/w600/2022/06/acl_dublin_logo.png 600w,
+                  ../content/images/size/w1000/2022/06/acl_dublin_logo.png 1000w,
+                 ../content/images/size/w2000/2022/06/acl_dublin_logo.png 2000w"
+            sizes="(max-width: 1000px) 400px, 700px"
+            src="../content/images/size/w600/2022/06/acl_dublin_logo.png"
+            alt="ACL 2022 Highlights"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../acl2022/index.html">
+
+            <header class="post-card-header">
+                    <div class="post-card-primary-tag">events</div>
+                <h2 class="post-card-title">ACL 2022 Highlights</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                    <p>This post discusses my highlights of ACL 2022, including language diversity and multimodality, prompting, the next big ideas and keynotes, my favorite papers, and the hybrid conference experience.</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+            
+                    <div class="author-name-tooltip">
+                        Sebastian Ruder
+                    </div>
+            
+                    <a href="../author/sebastian/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2019/02/new_profile_photo_square-1.jpg" alt="Sebastian Ruder" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/sebastian/index.html">Sebastian Ruder</a></span>
+                <span class="post-card-byline-date"><time datetime="2022-06-06">6 Jun 2022</time> <span class="bull">&bull;</span> 16 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://ruder.io">Sebastian Ruder</a> &copy; 2022</section>
+                <nav class="site-footer-nav">
+                    <a href="https://ruder.io">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/seb_ruder" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casper.js?v=96152eef5a"></script>
+
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+
+        $(document).ready(function () {
+            if (action == 'subscribe') {
+                $('body').addClass("subscribe-success");
+            }
+
+            $('.subscribe-success-message .subscribe-close').click(function () {
+                $('.subscribe-success-message').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-button').click(function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        // FitVids - start
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // FitVids - end
+
+        // Replace nav with title on scroll - start
+        Casper.stickyNavTitle({
+            navSelector: '.site-nav-main',
+            titleSelector: '.post-full-title',
+            activeClass: 'nav-post-title-active'
+        });
+        // Replace nav with title on scroll - end
+
+        // Hover on avatar
+        var hoverTimeout;
+        $('.author-list-item').hover(function () {
+            var $this = $(this);
+
+            clearTimeout(hoverTimeout);
+
+            $('.author-card').removeClass('hovered');
+            $(this).children('.author-card').addClass('hovered');
+
+        }, function () {
+            var $this = $(this);
+
+            hoverTimeout = setTimeout(function () {
+                $this.children('.author-card').removeClass('hovered');
+            }, 800);
+        });
+    });
+</script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-60512592-1');
+</script>
+
+</body>
+</html>
